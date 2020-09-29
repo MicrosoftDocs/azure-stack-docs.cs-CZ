@@ -1,5 +1,5 @@
 ---
-title: Vytvoření předplatného pomocí nabídky centra Azure Stack
+title: Vytvoření předplatného pomocí nabídky v centru Azure Stack
 description: Naučte se vytvářet nové předplatné s nabídkou v Azure Stack hub a potom nabídku otestovat pomocí testovacího virtuálního počítače.
 author: bryanla
 ms.topic: tutorial
@@ -7,12 +7,12 @@ ms.date: 06/04/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 244d5e214e2d1d42e5697a5aafd51c17d97465f6
-ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+ms.openlocfilehash: ef1f26c9929292b235a79037b792c18d84a824b0
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "77704892"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572557"
 ---
 # <a name="tutorial-create-and-test-a-subscription-in-azure-stack-hub"></a>Kurz: vytvoření a otestování předplatného v centru Azure Stack
 
@@ -37,7 +37,7 @@ Pokud se chcete přihlásit k odběru nabídky jako uživatel, přihlaste se k p
 
    ![Získat předplatné](media/azure-stack-subscribe-services/get-subscription.png)
 
-2. Do pole **Zobrazovaný název** zadejte název předplatného. Pak vyberte **nabídku** a zvolte jednu z dostupných nabídek v části **vybrat nabídku** . Pak vyberte **vytvořit**.
+2. Do pole **Zobrazovaný název** zadejte název předplatného. Pak vyberte **nabídku** a zvolte jednu z dostupných nabídek v části **vybrat nabídku** . Potom vyberte **Vytvořit**.
 
    ![Vytvoření nabídky](media/azure-stack-subscribe-services/create-subscription.png)
 

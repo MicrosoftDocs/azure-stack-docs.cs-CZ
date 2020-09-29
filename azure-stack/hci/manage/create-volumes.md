@@ -3,20 +3,20 @@ title: Vytváření svazků v Azure Stack HCI
 description: Postup vytváření svazků v Azure Stack HCI pomocí centra pro správu Windows a PowerShellu
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
-ms.date: 02/28/2020
-ms.openlocfilehash: b195a55314935282f43f99bf02bda1d2bc298b54
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.topic: how-to
+ms.date: 09/10/2020
+ms.openlocfilehash: aa0da05ba1cac74cf558a28627962e61c1418a73
+ms.sourcegitcommit: b147d617c32cea138b5bd4bab568109282e44317
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78370406"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90010845"
 ---
-# <a name="creating-volumes-in-azure-stack-hci"></a>Vytváření svazků v Azure Stack HCI
+# <a name="create-volumes-in-azure-stack-hci"></a>Vytváření svazků v Azure Stack HCI
 
-> Platí pro: Windows Server 2019
+> Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019
 
-V tomto tématu se dozvíte, jak vytvořit svazky v Prostory úložiště s přímým přístupemm clusteru pomocí centra pro správu Windows a prostředí Windows PowerShell, jak pracovat se soubory na svazcích a jak na svazcích Povolit odstranění duplicitních dat a kompresi.
+Toto téma popisuje, jak vytvořit svazky v Azure Stack clusteru HCI pomocí centra pro správu Windows a prostředí Windows PowerShell, jak pracovat se soubory na svazcích a jak povolit odstranění duplicitních dat a kompresi na svazcích. Informace o tom, jak vytvářet svazky a nastavit replikaci pro roztažené clustery, najdete v tématu [Vytvoření roztaženého svazku](create-stretched-volumes.md).
 
 ## <a name="create-a-three-way-mirror-volume"></a>Vytvoření trojrozměrného zrcadlového svazku
 
@@ -74,19 +74,7 @@ Podívejte se na rychlé video o tom, jak otevřít svazek a přidat soubory.
 
 Odstraňování duplicitních dat a komprese je spravovaná na jeden svazek. Odstranění duplicitních dat a komprimace používá model následného zpracování, což znamená, že nebudete moct sledovat úspory, dokud je nespustíte. Pokud k tomu dojde, bude fungovat ve všech souborech, dokonce i těch, které existovaly dříve.
 
-1. V centru pro správu Windows se připojte ke clusteru Prostory úložiště s přímým přístupem a potom v podokně **nástroje** vyberte **svazky** .
-2. Na stránce **svazky** vyberte kartu **inventář** .
-3. V seznamu svazků vyberte název svazku, který chcete spravovat.
-4. Na stránce Podrobnosti o svazku klikněte na přepínač s názvem **odstranění duplicit a komprese**.
-5. V podokně **Povolit odstraňování duplicitních dat** vyberte režim odstranění duplicitních dat.
-
-    Místo složitých nastavení vám centrum pro správu systému Windows umožní vybrat si předem připravené profily pro různé úlohy. Pokud si nejste jistí, použijte výchozí nastavení.
-
-6. Vyberte **Povolit**.
-
-Podívejte se na rychlé video o zapnutí odstraňování duplicit a komprimace.
-
-> [!VIDEO https://www.youtube-nocookie.com/embed/PRibTacyKko]
+Další informace najdete v tématu [povolení šifrování svazků, odstraňování duplicit a komprimace](volume-encryption-deduplication.md) .
 
 ## <a name="create-volumes-using-windows-powershell"></a>Vytváření svazků pomocí Windows PowerShellu
 
@@ -147,9 +135,9 @@ A je to hotové! Pokud chcete vytvořit více než jeden svazek, opakujte postup
 
 ## <a name="next-steps"></a>Další kroky
 
-Pokud chcete provádět další úlohy správy úložiště v Prostory úložiště s přímým přístupem, přečtěte si také:
+Související témata a další úlohy správy úložišť najdete zde:
 
 - [Přehled Prostory úložiště s přímým přístupem](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
-- [Plánování svazků v Prostory úložiště s přímým přístupem](/windows-server/storage/storage-spaces/plan-volumes)
-- [Rozšíření svazků v Prostory úložiště s přímým přístupem](/windows-server/storage/storage-spaces/resize-volumes)
-- [Odstraňování svazků v Prostory úložiště s přímým přístupem](/windows-server/storage/storage-spaces/delete-volumes)
+- [Plánování svazků](../concepts/plan-volumes.md)
+- [Rozšiřování svazků](extend-volumes.md)
+- [Odstranit svazky](delete-volumes.md)

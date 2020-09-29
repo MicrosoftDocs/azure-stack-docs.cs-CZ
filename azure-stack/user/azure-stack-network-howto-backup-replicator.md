@@ -1,18 +1,18 @@
 ---
-title: Postup replikace prostředků napříč několika předplatnými centra Azure Stack
+title: Replikace prostředků napříč několika předplatnými centra Azure Stack
 description: Naučte se replikovat prostředky pomocí sady Azure Stack Replikátor předplatných rozbočovače.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: a20979ff0bb60f058658e9a0f9f540b2c0cb434e
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.openlocfilehash: 14f86b63e8089069d53e7b849d4bfea55007f34e
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173909"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90571690"
 ---
 # <a name="replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Replikace prostředků pomocí replikátoru předplatného centra Azure Stack
 
@@ -26,21 +26,21 @@ Replikátor předplatných Azure byl navržen jako modulární. Tento nástroj p
 
 Základní procesor se skládá z následujících tří skriptů:
 
-- **resource_retriever. ps1**
+- **resource_retriever.ps1**
 
     - Generuje složky pro ukládání výstupních souborů.
 
     - Nastaví kontext na zdrojové předplatné.
 
-    - Načte prostředky a předá je spolu s **resource_processor. ps1**.
+    - Načte prostředky a předá je **resource_processor.ps1**.
 
-- **resource_processor. ps1**
+- **resource_processor.ps1**
 
-    - Zpracuje prostředek předaný pomocí **resource_retriever. ps1**.
+    - Zpracuje prostředek předaný pomocí **resource_retriever.ps1**.
 
     - Určuje, který přizpůsobený procesor bude používat a předá prostředky.
 
-- **post_process. ps1**
+- **post_process.ps1**
 
     - Post zpracuje výstup vygenerovaný přizpůsobeným procesorem, který připraví jeho nasazení do cílového předplatného.
 
@@ -48,13 +48,13 @@ Základní procesor se skládá z následujících tří skriptů:
 
 Tři skripty řídí tok informací standardním způsobem, který umožňuje větší flexibilitu. Přidání podpory pro další zdroje například nevyžaduje, abyste změnili žádný kód v jádru procesoru.
 
-Přizpůsobené procesory, které jsme uvedli výše `ps1` , jsou soubory, které určují, jak se má určitý typ prostředku zpracovat. Název přizpůsobeného procesoru je vždy pojmenován pomocí dat typu v prostředku. Předpokládejme `$vm` například, že obsahuje objekt virtuálního počítače, na kterém `$vm`běží. Typ by měl `Microsoft.Compute/virtualMachines`vracet. To znamená, že procesor pro virtuální počítač bude pojmenován `virtualMachines_processor.ps1`, název musí být přesně tak, jak se zobrazuje v metadatech prostředků, protože to je způsob, jakým základní procesor určí, který vlastní procesor se má použít.
+Přizpůsobené procesory, které jsme uvedli výše, jsou `ps1` soubory, které určují, jak se má určitý typ prostředku zpracovat. Název přizpůsobeného procesoru je vždy pojmenován pomocí dat typu v prostředku. Předpokládejme například, `$vm` že obsahuje objekt virtuálního počítače, na kterém běží `$vm` . Typ by měl vracet `Microsoft.Compute/virtualMachines` . To znamená, že procesor pro virtuální počítač bude pojmenován `virtualMachines_processor.ps1` , název musí být přesně tak, jak se zobrazuje v metadatech prostředků, protože to je způsob, jakým základní procesor určí, který vlastní procesor se má použít.
 
-Přizpůsobený procesor určuje, jak se má prostředek replikovat, určením informací, které jsou důležité a které určují, jak mají být tyto informace z metadat prostředků vydány. Přizpůsobený procesor potom převezme všechna extrahovaná data a použije je k vygenerování souboru parametrů, který se použije ve spojení se šablonou Azure Resource Manager k nasazení prostředku do cílového předplatného. Tento soubor parametrů je uložen v **Parameter_Files** po jeho následném zpracování pomocí post_process. ps1.
+Přizpůsobený procesor určuje, jak se má prostředek replikovat, určením informací, které jsou důležité a které určují, jak mají být tyto informace z metadat prostředků vydány. Přizpůsobený procesor potom převezme všechna extrahovaná data a použije je k vygenerování souboru parametrů, který se použije ve spojení se šablonou Azure Resource Manager k nasazení prostředku do cílového předplatného. Tento soubor parametrů je uložen v **Parameter_Files** po jeho následném zpracování pomocí post_process.ps1.
 
-Ve struktuře souborů replikátoru je složka s názvem **Standardized_ARM_Templates**. V závislosti na zdrojovém prostředí budou nasazení používat jednu z těchto standardizovaných šablon Azure Resource Manager, jinak bude nutné vygenerovat vlastní šablonu Azure Resource Manager. V takovém případě musí přizpůsobený procesor volat generátor šablon Azure Resource Manager. V předchozím příkladu byl název generátoru šablon Azure Resource Manager pro virtuální počítače pojmenovaný **virtualMachines_ARM_Template_Generator. ps1**. Generátor šablon Azure Resource Manager zodpovídá za vytvoření vlastní šablony Azure Resource Manager na základě toho, jaké informace jsou v metadatech prostředku. Pokud má například prostředek virtuálního počítače metadata, která určují, že je členem skupiny dostupnosti, vytvoří generátor šablon Azure Resource Manager Azure Resource Manager šablonu s kódem, který určuje ID skupiny dostupnosti, do které je virtuální počítač součástí. Tímto způsobem, když se virtuální počítač nasadí do nového předplatného, automaticky se přidá do skupiny dostupnosti při nasazení. Tyto přizpůsobené šablony Azure Resource Manager se ukládají do složky **Custom_ARM_Templates** nacházející se ve složce **Standardized_ARM_Templates** . Post_processor. ps1 zodpovídá za rozhodnutí, jestli nasazení má používat standardizovanou Azure Resource Manager šablonu nebo přizpůsobenou šablonu a generuje odpovídající kód nasazení.
+Ve struktuře souborů replikátoru je složka s názvem **Standardized_ARM_Templates**. V závislosti na zdrojovém prostředí budou nasazení používat jednu z těchto standardizovaných šablon Azure Resource Manager, jinak bude nutné vygenerovat vlastní šablonu Azure Resource Manager. V takovém případě musí přizpůsobený procesor volat generátor šablon Azure Resource Manager. V předchozím příkladu byl název generátoru šablon Azure Resource Manager pro virtuální počítače pojmenovaný **virtualMachines_ARM_Template_Generator.ps1**. Generátor šablon Azure Resource Manager zodpovídá za vytvoření vlastní šablony Azure Resource Manager na základě toho, jaké informace jsou v metadatech prostředku. Pokud má například prostředek virtuálního počítače metadata, která určují, že je členem skupiny dostupnosti, vytvoří generátor šablon Azure Resource Manager Azure Resource Manager šablonu s kódem, který určuje ID skupiny dostupnosti, do které je virtuální počítač součástí. Tímto způsobem, když se virtuální počítač nasadí do nového předplatného, automaticky se přidá do skupiny dostupnosti při nasazení. Tyto přizpůsobené šablony Azure Resource Manager se ukládají do složky **Custom_ARM_Templates** nacházející se ve složce **Standardized_ARM_Templates** . post_processor.ps1 zodpovídá za rozhodnutí, zda nasazení má používat standardizovanou Azure Resource Manager šablonu nebo přizpůsobenou šablonu a generuje odpovídající kód nasazení.
 
-Skript **post-Process. ps1** zodpovídá za vyčištění souborů parametrů a vytváření skriptů, které bude uživatel používat k nasazení nových prostředků. Ve fázi čištění nahradí skript všechny odkazy na ID zdrojového předplatného, ID tenanta a umístění s odpovídajícími cílovými hodnotami. Pak výstup souboru parametrů do složky **Parameter_Files** . Pak určí, zda zpracovávaný prostředek používá vlastní šablonu Azure Resource Manager nebo ne, a vygeneruje odpovídající kód nasazení, který využívá rutinu **New-AzureRmResourceGroupDeployment** . Kód nasazení se pak přidá do souboru s názvem **DeployResources. ps1** , který je uložený ve složce **Deployment_Files** . Nakonec skript určí skupinu prostředků, do které prostředek patří, a zkontroluje skript **DeployResourceGroups. ps1** , aby zjistil, zda již existuje kód nasazení k nasazení této skupiny prostředků. Pokud tomu tak není, přidá do tohoto skriptu kód pro nasazení skupiny prostředků, pokud pak neprovede žádnou akci.
+Skript **post-process.ps1** zodpovídá za mazání souborů parametrů a vytváření skriptů, které bude uživatel používat k nasazení nových prostředků. Ve fázi čištění nahradí skript všechny odkazy na ID zdrojového předplatného, ID tenanta a umístění s odpovídajícími cílovými hodnotami. Pak výstup souboru parametrů do složky **Parameter_Files** . Pak určí, zda zpracovávaný prostředek používá vlastní šablonu Azure Resource Manager nebo ne, a vygeneruje odpovídající kód nasazení, který využívá rutinu **New-AzureRmResourceGroupDeployment** . Kód nasazení se pak přidá do souboru s názvem **DeployResources.ps1** uložený ve **Deployment_Files** složce. Nakonec skript určí skupinu prostředků, do které prostředek patří, a zkontroluje skript **DeployResourceGroups.ps1** , aby zjistil, zda již existuje kód nasazení pro nasazení této skupiny prostředků. Pokud tomu tak není, přidá do tohoto skriptu kód pro nasazení skupiny prostředků, pokud pak neprovede žádnou akci.
 
 ### <a name="dynamic-api-retrieval"></a>Dynamické načtení rozhraní API
 
@@ -62,7 +62,7 @@ Tento nástroj má vestavěnou dynamickou implementaci rozhraní API, aby se k n
 
 ![Obrázek načtení rozhraní API](./media/azure-stack-network-howto-backup-replicator/image1.png)
 
-Obrázek – načtení rozhraní API v **resource_processor. ps1**.
+Obrázek – načtení rozhraní API v **resource_processor.ps1**.
 
 Existuje však možnost, že verze rozhraní API poskytovatele prostředků cílového předplatného je starší než zdrojové předplatné a nepodporuje verzi poskytovanou ze zdrojového předplatného. V tomto případě bude vyvolána chyba při spuštění nasazení. Chcete-li tento problém vyřešit, aktualizujte poskytovatele prostředků v cílovém předplatném tak, aby odpovídal názvům ve zdrojovém předplatném.
 
@@ -72,18 +72,18 @@ Nástroj vyžaduje parametr pojmenovaný **Parallel**. Tento parametr přebírá
 
 ## <a name="add-additional-resource-types"></a>Přidat další typy prostředků
 
-Přidávání nových typů prostředků je jednoduché. Vývojář musí vytvořit přizpůsobený procesor a buď šablonu Azure Resource Manager, nebo generátor šablon Azure Resource Manager. Po dokončení tohoto nástroje musí vývojář přidat typ prostředku do ValidateSet pro parametr **$ResourceType** a pole **$resourceTypes** v resource_retriever. ps1. Když přidáte typ prostředku do pole **$resourceTypes** , musí být přidán ve správném pořadí. Pořadí pole určuje pořadí, v jakém budou prostředky nasazeny, takže mějte na paměti, že jsou zachovány závislosti. A konečně, pokud vlastní procesor používá generátor šablon Azure Resource Manager, musí přidat název typu prostředku do pole **$customTypes** v **post_process. ps1**.
+Přidávání nových typů prostředků je jednoduché. Vývojář musí vytvořit přizpůsobený procesor a buď šablonu Azure Resource Manager, nebo generátor šablon Azure Resource Manager. Po dokončení tohoto nástroje musí vývojář přidat typ prostředku do ValidateSet pro parametr **$ResourceType** a pole **$resourceTypes** v resource_retriever.ps1. Když přidáte typ prostředku do pole **$resourceTypes** , musí být přidán ve správném pořadí. Pořadí pole určuje pořadí, v jakém budou prostředky nasazeny, takže mějte na paměti, že jsou zachovány závislosti. A konečně, pokud vlastní procesor používá generátor šablon Azure Resource Manager, musí přidat název typu prostředku do pole **$customTypes** v **post_process.ps1**.
 
 ## <a name="run-azure-subscription-replicator"></a>Spustit Replikátor předplatných Azure
 
-Pokud chcete spustit nástroj replikátoru předplatného Azure (V3), bude nutné, abyste vypnuli resource_retriever. ps1 a zadali všechny parametry. Parametr **ResourceType** má možnost zvolit **vše** , nikoli jeden typ prostředku. Pokud je vybrána možnost **vše** , resource_retriever. ps1 zpracuje všechny prostředky v pořadí tak, aby při spuštění nasazení byly nejprve nasazeny závislé prostředky. Například virtuální sítě se nasazují před virtuálními počítači, protože virtuální počítače vyžadují, aby byla virtuální síť v místě, aby se mohla správně nasadit.
+Pokud chcete spustit nástroj replikátoru předplatného Azure (V3), musíte aktivovat resource_retriever.ps1 a zadáte všechny parametry. Parametr **ResourceType** má možnost zvolit **vše** , nikoli jeden typ prostředku. Pokud je vybrána možnost **vše** , resource_retriever.ps1 zpracuje všechny prostředky v pořadí tak, aby po spuštění nasazení byly nejprve nasazeny závislé prostředky. Například virtuální sítě se nasazují před virtuálními počítači, protože virtuální počítače vyžadují, aby byla virtuální síť v místě, aby se mohla správně nasadit.
 
 Po dokončení spuštění skriptu budou k dispozici tři nové složky, **Deployment_Files**, **Parameter_Files**a **Custom_ARM_Templates**.
 
- > [!Note]  
+ > [!NOTE]  
  > Před spuštěním některého z generovaných skriptů musíte nastavit správné prostředí a přihlásit se k cílovému předplatnému (v novém centru Azure Stack pro ex) a nastavit pracovní adresář na složku **Deployment_Files** .
 
-Deployment_Files budou obsahovat dva soubory **DeployResourceGroups. ps1** a **DeployResources. ps1**. Spouštěním DeployResourceGroups. ps1 se nasadí skupiny prostředků. Spuštění DeployResources. ps1 nasadí všechny prostředky, které se zpracovaly. V případě, že se nástroj spustil se **všemi** nebo **Microsoft. COMPUTE/virtualMachines** jako typ prostředku, DeployResources. ps1 vyzve uživatele, aby zadal heslo správce virtuálního počítače, které se použije k vytvoření všech virtuálních počítačů.
+Deployment_Files budou obsahovat dva soubory **DeployResourceGroups.ps1** a **DeployResources.ps1**. Spuštění DeployResourceGroups.ps1 nasadí skupiny prostředků. Spuštění DeployResources.ps1 nasadí všechny prostředky, které se zpracovaly. V případě, že se nástroj spustil se **všemi** nebo **Microsoft. COMPUTE/virtualMachines** jako typ prostředku, DeployResources.ps1 vyzve uživatele, aby zadal heslo správce virtuálního počítače, které se použije k vytvoření všech virtuálních počítačů.
 
 ### <a name="example"></a>Příklad
 
@@ -91,14 +91,14 @@ Deployment_Files budou obsahovat dva soubory **DeployResourceGroups. ps1** a **D
 
     ![Spuštění skriptu](./media/azure-stack-network-howto-backup-replicator/image2.png)
 
-    > [!Note]  
+    > [!NOTE]  
     > Nezapomeňte konfigurovat zdrojový evironment a kontext předplatného pro instanci PS. 
 
 2.  Zkontrolujte nově vytvořené složky:
 
     ![Kontrola složek](./media/azure-stack-network-howto-backup-replicator/image4.png)
 
-3.  Nastavte kontext na cílové předplatné, změňte složku na **Deployment_Files**, nasaďte skupiny prostředků (spusťte skript DeployResourceGroups. ps1) a potom spusťte nasazení prostředků (spusťte skript DeployResources. ps1).
+3.  Nastavte kontext na cílové předplatné, změňte složku na **Deployment_Files**, nasaďte skupiny prostředků (spusťte skript DeployResourceGroups.ps1) a potom spusťte nasazení prostředků (spusťte skript DeployResources.ps1).
 
     ![Konfigurace a spuštění nasazení](./media/azure-stack-network-howto-backup-replicator/image6.png)
 
@@ -106,7 +106,7 @@ Deployment_Files budou obsahovat dva soubory **DeployResourceGroups. ps1** a **D
 
 ## <a name="clean-up"></a>Vyčištění
 
-Ve složce replicatorV3 je soubor s názvem **cleanup_generated_items. ps1** – odebere **Deployment_Files**, **Parameter_Files**a **Custom_ARM_Templates** složky a veškerý jejich obsah.
+Ve složce replicatorV3 se nachází soubor s názvem **cleanup_generated_items.ps1** – odstraní složky **Deployment_Files**, **Parameter_Files**a **Custom_ARM_Templates** a veškerý jejich obsah.
 
 ## <a name="subscription-replicator-operations"></a>Operace replikátoru předplatného
 
@@ -170,7 +170,7 @@ Při spuštění nástroje se **všemi** typy prostředků se při replikaci a n
             – Konfigurace skupiny zabezpečení sítě  
             -Konfigurace sady dostupnosti  
 
-> [!Note]  
+> [!NOTE]  
 > Pro disk s operačním systémem a datové disky se vytvoří jenom spravované disky. V současné době není k dispozici podpora pro použití účtů úložiště. 
 
 ### <a name="limitations"></a>Omezení

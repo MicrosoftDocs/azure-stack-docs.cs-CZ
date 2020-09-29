@@ -1,18 +1,18 @@
 ---
-title: Využití infrastruktury vytváření sestav pro poskytovatele Cloud Solution Providers pro Azure Stack hub
+title: Využití infrastruktury vytváření sestav pro poskytovatele Cloud Solution Provider – centrum Azure Stack
 description: Seznamte se s infrastrukturou vytváření sestav využití, která se používá ke sledování využití pro klienty používané poskytovatelem Cloud Solution Provider (CSP).
 author: sethmanheim
 ms.topic: article
-ms.date: 05/01/2020
+ms.date: 08/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 2a154390f3d3aef4af93d12899a6a658be41d884
-ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
+ms.openlocfilehash: 51e747b5670a3e7eb58316069567e83e9ed9fc82
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82742372"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573046"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-solution-providers"></a>Využití infrastruktury vytváření sestav pro poskytovatele cloudových řešení
 
@@ -35,7 +35,7 @@ Můžete získat informace o měřičích centra Azure Stack používaných při
 
 Pro účely využití a fakturace v centru Azure Stack se používají následující pojmy a koncepty:
 
-| Označení | Definice |
+| Pojem | Definice |
 | --- | --- |
 | Přímý poskytovatel CSP | Přímý poskytovatel CSP obdrží fakturu přímo od Microsoftu k Azure a využití centra Azure Stack a účtuje zákazníky přímo. |
 | Nepřímý CSP | Nepřímí prodejci pracují s nepřímým poskytovatelem (také označovaným jako distributor). Prodejci přikupují koncové zákazníky; nepřímý poskytovatel obsahuje fakturační vztah s Microsoftem, spravuje fakturaci zákazníků a poskytuje další služby, jako je podpora produktů. |

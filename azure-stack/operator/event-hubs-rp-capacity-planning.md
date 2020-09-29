@@ -1,5 +1,5 @@
 ---
-title: Postup plánování kapacity pro Event Hubs v centru Azure Stack
+title: Plánování kapacity pro Event Hubs v centru Azure Stack
 description: Naučte se plánovat kapacitu pro poskytovatele prostředků Event Hubs v centru Azure Stack.
 author: BryanLa
 ms.author: bryanla
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 71bc2a58dd3420aad1672c431f3c5114364980c4
-ms.sourcegitcommit: f2d80d705a222095c2ea785b9797bbac0cf96fcc
+ms.openlocfilehash: ec369d8f01ed9dc5e6e5635af4922ef80736c4c5
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82605658"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572149"
 ---
 # <a name="how-to-do-capacity-planning-for-event-hubs-on-azure-stack-hub"></a>Postup plánování kapacity pro Event Hubs v centru Azure Stack
 
@@ -40,7 +40,7 @@ Všechny clustery Event Hubs používají pro své uzly typ virtuálního počí
 
 ## <a name="resource-provider-resource-consumption"></a>Spotřeba prostředků poskytovatele prostředků  
 
-Spotřeba prostředků poskytovatelem prostředků Event Hubs je konstantní a nezávisle na počtu nebo velikosti clusterů vytvořených uživateli. Následující tabulka ukazuje základní využití poskytovatele prostředků Event Hubs v centru Azure Stack a přibližnou spotřebu prostředků jinými prostředky. Poskytovatel prostředků Event Hubs používá pro své nasazení [D2_V2](/azure-stack/user/azure-stack-vm-sizes#dv2-series) typ virtuálního počítače.
+Spotřeba prostředků poskytovatelem prostředků Event Hubs je konstantní a nezávisle na počtu nebo velikosti clusterů vytvořených uživateli. Následující tabulka ukazuje základní využití poskytovatele prostředků Event Hubs v centru Azure Stack a přibližnou spotřebu prostředků jinými prostředky. Poskytovatel prostředků Event Hubs používá pro své nasazení [D2_V2](../user/azure-stack-vm-sizes.md#dv2-series) typ virtuálního počítače.
 
 |                                  | Typ virtuálního počítače | Uzly clusteru | Cores | Úložiště virtuálního počítače | Memory (Paměť) | Účty úložiště | Veřejné IP adresy |
 |----------------------------------|---------|---------------|-------|------------|--------|------------------|------------|
@@ -61,15 +61,10 @@ Následující tabulka ukazuje celkovou spotřebu Event Hubs v různých konfigu
 | **2 – CU poskytovatel prostředků clusteru** | 26    | 1,3 TB     | 161 GiB | 10               | proměnná    | 2 |
 | **4 – CU poskytovatel prostředků clusteru** | 46    | 2,3 TB     | 301 GiB | 18               | proměnná    | 2 |
 
-\*Přenosová rychlost příchozího přenosu dat (zpráva/událost) a uchovávání zpráv jsou dva důležité faktory, které přispívají k úložišti používanému Event Hubs clustery. Pokud je například uchovávání zpráv nastaveno na 7 dní při vytváření centra událostí a zprávy se ingestují rychlostí 1 MB/s, přibližné využité úložiště je 604 GB (1 MB × 60 sekund × 60 minut × 24 hodin × 7 dnů). Pokud se zprávy odesílají rychlostí 20MB/s s uchováním 7 dní, je přibližná spotřeba úložiště 12 TB pokryje. Nezapomeňte vzít v úvahu rychlost příchozího přenosu dat a dobu uchování, abyste plně pochopili spotřebu kapacity úložiště.
+\* Přenosová rychlost příchozího přenosu dat (zpráva/událost) a uchovávání zpráv jsou dva důležité faktory, které přispívají k úložišti používanému Event Hubs clustery. Pokud je například uchovávání zpráv nastaveno na 7 dní při vytváření centra událostí a zprávy se ingestují rychlostí 1 MB/s, přibližné využité úložiště je 604 GB (1 MB × 60 sekund × 60 minut × 24 hodin × 7 dnů). Pokud se zprávy odesílají rychlostí 20MB/s s uchováním 7 dní, je přibližná spotřeba úložiště 12 TB pokryje. Nezapomeňte vzít v úvahu rychlost příchozího přenosu dat a dobu uchování, abyste plně pochopili spotřebu kapacity úložiště.
 
-\*\*Veřejné IP adresy se spotřebovávají z [kvóty sítě poskytované jako součást předplatného](azure-stack-quota-types.md#network-quota-types).
+\*\* Veřejné IP adresy se spotřebovávají z [kvóty sítě poskytované jako součást předplatného](azure-stack-quota-types.md#network-quota-types).
 
 ## <a name="next-steps"></a>Další kroky
 
 Před zahájením procesu instalace dokončete [požadavky pro instalaci Event Hubs v centru Azure Stack](event-hubs-rp-prerequisites.md).
-
-
-
-
-

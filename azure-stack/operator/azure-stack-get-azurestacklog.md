@@ -1,25 +1,25 @@
 ---
-title: Shromažďování diagnostických protokolů pomocí privilegovaného koncového bodu (PEP)
+title: Shromažďování diagnostických protokolů prostřednictvím privilegovaného koncového bodu (PEP)
 description: Naučte se shromažďovat diagnostické protokoly na vyžádání v centru Azure Stack pomocí portálu pro správu nebo skriptu PowerShellu.
 author: justinha
+ms.custom: conteperfq4
 ms.topic: article
-ms.date: 03/05/2020
+ms.date: 09/02/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 03/05/2020
-ms.openlocfilehash: df5a98e8526181a84d8b214fbdf82eb1dba00088
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 09/02/2020
+ms.openlocfilehash: 6eb6f55ab9836cfd78b2fdb72dff220837f1865a
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79520460"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572812"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>Odesílání diagnostických protokolů centra Azure Stack pomocí privilegovaného koncového bodu (PEP)
 
 <!--how do you look up the PEP IP address. You look up the azurestackstampinfo.json--->
 
-
-Ke spuštění rutiny Get-AzureStackLog v integrovaném systému je potřeba mít přístup k privilegovanému koncovému bodu (PEP). Tady je ukázkový skript, který můžete spustit pomocí PEP a shromažďovat protokoly. Pokud rušíte spuštěnou kolekci protokolů, abyste spustili novou, počkejte prosím 5 minut, než začnete novou kolekci protokolů, a pak `Remove-PSSession -Session $session`zadejte.
+Ke spuštění rutiny Get-AzureStackLog v integrovaném systému je potřeba mít přístup k privilegovanému koncovému bodu (PEP). Tady je ukázkový skript, který můžete spustit pomocí PEP a shromažďovat protokoly. Pokud rušíte spuštěnou kolekci protokolů, abyste spustili novou, počkejte prosím 5 minut, než začnete novou kolekci protokolů, a pak zadejte `Remove-PSSession -Session $session` .
 
 
 ```powershell
@@ -83,25 +83,25 @@ if ($session) {
 * Shromáždí protokoly pro hodnotu Add RPs. Obecná syntaxe je:
  
   ```powershell
-  Get-AzureStackLogs -FilterByResourceProvider <<value-add RP name>>
+  Get-AzureStackLog -FilterByResourceProvider <<value-add RP name>>
   ```
  
   Postup shromáždění protokolů pro IoT Hub: 
 
   ```powershell
-  Get-AzureStackLogs -FilterByResourceProvider IotHub
+  Get-AzureStackLog -FilterByResourceProvider iothubServiceHealth
   ```
  
   Postup shromáždění protokolů pro Event Hubs:
 
   ```powershell
-  Get-AzureStackLogs -FilterByResourceProvider eventhub
+  Get-AzureStackLog -FilterByResourceProvider eventhub
   ```
  
   Postup shromáždění protokolů pro Azure Stack Edge:
 
   ```powershell
-  Get-AzureStackLogs -FilterByResourceProvide databoxedge
+  Get-AzureStackLog -FilterByResourceProvide databoxedge
   ```
 
 * Shromáždí protokoly a uloží je v zadaném Azure Storage kontejneru objektů BLOB. Obecná syntaxe pro tuto operaci je následující:
@@ -124,7 +124,7 @@ if ($session) {
   * Přístup ke službě Blob Storage.
   * Přístup k typu prostředku kontejneru.
 
-  Pokud chcete vygenerovat hodnotu identifikátoru URI SAS, která `-OutputSasUri` se má použít pro parametr, postupujte podle těchto kroků:
+  Pokud chcete vygenerovat hodnotu identifikátoru URI SAS, která se má použít pro `-OutputSasUri` parametr, postupujte podle těchto kroků:
 
   1. Podle kroků [v tomto článku](/azure/storage/common/storage-quickstart-create-account)vytvořte účet úložiště.
   2. Otevřete instanci Průzkumník služby Azure Storage.
@@ -137,12 +137,10 @@ if ($session) {
   9. Vyberte **Vytvořit**.
   10. Získáte sdílený přístupový podpis. Zkopírujte část adresy URL a poskytněte ji `-OutputSasUri` parametru.
 
-### <a name="parameter-considerations"></a>Požadavky na parametry 
+### <a name="parameter-considerations"></a>Požadavky na parametry
 
 * Parametry **OutputSharePath** a **OutputShareCredential** se používají k ukládání protokolů v umístění zadaném uživatelem.
-
 * Parametry **FromDate** a **ToDate** na více dní lze použít ke shromažďování protokolů pro konkrétní časové období. Nejsou-li tyto parametry zadány, budou ve výchozím nastavení shromažďovány protokoly za poslední čtyři hodiny.
-
 * Pomocí parametru **FilterByNode** můžete filtrovat protokoly podle názvu počítače. Příklad:
 
     ```powershell
@@ -159,35 +157,182 @@ if ($session) {
 * Shromažďování protokolu souborů výpisu paměti je ve výchozím nastavení zakázáno. Pokud ho chcete povolit, použijte parametr přepínače **IncludeDumpFile** .
 * V současné době můžete pomocí parametru **FilterByRole** filtrovat shromažďování protokolů podle následujících rolí:
 
-  |   |   |   |    |     |
-  | - | - | - | -  |  -  |
-  |ACS                   |CA                             |HRP                            |OboService                |VirtualMachines|
-  |ACSBlob               |CacheService                   |DATY IBC                            |OEM                       |VYTVOŘEN            |
-  |ACSDownloadService    |Compute                        |InfraServiceController         |OnboardRP                 |WASPUBLIC|
-  |ACSFabric             |PALEC                            |KeyVaultAdminResourceProvider  |PXE                       |         |
-  |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator   |         | 
-  |ACSMetrics            |DeploymentMachine              |KeyVaultDataPlane              |QueryServiceWorker        |         |
-  |ACSMigrationService   |DiskRP                         |KeyVaultInternalControlPlane   |SeedRing                  |         |
-  |ACSMonitoringService  |Domain (Doména)                         |KeyVaultInternalDataPlane      |SeedRingServices          |         |
-  |ACSSettingsService    |OSN                            |KeyVaultNamingService          |KLÍČOVÝCH                       |         |
-  |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL                       |         |
-  |ACSTableServer        |EventRP                        |MetricsAdminRP                 |SRP                       |         |
-  |ACSWac                |ExternalDNS                    |MetricsRP                      |Storage                   |         |
-  |ADFS                  |FabricRing                     |MetricsServer                  |StorageController         |         |
-  |ApplicationController |FabricRingServices             |MetricsStoreService            |URP                       |         |
-  |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |SupportBridgeController   |         |
-  |AzureBridge           |FRP                            |MonRP                          |SupportRing               |         |
-  |AzureMonitor          |brána                        |NC                             |SupportRingServices       |         |
-  |BareMetal             |HealthMonitoring               |NonPrivilegedAppGateway        |SupportBridgeRP           |         |
-  |BRP                   |HintingServiceV2               |NRP                            |UsageBridge               |         |
-  |   |   |   |    |     | 
+:::row:::
+   :::column span="":::
+
+      ACS
+
+      ACSBlob
+
+      ACSDownloadService
+
+      ACSFabric
+
+      ACSFrontEnd
+
+      ACSMetrics
+
+      ACSMigrationService
+
+      ACSMonitoringService
+
+      ACSSettingsService
+
+      ACSTableMaster
+
+      ACSTableServer
+
+      ACSWac
+
+      ADFS
+
+      ApplicationController
+
+      ASAppGateway
+
+      AzureBridge
+
+      AzureMonitor
+
+      BareMetal
+
+      BRP
+
+      CA
+
+      CacheService
+
+      Compute
+
+      PALEC
+
+      CRP
+
+      DeploymentMachine
+
+      DiskRP
+
+      Doména
+
+   :::column-end:::
+   :::column span="":::
+
+      OSN
+
+      EventAdminRP
+
+      EventRP
+
+      ExternalDNS
+
+      FabricRing
+
+      FabricRingServices
+
+      FirstTierAggregationService
+
+      FRP
+
+      brána
+
+      HealthMonitoring
+
+      HintingServiceV2
+
+      HRP
+
+      DATY IBC
+
+      InfraServiceController
+
+      KeyVaultAdminResourceProvider
+
+      KeyVaultControlPlane
+
+      KeyVaultDataPlane
+
+      KeyVaultInternalControlPlane
+
+      KeyVaultInternalDataPlane
+
+      KeyVaultNamingService
+
+      MDM
+
+      MetricsAdminRP
+
+      MetricsRP
+
+      MetricsServer
+
+      MetricsStoreService
+
+      MonAdminRP
+
+      MonRP
+
+   :::column-end:::
+   :::column span="":::
+
+      NC
+
+      NonPrivilegedAppGateway
+
+      NRP
+
+      OboService
+
+      OEM
+
+      OnboardRP
+
+      PXE
+
+      QueryServiceCoordinator
+
+      QueryServiceWorker
+
+      SeedRing
+
+      SeedRingServices
+
+      KLÍČOVÝCH
+
+      SQL
+
+      SRP
+
+      Storage
+
+      StorageController
+
+      URP
+
+      SupportBridgeController
+
+      SupportRing
+
+      SupportRingServices
+
+      SupportBridgeRP
+
+      UsageBridge
+
+      VirtualMachines
+
+      VYTVOŘEN
+
+      WASPUBLIC
+   
+   :::column-end:::
+:::row-end:::
 
 ### <a name="additional-considerations-on-diagnostic-logs"></a>Další požadavky na diagnostické protokoly
 
 * Spuštění příkazu může nějakou dobu trvat, a to na základě rolí, které protokoly shromažďují. Přispívající faktory také zahrnují dobu určenou pro shromažďování protokolů a počty uzlů v prostředí Azure Stack hub.
 * Když je shromažďování protokolů spuštěno, ověřte novou složku vytvořenou v parametru **OutputSharePath** zadaného v příkazu.
 * Každá role má své protokoly uvnitř jednotlivých souborů zip. V závislosti na velikosti shromážděných protokolů může být role rozdělená do více souborů zip. Pokud pro takovou roli chcete, aby všechny soubory protokolu byly extrahovány do jediné složky, použijte nástroj, který se může volně rozkomprimovat. Vyberte všechny soubory zip pro roli a vyberte **extrahovat sem**. Všechny soubory protokolu této role budou v jedné sloučené složce extrahovány.
-* Ve složce, která obsahuje soubory protokolu zip, se vytvoří i soubor s názvem **Get-AzureStackLog_Output. log** . Tento soubor je protokolem výstupu příkazu, který se dá použít k řešení problémů během shromažďování protokolů. V některých případech soubor protokolu `PS>TerminatingError` obsahuje položky, které je možné ignorovat, pokud po spuštění shromažďování protokolů nechybějí žádné soubory protokolu.
+* Ve složce, která obsahuje soubory protokolu zip, se vytvoří i soubor s názvem **Get-AzureStackLog_Output. log** . Tento soubor je protokolem výstupu příkazu, který se dá použít k řešení problémů během shromažďování protokolů. V některých případech soubor protokolu obsahuje `PS>TerminatingError` položky, které je možné ignorovat, pokud po spuštění shromažďování protokolů nechybějí žádné soubory protokolu.
 * Pro prošetření konkrétního selhání mohou být protokoly potřeba z více než jedné součásti.
 
   * V roli **VirtualMachines** jsou shromažďovány systémové protokoly a protokoly událostí pro všechny virtuální počítače infrastruktury.
@@ -255,7 +400,7 @@ Rutina PowerShellu Get-AzureStackLog se dá použít ke shromažďování protok
 Níže jsou uvedeny příklady typů protokolů, které jsou shromažďovány:
 
 * **Protokoly nasazení centra Azure Stack**
-* **Protokoly událostí systému Windows**
+* **Protokoly událostí Windows**
 * **Protokoly Panther**
 * **Protokoly clusteru**
 * **Diagnostické protokoly úložiště**

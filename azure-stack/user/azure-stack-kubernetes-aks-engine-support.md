@@ -3,16 +3,16 @@ title: Zásady podpory pro modul AKS v centru Azure Stack
 description: Toto téma obsahuje zásady podpory pro modul AKS v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 09/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 8080f6c5ce8461e9d228dc4c77252b0fd236758e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 09/0102020
+ms.openlocfilehash: 389dd7110bfc5b8b42d1594c947ad522f4fbab98
+ms.sourcegitcommit: f19aaf989d758f0712e1ef3cbc4abf90a1110554
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80069328"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90026213"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack-hub"></a>Zásady podpory pro modul AKS v centru Azure Stack
 
@@ -20,11 +20,15 @@ Tento článek poskytuje podrobné informace o zásadách a omezeních technick�
 
 ## <a name="self-managed-kubernetes-clusters-on-azure-stack-hub-with-aks-engine"></a>Samoobslužné clustery Kubernetes v centru Azure Stack s modulem AKS
 
-Cloudové komponenty infrastruktury jako služby (IaaS), jako jsou výpočetní nebo síťové komponenty, poskytují uživatelům přístup k ovládacím prvkům nízké úrovně a možnostem přizpůsobení. AKS Engine umožňuje uživatelům laydown Kubernetes clustery, které využívají tyto IaaS komponenty transparentně. uživatelé mají přístup a mají vliv na všechny aspekty jejich nasazení.
+Cloudové komponenty infrastruktury jako služby (IaaS), jako jsou výpočetní nebo síťové komponenty, poskytují uživatelům přístup k ovládacím prvkům nízké úrovně a možnostem přizpůsobení. AKS Engine umožňuje uživatelům laydown Kubernetes clustery s využitím těchto IaaS komponent transparentně, takže uživatelé mají přístup a mají vliv na všechny aspekty jejich nasazení.
 
-Po vytvoření clusteru definuje zákazník hlavní Kubernetes a pracovní uzly, které vytvoří modul AKS. Na těchto uzlech se spouštějí úlohy zákazníka. Vlastníci a můžou zobrazit nebo upravit hlavní a pracovní uzly. Carelessly změněné uzly můžou způsobit ztráty dat a úloh a můžou vykreslovat nefunkční cluster. I operace AKS Engine, jako je například upgrade nebo škálování, přepíší všechny změny mimo hranice. Pokud například cluster obsahuje statické lusky, nebudou zachovány po operaci upgradu AKS Engine.
+Po vytvoření clusteru definuje zákazník hlavní Kubernetes a pracovní uzly, které vytvoří modul AKS. Na těchto uzlech se spouštějí úlohy zákazníka. Vlastníci a můžou zobrazit nebo upravit hlavní a pracovní uzly. Carelessly změněné uzly můžou způsobit ztráty dat a úloh a můžou vykreslovat nefunkční cluster. I operace AKS Engine, jako je například upgrade nebo škálování, přepíší všechny změny mimo hranice. Pokud má cluster například statické lusky, nezachovají se po operaci upgradu AKS Engine.
 
 Vzhledem k tomu, že uzly clusterů zákazníka spouštějí soukromý kód a ukládají citlivá data, podpora Microsoftu k nim přistupovat jenom tak, že jsou jenom omezené. Podpora Microsoftu se nemůže přihlásit, spustit příkazy v nebo zobrazit protokoly pro tyto uzly bez výslovného svolení nebo asistence zákazníka.
+
+## <a name="version-support"></a>Podpora verzí
+
+Podpora verze stroje AKS se řídí stejným vzorem, který je založený na zbývajících zásadách podpory centra Azure Stack, což je podpora verze modulu AKS v centru Azure Stack je založená na vzorci n-2. Pokud je například nejnovější verze modulu AKS je v 0.55.0, sada podporovaných verzí je: 0.48.0, 0.51.0, 0.55.0. Důležité je také použít verzi aktualizace centra Azure Stack a odpovídající mapování na verzi podporovanou modulem AKS, která se udržuje ve zprávách k [vydání verze AKS Engine](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping).
 
 ## <a name="aks-engine-supported-areas"></a>Oblasti podporované modulem AKS
 
@@ -32,11 +36,11 @@ Společnost Microsoft poskytuje technickou podporu pro následující:
 
 -  Problémy s příkazy modulu AKS: nasazení, generování, upgrade a škálování. Nástroj by měl být v souladu s chováním v Azure.
 -  Problémy s clusterem Kubernetes nasazeným podle [přehledu modulu AKS](azure-stack-kubernetes-aks-engine-overview.md).
--  Problémy s připojením k ostatním službám Azure Stack hub 
+-  Problémy s připojením k ostatním službám Azure Stack hub. 
 -  Problémy s připojením rozhraní API Kubernetes
--  Problémy s funkcemi poskytovatele služby Azure Stack hub Kubernetes a připojením k Azure Resource Manager
--  Problémy s konfigurací vygenerovanou pomocí modulu AKS Azure Stack nativní artefakty centra, jako jsou nástroje pro vyrovnávání zatížení, skupiny zabezpečení sítě, virtuální sítě, podsítě, síťová rozhraní, směrovací tabulka, sady dostupnosti, veřejné IP adresy, účet úložiště a počítače virtuálních počítačů 
--  Problémy se síťovým výkonem a latencí
+-  Problémy s funkcemi poskytovatele služby Azure Stack hub Kubernetes a připojením k Azure Resource Manager.
+-  Problémy s konfigurací vygenerovanou pomocí modulu AKS Azure Stack nativní artefakty centra, jako jsou nástroje pro vyrovnávání zatížení, skupiny zabezpečení sítě, virtuální sítě, podsítě, síťová rozhraní, směrovací tabulka, sady dostupnosti, veřejné IP adresy, účet úložiště a počítače virtuálních počítačů. 
+-  Problémy se síťovým výkonem a latencí.
 -  Problémy se základní imagí AKS, kterou modul AKS používá v odpojených nasazeních. 
 
 ## <a name="aks-engine-areas-not-supported"></a>Oblasti AKS Engine se nepodporují.
@@ -47,7 +51,7 @@ Společnost Microsoft neposkytuje technickou podporu pro následující:
 -  Položka Kubernetes centra webu Marketplace. Azure Stack
 -  Pomocí následujících možností definice clusteru AKS Engine a doplňků.
     -  Nepodporované doplňky:  
-            -Identity AAD pod  
+            – Azure AD pod identitou  
             – Konektor ACI  
             – Blobfuse pružný svazek  
             – Automatické škálování clusteru  
@@ -85,6 +89,7 @@ Společnost Microsoft neposkytuje technickou podporu pro následující:
 -  Software třetí strany. Tento software může obsahovat nástroje pro kontrolu zabezpečení a síťová zařízení nebo software.
 -  Problémy týkající se více než cloudových nebo více dodavatelů sestavení Microsoft například nepodporuje problémy související se spouštěním řešení pro Cloud ve federaci s více veřejnými cloudy.
 -  Vlastní nastavení sítě, kromě těch, které jsou uvedeny v části [oblasti podporované modulem AKS](#aks-engine-supported-areas) .
+-  V produkčních prostředích by se měly používat jenom vysoce dostupné clustery Kubernetes, tj. clustery nasazené s minimálně třemi hlavními servery a třemi uzly agentů. V produkčních nasazeních není žádná podpora podporovaná.
 
 ##  <a name="security-issues-and-patching"></a>Problémy se zabezpečením a opravy
 
@@ -92,9 +97,9 @@ Pokud se chyba zabezpečení nachází v jedné nebo více součástech modulu A
 
 ## <a name="kubernetes-marketplace-item"></a>Kubernetes položku Marketplace
 
-Uživatelé si můžou stáhnout položku Kubernetes Marketplace, která umožňuje uživatelům nasadit clustery Kubernetes pomocí modulu AKS nepřímo prostřednictvím šablony na portálu User Portal centra Azure Stack, což zjednodušuje použití stroje AKS. Tento nástroj je užitečný pro rychlé nastavení clusterů pro ukázky, testování a vývoj. Není určená pro produkční prostředí, protože není součástí sady položek podporovaných Microsoftem.
+Uživatelé si můžou stáhnout položku Kubernetes Marketplace, která umožňuje uživatelům nasadit clustery Kubernetes pomocí modulu AKS nepřímo prostřednictvím šablony na portálu User Portal centra Azure Stack. Díky tomu je jednodušší používat modul AKS přímo. Položka Kubernetes Marketplace je užitečným nástrojem pro rychlé nastavení clusterů pro ukázky, testování a vývoj. Není určená pro produkční prostředí, takže není zahrnutá v sadě položek, které Microsoft podporuje.
 
-## <a name="preview-features"></a>Funkce Preview
+## <a name="preview-features"></a>Funkce ve verzi Preview
 
 Pro funkce a funkce, které vyžadují rozšířené testování a zpětnou vazbu od uživatelů, vydává společnost Microsoft nové funkce nebo funkce verze Preview za příznakem funkce. Tyto funkce zvažte jako předprodejní nebo beta funkce. Funkce verze Preview nebo funkce příznaku funkcí nejsou určeny pro produkční prostředí. Průběžné změny funkčnosti a chování, opravy chyb a další změny můžou vést k nestabilním clusterům a výpadkům. Microsoft nepodporuje tyto funkce.
 

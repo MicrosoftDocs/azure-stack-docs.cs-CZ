@@ -1,5 +1,5 @@
 ---
-title: Konfigurace zdrojů nasazení pro App Services v centru Azure Stack
+title: Konfigurace zdrojů nasazení App Services – centrum Azure Stack
 description: Naučte se konfigurovat zdroje nasazení (Git, GitHub, BitBucket, DropBox a OneDrive) pro App Services v centru Azure Stack.
 author: bryanla
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: f679f4a609f7be2798a664dc4a748e56f8b0d2fb
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: 2766c495087d32dba1162d2354b9b0a8ea673afb
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83374908"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573254"
 ---
 # <a name="configure-deployment-sources-for-app-services-on-azure-stack-hub"></a>Konfigurace zdrojů nasazení pro App Services v centru Azure Stack
 
@@ -40,7 +40,7 @@ Kromě místního Gitu jsou podporovány následující poskytovatelé správy z
 
 K dokončení této úlohy musíte mít účet GitHub. Místo osobního účtu možná budete chtít použít účet pro vaši organizaci.
 
-1. Přihlaste se k GitHubu, klikněte na https://www.github.com/settings/developers a pak vyberte **zaregistrovat novou aplikaci**.
+1. Přihlaste se k GitHubu, klikněte na <https://www.github.com/settings/developers> a pak vyberte **zaregistrovat novou aplikaci**.
 
     ![GitHub – registrace nové aplikace][3]
 
@@ -96,7 +96,7 @@ Abyste mohli dokončit tuto úlohu, musíte mít účet Microsoft propojený s �
 > [!NOTE]
 > Účty OneDrivu pro firmy se aktuálně nepodporují.
 
-1. Přejít na https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm a přihlaste se pomocí svého účet Microsoft.
+1. Přejít na <https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm> a přihlaste se pomocí svého účet Microsoft.
 2. V části **Moje aplikace**vyberte **Přidat aplikaci**.
 
     ![Aplikace OneDrive][10]
@@ -129,7 +129,7 @@ Abyste mohli dokončit tuto úlohu, musíte mít účet Microsoft propojený s �
 > [!NOTE]
 > K dokončení této úlohy musíte mít účet DropBox. Místo osobního účtu možná budete chtít použít účet pro vaši organizaci.
 
-1. Pokračujte https://www.dropbox.com/developers/apps a přihlaste se pomocí přihlašovacích údajů k účtu Dropboxu.
+1. Pokračujte <https://www.dropbox.com/developers/apps> a přihlaste se pomocí přihlašovacích údajů k účtu Dropboxu.
 2. Vyberte **Vytvořit aplikaci**.
 
     ![Aplikace Dropboxu][14]
@@ -154,7 +154,7 @@ Abyste mohli dokončit tuto úlohu, musíte mít účet Microsoft propojený s �
 
 ## <a name="next-steps"></a>Další kroky
 
-Uživatelé teď můžou používat zdroje nasazení pro věci, jako je [průběžné nasazování](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment), [místní nasazení Git](https://docs.microsoft.com/azure/app-service/deploy-local-git)a [synchronizace složek v cloudu](https://docs.microsoft.com/azure/app-service/deploy-content-sync).
+Uživatelé teď můžou používat zdroje nasazení pro věci, jako je [průběžné nasazování](/azure/app-service/deploy-continuous-deployment), [místní nasazení Git](/azure/app-service/deploy-local-git)a [synchronizace složek v cloudu](/azure/app-service/deploy-content-sync).
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-configure-deployment-sources/App-service-provider-admin.png

@@ -1,5 +1,5 @@
 ---
-title: Plánování kapacity pro role App Service serveru v centru Azure Stack
+title: Plánování App Service kapacity rolí serveru – centrum Azure Stack
 description: Přečtěte si o plánování kapacity App Service rolích serveru v centru Azure Stack.
 author: BryanLa
 ms.topic: article
@@ -7,14 +7,14 @@ ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/13/2020
-ms.openlocfilehash: a0cfc16035d82eb230f61900bc0c971a51c86ea1
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: ed29e43c7863b3bad3075ab97a9ce0085edb88c3
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847855"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573288"
 ---
-# <a name="capacity-planning-for-app-service-server-roles-in-azure-stack-hub"></a>Plánování kapacity pro role App Service serveru v centru Azure Stack
+# <a name="capacity-planning-for-app-service-server-roles-in-azure-stack-hub"></a>Plánování kapacity pro role serveru služby App Service ve službě Azure Stack Hub
 
 Pokud chcete nastavit nasazení Azure App Service připraveného pro produkční prostředí v centru Azure Stack, musíte naplánovat kapacitu, kterou systém očekává pro podporu.  
 
@@ -30,7 +30,7 @@ Pomocí těchto pokynů můžete naplánovat strategii App Service kapacity.
 | Kontrolér | 2 | A4v2 |
 | Front-end | 2 | A4_v2 |
 | Správa | 2 | D3_v2 |
-| Vydavatel | 2 | A2_v2 |
+| Publisher | 2 | A2_v2 |
 | Webové pracovníky – sdílené | 2 | A4_v2 |
 | Webové pracovníky – vyhrazené – malé | 2 na vrstvu | A1_v2 |
 | Webové pracovníky – vyhrazené – střední | 2 na vrstvu | A2_v2 |
@@ -113,7 +113,7 @@ Další informace najdete v tématu [zřízení souborového serveru](azure-stac
 
 ## <a name="next-steps"></a>Další kroky
 
-[Předpoklady pro nasazení App Service v centru Azure Stack](azure-stack-app-service-before-you-get-started.md)
+[Požadavky na nasazení služby App Service ve službě Azure Stack Hub](azure-stack-app-service-before-you-get-started.md)
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-capacity-planning/worker-tier-allocation.png

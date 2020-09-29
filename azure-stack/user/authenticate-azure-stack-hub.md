@@ -1,22 +1,22 @@
 ---
-title: Jak získat ověřovací informace pro centrum Azure Stack
+title: Získat informace o ověřování pro centrum Azure Stack
 description: Informace o tom, jak získat ověřovací informace pro centrum Azure Stack
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: ba55e6b5a6025d93f4e630d17fa9af731460105b
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 4b6b13c2dc81a06d815222583dd3807f85c99de5
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661096"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572540"
 ---
 # <a name="get-authentication-information-for-azure-stack-hub"></a>Získat informace o ověřování pro centrum Azure Stack
 
-Aby se ověřilo, že Azure Stack hub vyžaduje, abyste zadali ID předplatného, ID tenanta a umístění a Správce prostředků koncový bod centra Azure Stack. Tyto hodnoty můžete získat z [správce prostředkůho koncového bodu centra Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby?view=azs-1910#the-azure-stack-hub-resource-manager-endpoint) pro centrum Azure Stack. Můžete je také získat pomocí kroků v tomto článku.
+Aby se ověřilo, že Azure Stack hub vyžaduje, abyste zadali ID předplatného, ID tenanta a umístění a Správce prostředků koncový bod centra Azure Stack. Tyto hodnoty můžete získat z [správce prostředkůho koncového bodu centra Azure Stack](./azure-stack-version-profiles-ruby.md?view=azs-1910#the-azure-stack-hub-resource-manager-endpoint) pro centrum Azure Stack. Můžete je také získat pomocí kroků v tomto článku.
 
 ## <a name="values-needed-to-authenticate"></a>Hodnoty potřebné k ověření
 
@@ -70,8 +70,8 @@ Azure Resource Manager koncový bod je koncový bod metadat pro službu nasazen�
 
 Pro integrovaný systém je adresa URL pro Azure Resource Manager koncový bod:<br>`https://management.<location>.<fqdn>`
 
-Pokud chcete získat koncový bod metadat, který odkazuje na vlastnosti, jako je koncový bod galerie, koncový bod grafu, koncový bod portálu, přihlašovací koncový bod a cílové skupiny, adresa URL:`<ResourceManager>/metadata/endpoints?api-version=1.0`
+Pokud chcete získat koncový bod metadat, který odkazuje na vlastnosti, jako je koncový bod galerie, koncový bod grafu, koncový bod portálu, přihlašovací koncový bod a cílové skupiny, adresa URL: `<ResourceManager>/metadata/endpoints?api-version=1.0`
 
 ## <a name="next-steps"></a>Další kroky
 
-Přečtěte si další informace o použití [Správce prostředků centra Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1910) v centru Azure Stack.
+Přečtěte si další informace o použití [Správce prostředků centra Azure Stack](./azure-stack-version-profiles.md?view=azs-1910) v centru Azure Stack.

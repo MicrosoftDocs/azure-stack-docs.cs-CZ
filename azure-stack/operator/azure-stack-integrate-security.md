@@ -1,18 +1,18 @@
 ---
-title: Integrace centra Azure Stack s řešeními monitorování pomocí předávání syslog
+title: Integrace centra Azure Stack s řešeními monitorování prostřednictvím předávání syslog
 description: Naučte se integrovat Azure Stack hub s řešeními monitorování pomocí předávání syslog.
 author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
-ms.lastreviewed: 01/10/2019
-ms.openlocfilehash: a02458ba7790fdf48d8b506abfea0e771b8a179e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 06/15/2020
+ms.openlocfilehash: 465db777fd26d3186eb46623b928b6a63e5dc71e
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77699418"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572744"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>Integrace centra Azure Stack s řešeními monitorování pomocí předávání syslog
 
@@ -57,7 +57,7 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 Parametry pro rutinu *set-SyslogServer* :
 
-| Parametr | Popis | Typ | Požaduje se |
+| Parametr | Popis | Typ | Vyžadováno |
 |---------|---------|---------|---------|
 |*ServerName* | Plně kvalifikovaný název domény nebo IP adresa serveru syslog | Řetězec | ano|
 |*ServerPort* | Číslo portu, na kterém naslouchá Server syslog. | UInt16 | ano|
@@ -234,11 +234,13 @@ Prefix fields
 * Signature ID: Microsoft-AzureStack-PrivilegedEndpoint: <PEP Event ID>
 * Name: <PEP Task Name>
 * Severity: mapped from PEP Level (details see the PEP Severity table below)
+* Who: account used to connect to the PEP
+* WhichIP: IP address of the device used to connect to the PEP
 ```
 
 Tabulka událostí pro privilegovaný koncový bod:
 
-| Událost | ID události PEP | Název úlohy PEP | Severity |
+| Událost | ID události PEP | Název úlohy PEP | Závažnost |
 |-------|--------------| --------------|----------|
 |PrivilegedEndpointAccessed|1000|PrivilegedEndpointAccessedEvent|5|
 |SupportSessionTokenRequested |1001|SupportSessionTokenRequestedEvent|5|
@@ -255,10 +257,10 @@ Tabulka událostí pro privilegovaný koncový bod:
 
 Tabulka PEP závažnosti:
 
-| Severity | Úroveň | Číselná hodnota |
+| Závažnost | Úroveň | Číselná hodnota |
 |----------|-------| ----------------|
 |0|Nedefinované|Hodnota: 0. Indikuje protokoly na všech úrovních.|
-|10|Kritická|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
+|10|Kritické|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
 |8|Chyba| Hodnota: 2. Označuje protokoly pro chybu.|
 |5|Upozornění|Hodnota: 3. Indikuje protokoly pro upozornění.|
 |2|Informace|Hodnota: 4. Označuje protokoly pro informační zprávu.|
@@ -271,11 +273,13 @@ Prefix fields
 * Signature ID: Microsoft-AzureStack-PrivilegedEndpoint: <REP Event ID>
 * Name: <REP Task Name>
 * Severity: mapped from REP Level (details see the REP Severity table below)
+* Who: account used to connect to the REP
+* WhichIP: IP address of the device used to connect to the REP
 ```
 
 Tabulka událostí pro koncový bod obnovení:
 
-| Událost | ID události zástupce | Název úlohy zástupce | Severity |
+| Událost | ID události zástupce | Název úlohy zástupce | Závažnost |
 |-------|--------------| --------------|----------|
 |RecoveryEndpointAccessed |1011|RecoveryEndpointAccessedEvent|5|
 |RecoverySessionTokenRequested |1012|RecoverySessionTokenRequestedEvent |5|
@@ -286,10 +290,10 @@ Tabulka událostí pro koncový bod obnovení:
 
 Tabulka závažnosti zástupce:
 
-| Severity | Úroveň | Číselná hodnota |
+| Závažnost | Úroveň | Číselná hodnota |
 |----------|-------| ----------------|
 |0|Nedefinované|Hodnota: 0. Indikuje protokoly na všech úrovních.|
-|10|Kritická|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
+|10|Kritické|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
 |8|Chyba| Hodnota: 2. Označuje protokoly pro chybu.|
 |5|Upozornění|Hodnota: 3. Indikuje protokoly pro upozornění.|
 |2|Informace|Hodnota: 4. Označuje protokoly pro informační zprávu.|
@@ -309,7 +313,7 @@ Tabulka závažnosti pro události systému Windows:
 | Hodnota závažnosti CEF | Úroveň události Windows | Číselná hodnota |
 |--------------------|---------------------| ----------------|
 |0|Nedefinované|Hodnota: 0. Indikuje protokoly na všech úrovních.|
-|10|Kritická|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
+|10|Kritické|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
 |8|Chyba| Hodnota: 2. Označuje protokoly pro chybu.|
 |5|Upozornění|Hodnota: 3. Indikuje protokoly pro upozornění.|
 |2|Informace|Hodnota: 4. Označuje protokoly pro informační zprávu.|
@@ -337,7 +341,7 @@ Vlastní tabulka rozšíření pro události Windows v centru Azure Stack:
 |MasProviderEventSourceName ||
 |MasProviderGuid |AEA1B4FA-97D1-45F2-A64C-4D69FFFD92C9|
 |MasProviderName |Microsoft-Windows-GroupPolicy|
-|MasSecurityUserId |\<Identifikátor SID systému Windows\> |
+|MasSecurityUserId |\<Windows SID\> |
 |MasTask |0|
 |MasTaskCategory| Vytváření procesů|
 |MasUserData|KB4093112!! 5112! Nainstalováno! 0x0!! WindowsUpdateAgent XPath:/Event/UserData/*|
@@ -354,17 +358,17 @@ Vlastní tabulka rozšíření pro události Windows v centru Azure Stack:
 
 Tabulka Závažnost výstrahy:
 
-| Severity | Úroveň |
+| Závažnost | Úroveň |
 |----------|-------|
 |0|Nedefinované|
-|10|Kritická|
+|10|Kritické|
 |5|Upozornění|
 
 Vlastní tabulka rozšíření pro výstrahy vytvořené v centru Azure Stack:
 
 | Název vlastního rozšíření | Příklad | 
 |-----------------------|---------|
-|MasEventDescription|Popis: byl vytvořen účet \<testuser\> uživatelského účtu pro \<TestDomain\>. Jde o potenciální bezpečnostní riziko. --NÁPRAVa: obraťte se na podporu. K vyřešení tohoto problému se vyžaduje zákaznická podpora. Nepokoušejte se tento problém vyřešit bez pomoci. Než otevřete žádost o podporu, spusťte proces shromažďování souborů protokolu pomocí pokynů v https://aka.ms/azurestacklogfilesčásti.
+|MasEventDescription|Popis: uživatelský účet \<TestUser\> byl vytvořen pro \<TestDomain\> . Jde o potenciální bezpečnostní riziko. --NÁPRAVa: obraťte se na podporu. K vyřešení tohoto problému se vyžaduje zákaznická podpora. Nepokoušejte se tento problém vyřešit bez pomoci. Než otevřete žádost o podporu, spusťte proces shromažďování souborů protokolu pomocí pokynů v části https://aka.ms/azurestacklogfiles .
 
 ### <a name="cef-mapping-for-alerts-closed"></a>Mapování CEF pro uzavřené výstrahy
 

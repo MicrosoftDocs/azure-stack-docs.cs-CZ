@@ -1,18 +1,18 @@
 ---
 title: Připojení k Azure Stack centra pomocí PowerShellu jako uživatel
-description: Přečtěte si, jak se připojit k centru Azure Stack pomocí PowerShellu.
+description: Naučte se, jak se připojit ke službě Azure Stack hub pomocí PowerShellu, abyste mohli používat interaktivní výzvy nebo psát skripty.
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 8/4/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: a8fa6f179b2ff310a291d10f40b2f9a5eaa4e2d9
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.lastreviewed: 8/4/2020
+ms.openlocfilehash: 0539bd452db54b298f681fc47ba7b9183ba75202
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111775"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574019"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell-as-a-user"></a>Připojení k Azure Stack centra pomocí PowerShellu jako uživatel
 
@@ -36,7 +36,7 @@ Ujistěte se, že jste nahradili následující proměnné skriptu hodnotami z v
 - **Název tenanta Azure AD**  
   Název vašeho tenanta Azure AD, který se používá ke správě centra Azure Stack. Například yourdirectory.onmicrosoft.com.
 - **Azure Resource Manager koncový bod**  
-  Pro Azure Stack Development Kit je tato hodnota nastavená na https://management.local.azurestack.external . Pokud chcete získat tuto hodnotu pro integrované systémy Azure Stack hub, obraťte se na svého poskytovatele služeb.
+  Pro Azure Stack Development Kit je tato hodnota nastavená na `https://management.local.azurestack.external` . Pokud chcete získat tuto hodnotu pro integrované systémy Azure Stack hub, obraťte se na svého poskytovatele služeb.
 
 ## <a name="connect-to-azure-stack-hub-with-azure-ad"></a>Připojení k centru Azure Stack pomocí Azure AD
 
@@ -74,6 +74,8 @@ Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider
     }
 ```
 
+[!Include [AD FS only supports interactive authentication with user identities](../includes/note-powershell-adfs.md)]
+
 ## <a name="test-the-connectivity"></a>Testování připojení
 
 Když máte všechno, co máte nastavené, otestujte připojení pomocí PowerShellu k vytváření prostředků v Azure Stack hub. Jako test vytvořte skupinu prostředků pro aplikaci a přidejte virtuální počítač. Spuštěním následujícího příkazu vytvořte skupinu prostředků s názvem "MyResourceGroup":
@@ -86,5 +88,5 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
 - [Vývoj šablon pro centrum Azure Stack](azure-stack-develop-templates.md)
 - [Nasazení šablon pomocí PowerShellu](azure-stack-deploy-template-powershell.md)
-- [Odkazy na modul prostředí PowerShell pro Azure Stack hub](https://docs.microsoft.com/powershell/azure/azure-stack/overview)
+- [Odkazy na modul prostředí PowerShell pro Azure Stack hub](/powershell/azure/azure-stack/overview)
 - Pokud chcete nastavit PowerShell pro prostředí operátora cloudu, přečtěte si článek [Konfigurace prostředí PowerShell pro operátor centra Azure Stack](../operator/azure-stack-powershell-configure-admin.md) .

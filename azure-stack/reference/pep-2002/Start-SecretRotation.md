@@ -1,18 +1,18 @@
 ---
-title: Zavřít-PrivilegedEndpoint privilegovaný koncový bod pro centrum Azure Stack
-description: Referenční informace pro Azure Stack privilegovaného koncového bodu prostředí PowerShell – Close-PrivilegedEndpoint
+title: Rutina SecretRotation pro privilegované koncové body pro centrum Azure Stack
+description: Referenční informace o privilegovaném koncovém bodu centra Azure Stack PowerShellu – Start-SecretRotation
 author: mattbriggs
 ms.topic: reference
-ms.date: 04/27/2020
+ms.date: 07/29/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: b61955c6fce760654430b999c3b393e9093db535
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: 8a3dee9ad26c37626c0f3383b874f149be4fac01
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82563452"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742602"
 ---
 # <a name="start-secretrotation"></a>Spustit – SecretRotation
 
@@ -27,12 +27,12 @@ Start-SecretRotation [-PathAccessCredential <Object>] [-ReRun] [-CertificatePass
 ```
 
 ## <a name="description"></a>Popis
-Vyvolá proces rotace tajných kódů.
+Vyvolá proces střídání tajných klíčů pro tajné klíče infrastruktury Azure Stackho centrálního systému. Ve výchozím nastavení otočí pouze certifikáty koncových bodů infrastruktury externích sítí. Další podrobnosti najdete v tématu o [otočení tajných kódů v centru Azure Stack](../../operator/azure-stack-rotate-secrets.md) .
 
 ## <a name="parameters"></a>Parametry
 
 ### <a name="-internal"></a>– Interní
- 
+Přetočit tajné klíče pro koncové body infrastruktury interní sítě.
 
 ```yaml
 Type: SwitchParameter
@@ -85,6 +85,8 @@ Může se lišit od původního hesla PFX zadaného v počátečním čase nasaz
 Znovu vygenerujeme soubory PFX se správným heslem certifikační autority.
 
 Použití::
+
+```console
     # Rotates external certificates only
     Start-SecretRotation -PfxFilesPath \<String\> -PathAccessCredential \<PSCredential\> -CertificatePassword \<SecureString\>
 
@@ -96,6 +98,7 @@ Použití::
 
     # Reruns external certificates only
     Start-SecretRotation -ReRun
+```
 
 ```yaml
 Type: Object
@@ -141,4 +144,4 @@ Accept wildcard characters: False
 
 ## <a name="next-steps"></a>Další kroky
 
-Informace o přístupu a používání privilegovaného koncového bodu najdete v tématu [použití privilegovaného koncového bodu v centru Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint).
+Informace o přístupu a používání privilegovaného koncového bodu najdete v tématu [použití privilegovaného koncového bodu v centru Azure Stack](../../operator/azure-stack-privileged-endpoint.md).

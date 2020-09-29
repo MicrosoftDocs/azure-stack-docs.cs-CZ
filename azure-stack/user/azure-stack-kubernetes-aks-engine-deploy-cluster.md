@@ -1,18 +1,18 @@
 ---
-title: Nasazení clusteru Kubernetes s modulem AKS v centru Azure Stack
+title: Nasazení clusteru Kubernetes s modulem AKS na rozbočovači Azure Stack
 description: Postup nasazení clusteru Kubernetes na rozbočovači Azure Stack z virtuálního počítače klienta, na kterém běží modul AKS.
 author: mattbriggs
 ms.topic: article
-ms.date: 4/23/2020
+ms.date: 09/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 4/23/2020
-ms.openlocfilehash: 85f9e789db3ce86b04b490be83f355eb73e7329e
-ms.sourcegitcommit: c51e7787e36c49d34ee86cabf9f823fb98b61026
+ms.lastreviewed: 09/02/2020
+ms.openlocfilehash: 68acf1fa04762d8288e621c5087d501c464912fd
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82218819"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573951"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Nasazení clusteru Kubernetes s modulem AKS v centru Azure Stack
 
@@ -32,7 +32,7 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
     curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json
     ```
 
-    > [!Note]  
+    > [!NOTE]  
     > Pokud se odpojíte, můžete soubor stáhnout a ručně ho zkopírovat do odpojeného počítače, kde ho chcete upravit. Soubor můžete zkopírovat do počítače se systémem Linux pomocí nástrojů, jako jsou například výstupy [nebo WinSCP](https://www.suse.com/documentation/opensuse103/opensuse103_startup/data/sec_filetrans_winssh.html).
 
 2.  K otevření modelu rozhraní API v editoru můžete použít nano:
@@ -41,14 +41,14 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
     nano ./kubernetes-azurestack.json
     ```
 
-    > [!Note]  
-    > Pokud nemáte nainstalovaný nano, můžete nainstalovat nano na Ubuntu: `sudo apt-get install nano`.
+    > [!NOTE]  
+    > Pokud nemáte nainstalovaný nano, můžete nainstalovat nano na Ubuntu: `sudo apt-get install nano` .
 
-3.  V souboru Kubernetes-azurestack. JSON Najděte orchestratorRelease a orchestratorVersion. Vyberte jednu z podporovaných verzí Kubernetes. Například pro `orchestratorRelease` použití 1,14 nebo 1,15 a pro `orchestratorVersion` použití 1.14.7 nebo 1.15.10. Zadejte `orchestratorRelease` jako x. XX a orchestratorVersion jako x. xx. x. Seznam aktuálních verzí najdete v tématu [podporované verze modulu AKS](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions) .
+3.  V kubernetes-azurestack.jsv souboru vyhledejte orchestratorRelease a orchestratorVersion. Vyberte jednu z podporovaných verzí Kubernetes. Například pro `orchestratorRelease` použití 1,14 nebo 1,15 a pro `orchestratorVersion` použití 1.14.7 nebo 1.15.10. Zadejte `orchestratorRelease` jako x. XX a orchestratorVersion jako x. xx. x. Seznam aktuálních verzí najdete v tématu [podporované verze modulu AKS](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions) .
 
 4.  Vyhledejte `customCloudProfile` adresu URL portálu tenanta a poskytněte ji. Například, `https://portal.local.azurestack.external`. 
 
-5. Přidejte `"identitySystem":"adfs"` , pokud používáte AD FS. Například:
+5. Přidejte, `"identitySystem":"adfs"` Pokud používáte AD FS. Třeba
 
     ```JSON  
         "customCloudProfile": {
@@ -57,32 +57,32 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
         },
     ```
 
-    > [!Note]  
+    > [!NOTE]  
     > Pokud pro svůj systém identit používáte Azure AD, nemusíte přidávat pole **identitySystem** .
 
 6. Vyhledejte `portalURL` adresu URL portálu tenanta a poskytněte ji. Například, `https://portal.local.azurestack.external`.
 
-7.  V `masterProfile`nástroji nastavte následující pole:
+7.  V nástroji `masterProfile` nastavte následující pole:
 
     | Pole | Popis |
     | --- | --- |
     | Pole dnsprefix | Zadejte jedinečný řetězec, který bude sloužit k identifikaci názvu hostitele virtuálních počítačů. Například název založený na názvu skupiny prostředků. |
     | count |  Zadejte počet hlavních serverů, které chcete pro nasazení nasadit. Minimální pro nasazení HA je 3, ale 1 je povolená pro nasazení bez vysoké dostupnosti. |
-    | vmSize |  Zadejte [velikost podporovanou Azure Stack hub](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes), například `Standard_D2_v2`. |
+    | vmSize |  Zadejte [velikost podporovanou Azure Stack hub](./azure-stack-vm-sizes.md), například `Standard_D2_v2` . |
     | distribuce | Zadejte `aks-ubuntu-16.04`. |
 
-8.  V `agentPoolProfiles` nástroji Update:
+8.  V nástroji `agentPoolProfiles` Update:
 
     | Pole | Popis |
     | --- | --- |
     | count | Zadejte počet agentů, které chcete pro nasazení. Maximální počet uzlů, které se mají použít na předplatné, je 50. Pokud nasazujete více než jeden cluster na předplatné, zajistěte, aby celkový počet agentů nepřesahuje 50. Ujistěte se, že jste používali položky konfigurace zadané v [ukázkovém souboru JSON modelu rozhraní API](https://github.com/Azure/aks-engine/blob/master/examples/azure-stack/kubernetes-azurestack.json).  |
-    | vmSize | Zadejte [velikost podporovanou Azure Stack hub](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes), například `Standard_D2_v2`. |
+    | vmSize | Zadejte [velikost podporovanou Azure Stack hub](./azure-stack-vm-sizes.md), například `Standard_D2_v2` . |
     | distribuce | Zadejte `aks-ubuntu-16.04`. |
 
 
 
 
-9.  V `linuxProfile` nástroji Update:
+9.  V nástroji `linuxProfile` Update:
 
     | Pole | Popis |
     | --- | --- |
@@ -90,6 +90,9 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
     | protokoly | Zadejte veřejný klíč, který se bude používat pro ověřování SSH s virtuálními počítači. Použijte `ssh-rsa` a pak klíč. Pokyny k vytvoření veřejného klíče najdete v tématu [vytvoření klíče SSH pro Linux](create-ssh-key-on-windows.md). |
 
     Pokud nasazujete do vlastní virtuální sítě, najdete pokyny k vyhledání a přidání požadovaných klíčů a hodnot do příslušných polí v modelu rozhraní API v tématu [nasazení clusteru Kubernetes do vlastní virtuální sítě](kubernetes-aks-engine-custom-vnet.md).
+
+    > [!NOTE]  
+    > Modul AKS pro centrum Azure Stack neumožňuje poskytnout vlastní certifikáty pro vytvoření clusteru.
 
 ### <a name="more-information-about-the-api-model"></a>Další informace o modelu rozhraní API
 
@@ -110,19 +113,19 @@ Pokračujte v nasazení clusteru:
 
 1.  Přečtěte si dostupné parametry pro modul AKS v části Azure Stack centra [CLI](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cli-flags).
 
-    | Parametr | Příklad | Popis |
+    | parametr | Příklad | Popis |
     | --- | --- | --- |
-    | Azure – ENV | AzureStackCloud | K indikaci AKS Engine, že vaše cílová platforma je Azure Stack použití `AzureStackCloud`centra. |
+    | Azure – ENV | AzureStackCloud | K indikaci AKS Engine, že vaše cílová platforma je Azure Stack použití centra `AzureStackCloud` . |
     | Identita – systém | službou | Nepovinný parametr. Pokud používáte federované služby Active Directory (AD FS), zadejte svoje řešení pro správu identit. |
-    | location | local | Název oblasti centra Azure Stack. Pro ASDK je oblast nastavena na `local`. |
+    | location | local | Název oblasti centra Azure Stack. Pro ASDK je oblast nastavena na `local` . |
     | resource-group | Kube – RG | Zadejte název nové skupiny prostředků nebo vyberte existující skupinu prostředků. Název prostředku musí být alfanumerický a malý. |
-    | rozhraní API – model | ./kubernetes-azurestack.json | Cesta ke konfiguračnímu souboru clusteru nebo modelu rozhraní API. |
+    | rozhraní API – model | ./kubernetes-azurestack.jsna | Cesta ke konfiguračnímu souboru clusteru nebo modelu rozhraní API. |
     | výstupní adresář | Kube – RG | Zadejte název adresáře, který bude obsahovat výstupní soubor `apimodel.json` i další generované soubory. |
     | ID klienta | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte identifikátor GUID instančního objektu služby. ID klienta identifikované jako ID aplikace, když správce centra Azure Stack vytvořil instanční objekt. |
     | tajný kód klienta | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte tajný klíč objektu služby. Při vytváření služby nastavíte tajný klíč klienta. |
-    | ID předplatného | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte ID předplatného. Další informace najdete v tématu [přihlášení k odběru nabídky](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer) . |
+    | ID předplatného | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | Zadejte ID předplatného. Musíte zadat předplatné pro aplikace. Nasazení do předplatného pro správu se nepodporuje.  Další informace najdete v tématu [přihlášení k odběru nabídky](./azure-stack-subscribe-services.md#subscribe-to-an-offer) . |
 
-    Zde naleznete příklad:
+    Tady je příklad:
 
     ```bash  
     aks-engine deploy \
@@ -137,11 +140,11 @@ Pokračujte v nasazení clusteru:
     --identity-system adfs # required if using AD FS
     ```
 
-2.  Pokud z nějakého důvodu spuštění selhalo po vytvoření výstupního adresáře, můžete problém vyřešit a znovu spustit příkaz. Pokud znovu spustíte nasazení a předtím používali stejný výstupní adresář, modul AKS vrátí chybu oznamující, že adresář již existuje. Existující adresář můžete přepsat pomocí příznaku: `--force-overwrite`.
+2.  Pokud z nějakého důvodu spuštění selhalo po vytvoření výstupního adresáře, můžete problém vyřešit a znovu spustit příkaz. Pokud znovu spustíte nasazení a předtím používali stejný výstupní adresář, modul AKS vrátí chybu oznamující, že adresář již existuje. Existující adresář můžete přepsat pomocí příznaku: `--force-overwrite` .
 
 3.  Uložte konfiguraci clusteru modulu AKS do zabezpečeného, šifrovaného umístění.
 
-    Vyhledejte soubor `apimodel.json`. Uložte ho do zabezpečeného umístění. Tento soubor se použije jako vstup ve všech dalších operacích AKS Engine.
+    Vyhledejte soubor `apimodel.json` . Uložte ho do zabezpečeného umístění. Tento soubor se použije jako vstup ve všech dalších operacích AKS Engine.
 
     Vygenerovaný `apimodel.json` obsahuje veřejný klíč služby, tajný klíč a veřejný klíč SSH, který použijete ve vstupním modelu rozhraní API. Má také všechna ostatní metadata, která modul AKS potřebuje k provádění všech dalších operací. Pokud ho ztratíte, modul AKS nebude moci konfigurovat cluster.
 

@@ -3,15 +3,15 @@ title: Nasazení virtuálního počítače s zabezpečeným uloženým certifik�
 description: Přečtěte si, jak nasadit virtuální počítač a vložit do něj certifikát pomocí trezoru klíčů v centru Azure Stack.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 06/12/2020
+ms.date: 09/01/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 7f193a0a58018217d8b68758546de269f799b90e
-ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
+ms.openlocfilehash: 5f99d816470649366703da5de4bf68ebdbe26a61
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84744861"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90571826"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>Nasazení virtuálního počítače s zabezpečeným uloženým certifikátem v centru Azure Stack
 
@@ -44,7 +44,7 @@ Následující kroky popisují proces vyžadovaný k odeslání certifikátu do 
 
 ## <a name="create-a-key-vault-secret"></a>Vytvoření tajného klíče trezoru klíčů
 
-Následující skript vytvoří certifikát ve formátu. pfx, vytvoří Trezor klíčů a uloží certifikát do trezoru klíčů jako tajný kód.
+Následující skript vytvoří certifikát ve formátu. pfx, vytvoří Trezor klíčů a uloží certifikát do trezoru klíčů jako tajný kód. `contentType`Tajný klíč musí být nastaven na hodnotu `pfx` .
 
 > [!IMPORTANT]
 > `-EnabledForDeployment`Při vytváření trezoru klíčů musíte použít parametr. Tento parametr zajišťuje, aby se Trezor klíčů mohl odkazovat z Azure Resource Manager šablon.

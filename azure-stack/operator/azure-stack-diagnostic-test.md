@@ -1,5 +1,5 @@
 ---
-title: Použití nástroje pro ověření centra Azure Stack k ověření stavu systému
+title: Ověření stavu systému pomocí nástroje Azure Stackho ověřování centra
 description: Naučte se používat nástroj pro ověření centra Azure Stack k ověření stavu systému.
 author: justinha
 ms.topic: article
@@ -7,18 +7,18 @@ ms.date: 01/10/2020
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: bb83d8dcf567bac6081083e34c0770a277879282
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: 40a916a282f4808d9897cc5c23ea953739b0a0cf
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819481"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572931"
 ---
 # <a name="validate-azure-stack-hub-system-state"></a>Ověřit stav systému centra Azure Stack
 
 Jako operátor centra Azure Stack je možné určit stav systému na vyžádání v podstatě. Nástroj pro ověření centra Azure Stack (**test-AzureStack**) je rutina prostředí PowerShell, která umožňuje spustit sérii testů v systému, aby bylo možné identifikovat chyby, pokud jsou k dispozici. Obvykle budete požádáni o spuštění tohoto nástroje prostřednictvím [privilegovaného koncového bodu (PEP)](azure-stack-privileged-endpoint.md) při kontaktování podpory zákaznických služeb microsoftu (podpora Microsoftu) s problémem. Když jsou dostupné informace o stavu a stavu v rámci systému, podpora Microsoftu můžou shromažďovat a analyzovat podrobné protokoly, soustředit se na oblast, kde došlo k chybě, a spolupracovat s vámi, abyste problém vyřešili.
 
-## <a name="running-the-validation-tool-and-accessing-results"></a>Spuštění nástroje pro ověření a přístup k výsledkům
+## <a name="running-the-validation-tool-and-accessing-results"></a>Spuštění nástroje pro ověřování a přístup k výsledkům
 
 Jak je uvedeno výše, nástroj pro ověření se spouští přes PEP. Každý test vrátí stav **předání nebo selhání** v okně PowerShellu. Tady je přehled kompletního procesu testování ověřování:
 
@@ -234,6 +234,6 @@ Test-AzureStack -Include AzsNetworkInfra -Debug
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o nástrojích pro diagnostiku centra Azure Stack a protokolování problémů najdete v tématu [Nástroje pro diagnostiku Azure Stack centra](azure-stack-diagnostic-log-collection-overview-tzl.md).
+Další informace o nástrojích pro diagnostiku centra Azure Stack a protokolování problémů najdete v tématu [Nástroje pro diagnostiku Azure Stack centra](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002).
 
 Další informace o řešení potíží najdete v tématu [řešení potíží s centrem Microsoft Azure Stack](azure-stack-troubleshooting.md).

@@ -1,5 +1,5 @@
 ---
-title: Zavřít-PrivilegedEndpoint privilegovaný koncový bod pro centrum Azure Stack
+title: Registrovat – CustomDnsServer
 description: Referenční informace pro Azure Stack privilegovaného koncového bodu prostředí PowerShell – Close-PrivilegedEndpoint
 author: mattbriggs
 ms.topic: reference
@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: dafeb8c162ef79b5522a80d398f2bc440164cdc2
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: 896ab0f8efa224b4d2224d417dba91e55dea1c19
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562968"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742661"
 ---
 # <a name="register-customdnsserver"></a>Registrovat – CustomDnsServer
 
@@ -101,4 +101,4 @@ Accept wildcard characters: False
 
 ## <a name="next-steps"></a>Další kroky
 
-Informace o přístupu a používání privilegovaného koncového bodu najdete v tématu [použití privilegovaného koncového bodu v centru Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint).
+Informace o přístupu a používání privilegovaného koncového bodu najdete v tématu [použití privilegovaného koncového bodu v centru Azure Stack](../../operator/azure-stack-privileged-endpoint.md).

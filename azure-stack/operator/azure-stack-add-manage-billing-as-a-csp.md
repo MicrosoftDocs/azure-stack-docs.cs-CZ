@@ -1,18 +1,18 @@
 ---
-title: Správa využití a fakturace pro centra Azure Stack jako poskytovatele Cloud Solution Provider
+title: Správa využití centra Azure Stack a fakturace jako poskytovatel Cloud Solution Provider
 description: Naučte se registrovat Azure Stack hub jako poskytovatele Cloud Solution Provider (CSP) a přidat zákazníky k fakturaci.
 author: sethmanheim
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 8202942a10e4faf48b09e9fd0d456a810d6a08fd
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.openlocfilehash: 03206007c60d438149baad267117e447bd5b0a14
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772382"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573475"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>Správa využití a fakturace pro centra Azure Stack jako poskytovatele Cloud Solution Provider
 
@@ -33,11 +33,15 @@ Vyberte typ účtu sdílených služeb, který používáte pro Azure Stack hub.
 - Program Cloud Solution Provider
 - Předplatné Partner Shared Services
 
+Vytvořili jsme výukové video, které vám pomůže pochopit, jak spravovat vaše práva pro více tenantů:
+
+> [!VIDEO https://www.youtube.com/embed/ZP6jkbLeS34]
+
 #### <a name="azure-partner-shared-services"></a>Sdílené služby pro partnery Azure
 
 Předplatné Azure partner Shared Services (APSS) jsou upřednostňovanou volbou pro registraci v případě, že přímý CSP nebo distributor CSP funguje Azure Stack hub.
 
-APSS předplatná jsou přidružená k tenantovi sdílené služby. Při registraci centra Azure Stack zadáte přihlašovací údaje pro účet, který je vlastníkem předplatného. Účet, který použijete k registraci centra Azure Stack, se může lišit od účtu správce, který používáte pro nasazení. Kromě toho tyto dva účty nemusí patřit do stejné domény; můžete nasadit pomocí tenanta, kterého už používáte. Můžete například použít `ContosoCSP.onmicrosoft.com`a zaregistrovat se pomocí jiného tenanta; například `IURContosoCSP.onmicrosoft.com`. Abyste se mohli přihlásit pomocí `ContosoCSP.onmicrosoft.com` každodenní správy centra Azure Stack, musíte si uvědomit, že se přihlašujete. Přihlásíte se k Azure `IURContosoCSP.onmicrosoft.com` pomocí, kdy potřebujete provádět operace registrace.
+APSS předplatná jsou přidružená k tenantovi sdílené služby. Při registraci centra Azure Stack zadáte přihlašovací údaje pro účet, který je vlastníkem předplatného. Účet, který použijete k registraci centra Azure Stack, se může lišit od účtu správce, který používáte pro nasazení. Kromě toho tyto dva účty nemusí patřit do stejné domény; můžete nasadit pomocí tenanta, kterého už používáte. Můžete například použít `ContosoCSP.onmicrosoft.com` a zaregistrovat se pomocí jiného tenanta, například `IURContosoCSP.onmicrosoft.com` . Abyste se mohli přihlásit pomocí `ContosoCSP.onmicrosoft.com` každodenní správy centra Azure Stack, musíte si uvědomit, že se přihlašujete. Přihlásíte se k Azure pomocí, `IURContosoCSP.onmicrosoft.com` kdy potřebujete provádět operace registrace.
 
 Popis předplatných APSS a postup, jak je vytvořit, najdete v tématu [Přidání partnerských sdílených služeb Azure](/partner-center/shared-services).
 

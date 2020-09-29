@@ -1,17 +1,18 @@
 ---
 title: Použití identity aplikace pro přístup k prostředkům
-description: Naučte se používat identitu aplikace pro přístup k prostředkům Azure Stack hub. Identitu aplikace lze použít s řízením přístupu na základě rolí pro přihlašování a přístup k prostředkům.
+description: Naučte se přistupovat k prostředkům centra Azure Stack pomocí identity aplikace, kterou je možné použít s řízením přístupu na základě rolí pro přihlašování a přístup k prostředkům.
 author: BryanLa
 ms.author: bryanla
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.lastreviewed: 05/07/2020
-ms.openlocfilehash: 8a86c1c19f4239e6af1e7094ee8803865f9fd70d
-ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
+ms.custom: contperfq4
+ms.openlocfilehash: 5842ac27969a136ceaace4647ed5791bc3260b1c
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84666409"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573135"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Použití identity aplikace pro přístup k prostředkům Azure Stack hub
 
@@ -53,7 +54,7 @@ V této části zaregistrujete aplikaci pomocí Azure Portal, která vytvoří o
 2. Vyberte **Azure Active Directory**  >  **Registrace aplikací**  >  **novou registraci**.
 3. Zadejte **název** aplikace.
 4. Vyberte příslušné **podporované typy účtů**.
-5. V části **identifikátor URI pro přesměrování**vyberte jako typ aplikace **Web** a (volitelně) zadejte identifikátor URI přesměrování, pokud to vaše aplikace vyžaduje.
+5. V části **identifikátor URI pro přesměrování**vyberte jako typ aplikace **Web**  a (volitelně) zadejte identifikátor URI přesměrování, pokud to vaše aplikace vyžaduje.
 6. Po nastavení hodnot vyberte **Registrovat**. Vytvoří se registrace aplikace a zobrazí se stránka s **přehledem** .
 7. Zkopírujte **ID aplikace** pro použití v kódu aplikace. Tato hodnota se také označuje jako ID klienta.
 8. Pokud chcete vygenerovat tajný klíč klienta, vyberte stránku **certifikáty & tajných** kódů. Vyberte **Nový tajný klíč klienta**.
@@ -337,11 +338,11 @@ Typ prostředku, který zvolíte, taky vytvoří *obor přístupu* pro aplikaci.
 3. Vyberte stránku **Access Control (IAM)** , která je univerzální napříč všemi prostředky, které podporují RBAC.
 4. Vybrat **+ Přidat**
 5. V části **role**vyberte roli, kterou chcete aplikaci přiřadit.
-6. V části **Vybrat**vyhledejte aplikaci pomocí úplného nebo částečného názvu aplikace. Během registrace se název aplikace vygeneruje jako *Azurestack- \<YourAppName\> - \<ClientId\> *. Pokud jste například použili název aplikace *app2*a ClientID *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* byl během vytváření přiřazen, bude mít úplný název *Azurestack-app2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*. Můžete vyhledat přesný řetězec nebo část, jako je například *Azurestack* nebo *Azurestack-app2*.
+6. V části **Vybrat**vyhledejte aplikaci pomocí úplného nebo částečného názvu aplikace. Během registrace se název aplikace vygeneruje jako *Azurestack- \<YourAppName\> - \<ClientId\> *. Pokud jste například použili název aplikace *app2*a ClientID *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* byl během vytváření přiřazen, bude mít úplný název  *Azurestack-app2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*. Můžete vyhledat přesný řetězec nebo část, jako je například *Azurestack* nebo *Azurestack-app2*.
 7. Jakmile aplikaci najde, vyberte ji a zobrazí se v části **Vybraní členové**.
 8. Kliknutím na **Uložit** dokončete přiřazení role.
 
-     [![Přiřadit roli](media/azure-stack-create-service-principal/assign-role.png)](media/azure-stack-create-service-principal/assign-role.png#lightbox)
+     [![Přiřazení role](media/azure-stack-create-service-principal/assign-role.png)](media/azure-stack-create-service-principal/assign-role.png#lightbox)
 
 9. Po dokončení se aplikace zobrazí v seznamu objektů zabezpečení přiřazených k aktuálnímu oboru pro danou roli.
 
@@ -352,5 +353,5 @@ Teď, když jste aplikaci udělili identitu a povolili jí přístup k prostřed
 ## <a name="next-steps"></a>Další kroky
 
 [Správa uživatelských oprávnění](azure-stack-manage-permissions.md)  
-[Dokumentace k Azure Active Directory](https://docs.microsoft.com/azure/active-directory)  
-[Služba Active Directory Federation Services](https://docs.microsoft.com/windows-server/identity/active-directory-federation-services)
+[Dokumentace k Azure Active Directory](/azure/active-directory)  
+[Služba Active Directory Federation Services](/windows-server/identity/active-directory-federation-services)

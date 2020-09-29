@@ -1,20 +1,20 @@
 ---
-title: Principy kvora clusteru a fondu v Azure Stack HCI
+title: Principy kvora clusteru a fondu Azure Stack HCI
 description: Principy kvora clusteru a fondu v Prostory úložiště s přímým přístupem na Azure Stack HCI s konkrétními příklady pro přechod na složitými rozhraními.
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
-ms.date: 02/28/2020
-ms.openlocfilehash: 70f10bd8c2c2e5eb639229ba743090ba5e5ac79c
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.topic: conceptual
+ms.date: 07/21/2020
+ms.openlocfilehash: d60ec2edb4247c72d35e69e199bf3fc28259e2ce
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79025675"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572119"
 ---
 # <a name="understanding-cluster-and-pool-quorum-on-azure-stack-hci"></a>Principy kvora clusteru a fondu v Azure Stack HCI
 
->Platí pro: Windows Server 2019
+> Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019
 
 [Clustering s podporou převzetí služeb při selhání ve Windows serveru](/windows-server/failover-clustering/failover-clustering-overview) poskytuje vysokou dostupnost pro úlohy. Tyto prostředky se považují za vysoce dostupné, pokud jsou uzly, které jsou hostiteli prostředků. cluster ale obecně vyžaduje více než polovinu uzlů, které mají být spuštěny, což se označuje jako *kvorum*.
 
@@ -59,7 +59,7 @@ Existují dva způsoby, jak může cluster *Celkový počet hlasů* označit jak
 1. Nejdřív to *může projít tím* , že přidá *svědka* s dalšími hlasovacími možnostmi. To vyžaduje nastavení uživatele.
 2. Nebo může přejít *dolů* tak, že vynulová jeden hlas uzlu unlucky (provede se automaticky podle potřeby).
 
-Pokaždé, když se přestanou uzly úspěšně ověřit, definice *většiny* se aktualizuje *tak, aby*byly v rámci jenom těch pozůstalých. To umožňuje, aby cluster ztratil jeden uzel, potom další, a tak dále. Tento koncept *celkového počtu hlasů* , který se přizpůsobuje po úspěšném selhání, se označuje jako ***dynamické kvorum***.  
+Pokaždé, když se přestanou uzly úspěšně ověřit, definice *většiny* se aktualizuje *tak, aby*byly v rámci jenom těch pozůstalých. To umožňuje, aby cluster ztratil jeden uzel, potom další, a tak dále. Tento koncept *celkového počtu hlasů* , který se přizpůsobuje po úspěšném selhání, se označuje jako ***dynamické kvorum***.
 
 ### <a name="dynamic-witness"></a>Dynamický určující disk
 
@@ -74,7 +74,7 @@ Dynamické kvorum funguje s dynamickým určujícím prostředkem způsobem pops
 - V případě, že máte **sudý** počet uzlů plus určující určující *, aby*bylo celkem liché.
 - Pokud máte **lichý** počet uzlů plus určující disk, *svědk nehlasuje*.
 
-Dynamické kvorum umožňuje dynamicky přiřadit hlas k uzlu, aby nedošlo ke ztrátě většiny hlasů a aby bylo možné cluster spustit s jedním uzlem (označovaným jako poslední člověk Man). Pojďme jako příklad využít cluster se čtyřmi uzly. Předpokládat, že kvorum vyžaduje 3 hlasy. 
+Dynamické kvorum umožňuje dynamicky přiřadit hlas k uzlu, aby nedošlo ke ztrátě většiny hlasů a aby bylo možné cluster spustit s jedním uzlem (označovaným jako poslední člověk Man). Pojďme jako příklad využít cluster se čtyřmi uzly. Předpokládat, že kvorum vyžaduje 3 hlasy.
 
 V takovém případě by se cluster dostal dolů, pokud jste ztratili dva uzly.
 
@@ -140,7 +140,7 @@ Všechny uzly hlasy a určující hlasy, takže *většina* je určena celkem **
 
 - Může zachována jedna selhání serveru: **Ano**.
 - Může zachována jedna selhání serveru a pak další: **Ano**.
-- Může zamezit dvě chyby serveru: **Ano**. 
+- Může zamezit dvě chyby serveru: **Ano**.
 
 #### <a name="five-nodes-and-beyond"></a>Pět uzlů a více než.
 Všechny uzly hlas, nebo všechny, ale pouze jeden hlas, ať už celkový počet je lichý. Prostory úložiště s přímým přístupem v tuto chvíli nemůže zpracovávat více než dva uzly, takže v tomto okamžiku není potřeba žádný určující nebo vhodný.
@@ -149,7 +149,7 @@ Všechny uzly hlas, nebo všechny, ale pouze jeden hlas, ať už celkový počet
 
 - Může zachována jedna selhání serveru: **Ano**.
 - Může zachována jedna selhání serveru a pak další: **Ano**.
-- Může zamezit dvě chyby serveru: **Ano**. 
+- Může zamezit dvě chyby serveru: **Ano**.
 
 Když teď chápeme, jak kvorum funguje, Podívejme se na typy určující sdílené složky kvora.
 
@@ -189,25 +189,25 @@ Ale kvorum fondu funguje jinak než kvorum clusteru, a to následujícími způs
 
 ### <a name="examples"></a>Příklady
 
-#### <a name="four-nodes-with-a-symmetrical-layout"></a>Čtyři uzly s symetrickým rozložením. 
+#### <a name="four-nodes-with-a-symmetrical-layout"></a>Čtyři uzly s symetrickým rozložením.
 Každá z těchto 16 jednotek má jeden hlas a druhý uzel má také jeden hlas (protože se jedná o vlastníka prostředku fondu). *Většina* je určena od celkem **16 hlasů**. Pokud uzly tři a čtyři rozcházejí dolů, zbývající podmnožina má 8 jednotek a vlastníka prostředku fondu, což je 9/16 hlasů. Takže se fond zachová.
 
 ![Kvorum fondu 1](media/quorum/pool-1.png)
 
 - Může zachována jedna selhání serveru: **Ano**.
 - Může zachována jedna selhání serveru a pak další: **Ano**.
-- Může zamezit dvě chyby serveru: **Ano**. 
+- Může zamezit dvě chyby serveru: **Ano**.
 
-#### <a name="four-nodes-with-a-symmetrical-layout-and-drive-failure"></a>Čtyři uzly s symetrickým rozložením a selháním jednotky. 
+#### <a name="four-nodes-with-a-symmetrical-layout-and-drive-failure"></a>Čtyři uzly s symetrickým rozložením a selháním jednotky.
 Každá z těchto 16 jednotek má jeden hlas a uzel 2 má také jeden hlas (protože se jedná o vlastníka prostředku fondu). *Většina* je určena od celkem **16 hlasů**. Nejprve bude jednotka 7 mimo provoz. Pokud uzly tři a čtyři rozcházejí dolů, má zbývající podmnožina 7 jednotek a vlastníka prostředku fondu, což je 8/16 hlasů. Takže fond nemá většinu a nepracuje.
 
 ![Kvorum fondu 2](media/quorum/pool-2.png)
 
 - Může zachována jedna selhání serveru: **Ano**.
 - Může zachována jedna selhání serveru a pak jiný: **ne**.
-- Může zamezit dvěma selháními serveru najednou: **ne**. 
+- Může zamezit dvěma selháními serveru najednou: **ne**.
 
-#### <a name="four-nodes-with-a-non-symmetrical-layout"></a>Čtyři uzly s rozložením bez symetrického zobrazení. 
+#### <a name="four-nodes-with-a-non-symmetrical-layout"></a>Čtyři uzly s rozložením bez symetrického zobrazení.
 Každá z těchto 24 jednotek má jeden hlas a druhý uzel má také jeden hlas (vzhledem k tomu, že se jedná o vlastníka prostředku fondu). *Většina* je určena od celkem **24 hlasů**. Pokud uzly tři a čtyři rozcházejí dolů, zbývající podmnožina má 8 jednotek a vlastníka prostředku fondu, což je 9/24 hlasů. Takže fond nemá většinu a nepracuje.
 
 ![Kvorum fondu 3](media/quorum/pool-3.png)
@@ -219,7 +219,7 @@ Každá z těchto 24 jednotek má jeden hlas a druhý uzel má také jeden hlas 
 ### <a name="pool-quorum-recommendations"></a>Doporučení kvora fondu
 
 - Ujistěte se, že každý uzel v clusteru má symetrický (každý uzel má stejný počet jednotek).
-- Povolte trojrozměrné zrcadlení nebo duální paritu, abyste mohli tolerovat selhání uzlu a zachovat virtuální disky online. 
+- Povolte trojrozměrné zrcadlení nebo duální paritu, abyste mohli tolerovat selhání uzlu a zachovat virtuální disky online.
 - Pokud je více než dva uzly mimo provoz nebo dojde k nedostatku dvou uzlů a disku na jiném uzlu, svazky nemusí mít přístup ke všem třem kopiím svých dat, a proto budou odpojeny do offline režimu a nebudou k dispozici. Doporučuje se přenášet servery zpátky nebo vyměnit disky, aby se zajistila maximální odolnost pro všechna data ve svazku.
 
 ## <a name="next-steps"></a>Další kroky
@@ -227,4 +227,4 @@ Každá z těchto 24 jednotek má jeden hlas a druhý uzel má také jeden hlas 
 Další informace najdete v následujících článcích:
 
 - [Konfigurace a Správa kvora](/windows-server/failover-clustering/manage-cluster-quorum)
-- [Nasazení sdílené složky v cloudu](/windows-server/failover-clustering/deploy-cloud-witness)
+- [Nastavení určujícího clusteru](../deploy/witness.md)

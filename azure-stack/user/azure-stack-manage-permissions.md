@@ -1,5 +1,5 @@
 ---
-title: Správa přístupu k prostředkům v centru Azure Stack s řízením přístupu na základě role
+title: Správa přístupu k prostředkům v Azure Stackovém centru pomocí řízení přístupu na základě role
 description: Naučte se spravovat oprávnění řízení přístupu na základě role (RBAC) jako správce nebo tenanta v centru Azure Stack.
 author: bryanla
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 09/13/2019
 ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 2f633e44b4646659a888df85e51450147104710e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1002f45b51f4a70ddbadb8230df6e98f591fcbb6
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703974"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573747"
 ---
 # <a name="manage-access-to-resources-in-azure-stack-hub-with-role-based-access-control"></a>Správa přístupu k prostředkům v centru Azure Stack s řízením přístupu na základě role
 

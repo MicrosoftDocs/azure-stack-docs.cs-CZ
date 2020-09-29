@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/5/2020
-ms.openlocfilehash: 3a59f36b5bae91255628d79b14ee727a5990ef11
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 5634cd783a010f5aa45de88ba923dfe6a8378c4c
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146933"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742704"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>Ochrana virtuálních počítačů nasazených v centru Azure Stack
 
@@ -71,9 +71,9 @@ Záložní produkty můžou chránit konfiguraci virtuálních počítačů IaaS
 > [!Important]  
 > Použití snímků disku v současnosti není pro virtuální počítač v běžícím stavu podporováno. Vytvoření snímku disku připojeného k běžícímu virtuálnímu počítači může snížit výkon nebo ovlivnit dostupnost operačního systému nebo aplikace ve virtuálním počítači. Doporučujeme použít agenta hosta k ochraně aplikace v případě, že plánované výpadky nepatří mezi možnosti. 
 
-### <a name="vms-in-a-scale-set-or-availability-group"></a>Virtuální počítače v rámci sady škálování nebo skupiny dostupnosti
+### <a name="vms-in-a-scale-set-or-availability-set"></a>Virtuální počítače ve skupině škálování nebo sady dostupnosti
 
-Virtuální počítače v sadě škálování nebo skupině dostupnosti považované za dočasné prostředky by se neměly zálohovat na úrovni virtuálního počítače, zejména pokud je aplikace Bezstavová. U stavových aplikací nasazených ve skupině škálování nebo skupiny dostupnosti Zvažte ochranu aplikačních dat (například databáze nebo svazku ve fondu úložiště). 
+Virtuální počítače v sadě škálování nebo skupině dostupnosti považované za dočasné prostředky by se neměly zálohovat na úrovni virtuálního počítače, zejména pokud je aplikace Bezstavová. Pro stavové aplikace nasazené v sadě škálování nebo skupině dostupnosti Zvažte ochranu aplikačních dat (například databáze nebo svazku ve fondu úložiště). 
 
 ### <a name="replicationmanual-failover"></a>Replikace/ruční převzetí služeb při selhání
 
@@ -83,7 +83,7 @@ S tímto přístupem se aplikace nasadí v jednom cloudu a data se replikují do
  
 ### <a name="high-availabilityautomatic-failover"></a>Vysoká dostupnost/automatické převzetí služeb při selhání
 
-U bezstavových aplikací, které můžou tolerovat jenom pár sekund nebo minut výpadků, zvažte konfiguraci s vysokou dostupností. Aplikace s vysokou dostupností jsou navržené tak, aby se nasadily na více místech aktivní/aktivní topologie, kde můžou všechny instance považovat požadavky. U místních hardwarových chyb implementuje infrastruktura centra Azure Stack vysoké dostupnosti ve fyzické síti pomocí dvou horních přepínačů stojanu. V případě chyb na úrovni výpočtů používá Azure Stack hub více uzlů v jednotce škálování. Na úrovni virtuálního počítače můžete použít sady škálování v kombinaci s doménami selhání k zajištění, že selhání uzlu nevezmou aplikaci. Stejná aplikace by se musela nasadit do sekundárního umístění ve stejné konfiguraci. Aby byla aplikace aktivní/aktivní, můžete k přímému nasměrování požadavků na všechny dostupné instance použít nástroj pro vyrovnávání zatížení nebo DNS.
+U bezstavových aplikací, které můžou tolerovat jenom pár sekund nebo minut výpadků, zvažte konfiguraci s vysokou dostupností. Aplikace s vysokou dostupností jsou navržené tak, aby se nasadily na více místech aktivní/aktivní topologie, kde můžou všechny instance považovat požadavky. U místních hardwarových chyb implementuje infrastruktura centra Azure Stack vysoké dostupnosti ve fyzické síti pomocí dvou horních přepínačů stojanu. V případě chyb na úrovni výpočtů používá Azure Stack hub více uzlů v jednotce škálování a automaticky převzetí služeb při selhání virtuálního počítače. Na úrovni virtuálního počítače můžete použít sady škálování nebo virtuální počítače ve skupině dostupnosti, abyste zajistili, že selhání uzlu nevezmou aplikaci. Stejná aplikace by se musela nasadit do sekundárního umístění ve stejné konfiguraci. Aby byla aplikace aktivní/aktivní, můžete k přímému nasměrování požadavků na všechny dostupné instance použít nástroj pro vyrovnávání zatížení nebo DNS.
 
 ### <a name="no-recovery"></a>Bez obnovení
 
@@ -95,13 +95,13 @@ Důležité informace pro nasazení centra Azure Stack:
 
 |     | Doporučení | Komentáře |
 |-------------------------------------------------------------------------------------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Zálohování nebo obnovení virtuálních počítačů do externího cíle zálohování, který je už ve vašem datovém centru nasazený | Doporučené | Využijte výhod stávající infrastruktury zálohování a provozních dovedností. Nezapomeňte změnit velikost infrastruktury zálohování, aby byla připravená chránit další instance virtuálních počítačů. Ujistěte se, že infrastruktura zálohování není v těsné blízkosti vašeho zdroje. Virtuální počítače můžete obnovit do zdrojového Azure Stackového centra, do sekundární instance centra Azure Stack nebo do Azure. |
-| Zálohování nebo obnovení virtuálních počítačů do externího cíle zálohování vyhrazeného pro Azure Stack hub | Doporučené | Můžete zakoupit novou infrastrukturu zálohování nebo zřídit vyhrazenou infrastrukturu zálohování pro centrum Azure Stack. Ujistěte se, že infrastruktura zálohování není v těsné blízkosti vašeho zdroje. Virtuální počítače můžete obnovit do zdrojového Azure Stackového centra, do sekundární instance centra Azure Stack nebo do Azure. |
-| Zálohování a obnovení virtuálních počítačů přímo do globálního Azure nebo do poskytovatele důvěryhodné služby | Doporučené | Pokud budete vyhovovat vašim požadavkům na ochranu osobních údajů a zákonné požadavky, můžete zálohy ukládat v globálním Azure nebo v případě poskytovatele důvěryhodné služby. V ideálním případě poskytovatel služeb také používá Azure Stack hub, abyste při obnovení mohli zajistit konzistenci v provozním prostředí. |
-| Replikace virtuálních počítačů nebo jejich převzetí služeb při selhání do samostatné instance centra Azure Stack | Doporučené | V případě převzetí služeb při selhání je potřeba mít druhý Cloud centra Azure Stack plně funkční, takže se můžete vyhnout výpadkům rozšířené aplikace. |
-| Replikace a převzetí služeb při selhání virtuálního počítače přímo do Azure nebo do poskytovatele důvěryhodné služby | Doporučené | Pokud můžete splnit požadavky na ochranu osobních údajů a legislativu vašich dat, můžete replikovat data do globálního Azure nebo do poskytovatele důvěryhodné služby. V ideálním případě poskytovatel služeb také používá Azure Stack hub, takže po převzetí služeb při selhání získáte konzistenci v provozním prostředí. |
-| Nasaďte cíl zálohování na stejném Azure Stackovém centru, které taky hostují všechny aplikace chráněné stejným cílem zálohování. | Samostatný cíl: nedoporučuje se </br> Cíl, který replikuje data zálohování externě: doporučeno | Pokud se rozhodnete nasadit zálohovací zařízení do centra Azure Stack (pro účely optimalizace provozu obnovení), musíte zajistit, aby se všechna data průběžně zkopírovala do externího umístění zálohy. |
-| Nasazení fyzického zálohovacího zařízení do stejného racku, kde je nainstalované řešení centra Azure Stack | Nepodporuje se | V současné době nemůžete připojit žádná další zařízení k hornímu počtu přepínačů stojanu, které nejsou součástí původního řešení. |
+|**Zálohování nebo obnovení virtuálních počítačů do externího cíle zálohování, který je už ve vašem datovém centru nasazený**| Doporučeno | Využijte výhod stávající infrastruktury zálohování a provozních dovedností. Nezapomeňte změnit velikost infrastruktury zálohování, aby byla připravená chránit další instance virtuálních počítačů. Ujistěte se, že infrastruktura zálohování není v těsné blízkosti vašeho zdroje. Virtuální počítače můžete obnovit do zdrojového Azure Stackového centra, do sekundární instance centra Azure Stack nebo do Azure. |
+|**Zálohování nebo obnovení virtuálních počítačů do externího cíle zálohování vyhrazeného pro Azure Stack hub**| Doporučeno | Můžete zakoupit novou infrastrukturu zálohování nebo zřídit vyhrazenou infrastrukturu zálohování pro centrum Azure Stack. Ujistěte se, že infrastruktura zálohování není v těsné blízkosti vašeho zdroje. Virtuální počítače můžete obnovit do zdrojového Azure Stackového centra, do sekundární instance centra Azure Stack nebo do Azure. |
+|**Zálohování a obnovení virtuálních počítačů přímo do globálního Azure nebo do poskytovatele důvěryhodné služby**| Doporučeno | Pokud budete vyhovovat vašim požadavkům na ochranu osobních údajů a zákonné požadavky, můžete zálohy ukládat v globálním Azure nebo v případě poskytovatele důvěryhodné služby. V ideálním případě poskytovatel služeb také používá Azure Stack hub, abyste při obnovení mohli zajistit konzistenci v provozním prostředí. |
+|**Replikace virtuálních počítačů nebo jejich převzetí služeb při selhání do samostatné instance centra Azure Stack**| Doporučeno | V případě převzetí služeb při selhání je potřeba mít druhý Cloud centra Azure Stack plně funkční, takže se můžete vyhnout výpadkům rozšířené aplikace. |
+|**Replikace a převzetí služeb při selhání virtuálního počítače přímo do Azure nebo do poskytovatele důvěryhodné služby**| Doporučeno | Pokud můžete splnit požadavky na ochranu osobních údajů a legislativu vašich dat, můžete replikovat data do globálního Azure nebo do poskytovatele důvěryhodné služby. V ideálním případě poskytovatel služeb také používá Azure Stack hub, takže po převzetí služeb při selhání získáte konzistenci v provozním prostředí. |
+|**Nasaďte cíl zálohování na stejném Azure Stackovém centru, které taky hostují všechny aplikace chráněné stejným cílem zálohování.**| Samostatný cíl: nedoporučuje se </br> Cíl, který replikuje data zálohování externě: doporučeno | Pokud se rozhodnete nasadit zálohovací zařízení do centra Azure Stack (pro účely optimalizace provozu obnovení), musíte zajistit, aby se všechna data průběžně zkopírovala do externího umístění zálohy. |
+|**Nasazení fyzického zálohovacího zařízení do stejného racku, kde je nainstalované řešení centra Azure Stack**| Nepodporováno | V současné době nemůžete připojit žádná další zařízení k hornímu počtu přepínačů stojanu, které nejsou součástí původního řešení. |
 
 ## <a name="next-steps"></a>Další kroky
 
@@ -111,11 +111,11 @@ V tomto článku najdete obecné pokyny pro ochranu virtuálních počítačů, 
 - [Důležité informace týkající se provozní kontinuity a zotavení po havárii](https://aka.ms/azurestackbcdrconsiderationswp)
 
 ### <a name="azure-backup-server"></a>Server Azure Backup
- - [Použití Azure Backup k zálohování souborů a aplikací v centru Azure Stack](https://docs.microsoft.com/azure/backup/backup-mabs-files-applications-azure-stack)
- - [Azure Backup Server podpora centra Azure Stack](https://docs.microsoft.com/azure/backup/ ) 
+ - [Použití Azure Backup k zálohování souborů a aplikací v centru Azure Stack](/azure/backup/backup-mabs-files-applications-azure-stack)
+ - [Azure Backup Server podpora centra Azure Stack](/azure/backup/ ) 
  
  ### <a name="azure-site-recovery"></a>Azure Site Recovery
- - [Azure Site Recovery podpora centra Azure Stack](https://docs.microsoft.com/azure/site-recovery/)  
+ - [Azure Site Recovery podpora centra Azure Stack](/azure/site-recovery/)  
  
  ### <a name="partner-products"></a>Partnerské produkty
  - [Datový list ekosystému partnerského serveru pro integraci Datacenter centra Azure Stack](https://aka.ms/azurestackbcdrpartners)

@@ -1,20 +1,20 @@
 ---
-title: Odolnost proti chybám a efektivita úložiště v Azure Stack HCI
+title: Odolnost proti chybám a efektivita úložiště – Azure Stack HCI
 description: Diskuze o možnostech odolnosti v Prostory úložiště s přímým přístupem včetně zrcadlení a parity.
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
-ms.date: 02/28/2020
-ms.openlocfilehash: 9ace3960b4c54461a4153c4997694e6d17ee4fd1
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.topic: conceptual
+ms.date: 07/21/2020
+ms.openlocfilehash: 140427df807c1fbe048615a6642a888d0516475c
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79025697"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572242"
 ---
 # <a name="fault-tolerance-and-storage-efficiency-in-azure-stack-hci"></a>Odolnost proti chybám a efektivita úložiště v Azure Stack HCI
 
->Platí pro: Windows Server 2019
+> Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019
 
 Toto téma představuje možnosti odolnosti dostupné v Prostory úložiště s přímým přístupem a popisuje požadavky na škálování, efektivitu úložiště a obecné výhody a kompromisy každého z nich. Nabízí také některé pokyny k používání, které vám pomůžou začít, a odkazuje na některé skvělé dokumenty, blogy a další obsah, kde se můžete dozvědět víc.
 
@@ -28,7 +28,7 @@ Stejně jako u RAID existuje několik různých způsobů, jak si prostory úlo�
 
 ## <a name="mirroring"></a>Zrcadlení
 
-Zrcadlení zajišťuje odolnost proti chybám tím, že udržuje více kopií všech dat. To je velmi podobné jako RAID-1. Způsob, jakým jsou data rozložená a umístěná, jsou netriviální (Další informace najdete v [tomto blogovém příspěvku](https://blogs.technet.microsoft.com/filecab/2016/11/21/deep-dive-pool-in-spaces-direct/) ), ale v plném rozsahu platí, že všechna data uložená pomocí zrcadlení se zapisují v celých případech několikrát. Každá kopie je zapsána na jiný fyzický hardware (různé jednotky na různých serverech), u kterých se předpokládá nezávisle na selhání.
+Zrcadlení zajišťuje odolnost proti chybám tím, že udržuje více kopií všech dat. To je velmi podobné jako RAID-1. Způsob, jakým jsou data rozložená a umístěná, jsou netriviální (Další informace najdete v [tomto blogovém příspěvku](https://techcommunity.microsoft.com/t5/storage-at-microsoft/deep-dive-the-storage-pool-in-storage-spaces-direct/ba-p/425959) ), ale v plném rozsahu platí, že všechna data uložená pomocí zrcadlení se zapisují v celých případech několikrát. Každá kopie je zapsána na jiný fyzický hardware (různé jednotky na různých serverech), u kterých se předpokládá nezávisle na selhání.
 
 Prostory úložiště nabízí dva typy zrcadlení – "obousměrný" a "třícestný".
 
@@ -84,11 +84,11 @@ S pevnými disky (HDD) je velikost skupiny čtyři symboly; u jednotek SSD (Soli
 
 ![místní rekonstrukce-kódy](media/fault-tolerance/local-reconstruction-codes-180px.png)
 
-Doporučujeme, abyste tento Názorný postup eminentlyi, a to díky tomu, [jak místní kódy rekonstrukce zpracovávají různé scénáře selhání a proč jsou z důvodu jejich odvolání](https://blogs.technet.microsoft.com/filecab/2016/09/06/volume-resiliency-and-efficiency-in-storage-spaces-direct/)na naší hodně [Claus Joergensen](https://twitter.com/clausjor).
+Doporučujeme, abyste tento Názorný postup eminentlyi, a to díky tomu, [jak místní kódy rekonstrukce zpracovávají různé scénáře selhání a proč jsou z důvodu jejich odvolání](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB)na naší hodně [Claus Joergensen](https://twitter.com/clausjor).
 
 ## <a name="mirror-accelerated-parity"></a>Zrcadlení – urychlené parity
 
-Prostory úložiště s přímým přístupem svazek může být součástí zrcadlení a parity částí. Zapisuje první pozemky do zrcadlené části a postupně se přesunou do paritní části později. To efektivně [používá zrcadlení ke zrychlení mazání kódu](https://blogs.technet.microsoft.com/filecab/2016/09/06/volume-resiliency-and-efficiency-in-storage-spaces-direct/).
+Prostory úložiště s přímým přístupem svazek může být součástí zrcadlení a parity částí. Zapisuje první pozemky do zrcadlené části a postupně se přesunou do paritní části později. To efektivně [používá zrcadlení ke zrychlení mazání kódu](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB).
 
 Ke smíchání trojrozměrného zrcadlení a duální parity potřebujete alespoň čtyři domény selhání, což znamená čtyři servery.
 
@@ -97,7 +97,7 @@ Efektivita úložiště parity podporující zrcadlení je mezi tím, co byste s
 > [!IMPORTANT]
 > Pro většinu úloh citlivých na výkon doporučujeme použití zrcadlení. Další informace o tom, jak vyrovnávat výkon a kapacitu v závislosti na vašich úlohách, najdete v tématu [plánování svazků](/windows-server/storage/storage-spaces/plan-volumes#choosing-the-resiliency-type).
 
-## <a name="summary"></a><a name="summary"></a>Souhrn
+## <a name="summary"></a><a name="summary"></a>Shrnutí
 
 Tato část shrnuje typy odolnosti dostupné v Prostory úložiště s přímým přístupem, minimální požadavky na škálování pro použití každého typu, počet chyb, které každý typ může tolerovat, a odpovídající efektivitu úložiště.
 
@@ -126,7 +126,7 @@ Tato část shrnuje typy odolnosti dostupné v Prostory úložiště s přímým
 
 Tato tabulka ukazuje efektivitu úložiště pro duální paritu a kódy místní rekonstrukce v každé škále pro hybridní nasazení, které obsahují jak jednotky pevného disku (HDD), tak jednotky SSD (Solid-State Drive).
 
-|    Domény selhání      |    Rozložení           |    Efektivita   |
+|    Domény selhání      |    Layout           |    Efektivita   |
 |-----------------------|---------------------|-----------------|
 |    2                  |    –                |    –            |
 |    3                  |    –                |    –            |
@@ -148,7 +148,7 @@ Tato tabulka ukazuje efektivitu úložiště pro duální paritu a kódy místn�
 
 Tato tabulka ukazuje efektivitu úložiště pro duální paritu a kódy místní rekonstrukce v každé škále pro všechna nasazení v rámci technologie Flash, která obsahují pouze jednotky SSD (Solid-State Drive). Rozložení parity může používat větší velikosti skupin a dosáhnout lepší efektivity úložiště v konfiguraci all-Flash.
 
-|    Domény selhání      |    Rozložení           |    Efektivita   |
+|    Domény selhání      |    Layout           |    Efektivita   |
 |-----------------------|---------------------|-----------------|
 |    2                  |    –                |    –            |
 |    3                  |    –                |    –            |
@@ -174,18 +174,18 @@ Pokud nemáte pouze dva servery, doporučujeme používat trojrozměrné zrcadle
 
 Tyto šest příkladů znázorňují, jaké tři možnosti zrcadlení a/nebo duální parity **můžou** tolerovat.
 
-- **1.** jedna jednotka se ztratila (zahrnuje jednotky mezipaměti).
-- **2.** jeden server se ztratil.
+- **1.**    jedna jednotka se ztratila (zahrnuje jednotky mezipaměti).
+- **2.**    jeden server se ztratil.
 
 ![odolnost proti chybám – příklady-1-a-2](media/fault-tolerance/Fault-Tolerance-Example-12.png)
 
-- **3.** jeden server a jedna jednotka se ztratily
-- **4.** dvě jednotky se ztratily na různých serverech.
+- **3.**    jeden server a jedna jednotka se ztratily
+- **4.**    dvě jednotky se ztratily na různých serverech.
 
 ![odolnost proti chybám – příklady – 3 a-4](media/fault-tolerance/Fault-Tolerance-Example-34.png)
 
-- **5.** bylo ztraceno více než dvou jednotek, pokud jsou ovlivněny maximálně dva servery.
-- **6.** dva servery se ztratily.
+- **5.**    bylo ztraceno více než dvou jednotek, pokud jsou ovlivněny maximálně dva servery.
+- **6.**    dva servery se ztratily.
 
 ![odolnost proti chybám – příklady-5-a-6](media/fault-tolerance/Fault-Tolerance-Example-56.png)
 
@@ -202,14 +202,14 @@ V průběhu své životnosti můžou prostory úložiště tolerovat libovolný 
 
 ## <a name="usage"></a>Využití
 
-Podívejte [se na vytváření svazků v prostory úložiště s přímým přístupem](/windows-server/storage/storage-spaces/create-volumes).
+Podívejte se na [vytváření svazků](../manage/create-volumes.md).
 
 ## <a name="next-steps"></a>Další kroky
 
 Další informace o tématech uvedených v tomto článku najdete v následujících tématech:
 
 - [Mazání kódu v Azure pomocí Microsoft Research](https://www.microsoft.com/research/publication/erasure-coding-in-windows-azure-storage/)
-- [Místní kódy rekonstrukce a urychlení paritních svazků](https://blogs.technet.microsoft.com/filecab/2016/09/06/volume-resiliency-and-efficiency-in-storage-spaces-direct/)
-- [Svazky v rozhraní API pro správu úložiště](https://blogs.technet.microsoft.com/filecab/2016/08/29/deep-dive-volumes-in-spaces-direct/)
+- [Místní kódy rekonstrukce a urychlení paritních svazků](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB)
+- [Svazky v rozhraní API pro správu úložiště](https://techcommunity.microsoft.com/t5/storage-at-microsoft/bg-p/FileCAB)
 - [Ukázka efektivity úložiště na webu Microsoft Ignite 2016](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=36m55s)
 - [VERZE kalkulačky pro Prostory úložiště s přímým přístupem](https://aka.ms/s2dcalc)

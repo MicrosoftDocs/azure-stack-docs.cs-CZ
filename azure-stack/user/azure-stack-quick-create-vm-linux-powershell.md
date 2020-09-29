@@ -1,17 +1,17 @@
 ---
-title: Vytvoření virtuálního počítače se systémem Linux pomocí prostředí PowerShell v Azure Stackovém centru
+title: Vytvoření virtuálního počítače se systémem Linux pomocí prostředí PowerShell v centru Azure Stack
 description: Vytvořte virtuální počítač se systémem Linux pomocí prostředí PowerShell v centru Azure Stack.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 2b66bee551c9f562b10fe0690e0387217b6d67ea
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: af4cad0c4078fb117c6067300b14a2feb8f86729
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660498"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573917"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack-hub"></a>Rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí prostředí PowerShell v centru Azure Stack
 
@@ -393,7 +393,7 @@ apt-get -y install nginx
 
 ## <a name="view-the-nginx-welcome-page"></a>Zobrazení úvodní stránky serveru NGINX
 
-S nainstalovaným webovým serverem NGINX a na vašem VIRTUÁLNÍm počítači se otevře port 80. k webovému serveru se můžete dostat pomocí veřejné IP adresy virtuálního počítače. Otevřete webový prohlížeč a pokračujte na ```http://<public IP address>```.
+S nainstalovaným webovým serverem NGINX a na vašem VIRTUÁLNÍm počítači se otevře port 80. k webovému serveru se můžete dostat pomocí veřejné IP adresy virtuálního počítače. Otevřete webový prohlížeč a pokračujte na ```http://<public IP address>``` .
 
 ![Úvodní stránka webového serveru NGINX](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 

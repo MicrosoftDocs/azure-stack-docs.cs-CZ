@@ -3,22 +3,22 @@ title: Spuštění N-vrstvé aplikace v několika oblastech centra Azure Stack p
 description: Naučte se spouštět N-vrstvou aplikaci v několika oblastech centra Azure Stack pro zajištění vysoké dostupnosti.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 7667039bc64fe45f912cb855d5cb832b7fe5d28f
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 0b379e776c64daf1f5d66bf8d1c24216523a889c
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81659892"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572371"
 ---
 # <a name="run-an-n-tier-application-in-multiple-azure-stack-hub-regions-for-high-availability"></a>Spuštění N-vrstvé aplikace v několika oblastech centra Azure Stack pro zajištění vysoké dostupnosti
 
 Tato referenční architektura ukazuje sadu osvědčených postupů pro spuštění v N-vrstvé aplikaci s více Azure Stackmi oblastmi centra, aby bylo možné dosáhnout dostupnosti a robustní infrastruktury pro zotavení po havárii. V tomto dokumentu se Traffic Manager používá k dosažení vysoké dostupnosti, ale pokud Traffic Manager není upřednostňovanou volbou ve vašem prostředí, můžete v systému nahradit pár vysoce dostupných nástrojů pro vyrovnávání zatížení.
 
-> [!Note]  
+> [!NOTE]  
 > Nezapomeňte prosím, že Traffic Manager používané v níže uvedené architektuře je potřeba nakonfigurovat v Azure a koncové body, které se používají ke konfiguraci Traffic Manager profilu, musí být veřejně směrovatelné IP adresy.
 
 ## <a name="architecture"></a>Architektura
@@ -29,15 +29,15 @@ Tato architektura sestaví na takovém obrázku, který je zobrazený v [N-vrstv
 
 -   **Primární a sekundární oblasti**. Abyste dosáhli vysoké dostupnosti, použijte dvě oblasti. Jedna bude primární oblastí. Druhá oblast bude sloužit k převzetí služeb při selhání.
 
--   **Azure Traffic Manager**. [Traffic Manager](https://azure.microsoft.com/services/traffic-manager) směruje příchozí žádosti do jedné z oblastí. V normálním provozu směruje žádosti do primární oblasti. Pokud se tato oblast stane nedostupnou, Traffic Manager zajistí převzetí služby při selhání sekundární oblastí. Další informace najdete v části [konfigurace Traffic Manageru](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server#traffic-manager-configuration).
+-   **Traffic Manager Azure**. [Traffic Manager](https://azure.microsoft.com/services/traffic-manager) směruje příchozí žádosti do jedné z oblastí. V normálním provozu směruje žádosti do primární oblasti. Pokud se tato oblast stane nedostupnou, Traffic Manager zajistí převzetí služby při selhání sekundární oblastí. Další informace najdete v části [konfigurace Traffic Manageru](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server#traffic-manager-configuration).
 
--   **Skupiny prostředků**. Vytvořte samostatné [skupiny prostředků](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) pro primární oblast, Sekundární oblast. Díky tomu získáte flexibilitu spravovat každou oblast jako jedinou kolekci prostředků. Můžete například znovu nasadit jednu oblast, aniž byste museli zastavovat tu druhou. [Skupiny prostředků propojte](https://docs.microsoft.com/azure/resource-group-link-resources), abyste mohli spustit dotaz, který vypíše všechny prostředky pro danou aplikaci.
+-   **Skupiny prostředků**. Vytvořte samostatné [skupiny prostředků](/azure/azure-resource-manager/resource-group-overview) pro primární oblast, Sekundární oblast. Díky tomu získáte flexibilitu spravovat každou oblast jako jedinou kolekci prostředků. Můžete například znovu nasadit jednu oblast, aniž byste museli zastavovat tu druhou. [Skupiny prostředků propojte](/azure/resource-group-link-resources), abyste mohli spustit dotaz, který vypíše všechny prostředky pro danou aplikaci.
 
 -   **Virtuální sítě**. Vytvořte samostatnou virtuální síť pro každou oblast. Ujistěte se, že se adresní prostory nepřekrývají.
 
--   **Skupina dostupnosti Always On SQL Server**. Pokud používáte SQL Server, doporučujeme vám pro vysokou dostupnost použít [skupiny dostupnosti AlwaysOn pro SQL Server](https://msdn.microsoft.com/library/hh510230.aspx). Vytvořte jednu skupinu dostupnosti, která obsahuje instance SQL Serveru v obou oblastech.
+-   **Skupina dostupnosti Always On SQL Server**. Pokud používáte SQL Server, doporučujeme vám pro vysokou dostupnost použít [skupiny dostupnosti AlwaysOn pro SQL Server](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15). Vytvořte jednu skupinu dostupnosti, která obsahuje instance SQL Serveru v obou oblastech.
 
--   **Připojení VPN k virtuální síti**VNET. Protože VNET Peering ještě není v centru Azure Stack k dispozici, použijte připojení VPN VNET to VNET, aby se tyto dva virtuální sítěy připojily. Další informace najdete [v tématu virtuální síť a virtuální síť v centru Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-network-howto-vnet-to-vnet?view=azs-1908) .
+-   **Připojení VPN k virtuální síti**VNET. Protože VNET Peering ještě není v centru Azure Stack k dispozici, použijte připojení VPN VNET to VNET, aby se tyto dva virtuální sítěy připojily. Další informace najdete [v tématu virtuální síť a virtuální síť v centru Azure Stack](./azure-stack-network-howto-vnet-to-vnet.md?view=azs-1908) .
 
 ## <a name="recommendations"></a>Doporučení
 
@@ -57,9 +57,9 @@ Tato referenční architektura se zaměřuje na aktivní/pasivní vysokou dostup
 
 Při konfiguraci Traffic Manageru zvažte následující body:
 
--   **Směrování** Traffic Manager podporuje několik [algoritmů směrování](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods). U scénáře popsaném v tomto článku použijte *prioritní* směrování (dříve nazývané směrování s *převzetím služeb při selhání*). S tímto nastavením odešle Traffic Manager všechny žádosti do primární oblasti (pokud se nestane nedostupnou). Od tohoto okamžiku služby při selhání automaticky převezme sekundární oblast. Viz [Konfigurace metody směrování s převzetím služeb při selhání](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-failover-routing-method).
+-   **Směrování** Traffic Manager podporuje několik [algoritmů směrování](/azure/traffic-manager/traffic-manager-routing-methods). U scénáře popsaném v tomto článku použijte *prioritní* směrování (dříve nazývané směrování s *převzetím služeb při selhání*). S tímto nastavením odešle Traffic Manager všechny žádosti do primární oblasti (pokud se nestane nedostupnou). Od tohoto okamžiku služby při selhání automaticky převezme sekundární oblast. Viz [Konfigurace metody směrování s převzetím služeb při selhání](/azure/traffic-manager/traffic-manager-configure-failover-routing-method).
 
--   **Sonda stavu**. Traffic Manager používá ke sledování dostupnosti každé oblasti [sondu](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring) protokolu HTTP (nebo HTTPS). Tato sonda kontroluje odpověď HTTP 200 pro zadanou cestu adresy URL. Osvědčeným postupem je vytvořit koncový bod, který bude hlásit celkový stav aplikace, a použít tento koncový bod pro sondu stavu. Jinak by sonda mohla ohlásit funkční koncový bod, přestože by důležité části aplikace ve skutečnosti selhávaly. Další informace najdete v tématu [model monitorování stavu koncových bodů](https://docs.microsoft.com/azure/architecture/patterns/health-endpoint-monitoring).
+-   **Sonda stavu**. Traffic Manager používá ke sledování dostupnosti každé oblasti [sondu](/azure/traffic-manager/traffic-manager-monitoring) protokolu HTTP (nebo HTTPS). Tato sonda kontroluje odpověď HTTP 200 pro zadanou cestu adresy URL. Osvědčeným postupem je vytvořit koncový bod, který bude hlásit celkový stav aplikace, a použít tento koncový bod pro sondu stavu. Jinak by sonda mohla ohlásit funkční koncový bod, přestože by důležité části aplikace ve skutečnosti selhávaly. Další informace najdete v tématu [model monitorování stavu koncových bodů](/azure/architecture/patterns/health-endpoint-monitoring).
 
 Když Traffic Manager převezme služby při selhání, nastane časový úsek, ve kterém se klienti nebudou moct k aplikaci připojit. Dobu trvání ovlivňují následující faktory:
 
@@ -67,13 +67,13 @@ Když Traffic Manager převezme služby při selhání, nastane časový úsek, 
 
 -   Servery DNS musí aktualizovat záznamy DNS v mezipaměti pro danou IP adresu, která je závislá na DNS hodnotě TTL (Time to Live). Výchozí hodnotou TTL je 300 sekund (5 minut), ale tuto hodnotu můžete při vytváření profilu Traffic Manageru upravit.
 
-Podrobnosti najdete v tématu [o monitorování Traffic Manageru](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-monitoring).
+Podrobnosti najdete v tématu [o monitorování Traffic Manageru](/azure/traffic-manager/traffic-manager-monitoring).
 
 Pokud Traffic Manager převezme služby při selhání, raději než provést navrácení služeb po obnovení automaticky, ho doporučujeme udělat ručně. Jinak může nastat situace, kdy aplikace přebíhá mezi různými oblastmi. Před navrácením služeb po obnovení si ověřte, že všechny subsystémy aplikace jsou v pořádku.
 
 Nezapomeňte, že Traffic Manager ve výchozím nastavení provádí navrácení služeb po obnovení automaticky. Pokud tomu chcete zabránit, snižte po převzetí služeb při selhání ručně prioritu primární oblasti. Předpokládejme například, že priorita primární oblasti je 1 a priorita sekundární oblasti je 2. Po převzetí služeb při selhání nastavte prioritu primární oblasti na 3, abyste automatickému navrácení služeb po obnovení předešli. Až budete připraveni na přepínání, aktualizujte prioritu na 1.
 
-Následující příkaz [Azure CLI](https://docs.microsoft.com/cli/azure/) tuto prioritu aktualizuje:
+Následující příkaz [Azure CLI](/cli/azure/) tuto prioritu aktualizuje:
 
 ```cli  
 az network traffic-manager endpoint update --resource-group <resource-group> --profile-name <profile>
@@ -105,15 +105,15 @@ Postup konfigurace skupiny dostupnosti:
 
 -   Přiřaďte každému řadiči domény statickou IP adresu.
 
--   Vytvořte [síť VPN](https://docs.microsoft.com/azure-stack/user/azure-stack-vpn-gateway-about-vpn-gateways) pro povolení komunikace mezi dvěma virtuálními sítěmi.
+-   Vytvořte [síť VPN](./azure-stack-vpn-gateway-about-vpn-gateways.md) pro povolení komunikace mezi dvěma virtuálními sítěmi.
 
--   Pro každou virtuální síť přidejte IP adresy řadičů domény (z obou oblastí) do seznamu serverů DNS. Můžete k tomu použít následující příkaz rozhraní příkazového řádku. Další informace najdete v tématu [Změna serverů DNS](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#change-dns-servers).
+-   Pro každou virtuální síť přidejte IP adresy řadičů domény (z obou oblastí) do seznamu serverů DNS. Můžete k tomu použít následující příkaz rozhraní příkazového řádku. Další informace najdete v tématu [Změna serverů DNS](/azure/virtual-network/manage-virtual-network#change-dns-servers).
 
     ```cli
     az network vnet update --resource-group <resource-group> --name <vnet-name> --dns-servers "10.0.0.4,10.0.0.6,172.16.0.4,172.16.0.6"
     ```
 
--   Vytvořte [clustering převzetí služeb při selhání ve Windows Serveru](https://msdn.microsoft.com/library/hh270278.aspx), který obsahuje instance SQL Serveru v obou oblastech.
+-   Vytvořte [clustering převzetí služeb při selhání ve Windows Serveru](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-ver15), který obsahuje instance SQL Serveru v obou oblastech.
 
 -   Vytvořte skupinu dostupnosti AlwaysOn pro SQL Server, která obsahuje instance SQL Serveru jak v primárních, tak i v sekundárních oblastech. Postup najdete v tématu o [rozšíření skupiny dostupnosti AlwaysOn na vzdálené datacentrum Azure (PowerShell)](https://techcommunity.microsoft.com/t5/DataCAT/Extending-AlwaysOn-Availability-Group-to-Remote-Azure-Datacenter/ba-p/305217).
 
@@ -123,7 +123,7 @@ Postup konfigurace skupiny dostupnosti:
 
     -   Jednu nebo více sekundárních replik dejte do sekundární oblasti. Nakonfigurujte je, aby z důvodu zachování výkonu používaly *asynchronní* potvrzování. (Jinak všechny transakce T-SQL musí čekat na dobu odezvy ze sítě do sekundární oblasti.)
 
-> [!Note]  
+> [!NOTE]  
 > Repliky asynchronního potvrzování nepodporují automatické převzetí služeb při selhání.
 
 ## <a name="availability-considerations"></a>Aspekty dostupnosti
@@ -134,10 +134,10 @@ Traffic Manager je možným bodem selhání v systému. Pokud služba Traffic Ma
 
 U clusteru SQL Serveru musíte zvážit dva scénáře převzetí služeb při selhání:
 
--   Všechny repliky databáze SQL Serveru v primární oblasti selžou. K tomu může dojít například během oblastního výpadku. V takovém případě musíte služby při selhání skupiny dostupnosti převzít ručně, přestože Traffic Manager služby při selhání převezme na front-endu automaticky. Postupujte podle pokynů v tématu o [provedení vynuceného ručního převzetí služeb při selhání skupiny dostupnosti SQL Serveru](https://msdn.microsoft.com/library/ff877957.aspx), které popisuje, jak provést vynucené převzetí služeb při selhání použitím aplikací SQL Server Management Studio, Transact-SQL nebo prostředí PowerShell v SQL Serveru 2016.
+-   Všechny repliky databáze SQL Serveru v primární oblasti selžou. K tomu může dojít například během oblastního výpadku. V takovém případě musíte služby při selhání skupiny dostupnosti převzít ručně, přestože Traffic Manager služby při selhání převezme na front-endu automaticky. Postupujte podle pokynů v tématu o [provedení vynuceného ručního převzetí služeb při selhání skupiny dostupnosti SQL Serveru](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15), které popisuje, jak provést vynucené převzetí služeb při selhání použitím aplikací SQL Server Management Studio, Transact-SQL nebo prostředí PowerShell v SQL Serveru 2016.
 
     > [!Warning]  
-    > Při použití vynuceného převzetí služeb při selhání existuje riziko ztráty dat. Jakmile se primární oblast vrátí do režimu online, pořiďte snímek databáze a použijte nástroj [tablediff](https://msdn.microsoft.com/library/ms162843.aspx), abyste našli rozdíly.
+    > Při použití vynuceného převzetí služeb při selhání existuje riziko ztráty dat. Jakmile se primární oblast vrátí do režimu online, pořiďte snímek databáze a použijte nástroj [tablediff](/sql/tools/tablediff-utility?view=sql-server-ver15), abyste našli rozdíly.
 
 -   Traffic Manager převezme služby při selhání sekundární oblastí, ale primární replika databáze SQL Serveru bude stále k dispozici. Front-endová vrstva může například selhat, aniž by ovlivnila virtuální počítače SQL Serveru. V takovém případě je internetový provoz směrován do sekundární oblasti a ta se stále může připojit k primární replice. Zvýší se však latence, protože připojení SQL Serveru cestují napříč oblastmi. V takovém případě byste měli následujícím způsobem provést ruční převzetí služeb při selhání:
 
@@ -171,4 +171,4 @@ Změřte dobu zotavení a ověřte, zda splňuje vaše obchodní požadavky. Ote
 
 ## <a name="next-steps"></a>Další kroky
 
-- Další informace o vzorech cloudu Azure najdete v tématu [vzory návrhu cloudu](https://docs.microsoft.com/azure/architecture/patterns).
+- Další informace o vzorech cloudu Azure najdete v tématu [vzory návrhu cloudu](/azure/architecture/patterns).

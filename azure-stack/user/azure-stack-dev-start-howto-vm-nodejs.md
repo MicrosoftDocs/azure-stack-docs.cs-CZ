@@ -1,22 +1,22 @@
 ---
-title: Nasazení aplikace Node. js na virtuální počítač v Azure Stackovém centru
-description: Nasaďte aplikaci Node. js do centra Azure Stack.
+title: Nasazení aplikace Node.js do virtuálního počítače v centru Azure Stack
+description: Nasaďte aplikaci Node.js do centra Azure Stack.
 author: mattbriggs
 ms.topic: overview
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/20
-ms.openlocfilehash: d264f48864591a7205bf3a116e14c590e5083262
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 72bd63e7f7c007a7c39c6150d0e2feac29b5d91d
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146661"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573985"
 ---
-# <a name="deploy-a-nodejs-web-app-to-a-vm-in-azure-stack-hub"></a>Nasazení webové aplikace v Node. js do virtuálního počítače v Azure Stackovém centru
+# <a name="deploy-a-nodejs-web-app-to-a-vm-in-azure-stack-hub"></a>Nasazení webové aplikace Node.js do virtuálního počítače v centru Azure Stack
 
-Můžete vytvořit virtuální počítač, který bude hostovat webovou aplikaci Node. js v centru Azure Stack. V tomto článku jste nastavili server, nakonfigurujete server tak, aby byl hostitelem webové aplikace Node. js, a pak nasadíte aplikaci do centra Azure Stack.
+Můžete vytvořit virtuální počítač, který bude hostovat Node.js webové aplikace v centru Azure Stack. V tomto článku jste nastavili server, nakonfigurujete server pro hostování vaší Node.js webové aplikace a pak nasadíte aplikaci do centra Azure Stack.
 
 ## <a name="create-a-vm"></a>Vytvoření virtuálního počítače
 
@@ -24,13 +24,13 @@ Můžete vytvořit virtuální počítač, který bude hostovat webovou aplikaci
 
 2. V podokně síť virtuálních počítačů se ujistěte, že jsou dostupné tyto porty:
 
-    | Port | Protocol (Protokol) | Popis |
+    | Port | Protokol | Popis |
     | --- | --- | --- |
     | 80 | HTTP | HTTP (Hypertext Transfer Protocol) je protokol, který se používá k doručování webových stránek ze serverů. Klienti se připojují přes protokol HTTP s názvem DNS nebo IP adresou. |
     | 443 | HTTPS | Protokol HTTPS (Hypertext Transfer Protocol Secure) je zabezpečená verze protokolu HTTP, která vyžaduje certifikát zabezpečení a umožňuje šifrovaný přenos informací. |
     | 22 | SSH | Secure Shell (SSH) je zašifrovaný síťový protokol pro zabezpečenou komunikaci. Pomocí tohoto připojení s klientem SSH nakonfigurujete virtuální počítač a nasadíte aplikaci. |
     | 3389 | Protokol RDP | Nepovinný parametr. Protokol RDP (Remote Desktop Protocol) (RDP) umožňuje připojení ke vzdálené ploše pro použití grafického uživatelského rozhraní na vašem počítači.   |
-    | 1337 | Vlastní | Port používaný uzlem Node. js. V případě provozního serveru směrujete provoz mezi 80 a 443. |
+    | 1337 | Vlastní | Port, který používá Node.js. V případě provozního serveru směrujete provoz mezi 80 a 443. |
 
 ## <a name="install-node"></a>Instalovat uzel
 
@@ -42,7 +42,7 @@ Můžete vytvořit virtuální počítač, který bude hostovat webovou aplikaci
       sudo apt install nodejs-legacy
     ```
 
-2. [Nainstalujte npm](https://www.npmjs.com/), správce balíčků pro balíčky Node. js nebo moduly. K VIRTUÁLNÍmu počítači se v relaci SSH pořád připojíte zadáním následujícího příkazu:
+2. [Nainstalujte npm](https://www.npmjs.com/), správce balíčků pro balíčky Node.js nebo moduly. K VIRTUÁLNÍmu počítači se v relaci SSH pořád připojíte zadáním následujícího příkazu:
 
     ```bash  
        node --version

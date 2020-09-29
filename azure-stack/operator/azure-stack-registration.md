@@ -8,13 +8,14 @@ ms.date: 04/06/2020
 ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
+ms.custom: contperfq4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: e21b3a68d17f07006997b70eb1ff3dfa22bad229
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: dab71944ecc46fdaa92f7ca65d3ba5c848b24762
+ms.sourcegitcommit: dbc6739584aa407b26e4ad4921d967b7b608de38
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819556"
+ms.lasthandoff: 09/12/2020
+ms.locfileid: "90038824"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Registrace centra Azure Stack s Azure
 
@@ -98,12 +99,7 @@ Po spuštění registračního skriptu je nutné zadat jedinečný název regist
 > [!NOTE]
 > Registrace centra Azure Stack pomocí fakturačního modelu založeného na kapacitě bude muset změnit jedinečný název při opětovné registraci po vypršení platnosti tohoto ročního předplatného, pokud [neodstraníte registraci s vypršenou platností](#renew-or-change-registration) a znovu zaregistrujete do Azure.
 
-Pokud chcete zjistit ID cloudu pro nasazení centra Azure Stack, otevřete PowerShell jako správce v počítači, který má přístup k privilegovanému koncovému bodu, spusťte následující příkazy a pak zaznamenejte hodnotu **CloudID** :
-
-```powershell
-Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -ConfigurationName PrivilegedEndpoint
-Run: Get-AzureStackStampInformation
-```
+Pokud chcete zjistit ID cloudu pro nasazení centra Azure Stack, přečtěte si téma [Vyhledání ID cloudu](azure-stack-find-cloud-id.md).
 
 ::: zone pivot="state-connected"
 ## <a name="register-with-pay-as-you-use-billing"></a>Registrace pomocí fakturace s průběžnými platbami
@@ -128,7 +124,7 @@ Připojená prostředí mají přístup k Internetu a k Azure. V těchto prostř
    | EnvironmentName | Název prostředí Azure Cloud Subscription. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment**, nebo pokud používáte čínské předplatné Azure **AzureChinaCloud**.  |
 
    >[!Note]
-   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete jednoduše přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí rutiny Add-AzureRmAccount:`Remove-AzureRmAccount-Scope Process`
+   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete jednoduše přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí rutiny Add-AzureRmAccount: `Remove-AzureRmAccount-Scope Process`
 
 3. Máte-li více předplatných, spusťte následující příkaz a vyberte ten, který chcete použít:  
 

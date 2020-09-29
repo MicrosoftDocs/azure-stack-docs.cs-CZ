@@ -1,5 +1,5 @@
 ---
-title: Operace údržby poskytovatele prostředků MySQL v centru Azure Stack
+title: Operace údržby poskytovatele prostředků MySQL – centrum Azure Stack
 description: Naučte se udržovat službu poskytovatele prostředků MySQL v Azure Stack hub.
 author: bryanla
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 219689721c66bcf97bb776874a1b33e84fcfa6d0
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d372015038fa11df75e22ac83b3beec08fe25d98
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77698721"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572659"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Operace údržby poskytovatele prostředků MySQL v centru Azure Stack
 
@@ -35,7 +35,7 @@ Chcete-li aktualizovat definice Defenderu, postupujte takto:
 
     Na stránce definice přejděte dolů na možnost ručně stahovat a instalovat definice. Stáhněte si "Windows Defender AntiVirus for Windows 10 a Windows 8.1" 64-bit File.
 
-    Případně můžete použít [tento přímý odkaz](https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64) ke stažení nebo spuštění souboru fpam-FE. exe.
+    Případně můžete pomocí [tohoto přímého odkazu](https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64) stáhnout nebo spustit soubor fpam-fe.exe.
 
 2. Otevřete relaci PowerShellu pro koncový bod údržby virtuálního počítače adaptéru poskytovatele prostředků MySQL.
 
@@ -92,6 +92,7 @@ Pokud používáte poskytovatele prostředků SQL a MySQL s integrovanými syst�
 - [Při nasazení se zadal](azure-stack-pki-certs.md)externí certifikát SSL.
 - Heslo účtu místního správce virtuálního počítače poskytovatele prostředků zadané během nasazování.
 - Heslo pro uživatele diagnostiky poskytovatele prostředků (dbadapterdiag).
+- (verze >= 1.1.47.0) Key Vault certifikát vygenerovaný během nasazení.
 
 ### <a name="powershell-examples-for-rotating-secrets"></a>Příklady prostředí PowerShell pro rotující tajné klíče
 
@@ -105,8 +106,8 @@ Pokud používáte poskytovatele prostředků SQL a MySQL s integrovanými syst�
     -DiagnosticsUserPassword $passwd `
     -DependencyFilesLocalPath $certPath `
     -DefaultSSLCertificatePassword $certPasswd `  
-    -VMLocalCredential $localCreds
-
+    -VMLocalCredential $localCreds `
+    -KeyVaultPfxPassword $keyvaultCertPasswd
 ```
 
 **Změna hesla diagnostiky uživatele:**
@@ -117,7 +118,6 @@ Pokud používáte poskytovatele prostředků SQL a MySQL s integrovanými syst�
     -CloudAdminCredential $cloudCreds `
     -AzCredential $adminCreds `
     -DiagnosticsUserPassword  $passwd
-
 ```
 
 **Změňte heslo účtu místního správce virtuálního počítače:**
@@ -128,7 +128,6 @@ Pokud používáte poskytovatele prostředků SQL a MySQL s integrovanými syst�
     -CloudAdminCredential $cloudCreds `
     -AzCredential $adminCreds `
     -VMLocalCredential $localCreds
-
 ```
 
 **Změňte heslo certifikátu SSL:**
@@ -140,21 +139,32 @@ Pokud používáte poskytovatele prostředků SQL a MySQL s integrovanými syst�
     -AzCredential $adminCreds `
     -DependencyFilesLocalPath $certPath `
     -DefaultSSLCertificatePassword $certPasswd
-
 ```
 
-### <a name="secretrotationmysqlproviderps1-parameters"></a>SecretRotationMySQLProvider. ps1 – parametry
+**Změňte heslo Key Vault certifikátu:**
 
-|Parametr|Popis|
-|-----|-----|
-|AzCredential|Přihlašovací údaje účtu správce služby Azure Stack hub.|
-|CloudAdminCredential|Přihlašovací údaje účtu domény správce cloudu Azure Stack hub.|
-|PrivilegedEndpoint|Privilegovaný koncový bod pro přístup k Get-AzureStackStampInformation.|
-|DiagnosticsUserPassword|Heslo uživatelského účtu diagnostiky|
-|VMLocalCredential|Účet místního správce na virtuálním počítači s MySQLAdapter.|
-|DefaultSSLCertificatePassword|Výchozí heslo certifikátu SSL (* PFX)|
-|DependencyFilesLocalPath|Místní cesta souborů závislosti|
-|     |     |
+```powershell
+.\SecretRotationSQLProvider.ps1 `
+    -Privilegedendpoint $Privilegedendpoint `
+    -CloudAdminCredential $cloudCreds `
+    -AzCredential $adminCreds `
+    -KeyVaultPfxPassword $keyvaultCertPasswd
+```
+
+### <a name="secretrotationmysqlproviderps1-parameters"></a>Parametry SecretRotationMySQLProvider.ps1
+
+|Parametr|Popis|Komentář|
+|-----|-----|-----|
+|AzureEnvironment|Prostředí Azure účtu správce služby používaného pro nasazení centra Azure Stack. Vyžaduje se jenom pro nasazení Azure AD. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment**nebo, pokud používáte Čína Azure Active Directory **AzureChinaCloud**.|Volitelné|
+|AzCredential|Přihlašovací údaje účtu správce služby Azure Stack hub.|Povinné|
+|CloudAdminCredential|Přihlašovací údaje účtu domény správce cloudu Azure Stack hub.|Povinné|
+|PrivilegedEndpoint|Privilegovaný koncový bod pro přístup k Get-AzureStackStampInformation.|Povinné|Volitelné|
+|DiagnosticsUserPassword|Heslo uživatelského účtu diagnostiky|Volitelné|
+|VMLocalCredential|Účet místního správce na virtuálním počítači s MySQLAdapter.|Volitelné|
+|DefaultSSLCertificatePassword|Výchozí heslo certifikátu SSL (*. pfx)|Volitelné|
+|DependencyFilesLocalPath|Místní cesta souborů závislosti|Volitelné|
+|KeyVaultPfxPassword|Heslo použité k vygenerování certifikátu Key Vault pro databázový adaptér.|Volitelné|
+|     |     |     |
 
 ### <a name="known-issues"></a>Známé problémy
 
@@ -162,9 +172,9 @@ Pokud používáte poskytovatele prostředků SQL a MySQL s integrovanými syst�
 Protokoly pro rotaci tajných klíčů nejsou automaticky shromažďovány, pokud při spuštění dojde k chybě skriptu pro otočení tajného klíče.
 
 **Alternativní řešení:**<br>
-Pomocí rutiny Get-AzsDBAdapterLogs Shromážděte všechny protokoly poskytovatele prostředků, včetně AzureStack. DatabaseAdapter. SecretRotation. ps1_ *. log, uložené v C:\Logs..
+Ke shromáždění všech protokolů poskytovatele prostředků, včetně AzureStack.DatabaseAdapter.SecretRotation.ps1_ *. log, uložených v C:\Logs., použijte rutinu Get-AzsDBAdapterLogs.
 
-## <a name="collect-diagnostic-logs"></a>Shromažďovat diagnostické protokoly
+## <a name="collect-diagnostic-logs"></a>Shromážděte diagnostické protokoly.
 
 Pokud chcete shromažďovat protokoly z uzamčeného virtuálního počítače, použijte PowerShellový koncový bod pro správu JEA (DBAdapterDiagnostics). Tento koncový bod nabízí následující příkazy:
 
@@ -222,7 +232,7 @@ $session | Remove-PSSession
 
 Ve výchozím nastavení je na virtuálním počítači adaptéru poskytovatele prostředků MySQL nainstalováno rozšíření Azure Diagnostics. Následující kroky ukazují, jak přizpůsobit rozšíření pro shromáždění protokolů provozní události poskytovatele prostředků MySQL a protokolů IIS pro účely řešení potíží a auditování.
 
-1. Přihlaste se k portálu pro správu centra Azure Stack.
+1. Přihlaste se k portálu pro správu služby Azure Stack Hub.
 
 2. V levém podokně vyberte **virtuální počítače** , vyhledejte virtuální počítač adaptéru poskytovatele prostředků MySQL a vyberte virtuální počítač.
 
@@ -230,7 +240,7 @@ Ve výchozím nastavení je na virtuálním počítači adaptéru poskytovatele 
    
    ![Přejít na nastavení diagnostiky](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-diagnostics-settings.png)
 
-4. Přidejte **Microsoft-AzureStack-DatabaseAdapter/Operational\* !** pro shromáždění protokolů provozních událostí poskytovatele prostředků MySQL.
+4. Přidejte **Microsoft-AzureStack-DatabaseAdapter/Operational \* !** pro shromáždění protokolů provozních událostí poskytovatele prostředků MySQL.
 
    ![Přidat protokoly událostí](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-event-logs.png)
 

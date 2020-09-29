@@ -1,5 +1,5 @@
 ---
-title: Nahrazení uzlu jednotky škálování v integrovaném systému služby Azure Stack hub
+title: Nahradit uzel jednotky škálování v integrovaném systému Azure Stack hub
 titleSuffix: Azure Stack Hub
 description: Přečtěte si, jak nahradit uzel fyzické jednotky škálování v integrovaném systému Azure Stack hub.
 author: IngridAtMicrosoft
@@ -8,12 +8,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 9d39763397ce39c83a50bb57d97f0b5b8e07de6b
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: a96ee2a4ffb2abb3c3e11db23d4fb676ace8c1c0
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78367984"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572626"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-hub-integrated-system"></a>Nahrazení uzlu jednotky škálování v integrovaném systému služby Azure Stack hub
 
@@ -29,7 +29,7 @@ Následující vývojový diagram znázorňuje proces obecného procesu FRU k na
 * Tato akce se nemusí vyžadovat na základě fyzické podmínky hardwaru.
 
 > [!Note]  
-> Pokud operace vypnutí selže, doporučuje se použít operaci vyprázdnění následovanou operací zastavení. Další informace najdete v tématu [akce uzlu škálování jednotky v centru Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-node-actions).
+> Pokud operace vypnutí selže, doporučuje se použít operaci vyprázdnění následovanou operací zastavení. Další informace najdete v tématu [akce uzlu škálování jednotky v centru Azure Stack](./azure-stack-node-actions.md).
 
 ## <a name="review-alert-information"></a>Kontrola informací o výstrahách
 

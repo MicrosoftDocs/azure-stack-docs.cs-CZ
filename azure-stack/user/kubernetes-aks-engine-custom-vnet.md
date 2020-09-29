@@ -3,35 +3,41 @@ title: Nasazení clusteru Kubernetes do vlastní virtuální sítě v centru Azu
 description: Naučte se, jak nasadit cluster Kubernetes do vlastní virtuální sítě v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 9/2/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: aac2f9a0991bdae7f15d7fc54517a880ab384785
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 9/2/2020
+ms.openlocfilehash: 976f7b84df4084776f8b7f94d8903efdb1c06d6c
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80068945"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574002"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-a-custom-virtual-network-on-azure-stack-hub"></a>Nasazení clusteru Kubernetes do vlastní virtuální sítě v centru Azure Stack 
 
 Cluster Kubernetes můžete nasadit pomocí modulu Azure Kubernetes Service (AKS) ve vlastní virtuální síti. V tomto článku se podíváme na hledání potřebných informací ve vaší virtuální síti. Můžete najít postup pro výpočet IP adres používaných clusterem, nastavení šířky v modelu rozhraní API a nastavení tabulky směrování a skupiny zabezpečení sítě.
 
-Cluster Kubernetes v centru Azure Stack s použitím modulu AKS používá modul plug-in kubenet Network. Diskuzi o sítích modulu plug-in kubenet Network plugin v Azure najdete v tématu [použití sítě kubenet s vlastními rozsahy IP adres ve službě Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/configure-kubenet).
+Cluster Kubernetes v centru Azure Stack s použitím modulu AKS používá modul plug-in kubenet Network. Diskuzi o sítích modulu plug-in kubenet Network plugin v Azure najdete v tématu [použití sítě kubenet s vlastními rozsahy IP adres ve službě Azure Kubernetes Service (AKS)](/azure/aks/configure-kubenet).
+
+## <a name="constraints-when-creating-a-custom-virtual-network"></a>Omezení při vytváření vlastní virtuální sítě
+
+-  Vlastní virtuální síť musí být ve stejném předplatném jako všechny ostatní komponenty clusteru Kubernetes.
+-  Fond hlavních uzlů a fondu uzlů agentů musí být ve stejné virtuální síti. Uzly můžete nasadit do různých podsítí v rámci jedné virtuální sítě.
+-  Podsíť clusteru Kubernetes musí používat rozsah IP adres v prostoru vlastního rozsahu IP adres virtuální sítě. Další informace najdete v tématu [získání bloku IP adres](#get-the-ip-address-block).
 
 ## <a name="create-custom-virtual-network"></a>Vytvoření vlastní virtuální sítě
 
-V instanci centra Azure Stack musíte mít vlastní virtuální síť. Další informace najdete v tématu [rychlý Start: vytvoření virtuální sítě pomocí Azure Portal](https://docs.microsoft.com/azure/virtual-network/quick-create-portal).
+V instanci centra Azure Stack musíte mít vlastní virtuální síť. Další informace najdete v tématu [rychlý Start: vytvoření virtuální sítě pomocí Azure Portal](/azure/virtual-network/quick-create-portal).
 
 Vytvořte ve virtuální síti novou podsíť. Budete potřebovat získat ID prostředku podsítě a rozsah IP adres. Při nasazení clusteru použijete ID a rozsah prostředků v modelu rozhraní API.
 
 1. V instanci centra Azure Stack otevřete portál User Portal Azure Stack hub.
 2. Vyberte **Všechny prostředky**.
 3. Do vyhledávacího pole zadejte název vaší virtuální sítě.
-4. Vyberte **podsítě** > a**podsítě** a přidejte tak podsíť.
+4. Vyberte **podsítě**a  >  **podsítě** a přidejte tak podsíť.
 5. Přidejte **název** a **Rozsah adres** pomocí zápisu CIDR. Vyberte **OK**.
-4. V okně **virtuální sítě** vyberte **vlastnosti** . Zkopírujte **ID prostředku**a pak ho přidejte `/subnets/<nameofyoursubnect>`. Tuto hodnotu použijete jako hodnotu pro `vnetSubnetId` klíč v modelu rozhraní API pro váš cluster. ID prostředku pro podsíť používá následující formát:<br>`/subscriptions/SUB_ID/resourceGroups/RG_NAME/providers/Microsoft.Network/virtualNetworks/VNET_NAME/subnets/SUBNET_NAME`
+4. V okně **virtuální sítě** vyberte **vlastnosti** . Zkopírujte **ID prostředku**a pak ho přidejte `/subnets/<nameofyoursubnect>` . Tuto hodnotu použijete jako hodnotu pro `vnetSubnetId` klíč v modelu rozhraní API pro váš cluster. ID prostředku pro podsíť používá následující formát:<br>`/subscriptions/SUB_ID/resourceGroups/RG_NAME/providers/Microsoft.Network/virtualNetworks/VNET_NAME/subnets/SUBNET_NAME`
 
     ![ID prostředku virtuální sítě](media/kubernetes-aks-engine-custom-vnet/virtual-network-id.png)
 
@@ -39,9 +45,7 @@ Vytvořte ve virtuální síti novou podsíť. Budete potřebovat získat ID pro
     
     ![blok CIDR virtuální sítě](media/kubernetes-aks-engine-custom-vnet/virtual-network-cidr-block.png)
     
-6. V okně podsíť si poznamenejte rozsah adres a blok CIDR virtuální sítě, například: `10.1.0.0 - 10.1.0.255 (256 addresses)` a. `10.1.0.0/24`
-
-
+6. V okně podsíť si poznamenejte rozsah adres a blok CIDR virtuální sítě, například: `10.1.0.0 - 10.1.0.255 (256 addresses)` a `10.1.0.0/24` .
 
 ## <a name="get-the-ip-address-block"></a>Získat blok IP adres
 
@@ -65,10 +69,9 @@ V následujícím příkladu vidíte, jak tyto různé okolnosti doplňují rozs
 | 10.1.0.239 - 10.1.0.255 | 16 | 16 vyrovnávací paměti IP adres. |
 | 10.1.0.256 | 1 | Vyhrazeno v podsíti Azure. |
 
-V tomto příkladu by `firstConsecutiveStaticIP` vlastnost byla. `10.1.0.224`
+V tomto příkladu `firstConsecutiveStaticIP` by vlastnost byla `10.1.0.224` .
 
 U větších podsítí, například/16 s více než 60000 adres, se možná nebudete muset setkat s tím, že by se vaše statické IP adresy nastavily na konec síťového prostoru. Nastavte rozsah statických IP adres clusteru mimo prvních 24 adres v prostoru IP adres, aby cluster mohl být odolný při deklaracích adres.
-
 
 ## <a name="update-the-api-model"></a>Aktualizace modelu rozhraní API
 
@@ -79,13 +82,19 @@ V **profilech masterprofile** nastavte následující hodnoty:
 | Pole | Příklad | Popis |
 | --- | --- | --- |
 | vnetSubnetId | `/subscriptions/77e28b6a-582f-42b0-94d2-93b9eca60845/resourceGroups/MDBN-K8S/providers/Microsoft.Network/virtualNetworks/MDBN-K8S/subnets/default` | Zadejte ID prostředku podsítě.  |
-| firstConsecutiveStaticIP | 10.1.0.224 | Do vlastnosti `firstConsecutiveStaticIP` konfigurace přiřaďte IP adresu na *konci* dostupného adresního prostoru IP adres v požadované podsíti. `firstConsecutiveStaticIP`platí jenom pro hlavní fond. |
+| firstConsecutiveStaticIP | 10.1.0.224 | Do `firstConsecutiveStaticIP` Vlastnosti konfigurace přiřaďte IP adresu na *konci* dostupného adresního prostoru IP adres v požadované podsíti. `firstConsecutiveStaticIP` platí jenom pro hlavní fond. |
 
 V **agentPoolProfiles** nastavte následující hodnoty:
 
 | Pole | Příklad | Popis |
 | --- | --- | --- |
 | vnetSubnetId | `/subscriptions/77e28b6a-582f-42b0-94d2-93b9eca60845/resourceGroups/MDBN-K8S/providers/Microsoft.Network/virtualNetworks/MDBN-K8S/subnets/default` | Zadejte adresu Azure Resource Manager ID podsítě.  |
+
+V **orchestratorProfile**Najděte **kubernetesConfig** a nastavte následující hodnotu:
+
+| Pole | Příklad | Popis |
+| --- | --- | --- |
+| clusterSubnet | `172.16.244.0/24` | Rozsah IP adres podsítě clusteru (POD sítí) musí používat rozsah IP adres v prostoru vlastního definovaného rozsahu IP adres virtuální sítě. |
 
 Příklad:
 
@@ -103,6 +112,13 @@ Příklad:
     "vnetSubnetId": "/subscriptions/77e28b6a-582f-42b0-94d2-93b9eca60845/resourceGroups/MDBN-K8S/providers/Microsoft.Network/virtualNetworks/MDBN-K8S/subnets/default",
     ...
   },
+    ...
+"kubernetesConfig": [
+  {
+    ...
+    "clusterSubnet": "172.16.244.0/24",
+    ...
+  },
 
 ```
 
@@ -110,24 +126,23 @@ Příklad:
 
 Po přidání hodnot do modelu rozhraní API můžete cluster nasadit z klientského počítače pomocí `deploy` příkazu pomocí modulu AKS. Pokyny najdete v tématu [nasazení clusteru Kubernetes](azure-stack-kubernetes-aks-engine-deploy-cluster.md#deploy-a-kubernetes-cluster).
 
-## <a name="set-the-route-table-and-network-security-group"></a>Nastavení tabulky směrování a skupiny zabezpečení sítě
+## <a name="set-the-route-table"></a>Nastavení směrovací tabulky
 
-Po nasazení clusteru se vraťte k virtuální síti na portálu Azure Stack User Portal. V okně podsíť nastavte jak tabulku směrování, tak skupinu zabezpečení sítě (NSG). Pokud nepoužíváte Azure CNI, například `networkPlugin`: `kubenet` v objektu konfigurace modelu `kubernetesConfig` rozhraní API. Po úspěšném nasazení clusteru do vlastní virtuální sítě Získejte ID prostředku směrovací tabulky ze **sítě** v okně skupiny prostředků clusteru.
+Po nasazení clusteru se vraťte k virtuální síti na portálu Azure Stack User Portal. V okně podsíť nastavte jak tabulku směrování, tak skupinu zabezpečení sítě (NSG). Pokud nepoužíváte Azure CNI, například `networkPlugin` : `kubenet` v `kubernetesConfig` objektu konfigurace modelu rozhraní API. Po úspěšném nasazení clusteru do vlastní virtuální sítě Získejte ID prostředku směrovací tabulky ze **sítě** v okně skupiny prostředků clusteru.
 
 1. V instanci centra Azure Stack otevřete portál User Portal Azure Stack hub.
 2. Vyberte **Všechny prostředky**.
 3. Do vyhledávacího pole zadejte název vaší virtuální sítě.
 4. Vyberte **podsítě** a pak vyberte název podsítě, která obsahuje váš cluster.
     
-    ![tabulka směrování a skupina zabezpečení sítě](media/kubernetes-aks-engine-custom-vnet/virtual-network-rt-nsg.png)
+    ![tabulka směrování a skupina zabezpečení sítě](media/kubernetes-aks-engine-custom-vnet/virtual-network-route-table.png)
     
 5. Vyberte **směrovací tabulka** a pak vyberte směrovací tabulku pro svůj cluster.
-6. Vyberte **Skupina zabezpečení sítě** a potom vyberte NSG pro váš cluster.
 
-> [!Note]  
+> [!NOTE]  
 > Vlastní virtuální síť pro cluster Windows Kubernetes má [známý problém](https://github.com/Azure/aks-engine/issues/371).
 
 ## <a name="next-steps"></a>Další kroky
 
 - Přečtěte si o modulu [AKS v centru Azure Stack](azure-stack-kubernetes-aks-engine-overview.md) .  
-- Přehled o [Azure monitor for Containers](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)
+- Přehled o [Azure monitor for Containers](/azure/azure-monitor/insights/container-insights-overview)

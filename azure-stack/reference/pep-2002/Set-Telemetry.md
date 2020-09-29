@@ -1,5 +1,5 @@
 ---
-title: Zavřít-PrivilegedEndpoint privilegovaný koncový bod pro centrum Azure Stack
+title: Sada-telemetrie
 description: Referenční informace pro Azure Stack privilegovaného koncového bodu prostředí PowerShell – Close-PrivilegedEndpoint
 author: mattbriggs
 ms.topic: reference
@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 948d8771be47ca9a594da75d8e4d138ceb6b894c
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: ad20bb8ab278e1cb6f46d4fb245ea31b3e00f61a
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82563441"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742682"
 ---
 # <a name="set-telemetry"></a>Sada-telemetrie
 
@@ -91,4 +91,4 @@ Accept wildcard characters: False
 
 ## <a name="next-steps"></a>Další kroky
 
-Informace o přístupu a používání privilegovaného koncového bodu najdete v tématu [použití privilegovaného koncového bodu v centru Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint).
+Informace o přístupu a používání privilegovaného koncového bodu najdete v tématu [použití privilegovaného koncového bodu v centru Azure Stack](../../operator/azure-stack-privileged-endpoint.md).

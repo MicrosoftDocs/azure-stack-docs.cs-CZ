@@ -1,5 +1,5 @@
 ---
-title: Nasazení aplikace v Ruby do virtuálního počítače v Azure Stackovém centru
+title: Nasazení aplikace Ruby do virtuálního počítače v Azure Stackovém centru
 description: Nasaďte aplikaci Ruby do virtuálního počítače v Azure Stackovém centru.
 author: mattbriggs
 ms.topic: overview
@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 58706a248036d38027208518177a89c69922591a
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 7be8293180f03d9d82565aa27c74c8e8cbe7c9c1
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146831"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573968"
 ---
 # <a name="deploy-a-ruby-web-app-to-a-vm-in-azure-stack-hub"></a>Nasazení webové aplikace v Ruby do virtuálního počítače v Azure Stackovém centru
 
@@ -26,7 +26,7 @@ V tomto článku se používají webové rozhraní Ruby a Ruby na železnici.
 
 2. V podokně síť virtuálních počítačů zkontrolujte, že jsou dostupné tyto porty:
 
-    | Port | Protocol (Protokol) | Popis |
+    | Port | Protokol | Popis |
     | --- | --- | --- |
     | 80 | HTTP | HTTP (Hypertext Transfer Protocol) je protokol, který se používá k doručování webových stránek ze serverů. Klienti se připojují přes protokol HTTP s názvem DNS nebo IP adresou. |
     | 443 | HTTPS | Protokol HTTPS (Hypertext Transfer Protocol Secure) je zabezpečená verze protokolu HTTP, která vyžaduje certifikát zabezpečení a umožňuje šifrovaný přenos informací. |
@@ -65,7 +65,7 @@ V tomto článku se používají webové rozhraní Ruby a Ruby na železnici.
     sudo gem install bundler
     ```
 
-    > [!Note]  
+    > [!NOTE]  
     > Když instalujete závislosti Ruby na železnici, možná se budete muset opakovaně spouštět `sudo gem install bundler` . Pokud se instalace nezdařila, zkontrolujte protokoly chyb a vyřešte problémy.
 
 4. Ověřte instalaci. I když jste stále připojeni k VIRTUÁLNÍmu počítači v relaci SSH, zadejte následující příkaz:

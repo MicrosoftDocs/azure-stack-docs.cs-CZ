@@ -1,5 +1,5 @@
 ---
-title: Jak propojit dvě centra Azure Stack prostřednictvím partnerského vztahu virtuální sítě
+title: Připojení dvou Azure Stackových Center prostřednictvím partnerského vztahu virtuální sítě
 description: Přečtěte si, jak propojit dvě centra Azure Stack prostřednictvím partnerského vztahu virtuální sítě.
 author: mattbriggs
 ms.topic: how-to
@@ -7,23 +7,23 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 428c95a4f9d387cd298a1965f165278dfdc5a763
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 6ce27df08aeb885c6a04f97bb2b16292a6ffca96
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111978"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572523"
 ---
 # <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>VNET Peering v centru Azure Stack s virtuálními počítači
 
-Můžete propojit dvě Azure Stack centra virtuální sítě mezi sebou v rámci stejného Azure Stack centra. V současné době není možné připojit Azure Stack centra virtuální sítě pomocí integrované [Virtual Network brány](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences). K vytvoření tunelu VPN mezi dvěma Azure Stack centra virtuální sítě musíte použít zařízení síťové virtuální zařízení. V odkazech na šablony v tomto článku se nasadí dva virtuální počítače s Windows serverem 2016 s nainstalovaným serverem RRAS. Dva servery RRAS jsou nakonfigurovány k implementaci tunelu S2SVPN IKEv2 mezi dvěma virtuální sítě. Vytvoří se odpovídající pravidla NSG a UDR umožňující směrování mezi podsítěmi v každé virtuální síti, která je označena jako **interní**. 
+Můžete propojit dvě Azure Stack centra virtuální sítě mezi sebou v rámci stejného Azure Stack centra. V současné době není možné připojit Azure Stack centra virtuální sítě pomocí integrované [Virtual Network brány](./azure-stack-network-differences.md). K vytvoření tunelu VPN mezi dvěma Azure Stack centra virtuální sítě musíte použít zařízení síťové virtuální zařízení. V odkazech na šablony v tomto článku se nasadí dva virtuální počítače s Windows serverem 2016 s nainstalovaným serverem RRAS. Dva servery RRAS jsou nakonfigurovány k implementaci tunelu S2SVPN IKEv2 mezi dvěma virtuální sítě. Vytvoří se odpovídající pravidla NSG a UDR umožňující směrování mezi podsítěmi v každé virtuální síti, která je označena jako **interní**. 
 
 Tento vzor nasazení je základem, který umožní vytvořit tunely sítě VPN nejen v rámci instance centra Azure Stack, ale také mezi instancemi centra Azure Stack a dalšími prostředky, jako jsou místní sítě s použitím tunelových propojení S2S VPN v rámci služby Windows RRAS. 
 
 Šablony najdete v úložišti [GitHub ve vzorcích Azure Intelligent Edge](https://github.com/Azure-Samples/azure-intelligent-edge-patterns
 ) . Šablona se nachází ve složce **S2SVPNTunnel** .
 
-![alternativní text](./media/azure-stack-network-howto-vnet-peering/overview.svg)
+![Diagram zobrazuje implementaci, která poskytuje tunelové propojení sítě VPN mezi dvěma virtuální sítě. V každé virtuální síti je server RRAS a také interní podsíť a podsíť tunelového propojení.](./media/azure-stack-network-howto-vnet-peering/overview.svg)
 
 ## <a name="requirements"></a>Požadavky
 
@@ -51,7 +51,7 @@ Tento vzor nasazení je základem, který umožní vytvořit tunely sítě VPN n
 
 Šablona poskytuje výchozí hodnoty pro pojmenovávání virtuálních sítí a IP adresování. Vyžaduje heslo pro správce (rrasadmin) a také nabízí možnost používat vlastní objekt BLOB úložiště s tokenem SAS. Buďte opatrní, abyste tyto hodnoty zachovali v rámci platných rozsahů, protože nasazení může selhat. Balíček PowerShell DSC se spustí na každém virtuálním počítači RRAS a nainstaluje směrování a všechny požadované závislé služby a funkce. V případě potřeby můžete tento DSC přizpůsobit dál. Rozšíření vlastních skriptů spustí následující skript a `Add-Site2Site.ps1` nakonfiguruje tunel VPNS2S mezi dvěma servery RRAS se sdíleným klíčem. Pokud chcete zobrazit výsledky konfigurace tunelu VPN, můžete zobrazit podrobný výstup z rozšíření vlastních skriptů.
 
-![alternativní text](./media/azure-stack-network-howto-vnet-peering/s2svpntunnels2.svg)
+![Diagram s názvem S2SVPNTunnel zobrazuje dva virtuální sítěy připojené tunelem VPN typu Site-to-site.](./media/azure-stack-network-howto-vnet-peering/s2svpntunnels2.svg)
 
 ## <a name="next-steps"></a>Další kroky
 

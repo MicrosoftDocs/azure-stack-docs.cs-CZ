@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: f010700c86e4481063528bd1148d7898e8bd17fe
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 46b76402695131a6bb099a9dc55c15d1066d4c84
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111876"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573815"
 ---
 # <a name="deploy-an-azure-stack-hub-vm-using-a-password-stored-in-key-vault"></a>Nasazení virtuálního počítače centra Azure Stack pomocí hesla uloženého v Key Vault
 
@@ -74,7 +74,7 @@ Po spuštění předchozího skriptu obsahuje výstup identifikátor URI tajnéh
 
 Upravte `azuredeploy.parameters.json` soubor podle hodnot vašich prostředí. Parametry zvláštního zájmu jsou název trezoru, skupina prostředků trezoru a identifikátor URI tajného kódu (jak je vygenerován předchozí skript). Níže uvedený soubor je příkladem souboru parametrů.
 
-## <a name="update-the-azuredeployparametersjson-file"></a>Aktualizace souboru azuredeploy. Parameters. JSON
+## <a name="update-the-azuredeployparametersjson-file"></a>Aktualizovat azuredeploy.parameters.jsv souboru
 
 Aktualizujte `azuredeploy.parameters.json` soubor pomocí identifikátoru URI trezoru klíčů, tajného klíče, adminUsername hodnot virtuálních počítačů na základě vašeho prostředí. Následující soubor JSON ukazuje příklad souboru parametrů šablony:
 

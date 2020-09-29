@@ -1,5 +1,5 @@
 ---
-title: Nasazení webové aplikace v cestách do virtuálního počítače v Azure Stackovém centru
+title: Nasazení webové aplikace v jazyce přejít do virtuálního počítače v Azure Stackovém centru
 description: Nasazení webové aplikace v cestách do virtuálního počítače v Azure Stackovém centru
 author: mattbriggs
 ms.topic: overview
@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: c81ef85db48cbb45e104666ef1d9974bd56aa3ff
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: bcb38ee1215053d40bf027958ef598f587422053
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146899"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574036"
 ---
 # <a name="deploy-a-go-web-app-to-a-vm-in-azure-stack-hub"></a>Nasazení webové aplikace v cestách do virtuálního počítače v Azure Stackovém centru
 
@@ -24,7 +24,7 @@ Můžete vytvořit virtuální počítač, který bude hostovat webovou aplikaci
 
 2. V podokně síť virtuálních počítačů se ujistěte, že jsou dostupné tyto porty:
 
-    | Port | Protocol (Protokol) | Popis |
+    | Port | Protokol | Popis |
     | --- | --- | --- |
     | 80 | HTTP | HTTP (Hypertext Transfer Protocol) je protokol, který se používá k doručování webových stránek ze serverů. Klienti se připojují přes protokol HTTP s názvem DNS nebo IP adresou. |
     | 443 | HTTPS | Protokol HTTPS (Hypertext Transfer Protocol Secure) je zabezpečená verze protokolu HTTP, která vyžaduje certifikát zabezpečení a umožňuje šifrovaný přenos informací. |

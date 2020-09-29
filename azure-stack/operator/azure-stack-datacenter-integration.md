@@ -1,5 +1,5 @@
 ---
-title: Požadavky na plánování integrace Datacenter pro integrované systémy centra Azure Stack
+title: Plánování integrace Datacenter pro integrované systémy Azure Stack hub
 description: Naučte se plánovat a připravit integraci Datacenter pomocí integrovaných systémů Azure Stack hub.
 author: IngridAtMicrosoft
 ms.topic: conceptual
@@ -7,12 +7,12 @@ ms.date: 04/02/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2019
-ms.openlocfilehash: fbcca6d24f37162fa62729f38d50a6ceb0f0374c
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 825db573a614d1a1dd9b54cd87d8894c981fce4b
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80638205"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573029"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>Požadavky na plánování integrace Datacenter pro integrované systémy centra Azure Stack
 
@@ -25,7 +25,7 @@ Aby bylo možné nasadit centrum Azure Stack, je třeba před zahájením nasaze
 
 Při vyhledávání a shromažďování požadovaných informací možná budete muset provést některé změny konfigurace před nasazením v síťovém prostředí. Tyto změny můžou zahrnovat rezervaci IP adres pro řešení centra Azure Stack a také konfiguraci směrovačů, přepínačů a bran firewall pro přípravu připojení k novým přepínačům řešení Azure Stack hub. Ujistěte se, že máte odborník na oblast předmětu, který vám bude pomáhat s vaším plánováním.
 
-## <a name="capacity-planning-considerations"></a>Požadavky na plánování kapacity
+## <a name="capacity-planning-considerations"></a>Důležité aspekty plánování kapacity
 
 Když vyhodnocujete řešení centra Azure Stack pro akvizici, provedete volby konfigurace hardwaru, které mají přímý vliv na celkovou kapacitu řešení Azure Stack hub. Mezi ně patří možnosti klasického využití procesoru, hustoty paměti, konfigurace úložiště a celková škála řešení (například počet serverů). Na rozdíl od tradičního řešení virtualizace neplatí jednoduché aritmetické operace s určením použitelné kapacity. Prvním důvodem je, že Azure Stack hub je navržený tak, aby se v rámci samotného řešení hostoval jako infrastruktura nebo součásti pro správu. Druhým důvodem je, že část kapacity řešení je vyhrazena pro podporu odolnosti tím, že aktualizuje software řešení způsobem, který minimalizuje narušení zatížení klientů.
 
@@ -72,7 +72,7 @@ Další informace o licenčních modelech najdete v tématu [centra Microsoft Az
 
 ## <a name="naming-decisions"></a>Rozhodnutí o pojmenování
 
-Musíte si představit, jak chcete naplánovat obor názvů centra Azure Stack, zejména název oblasti a název externí domény. Externí plně kvalifikovaný název domény (FQDN) vašeho nasazení centra Azure Stack pro veřejné koncové body je kombinací těchto dvou názvů: &lt; *region*&gt;. &lt; *plně kvalifikovaný název domény*&gt;. Například *East.Cloud.fabrikam.com*. V tomto příkladu budou portály Azure Stack hub k dispozici na následujících adresách URL:
+Musíte si představit, jak chcete naplánovat obor názvů centra Azure Stack, zejména název oblasti a název externí domény. Externí plně kvalifikovaný název domény (FQDN) vašeho nasazení centra Azure Stack pro veřejné koncové body je kombinací těchto dvou názvů: &lt; *region* &gt; . &lt; *plně kvalifikovaný název domény* &gt; . Například *East.Cloud.fabrikam.com*. V tomto příkladu budou portály Azure Stack hub k dispozici na následujících adresách URL:
 
 - `https://portal.east.cloud.fabrikam.com`
 - `https://adminportal.east.cloud.fabrikam.com`
@@ -84,7 +84,7 @@ Následující tabulka shrnuje tato rozhodnutí o pojmenovávání domén.
 
 | Název | Popis |
 | -------- | ------------- |
-|Název oblasti | Název první oblasti centra Azure Stack. Tento název se používá jako součást plně kvalifikovaného názvu domény pro veřejné virtuální IP adresy (VIP), které Azure Stack hub spravuje. Obvykle by název oblasti představoval identifikátor fyzického umístění, jako je například umístění datového centra.<br><br>Název oblasti se musí skládat jenom z písmen a číslic mezi 0-9. Nejsou povoleny žádné speciální znaky `-`( `#`například, atd.).| 
+|Název oblasti | Název první oblasti centra Azure Stack. Tento název se používá jako součást plně kvalifikovaného názvu domény pro veřejné virtuální IP adresy (VIP), které Azure Stack hub spravuje. Obvykle by název oblasti představoval identifikátor fyzického umístění, jako je například umístění datového centra.<br><br>Název oblasti se musí skládat jenom z písmen a číslic mezi 0-9. Nejsou povoleny žádné speciální znaky (například `-` , `#` atd.).| 
 | Název externí domény | Název zóny DNS (Domain Name System) pro koncové body s externími VIP adresami. Používá se v plně kvalifikovaném názvu domény pro tyto veřejné virtuální IP adresy. | 
 | Privátní (interní) název domény | Název domény (a interní zóny DNS) vytvořený na Azure Stack hub pro správu infrastruktury
 | | |
@@ -111,7 +111,7 @@ Je nutné zadat IP adresu serveru pro synchronizaci času. I když většina kom
 
 V případě scénářů hybridního cloudu budete muset naplánovat, jak se má Azure Stack centrum připojit k Azure. Existují dva podporované metody, jak propojit virtuální sítě v Azure Stack hub k virtuálním sítím v Azure:
 
-- **Site-to-site**: připojení k virtuální privátní síti (VPN) přes IPSec (IKE V1 a IKE v2). Tento typ připojení vyžaduje zařízení VPN nebo službu Směrování a vzdálený přístup (RRAS). Další informace o branách VPN v Azure najdete v tématu [o VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Komunikace prostřednictvím tohoto tunelového propojení je šifrovaná a zabezpečená. Šířka pásma se ale omezí maximální propustností tunelu (100-200 MB/s).
+- **Site-to-site**: připojení k virtuální privátní síti (VPN) přes IPSec (IKE V1 a IKE v2). Tento typ připojení vyžaduje zařízení VPN nebo službu Směrování a vzdálený přístup (RRAS). Další informace o branách VPN v Azure najdete v tématu [o VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways). Komunikace prostřednictvím tohoto tunelového propojení je šifrovaná a zabezpečená. Šířka pásma se ale omezí maximální propustností tunelu (100-200 MB/s).
 
 - **Odchozí NAT**: ve výchozím nastavení budou všechny virtuální počítače v centru Azure Stack připojení k externím sítím prostřednictvím odchozího překladu adres (NAT). Každá virtuální síť, která je vytvořená v centru Azure Stack, získá veřejnou IP adresu přiřazenou. Bez ohledu na to, jestli je virtuální počítač přímo přiřazený k veřejné IP adrese nebo se nachází za nástrojem pro vyrovnávání zatížení s veřejnou IP adresou, bude mít odchozí přístup prostřednictvím odchozího překladu adres (VIP) pomocí virtuální IP adresy virtuální sítě. Tato metoda funguje jenom pro komunikaci, kterou iniciuje virtuální počítač a která je určená pro externí sítě (buď Internet, nebo intranet). Nedá se použít ke komunikaci s virtuálním počítačem zvenčí.
 
@@ -139,7 +139,7 @@ Následující tabulka shrnuje scénáře hybridního připojení s případy pr
 
 ### <a name="using-expressroute"></a>Použití ExpressRoute
 
-Rozbočovač služby Azure Stack můžete připojit k Azure prostřednictvím [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) pro intranetový i víceklientské scénář. Budete potřebovat zřízený okruh ExpressRoute prostřednictvím [poskytovatele připojení](https://docs.microsoft.com/azure/expressroute/expressroute-locations).
+Rozbočovač služby Azure Stack můžete připojit k Azure prostřednictvím [ExpressRoute](/azure/expressroute/expressroute-introduction) pro intranetový i víceklientské scénář. Budete potřebovat zřízený okruh ExpressRoute prostřednictvím [poskytovatele připojení](/azure/expressroute/expressroute-locations).
 
 Následující diagram znázorňuje ExpressRoute scénář pro jeden tenant (kde "připojení zákazníka" je okruh ExpressRoute).
 

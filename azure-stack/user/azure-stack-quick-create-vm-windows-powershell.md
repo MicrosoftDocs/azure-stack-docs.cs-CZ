@@ -1,18 +1,19 @@
 ---
-title: Vytvoření virtuálního počítače s Windows serverem pomocí PowerShellu v Azure Stackovém centru
+title: Vytvoření virtuálního počítače s Windows serverem pomocí PowerShellu v centru Azure Stack
 description: Vytvořte virtuální počítač s Windows serverem pomocí PowerShellu v centru Azure Stack.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 1bc8316cad8574d09401f803982f853dcb7e2e93
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.custom: conteperfq4
+ms.openlocfilehash: 189f0b9472ed8f29b4cd3ee287d6c6630c850503
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660360"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573866"
 ---
 # <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack-hub"></a>Rychlý Start: Vytvoření virtuálního počítače s Windows serverem pomocí PowerShellu v Azure Stackovém centru
 

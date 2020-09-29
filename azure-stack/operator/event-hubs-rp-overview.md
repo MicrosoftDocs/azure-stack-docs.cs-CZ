@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 4a7e7987a5b5b7bb60e6acc882c07b80519bc052
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2c7574ef54176e4e4b91f5bee8af9e6953d13732
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80423946"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742643"
 ---
 # <a name="event-hubs-on-azure-stack-hub-overview"></a>Přehled Event Hubs v centru Azure Stack
 
@@ -23,7 +23,7 @@ Event Hubs v centru Azure Stack vám umožní realizovat hybridní cloudové sc�
 
 ## <a name="features"></a>Funkce
 
-Porovnání funkcí najdete v [dokumentaci pro uživatele centra Azure Stack](/azure-stack/user/event-hubs-overview) . mezi Event Hubs na Azure Stack vs. Event Hubs Azure.
+Porovnání funkcí najdete v [dokumentaci pro uživatele centra Azure Stack](../user/event-hubs-overview.md) . mezi Event Hubs na Azure Stack vs. Event Hubs Azure.
 
 ## <a name="feature-documentation"></a>Dokumentace k funkcím
 
