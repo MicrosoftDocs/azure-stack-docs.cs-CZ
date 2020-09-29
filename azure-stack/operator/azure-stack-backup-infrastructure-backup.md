@@ -1,18 +1,18 @@
 ---
-title: Obnovení dat v Azure Stack centru pomocí služby Infrastructure Backup
+title: Obnovení dat centra Azure Stack pomocí služby Infrastructure Backup
 description: Naučte se zálohovat a obnovovat data konfigurace a služby v Azure Stack hub pomocí služby Infrastructure Backup.
-author: justinha
+author: myoungerman
 ms.topic: article
 ms.date: 05/16/2019
-ms.author: justinha
+ms.author: v-myoung
 ms.reviewer: hectorl
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 96d1062b7b6b4c30d1d635965b51de27c0b49269
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: c73e95677bb1666fb315ad73e1dd6d62f73c68b7
+ms.sourcegitcommit: bf7b1a394ede397dba2b75f90bdf953b3ff2f2be
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703277"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91367236"
 ---
 # <a name="recover-data-in-azure-stack-hub-with-the-infrastructure-backup-service"></a>Obnovení dat v Azure Stack centru pomocí služby Infrastructure Backup
 
@@ -40,7 +40,7 @@ Služba obsahuje následující funkce:
 ## <a name="verify-requirements-for-the-infrastructure-backup-service"></a>Ověření požadavků pro službu Infrastructure Backup
 
 - **Umístění úložiště**  
-  Potřebujete sdílení souborů, které je dostupné z centra Azure Stack, které může obsahovat sedm záloh. Každá záloha je přibližně 10 GB. Vaše sdílená složka by měla být schopná uchovávat 140 GB záloh. Další informace o výběru umístění úložiště pro službu Infrastructure Backup najdete v tématu požadavky na [kontrolér zálohování](azure-stack-backup-reference.md#backup-controller-requirements).
+  Potřebujete sdílení souborů, které je dostupné z centra Azure Stack, které může obsahovat 14 záloh. Každá záloha je přibližně 10 GB. Sdílená složka by měla být schopná ukládat 140 GB záloh. Další informace o výběru umístění úložiště pro službu Infrastructure Backup najdete v tématu požadavky na [kontrolér zálohování](azure-stack-backup-reference.md#backup-controller-requirements).
 - **Přihlašovací údaje**  
   Potřebujete účet uživatele domény a přihlašovací údaje. Můžete například použít svoje přihlašovací údaje správce centra Azure Stack.
 - **Certifikát šifrování**  

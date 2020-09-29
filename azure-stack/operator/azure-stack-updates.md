@@ -3,23 +3,23 @@ title: Správa aktualizací
 description: Naučte se spravovat aktualizace v centru Azure Stack.
 author: sethmanheim
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 09/25/2020
 ms.author: sethm
-ms.lastreviewed: 09/10/2019
+ms.lastreviewed: 07/16/2020
 ms.reviewer: niy
-ms.openlocfilehash: d3f365f825e30e03e74d2e822653ee3ccfdb9e58
-ms.sourcegitcommit: 396f79ce073d99d14fcc71b85c4a4932334832a8
+ms.openlocfilehash: e769999ce24e1571b93c94a707c62df757460705
+ms.sourcegitcommit: bf7b1a394ede397dba2b75f90bdf953b3ff2f2be
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636865"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91367219"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Správa aktualizací ve službě Azure Stack Hub
 
 Úplné a expresní aktualizace, opravy hotfix a aktualizace ovladačů a firmwaru od výrobce OEM (Original Equipment Manufacturer), které vám pomůžou zajistit aktuálnost Azure Stack centra v aktuálním stavu. Tento článek popisuje různé typy aktualizací, kdy očekávat jejich vydání a kde najdete další informace o aktuální verzi.
 
-> [!Note]  
-> Balíčky aktualizací centra Azure Stack nelze použít na Azure Stack Development Kit (ASDK). Balíčky aktualizací jsou navržené pro integrované systémy. Další informace najdete v tématu o [opětovném nasazení ASDK](https://docs.microsoft.com/azure-stack/asdk/asdk-redeploy).
+> [!NOTE]  
+> Balíčky aktualizací centra Azure Stack nelze použít na Azure Stack Development Kit (ASDK). Balíčky aktualizací jsou navržené pro integrované systémy. Další informace najdete v tématu o [opětovném nasazení ASDK](../asdk/asdk-redeploy.md).
 
 ## <a name="update-package-types"></a>Aktualizace typů balíčků
 
@@ -33,7 +33,9 @@ Existují tři typy balíčků aktualizací pro integrované systémy:
 
     Balíčky **Express** Update mají rozsah a neaktualizují základní fyzické hostitelské operační systémy.
 
-- **Azure Stack opravy hotfix centra**. Microsoft poskytuje pro centra Azure Stack opravy hotfix, které řeší konkrétní problém, který je často preventivní nebo časově citlivý. Každá oprava hotfix je vydána spolu s odpovídajícím článkem znalostní báze Microsoft Knowledge Base, který podrobně popisuje problém, příčinu a řešení. Můžete stahovat a instalovat opravy hotfix stejně jako běžné úplné balíčky aktualizací pro centrum Azure Stack. Opravy hotfix jsou kumulativní a můžou se instalovat během několika minut.
+- **Azure Stack opravy hotfix centra**. Microsoft poskytuje [pro centra Azure Stack opravy hotfix](azure-stack-servicing-policy.md#hotfixes) , které řeší konkrétní problém, který je často preventivní nebo časově citlivý. Každá oprava hotfix je vydána spolu s odpovídajícím článkem znalostní báze Microsoft Knowledge Base, který podrobně popisuje problém, příčinu a řešení. Můžete stahovat a instalovat opravy hotfix stejně jako běžné úplné balíčky aktualizací pro centrum Azure Stack. Opravy hotfix jsou kumulativní a můžou se instalovat během několika minut.
+
+   Počínaje verzí Build 2005 se při aktualizaci na novou hlavní verzi (například 1.2002. x na 1.2005. x) automaticky nainstalují nejnovější opravy hotfix (pokud nějaké jsou) v nové hlavní verzi. Od tohoto okamžiku předem, pokud byla vydána oprava hotfix pro sestavení, měli byste ji nainstalovat.
 
 - **Hardware výrobce OEM – aktualizace poskytované dodavatelem** Služby Azure Stack hub jsou zodpovědné za kompletní životní cyklus údržby (včetně pokynů) pro balíčky pro firmware a aktualizace ovladačů souvisejících s hardwarem. Kromě toho Azure Stack hub hardware partneři vlastní a udržují pokyny pro veškerý software a hardware v hostiteli životního cyklu hardwaru. Dodavatel hardwaru OEM tyto balíčky aktualizací hostuje na svém vlastním webu pro stažení.
 
@@ -41,13 +43,13 @@ Existují tři typy balíčků aktualizací pro integrované systémy:
 
 Tři typy aktualizací jsou vydány s následujícími tempo:
 
-- **Azure Stack aktualizace softwaru centra**. Společnost Microsoft obvykle vydává balíčky aktualizací softwaru každý měsíc.
+- **Azure Stack aktualizace softwaru centra**. Společnost Microsoft vydává několik plných a expresních balíčků aktualizací softwaru za rok.
 
-- **Azure Stack opravy hotfix centra**. Opravy hotfix jsou časově citlivé verze, které mohou být vydány kdykoli.
+- **Azure Stack opravy hotfix centra**. Opravy hotfix jsou časově citlivé verze, které mohou být vydány kdykoli. Pokud provádíte upgrade z jedné hlavní verze na jinou (například 1.2002. x na 1.2005. x), nejnovější opravy hotfix (pokud jsou nějaké) v nové hlavní verzi se automaticky nainstalují.
 
 - **Hardware výrobce OEM – aktualizace poskytované dodavatelem** Výrobci hardwaru OEM vydávají své aktualizace podle potřeby.
 
-Chcete-li nadále získávat podporu, je nutné zachovat prostředí Azure Stack hub v podporované verzi softwaru Azure Stack hub. Další informace najdete v tématu [zásady obsluhy centra Azure Stack](azure-stack-update-servicing-policy.md).
+Chcete-li nadále získávat podporu, je nutné zachovat prostředí Azure Stack hub v podporované verzi softwaru Azure Stack hub. Další informace najdete v tématu [zásady obsluhy centra Azure Stack](azure-stack-servicing-policy.md).
 
 ## <a name="how-to-know-an-update-is-available"></a>Jak poznat, že je k dispozici aktualizace
 
@@ -61,13 +63,15 @@ Oznámení aktualizací se liší v několika faktorech, například připojení
 
 - **Výrobce OEM – aktualizace poskytované dodavatelem**
 
-    Aktualizace OEM budou záviset na výrobci. Budete muset vytvořit komunikační kanál s vaším výrobcem OEM, abyste si mohli uvědomit o aktualizacích od výrobce OEM, které je potřeba použít. Další informace o výrobci OEM a procesu aktualizace OEM najdete v tématu [použití aktualizací pro výrobce OEM (Original Equipment Manufacturer) v Azure Stack](azure-stack-update-oem.md).
+    Aktualizace OEM závisí na výrobci. Budete muset vytvořit komunikační kanál s vaším výrobcem OEM, abyste si mohli uvědomit o aktualizacích od výrobce OEM, které je potřeba použít. Další informace o výrobci OEM a procesu aktualizace OEM najdete v tématu [použití aktualizací pro výrobce OEM (Original Equipment Manufacturer) v Azure Stack](azure-stack-update-oem.md).
 
 ### <a name="major-version-to-major-version"></a>Hlavní verze na hlavní verzi
 
 Aktualizace z hlavní verze na hlavní verzi musí být krok za krokem: aktuální prostředí lze aktualizovat pouze na další hlavní verzi a nemůžete přeskočit aktualizaci hlavní verze.
 
 Pokud je například prostředí centra Azure Stack 1908. x a nejnovější dostupná verze aktualizace je 2002. x, měli byste je aktualizovat z 1908 na 1910 a pak aktualizovat na 2002.
+
+Počínaje verzí Build 2005 se při aktualizaci na novou hlavní verzi (například 1.2002. x na 1.2005. x) automaticky nainstalují nejnovější opravy hotfix (pokud nějaké jsou) v nové hlavní verzi.
 
 ### <a name="hotfixes-within-major-versions"></a>Opravy hotfix v hlavních verzích
 
@@ -79,11 +83,11 @@ Jakmile víte, že máte aktualizaci, použijte ji pomocí následujících krok
 
 ![Proces aktualizace centra Azure Stack](./media/azure-stack-updates/azure-stack-update-process.svg)
 
-1. **Naplánujte aktualizaci**.
+1. **Plánování aktualizace**
 
-    Připraví centrum Azure Stack, aby se proces aktualizace co nejrychleji provedl, takže uživatelé mají minimální dopad na uživatele. Upozorněte uživatele na případné výpadky služeb a pak postupujte podle pokynů pro přípravu instance pro aktualizaci. Nezapomeňte postupovat podle **všech** kroků v tématu [Kontrolní seznam předběžné aktualizace centra Azure Stack](release-notes-checklist.md) , abyste měli jistotu, že jste dokončili požadované kroky pro použití aktualizace. Také nezapomeňte naplánovat příslušné okno údržby pro použitý typ aktualizace.
+    Připraví centrum Azure Stack, aby se proces aktualizace co nejrychleji provedl, takže uživatelé mají minimální dopad na uživatele. Upozorněte uživatele na případné výpadky služeb a pak postupujte podle pokynů pro přípravu instance pro aktualizaci. Nezapomeňte postupovat podle všech kroků v [kontrolním seznamu předběžné aktualizace centra Azure Stack](release-notes-checklist.md) , abyste měli jistotu, že jste dokončili požadované předpoklady pro použití aktualizace. Také nezapomeňte naplánovat příslušné okno údržby pro použitý typ aktualizace.
 
-2. **Nahrání a příprava balíčku aktualizace**.
+2. **Nahrání a příprava balíčku aktualizace**
 
     Pro Azure Stack prostředí centra Azure Stack připojená k Internetu se automaticky naimportují aktualizace softwaru centra a opravy hotfix do systému a připravují se na aktualizace.
 
@@ -91,9 +95,9 @@ Jakmile víte, že máte aktualizaci, použijte ji pomocí následujících krok
 
     Všechny balíčky aktualizací OEM se do vašeho prostředí importují ručně, bez ohledu na připojení k Internetu v systému Azure Stack hub. Další kroky pro import a přípravu balíčku aktualizace najdete v tématu [nahrání a příprava balíčku aktualizace centra Azure Stack](azure-stack-update-prepare-package.md).
 
-3. **Použijte aktualizaci**.
+3. **Použít aktualizaci**
 
-    Použijte aktualizaci pomocí okna **aktualizovat** v centru Azure Stack. Během aktualizace Sledujte a řešte potíže s průběhem aktualizace. Další informace najdete v tématu [použití aktualizace centra Azure Stack](azure-stack-apply-updates.md).
+    Použijte aktualizaci pomocí okna **aktualizace** na portálu centra Azure Stack. Během aktualizace Sledujte a řešte potíže s průběhem aktualizace. Další informace najdete v tématu [použití aktualizace centra Azure Stack](azure-stack-apply-updates.md).
 
 ## <a name="the-update-resource-provider"></a>Poskytovatel prostředku aktualizace
 
