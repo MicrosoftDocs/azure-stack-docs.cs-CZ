@@ -8,12 +8,12 @@ ms.date: 8/19/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 1c6a7e39131dc9d422a68161b3022ac1acc28f7e
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.openlocfilehash: 60d9ce421ce4cdede89dd9f0fa9ff4ee4746d039
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89472870"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572853"
 ---
 # <a name="update-the-sql-resource-provider"></a>Aktualizace poskytovatele prostředků SQL
 
@@ -22,24 +22,27 @@ ms.locfileid: "89472870"
 
 Nový poskytovatel prostředků SQL může být vydaný, když se Azure Stack centrum aktualizuje na nové sestavení. I když stávající poskytovatel prostředků i nadále funguje, doporučujeme aktualizovat na nejnovější sestavení co nejdříve.
 
- |Podporovaná verze centra Azure Stack|Verze SQL RP|
-  |-----|-----|
-  |2005, 2002, 1910|[SQL RP verze 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|
-  |1908|[SQL RP verze 1.1.33.0](https://aka.ms/azurestacksqlrp11330)| 
-  |     |     |
+|Podporovaná verze centra Azure Stack|Verze SQL RP|Windows Server, na kterém běží služba RP
+  |-----|-----|-----|
+  |2005|[SQL RP verze 1.1.93.0](https://aka.ms/azshsqlrp11930)|POUZE interní doplněk Microsoft AzureStack RP – Windows Server
+  |2005, 2002, 1910|[SQL RP verze 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|Windows Server 2016 Datacenter – jádro serveru|
+  |1908|[SQL RP verze 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|Windows Server 2016 Datacenter – jádro serveru|
+  |     |     |     |
 
-Od verze 1.1.33.0 verze poskytovatele prostředků SQL jsou aktualizace kumulativní a nemusíte je instalovat v pořadí, ve kterém byly vydané, pokud začínáte z verze 1.1.24.0 nebo novější. Například pokud používáte 1.1.24.0 verze poskytovatele prostředků SQL, můžete upgradovat na verzi 1.1.33.0 nebo novější, aniž byste museli nejdřív nainstalovat verzi 1.1.30.0. Pokud chcete zkontrolovat dostupné verze poskytovatele prostředků a verzi centra Azure Stack, na které jsou podporované, přečtěte si téma seznam verzí v tématu [nasazení požadavků poskytovatele prostředků](./azure-stack-sql-resource-provider-deploy.md#prerequisites).
+Aktualizace poskytovatele prostředků SQL je kumulativní. Při aktualizaci ze starší verze můžete přímo aktualizovat na nejnovější verzi. 
 
-Chcete-li aktualizovat poskytovatele prostředků, použijte skript *UpdateSQLProvider.ps1* . Použijte účet služby s právy místního správce a je **vlastníkem** předplatného. Tento skript je součástí stažení nového poskytovatele prostředků SQL. Proces aktualizace je podobný procesu použitému k [nasazení poskytovatele prostředků](./azure-stack-sql-resource-provider-deploy.md). Skript aktualizace používá stejné argumenty jako skript DeploySqlProvider.ps1 a budete muset zadat informace o certifikátu.
+Chcete-li aktualizovat poskytovatele prostředků, použijte skript **UpdateSQLProvider.ps1** . Použijte účet služby s právy místního správce a je **vlastníkem** předplatného. Tento skript aktualizace je součástí stažení poskytovatele prostředků. 
+
+Proces aktualizace je podobný procesu použitému k [nasazení poskytovatele prostředků](./azure-stack-sql-resource-provider-deploy.md). Skript aktualizace používá stejné argumenty jako skript DeploySqlProvider.ps1 a budete muset zadat informace o certifikátu.
 
 ## <a name="update-script-processes"></a>Aktualizovat procesy skriptu
 
-Skript *UpdateSQLProvider.ps1* vytvoří nový virtuální počítač (VM) s nejnovějším kódem poskytovatele prostředků.
+Skript **UpdateSQLProvider.ps1** vytvoří nový virtuální počítač s nejnovější imagí operačního systému, nasadí nejnovější kód poskytovatele prostředků a migruje nastavení z původního poskytovatele prostředků na nového poskytovatele prostředků. 
 
 > [!NOTE]
-> Doporučujeme stáhnout si nejnovější image Windows serveru 2016 Core ze správy Marketplace. Pokud potřebujete nainstalovat aktualizaci, můžete do cesty místní závislosti umístit **jeden** balíček MSU. Pokud je v tomto umístění více než jeden soubor MSU, skript se nezdaří.
+>Doporučujeme, abyste si stáhli nejnovější bitovou kopii Windows serveru 2016 Core Image nebo Windows serveru Microsoft AzureStack z webu Marketplace Management. Pokud potřebujete nainstalovat aktualizaci, můžete do cesty místní závislosti umístit **jeden** balíček MSU. Pokud je v tomto umístění více než jeden soubor MSU, skript se nezdaří.
 
-Když skript *UpdateSQLProvider.ps1* vytvoří nový virtuální počítač, skript migruje následující nastavení z původního virtuálního počítače poskytovatele:
+Když skript *UpdateSQLProvider.ps1* vytvoří nový virtuální počítač, skript migruje následující nastavení z původního virtuálního počítače poskytovatele prostředků:
 
 * informace o databázi
 * informace o hostitelském serveru
@@ -49,7 +52,7 @@ Když skript *UpdateSQLProvider.ps1* vytvoří nový virtuální počítač, skr
 
 Při spuštění skriptu **UpdateSQLProvider.ps1** PowerShellu můžete zadat následující parametry z příkazového řádku. Pokud ne, nebo pokud se nějaké ověření parametru nepodaří, budete vyzváni k zadání požadovaných parametrů.
 
-| Název parametru | Popis | Komentář nebo výchozí hodnota |
+| Název parametru | Description | Komentář nebo výchozí hodnota |
 | --- | --- | --- |
 | **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu. | _Požadováno_ |
 | **AzCredential** | Přihlašovací údaje pro účet správce služby Azure Stack hub. Použijte stejné přihlašovací údaje, které jste použili k nasazení centra Azure Stack. | _Požadováno_ |
@@ -64,17 +67,21 @@ Při spuštění skriptu **UpdateSQLProvider.ps1** PowerShellu můžete zadat n�
 | **DebugMode** | Zabraňuje automatickému vyčištění při selhání. | Ne |
 
 ## <a name="update-script-powershell-example"></a>Příklad aktualizace skriptu PowerShellu
-> [!NOTE]
-> Tento proces aktualizace platí jenom pro integrované systémy Azure Stack hub.
 
-Pokud aktualizujete verzi poskytovatele prostředků SQL na 1.1.33.0 nebo předchozí verze, budete muset v PowerShellu nainstalovat konkrétní verze modulů AzureRm. zaváděcího nástroje a Azure Stack hub. Pokud aktualizujete na poskytovatele prostředků SQL verze 1.1.47.0, skript nasazení automaticky stáhne a nainstaluje potřebné moduly PowerShellu pro vás do cesty C:\Program Files\SqlMySqlPsh..
+Pokud aktualizujete verzi poskytovatele prostředků SQL na 1.1.33.0 nebo předchozí verze, budete muset v PowerShellu nainstalovat konkrétní verze modulů AzureRm. zaváděcího nástroje a Azure Stack hub. 
+
+Pokud aktualizujete poskytovatele prostředků SQL na verzi 1.1.47.0 nebo novější, můžete tento krok přeskočit. Skript nasazení automaticky stáhne a nainstaluje potřebné moduly PowerShellu pro vás do cesty C:\Program Files\SqlMySqlPsh.
+
+>[!NOTE]
+>Pokud složka C:\Program Files\SqlMySqlPsh už existuje se staženým modulem PowerShellu, doporučujeme před spuštěním skriptu aktualizace vyčistit tuto složku. Tím se zajistí stažení a použití správné verze modulu PowerShellu.
 
 ```powershell
+# Run the following scripts when updating to version 1.1.33.0 only.
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureStack module.
 # Note that this might not be the most currently available version of Azure Stack Hub PowerShell.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-Install-Module -Name AzureStack -RequiredVersion 1.8.2
+Install-Module -Name AzureStack -RequiredVersion 1.6.0
 ```
 
 > [!NOTE]
@@ -111,7 +118,7 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
-# For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
+# For version 1.1.47.0 or later, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
 # The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.
 $rpModulePath = Join-Path -Path $env:ProgramFiles -ChildPath 'SqlMySqlPsh'
 $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath

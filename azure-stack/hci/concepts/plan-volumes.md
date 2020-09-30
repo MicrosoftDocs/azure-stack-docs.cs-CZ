@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: 49124c0112d2ecba8c621520cfb1b6c293418401
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: 8125ff0432b16f254f8660e8c5f755f7f4916b12
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742544"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572768"
 ---
 # <a name="plan-volumes-in-azure-stack-hci"></a>Plánování svazků v Azure Stack HCI
 
@@ -39,7 +39,7 @@ Pro každý cluster doporučujeme omezit celkový počet svazků na 64 svazků.
 
 ## <a name="choosing-the-filesystem"></a>Výběr systému souborů
 
-Pro Prostory úložiště s přímým přístupem doporučujeme použít nový [odolný systém souborů (ReFS)](/en-us/windows-server/storage/refs/refs-overview) . ReFS je založený na účelu systému souborů Premier pro virtualizaci a nabízí spoustu výhod, včetně výrazné akcelerace výkonu a integrované ochrany před poškozením dat. Podporuje téměř všechny klíčové funkce systému souborů NTFS, včetně odstranění duplicitních dat ve Windows serveru verze 1709 a novějších. Podrobnosti najdete v [tabulce porovnání funkcí](/windows-server/storage/refs/refs-overview#feature-comparison) ReFS.
+Pro Prostory úložiště s přímým přístupem doporučujeme použít nový [odolný systém souborů (ReFS)](/windows-server/storage/refs/refs-overview) . ReFS je založený na účelu systému souborů Premier pro virtualizaci a nabízí spoustu výhod, včetně výrazné akcelerace výkonu a integrované ochrany před poškozením dat. Podporuje téměř všechny klíčové funkce systému souborů NTFS, včetně odstranění duplicitních dat ve Windows serveru verze 1709 a novějších. Podrobnosti najdete v [tabulce porovnání funkcí](/windows-server/storage/refs/refs-overview#feature-comparison) ReFS.
 
 Pokud vaše úloha vyžaduje funkci, kterou odkazy ještě nepodporují, můžete místo toho použít systém souborů NTFS.
 

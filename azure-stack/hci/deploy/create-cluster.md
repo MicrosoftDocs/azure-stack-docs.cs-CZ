@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/21/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: b7c6c76353ff29f01eca458ca563517807ca0cd3
-ms.sourcegitcommit: 9a3397f703ff9dd7d539372bd8e5fdbe6d6a0725
+ms.openlocfilehash: 992b06b652dbac306570e0f58e274cec7735d14a
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91019522"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572683"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Vytvoření clusteru Azure Stack HCI pomocí centra pro správu Windows
 
@@ -66,7 +66,7 @@ OK, pojďme začít:
 
 1. Jakmile budete hotovi, klikněte na **Vytvořit**. Nyní se zobrazí Průvodce vytvořením clusteru, jak je znázorněno níže.
 
-    :::image type="content" source="media/cluster/create-cluster-wizard.png" alt-text="Průvodce vytvořením clusteru-Začínáme" lightbox="media/cluster/create-cluster-wizard.png":::
+    :::image type="content" source="media/cluster/create-cluster-wizard.png" alt-text="Průvodce vytvořením clusteru – možnost HCI" lightbox="media/cluster/create-cluster-wizard.png":::
 
 ## <a name="step-1-get-started"></a>Krok 1: Začněte
 
@@ -189,12 +189,9 @@ Pokud po nějaké době řešení clusteru neproběhne úspěšně, můžete ve 
 
 ## <a name="step-5-sdn-optional"></a>Krok 5: SDN (volitelné)
 
-Krok 5 Průvodce vás provede nastavením síťového adaptéru v clusteru pro softwarově definované sítě (SDN). Jakmile je síťový adaptér nastavený, dá se použít ke konfiguraci dalších součástí SDN, například Load Balancer softwaru a brány RAS.
+Tento volitelný krok vás provede nastavením součásti síťového adaptéru [softwarově definovaných sítí (SDN)](../concepts/software-defined-networking.md). Jakmile je síťový adaptér nastavený, dá se použít ke konfiguraci dalších komponent SDN, jako je Load Balancer softwaru a brány RAS.
 
-> [!NOTE]
-> Tento krok průvodce je nepovinný.
-
-:::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="Průvodce vytvořením clusteru – síťový adaptér SDN" lightbox="media/cluster/create-cluster-network-controller.png":::
+:::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="Průvodce vytvořením clusteru – možnost HCI" lightbox="media/cluster/create-cluster-network-controller.png":::
 
 1. Vyberte **Další: SDN**.
 1. V části **hostitel**zadejte název síťového adaptéru.
@@ -213,7 +210,7 @@ Krok 5 Průvodce vás provede nastavením síťového adaptéru v clusteru pro s
 1. Zadejte hodnoty pro **začátek** a **konec fondu adres**Mac.
 1. Jakmile budete hotovi, klikněte na tlačítko **Další**.
 1. Počkejte, dokud průvodce nedokončí svoji úlohu. Zůstat na této stránce, dokud nebudou dokončeny všechny úlohy průběhu. Klikněte na **Dokončit**.
- 
+
 Pokud se nasazení síťového adaptéru nepovede, proveďte následující kroky, než to zkusíte znovu:
 
 - Zastavte a odstraňte všechny virtuální počítače síťového adaptéru, které průvodce vytvořil.  

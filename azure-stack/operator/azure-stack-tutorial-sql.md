@@ -8,24 +8,24 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: ce3f6e0542678fe2d399e101a90a916cf412599f
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: b30126bcfbbe57cd36a54ce1f5fc487014fe7a03
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487715"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572870"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>Vytváření vysoce dostupných databází SQL pomocí centra Azure Stack
 
 Jako operátor centra Azure Stack můžete nakonfigurovat virtuální počítače serveru pro hostování SQL Serverch databází. Po vytvoření a správě hostitelského serveru SQL pomocí centra Azure Stack mohou uživatelé, kteří se přihlásili k odběru služeb SQL, snadno vytvořit databáze SQL.
 
-V tomto článku se dozvíte, jak pomocí šablony pro rychlý Start centra Azure Stack vytvořit [skupinu dostupnosti SQL Server AlwaysOn](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017), přidat ji Azure Stack jako hostitelský server SQL centra a pak vytvořit vysoce DOSTUPNOU databázi SQL.
+V tomto článku se dozvíte, jak pomocí šablony pro rychlý Start centra Azure Stack vytvořit [skupinu dostupnosti SQL Server AlwaysOn](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server), přidat ji Azure Stack jako hostitelský server SQL centra a pak vytvořit vysoce DOSTUPNOU databázi SQL.
 
 Naučíte se:
 
 > [!div class="checklist"]
 > * Vytvořte skupinu dostupnosti SQL Server AlwaysOn ze šablony.
-> * Vytvořte Azure Stack hostitelský server SQL hub.
+> * Nakonfigurujte skupinu dostupnosti SQL Server AlwaysOn jako Azure Stack Server hostování SQL hub.
 > * Vytvořte databázi SQL s vysokou dostupností.
 
 Vytvoří se dvě skupina dostupnosti virtuálního počítače SQL Server AlwaysOn a nakonfiguruje se pomocí dostupných Azure Stack položek Marketplace.
@@ -124,7 +124,7 @@ Sekundární instance SQL:
 
 ### <a name="configure-contained-database-authentication"></a>Konfigurovat ověřování databáze s omezením
 
-Před přidáním databáze s omezením do skupiny dostupnosti zajistěte, aby byla v každé instanci serveru, která hostuje repliku dostupnosti pro skupinu dostupnosti, nastavená možnost Server pro ověřování databáze s omezením na hodnotu 1. Další informace najdete v tématu věnovaném [ověřování databáze](/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
+Před přidáním databáze s omezením do skupiny dostupnosti zajistěte, aby byla v každé instanci serveru, která hostuje repliku dostupnosti pro skupinu dostupnosti, nastavená možnost Server pro ověřování databáze s omezením na hodnotu 1. Další informace najdete v tématu věnovaném [ověřování databáze](/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option).
 
 Pomocí těchto příkazů nastavte možnost Server pro ověřování databáze pro každou instanci SQL Server ve skupině dostupnosti:
 
@@ -137,9 +137,9 @@ Pomocí těchto příkazů nastavte možnost Server pro ověřování databáze 
 
 ![Nastavit omezení databáze k ověřování](./media/azure-stack-tutorial-sqlrp/sql3.png)
 
-## <a name="create-an-azure-stack-hub-sql-hosting-server"></a>Vytvoření hostitelského serveru SQL centra Azure Stack
+## <a name="configure-an-azure-stack-hub-sql-hosting-server"></a>Konfigurace hostitelského serveru SQL centra Azure Stack
 
-Po vytvoření a správné konfiguraci skupiny dostupnosti SQL Server AlwayOn je potřeba, aby operátor centra Azure Stack vytvořil hostitelský server SQL pro Azure Stack hub. Hostitelský server SQL zpřístupňuje uživatelům další kapacitu k vytváření databází.
+Po vytvoření a správné konfiguraci skupiny dostupnosti SQL Server AlwayOn je potřeba, aby byl operátor centra Azure Stack nakonfigurovaný jako hostitelský server SQL centra, který je Azure Stack. 
 
 Nezapomeňte použít veřejnou IP adresu nebo celý plně kvalifikovaný název domény pro veřejnou IP adresu služby SQL Load Balancer zaznamenanou dříve, když se vytvořila skupina prostředků skupiny dostupnosti SQL AlwaysOn **( \<resource group name\> SQLPIPsql**). Kromě toho potřebujete znát SQL Server přihlašovací údaje pro ověřování používané pro přístup k instancím SQL ve skupině dostupnosti AlwaysOn.
 

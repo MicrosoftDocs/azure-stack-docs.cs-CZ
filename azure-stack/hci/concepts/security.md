@@ -5,12 +5,12 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.openlocfilehash: 6a8a0c3068061c599ac18e160ebd32c7b5cc8eda
-ms.sourcegitcommit: b147d617c32cea138b5bd4bab568109282e44317
+ms.openlocfilehash: 181eb53d4b0e5c95065371e6b87e470a5e413d06
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90010811"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572666"
 ---
 # <a name="azure-stack-hci-security-considerations"></a>Předpoklady zabezpečení Azure Stack HCI
 
@@ -41,7 +41,7 @@ Tato část popisuje, jak chránit služby a virtuální počítače běžící 
 
 - **Ochrana zařízení** a **ochrana Credential Guard**. Ochrana zařízení chrání před malwarem bez známého podpisu, nepodepsaného kódu a malwaru, který získává přístup k jádru pro zachycení citlivých informací nebo poškození systému. Ochrana Credential Guard v programu Windows Defender používá zabezpečení na základě virtualizace k izolaci tajných kódů, aby k nim měli přístup jenom privilegovaný systémový software.
 
-    Další informace najdete v tématech [Správa ochrany přihlašovacích údajů v programu Windows Defender](/windows/security/identity-protection/credential-guard/credential-guard-manage) a stažení [nástroje Device Readiness](https://www.microsoft.com/en-us/download/details.aspx?id=53337)Guard pro ochranu před hardwarem.
+    Další informace najdete v tématech [Správa ochrany přihlašovacích údajů v programu Windows Defender](/windows/security/identity-protection/credential-guard/credential-guard-manage) a stažení [nástroje Device Readiness](https://www.microsoft.com/download/details.aspx?id=53337)Guard pro ochranu před hardwarem.
 
 - Aktualizace pro **Windows** a **firmware** jsou nezbytné v clusterech, serverech (včetně virtuálních počítačů hosta) a počítačích, které vám pomohou zajistit, aby byl operační systém i systémový hardware chráněn před útočníky. Pomocí nástroje **aktualizace** centra pro správu systému Windows můžete použít aktualizace pro jednotlivé systémy. Pokud váš poskytovatel hardwaru zahrnuje podporu centra pro správu systému Windows pro získání aktualizací ovladačů, firmwaru a řešení, můžete získat tyto aktualizace ve stejnou dobu jako aktualizace systému Windows, jinak je přímo od dodavatele získat.
 
@@ -88,7 +88,7 @@ Tato část popisuje, jak pomocí centra pro správu systému Windows chránit p
 
 - **Řízení přístupu na základě role (RBAC)** v centru pro správu systému Windows umožňuje uživatelům omezený přístup k serverům, které potřebují ke správě, a nikoli k tomu, aby je nemuseli používat pro úplné místní správce. Pokud chcete použít RBAC v centru pro správu Windows, nakonfigurujete každý spravovaný server pomocí PowerShellu, který je právě dostatečným koncovým bodem správy.
 
-    Další informace najdete v tématu [řízení přístupu na základě role](/windows-server/manage/windows-admin-center/plan/user-access-options#role-based-access-control) a [jen dostatečná Správa](/powershell/scripting/learn/remoting/jea/overview?view=powershell-7).
+    Další informace najdete v tématu [řízení přístupu na základě role](/windows-server/manage/windows-admin-center/plan/user-access-options#role-based-access-control) a [jen dostatečná Správa](/powershell/scripting/learn/remoting/jea/overview).
 
 - **Nástroje zabezpečení** v centru pro správu systému Windows, které můžete použít ke správě a ochraně identit, zahrnují službu Active Directory, certifikáty, bránu firewall, místní uživatele a skupiny a další.
 
@@ -126,7 +126,7 @@ V následujících částech jsou doporučené rozšířené nástroje zabezpeč
      
      - **Virtual Trusted Platform Module (vTPM)** ve Windows serveru podporuje čip TPM pro virtuální počítače, který umožňuje používat pokročilé technologie zabezpečení, jako je třeba BitLocker na virtuálních počítačích. Podporu čipu TPM můžete povolit pro libovolný virtuální počítač Hyper-V generace 2 pomocí Správce technologie Hyper-V nebo `Enable-VMTPM` rutiny prostředí Windows PowerShell.
      
-        Další informace najdete v tématu [Enable-VMTPM](/powershell/module/hyper-v/enable-vmtpm?view=win10-ps).
+        Další informace najdete v tématu [Enable-VMTPM](/powershell/module/hyper-v/enable-vmtpm).
      
      - **Softwarově definované sítě (SDN)** v Azure Stack HCI a Windows Server centrálně konfigurují a spravují fyzická a virtuální síťová zařízení, jako jsou směrovače, přepínače a brány ve vašem datovém centru. Prvky virtuální sítě, jako je virtuální přepínač Hyper-V, virtualizace sítě Hyper-V a brána služby RAS, jsou navržené tak, aby byly integrálními prvky vaší infrastruktury SDN.
 

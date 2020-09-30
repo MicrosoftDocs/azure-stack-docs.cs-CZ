@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Přečtěte si o operacích údržby poskytovatele prostředků SQL na rozbočovači Azure Stack.
 author: bryanla
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 6fc476b1f373c8f21481b979d1eefcdbe356766b
-ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
+ms.openlocfilehash: 0de06d7bf13919be95b3d97aa1113221f4378625
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89364826"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572819"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Operace údržby poskytovatele prostředků SQL
 
@@ -130,7 +130,7 @@ Ke shromáždění všech protokolů poskytovatele prostředků, včetně AzureS
 
 K aktualizaci operačního systému virtuálního počítače použijte jednu z následujících metod.
 
-- Nainstalujte nejnovější balíček poskytovatele prostředků pomocí aktuálně opravené image Windows Server 2016 Core.
+- Nainstalujte nejnovější balíček poskytovatele prostředků pomocí aktuálně opravené image virtuálního počítače.
 - Instalace balíčku web Windows Update během instalace nástroje nebo aktualizace na poskytovatele prostředků.
 
 ## <a name="update-the-vm-windows-defender-definitions"></a>Aktualizace definicí virtuálních počítačů v programu Windows Defender

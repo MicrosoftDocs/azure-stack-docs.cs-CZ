@@ -1,20 +1,20 @@
 ---
 title: Softwarově definované sítě (SDN) v Azure Stack HCI
-description: Přehled témat SDN, která se vztahují na funkce v Azure Stack HCI
+description: Softwarově definované sítě (SDN) poskytují způsob, jak centrálně konfigurovat a spravovat sítě a síťové služby, jako je přepínání, směrování a vyrovnávání zatížení ve vašem datovém centru.
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/24/2020
-ms.openlocfilehash: 34ddaf17a9c90373d76a9b0ce490e2e60a1e221d
-ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
+ms.date: 09/29/2020
+ms.openlocfilehash: e14d0475c941f568f08a027de9e71eb25f00a999
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91230474"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572649"
 ---
-# <a name="sdn-in-azure-stack-hci"></a>SDN ve Azure Stack HCI
+# <a name="software-defined-networking-sdn-in-azure-stack-hci"></a>Softwarově definované sítě (SDN) v Azure Stack HCI
 
 > Platí pro Azure Stack HCI, verze 20H2; Windows Server 2019
 
@@ -35,7 +35,7 @@ Nasazení síťového adaptéru umožňuje následující funkce:
 - Připojte virtuální zařízení k virtuálním sítím.
 - Nakonfigurujte zásady QoS (Quality of Service) pro virtuální počítače připojené k virtuální síti nebo k tradiční síti založené na síti VLAN.
 
-Po vytvoření clusteru Azure Stack HCI doporučujeme [nasadit síťový adaptér pomocí prostředí PowerShell](../deploy/network-controller-powershell.md) .
+[Při vytváření clusteru doporučujeme nasazení síťového adaptéru](../deploy/create-cluster.md#step-5-sdn-optional). Případně můžete [síťový adaptér nasadit pomocí prostředí PowerShell](../deploy/network-controller-powershell.md) po vytvoření clusteru Azure Stack HCI.
 
 ## <a name="software-load-balancing"></a>Vyrovnávání zatížení softwaru
 

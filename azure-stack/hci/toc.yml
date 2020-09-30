@@ -6,13 +6,13 @@
       href: overview.md
     - name: Známé problémy
       href: known-issues.md
-    - name: "Poznámky k\_verzi"
+    - name: Zpráva k vydání verze
       href: release-notes.md
 - name: Začínáme
   items:
     - name: Použití Azure Stack HCL s centrem pro správu Windows
       href: get-started.md
-- name: Nasazení
+- name: Nasadit
   items:
     - name: Přehled nasazení
       href: deploy/deployment-overview.md
@@ -32,7 +32,7 @@
       href: deploy/validate.md
     - name: Nasazení síťového adaptéru
       href: deploy/network-controller-powershell.md
-- name: Spravovat
+- name: Správa
   items:
     - name: Správa virtuálních počítačů
       items:
@@ -60,6 +60,8 @@
           href: manage/replace-drives.md
         - name: Použít mezipaměť pro čtení v paměti sdíleného svazku clusteru
           href: manage/use-csv-cache.md
+        - name: Správa vícekanálového protokolu SMB
+          href: manage/manage-smb-multichannel.md
     - name: Správa clusteru
       items:
         - name: Správa clusteru
@@ -122,7 +124,7 @@
       href: concepts/network-controller.md
     - name: Důležité informace o zabezpečení
       href: concepts/security.md
-- name: Odkaz
+- name: Reference
   items:
     - name: Příkazy prostředí PowerShell technologie Hyper-V
       href: /powershell/module/hyper-v
@@ -156,11 +158,11 @@
       href: /windows-server/networking/sdn
     - name: System Center
       href: /system-center/
-- name: Zdroje a prostředky
+- name: Zdroje informací
   items:
     - name: Stránka produktu Azure Stack HCL
       href: 'https://azure.com/hci'
     - name: Průvodce vyvyhodnocením Azure Stack HCL
       href: 'https://github.com/Azure/AzureStackHCI-EvalGuide/blob/main/README.md'
     - name: Azure Stack ceny HCI
-      href: 'https://azure.microsoft.com/en-us/pricing/details/azure-stack/hci/'
+      href: 'https://azure.microsoft.com/pricing/details/azure-stack/hci/'

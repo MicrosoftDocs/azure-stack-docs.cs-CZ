@@ -8,16 +8,16 @@ ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: adc2288d8886c5b952f26da4798fccd731738733
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 804c70ab3785e3932f2d2df01f43ccbd520d51a5
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90946411"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572802"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Nasazení poskytovatele prostředků SQL Server v centru Azure Stack
 
-Použijte poskytovatele prostředků SQL Server centra Azure Stack k vystavování databází SQL jako služby centra pro Azure Stack. Poskytovatel prostředků SQL se spouští jako služba na virtuálním počítači se systémem Windows Server 2016 Server Core (VM).
+Použijte poskytovatele prostředků SQL Server centra Azure Stack k vystavování databází SQL jako služby centra pro Azure Stack. Poskytovatel prostředků SQL se spouští jako služba na virtuálním počítači se systémem Windows Server 2016 Server Core (pro verzi adaptéru <= 1.1.47.0>) nebo speciálním doplňku RP Windows serveru (pro verzi adaptéru >= 1.1.93.0).
 
 > [!IMPORTANT]
 > Pouze poskytovatel prostředků je podporován k vytváření položek na serverech, které jsou hostiteli SQL nebo MySQL. Položky vytvořené na hostitelském serveru, které nejsou vytvořené poskytovatelem prostředků, můžou vést k neshodě stavu.
@@ -28,19 +28,23 @@ Aby bylo možné nasadit poskytovatele prostředků SQL centra Azure Stack, je n
 
 - Pokud jste to ještě neudělali, [zaregistrujte Azure Stack centrum](azure-stack-registration.md) s Azure, abyste si mohli stáhnout Azure Marketplace položky.
 
-- Přidejte požadovaný virtuální počítač s Windows serverem do centra Azure Stack hub tak, že stáhnete hlavní bitovou kopii **Windows serveru 2016 Datacenter-Server** .
+- Přidejte požadovaný virtuální počítač s Windows serverem do centra Azure Stack Marketplace.
+  * Pro SQL RP verze <= 1.1.47.0 stáhněte bitovou kopii **systému Windows server 2016 Datacenter-Server** .
+  * Pro SQL RP verze >= 1.1.93.0 stáhněte **pouze interní image Windows serveru pro doplněk Microsoft AZURESTACK RP** . Tato verze Windows serveru je specializovaná pro Azure Stack infrastrukturu RP pro doplňky a není viditelná pro tržiště tenanta.
+
 
 - Stáhněte si podporovanou verzi binárního souboru poskytovatele prostředků SQL podle níže uvedené tabulky mapování verzí. Spusťte samočinného extrahování pro extrakci staženého obsahu do dočasného adresáře. 
 
-  |Podporovaná verze centra Azure Stack|Verze SQL RP|
-  |-----|-----|
-  |2005, 2002, 1910|[SQL RP verze 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|
-  |1908|[SQL RP verze 1.1.33.0](https://aka.ms/azurestacksqlrp11330)| 
-  |     |     |
+  |Podporovaná verze centra Azure Stack|Verze SQL RP|Windows Server, na kterém běží služba RP
+  |-----|-----|-----|
+  |2005|[SQL RP verze 1.1.93.0](https://aka.ms/azshsqlrp11930)|POUZE interní doplněk Microsoft AzureStack RP – Windows Server
+  |2005, 2002, 1910|[SQL RP verze 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|Windows Server 2016 Datacenter – jádro serveru|
+  |1908|[SQL RP verze 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|Windows Server 2016 Datacenter – jádro serveru|
+  |     |     |     |
 
 - Ujistěte se, že jsou splněné předpoklady pro integraci Datacenter:
 
-    |Požadavek|Odkaz|
+    |Požadavek|Reference|
     |-----|-----|
     |Podmíněné předávání DNS je nastaveno správně.|[Integrace centrálního centra Azure Stack – DNS](azure-stack-integrate-dns.md)|
     |Příchozí porty pro poskytovatele prostředků jsou otevřené.|[Integrace Datacenter centra Azure Stack – příchozí porty a protokoly](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
@@ -57,15 +61,26 @@ Import-Module -Name PackageManagement -ErrorAction Stop
 
 # path to save the packages, c:\temp\azs1.6.0 as an example here
 $Path = "c:\temp\azs1.6.0"
+```
+
+2. V závislosti na verzi poskytovatele prostředků, který nasazujete, spusťte jeden ze skriptů.
+
+```powershell
+# for resource provider version >= 1.1.93.0
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.2
 ```
+```powershell
+# for resource provider version <= 1.1.47.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
+```
 
-2. Stažené balíčky pak zkopírujete do zařízení USB.
+3. Stažené balíčky pak zkopírujete do zařízení USB.
 
-3. Přihlaste se k odpojené pracovní stanici a zkopírujte balíčky ze zařízení USB do umístění v pracovní stanici.
+4. Přihlaste se k odpojené pracovní stanici a zkopírujte balíčky ze zařízení USB do umístění v pracovní stanici.
 
-4. Zaregistrujte toto umístění jako místní úložiště.
+5. Zaregistrujte toto umístění jako místní úložiště.
 
 ```powershell
 # requires -Version 5
@@ -102,7 +117,7 @@ Spusťte skript DeploySqlProvider.ps1, který dokončí následující úkoly:
 - Nahraje certifikáty a jiné artefakty do účtu úložiště v Azure Stackovém centru.
 - Publikuje balíčky galerie, takže můžete nasadit databáze SQL pomocí galerie.
 - Publikuje balíček galerie pro nasazení hostitelských serverů.
-- Nasadí virtuální počítač pomocí image Windows serveru 2016 Core, kterou jste stáhli, a potom nainstaluje poskytovatele prostředků SQL.
+- Nasadí virtuální počítač pomocí image Windows serveru 2016 Core Image nebo image Windows serveru pro doplňky Microsoft AzureStack, kterou jste stáhli, a potom nainstaluje poskytovatele prostředků SQL.
 - Zaregistruje místní záznam DNS, který se mapuje na váš virtuální počítač poskytovatele prostředků.
 - Zaregistruje poskytovatele prostředků s místní Azure Resource Manager pro účet operátora.
 
@@ -113,7 +128,7 @@ Spusťte skript DeploySqlProvider.ps1, který dokončí následující úkoly:
 
 Z příkazového řádku můžete zadat následující parametry. Pokud ne, nebo pokud se nějaké ověření parametru nepodaří, budete vyzváni k zadání požadovaných parametrů.
 
-| Název parametru | Popis | Komentář nebo výchozí hodnota |
+| Název parametru | Description | Komentář nebo výchozí hodnota |
 | --- | --- | --- |
 | **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu. | _Požadováno_ |
 | **AzCredential** | Přihlašovací údaje pro účet správce služby Azure Stack hub. Použijte stejné přihlašovací údaje, které jste použili k nasazení centra Azure Stack. Pokud účet, který používáte se službou AzCredential, vyžaduje vícefaktorové ověřování (MFA), skript se nezdaří.| _Požadováno_ |
@@ -129,7 +144,7 @@ Z příkazového řádku můžete zadat následující parametry. Pokud ne, nebo
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>Nasazení poskytovatele prostředků SQL pomocí vlastního skriptu
 
-Pokud nasazujete 1.1.33.0 nebo předchozí verze poskytovatele prostředků SQL, budete muset v PowerShellu nainstalovat konkrétní verze AzureRm. zaváděcího nástroje a modulu Azure Stack hub. Pokud nasazujete poskytovatele prostředků SQL verze 1.1.47.0, skript nasazení automaticky stáhne a nainstaluje potřebné moduly PowerShellu pro vás do cesty C:\Program Files\SqlMySqlPsh..
+Pokud nasazujete 1.1.33.0 nebo předchozí verze poskytovatele prostředků SQL, budete muset v PowerShellu nainstalovat konkrétní verze AzureRm. zaváděcího nástroje a modulu Azure Stack hub. Pokud nasazujete poskytovatele prostředků SQL verze 1.1.47.0 nebo novější, skript nasazení automaticky stáhne a nainstaluje potřebné moduly PowerShellu pro vás do cesty C:\Program Files\SqlMySqlPsh..
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureStack module
@@ -173,7 +188,7 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force
 
-# For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
+# For version 1.1.47.0 or later, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
 # The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.
 $rpModulePath = Join-Path -Path $env:ProgramFiles -ChildPath 'SqlMySqlPsh'
 $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath 

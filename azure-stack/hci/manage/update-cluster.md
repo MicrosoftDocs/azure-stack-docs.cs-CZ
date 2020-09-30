@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.date: 08/31/2020
-ms.openlocfilehash: 94908514e85df153f69cbeea81a11d4468dfc7fe
-ms.sourcegitcommit: e6665cfb15fae57218e58cd6de6053f16c1f9044
+ms.openlocfilehash: 06a5a1ccf59b5d5c34ef1d2e36feeb1000b49776
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89274054"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572632"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>Aktualizace Azure Stackch clusterů HCI
 
@@ -87,9 +87,8 @@ Aktualizace pro clustery může koordinovat úplnou operaci aktualizace clusteru
   
 -   **Režim vzdálené aktualizace** V tomto režimu se jedná o počítač pro vzdálenou správu (obvykle počítač s Windows 10), který má síťové připojení k clusteru s podporou převzetí služeb při selhání, ale není členem clusteru s podporou převzetí služeb při selhání s nástroji clusteringu. V počítači pro vzdálenou správu, který se označuje jako koordinátor aktualizace, správce aktivuje hromadnou postupnou aktualizaci na vyžádání pomocí výchozího nebo vlastního profilu hromadné postupné aktualizace. Režim vzdálených aktualizací je užitečný pro sledování průběhu hromadné postupné aktualizace v reálném čase a pro clustery, které běží na instalacích jádra serveru.  
 
-
    > [!NOTE]
-   > Počínaje verzí Windows 10 říjen 2018 se RSAT nabízí jako sada funkcí na vyžádání přímo z Windows 10. Stačí přejít na **nastavení > aplikace > aplikace & funkce > volitelné funkce > přidat funkci > RSAT: Nástroje clusteringu s podporou převzetí služeb při selhání**a vybrat **nainstalovat**. Chcete-li zobrazit průběh instalace, klikněte na tlačítko zpět a zobrazte stav na stránce Správa volitelných funkcí. Nainstalovaná funkce bude zachována v rámci upgradu verze Windows 10. Pokud chcete nainstalovat RSAT pro Windows 10 před aktualizací z října 2018, [Stáhněte si balíček pro vzdálenou správu](https://www.microsoft.com/en-us/download/details.aspx?id=45520).
+   > Počínaje verzí Windows 10 říjen 2018 se RSAT nabízí jako sada funkcí na vyžádání přímo z Windows 10. Stačí přejít na **nastavení > aplikace > aplikace & funkce > volitelné funkce > přidat funkci > RSAT: Nástroje clusteringu s podporou převzetí služeb při selhání**a vybrat **nainstalovat**. Chcete-li zobrazit průběh instalace, klikněte na tlačítko zpět a zobrazte stav na stránce Správa volitelných funkcí. Nainstalovaná funkce bude zachována v rámci upgradu verze Windows 10. Pokud chcete nainstalovat RSAT pro Windows 10 před aktualizací z října 2018, [Stáhněte si balíček pro vzdálenou správu](https://www.microsoft.com/download/details.aspx?id=45520).
 
 ### <a name="add-cau-cluster-role-to-the-cluster"></a>Přidání role clusteru funkce CAU do clusteru
 
@@ -105,7 +104,7 @@ Pokud tato role v clusteru ještě není nakonfigurovaná, zobrazí se tato chyb
 
 ```Get-CauClusterRole : The current cluster is not configured with a Cluster-Aware Updating clustered role.```
 
-Chcete-li přidat roli clusteru aktualizace pro clustery pro režim automatických aktualizací pomocí prostředí PowerShell, použijte tuto **`Add-CauClusterRole`** rutinu a zadejte příslušné [parametry](/powershell/module/clusterawareupdating/add-cauclusterrole?view=win10-ps#parameters), jako v následujícím příkladu:
+Chcete-li přidat roli clusteru aktualizace pro clustery pro režim automatických aktualizací pomocí prostředí PowerShell, použijte tuto **`Add-CauClusterRole`** rutinu a zadejte příslušné [parametry](/powershell/module/clusterawareupdating/add-cauclusterrole#parameters), jako v následujícím příkladu:
 
 ```PowerShell
 Add-CauClusterRole -ClusterName Cluster1 -MaxFailedNodes 0 -RequireAllNodesOnline -EnableFirewallRules -VirtualComputerObjectName Cluster1-CAU -Force -CauPluginName Microsoft.WindowsUpdatePlugin -MaxRetriesPerNode 3 -CauPluginArguments @{ 'IncludeRecommendedUpdates' = 'False' } -StartDate "3/2/2020 3:00:00 AM" -DaysOfWeek 4 -WeeksOfMonth @(3) -verbose

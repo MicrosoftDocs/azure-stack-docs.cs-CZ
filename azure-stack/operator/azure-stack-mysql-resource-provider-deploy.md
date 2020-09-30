@@ -3,20 +3,20 @@ title: Nasazení poskytovatele prostředků MySQL v centru Azure Stack
 description: Naučte se nasadit adaptér poskytovatele prostředků MySQL a databáze MySQL jako službu na centra Azure Stack.
 author: bryanla
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 9/22/2020
 ms.author: bryanla
-ms.reviewer: xiaofmao
-ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 82ad67557ae0fb84e072aa760b6fd8cc1f016e03
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.reviewer: caoyang
+ms.lastreviewed: 9/22/2020
+ms.openlocfilehash: e2f3c523dfcbd9c1ceec53bdf5fd55300752fd1f
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90946467"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572921"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Nasazení poskytovatele prostředků MySQL do centra Azure Stack
 
-Pomocí poskytovatele prostředků serveru MySQL můžete zveřejnit databáze MySQL jako službu Azure Stack hub. Poskytovatel prostředků MySQL se spouští jako služba na virtuálním počítači se systémem Windows Server 2016 Server Core (VM).
+Pomocí poskytovatele prostředků serveru MySQL můžete zveřejnit databáze MySQL jako službu Azure Stack hub. Poskytovatel prostředků MySQL se spouští jako služba na virtuálním počítači se systémem Windows Server 2016 Server Core (pro verzi adaptéru <= 1.1.47.0>) nebo speciálním doplňku RP Windows serveru (pro verzi adaptéru >= 1.1.93.0).
 
 > [!IMPORTANT]
 > Pouze poskytovatel prostředků je podporován k vytváření položek na serverech, které jsou hostiteli SQL nebo MySQL. Položky vytvořené na hostitelském serveru, které nejsou vytvořené poskytovatelem prostředků, můžou vést k neshodě stavu.
@@ -27,15 +27,18 @@ Aby bylo možné nasadit poskytovatele prostředků MySQL Azure Stack hub, je nu
 
 * Pokud jste to ještě neudělali, [zaregistrujte Azure Stack centrum](./azure-stack-registration.md) s Azure, abyste si mohli stáhnout Azure Marketplace položky.
 
-* Přidejte požadovaný virtuální počítač s Windows serverem do centra Azure Stack hub tak, že stáhnete hlavní bitovou kopii **Windows serveru 2016 Datacenter-Server** .
+* Přidejte požadovaný virtuální počítač s Windows serverem do centra Azure Stack Marketplace.
+  * Pro MySQL RP verze <= 1.1.47.0 stáhněte bitovou kopii **systému Windows server 2016 Datacenter-Server** .
+  * Pro MySQL RP verze >= 1.1.93.0 stáhněte **pouze interní image Windows serveru pro doplněk Microsoft AZURESTACK RP** . Tato verze Windows serveru je specializovaná pro Azure Stack infrastrukturu RP pro doplňky a není viditelná pro tržiště tenanta.
 
 * Stáhněte si podporovanou verzi binárního poskytovatele prostředků MySQL podle níže uvedené tabulky mapování verzí. Spusťte samočinného extrahování pro extrakci staženého obsahu do dočasného adresáře. 
 
-  |Podporovaná verze centra Azure Stack|Verze MySQL RP|
-  |-----|-----|
-  |2005, 2002, 1910|[MySQL RP verze 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|
-  |1908|[MySQL RP verze 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|
-  |     |     |
+  |Podporovaná verze centra Azure Stack|Verze MySQL RP|Windows Server, na kterém běží služba RP
+  |-----|-----|-----|
+  |2005|[MySQL RP verze 1.1.93.0](https://aka.ms/azshmysqlrp11930)|POUZE interní doplněk Microsoft AzureStack RP – Windows Server
+  |2005, 2002, 1910|[MySQL RP verze 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|Windows Server 2016 Datacenter – jádro serveru|
+  |1908|[MySQL RP verze 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|Windows Server 2016 Datacenter – jádro serveru|
+  |     |     |     |
 
 >[!NOTE]
 >Chcete-li nasadit poskytovatele MySQL v systému, který nemá přístup k Internetu, zkopírujte soubor [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) do místní cesty. Zadejte název cesty pomocí parametru **DependencyFilesLocalPath** .
@@ -43,7 +46,7 @@ Aby bylo možné nasadit poskytovatele prostředků MySQL Azure Stack hub, je nu
 
 * Ujistěte se, že jsou splněné předpoklady pro integraci Datacenter:
 
-    |Požadavek|Odkaz|
+    |Požadavek|Reference|
     |-----|-----|
     |Podmíněné předávání DNS je nastaveno správně.|[Integrace centrálního centra Azure Stack – DNS](azure-stack-integrate-dns.md)|
     |Příchozí porty pro poskytovatele prostředků jsou otevřené.|[Integrace Datacenter centra Azure Stack – publikování koncových bodů](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
@@ -60,15 +63,26 @@ Import-Module -Name PackageManagement -ErrorAction Stop
 
 # path to save the packages, c:\temp\azs1.6.0 as an example here
 $Path = "c:\temp\azs1.6.0"
+```
+
+2. V závislosti na verzi poskytovatele prostředků, který nasazujete, spusťte jeden ze skriptů.
+
+```powershell
+# for resource provider version >= 1.1.93.0
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.2
 ```
+```powershell
+# for resource provider version <= 1.1.47.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
+```
 
-2. Stažené balíčky pak zkopírujete do zařízení USB.
+3. Stažené balíčky pak zkopírujete do zařízení USB.
 
-3. Přihlaste se k odpojené pracovní stanici a zkopírujte balíčky ze zařízení USB do umístění v pracovní stanici.
+4. Přihlaste se k odpojené pracovní stanici a zkopírujte balíčky ze zařízení USB do umístění v pracovní stanici.
 
-4. Zaregistrujte toto umístění jako místní úložiště.
+5. Zaregistrujte toto umístění jako místní úložiště.
 
 ```powershell
 # requires -Version 5
@@ -95,7 +109,7 @@ Po dokončení instalace všech požadovaných součástí můžete skript **Dep
  > [!IMPORTANT]
  > Před nasazením poskytovatele prostředků si přečtěte poznámky k verzi, kde najdete informace o nových funkcích, opravách a známých problémech, které by mohly mít vliv na nasazení.
 
-Pokud chcete nasadit poskytovatele prostředků MySQL, otevřete nové okno prostředí PowerShell se zvýšenými oprávněními (ne PowerShell ISE) a přejděte do adresáře, do kterého jste extrahovali binární soubory poskytovatele prostředků MySQL. 
+Pokud chcete nasadit poskytovatele prostředků MySQL, otevřete **nové** okno prostředí PowerShell se zvýšenými oprávněními (ne PowerShell ISE) a přejděte do adresáře, do kterého jste extrahovali binární soubory poskytovatele prostředků MySQL. 
 
 > [!IMPORTANT]
 > Doporučujeme použít nové okno prostředí PowerShell, aby nedocházelo k potenciálním problémům způsobeným moduly prostředí PowerShell, které jsou již načteny. Nebo můžete před spuštěním skriptu aktualizace vymazat mezipaměť pomocí azurermcontext Clear-.
@@ -105,7 +119,7 @@ Spusťte skript **DeployMySqlProvider.ps1** , který dokončí následující ú
 * Nahraje certifikáty a jiné artefakty do účtu úložiště v Azure Stackovém centru.
 * Publikuje balíčky galerie, aby bylo možné nasadit databáze MySQL pomocí galerie.
 * Publikuje balíček galerie pro nasazení hostitelských serverů.
-* Nasadí virtuální počítač pomocí image Windows serveru 2016 Core, kterou jste stáhli, a potom nainstaluje poskytovatele prostředků MySQL.
+* Nasadí virtuální počítač pomocí image Windows serveru 2016 Core Image nebo image Windows serveru pro doplňky Microsoft AzureStack, kterou jste stáhli, a potom nainstaluje poskytovatele prostředků MySQL.
 * Zaregistruje místní záznam DNS, který se mapuje na váš virtuální počítač poskytovatele prostředků.
 * Zaregistruje poskytovatele prostředků s místní Azure Resource Manager pro účet operátora.
 
@@ -116,7 +130,7 @@ Spusťte skript **DeployMySqlProvider.ps1** , který dokončí následující ú
 
 Tyto parametry můžete zadat z příkazového řádku. Pokud ne, nebo pokud se nějaké ověření parametru nepodaří, budete vyzváni k zadání požadovaných parametrů.
 
-| Název parametru | Popis | Komentář nebo výchozí hodnota |
+| Název parametru | Description | Komentář nebo výchozí hodnota |
 | --- | --- | --- |
 | **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu. | _Požadováno_ |
 | **AzCredential** | Přihlašovací údaje pro účet správce služby Azure Stack hub. Použijte stejné přihlašovací údaje, které jste použili k nasazení centra Azure Stack. Pokud účet, který používáte se službou AzCredential, vyžaduje vícefaktorové ověřování (MFA), skript se nezdaří. | _Požadováno_ |
@@ -133,7 +147,7 @@ Tyto parametry můžete zadat z příkazového řádku. Pokud ne, nebo pokud se 
 
 ## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>Nasazení poskytovatele prostředků MySQL pomocí vlastního skriptu
 
-Pokud nasazujete poskytovatele prostředků MySQL verze 1.1.33.0 nebo předchozí verze, budete muset v PowerShellu nainstalovat konkrétní verze modulů AzureRm. zaváděcího nástroje a Azure Stack hub. Pokud nasazujete poskytovatele prostředků MySQL verze 1.1.47.0, skript nasazení bude automaticky stahovat a instalovat potřebné moduly PowerShellu pro vás do cesty C:\Program Files\SqlMySqlPsh..
+Pokud nasazujete poskytovatele prostředků MySQL verze 1.1.33.0 nebo předchozí verze, budete muset v PowerShellu nainstalovat konkrétní verze modulů AzureRm. zaváděcího nástroje a Azure Stack hub. Pokud nasazujete poskytovatele prostředků MySQL verze 1.1.47.0 nebo novější, skript nasazení automaticky stáhne a nainstaluje potřebné moduly PowerShellu pro vás do cesty C:\Program Files\SqlMySqlPsh..
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
@@ -177,7 +191,7 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force
 
-# For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh,
+# For version 1.1.47.0 or later, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh,
 # The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.
 $rpModulePath = Join-Path -Path $env:ProgramFiles -ChildPath 'SqlMySqlPsh'
 $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath

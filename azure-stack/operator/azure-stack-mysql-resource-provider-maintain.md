@@ -3,16 +3,16 @@ title: Operace údržby poskytovatele prostředků MySQL – centrum Azure Stack
 description: Naučte se udržovat službu poskytovatele prostředků MySQL v Azure Stack hub.
 author: bryanla
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: d372015038fa11df75e22ac83b3beec08fe25d98
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: ff9c1054f505625e51426fca70bbb2ae7d9115a5
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572659"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572938"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Operace údržby poskytovatele prostředků MySQL v centru Azure Stack
 
@@ -24,7 +24,7 @@ Vzhledem k tomu, že poskytovatel prostředků běží na *uživatelském* virtu
 
 Aktualizujte virtuální počítač poskytovatele pomocí jedné z následujících metod:
 
-- Nainstalujte nejnovější balíček poskytovatele prostředků pomocí aktuálně opravené image Windows Server 2016 Core.
+- Nainstalujte nejnovější balíček poskytovatele prostředků pomocí aktuálně opravené image virtuálního počítače.
 - Během instalace nebo aktualizace poskytovatele prostředků nainstalujte balíček web Windows Update.
 
 ## <a name="update-the-vm-windows-defender-definitions"></a>Aktualizace definicí virtuálních počítačů v programu Windows Defender

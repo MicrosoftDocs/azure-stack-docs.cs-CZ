@@ -1,24 +1,24 @@
 ---
 title: Přehled řešení Azure Stack HCI
-description: Azure Stack HCI je vysoce sblížené řešení clusteru, které spouští virtualizované úlohy s Windows a Linuxem v hybridním místním prostředí. Služba Azure Hybrid Services vylepšuje cluster s využitím funkcí, jako jsou cloudové monitorování, Site Recovery a zálohování virtuálních počítačů, a také centrální zobrazení všech Azure Stackch nasazení HCL v Azure Portal.
+description: Azure Stack HCI je řešení clusteru s jednou konvergou (HCI), které hostuje virtualizované úlohy Windows a Linux a jejich úložiště v hybridním místním prostředí. Služba Azure Hybrid Services vylepšuje cluster s využitím funkcí, jako jsou cloudové monitorování, Site Recovery a zálohování virtuálních počítačů, a také centrální zobrazení všech Azure Stackch nasazení HCL v Azure Portal.
 ms.topic: overview
 author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 09/24/2020
-ms.openlocfilehash: 1e36ff62490a083be83ac333bf44ca5b4ca67406
-ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
+ms.openlocfilehash: 135cf9147b69410b4276860dcde2b167e771a695
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91230508"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572530"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Přehled řešení Azure Stack HCI
 
-Azure Stack HCI je vysoce sblížené řešení clusteru, které spouští virtualizované úlohy s Windows a Linuxem v hybridním místním prostředí. Služba Azure Hybrid Services vylepšuje cluster s využitím funkcí, jako jsou cloudové monitorování, Site Recovery a zálohování virtuálních počítačů, a také centrální zobrazení všech Azure Stackch nasazení HCL v Azure Portal. Cluster můžete spravovat pomocí stávajících nástrojů, včetně centra pro správu Windows, nástroje System Center a PowerShellu.
+Azure Stack HCI je řešení clusteru s jednou konvergou (HCI), které hostuje virtualizované úlohy Windows a Linux a jejich úložiště v hybridním místním prostředí. Služba Azure Hybrid Services vylepšuje cluster s využitím funkcí, jako jsou cloudové monitorování, Site Recovery a zálohování virtuálních počítačů, a také centrální zobrazení všech Azure Stackch nasazení HCL v Azure Portal. Cluster můžete spravovat pomocí stávajících nástrojů, včetně centra pro správu Windows, nástroje System Center a PowerShellu.
 
-Azure Stack HCI, verze 20H2 je teď novým operačním systémem, který je teď v Public Preview a [dostupný ke stažení](https://azure.microsoft.com/en-us/products/azure-stack/hci/hci-download/). Je určený pro místní clustery, na kterých běží virtualizované úlohy s integrovanými připojeními hybridního cloudu. V takovém případě se Azure Stack HCI doručuje jako služba Azure a účtuje se na základě předplatného Azure. Azure Stack rozhraní HCI teď také nabízí možnost hostovat službu Azure Kubernetes. Podrobnosti najdete v tématu [Služba Azure Kubernetes na Azure Stack HCL](../aks-hci/overview.md).
+Azure Stack HCI, verze 20H2 je teď novým operačním systémem, který je teď v Public Preview a [dostupný ke stažení](https://azure.microsoft.com/products/azure-stack/hci/hci-download/). Je určený pro místní clustery, na kterých běží virtualizované úlohy s integrovanými připojeními hybridního cloudu. V takovém případě se Azure Stack HCI doručuje jako služba Azure a účtuje se na základě předplatného Azure. Azure Stack rozhraní HCI teď také nabízí možnost hostovat službu Azure Kubernetes. Podrobnosti najdete v tématu [Služba Azure Kubernetes na Azure Stack HCL](../aks-hci/overview.md).
 
 Podívejte se na video o funkcích na nejvyšší úrovni Azure Stack HCL v několika minutách:
 
@@ -134,7 +134,7 @@ Chcete-li tyto technologie spravovat, můžete použít následující nástroje
 - Další nástroje pro správu, jako jsou [Správce serveru](/windows-server/administration/server-manager/server-manager)a moduly snap-in konzoly MMC
 - Nástroje od jiných společností než Microsoft, jako je společnosti 5NINE Manager
 
-## <a name="faq"></a>Nejčastější dotazy
+## <a name="faq"></a>Časté otázky
 
 ### <a name="how-does-azure-stack-hci-relate-to-windows-server"></a>Jak se vztahuje Azure Stack HCL na Windows Server?
 
@@ -205,7 +205,7 @@ Azure Stack rozhraní HCI je součástí řady Azure a Azure Stack, která využ
 - [Azure Stack](https://azure.microsoft.com/overview/azure-stack/hci) v prostředí HCI – spouštění virtualizovaných aplikací v místním prostředí, výměna a konsolidace infrastruktury serveru pro stárnutí a připojení k Azure pro cloudové služby.
 - [Azure Stack centrum](../operator/azure-stack-overview.md) – spouštění cloudových aplikací v místním prostředí, pokud je odpojená, nebo aby splňovaly zákonné požadavky, a to s využitím konzistentních služeb Azure.
 
-:::image type="content" source="media/overview/azure-family-updated.png" alt-text="Diagram řešení Azure Stack Family" border="false":::
+:::image type="content" source="media/overview/azure-family-updated.png" alt-text="Operační systém Azure Stack HCI běží nad ověřeným hardwarem, spravuje centrum pro správu systému Windows a připojuje se k Azure." border="false":::
 
 ## <a name="compare-windows-server-and-azure-stack-hci"></a>Porovnání Windows serveru a Azure Stack HCL
 
@@ -261,8 +261,8 @@ V případě, že vaše organizace bude digitálně transformovat, můžete se s
 
 Centrum pro správu systému Windows verze 2009 přidává řadu funkcí Azure Stack HCL, včetně následujících:
 
-- **Možnosti hostování služeb Azure Kubernetes**: teď můžete nainstalovat verzi Preview [služby Azure Kubernetes Service na Azure Stack HCL](https://azure.microsoft.com/en-us/products/azure-stack/hci/hci-download/).
-- **Zahrnutí softwarově definovaných sítí v Průvodci vytvořením clusteru**: Průvodce vytvořením clusteru teď obsahuje možnost nasazení funkce síťového adaptéru s softwarově definovanými sítěmi (SDN) během vytváření clusteru.
+- **Možnosti hostování služeb Azure Kubernetes**: teď můžete nainstalovat verzi Preview [služby Azure Kubernetes Service na Azure Stack HCL](https://azure.microsoft.com/products/azure-stack/hci/hci-download/).
+- **Zahrnutí softwarově definovaných sítí v Průvodci vytvořením clusteru**: Průvodce vytvořením clusteru teď obsahuje možnost nasazení funkce síťového adaptéru s [softwarově definovanými sítěmi (SDN)](concepts/software-defined-networking.md) během [vytváření clusteru](deploy/create-cluster.md#step-5-sdn-optional).
 
 Podrobnosti o nových funkcích centra pro správu systému Windows najdete na [blogu centra pro správu systému Windows](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/bg-p/Windows-Admin-Center-Blog).
 
@@ -312,5 +312,5 @@ Tady je video z hybridní cloudové virtuální události:
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Stáhnout Azure Stack HCL](https://azure.microsoft.com/en-us/products/azure-stack/hci/hci-download/)
+- [Stáhnout Azure Stack HCL](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)
 - [Použití Azure Stack HCL s centrem pro správu Windows](get-started.md)
