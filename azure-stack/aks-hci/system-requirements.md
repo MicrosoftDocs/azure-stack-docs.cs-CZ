@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: abhilashaagarwala
 ms.author: abha
 ms.date: 09/22/2020
-ms.openlocfilehash: b4f79281987b425b907126081e74ce32bf9ee14d
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 4c91dad12e4d6680ca0887da2e6ca314cdbd64ee
+ms.sourcegitcommit: 3e225b30a54159b6b8dbeb2f843a2e5a721b746e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948953"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91519382"
 ---
 # <a name="system-requirements-for-azure-kubernetes-service-on-azure-stack-hci"></a>Požadavky na systém pro službu Azure Kubernetes ve Azure Stack HCL
 
@@ -83,7 +83,7 @@ Pro počítač centra pro správu systému Windows a všechny uzly v clusteru Az
 
 | URL        | Port | Služba | Poznámky |
 | ---------- | ---- | --- | ---- |
-https://get.helm.sh/  | 443 | Stažení agenta, WAC | Používá se ke stažení binárních souborů Helm. 
+https://helm.sh/blog/get-helm-sh/  | 443 | Stažení agenta, WAC | Používá se ke stažení binárních souborů Helm. 
 https://storage.googleapis.com/  | 443 | Inicializace cloudu | Stahování binárních souborů Kubernetes 
 https://azurecliprod.blob.core.windows.net/ | 443 | Inicializace cloudu | Stahování binárních souborů a kontejnerů 
 https://aka.ms/installazurecliwindows | 443 | WAC | Stahuje se Azure CLI. 

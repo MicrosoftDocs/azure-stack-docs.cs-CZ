@@ -7,12 +7,12 @@ ms.date: 9/8/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: bcd4d3e2255a839efe3ef4075d81042e241d00f3
-ms.sourcegitcommit: 9a340b383dcf42c85bc6ec0d01ff3c9ae29dfe4c
+ms.openlocfilehash: c8c68a64f7a05e03c70e138cb4d8c95da7417ec9
+ms.sourcegitcommit: 3e225b30a54159b6b8dbeb2f843a2e5a721b746e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89609777"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91519407"
 ---
 # <a name="move-a-vm-from-azure-to-azure-stack-hub"></a>Přesunutí virtuálního počítače z Azure do centra Azure Stack
 
@@ -48,7 +48,7 @@ Postupujte podle pokynů v části [stažení virtuálního pevného disku s Win
 
 - Před stažením virtuálního počítače se systémem Linux postupujte podle pokynů v části Příprava virtuálního počítače v článku [Vytvoření virtuálního počítače se systémem Linux z vlastního disku pomocí Azure CLI](/azure/virtual-machines/linux/upload-vhd#prepare-the-vm) .
 - Při přípravě a stažení virtuálního pevného disku použijte postup v článku [stažení virtuálního pevného disku se systémem Linux z Azure](/azure//virtual-machines/windows/download-vhd) .
-- V případě specializovaného virtuálního pevného disku se ujistěte, že používáte sémantiku "připojit" `-CreateOption Attach` . Příklad najdete v článku [Vytvoření virtuálního počítače pomocí existujícího spravovaného disku s operačním systémem pomocí prostředí PowerShell (Windows)](/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks).
+- V případě specializovaného virtuálního pevného disku se ujistěte, že používáte sémantiku "připojit" `-CreateOption Attach` . Příklad najdete v článku [Vytvoření virtuálního počítače pomocí existujícího spravovaného disku s operačním systémem pomocí prostředí PowerShell (Windows)](/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks).
 
 #### <a name="linux---generalized"></a>[Linux – generalizované](#tab/lin-gen)
 
