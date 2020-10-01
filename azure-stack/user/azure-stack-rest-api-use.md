@@ -3,16 +3,16 @@ title: Vydávat požadavky rozhraní API na centrum Azure Stack
 description: Naučte se, jak načíst ověřování z Azure a vydávat požadavky rozhraní API na Azure Stack hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 05/06/2020
+ms.date: 10/01/2020
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: d44158342b1bca1aec575d51fb7144a8c88e88d1
-ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
+ms.openlocfilehash: 70a1a6e1d2fb4eb6766948a4e02d5072f4e04281
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82967739"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623315"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
@@ -30,7 +30,7 @@ Tento článek nezkoumá všechny možnosti, které jsou k dispozici pro načít
 
 ## <a name="get-a-token-from-azure"></a>Získání tokenu z Azure
 
-Vytvořte text požadavku formátovaný pomocí typu `x-www-form-urlencoded` obsahu pro získání přístupového tokenu. ODEŠLEte požadavek do koncového bodu ověřování Azure REST a přihlášení.
+Vytvořte text požadavku formátovaný pomocí typu obsahu `x-www-form-urlencoded` pro získání přístupového tokenu. ODEŠLEte požadavek do koncového bodu ověřování Azure REST a přihlášení.
 
 ### <a name="uri"></a>Identifikátor URI
 
@@ -40,9 +40,9 @@ POST https://login.microsoftonline.com/{tenant id}/oauth2/token
 
 **ID tenanta** je buď:
 
-- Vaše doména tenanta, například`fabrikam.onmicrosoft.com`
-- Vaše ID tenanta, například`8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
-- Výchozí hodnota pro klíče nezávislé na tenantovi:`common`
+- Vaše doména tenanta, například `fabrikam.onmicrosoft.com`
+- Vaše ID tenanta, například `8eaed023-2b34-4da1-9baa-8bc8c9d6a491`
+- Výchozí hodnota pro klíče nezávislé na tenantovi: `common`
 
 ### <a name="post-body"></a>Tělo příspěvku
 
@@ -58,7 +58,7 @@ grant_type=password
 Pro každou hodnotu:
 
 - **grant_type**:  
-   Typ schématu ověřování, který budete používat. V tomto příkladu je `password`hodnota.
+   Typ schématu ověřování, který budete používat. V tomto příkladu je hodnota `password` .
 
 - **prostředek**:  
    Prostředek, ke kterému token přistupuje. Prostředek můžete najít dotazem na koncový bod metadat správy centra Azure Stack. Podívejte se na část **cílové skupiny** .
@@ -70,7 +70,7 @@ Pro každou hodnotu:
    ```
 
   > [!NOTE]  
-  > Pokud jste správce, který se pokouší získat přístup k rozhraní API tenanta, ujistěte se, že používáte koncový bod tenanta. například `https://adminmanagement.{region}.{Azure Stack Hub domain}/metadata/endpoints?api-version=2015-01-011`.
+  > Pokud jste správce, který se pokouší získat přístup k rozhraní API tenanta, ujistěte se, že používáte koncový bod tenanta. například `https://adminmanagement.{region}.{Azure Stack Hub domain}/metadata/endpoints?api-version=2015-01-011` .
 
   Například s Azure Stack Development Kit jako koncovým bodem:
 
@@ -159,7 +159,7 @@ Odpověď:
 
 ## <a name="api-queries"></a>Dotazy rozhraní API
 
-Po získání přístupového tokenu ho přidejte jako hlavičku do každého z vašich požadavků na rozhraní API. Pokud ho chcete přidat jako hlavičku, vytvořte **autorizační** hlavičku s hodnotou: `Bearer <access token>`. Příklad:
+Po získání přístupového tokenu ho přidejte jako hlavičku do každého z vašich požadavků na rozhraní API. Pokud ho chcete přidat jako hlavičku, vytvořte **autorizační** hlavičku s hodnotou: `Bearer <access token>` . Například:
 
 Požadavek:
 
@@ -181,12 +181,12 @@ subscriptionPolicies : @{locationPlacementId=AzureStack}
 
 ### <a name="url-structure-and-query-syntax"></a>Struktura adres URL a syntaxe dotazů
 
-Identifikátor URI obecné žádosti se skládá z těchto:`{URI-scheme} :// {URI-host} / {resource-path} ? {query-string}`
+Identifikátor URI obecné žádosti se skládá z těchto: `{URI-scheme} :// {URI-host} / {resource-path} ? {query-string}`
 
 - **Schéma identifikátoru URI**:  
 Identifikátor URI označuje protokol použitý k odeslání požadavku. Příkladem je `http` nebo `https`.
 - **Hostitel identifikátoru URI**:  
-Hostitel Určuje název domény nebo IP adresu serveru, na kterém je hostovaný koncový bod služby REST, například `graph.microsoft.com` nebo. `adminmanagement.local.azurestack.external`
+Hostitel Určuje název domény nebo IP adresu serveru, na kterém je hostovaný koncový bod služby REST, například `graph.microsoft.com` nebo `adminmanagement.local.azurestack.external` .
 - **Cesta prostředku**:  
 Cesta Určuje prostředek nebo kolekci prostředků, které mohou zahrnovat více segmentů používaných službou při určování výběru těchto prostředků. Například: `beta/applications/00003f25-7e1f-4278-9488-efc7bac53c4a/owners` lze použít k dotazování seznamu na konkrétní vlastníky aplikace v rámci kolekce aplikací.
 - **Řetězec dotazu**:  

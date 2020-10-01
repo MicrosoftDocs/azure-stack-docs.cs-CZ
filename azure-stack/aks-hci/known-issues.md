@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 09/22/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 21c511521837eff83d31784db3cf59bcfe25cb2f
-ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
+ms.openlocfilehash: c11aadf13c33482337a46b1d6e59bf5997f11fc5
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91592828"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623179"
 ---
 # <a name="known-issues-for-azure-kubernetes-service-on-azure-stack-hci-public-preview"></a>Známé problémy služby Azure Kubernetes v Azure Stack HCI Public Preview
 Tento článek popisuje známé problémy s verzí Public Preview služby Azure Kubernetes v Azure Stack HCL.
@@ -76,3 +76,9 @@ Průvodce instalací hostitele služby Azure Kubernetes selže, pokud jeden nebo
 
 ## <a name="azure-registration-step-in-azure-kubernetes-service-host-setup-asks-to-try-again"></a>Krok registrace Azure v nastavení hostitele služby Azure Kubernetes se požádá o akci znovu.
 Při použití centra pro správu Windows k nastavení hostitele služby Azure Kubernetes se může zobrazit výzva, abyste se mohli pokusit zkusit znovu po zadání požadovaných informací na stránce pro registraci Azure. Aby bylo možné pokračovat v tomto kroku, možná budete muset znovu přihlásit k Azure v bráně centra pro správu systému Windows. Tento problém bude opraven v budoucí verzi.
+
+## <a name="windows-admin-center-doesnt-have-an-arc-offboarding-experience"></a>Centrum pro správu Windows nemá prostředí pro odpojování ARC.
+Centrum pro správu Windows v současné době nemá proces, který by odpojení cluster z ARC Azure. Chcete-li odstranit aganets ARC v clusteru, který byl zničen, přejděte do skupiny prostředků v clusteru Azure Portal a ručně odstraňte obsah ARC. Chcete-li odstranit agenty ARC v clusteru, který je stále v provozu, by uživatelé měli spustit následující příkaz:
+```PowerShell
+az connectedk8s delete
+```

@@ -1,19 +1,19 @@
 ---
 title: Správa infrastruktury úložiště pro centrum Azure Stack
 titleSuffix: Azure Stack
-description: Naučte se spravovat infrastrukturu úložiště pro centrum Azure Stack.
+description: Naučte se spravovat infrastrukturu úložiště pro centrum Azure Stack. Viz jak monitorovat svazky a jednotky. Podívejte se na tipy pro řešení potíží při přidávání jednotek do fondů.
 author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 5/4/2020
 ms.author: inhenkel
 ms.lastreviewed: 5/4/2020
 ms.reviewer: jiaha
-ms.openlocfilehash: 3fff3c9c7742d22c24ab540d4bf523ade3e7a227
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: a267c0bf5429bdd97b5a722f45f2fd188b63efb2
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848302"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623196"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Správa infrastruktury úložiště pro centrum Azure Stack
 Tento článek popisuje stav a provozní stav prostředků infrastruktury úložiště služby Azure Stack hub. Mezi tyto prostředky patří jednotky a svazky úložiště. Informace v tomto tématu vám pomůžou při odstraňování různých problémů, například když se do fondu nedá přidat jednotka.
@@ -34,7 +34,7 @@ Tady je příklad výstupu ukazující odpojený svazek a degradované/nedokonč
 
 | VolumeLabel | HealthStatus | OperationalStatus |
 |-------------|--------------|------------------------|
-| ObjStore_1 | Není známo | Odpojit |
+| ObjStore_1 | Neznámý | Odpojit |
 | ObjStore_2 | Upozornění | {Degradované, neúplné} |
 
 V následujících částech jsou uvedeny stav a provozní stavy:
@@ -44,7 +44,7 @@ V následujících částech jsou uvedeny stav a provozní stavy:
 | Provozní stav | Popis |
 |---|---|
 | OK | Svazek je v pořádku. |
-| Neoptimální | Data nejsou zapsána rovnoměrně mezi jednotky.<br> <br>**Akce:** Pokud chcete optimalizovat využití jednotky ve fondu úložiště, obraťte se na podporu. Než to uděláte, spusťte proces shromažďování souborů protokolu pomocí pokynů v https://aka.ms/azurestacklogfilesčásti. Po obnovení neúspěšného připojení bude pravděpodobně nutné provést obnovení ze zálohy. |
+| Neoptimální | Data nejsou zapsána rovnoměrně mezi jednotky.<br> <br>**Akce:** Pokud chcete optimalizovat využití jednotky ve fondu úložiště, obraťte se na podporu. Než to uděláte, spusťte proces shromažďování souborů protokolu pomocí pokynů v části https://aka.ms/azurestacklogfiles . Po obnovení neúspěšného připojení bude pravděpodobně nutné provést obnovení ze zálohy. |
 
 ### <a name="volume-health-state-warning"></a>Stav svazku: upozornění
 
@@ -62,7 +62,7 @@ Pokud je svazek ve stavu není v pořádku, některá nebo všechna data ve svaz
 
 | Provozní stav | Popis |
 |---|---|
-| Bez redundance | Svazek ztratil data, protože selhalo příliš mnoho jednotek.<br> <br>**Akce:** Obraťte se na podporu. Než to uděláte, spusťte proces shromažďování souborů protokolu pomocí pokynů v https://aka.ms/azurestacklogfilesčásti. |
+| Bez redundance | Svazek ztratil data, protože selhalo příliš mnoho jednotek.<br> <br>**Akce:** Obraťte se na podporu. Než to uděláte, spusťte proces shromažďování souborů protokolu pomocí pokynů v části https://aka.ms/azurestacklogfiles . |
 
 ### <a name="volume-health-state-unknown"></a>Stav svazku: neznámý
 
@@ -70,7 +70,7 @@ Pokud se virtuální disk stane odpojený, může být svazek také v neznámém
 
 | Provozní stav | Popis |
 |---|---|
-| Odpojit | Došlo k chybě úložného zařízení, což může způsobit nedostupnost svazku. Některá data mohou být ztracena.<br> <br>**Kroky** <br>1. Ověřte fyzické a síťové připojení všech úložných zařízení.<br>2. Pokud jsou všechna zařízení správně připojená, obraťte se na podporu. Než to uděláte, spusťte proces shromažďování souborů protokolu pomocí pokynů v https://aka.ms/azurestacklogfilesčásti. Po obnovení neúspěšného připojení bude pravděpodobně nutné provést obnovení ze zálohy. |
+| Odpojit | Došlo k chybě úložného zařízení, což může způsobit nedostupnost svazku. Některá data mohou být ztracena.<br> <br>**Kroky** <br>1. Ověřte fyzické a síťové připojení všech úložných zařízení.<br>2. Pokud jsou všechna zařízení správně připojená, obraťte se na podporu. Než to uděláte, spusťte proces shromažďování souborů protokolu pomocí pokynů v části https://aka.ms/azurestacklogfiles . Po obnovení neúspěšného připojení bude pravděpodobně nutné provést obnovení ze zálohy. |
 
 ## <a name="drive-states"></a>Stavy jednotek
 
@@ -104,9 +104,9 @@ Jednotka ve stavu varování může úspěšně číst a zapisovat data, ale má
 | Vstupně-výstupní chyba | Při přístupu k jednotce došlo k dočasné chybě.<br> <br>**Akce:** Pokud tento stav přetrvává, nahraďte jednotku, abyste zajistili plnou odolnost. |
 | Přechodná chyba | Došlo k dočasné chybě disku. Tato chyba obvykle znamená, že jednotka nereagovala, ale může to znamenat, že Prostory úložiště s přímým přístupem ochranný oddíl nebyl z jednotky vhodně odebrán. <br> <br>**Akce:** Pokud tento stav přetrvává, nahraďte jednotku, abyste zajistili plnou odolnost. |
 | Abnormální latence | Jednotka někdy neodpovídá a zobrazuje znaménka selhání.<br> <br>**Akce:** Pokud tento stav přetrvává, nahraďte jednotku, abyste zajistili plnou odolnost. |
-| Odebírá se z fondu | Azure Stack hub probíhá proces odebírání jednotky z fondu úložiště.<br> <br>**Akce:** Počkejte, než centrum Azure Stack dokončí odebrání jednotky, a potom stav ověřte.<br>Pokud stav zůstane, obraťte se na podporu. Než to uděláte, spusťte proces shromažďování souborů protokolu pomocí pokynů v https://aka.ms/azurestacklogfilesčásti. |
+| Odebírá se z fondu | Azure Stack hub probíhá proces odebírání jednotky z fondu úložiště.<br> <br>**Akce:** Počkejte, než centrum Azure Stack dokončí odebrání jednotky, a potom stav ověřte.<br>Pokud stav zůstane, obraťte se na podporu. Než to uděláte, spusťte proces shromažďování souborů protokolu pomocí pokynů v části https://aka.ms/azurestacklogfiles . |
 | Spouští se režim údržby. | Azure Stack hub probíhá proces vkládání jednotky do režimu údržby. Tento stav je dočasný – jednotka by brzy měla být ve stavu režim údržby.<br> <br>**Akce:** Počkejte, než centrum Azure Stack proces dokončí, a potom stav ověřte. |
-| V režimu údržby | Jednotka je v režimu údržby, probíhá zastavení čtení a zápisu z jednotky. Tento stav obvykle znamená, že Azure Stack úlohy správy centra, jako je například PNU nebo jednotka FRU. Správce ale může jednotku taky umístit do režimu údržby.<br> <br>**Akce:** Počkejte, než centrum Azure Stackí dokončí úlohu správy, a poté stav ověřte.<br>Pokud stav zůstane, obraťte se na podporu. Než to uděláte, spusťte proces shromažďování souborů protokolu pomocí pokynů v https://aka.ms/azurestacklogfilesčásti. |
+| V režimu údržby | Jednotka je v režimu údržby, probíhá zastavení čtení a zápisu z jednotky. Tento stav obvykle znamená, že Azure Stack úlohy správy centra, jako je například PNU nebo jednotka FRU. Správce ale může jednotku taky umístit do režimu údržby.<br> <br>**Akce:** Počkejte, než centrum Azure Stackí dokončí úlohu správy, a poté stav ověřte.<br>Pokud stav zůstane, obraťte se na podporu. Než to uděláte, spusťte proces shromažďování souborů protokolu pomocí pokynů v části https://aka.ms/azurestacklogfiles . |
 | Zastavení režimu údržby | Azure Stack centrum se v procesu převádění jednotky zpátky do režimu online. Tento stav je dočasný – jednotka by brzy měla být v jiném stavu, ideálně v pořádku.<br> <br>**Akce:** Počkejte, než centrum Azure Stack proces dokončí, a potom stav ověřte. |
 
 ### <a name="drive-health-state-unhealthy"></a>Stav jednotky: není v pořádku
@@ -137,5 +137,5 @@ Některé jednotky teď nejsou připravené na Azure Stack ve fondu úložiště
 | Není v pořádku | Jednotka není v dobrém stavu a může být potřeba ji nahradit.<br> <br>**Akce:** Nahraďte jednotku novým diskem. |
 | Nedostatečná kapacita | K dispozici jsou oddíly, které zabírají volné místo na jednotce.<br> <br>**Akce:** Nahraďte jednotku novým diskem. Pokud musíte použít tento disk, vyjměte disk ze systému, zajistěte, aby na disku neexistovala žádná užitečná data, disk smažete a pak disk znovu vložte. |
 | Probíhá ověřování. | Health Service kontroluje, jestli je jednotka nebo firmware na jednotce schválený k použití.<br> <br>**Akce:** Počkejte, než centrum Azure Stack proces dokončí, a poté stav ověřte. |
-| Ověření se nezdařilo | Health Service se nepovedlo ověřit, jestli je jednotka nebo firmware na jednotce schválený k použití.<br> <br>**Akce:** Obraťte se na podporu. Než to uděláte, spusťte proces shromažďování souborů protokolu pomocí pokynů v https://aka.ms/azurestacklogfilesčásti. |
-| Offline | Jednotka je offline. <br> <br>**Akce:** Obraťte se na podporu. Než to uděláte, spusťte proces shromažďování souborů protokolu pomocí pokynů v https://aka.ms/azurestacklogfilesčásti. |
+| Chyba ověřování | Health Service se nepovedlo ověřit, jestli je jednotka nebo firmware na jednotce schválený k použití.<br> <br>**Akce:** Obraťte se na podporu. Než to uděláte, spusťte proces shromažďování souborů protokolu pomocí pokynů v části https://aka.ms/azurestacklogfiles . |
+| Offline | Jednotka je offline. <br> <br>**Akce:** Obraťte se na podporu. Než to uděláte, spusťte proces shromažďování souborů protokolu pomocí pokynů v části https://aka.ms/azurestacklogfiles . |

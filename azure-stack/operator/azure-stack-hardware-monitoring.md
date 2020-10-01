@@ -3,16 +3,16 @@ title: Monitorování stavu hardwaru v centru Azure Stack
 description: Naučte se monitorovat stav hardwarových komponent centra Azure Stack.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 10/01/2020
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: dff881fe332367b0911c21c0e23745210feb9051
-ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
+ms.openlocfilehash: aa2773519250a901be421f1177d2f940b1670644
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84813767"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623281"
 ---
 # <a name="monitor-azure-stack-hub-hardware-components"></a>Monitorovat hardwarové součásti centra Azure Stack
 

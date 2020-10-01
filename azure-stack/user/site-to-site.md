@@ -3,16 +3,16 @@ title: Řešení potíží s připojením VPN typu Site-to-site v centru Azure S
 description: Postup řešení potíží, který můžete provést po konfiguraci připojení VPN typu Site-to-site mezi místní sítí a virtuální sítí centra Azure Stack.
 author: sethmanheim
 ms.author: sethm
-ms.date: 05/12/2020
+ms.date: 10/01/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: e4385f7b1ac22f36f069e9ac4d5b35011e290982
-ms.sourcegitcommit: 593a6c9cff741af24aac28a3328605fe071129ea
+ms.openlocfilehash: 7d4fc17759365434f6179229674b0bb21137f58b
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89510934"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623332"
 ---
 # <a name="troubleshoot-site-to-site-vpn-connections"></a>Řešení potíží s připojeními site-to-site VPN
 
@@ -32,7 +32,7 @@ Výchozí parametry centra Azure Stack pro protokol IPsec/IKEV2 se [od verze 191
 > [!IMPORTANT]
 > Při použití tunelového propojení S2S jsou pakety dále zapouzdřeny pomocí dalších hlaviček. Tento zapouzdření zvyšuje celkovou velikost paketu. V těchto scénářích je potřeba, abyste v **1350**zasvorki TCP **MSS** . Pokud vaše zařízení VPN nepodporují svorky MSS, můžete místo toho nastavit jednotku MTU v rozhraní tunelu na **1400** bajtů. Další informace najdete v tématu [ladění výkonu protokolu virtuální sítě TCP](/azure/virtual-network/virtual-network-tcpip-performance-tuning).
 
-- Ověřte, že je konfigurace sítě VPN založená na směrování (IKEv2). Centrum Azure Stack nepodporuje konfigurace založené na zásadách (IKEv1).
+- Zkontrolujte, jestli je konfigurace sítě VPN založená na směrování (IKEv2). Centrum Azure Stack nepodporuje konfigurace založené na zásadách (IKEv1).
 
 - Ověřte, zda používáte [ověřené zařízení VPN a verzi operačního systému](/azure/vpn-gateway/vpn-gateway-about-vpn-devices#devicetable). Pokud se nejedná o ověřené zařízení VPN, možná budete muset kontaktovat výrobce zařízení a zjistit, jestli došlo k potížím s kompatibilitou.
 

@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/24/2020
-ms.openlocfilehash: d4dc446f5d58f25ba6183cf4415b5f4e2d34df9a
-ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
+ms.date: 09/30/2020
+ms.openlocfilehash: a5406ef1098750248d516416f55902d5ae6909cd
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91230457"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623095"
 ---
 # <a name="before-you-deploy-azure-stack-hci"></a>Před nasazením Azure Stack HCL
 
@@ -145,6 +145,52 @@ Při použití Průvodce vytvořením clusteru v centru pro správu systému Win
 - ICMPv4 a ICMPv6 (při použití test-SRTopology)
 
 Můžou se vyžadovat další porty, které nejsou uvedené výše. Toto jsou porty pro základní funkce rozhraní Azure Stack HCI.
+
+### <a name="network-switch-requirements"></a>Požadavky na síťový přepínač
+
+V této části jsou definovány požadavky na fyzické přepínače používané při Azure Stack HCI. Tyto požadavky uvádějí oborové specifikace, organizační standardy a protokoly, které jsou povinné pro všechna Azure Stack nasazení rozhraní HCI. Pokud není uvedeno jinak, je vyžadována nejnovější aktivní (nenahrazená) verze Standard.
+
+Tyto požadavky vám pomůžou zajistit spolehlivou komunikaci mezi uzly v Azure Stack nasazeních clusteru HCI. Spolehlivá komunikace mezi uzly je kritická. Aby byla zajištěna potřebná úroveň spolehlivosti pro Azure Stack HCI, je nutné, aby byly přepínače:
+
+- Dodržování příslušných specifikací, standardů a protokolů v oboru
+- Poskytněte přehled o tom, které specifikace, standardy a protokoly podporuje přepínač.
+- Zadejte informace o tom, které funkce jsou povolené.
+
+#### <a name="standard-ieee-8021q"></a>Standard: IEEE 802.1 Q
+
+Přepínače sítě Ethernet musí splňovat specifikaci IEEE 802.1 Q, která definuje sítě VLAN. SÍTĚ VLAN jsou vyžadovány pro několik aspektů Azure Stack HCI a jsou požadovány ve všech scénářích.
+
+#### <a name="standard-ieee-8021-qbb"></a>Standard: IEEE 802,1 QBB
+
+Přepínače sítě Ethernet musí splňovat specifikaci IEEE 802.1 QBB, která definuje prioritní řízení toku (PFC). PFC se vyžaduje v případě, že se používá přemostění Datacenter (DCB). Vzhledem k tomu, že DCB se dá použít ve scénářích RoCE a iWARP RDMA, ve všech scénářích se vyžaduje 802.1 QBB. Bez downgradů možností přepínače nebo rychlosti portů se vyžadují minimálně tři priority třídy Service (CoS).
+
+#### <a name="standard-ieee-8021qaz"></a>Standard: IEEE 802.1 QAZ
+
+Přepínače sítě Ethernet musí splňovat specifikaci IEEE 802.1 Qaz, která definuje vylepšený výběr přenosu (ETS). ETS je vyžadován, kde se používá DCB. Vzhledem k tomu, že DCB se dá použít ve scénářích RoCE a iWARP RDMA, ve všech scénářích se vyžaduje 802.1 QAZ. Vyžaduje se minimálně tři prioritní priority bez downgradu možností přepnutí nebo rychlosti portu.
+
+#### <a name="standard-ieee-8021ab"></a>Standard: IEEE 802.1 AB
+
+Přepínače sítě Ethernet musí splňovat specifikaci IEEE 802.1 AB definující Protokol LLDP (Link Layer Discovery Protocol). LLDP se vyžaduje pro zjišťování konfigurace přepínače v systému Windows. Konfigurace hodnot typu LLDP-Length-Values (TLVs) musí být dynamicky povolena. Tyto přepínače nesmí vyžadovat další konfiguraci.
+
+Například povolení 802,1 podtyp 3 by mělo automaticky inzerovat všechny sítě VLAN, které jsou dostupné na portech přepínače.
+
+#### <a name="tlv-requirements"></a>Požadavky TLV
+
+LLDP umožňuje organizacím definovat a kódovat vlastní TLVs. Ty se nazývají organizace specifické pro TLVs. Všechny organizace specifické pro TLVs začínají s hodnotou typu LLDP TLV typu 127. Následující tabulka uvádí, které z organizačních specifických typů TLV (TLV Type 127) jsou povinné a které jsou volitelné:
+
+|Stav|Organizace|Typ TLV|
+|-|-|-|
+|Volitelné|IEEE 802,1|ID VLAN portu (podtyp = 1)|
+|Volitelné|IEEE 802,1|IDENTIFIKÁTOR sítě VLAN portu a protokolu (podtyp = 2)|
+|Povinné|IEEE 802,1|Název sítě VLAN (podtyp = 3)|
+|Volitelné|IEEE 802,1|Agregace propojení (podtyp = 7)|
+|Volitelné|IEEE 802,1|Oznámení o zahlcení (podtyp = 8)|
+|Volitelné|IEEE 802,1|Konfigurace ETS (podtyp = 9)|
+|Volitelné|IEEE 802,1|Doporučení ETS (podtyp = A)|
+|Volitelné|IEEE 802,1|Konfigurace PFC (podtyp = B)|
+|Volitelné|IEEE 802,1|EVB (podtyp = D)|
+|Volitelné|IEEE 802,3|Agregace propojení (podtyp = 3)|
+|Povinné|IEEE 802,3|Maximální velikost rámce (podtyp = 4)|
 
 ### <a name="storage-requirements"></a>Požadavky na úložiště
 

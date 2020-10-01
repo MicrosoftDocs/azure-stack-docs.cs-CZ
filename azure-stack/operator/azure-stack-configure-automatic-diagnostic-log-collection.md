@@ -7,12 +7,12 @@ ms.date: 06/16/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 06/16/2020
-ms.openlocfilehash: fe1ae4c0c979d579df99b6e440d62dd16a9df2e9
-ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
+ms.openlocfilehash: 436e84b2c46de48eba23faf9505cb26e99585c58
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88074158"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623298"
 ---
 # <a name="proactive-diagnostic-log-collection-in-azure-stack-hub"></a>Proaktivní shromažďování protokolů diagnostiky v centru Azure Stack
 
@@ -33,11 +33,11 @@ Pomocí těchto kroků můžete nakonfigurovat proaktivní shromažďování pro
 1. Otevřete okno **help + podpora – přehled**.
 1. Pokud se zobrazí nápis, vyberte **Povolit proaktivní shromažďování protokolů**. =
 
-   ![Snímek obrazovky s informacemi o tom, kde Povolit shromažďování protokolů v nápovědě a podpoře](media/azure-stack-help-and-support/banner-enable-automatic-log-collection.png)
+   :::image type="content" source="media/azure-stack-help-and-support/banner-enable-automatic-log-collection.png" alt-text="Snímek obrazovky se stránkou podpory s názvem Přehled – shromažďování protokolů Fialová banner obsahuje tlačítko s popiskem povolit proaktivní shromažďování protokolů." border="false":::
 
    Nebo můžete vybrat **Nastavení** a nastavit **proaktivní shromažďování protokolů** tak, aby se **povolilo**, a pak vybrat **Uložit**.
 
-   ![Snímek obrazovky s informacemi o tom, kde Povolit shromažďování protokolů v nápovědě a podpoře](media/azure-stack-help-and-support/settings-enable-automatic-log-collection.png)
+   :::image type="content" source="media/azure-stack-help-and-support/settings-enable-automatic-log-collection.png" alt-text="Snímek obrazovky se stránkou podpory s názvem Přehled – shromažďování protokolů Fialová banner obsahuje tlačítko s popiskem povolit proaktivní shromažďování protokolů." border="false":::
 
 ::: moniker-end
 ::: moniker range="<= azs-1910"
@@ -60,7 +60,7 @@ Osvědčené postupy při výběru parametrů pro účet úložiště automatick
 
 ### <a name="create-a-blob-storage-account"></a>Vytvoření účtu úložiště BLOB
 
-1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
+1. Přihlaste se na web [Azure Portal](https://portal.azure.com).
 1. Vyberte **účty úložiště** > **Přidat**.
 1. Vytvořte kontejner objektů BLOB s těmito nastaveními:
 
@@ -169,6 +169,6 @@ Například **Chyba aktualizace** je výstraha, která spouští proaktivní shr
 |Zálohování nebylo úspěšné.  | AzureStack. BackupController. BackupFailedGeneralFault |
 |Naplánované zálohování bylo přeskočeno z důvodu konfliktu s neúspěšnými operacemi.    | AzureStack. BackupController. BackupSkippedWithFailedOperationFault |
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Viz také:
 
 [Azure Stack zpracování dat protokolů a zákazníků centra](azure-stack-data-collection.md)

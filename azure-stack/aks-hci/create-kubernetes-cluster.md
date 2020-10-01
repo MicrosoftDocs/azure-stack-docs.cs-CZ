@@ -5,12 +5,12 @@ author: davannaw-msft
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: dawhite
-ms.openlocfilehash: ddaac062a147440b4ce290ad988629c417a5932a
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 7ef2f0e0532ee342e8821b362b16433f755bc072
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948894"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623264"
 ---
 # <a name="quickstart-create-a-kubernetes-cluster-on-azure-stack-hci-using-windows-admin-center"></a>Rychlý Start: Vytvoření clusteru Kubernetes na Azure Stack HCI pomocí centra pro správu Windows
 
@@ -31,7 +31,7 @@ Můžeme začít:
 
     ![Popisuje stránku základy průvodce clusterem Kubernetes.](.\media\create-kubernetes-cluster\basics.png)
 
-5. Další fondy uzlů můžete nakonfigurovat tak, aby se spouštěly vaše úlohy na stránce **fondy uzlů** . Během veřejné verze Preview můžete přidat až jeden fond uzlů systému Windows a jeden fond uzlů pro Linux (kromě fondu uzlů systému). Až budete hotovi, vyberte **Další**.
+5. Další fondy uzlů můžete nakonfigurovat tak, aby se spouštěly vaše úlohy na stránce **fondy uzlů** . Během veřejné verze Preview můžete přidat až jeden fond uzlů systému Windows a jeden fond uzlů pro Linux (kromě fondu uzlů systému). Pokud chcete povolit integraci ARC Azure později v tomto průvodci, budete potřebovat alespoň jeden fond uzlů pro Linux, který není ve fondu primárních uzlů. Až budete hotovi, vyberte **Další**.
 6. Na stránce **síť** zadejte konfiguraci sítě. Pokud vyberete Upřesnit, můžete přizpůsobit rozsah adres, který se používá při vytváření virtuální sítě pro uzly v clusteru. Pokud vyberete "základní", vytvoří se virtuální sítě pro uzly v clusteru s výchozím rozsahem adres. Nastavení sítě (Nástroj pro vyrovnávání zatížení, síťové zásady a směrování aplikace HTTP) nelze změnit ve verzi Public Preview. Po dokončení vyberte **Další**.
 
     ![Znázorňuje stránku síť průvodce clusterem Kubernetes.](.\media\create-kubernetes-cluster\networking.png)

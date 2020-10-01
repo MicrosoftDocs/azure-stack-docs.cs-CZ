@@ -1,6 +1,6 @@
 ---
 title: Přehled Event Hubs v centru Azure Stack
-description: Přečtěte si o poskytovateli prostředků Event Hubs v centru Azure Stack.
+description: Přečtěte si o Event Hubs v centru Azure Stack. Podívejte se, jak vytvářet hybridní řešení. Porovnejte funkce služby Azure Event Hubs a Event Hubs v centru pro Azure Stack.
 author: BryanLa
 ms.author: bryanla
 ms.service: azure-stack
@@ -8,14 +8,14 @@ ms.topic: how-to
 ms.date: 11/27/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: b2e03617b8409e321edb3b2d924f5f0762ad9b9f
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 117fd4cd1d688b9ace109f6c2038cd3ffe0d9e6f
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566409"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623145"
 ---
-# <a name="event-hubs-on-azure-stack-hub-overview"></a>Přehled Event Hubs v centru Azure Stack
+# <a name="overview-of-event-hubs-on-azure-stack-hub"></a>Přehled Event Hubs v centru Azure Stack
 
 [!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
 

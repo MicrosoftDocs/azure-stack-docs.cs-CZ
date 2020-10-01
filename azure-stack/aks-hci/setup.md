@@ -5,12 +5,12 @@ author: davannaw-msft
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: dawhite
-ms.openlocfilehash: fa07b755405fced34a404dbd2b2473450a8b8e26
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: c98ad58f92d69b0c3fa0f28a3408013612cc19a6
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948954"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623230"
 ---
 # <a name="quickstart-set-up-azure-kubernetes-service-on-azure-stack-hci-using-windows-admin-center"></a>Rychlý Start: nastavení služby Azure Kubernetes v Azure Stack HCI pomocí centra pro správu Windows
 
@@ -51,9 +51,14 @@ Tato nastavení se dají udělat pomocí nového nástroje Azure Kubernetes Serv
 
 Tento nástroj nainstaluje a stáhne potřebné balíčky a také vytvoří cluster pro správu, který poskytuje základní služby Kubernetes Services a orchestruje zatížení aplikací. 
 
-Můžeme začít: 
+Před použitím tohoto nástroje otevřete PowerShell a na každém uzlu spusťte následující příkaz, abyste zajistili, že přihlášení do Azure není blokované žádným nastavením počítače:
+```PowerShell
+az login
+```
+
+Teď, když jsme ověřili naše nastavení systému, můžeme začít: 
 1. Vyberte **nastavit** pro spuštění Průvodce nastavením.
-2. Projděte si požadavky na počítač, na kterém je spuštěno centrum pro správu systému Windows, Azure Stack cluster HCI, ke kterému jste se připojili, a také na síť. Dále se ujistěte, že jste se přihlásili k účtu Azure v centru pro správu systému Windows. Po dokončení vyberte **Další**.
+2. Projděte si požadavky na počítač, na kterém je spuštěno centrum pro správu systému Windows, Azure Stack cluster HCI, ke kterému jste se připojili, a také na síť. Dále se ujistěte, že jste se přihlásili k účtu Azure v centru pro správu Windows a že předplatné Azure, které plánujete použít, nevypršelo. Až budete hotovi, vyberte **Další**.
 3. Na stránce **Kontrola systému** v průvodci proveďte všechny požadované akce, například připojení brány centra pro správu Windows k Azure. Tento krok zkontroluje, jestli má centrum pro správu Windows a systém, který bude hostovat službu Azure Kubernetes, správné konfigurace, aby bylo možné pokračovat. Až skončíte s prováděním akce, vyberte **Další**.
 4. Nakonfigurujte počítač, který bude hostovat službu Azure Kubernetes, v kroku **Konfigurace hostitele** . V této části doporučujeme vybrat možnost **automaticky stahovat aktualizace** . Až budete hotovi, vyberte **Další** . Tento krok průvodce vás vyzve ke konfiguraci následujících podrobností:
     * Podrobnosti o hostiteli, jako je název clusteru pro správu a složka pro ukládání imagí virtuálních počítačů

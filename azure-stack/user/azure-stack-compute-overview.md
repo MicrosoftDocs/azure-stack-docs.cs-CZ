@@ -3,20 +3,20 @@ title: Úvod k virtuálním počítačům centra Azure Stack
 description: Přečtěte si o Azure Stackch virtuálních počítačích centra.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 10/01/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2020
-ms.openlocfilehash: 9dda1268962952e4828b292a472ba342f1fadd23
-ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
+ms.openlocfilehash: 01ee528229e52a66174c3b4d1dbba49eea6a5318
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84813741"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623128"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Úvod k virtuálním počítačům centra Azure Stack
 
-Centrum Azure Stack nabízí virtuálním počítačům (VM) jako typ škálovatelných výpočetních prostředků na vyžádání. Pokud potřebujete větší kontrolu nad výpočetním prostředím, můžete vybrat virtuální počítač. Tento článek poskytuje podrobné informace před vytvořením prvního virtuálního počítače.
+Centrum Azure Stack nabízí virtuálním počítačům (VM) jako typ škálovatelných výpočetních prostředků na vyžádání. Pokud potřebujete větší kontrolu nad výpočetním prostředím, můžete vybrat virtuální počítač. Tento článek poskytuje podrobné informace o vytvoření prvního virtuálního počítače.
 
 Virtuální počítač centra Azure Stack poskytuje flexibilitu virtualizace bez nutnosti spravovat clustery nebo jednotlivé počítače. Přesto ale budete muset virtuální počítač udržovat i tak, že provádíte úlohy, jako je konfigurace, opravy a aktualizace, a instalace softwaru, který na něm běží.
 
@@ -41,7 +41,7 @@ Při sestavování infrastruktury aplikace v centru Azure Stack se vždy vyskytn
 - Konfigurace virtuálního počítače po jeho spuštění.
 - Související prostředky, které virtuální počítač potřebuje.
 
-### <a name="naming"></a>Pojmenování
+### <a name="names"></a>Názvy
 
 K VIRTUÁLNÍmu počítači je přiřazený název a má název počítače nakonfigurovaný jako součást operačního systému. Název virtuálního může být až 15 znaků dlouhý.
 
@@ -107,10 +107,10 @@ Existuje několik způsobů, jak vytvořit virtuální počítač. Vaše volba z
 
 Virtuální počítače můžete spravovat pomocí portálu založeného na prohlížeči, nástrojů příkazového řádku s podporou pro skriptování, nebo přímo prostřednictvím rozhraní API. Mezi obvyklé úlohy správy patří:
 
-- Získání informací o virtuálním počítači
-- Připojení k virtuálnímu počítači
-- Správa dostupnosti
-- Vytváření záloh
+- Získání informací o virtuálním počítači.
+- Připojování k virtuálnímu počítači.
+- Správa dostupnosti.
+- Provádění zálohování.
 
 ### <a name="get-information-about-your-vm"></a>Získání informací o VIRTUÁLNÍm počítači
 
