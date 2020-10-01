@@ -7,12 +7,12 @@ ms.date: 08/19/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: 93712c3eedb3045d99b9c2ed46a066b8505771dd
-ms.sourcegitcommit: e72145ebb5eac17a47ba1c9119fd31de545fdace
+ms.openlocfilehash: a5ccf4ecd9ab6f70f54af22c343f28eb692f9c54
+ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88724876"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91592891"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Požadavky na certifikát infrastruktury veřejných klíčů (PKI) Azure Stack hub
 
@@ -23,7 +23,7 @@ Centrum Azure Stack má síť s veřejnou infrastrukturou, která používá ext
 - Volitelné certifikáty, které se vyžadují při nasazování zprostředkovatelů prostředků s hodnotou přidat.
 
 > [!NOTE]
-> Azure Stack centrum ve výchozím nastavení používá k ověřování mezi uzly certifikáty vydané interní certifikační autoritou (CA) integrovaná se službou Active Directory. Aby bylo možné certifikát ověřit, všechny počítače infrastruktury centra Azure Stack důvěřují kořenovému certifikátu interní certifikační autority přidáním tohoto certifikátu do místního úložiště certifikátů. V centru Azure Stack není žádné připnutí ani seznam povolených certifikátů. SÍŤ SAN každého certifikátu serveru je ověřena vůči plně kvalifikovanému názvu domény cíle. Také se ověří celý řetěz důvěryhodnosti spolu s datem vypršení platnosti certifikátu (standardní ověřování serveru TLS bez připnutí certifikátu).
+> Azure Stack centrum ve výchozím nastavení používá k ověřování mezi uzly certifikáty vydané interní certifikační autoritou (CA) integrovaná se službou Active Directory. Aby bylo možné certifikát ověřit, všechny počítače infrastruktury centra Azure Stack důvěřují kořenovému certifikátu interní certifikační autority přidáním tohoto certifikátu do místního úložiště certifikátů. V centru Azure Stack není žádné připnutí ani filtrování certifikátů. SÍŤ SAN každého certifikátu serveru je ověřena vůči plně kvalifikovanému názvu domény cíle. Také se ověří celý řetěz důvěryhodnosti spolu s datem vypršení platnosti certifikátu (standardní ověřování serveru TLS bez připnutí certifikátu).
 
 ## <a name="certificate-requirements"></a>Požadavky na certifikáty
 Následující seznam popisuje požadavky obecného vystavení, zabezpečení a formátování certifikátu:
@@ -107,7 +107,7 @@ Následující tabulka obsahuje popis koncových bodů a certifikátů vyžadova
 |-----|-----|-----|-----|
 |SQL, MySQL|SQL a MySQL|&#42;. dbadapter. * &lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>(Zástupný certifikát SSL)|dbadapter. * &lt;> &lt; oblasti plně kvalifikovaný název domény>*|
 |App Service|Výchozí certifikát SSL pro webový provoz|&#42;. AppService. * &lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>&#42;. SCM. AppService. * &lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>&#42;. SSO. AppService. * &lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>(Certifikát SSL s více doménovými znaky<sup>1</sup>)|AppService. * &lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>SCM. AppService. * &lt;> &lt; oblasti plně kvalifikovaný název domény>*|
-|App Service|Rozhraní API|API. AppService. * &lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>(Certifikát SSL<sup>2</sup>)|AppService. * &lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>SCM. AppService. * &lt;> &lt; oblasti plně kvalifikovaný název domény>*|
+|App Service|rozhraní API|API. AppService. * &lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>(Certifikát SSL<sup>2</sup>)|AppService. * &lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>SCM. AppService. * &lt;> &lt; oblasti plně kvalifikovaný název domény>*|
 |App Service|FTP|FTP. AppService. * &lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>(Certifikát SSL<sup>2</sup>)|AppService. * &lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>SCM. AppService. * &lt;> &lt; oblasti plně kvalifikovaný název domény>*|
 |App Service|Jednotné přihlašování|SSO. AppService. * &lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>(Certifikát SSL<sup>2</sup>)|AppService. * &lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>SCM. AppService. * &lt;> &lt; oblasti plně kvalifikovaný název domény>*|
 |Event Hubs|Event Hubs|&#42;. eventhub. * &lt;> &lt; oblasti plně kvalifikovaný název domény>* (San)| eventhub. * &lt;> &lt; oblasti plně kvalifikovaný název domény>* |

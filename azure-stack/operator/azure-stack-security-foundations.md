@@ -8,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/07/2020
-ms.openlocfilehash: 27ba6098755d93ef1de902a9a4e052f1ff6b53d5
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 2f276149e3998e5483ae4289ae6793d4b3ea86df
+ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487868"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91592871"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Ovládací prvky zabezpečení infrastruktury centra Azure Stack
 
@@ -54,7 +54,7 @@ Infrastruktura centra Azure Stack používá pro všechny své interní certifik
 
 ## <a name="windows-defender-application-control"></a>Řízení aplikací programu Windows Defender
 
-Azure Stack Hub využívá nejnovější funkce zabezpečení Windows Serveru. Jednou z nich je Řízení aplikací v programu Windows Defender (WDAC, dříve označované jako Integrita Kódu), které nabízí přidávání spustitelných souborů na seznam povolených a zajišťuje, aby se v rámci infrastruktury služby Azure Stack Hub spouštěl pouze autorizovaný kód.
+Azure Stack Hub využívá nejnovější funkce zabezpečení Windows Serveru. Jedním z nich je ovládací prvek aplikace v programu Windows Defender (WDAC, dříve označovaný jako integrita kódu), který poskytuje filtrování spustitelných souborů a zajišťuje, že v infrastruktuře centra Azure Stack běží pouze ověřený kód.
 
 Autorizovaný kód je podepsaný Microsoftem nebo partnerem OEM. Podepsaný autorizovaný kód je zahrnutý v seznamu povoleného softwaru zadaného v zásadě definované Microsoftem. Jinými slovy, lze spustit pouze software, který byl schválen ke spuštění v infrastruktuře centra Azure Stack. Jakýkoli pokus o spuštění neautorizovaného kódu se zablokuje a vygeneruje se upozornění. Azure Stack Hub vynucuje integritu kódu v uživatelském režimu (UMCI) i integritu kódu na úrovni hypervisoru (HVCI).
 
@@ -81,7 +81,7 @@ Správa v centru Azure Stack se řídí třemi vstupními body, z nichž každý
 
 - [Portál](azure-stack-manage-portals.md) pro správu nabízí možnosti každodenních operací správy a kliknutí na něj.
 - Azure Resource Manager zveřejňuje všechny operace správy portálu pro správu prostřednictvím REST API používaného prostředím PowerShell a Azure CLI.
-- Pro konkrétní operace nízké úrovně (například scénáře integrace Datacenter nebo podpory) zpřístupňuje služba Azure Stack hub koncový bod PowerShellu s názvem [privilegovaného koncového bodu](azure-stack-privileged-endpoint.md). Tento koncový bod zpřístupňuje jenom seznam povolených rutin a je silně auditovaný.
+- Pro konkrétní operace nízké úrovně (například scénáře integrace Datacenter nebo podpory) zpřístupňuje služba Azure Stack hub koncový bod PowerShellu s názvem [privilegovaného koncového bodu](azure-stack-privileged-endpoint.md). Tento koncový bod zpřístupňuje jenom povolenou sadu rutin a je silně auditovaný.
 
 ## <a name="network-controls"></a>Správa sítě
 

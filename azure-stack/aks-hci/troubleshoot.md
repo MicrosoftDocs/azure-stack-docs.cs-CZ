@@ -1,16 +1,16 @@
 ---
-title: Řešení potíží
+title: Poradce při potížích
 description: Průvodce odstraňováním potíží se službou Azure Kubernetes v Azure Stack HCI
 author: davannaw-msft
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: dawhite
-ms.openlocfilehash: 312431b1ae36debc79b1a9bd3a874b648dfc9cd9
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: e30d5ba784efc6453ce161bc2a87db7c728d3fce
+ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948948"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91592928"
 ---
 # <a name="troubleshooting-azure-kubernetes-service-on-azure-stack-hci"></a>Řešení potíží se službou Azure Kubernetes v Azure Stack HCI
 
@@ -24,7 +24,7 @@ Pokud chcete řešit potíže s vytvářením sestav ověření clusteru pro sí
 ## <a name="troubleshooting-windows-admin-center"></a>Řešení potíží s centrem pro správu systému Windows
 Tento produkt je aktuálně ve stavu Public Preview, což znamená, že stále probíhá vývoj. V současné době existuje několik problémů s rozšířením Azure Kubernetes Service Center pro správu Windows: 
 * V současné době každý server v clusteru systému, který používáte k nastavení služby Azure Kubernetes, na Azure Stack HCI musí být důvěryhodný server. To znamená, že centrum pro správu systému Windows musí být schopné provádět operace CredSSP na každém serveru v clusteru, nikoli jenom v jednom nebo několika z nich. 
-* Pokud narazíte na chybu `msft.sme.aks couldn't load` a zobrazí se chyba při načítání bloků dat selhala, použijte nejnovější verzi Edge nebo Google Chrome a zkuste to znovu.
+* Pokud narazíte na chybu `msft.sme.aks couldn't load` a zobrazí se chyba při načítání bloků dat selhala, použijte nejnovější verzi Microsoft Edge nebo Google Chrome a zkuste to znovu.
 * Před spuštěním Průvodce nastavením hostitele služby Azure Kubernetes nebo Průvodce vytvořením clusteru Kubernetes byste se měli přihlásit k Azure prostřednictvím centra pro správu Windows. Během pracovního postupu může být vyžadováno opakované podepisování. Pokud máte v centru pro správu Windows problémy s přihlášením k Azure, zkuste se k účtu Azure přihlásit z jiného zdroje, jako je [Azure Portal](https://portal.azure.com/). Pokud i nadále dochází k potížím, Projděte si článek o [známých problémech centra pro správu systému Windows](/windows-server/manage/windows-admin-center/support/known-issues) , než se dostanete k podpoře.
 * V aktuální iteraci služby Azure Kubernetes při nasazení Azure Stack HCI prostřednictvím centra pro správu Windows může vytvořit clustery Kubernetes v systému jenom uživatel, který je nastavený jako hostitel služby Azure Kubernetes. Pokud chcete tento problém obejít, zkopírujte `.wssd` složku z profilu uživatele, který nastavil hostitele služby Azure Kubernetes na profil uživatele, který bude spouštět nový cluster Kubernetes.
 * Pokud se zobrazí chyba v průvodci o nesprávnou konfiguraci, proveďte operace vyčištění clusteru. To může zahrnovat odebrání `C:\Program Files\AksHci\mocctl.exe` souboru.

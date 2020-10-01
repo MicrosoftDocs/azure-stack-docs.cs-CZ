@@ -7,12 +7,12 @@ ms.date: 09/09/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 01/21/2019
-ms.openlocfilehash: cc038d24f59527ca10e397848d47e02098dfe0ba
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: 27929b0464c011164b6aa762cd0afcc2f6fbc508
+ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742737"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91592941"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>Dostupné položky Azure Marketplace pro službu Azure Stack Hub
 
@@ -240,7 +240,7 @@ Centrum Microsoft Azure Stack podporuje následující Azure Marketplace virtuá
 | ![NRI mPLAT Suite – vícenásobný cloudový vodič](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT Suite – vícenásobný cloudový vodič](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | Jediné podokno skla pro monitorování, konfiguraci, zřizování, automatizaci a řízení libovolné zátěže nebo cloudu. | NRI |
 | ![NooBaa Hybrid AWS S3 kompatibilní s Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa Hybrid AWS S3 kompatibilní s Community Edition](https://www.noobaa.io/hybrid-cloud) | Služba úložiště kompatibilní se systémem S3, která zahrnuje prostředky veřejné a místní kapacity. | NooBaa |
 | ![NetFoundry Gateway pro MultiPoint, nulové důvěryhodnosti Azure Stack rozbočovače připojení](media/azure-stack-marketplace-azure-items/netfoundry.png) | [NetFoundry Gateway pro MultiPoint, nulové důvěryhodnosti Azure Stack rozbočovače připojení](https://azuremarketplace.microsoft.com/marketplace/apps/netfoundryinc.centos) | Jenom software, Multi-Point konektivita mezi Azure Stack hub a kdekoli, přes jakékoli síťové připojení, s využitím špičkového zabezpečení trustu, pětinásobné propustnost sítě VPN a neomezené souběžné uživatele. | NetFoundry |
-| ![Firewall nové generace Palo Alto VM-Series](media/azure-stack-marketplace-azure-items/paloalto.png) | [Firewall nové generace Palo Alto VM-Series](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | Firewall nové generace řady virtuálních počítačů umožňuje zákazníkům bezpečně migrovat aplikace a data do centra Azure Stack a chránit je před známými a neznámými hrozbami pomocí seznamu povolených aplikací a zásad ochrany před hrozbami. **Tato bitová kopie vyžaduje šablonu pro nasazení. důležité informace najdete v tomto [článku](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack) .**| Palo Alto Networks, Inc. |
+| ![Firewall nové generace Palo Alto VM-Series](media/azure-stack-marketplace-azure-items/paloalto.png) | [Firewall nové generace Palo Alto VM-Series](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | Firewall nové generace řady virtuálních počítačů umožňuje zákazníkům bezpečně migrovat své aplikace a data do centra Azure Stack, chránit je před známými a neznámými hrozbami pomocí filtrování aplikací a zásad ochrany před hrozbami. **Tato bitová kopie vyžaduje šablonu pro nasazení. důležité informace najdete v tomto [článku](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack) .**| Palo Alto Networks, Inc. |
 | ![PT Application firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application firewall detekuje známá & neznámá ohrožení zabezpečení a zabraňuje útokům na webové aplikace. **Stáhněte si položky na webu PT Marketplace.** | Pozitivní technologie |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-201818) | Puppet Enterprise umožňuje automatizovat celý životní cyklus infrastruktury centra Azure Stack. **Stáhněte si obě položky Puppet Marketplace.** | Puppet |
 | ![Zařízení virtuálního skeneru Qualys](media/azure-stack-marketplace-azure-items/qualys.png) | [Zařízení virtuálního skeneru Qualys](https://azuremarketplace.microsoft.com/marketplace/apps/qualysguard.qualys-virtual-scanner-app) | Zařízení virtuálního skeneru rozšiřuje integrovanou sadu aplikací Qualys Cloud Platform pro zabezpečení a dodržování předpisů SaaS. Mezi aplikační moduly patří Správa ohrožení zabezpečení, dodržování zásad a kontrola webových aplikací. | Qualys, Inc. |
