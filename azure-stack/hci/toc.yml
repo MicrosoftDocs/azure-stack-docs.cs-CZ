@@ -6,13 +6,13 @@
       href: overview.md
     - name: Známé problémy
       href: known-issues.md
-    - name: Zpráva k vydání verze
+    - name: "Poznámky k\_verzi"
       href: release-notes.md
 - name: Začínáme
   items:
     - name: Použití Azure Stack HCL s centrem pro správu Windows
       href: get-started.md
-- name: Nasadit
+- name: Nasazení
   items:
     - name: Přehled nasazení
       href: deploy/deployment-overview.md
@@ -98,32 +98,38 @@
           href: manage/use-azure-network-adapter.md
 - name: Koncepty
   items:
-    - name: Roztažené clustery
-      href: concepts/stretched-clusters.md
-    - name: Fakturace
-      href: concepts/billing.md
-    - name: Aktualizace a upgrady
-      href: concepts/updates.md
-    - name: Zvolit jednotky
-      href: concepts/choose-drives.md
-    - name: Požadavky na symetrii jednotky
-      href: concepts/drive-symmetry-considerations.md
-    - name: Plánování svazků
-      href: concepts/plan-volumes.md
-    - name: Softwarově definované sítě
-      href: concepts/software-defined-networking.md
-    - name: Pochopení mezipaměti fondu úložiště
-      href: concepts/cache.md
-    - name: Odolnost proti chybám a efektivita úložiště
-      href: concepts/fault-tolerance.md
-    - name: Kvorum clusteru a fondu úložiště
-      href: concepts/quorum.md
-    - name: Plánování infrastruktury SDN
-      href: concepts/plan-software-defined-networking-infrastructure.md
-    - name: Síťový adaptér
-      href: concepts/network-controller.md
-    - name: Důležité informace o zabezpečení
-      href: concepts/security.md
+    - name: Úložiště a clustery
+      items:
+        - name: Zvolit jednotky
+          href: concepts/choose-drives.md
+        - name: Požadavky na symetrii jednotky
+          href: concepts/drive-symmetry-considerations.md
+        - name: Plánování svazků
+          href: concepts/plan-volumes.md
+        - name: Pochopení mezipaměti fondu úložiště
+          href: concepts/cache.md
+        - name: Odolnost proti chybám a efektivita úložiště
+          href: concepts/fault-tolerance.md
+        - name: Roztažené clustery
+          href: concepts/stretched-clusters.md
+        - name: Kvorum clusteru a fondu úložiště
+          href: concepts/quorum.md
+    - name: Sítě
+      items:
+        - name: Softwarově definované sítě
+          href: concepts/software-defined-networking.md
+        - name: Plánování infrastruktury SDN
+          href: concepts/plan-software-defined-networking-infrastructure.md
+        - name: Plánování síťového adaptéru
+          href: concepts/network-controller.md
+    - name: Údržba a zabezpečení
+      items:
+        - name: Fakturace
+          href: concepts/billing.md
+        - name: Aktualizace a upgrady
+          href: concepts/updates.md
+        - name: Důležité informace o zabezpečení
+          href: concepts/security.md
 - name: Reference
   items:
     - name: Příkazy prostředí PowerShell technologie Hyper-V
@@ -158,7 +164,7 @@
       href: /windows-server/networking/sdn
     - name: System Center
       href: /system-center/
-- name: Zdroje informací
+- name: Prostředky
   items:
     - name: Stránka produktu Azure Stack HCL
       href: 'https://azure.com/hci'
