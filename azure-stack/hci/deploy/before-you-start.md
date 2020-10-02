@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/30/2020
-ms.openlocfilehash: a5406ef1098750248d516416f55902d5ae6909cd
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.date: 10/01/2020
+ms.openlocfilehash: 8a4c8557fe708535bfdde383ef30dd78395b1c01
+ms.sourcegitcommit: 09572e1442c96a5a1c52fac8ee6b0395e42ab77d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623095"
+ms.locfileid: "91625868"
 ---
 # <a name="before-you-deploy-azure-stack-hci"></a>Před nasazením Azure Stack HCL
 
@@ -148,7 +148,7 @@ Můžou se vyžadovat další porty, které nejsou uvedené výše. Toto jsou po
 
 ### <a name="network-switch-requirements"></a>Požadavky na síťový přepínač
 
-V této části jsou definovány požadavky na fyzické přepínače používané při Azure Stack HCI. Tyto požadavky uvádějí oborové specifikace, organizační standardy a protokoly, které jsou povinné pro všechna Azure Stack nasazení rozhraní HCI. Pokud není uvedeno jinak, je vyžadována nejnovější aktivní (nenahrazená) verze Standard.
+V této části jsou definovány požadavky na fyzické přepínače používané při Azure Stack HCI. Tyto požadavky uvádějí oborové specifikace, organizační standardy a protokoly, které jsou povinné pro všechna Azure Stack nasazení rozhraní HCI. Není-li uvedeno jinak, je vyžadována nejnovější aktivní (nenahrazená) verze Standard.
 
 Tyto požadavky vám pomůžou zajistit spolehlivou komunikaci mezi uzly v Azure Stack nasazeních clusteru HCI. Spolehlivá komunikace mezi uzly je kritická. Aby byla zajištěna potřebná úroveň spolehlivosti pro Azure Stack HCI, je nutné, aby byly přepínače:
 
@@ -156,11 +156,13 @@ Tyto požadavky vám pomůžou zajistit spolehlivou komunikaci mezi uzly v Azure
 - Poskytněte přehled o tom, které specifikace, standardy a protokoly podporuje přepínač.
 - Zadejte informace o tom, které funkce jsou povolené.
 
+Ujistěte se, že požádáte dodavatele přepínače, pokud váš přepínač podporuje následující:
+
 #### <a name="standard-ieee-8021q"></a>Standard: IEEE 802.1 Q
 
 Přepínače sítě Ethernet musí splňovat specifikaci IEEE 802.1 Q, která definuje sítě VLAN. SÍTĚ VLAN jsou vyžadovány pro několik aspektů Azure Stack HCI a jsou požadovány ve všech scénářích.
 
-#### <a name="standard-ieee-8021-qbb"></a>Standard: IEEE 802,1 QBB
+#### <a name="standard-ieee-8021qbb"></a>Standard: IEEE 802.1 QBB
 
 Přepínače sítě Ethernet musí splňovat specifikaci IEEE 802.1 QBB, která definuje prioritní řízení toku (PFC). PFC se vyžaduje v případě, že se používá přemostění Datacenter (DCB). Vzhledem k tomu, že DCB se dá použít ve scénářích RoCE a iWARP RDMA, ve všech scénářích se vyžaduje 802.1 QBB. Bez downgradů možností přepínače nebo rychlosti portů se vyžadují minimálně tři priority třídy Service (CoS).
 
@@ -180,9 +182,10 @@ LLDP umožňuje organizacím definovat a kódovat vlastní TLVs. Ty se nazývaj�
 
 |Stav|Organizace|Typ TLV|
 |-|-|-|
+|Povinné|IEEE 802,1|Název sítě VLAN (podtyp = 3)|
+|Povinné|IEEE 802,3|Maximální velikost rámce (podtyp = 4)|
 |Volitelné|IEEE 802,1|ID VLAN portu (podtyp = 1)|
 |Volitelné|IEEE 802,1|IDENTIFIKÁTOR sítě VLAN portu a protokolu (podtyp = 2)|
-|Povinné|IEEE 802,1|Název sítě VLAN (podtyp = 3)|
 |Volitelné|IEEE 802,1|Agregace propojení (podtyp = 7)|
 |Volitelné|IEEE 802,1|Oznámení o zahlcení (podtyp = 8)|
 |Volitelné|IEEE 802,1|Konfigurace ETS (podtyp = 9)|
@@ -190,7 +193,9 @@ LLDP umožňuje organizacím definovat a kódovat vlastní TLVs. Ty se nazývaj�
 |Volitelné|IEEE 802,1|Konfigurace PFC (podtyp = B)|
 |Volitelné|IEEE 802,1|EVB (podtyp = D)|
 |Volitelné|IEEE 802,3|Agregace propojení (podtyp = 3)|
-|Povinné|IEEE 802,3|Maximální velikost rámce (podtyp = 4)|
+
+> [!NOTE]
+> Některé z uvedených volitelných funkcí můžou být v budoucnu nutné.
 
 ### <a name="storage-requirements"></a>Požadavky na úložiště
 
