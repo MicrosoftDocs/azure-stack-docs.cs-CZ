@@ -4,13 +4,13 @@ description: Pochopení důležitosti ověření clusteru a jeho spuštění v e
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: article
-ms.date: 10/1/2020
-ms.openlocfilehash: 784f34763f45e7096f72aa23698f9e78cf1bf9b4
-ms.sourcegitcommit: 09572e1442c96a5a1c52fac8ee6b0395e42ab77d
+ms.date: 10/2/2020
+ms.openlocfilehash: 682e9063f6f04f5298e7cab4053af179e1c90cd7
+ms.sourcegitcommit: 6ed6db8e393aace41586a0fba925dc297159d45e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91625851"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91663937"
 ---
 # <a name="validate-an-azure-stack-hci-cluster"></a>Ověření Azure Stack clusteru HCI
 
@@ -22,7 +22,7 @@ Tento článek se zaměřuje na to, proč je ověření clusteru důležité a k
 - Po nastavení replikace pomocí repliky úložiště ověřte, že replikace probíhá normálně, a to tak, že zkontroluje některé konkrétní události a spustí několik příkazů.
 - Po vytvoření serverového clusteru spusťte nástroj Validate-DCB před jeho umístěním do produkčního prostředí.
 
-    Další informace o tom, jak nasadit cluster Azure Stack HCI, najdete v tématu [Přehled nasazení](/deploy/deployment-overview).
+    Další informace o tom, jak nasadit cluster Azure Stack HCI, najdete v tématu [Přehled nasazení](deployment-overview.md).
 
 ## <a name="what-is-cluster-validation"></a>Co je ověření clusteru?
 Ověření clusteru má za cíl zachytit problémy s hardwarem nebo konfigurací, než cluster přejde do produkčního prostředí. Ověření clusteru pomáhá zajistit, že Azure Stack řešení HCI, které se chystáte nasadit, je skutečně závislé. V konfigurovaných clusterech s podporou převzetí služeb při selhání můžete použít také nástroj pro diagnostiku clusteru.
@@ -54,7 +54,7 @@ V síti má přímý přístup do paměti vzdáleného počítače (RDMA) přes 
 - Každý server v clusteru
 - Každý síťový port, který RDMA nachází přes prostředky infrastruktury
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Požadované součásti
 - Informace o nastavení sítě pro serverový cluster, který chcete ověřit, včetně:
     - Název hostitele nebo serverového clusteru
     - Název virtuálního přepínače
@@ -247,6 +247,6 @@ Get-SRPartnership -Cluster ClusterS1
 
 Po potvrzení úspěšné replikace dat mezi lokalitami můžete vytvořit virtuální počítače a další úlohy.
 
-## <a name="see-also"></a>Viz také:
+## <a name="see-also"></a>Viz také
 - Testování výkonu na základě syntetických úloh v nově vytvořeném prostoru úložiště pomocí DiskSpd.exe. Další informace najdete v tématu [testování výkonu prostorů úložiště pomocí syntetických úloh ve Windows serveru](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn894707(v=ws.11)).
 - Windows Server Assessment je služba Premier, která je dostupná pro zákazníky, kteří chtějí, aby Microsoft zkontroloval instalaci Windows serveru 2019. Další informace získáte od společnosti Microsoft Premier Support. Další informace najdete v tématu [Začínáme s vyhodnocením na vyžádání Windows serveru (Server, zabezpečení, Hyper-V, cluster s podporou převzetí služeb při selhání, IIS)](/services-hub/health/getting-started-windows-server).
