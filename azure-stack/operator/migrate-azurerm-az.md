@@ -4,15 +4,15 @@ description: Seznamte se s kroky a nástroji pro migraci skriptů z modulu Azure
 author: mattbriggs
 ms.author: mabrigg
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 10/05/2020
 ms.reviewer: sijuman
 ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: 9b41f2f25e2c9c727d397dedd3f95e9683080e25
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: ea3ec5389aa00d0b606d86e483a8ca5a2607aa1a
+ms.sourcegitcommit: af21e3097e833bcb0670733a5e92d6fc3deaa53b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764745"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729232"
 ---
 # <a name="migrate-from-azurerm-to-azure-powershell-az-in-azure-stack-hub"></a>Migrace z AzureRM na Azure PowerShell AZ in Azure Stack hub
 
@@ -23,7 +23,7 @@ Skripty napsané pro AzureRM nebudou automaticky fungovat s novým modulem. Pro 
 
 ## <a name="check-for-installed-versions-of-azurerm"></a>Kontrola nainstalovaných verzí AzureRM
 
-Modul Az je možné nainstalovat souběžně s modulem AzureRM, ale nedoporučuje se to. Než začnete provádět jakékoli kroky migrace, zkontrolujte, jaké verze AzureRM jsou ve vašem systému nainstalované. Získáte tak jistotu, že se skripty již spouštějí v nejnovější verzi, a zjistíte, jestli můžete povolit aliasy příkazů bez nutnosti odinstalovat AzureRM.
+Než začnete provádět jakékoli kroky migrace, zkontrolujte, jaké verze AzureRM jsou ve vašem systému nainstalované. Získáte tak jistotu, že se skripty již spouštějí v nejnovější verzi, a zjistíte, jestli můžete povolit aliasy příkazů bez nutnosti odinstalovat AzureRM.
 
 Pokud chcete zkontrolovat, jaké verze AzureRM máte nainstalované, spusťte následující příkaz:
 

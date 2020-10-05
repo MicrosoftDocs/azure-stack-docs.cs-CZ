@@ -3,16 +3,16 @@ title: Řešení potíží s modulem AKS v centru Azure Stack
 description: Tento článek obsahuje postup řešení potíží pro modul AKS v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/08/2020
+ms.date: 10/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/08/2020
-ms.openlocfilehash: e9e1e09d40be623dfb973503295274790a86dfb8
-ms.sourcegitcommit: 2407498dc34158a49959d9f87f84d6a1cde0cca6
+ms.lastreviewed: 10/02/2020
+ms.openlocfilehash: d9e862386e76c9bf44638a58432b58b409e9c2df
+ms.sourcegitcommit: af21e3097e833bcb0670733a5e92d6fc3deaa53b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89560959"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729215"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Řešení potíží s modulem AKS v centru Azure Stack
 
@@ -84,7 +84,7 @@ Můžete zkontrolovat informace vytvořené modulem AKS. Modul AKS hlásí stav 
 
 ## <a name="collect-kubernetes-logs"></a>Shromažďovat protokoly Kubernetes
 
-Kromě toho do protokolů modulu AKS generují komponenty Kubernetes stav a chybové zprávy. Tyto protokoly můžete shromažďovat pomocí skriptu bash [getkuberneteslogs.sh](https://github.com/msazurestackworkloads/azurestack-gallery/releases/tag/diagnosis-v0.1.3).
+Kromě toho do protokolů modulu AKS generují komponenty Kubernetes stav a chybové zprávy. Tyto protokoly můžete shromažďovat pomocí skriptu bash [getkuberneteslogs.sh](https://github.com/msazurestackworkloads/azurestack-gallery/releases/tag/diagnosis-v0.1.5).
 
 Tento skript automatizuje proces shromažďování následujících protokolů: 
 
@@ -112,8 +112,8 @@ Požadavky:
     ```bash  
     mkdir -p $HOME/kuberneteslogs
     cd $HOME/kuberneteslogs
-    wget https://github.com/msazurestackworkloads/azurestack-gallery/releases/download/diagnosis-v0.1.1/diagnosis-v0.1.1.tar.gz
-    tar xvf diagnosis-v0.1.1.tar.gz -C ./
+    wget https://github.com/msazurestackworkloads/azurestack-gallery/releases/download/diagnosis-v0.1.5/diagnosis-v0.1.5.tar.gz
+    tar xvf diagnosis-v0.1.5.tar.gz -C ./
     ```
 
 2. Vyhledejte parametry vyžadované `getkuberneteslogs.sh` skriptem. Skript bude používat následující parametry:
