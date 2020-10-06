@@ -32,7 +32,7 @@
       href: deploy/validate.md
     - name: Nasazení síťového adaptéru
       href: deploy/network-controller-powershell.md
-- name: Správa
+- name: Spravovat
   items:
     - name: Správa virtuálních počítačů
       items:
@@ -78,6 +78,8 @@
           href: manage/manage-azure-registration.md
         - name: Změnit jazyky
           href: manage/languages.md
+        - name: Změnit nastavení ochrany osobních údajů
+          href: manage/change-privacy-settings.md
         - name: Řešení potíží s vytvářením sestav ověření clusteru
           href: manage/validate-qos.md
         - name: Řešení CredSSP
@@ -130,7 +132,7 @@
           href: concepts/updates.md
         - name: Důležité informace o zabezpečení
           href: concepts/security.md
-- name: Reference
+- name: Referenční informace
   items:
     - name: Příkazy prostředí PowerShell technologie Hyper-V
       href: /powershell/module/hyper-v
@@ -164,7 +166,7 @@
       href: /windows-server/networking/sdn
     - name: System Center
       href: /system-center/
-- name: Prostředky
+- name: Zdroje a prostředky
   items:
     - name: Stránka produktu Azure Stack HCL
       href: 'https://azure.com/hci'
