@@ -6,7 +6,7 @@
       href: azure-stack-overview.md
     - name: Porovnání ekosystému Azure
       href: compare-azure-azure-stack.md
-    - name: Zpráva k vydání verze
+    - name: "Poznámky k\_verzi"
       items:
         - name: Aktualizace zabezpečení
           href: release-notes-security-updates.md
@@ -19,7 +19,7 @@
   items:
     - name: Použití portálu pro správu
       href: azure-stack-manage-portals.md
-- name: Výukové kurzy
+- name: Kurzy
   items:
     - name: Nabídka služby uživatelům
       href: tutorial-offer-services.md
@@ -43,7 +43,7 @@
           href: azure-stack-capacity-planner.md
     - name: Integrace datových center
       items:
-        - name: Návod
+        - name: Názorný postup
           href: azure-stack-customer-journey.md
         - name: Obecné aspekty
           href: azure-stack-datacenter-integration.md
@@ -117,7 +117,7 @@
               href: azure-stack-integrate-security.md
             - name: Auditování zařízení
               href: azure-stack-integrate-physical-device-auditing.md
-- name: Praktičtí průvodci
+- name: Návody
   items:
     - name: Správa služby Azure Stack Hub
       items:
@@ -297,7 +297,7 @@
               href: azure-stack-app-service-capacity-planning.md
             - name: Nejčastější dotazy k fakturaci App Service
               href: app-service-billing-faq.md
-            - name: Požadavky
+            - name: Předpoklady
               href: azure-stack-app-service-before-you-get-started.md
             - name: Nasazení App Service
               href: azure-stack-app-service-deploy.md
@@ -317,7 +317,7 @@
                   href: app-service-recover.md
                 - name: Odebrání služby App Service
                   href: app-service-remove.md
-            - name: Zpráva k vydání verze
+            - name: "Poznámky k\_verzi"
               items:
                 - name: 'zpráva k vydání verze 2020 Q2 [May2020]'
                   href: app-service-release-notes-2020-Q2.md
@@ -329,7 +329,7 @@
               href: event-hubs-rp-overview.md
             - name: Plánování kapacity
               href: event-hubs-rp-capacity-planning.md
-            - name: Požadavky
+            - name: Předpoklady
               href: event-hubs-rp-prerequisites.md
             - name: Instalace
               href: event-hubs-rp-install.md
@@ -343,7 +343,7 @@
                   href: azure-stack-diagnostic-log-collection-overview.md
                 - name: Výstrahy & stavu
                   href: azure-stack-monitor-health.md
-                - name: Správa
+                - name: Spravovat
                   href: event-hubs-rp-manage.md
                 - name: Otočit tajné klíče
                   href: azure-stack-rotate-secrets.md
@@ -469,14 +469,6 @@
               items:
                 - name: Přehled
                   href: azure-stack-diagnostic-log-collection-overview.md
-                - name: Proaktivní odesílání protokolů
-                  href: azure-stack-configure-automatic-diagnostic-log-collection.md
-                - name: Poslat protokoly hned
-                  items:
-                    - name: Použití portálu pro správu
-                      href: azure-stack-configure-on-demand-diagnostic-log-collection-portal.md
-                    - name: Použití prostředí PowerShell
-                      href: azure-stack-configure-on-demand-diagnostic-log-collection-powershell.md
                 - name: Get-AzureStackLog (PEP)
                   href: azure-stack-get-azurestacklog.md
         - name: Ověřování centra Azure Stack
@@ -501,7 +493,7 @@
       href: ../asdk/index.yml
     - name: Dokumentace k hybridnímu cloudu Azure
       href: /hybrid
-- name: Zdroje informací
+- name: Zdroje a prostředky
   items:
     - name: Školení a certifikace
       href: azure-stack-train-and-cert.md

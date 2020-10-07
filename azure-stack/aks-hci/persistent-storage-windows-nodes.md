@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/21/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 7436498ea993281f803d7ff8a0c4108728570f59
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 91f7249beb34e5afee808d299df48611a5ce26bb
+ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948990"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91778118"
 ---
 # <a name="use-persistent-storage-in-a-windows-container-and-prepare-windows-nodes-for-group-managed-service-accounts"></a>Použití trvalého úložiště v kontejneru Windows a příprava uzlů Windows pro skupinové účty spravované služby
 
@@ -146,7 +146,7 @@ kubectl get nodes -o wide
 
 Pak můžete přes SSH na uzel pomocí `ssh Administrator@ip` . 
 
-Po úspěšném přihlášení k uzlu Windows Worker spusťte následující příkaz prostředí PowerShell pro připojení k doméně uzlu. Zobrazí se výzva k zadání přihlašovacích údajů k **účtu správce domény** . Můžete také použít zvýšené přihlašovací údaje uživatele, kterým byla udělena práva k připojení počítačů k dané doméně. Pak budete muset restartovat pracovní uzel Windows.
+Po úspěšném přihlášení k uzlu Windows Worker spusťte následující příkaz prostředí PowerShell, který připojí uzel k doméně. Zobrazí se výzva k zadání přihlašovacích údajů k **účtu správce domény** . Můžete také použít zvýšené přihlašovací údaje uživatele, kterým byla udělena práva k připojení počítačů k dané doméně. Pak budete muset restartovat pracovní uzel Windows.
 
 ```PowerShell
 add-computer --domainame "YourDomainName" -restart

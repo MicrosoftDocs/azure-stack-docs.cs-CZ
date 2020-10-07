@@ -2,18 +2,18 @@
 title: Řešení potíží s Azure Stack hub
 titleSuffix: Azure Stack
 description: Naučte se řešit potíže s centrem Azure Stack, včetně problémů s virtuálními počítači, úložištěm a App Service.
-author: justinha
+author: myoungerman
 ms.topic: article
 ms.date: 07/21/2020
-ms.author: justinha
+ms.author: v-myoung
 ms.reviewer: prchint
 ms.lastreviewed: 07/21/2020
-ms.openlocfilehash: 8072a868106de26be3cbb2b2918d97696647df77
-ms.sourcegitcommit: 03aad17afe8519536066c735c59ad1bdfe8de083
+ms.openlocfilehash: 403335a81a5ac02f2e32432f54df584baf7c2a02
+ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89041617"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91778137"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Řešení potíží v centru Azure Stack
 
@@ -30,7 +30,7 @@ Tyto části obsahují odkazy na dokumenty, které pokrývají běžné otázky 
 
 ### <a name="updates-and-diagnostics"></a>Aktualizace a diagnostika
 
-* [Použití diagnostických nástrojů v centru Azure Stack](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002)
+* [Použití diagnostických nástrojů v centru Azure Stack](./azure-stack-diagnostic-log-collection-overview.md)
 * [Ověření stavu systému Azure Stack hub](azure-stack-diagnostic-test.md)
 * [Aktualizace tempo verze balíčku](azure-stack-servicing-policy.md#update-package-release-cadence)
 * [Ověření a řešení potíží se stavem uzlu](azure-stack-node-actions.md)
@@ -46,7 +46,7 @@ Tyto části obsahují odkazy na dokumenty, které pokrývají běžné otázky 
 
 ### <a name="manage-capacity"></a>Správa kapacity
 
-#### <a name="memory"></a>Memory (Paměť)
+#### <a name="memory"></a>Paměť
 
 Pokud chcete zvýšit celkovou dostupnou kapacitu paměti pro centrum Azure Stack, můžete přidat další paměť. V Azure Stackovém centru se váš fyzický server označuje také jako uzel jednotky škálování. Všechny uzly jednotek škálování, které jsou členy jedné jednotky škálování, musí mít [stejnou velikost paměti](azure-stack-manage-storage-physical-memory-capacity.md).
 
@@ -199,11 +199,11 @@ Pokud skript Create-AADIdentityApp.ps1, který je požadován pro App Service, s
 
 Proces aktualizace a aktualizace centra Azure Stack slouží k tomu, aby operátoři mohli instalovat balíčky aktualizací konzistentním a efektivnějším způsobem. V neobvyklém případě mohou nastat problémy během procesu aktualizace a aktualizace. V následujících krocích se doporučuje, abyste při procesu aktualizace a aktualizace nastavili problém:
 
-0. **Požadavky**: Ujistěte se, že jste následovali [Kontrolní seznam aktivity aktualizace](release-notes-checklist.md) a [povolili proaktivní shromažďování protokolů](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002).
+0. **Požadavky**: Ujistěte se, že jste následovali [Kontrolní seznam aktivity aktualizace](release-notes-checklist.md) a [povolili proaktivní shromažďování protokolů](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively).
 
 1. Postupujte podle kroků pro nápravu v upozornění na selhání vytvořeného při selhání aktualizace.
 
-2. Pokud jste tento problém nedokázali vyřešit, vytvořte [lístek podpory centra Azure Stack](./azure-stack-help-and-support-overview.md?view=azs-2002). Ujistěte se, že máte [shromážděné protokoly](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002) pro časové období, kdy k problému došlo.
+2. Pokud jste tento problém nedokázali vyřešit, vytvořte [lístek podpory centra Azure Stack](./azure-stack-help-and-support-overview.md?view=azs-2002). Ujistěte se, že máte [shromážděné protokoly](./azure-stack-diagnostic-log-collection-overview.md#send-logs-now) pro časové období, kdy k problému došlo.
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>Běžné problémy s opravou a aktualizacemi centra Azure Stack
 
