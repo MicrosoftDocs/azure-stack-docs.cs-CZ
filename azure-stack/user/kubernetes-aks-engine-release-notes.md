@@ -7,12 +7,12 @@ ms.date: 09/28/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/28/2020
-ms.openlocfilehash: 03824b30d3d5d5c8982b1295a5999c299d14cf08
-ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
+ms.openlocfilehash: b4c5a2f6af605cc390a990df874bceae691006d3
+ms.sourcegitcommit: edb60c948b445537e9411d6261c6c78359b71d0b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91495758"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91810639"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Poznámky k verzi pro modul AKS v centru Azure Stack
 ::: moniker range=">=azs-2002"
@@ -68,7 +68,7 @@ V této aktualizaci jsou k dispozici nové verze těchto verzí:
 
 -   Operátor centra Azure Stack bude muset stáhnout nový Ubuntu základní image na webu razítko (AKS Base):
 
-    -   Název: AKS Base Ubuntu 16,04-LTS image distribuce, srpen 2020 (2020.09.14)
+    -   Název: AKS Base Ubuntu 16,04-LTS image distribuce, září 2020 (2020.09.14)
 
     -   Verze: 2020.09.14
 
@@ -264,7 +264,7 @@ Následuje seznam některých opravených chyb a také kompletní sada poznámek
 
 -   Aktualizace pro použití jedné omsagent YAML pro všechny verze k8s, aby nedocházelo k ručním chybám a snadné údržbě ([ \# 2692](https://github.com/Azure/aks-engine/issues/2692))
 
-### <a name="release-notes"></a>Poznámky k verzi
+### <a name="release-notes"></a>Zpráva k vydání verze
 
 Toto je kompletní sada poznámek k verzi pro Azure a centrum Azure Stack v kombinaci.
 

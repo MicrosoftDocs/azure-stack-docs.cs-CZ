@@ -3,16 +3,16 @@ title: Vytvoření virtuálního počítače se systémem Linux pomocí centra A
 description: Vytvořte virtuální počítač s Linux serverem pomocí centra Azure Stack.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 08/24/2020
+ms.date: 10/06/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 0d75607eb111762fc49e6e3ccbef05353a5fab5f
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.lastreviewed: 10/06/2020
+ms.openlocfilehash: 026eca2d69dfbbcebbdba00b52f8d8ec57f3c2a5
+ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920657"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91815181"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-hub-portal"></a>Rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí portálu Azure Stack hub
 
@@ -25,7 +25,7 @@ Virtuální počítač s Ubuntu serverem 16,04 LTS můžete vytvořit pomocí po
 > [!NOTE]  
 > Obrázky v tomto článku jsou aktualizované tak, aby odpovídaly změnám, které byly představeny v Azure Stack centra verze 1808. Verze 1808 kromě nespravovaných disků přidává podporu pro používání *spravovaných disků* . Pokud používáte starší verzi, obrázky pro některé úlohy, jako je výběr disku, se liší od toho, co se zobrazuje v uživatelském rozhraní.  
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 * Image Linux na webu centra Azure Stack Marketplace
 

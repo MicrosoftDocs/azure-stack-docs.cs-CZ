@@ -7,18 +7,18 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 75138fa2b74666fee4149bf444558c98c250b4c8
-ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
+ms.openlocfilehash: 81c2db63471e8943c201d1b6979ab0a9b0da6e85
+ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88965156"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91815338"
 ---
 # <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>Nastavení brány sítě VPN pro centrum Azure Stack s využitím FortiGate síťové virtuální zařízení
 
 Tento článek popisuje, jak vytvořit připojení VPN k rozbočovači Azure Stack. Brána sítě VPN je typem brány virtuální sítě, která odesílá šifrovaný provoz mezi vaší virtuální sítí v centru Azure Stack a vzdálenou bránou VPN. Níže uvedený postup nasazuje jednu virtuální síť s FortiGate síťové virtuální zařízení, síťovým virtuálním zařízením v rámci skupiny prostředků. Poskytuje taky postup pro nastavení sítě VPN s protokolem IPSec na FortiGate síťové virtuální zařízení.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 -  Přístup k integrovaným systémům Azure Stack hub s dostupnou kapacitou pro nasazení požadovaných požadavků na výpočetní výkon, síť a prostředky, které jsou potřebné pro toto řešení. 
 
@@ -64,8 +64,6 @@ Následující tabulka shrnuje parametry, které jsou v těchto nasazeních pou�
 ## <a name="deploy-the-fortigate-ngfw-marketplace-items"></a>Nasazení položek webu Marketplace pro FortiGate NGFW
 
 1. Otevřete portál Azure Stack hub User Portal.
-
-    ![Zobrazí se domovská obrazovka s výběrem možnosti "+ vytvořit prostředek" v levém podokně.](./media/azure-stack-network-howto-vnet-to-onprem/image5.png)
 
 1. Vyberte **vytvořit prostředek** a vyhledejte `FortiGate` .
 

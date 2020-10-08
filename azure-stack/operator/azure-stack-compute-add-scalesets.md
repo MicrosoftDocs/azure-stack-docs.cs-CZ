@@ -3,16 +3,16 @@ title: Zpřístupnění sady škálování virtuálních počítačů v centru A
 description: Přečtěte si, jak operátor cloudu může přidat sady škálování virtuálních počítačů do webu Azure Stack hub Marketplace.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 10/07/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: 3714b69e2a65baeb0a5b0ba9a029a5b3144bee1a
-ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
+ms.openlocfilehash: a69f29a168853a2cb2bc1c757f90185e0b56636e
+ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/29/2020
-ms.locfileid: "89089690"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91814974"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack-hub"></a>Zpřístupnění sady škálování virtuálních počítačů v centru Azure Stack
 
@@ -27,7 +27,7 @@ Sada škálování virtuálních počítačů na rozbočovači Azure Stack je po
 
 V Azure Stackovém centru nepodporuje Virtual Machine Scale Sets automatické škálování. Do sady škálování můžete přidat další instance pomocí Správce prostředků šablon, rozhraní příkazového řádku nebo PowerShellu.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 * **Tržiště centra Azure Stack:** Pokud chcete povolit dostupnost položek na webu centra Azure Stack, zaregistrujte Azure Stack hub s globálním Azure. Postupujte podle pokynů v části [registrace centra Azure Stack s Azure](azure-stack-registration.md).
 * **Bitová kopie operačního systému:** Než začnete vytvářet škálu virtuálních počítačů, musíte si stáhnout image virtuálních počítačů pro použití v sadě škálování z [webu centra Azure Stack](azure-stack-download-azure-marketplace-item.md). Předtím, než může uživatel vytvořit novou sadu škálování, již musí být image přítomné.
@@ -35,16 +35,17 @@ V Azure Stackovém centru nepodporuje Virtual Machine Scale Sets automatické š
 ## <a name="use-the-azure-stack-hub-portal"></a>Použití portálu centra Azure Stack
 
 1. Přihlaste se k portálu centra Azure Stack. Pak klikněte na **všechny služby**, pak na **Virtual Machine Scale Sets**a potom v části **COMPUTE**vyberte **Virtual Machine Scale Sets**.
-   ![Výběr sady škálování virtuálních počítačů](media/azure-stack-compute-add-scalesets/all-services.png)
+   [![Výběr sady škálování virtuálních počítačů](media/azure-stack-compute-add-scalesets/all-services-small.png)](media/azure-stack-compute-add-scalesets/all-services.png#lightbox)
 
-2. Vyberte ***vytvořit Virtual Machine Scale Sets***.
+2. Vyberte **Přidat**.
+
    ![Vytvoření škálovací sady virtuálních počítačů](media/azure-stack-compute-add-scalesets/create-scale-set.png)
 
-3. Vyplňte prázdná pole a vyberte z rozevíracích seznamů pro **image disku s operačním systémem**, **předplatné**a **velikost instance**. Vyberte **Ano** , pokud chcete **používat spravované disky**. Potom klikněte na **Vytvořit**.
-    ![Konfigurace a vytvoření sady škálování pro virtuální počítače](media/azure-stack-compute-add-scalesets/create.png)
+3. Vyplňte prázdná pole a vyberte z rozevíracích seznamů pro **image disku s operačním systémem**, **předplatné**a **velikost instance**. Vyberte **Ano** , pokud chcete **používat spravované disky**. Potom vyberte **Vytvořit**.
+    [![Konfigurace a vytvoření sady škálování pro virtuální počítače](media/azure-stack-compute-add-scalesets/create-small.png)](media/azure-stack-compute-add-scalesets/create.png#lightbox)
 
 4. Pokud chcete zobrazit novou sadu škálování virtuálních počítačů, přejděte na **všechny prostředky**, vyhledejte název sady škálování virtuálního počítače a potom vyberte jeho název ve vyhledávání.
-   ![Zobrazit sadu škálování virtuálního počítače](media/azure-stack-compute-add-scalesets/search.png)
+   [![Zobrazit sadu škálování virtuálního počítače](media/azure-stack-compute-add-scalesets/search-small.png)](media/azure-stack-compute-add-scalesets/search.png#lightbox)
 
 ## <a name="update-images-in-a-virtual-machine-scale-set"></a>Aktualizace imagí v sadě škálování virtuálního počítače
 
@@ -79,7 +80,7 @@ Velikost sady škálování virtuálního počítače můžete změnit tak, aby 
 
 2. Pomocí panelu snímků nastavte novou úroveň škálování pro tuto sadu škálování virtuálního počítače a pak klikněte na **Uložit**.
 
-     ![Škálovat sadu virtuálních počítačů](media/azure-stack-compute-add-scalesets/scale.png)
+     [![Škálovat sadu virtuálních počítačů](media/azure-stack-compute-add-scalesets/scale-small.png)](media/azure-stack-compute-add-scalesets/scale.png#lightbox)
 
 ## <a name="next-steps"></a>Další kroky
 

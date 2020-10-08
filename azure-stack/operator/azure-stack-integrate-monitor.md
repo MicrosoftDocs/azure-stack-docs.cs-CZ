@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 231e4ac3b0bc8e0d43c608ff252f7d4c274e84a8
-ms.sourcegitcommit: 1c5e7d8419037c0f3ef6fe9d8e6bfb6a59659c84
+ms.openlocfilehash: 1a8e4618f81f157ff05117505bf5b76922bd4c35
+ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89428545"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91815134"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>Integrace řešení pro externí monitorování pomocí centra Azure Stack
 
@@ -119,9 +119,9 @@ Další informace o tom, jak vytvořit hlavní název služby (SPN), najdete v t
 
 | Parametr | Popis | Authentication |
 | --- | --- | --- |
-| * * External_domain_fqdn * * | Plně kvalifikovaný název domény externí domény |    |
-| * * oblast: * * | Název oblasti |    |
-| * * tenant_id: * * | ID tenanta\* |    |
+| **External_domain_fqdn** | Plně kvalifikovaný název domény externí domény |    |
+| **věřitel** | Název oblasti |    |
+| **tenant_id:** | ID tenanta\* |    |
 | client_id: | ID klienta | SPN s tajným klíčem |
 | client_secret: | Heslo klienta | SPN s tajným klíčem |
 | client_cert \* \* : | Cesta k certifikátu | Hlavní název služby s certifikátem |

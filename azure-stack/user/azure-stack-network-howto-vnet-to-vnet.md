@@ -7,18 +7,18 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 4aeca3ba7630d05921578de7023359c042d74ffb
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 9d9bf332c71bbafd78a235cf0257283738e5a304
+ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574104"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91815508"
 ---
 # <a name="vnet-peering-with-fortigate"></a>VNET peering s FortiGate
 
 Tento článek popisuje, jak vytvořit připojení mezi dvěma virtuálními sítěmi ve stejném prostředí. Při nastavování připojení se dozvíte, jak fungují brány VPN ve službě Azure Stack hub. Připojení dvou virtuální sítě ve stejném prostředí centra Azure Stack pomocí Fortinet FortiGate. Tento postup nasadí dvě virtuální sítě pomocí FortiGate síťové virtuální zařízení, síťového virtuálního zařízení v každé virtuální síti v rámci samostatné skupiny prostředků. Také podrobně popisuje změny potřebné k nastavení sítě VPN IPSec mezi dvěma virtuální sítě. Opakujte kroky v tomto článku pro každé nasazení virtuální sítě.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 -   Přístup k systému s dostupnou kapacitou k nasazení požadovaných výpočetních, síťových a prostředků potřebných pro toto řešení.
 
@@ -74,8 +74,6 @@ Následující tabulka shrnuje parametry, které se v těchto nasazeních použ�
 ## <a name="deploy-the-fortigate-ngfw"></a>Nasazení FortiGate NGFW
 
 1.  Otevřete portál Azure Stack hub User Portal.
-
-    ![Zobrazí se domovská obrazovka s tlačítkem "+ vytvořit prostředek".](./media/azure-stack-network-howto-vnet-to-onprem/image5.png)
 
 2.  Vyberte **vytvořit prostředek** a vyhledejte `FortiGate` .
 
