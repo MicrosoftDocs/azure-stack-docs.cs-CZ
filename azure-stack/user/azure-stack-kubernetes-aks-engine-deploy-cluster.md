@@ -7,12 +7,12 @@ ms.date: 09/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 68acf1fa04762d8288e621c5087d501c464912fd
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: b90b7c61e5eeed1265bf258b6ba3ce7b042b6897
+ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573951"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91853189"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Nasazení clusteru Kubernetes s modulem AKS v centru Azure Stack
 
@@ -48,7 +48,7 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
 
 4.  Vyhledejte `customCloudProfile` adresu URL portálu tenanta a poskytněte ji. Například, `https://portal.local.azurestack.external`. 
 
-5. Přidejte, `"identitySystem":"adfs"` Pokud používáte AD FS. Třeba
+5. Přidejte, `"identitySystem":"adfs"` Pokud používáte AD FS. Příklad:
 
     ```JSON  
         "customCloudProfile": {
@@ -113,7 +113,7 @@ Pokračujte v nasazení clusteru:
 
 1.  Přečtěte si dostupné parametry pro modul AKS v části Azure Stack centra [CLI](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cli-flags).
 
-    | parametr | Příklad | Popis |
+    | Parametr | Příklad | Popis |
     | --- | --- | --- |
     | Azure – ENV | AzureStackCloud | K indikaci AKS Engine, že vaše cílová platforma je Azure Stack použití centra `AzureStackCloud` . |
     | Identita – systém | službou | Nepovinný parametr. Pokud používáte federované služby Active Directory (AD FS), zadejte svoje řešení pro správu identit. |
@@ -226,6 +226,22 @@ Ověřte cluster tak, že nasadíte MySql s Helm a zkontrolujete cluster.
     ```bash
     kubectl delete deployment -l app=redis
     ```
+
+## <a name="rotate-your-service-principle-secret"></a>Otočení principu vašeho tajného kódu služby
+
+Po nasazení clusteru Kubernetes s modulem AKS se instanční objekt (SPN) používá ke správě interakcí s Azure Resource Manager v instanci služby Azure Stack hub. V určitém okamžiku může platnost tajného kódu tohoto instančního objektu vypršet. V případě vypršení platnosti tajného kódu můžete přihlašovací údaje aktualizovat:
+
+- Aktualizuje se každý uzel novým tajným klíčem instančního objektu.
+- Nebo aktualizujte přihlašovací údaje modelu rozhraní API a spusťte upgrade.
+
+### <a name="update-each-node-manually"></a>Aktualizovat každý uzel ručně
+
+1. Získejte nový tajný kód pro instanční objekt od operátora cloudu. Pokyny pro centrum Azure Stack najdete v tématu [použití identity aplikace pro přístup k prostředkům centra Azure Stack](/azure-stack/operator/azure-stack-create-service-principals).
+2. K aktualizaci `/etc/kubernetes/azure.json` na jednotlivých uzlech použijte nové přihlašovací údaje poskytnuté vaším operátorem cloudu. Po provedení aktualizace restartujte **kubelet** i **Kube-Controller-Manager**.
+
+### <a name="update-the-cluster-with-aks-engine-update"></a>Aktualizace clusteru pomocí AKS-Engine Update
+
+Případně můžete nahradit přihlašovací údaje v `apimodel.json` a spustit upgrade pomocí aktualizovaného formátu JSON na stejnou nebo novější verzi Kubernetes. Pokyny k upgradu modelu najdete v tématu [upgrade clusteru Kubernetes v centru Azure Stack](azure-stack-kubernetes-aks-engine-upgrade.md) .
 
 ## <a name="next-steps"></a>Další kroky
 

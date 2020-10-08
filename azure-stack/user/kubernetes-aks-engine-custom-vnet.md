@@ -7,12 +7,12 @@ ms.date: 9/2/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 9/2/2020
-ms.openlocfilehash: 976f7b84df4084776f8b7f94d8903efdb1c06d6c
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 588adfc39dc6ff3eec26e67283a7f51a28655fd2
+ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574002"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91853206"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-a-custom-virtual-network-on-azure-stack-hub"></a>Nasazení clusteru Kubernetes do vlastní virtuální sítě v centru Azure Stack 
 
@@ -46,6 +46,13 @@ Vytvořte ve virtuální síti novou podsíť. Budete potřebovat získat ID pro
     ![blok CIDR virtuální sítě](media/kubernetes-aks-engine-custom-vnet/virtual-network-cidr-block.png)
     
 6. V okně podsíť si poznamenejte rozsah adres a blok CIDR virtuální sítě, například: `10.1.0.0 - 10.1.0.255 (256 addresses)` a `10.1.0.0/24` .
+
+## <a name="considerations-for-selecting-an-address-space"></a>Předpoklady pro výběr adresního prostoru
+
+Když vytváříte vlastní virtuální síť, zadáte adresní prostor IP adres vaší sítě a rozsah IP adres pro každou podsíť. Při výběru adresních prostorů a rozsahů, které se mají použít v clusteru Kubernetes, vezměte v úvahu následující faktory:
+-  Překrývající se adresní prostory můžou způsobit konflikt IP adres nebo chyby komunikace. Pokud chcete snížit riziko překrývání IP adres, vyberte pro novou virtuální síť jedinečný adresní prostor.
+-  Adresní prostory v `10.` oblasti a `172.` se často používají pro privátní sítě a můžou je využívat stávající infrastruktura Datacenter. Pokud vaše aplikace Kubernetes využívají prostředky ve vašem datacentru, snižte riziko jejich konfliktu tím, že vyberete adresní prostor pro vlastní virtuální síť, který se liší od adresního prostoru vašeho datacentra.
+-  Pro cluster Kubernetes doporučujeme používat vyhrazenou podsíť.
 
 ## <a name="get-the-ip-address-block"></a>Získat blok IP adres
 

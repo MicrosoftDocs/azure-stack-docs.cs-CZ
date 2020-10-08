@@ -3,16 +3,16 @@ title: Řešení potíží s modulem AKS v centru Azure Stack
 description: Tento článek obsahuje postup řešení potíží pro modul AKS v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 10/02/2020
+ms.date: 10/07/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/02/2020
-ms.openlocfilehash: d9e862386e76c9bf44638a58432b58b409e9c2df
-ms.sourcegitcommit: af21e3097e833bcb0670733a5e92d6fc3deaa53b
+ms.lastreviewed: 10/07/2020
+ms.openlocfilehash: ae82bb1c07ec8f466eb29fe8c610af09e01e233a
+ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91729215"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91853172"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Řešení potíží s modulem AKS v centru Azure Stack
 
@@ -88,14 +88,27 @@ Kromě toho do protokolů modulu AKS generují komponenty Kubernetes stav a chyb
 
 Tento skript automatizuje proces shromažďování následujících protokolů: 
 
- - Protokoly waagent (agent pro Linux) Microsoft Azure
- - Protokoly rozšíření vlastních skriptů
- - Spuštění Kube-System metadata kontejneru
- - Spuštění Kube-System Container logs
- - Stav a deník služby Kubelet
- - Stav a deník služby Etcd
- - Protokoly DVM položky Galerie
- - Kube – snímek systému
+- Soubory protokolu v adresáři `/var/log/azure/`
+- Soubory protokolu v adresáři `/var/log/kubeaudit` (protokoly auditu Kube)
+- Soubor protokolu `/var/log/waagent.log` (waagent)
+- Soubor protokolu `/var/log/azure/deploy-script-dvm.log` (Pokud se nasazuje Azure Stack pomocí položky Kubernetes centra pro vytváření clusteru)
+- Statické manifesty v adresáři `/etc/kubernetes/manifests`
+- Statické doplňky v adresáři` /etc/kubernetes/addons`
+- Kube – metadata a protokoly kontejnerů systému
+- kubelet stav a deník
+- etcd stav a deník
+- Stav Docker a deník
+- Kube – snímek systému
+- Soubory konfigurace Azure CNI
+
+Některé další protokoly se načítají pro uzly Windows:
+
+- Soubor protokolu `c:\Azure\CustomDataSetupScript.log`
+- Kube – stav proxy serveru a deník
+- kontejnerový stav a deník
+- Azure – protokol virtuální sítě a protokol Azure-VNET-telemetrie
+- Události ETW pro Docker
+- Události ETW pro Hyper-V
 
 Bez tohoto skriptu byste se museli připojit k jednotlivým uzlům v clusteru, vyhledat a stáhnout protokoly ručně. Skript navíc může volitelně nahrát shromážděné protokoly do účtu úložiště, který můžete použít ke sdílení protokolů s ostatními.
 

@@ -7,13 +7,13 @@ metadata:
   ms.topic: landing-page
   author: khdownie
   ms.author: v-kedow
-  ms.date: 07/21/2020
-  ms.openlocfilehash: 439e41651800ddb6ee478bfad083890193aef5da
-  ms.sourcegitcommit: e675eafd12b044a6d8ae3790d1874e935f80f7cb
+  ms.date: 10/5/2020
+  ms.openlocfilehash: f66164d37b0e5fa1fab243f73b81df3b732205bc
+  ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
   ms.translationtype: MT
   ms.contentlocale: cs-CZ
-  ms.lasthandoff: 07/22/2020
-  ms.locfileid: "86891964"
+  ms.lasthandoff: 10/08/2020
+  ms.locfileid: "91853138"
 landingContent:
 - title: Informace o Azure Stack HCL
   linkLists:
@@ -39,7 +39,7 @@ landingContent:
       url: deploy/witness.md
     - text: Registrace v Azure
       url: deploy/register-with-azure.md
-    - text: Ověření Azure Stack clusteru HCI
+    - text: Ověření clusteru
       url: deploy/validate.md
 - title: Správa úložiště
   linkLists:
@@ -49,22 +49,18 @@ landingContent:
       url: manage/create-volumes.md
     - text: Vytvoření roztaženého svazku
       url: manage/create-stretched-volumes.md
+    - text: Chránit svazky
+      url: manage/volume-encryption-deduplication.md
     - text: Rozšiřování svazků
       url: manage/extend-volumes.md
     - text: Odstranit svazky
       url: manage/delete-volumes.md
     - text: Nahradit jednotky
       url: manage/replace-drives.md
-- title: Správa virtuálních počítačů
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Správa virtuálních počítačů pomocí centra pro správu Windows
-      url: manage/vm.md
-    - text: Správa virtuálních počítačů pomocí PowerShellu
-      url: manage/vm-powershell.md
-    - text: Nastavení pravidel spřažení virtuálních počítačů
-      url: deploy/before-you-start.md
+    - text: Použití mezipaměti sdíleného svazku clusteru
+      url: manage/use-csv-cache.md
+    - text: Správa vícekanálového protokolu SMB
+      url: manage/manage-smb-multichannel.md
 - title: Správa clusteru
   linkLists:
   - linkListType: how-to-guide
@@ -75,10 +71,22 @@ landingContent:
       url: manage/cluster-powershell.md
     - text: Přidat nebo odebrat servery
       url: manage/add-cluster.md
+    - text: Monitorovat cluster
+      url: manage/monitor-cluster.md
     - text: Aktualizovat cluster
       url: manage/update-cluster.md
     - text: Změnit jazyky
       url: manage/vm-powershell.md
+- title: Správa virtuálních počítačů
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Správa virtuálních počítačů pomocí centra pro správu Windows
+      url: manage/vm.md
+    - text: Správa virtuálních počítačů pomocí PowerShellu
+      url: manage/vm-powershell.md
+    - text: Nastavení pravidel spřažení virtuálních počítačů
+      url: deploy/before-you-start.md
 - title: Azure Stack koncepty HCI
   linkLists:
   - linkListType: concept
@@ -91,16 +99,24 @@ landingContent:
       url: concepts/updates.md
     - text: Zvolit jednotky
       url: concepts/choose-drives.md
+    - text: Požadavky na symetrii jednotky
+      url: concepts/drive-symmetry-considerations.md
     - text: Plánování svazků
       url: concepts/plan-volumes.md
     - text: Odolnost proti chybám a efektivita úložiště
       url: concepts/fault-tolerance.md
     - text: Důležité informace o zabezpečení
       url: concepts/security.md
+    - text: Mezipaměť fondu úložiště
+      url: concepts/cache.md
+    - text: Kvorum clusteru a fondu úložiště
+      url: concepts/quorum.md
 - title: Připojení k Azure
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: Správa registrace Azure
+      url: manage/manage-azure-registration.md
     - text: Registrace centra pro správu Windows pomocí Azure
       url: manage/register-windows-admin-center.md
     - text: Použití Azure Site Recovery
@@ -111,3 +127,21 @@ landingContent:
       url: manage/use-azure-network-adapter.md
     - text: Použití služby Azure Backup
       url: manage/use-azure-backup.md
+- title: Softwarově definované sítě
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Přehled softwarově definovaných sítí (SDN)
+      url: concepts/software-defined-networking.md
+    - text: Plánování infrastruktury SDN
+      url: concepts/plan-software-defined-networking-infrastructure.md
+    - text: Přehled síťového adaptéru
+      url: concepts/network-controller-overview.md
+    - text: Plánování síťového adaptéru
+      url: concepts/network-controller.md
+    - text: Přehled Load Balancer softwaru
+      url: concepts/software-load-balancer.md
+    - text: Přehled služby RAS Gateway
+      url: concepts/gateway-overview.md
+    - text: Přehled reflektorů tras
+      url: concepts/route-reflector-overview.md

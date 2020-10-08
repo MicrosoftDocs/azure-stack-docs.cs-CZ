@@ -6,7 +6,7 @@
       href: overview.md
     - name: Známé problémy
       href: known-issues.md
-    - name: "Poznámky k\_verzi"
+    - name: Zpráva k vydání verze
       href: release-notes.md
 - name: Začínáme
   items:
@@ -118,10 +118,12 @@
           href: concepts/quorum.md
     - name: Sítě
       items:
-        - name: Softwarově definované sítě
+        - name: Softwarově definované sítě (SDN)
           href: concepts/software-defined-networking.md
         - name: Plánování infrastruktury SDN
           href: concepts/plan-software-defined-networking-infrastructure.md
+        - name: Přehled síťového adaptéru
+          href: concepts/network-controller-overview.md
         - name: Plánování síťového adaptéru
           href: concepts/network-controller.md
     - name: Údržba a zabezpečení
@@ -132,7 +134,7 @@
           href: concepts/updates.md
         - name: Důležité informace o zabezpečení
           href: concepts/security.md
-- name: Referenční informace
+- name: Odkaz
   items:
     - name: Příkazy prostředí PowerShell technologie Hyper-V
       href: /powershell/module/hyper-v

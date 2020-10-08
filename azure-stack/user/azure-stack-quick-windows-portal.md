@@ -7,12 +7,12 @@ ms.date: 10/06/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/06/2020
-ms.openlocfilehash: 77c7e3484186a0bea1f6220330338128aad72fad
-ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
+ms.openlocfilehash: 68a28c28c02565c996c3bbc6742554cc78090846
+ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91815393"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91853226"
 ---
 # <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-hub-portal"></a>Rychlý Start: Vytvoření virtuálního počítače s Windows serverem pomocí portálu Azure Stack hub
 
@@ -58,7 +58,7 @@ Přihlaste se k portálu centra Azure Stack. Adresa portálu centra Azure Stack 
 
 1. Vyberte **Virtual Machines** pro kontrolu nového virtuálního počítače. Vyhledejte název virtuálního počítače a potom ve výsledcích hledání vyberte virtuální počítač.
 
-![Vytvoření virtuálního počítače – vyhledání virtuálního počítače](./media/azure-stack-quick-windows-portal/image7.png)
+:::image type="content" source="./media/azure-stack-quick-windows-portal/image7-inline.png" alt-text="Vytvoření virtuálního počítače – vyhledání virtuálního počítače" lightbox="./media/azure-stack-quick-windows-portal/image7.png":::
 
 ## <a name="clean-up-resources"></a>Vyčištění prostředků
 

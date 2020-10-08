@@ -3,16 +3,16 @@ title: Automatizace aktualizací a správy virtuálních počítačů v centru A
 description: Pomocí řešení Azure Monitor pro virtuální počítače, Update Management, Change Tracking a inventáře v Azure Automation můžete spravovat virtuální počítače s Windows a Linux nasazené v centru pro Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/27/2020
+ms.date: 10/08/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
-ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: f0d1ecb2f5ad2313894cb15998f43f2bfd257c77
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 10/08/2020
+ms.openlocfilehash: b9a37df9404de01bd9b094ae259c8c62637cb369
+ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572438"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91853257"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Automatizace aktualizací a správy virtuálních počítačů v centru Azure Stack
 Ke správě virtuálních počítačů s Windows a Linux, které se nasazují pomocí centra Azure Stack, použijte následující Azure Automation řešení:
@@ -83,7 +83,7 @@ Pomocí těchto kroků můžete povolit správu aktualizací pro virtuální po�
 
 2. Na portálu Azure Stack User Portal přejděte do okna rozšíření virtuálních počítačů, pro které chcete tato řešení povolit, klikněte na **+ Přidat**, vyberte rozšíření **pro správu služby Azure Update a konfigurace** a pak klikněte na **vytvořit**:
 
-   [![Dialogové okno "Správa aktualizací a konfigurace Azure" obsahuje vysvětlující informace, tlačítko vytvořit (zvýrazněno) pro přidání rozšíření a odkaz na Další informace.](media//vm-update-management/3-sm.PNG "Okno rozšíření virtuálního počítače")](media//vm-update-management/3-lg.PNG)
+    ![Dialogové okno "Správa aktualizací a konfigurace Azure" obsahuje vysvětlující informace, tlačítko vytvořit (zvýrazněno) pro přidání rozšíření a odkaz na Další informace.](media//vm-update-management/3-sm.PNG "Okno rozšíření virtuálního počítače")
 
 3. Poskytněte dříve vytvořené ID pracovního prostoru a primární klíč k propojení agenta s pracovním prostorem LogAnalytics. Pak kliknutím na **OK** nasaďte rozšíření.
 

@@ -4,17 +4,17 @@ description: Toto téma popisuje, jak naplánovat nasazení síťového adaptér
 author: AnirbanPaul
 ms.author: anpaul
 ms.topic: conceptual
-ms.date: 09/10/2020
-ms.openlocfilehash: 785665c9edc3af3230b4813e6da6bceddc43bd0a
-ms.sourcegitcommit: b147d617c32cea138b5bd4bab568109282e44317
+ms.date: 10/7/2020
+ms.openlocfilehash: ec9ddb62dc876fbd4b99ebc2c8e2a3af4a54e8a7
+ms.sourcegitcommit: 9a91dbdaa556725f51bcf3d8e79a4ed2dd5a209f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90010828"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91847659"
 ---
-# <a name="plan-to-deploy-the-network-controller"></a>Plánování nasazení síťového adaptéru
+# <a name="plan-to-deploy-network-controller"></a>Plánování nasazení síťového adaptéru
 
->Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019 
+>Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019
 
 Plánování nasazení síťového adaptéru prostřednictvím centra pro správu Windows vyžaduje sadu virtuálních počítačů, na kterých běží operační systém Azure Stack HCI. Síťový adaptér je vysoce dostupná a škálovatelná role serveru, která vyžaduje minimálně tři virtuální počítače pro zajištění vysoké dostupnosti ve vaší síti.
 
@@ -23,20 +23,26 @@ Plánování nasazení síťového adaptéru prostřednictvím centra pro správ
 
 ## <a name="network-controller-requirements"></a>Požadavky na síťový adaptér
 K nasazení síťového adaptéru je potřeba následující:
-- Virtuální pevný disk pro Azure Stack operační systém HCI pro vytvoření virtuálních počítačů síťového adaptéru.
-- Název domény a přihlašovací údaje, které se připojí k virtuálním počítačům síťového adaptéru k doméně.
-- Konfigurace fyzické sítě, která odpovídá jedné ze dvou možností topologie v této části.
+- Virtuální pevný disk (VHD) pro Azure Stack operační systém HCI pro vytváření virtuálních počítačů síťového adaptéru.
+- Název domény a přihlašovací údaje pro připojení virtuálních počítačů síťového adaptéru k doméně.
+- Alespoň jeden virtuální přepínač, který nakonfigurujete pomocí Průvodce vytvořením clusteru v centru pro správu systému Windows.
+- Konfigurace fyzické sítě, která odpovídá jedné z možností topologie v této části.
 
-    Centrum pro správu Windows vytvoří konfiguraci v rámci hostitele Hyper-V. Síť pro správu se ale musí připojit k fyzickým adaptérům hostitele na základě jedné z následujících dvou možností:
+    Centrum pro správu Windows vytvoří konfiguraci v rámci hostitele Hyper-V. Síť pro správu se ale musí připojit k fyzickým adaptérům hostitele na základě jedné z následujících tří možností:
 
-    **Možnost 1**: jeden fyzický přepínač připojí síť pro správu k fyzickému adaptéru pro správu na hostiteli a šachtu na fyzických adaptérech, které virtuální přepínač používá:
+    **Možnost 1**: síť pro správu je fyzicky oddělená od sítí úloh. Tato možnost používá jeden virtuální přepínač pro výpočetní prostředky i pro úložiště:
 
     :::image type="content" source="./media/network-controller/topology-option-1.png" alt-text="Možnost 1 vytvořte fyzickou síť pro síťový adaptér." lightbox="./media/network-controller/topology-option-1.png":::
 
-    **Možnost 2**: Pokud je síť pro správu fyzicky oddělená od sítí zatížení, vyžadují se dva virtuální přepínače:
+    **Možnost 2**: síť pro správu je fyzicky oddělená od sítí úloh. Tato možnost používá jediný virtuální přepínač jenom pro výpočetní výkon:
 
-    :::image type="content" source="./media/network-controller/topology-option-2.png" alt-text="Možnost 2 pro vytvoření fyzické sítě pro síťový adaptér." lightbox="./media/network-controller/topology-option-1.png":::
+    :::image type="content" source="./media/network-controller/topology-option-2.png" alt-text="Možnost 1 vytvořte fyzickou síť pro síťový adaptér." lightbox="./media/network-controller/topology-option-2.png":::
 
+    **Možnost 3**: síť pro správu je fyzicky oddělená od sítí úloh. Tato možnost používá dvě virtuální přepínače, jednu pro výpočetní prostředí a jednu pro úložiště:
+
+    :::image type="content" source="./media/network-controller/topology-option-3.png" alt-text="Možnost 1 vytvořte fyzickou síť pro síťový adaptér." lightbox="./media/network-controller/topology-option-3.png":::
+
+- Fyzické adaptéry pro správu můžete také seskupit tak, aby používaly stejný přepínač pro správu. V tomto případě se stále doporučuje použít jednu z možností v této části.
 - Informace o síti pro správu, které síťový adaptér používá ke komunikaci s centrem pro správu systému Windows a hostiteli Hyper-V.
 - Pro virtuální počítače síťového adaptéru buď adresování založené na protokolu DHCP, nebo statické síťové adresy.
 - Plně kvalifikovaný název domény (representational state transfer) (FQDN) pro síťový adaptér, který používají klienti pro správu ke komunikaci se síťovým adaptérem.
@@ -49,12 +55,12 @@ Uzly clusteru síťového adaptéru můžete nasadit ve stejné podsíti nebo v 
 
 Další informace najdete v tématu [Konfigurace dynamické registrace DNS pro síťový adaptér](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller).
 
-
 ## <a name="next-steps"></a>Další kroky
-Nyní jste připraveni k nasazení síťového adaptéru na virtuální počítače, na kterých běží operační systém Azure Stack HCI.
+Teď jste připraveni nasadit síťový adaptér na virtuální počítače s operačním systémem.
 
 Další informace najdete v následujících tématech:
 - [Vytvoření clusteru Azure Stack HCI](../deploy/create-cluster.md)
+- [Nasazení síťového adaptéru pomocí Windows PowerShellu](../deploy/network-controller-powershell.md)
 
 ## <a name="see-also"></a>Viz také
 - [Síťový adaptér](/windows-server/networking/sdn/technologies/network-controller/network-controller)

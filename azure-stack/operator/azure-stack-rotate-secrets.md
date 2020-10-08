@@ -9,12 +9,12 @@ ms.reviewer: ppacent
 ms.author: bryanla
 ms.lastreviewed: 08/15/2020
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: 463fc8fbee16aa7eddc78cee7c3868f1526fad21
-ms.sourcegitcommit: 849be7ebd02a1e54e8d0ec59736c9917c67e309e
+ms.openlocfilehash: 7a5135b9b6610e8ceeca4f4d3e34dca1f2aafc88
+ms.sourcegitcommit: 9a91dbdaa556725f51bcf3d8e79a4ed2dd5a209f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91134742"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91847628"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Otočení tajných kódů v centru Azure Stack
 
@@ -75,14 +75,14 @@ Centrum Azure Stack podporuje v následujících kontextech i střídání tajn�
 
 |Nainstalovala se certifikační autorita.|CA pro otočení|Podporováno|Podporované verze centra Azure Stack|
 |-----|-----|-----|-----|
-|Od sebe podepsané svým držitelem|Do Enterprise|Podporováno|1903 & později|
-|Od sebe podepsané svým držitelem|Na podepsaný svým držitelem|Nepodporuje se||
-|Od sebe podepsané svým držitelem|Na veřejné<sup>*</sup>|Podporováno|1803 & později|
+|Z Self-Signed|Do Enterprise|Podporováno|1903 & později|
+|Z Self-Signed|Pro Self-Signed|Nepodporuje se||
+|Z Self-Signed|Na veřejné<sup>*</sup>|Podporováno|1803 & později|
 |Z Enterprise|Do Enterprise|Podporuje se. Od 1803-1903: podporované, pokud zákazníci používají stejnou certifikační autoritu organizace jako při nasazení.|1803 & později|
-|Z Enterprise|Na podepsaný svým držitelem|Nepodporuje se||
+|Z Enterprise|Pro Self-Signed|Nepodporuje se||
 |Z Enterprise|Na veřejné<sup>*</sup>|Podporováno|1803 & později|
 |Z veřejného<sup>*</sup>|Do Enterprise|Podporováno|1903 & později|
-|Z veřejného<sup>*</sup>|Na podepsaný svým držitelem|Nepodporuje se||
+|Z veřejného<sup>*</sup>|Pro Self-Signed|Nepodporuje se||
 |Z veřejného<sup>*</sup>|Na veřejné<sup>*</sup>|Podporováno|1803 & později|
 
 <sup>*</sup>Označuje, že veřejné certifikační autority jsou součástí důvěryhodného kořenového programu systému Windows. Úplný seznam [účastníků – důvěryhodných kořenových programů společnosti Microsoft](/security/trusted-root/participants-list)najdete v seznamu.
@@ -106,7 +106,7 @@ Pro rotaci interních a externích tajných kódů:
 
 Pro rotaci externích tajných klíčů dokončete tyto další požadavky:
 
-1. Spusťte **[test-AzureStack](azure-stack-diagnostic-test.md)** a potvrďte, že všechny výstupy testů jsou v pořádku před otočením tajných kódů.
+1. Spuštěním **[`Test-AzureStack`](azure-stack-diagnostic-test.md)** rutiny PowerShellu s použitím `-group SecretRotationReadiness` parametru potvrďte, že všechny výstupy testů jsou v pořádku před otočením tajných kódů.
 2. Příprava nové sady náhradních externích certifikátů:
     - Nová sada musí odpovídat specifikacím certifikátu, které jsou uvedené v [požadavcích na certifikát PKI centra Azure Stack](azure-stack-pki-certs.md). 
     - Můžete vygenerovat žádost o podepsání certifikátu (CSR) k odeslání do certifikační autority (CA) pomocí postupu uvedeného v části [generování žádostí o podepsání certifikátu](azure-stack-get-pki-certs.md) a jejich příprava pro použití ve vašem prostředí Azure Stackho centra pomocí postupu v části [Příprava certifikátů PKI](azure-stack-prepare-pki-certs.md). 
@@ -200,7 +200,7 @@ K otočení externích tajných kódů proveďte následující kroky:
 
     - Vytvoří relaci PowerShellu s [privilegovaným koncovým bodem](azure-stack-privileged-endpoint.md) pomocí účtu **CloudAdmin** a uloží relaci jako proměnnou. Tato proměnná se používá jako parametr v dalším kroku. 
 
-    - Spustí [příkaz Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/Invoke-Command?view=powershell-5.1), který předá PROMĚNNOU relace PEP jako `-Session` parametr.
+    - Spustí [příkaz Invoke-Command](/powershell/module/microsoft.powershell.core/Invoke-Command), který předá PROMĚNNOU relace PEP jako `-Session` parametr.
 
     - Spouští se `Start-SecretRotation` v relaci PEP pomocí následujících parametrů:
         - `-PfxFilesPath`: Dříve vytvořená síťová cesta k adresáři certifikátů.  
@@ -268,7 +268,7 @@ Odkazování na skript PowerShell v kroku 2 [otočení externích tajných klí�
 
 2. Otevřete privilegovaný koncový bod v Azure Stack relace centra. Pokyny najdete v tématu [použití privilegovaného koncového bodu v centru Azure Stack](azure-stack-privileged-endpoint.md). 
 
-3. Po změně výzvy PowerShellu na, `[IP address or ERCS VM name]: PS>` nebo na `[azs-ercs01]: PS>` (v závislosti na prostředí) spusťte běh `Set-BmcCredential` `Invoke-Command` . Pokud použijete volitelný `-BypassBMCUpdate` parametr s `Set-BMCCredential` , přihlašovací údaje v řadiči pro správu základní desky se neaktualizují. Aktualizuje se jenom interní úložiště dat centra Azure Stack. Předat proměnnou vaší privilegované relace koncového bodu jako parametr. 
+3. Po otevření privilegované relace koncového bodu spusťte jeden z následujících skriptů PowerShellu, který pomocí Invoke-Command spustí rutinu Set-BmcCredential. Pokud použijete volitelný parametr-BypassBMCUpdate s set-BMCCredential, přihlašovací údaje v řadiči pro správu základní desky se neaktualizují. Aktualizuje se jenom interní úložiště dat centra Azure Stack. Předat proměnnou vaší privilegované relace koncového bodu jako parametr.
 
     Tady je ukázkový skript PowerShellu, který zobrazí výzvu k zadání uživatelského jména a hesla: 
 
@@ -308,7 +308,7 @@ Odkazování na skript PowerShell v kroku 2 [otočení externích tajných klí�
     Remove-PSSession -Session $PEPSession
     ```
 
-## <a name="reference-start-secretrotation-cmdlet"></a>Reference: rutina Start-SecretRotation
+## <a name="reference-start-secretrotation-cmdlet"></a>Reference: Start-SecretRotation – rutina
 
 [Rutina Start-SecretRotation](/azure-stack/reference/pep-2002/start-secretrotation) otočí tajné klíče infrastruktury Azure Stackho centrálního systému. Tuto rutinu je možné provést jenom proti PEP koncovému bodu s privilegovaným centrem Azure Stack pomocí  `Invoke-Command` bloku skriptu, který v parametru předává relaci `-Session` . Ve výchozím nastavení otočí jenom certifikáty všech koncových bodů infrastruktury externích sítí.
 
