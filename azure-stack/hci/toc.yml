@@ -126,6 +126,12 @@
           href: concepts/network-controller-overview.md
         - name: Plánování síťového adaptéru
           href: concepts/network-controller.md
+        - name: Přehled Load Balancer softwaru
+          href: concepts/software-load-balancer.md
+        - name: Přehled služby RAS Gateway
+          href: concepts/gateway-overview.md
+        - name: Přehled reflektorů tras
+          href: concepts/route-reflector-overview.md
     - name: Údržba a zabezpečení
       items:
         - name: Fakturace
