@@ -5,21 +5,21 @@ author: davannaw-msft
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: dawhite
-ms.openlocfilehash: 262648ce8c7d6c94fb7f9b55deaa5f78b7c5fb56
-ms.sourcegitcommit: 6a0f7f452998c404a80ca9d788dbf3cdf4d78b38
+ms.openlocfilehash: eaa5879f0e8cd00f43a37247f03f7ce09ecdb78c
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893913"
+ms.locfileid: "91899614"
 ---
 # <a name="troubleshooting-azure-kubernetes-service-on-azure-stack-hci"></a>Řešení potíží se službou Azure Kubernetes v Azure Stack HCI
 
 Když vytváříte nebo spravujete cluster Kubernetes pomocí služby Azure Kubernetes v Azure Stack HCI, může občas docházet k problémům. Tento článek popisuje pokyny pro řešení potíží, které vám pomohou tyto problémy vyřešit.
 
 ## <a name="troubleshooting-azure-stack-hci"></a>Řešení potíží Azure Stack HCI
-Řešení potíží s vytvářením sestav ověření clusteru pro síťové služby a QoS úložiště (Quality of Service) v rámci serverů v Azure Stack clusteru HCI a ověření, že jsou definována důležitá pravidla, najdete v tématu [řešení potíží s vytvářením sestav ověření clusteru](/azure-stack/hci/manage/validate-qos).
+Řešení potíží s vytvářením sestav ověření clusteru pro síťové služby a QoS úložiště (Quality of Service) v rámci serverů v Azure Stack clusteru HCI a ověření, že jsou definována důležitá pravidla, najdete v tématu [řešení potíží s vytvářením sestav ověření clusteru](../hci/manage/validate-qos.md).
 
-Další informace o řešení potíží s zprostředkovatelem CredSSP najdete v tématu [řešení potíží se zprostředkovatelem CredSSP](/azure-stack/hci/manage/troubleshoot-credssp).
+Další informace o řešení potíží s zprostředkovatelem CredSSP najdete v tématu [řešení potíží se zprostředkovatelem CredSSP](../hci/manage/troubleshoot-credssp.md).
 
 ## <a name="troubleshooting-windows-admin-center"></a>Řešení potíží s centrem pro správu systému Windows
 Tento produkt je ve verzi Public Preview, což znamená, že je stále ve vývoji. V současnosti dochází k nějakým problémům s rozšířením Azure Kubernetes Service Center pro správu Windows: 
