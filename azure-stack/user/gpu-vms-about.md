@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 07/07/2020
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: 4d1b6df185225a244996246b3e6883b09ac32d8e
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: bb945f69a972214823f366456967b71a013d98bf
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574223"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899835"
 ---
 # <a name="graphics-processing-unit-gpu-virtual-machine-vm-on-azure-stack-hub"></a>Virtuální počítač GPU (Graphics Processing Unit) na rozbočovači Azure Stack
 
@@ -22,8 +22,8 @@ ms.locfileid: "90574223"
 V tomto článku se dozvíte, které modely GPU (Graphics Processing Unit) jsou podporované v systému s více uzly Azure Stack hub. Můžete si také najít pokyny k instalaci ovladačů používaných s grafickými procesory. Podpora GPU v centru Azure Stack umožňuje řešení, jako jsou umělá inteligentní analýza, školení, odvozování a vizualizace dat. AMD Radeon Instinct MI25 se dá použít k podpoře aplikací náročných na grafiku, jako je Autodesk AutoCAD.
 
 V období veřejné verze Preview si můžete vybrat ze tří modelů GPU. Jsou k dispozici v NVIDIA V100, NVIDIA T4 a AMD MI25 GPU. Tyto fyzické GPU se zarovnají s následujícími typy virtuálních počítačů Azure N-Series následujícím způsobem:
-- [NCv3](https://docs.microsoft.com/azure/virtual-machines/ncv3-series)
-- [NVv4 (AMD MI25)](https://docs.microsoft.com/azure/virtual-machines/nvv4-series)
+- [NCv3](/azure/virtual-machines/ncv3-series)
+- [NVv4 (AMD MI25)](/azure/virtual-machines/nvv4-series)
 - NCas_v4
 
 > [!IMPORTANT]  
@@ -73,7 +73,7 @@ Virtuální počítače GPU budou podléhat výpadkům během operací, jako je 
 ## <a name="guest-driver-installation"></a>Instalace ovladače hosta 
 
 ### <a name="amd-mi25"></a>AMD MI25
-V článku [instalace ovladačů AMD GPU na virtuálních počítačích řady N-Series, na kterých běží Windows](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-amd-driver-setup) , najdete pokyny k instalaci ovladače pro AMD Radeon Instinct MI25 uvnitř virtuálního počítače NVv4 GPU-P s povolenými kroky, jak ověřit instalaci ovladače. Toto rozšíření funguje pouze v připojeném režimu.
+V článku [instalace ovladačů AMD GPU na virtuálních počítačích řady N-Series, na kterých běží Windows](/azure/virtual-machines/windows/n-series-amd-driver-setup) , najdete pokyny k instalaci ovladače pro AMD Radeon Instinct MI25 uvnitř virtuálního počítače NVv4 GPU-P s povolenými kroky, jak ověřit instalaci ovladače. Toto rozšíření funguje pouze v připojeném režimu.
 
 ### <a name="nvidia"></a>GRAF
 
@@ -83,4 +83,4 @@ Na virtuálním počítači bude potřeba ručně nainstalovat CUDA sušičky a 
 
 ## <a name="next-steps"></a>Další kroky 
 
-[Funkce Azure Stack virtuálního počítače](azure-stack-vm-considerations.md) 
+[Funkce Azure Stack virtuálního počítače](azure-stack-vm-considerations.md)

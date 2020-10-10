@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 4577da446c11f1053372cdf3d6458cd7c90937be
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: 67e1961a0f1f739e550cc55d100900190892bb5e
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742501"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899750"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Kapacita výpočetní kapacity centra Azure Stack
 
@@ -91,7 +91,7 @@ Pokud se znovu spustí uvolněný virtuální počítač, využití paměti nebo
 
 Aktuálně nasazené velké virtuální počítače ukazují, že přidělená paměť je 112 GB, ale nároky na paměť těchto virtuálních počítačů jsou přibližně 2-3 GB.
     
-| Název | Přiřazená paměť (GB) | Požadavky na paměť (GB) | ComputerName |  
+| Name | Přiřazená paměť (GB) | Požadavky na paměť (GB) | ComputerName |  
 | ---- | -------------------- | ------------------ | ------------ |                                        
 | ca7ec2ea-40fd-4d41-9d9b-b11e7838d508 |                 112  |     2.2392578125  |  LISSA01P-NODE01 |
 | 10cd7b0f-68f4-40ee-9d98-b9637438ebf4  |                112  |     2.2392578125  |   LISSA01P-NODE01 |
@@ -116,7 +116,7 @@ Když se zmenší velikost největšího virtuálního počítače na nejbližš
      
 ### <a name="add-a-node"></a>Přidat uzel
 
-[Přidáním uzlu centra Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-add-scale-node) dojde k uvolnění paměti, a to rovnoměrně distribucí paměti mezi dva uzly.
+[Přidáním uzlu centra Azure Stack](./azure-stack-add-scale-node.md) dojde k uvolnění paměti, a to rovnoměrně distribucí paměti mezi dva uzly.
 
 ![Přidat uzel](media/azure-stack-capacity-planning/add-a-node.png)
 
@@ -128,7 +128,7 @@ Rezerva odolnosti = 384 + (0,15) ((5) × 384) + 112 × (3) = 1008 GB
 
 ### <a name="increase-memory-on-each-node-to-512-gb"></a>Zvětšete paměť na každém uzlu na 512 GB
 
-[Zvětšením paměti každého uzlu](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-storage-physical-memory-capacity) se zvýší celková dostupná paměť.
+[Zvětšením paměti každého uzlu](./azure-stack-manage-storage-physical-memory-capacity.md) se zvýší celková dostupná paměť.
 
 ![Zvětšit velikost uzlu](media/azure-stack-capacity-planning/increase-node-size.png)
 

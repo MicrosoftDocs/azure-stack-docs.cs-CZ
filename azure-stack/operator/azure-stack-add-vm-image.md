@@ -3,16 +3,16 @@ title: Přidání vlastní image virtuálního počítače do centra Azure Stack
 description: Přečtěte si, jak přidat nebo odebrat vlastní image virtuálního počítače do centra Azure Stack.
 author: sethmanheim
 ms.topic: how-to
-ms.date: 9/8/2020
+ms.date: 10/09/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: 26e93e019c0be7b5ef9d5f29b509407011083acd
-ms.sourcegitcommit: 9a340b383dcf42c85bc6ec0d01ff3c9ae29dfe4c
+ms.openlocfilehash: 5266766786cd359446e8313ec19e07746b227fb2
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89598500"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899478"
 ---
 # <a name="add-and-remove-a-custom-vm-image-to-azure-stack-hub"></a>Přidání a odebrání vlastní image virtuálního počítače do centra Azure Stack
 
@@ -20,20 +20,19 @@ V centru Azure Stack můžete jako operátor přidat vlastní image virtuálníh
 
 ## <a name="add-an-image"></a>Přidání obrázku
 
-Pokyny pro přidání zobecněných a specializovaných imagí najdete v části **COMPUTE** v uživatelské příručce. Než začnete image nabídnout vašim uživatelům, budete chtít vytvořit zobecněnou image. Pokyny najdete v tématu [přesunutí virtuálního počítače do centra Azure Stack – přehled](/azure-stack/user/vm-move-overview). Při vytváření imagí, které jsou k dispozici pro klienty, použijte portál pro správu centra Azure Stack nebo koncové body správce místo koncového bodu portálu User Portal nebo adresáře tenanta.
+Pokyny pro přidání zobecněných a specializovaných imagí najdete v části **COMPUTE** v uživatelské příručce. Než začnete image nabídnout vašim uživatelům, budete chtít vytvořit zobecněnou image. Pokyny najdete v tématu [přesunutí virtuálního počítače do centra Azure Stack – přehled](../user/vm-move-overview.md). Při vytváření imagí, které jsou k dispozici pro klienty, použijte portál pro správu centra Azure Stack nebo koncové body správce místo koncového bodu portálu User Portal nebo adresáře tenanta.
 
 Máte dvě možnosti, jak zpřístupnit image uživatelům:
 
 - **Nabídka Image je dostupná jenom přes Azure Resource Manager**  
-  Pokud umístíte obrázek prostřednictvím portálu pro správu centra Azure Stack ve **výpočetních**  >  **imagích**, budou mít všichni vaši klienti k imagi přístup. Uživatelé ale budou k přístupu potřebovat šablonu Azure Resource Manager. V tržišti centra Azure Stack se nezobrazí.
+  Pokud přidáte obrázek prostřednictvím portálu pro správu centra Azure Stack ve **výpočetních**  >  **imagích**, budou mít všichni vaši klienti k imagi přístup. Uživatelé ale budou k přístupu potřebovat šablonu Azure Resource Manager. V tržišti centra Azure Stack se nezobrazí.
 
 - **Nabídka Image prostřednictvím tržiště centra Azure Stack**  
     Po přidání Image prostřednictvím portálu pro správu centra Azure Stack můžete vytvořit nabídku Marketplace. Pokyny najdete v tématu [Vytvoření a publikování vlastní položky na webu Marketplace centra Azure Stack](azure-stack-create-and-publish-marketplace-item.md).
 
-
 ## <a name="add-a-platform-image"></a>Přidat image platformy
 
-Pokud chcete přidat image platformy do centra Azure Stack, použijte portál Azure Stack centra pro správu nebo koncový bod pomocí PowerShellu. Budete muset vytvořit zobecněný virtuální pevný disk. Pokyny  [k přesunutí virtuálního počítače do centra Azure Stack najdete v článku Přehled](/azure-stack/user/vm-move-overview).
+Pokud chcete přidat image platformy do centra Azure Stack, použijte portál Azure Stack centra pro správu nebo koncový bod pomocí PowerShellu. Nejdřív musíte vytvořit zobecněný virtuální pevný disk. Další informace najdete v tématu [přesun virtuálního počítače do centra Azure Stack – přehled](../user/vm-move-overview.md).
 
 ### <a name="portal"></a>[Azure Portal](#tab/image-add-portal)
 
@@ -145,7 +144,9 @@ Pokud chcete odebrat image virtuálního počítače jako operátor centra Azure
      Verze image virtuálního počítače, kterou uživatelé používají při nasazování image virtuálního počítače Tato verze je ve formátu ** \# . \# . \# **. Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
 
      Další informace o rutině **Remove-AzsPlatformImage** najdete v [dokumentaci k modulu operátora centra Azure Stack](/powershell/azure/azure-stack/overview)Microsoft PowerShellu.
+
 ---
+
 ## <a name="next-steps"></a>Další kroky
 
 - [Vytvoření a publikování položky Marketplace pro vlastní Azure Stack centra](azure-stack-create-and-publish-marketplace-item.md)

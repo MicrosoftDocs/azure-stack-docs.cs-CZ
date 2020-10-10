@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 08/04/2020
 ms.reviewer: thoroet
 ms.lastreviewed: 08/04/2020
-ms.openlocfilehash: 8b8f26eefd70e54629a1505a01e1306cab2eda1d
-ms.sourcegitcommit: 9a340b383dcf42c85bc6ec0d01ff3c9ae29dfe4c
+ms.openlocfilehash: 28fe06ca182b2df8104c2d8b23ce9f5c27448064
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89609769"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91936061"
 ---
 Svůj virtuální pevný disk můžete nahrát pomocí portálu nebo pomocí kontejneru, který jste vytvořili na portálu, použijte AzCopy.
 
@@ -33,7 +33,7 @@ Svůj virtuální pevný disk můžete nahrát pomocí portálu nebo pomocí kon
 
 Pomocí Průzkumník služby Azure Storage nebo AzCopy můžete snížit pravděpodobnost, že váš virtuální pevný disk bude v procesu nahrávání poškozený, a vaše nahrávání bude rychlejší. Následující kroky používají AzCopy na počítači s Windows 10. AzCopy je nástroj příkazového řádku, pomocí kterého můžete kopírovat objekty blob nebo soubory do nebo z účtu úložiště.
 
-1. Pokud nemáte AzCopy nainstalované, nainstalujte AzCopy. Pokyny najdete v článku [Začínáme s AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10), najdete v článku o tom, jak stáhnout a začít s AzCopy. Poznamenejte si, kam ukládáte binární soubor. Do [své cesty můžete přidat AzCopy](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/) , abyste ji mohli použít z příkazového řádku PowerShellu.
+1. Pokud nemáte AzCopy nainstalované, nainstalujte AzCopy. Pokyny najdete v článku [Začínáme s AzCopy](/azure/storage/common/storage-use-azcopy-v10), najdete v článku o tom, jak stáhnout a začít s AzCopy. Poznamenejte si, kam ukládáte binární soubor. Do [své cesty můžete přidat AzCopy](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/) , abyste ji mohli použít z příkazového řádku PowerShellu.
 
 2. Otevřete PowerShell a použijte AzCopy z prostředí.
 
@@ -47,4 +47,4 @@ Pomocí Průzkumník služby Azure Storage nebo AzCopy můžete snížit pravdě
 > [!NOTE]  
 > Nahrajte virtuální pevný disk pomocí syntaxe podobně jako nahrání jednoho souboru do virtuálního adresáře. Přidejte `--blob-type=PageBlob` a ujistěte se, že virtuální pevný disk se nahrává jako **objekt blob stránky**místo ve výchozím nastavení. **Block**
 
-Další informace o používání AzCopy a dalších nástrojů úložiště najdete v tématu [použití nástrojů pro přenos dat v Azure Stack hub Storage](/azure-stack/user/azure-stack-storage-transfer).
+Další informace o používání AzCopy a dalších nástrojů úložiště najdete v tématu [použití nástrojů pro přenos dat v Azure Stack hub Storage](../user/azure-stack-storage-transfer.md).

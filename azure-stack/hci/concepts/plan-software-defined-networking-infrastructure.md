@@ -7,12 +7,12 @@ ms.assetid: ea7e53c8-11ec-410b-b287-897c7aaafb13
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 09/11/2020
-ms.openlocfilehash: 7d7eeaec5f82e08cf33a307f429389f03e712987
-ms.sourcegitcommit: a845ae0d3794b5d845b2ae712baa7e38f3011a7b
+ms.openlocfilehash: 986aba8f7591239abfa5502dc2c335177df2eed1
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/12/2020
-ms.locfileid: "90045522"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899529"
 ---
 # <a name="plan-a-software-defined-network-infrastructure"></a>Plánování infrastruktury softwarově definované sítě
 
@@ -55,7 +55,7 @@ Server DHCP může automaticky přiřadit IP adresy pro síť pro správu, nebo 
 | Pokud...                                                    | Pak...                                               |
 | :------------------------------------------------------- | :---------------------------------------------------- |
 | Logické sítě používají sítě VLAN,                          | fyzický výpočetní hostitel se musí připojit k portu přepínacího přepínače, který má přístup k sítím VLAN. Je důležité si uvědomit, že fyzické síťové adaptéry na hostiteli počítače nesmí mít aktivované žádné filtrování sítě VLAN.|
-| Používáte seskupování se zapnutými a integrovanými členy (SET) a máte několik členů týmu síťového rozhraní (NIC), jako jsou například síťové adaptéry.| všechny členy týmu síťových adaptérů pro tohoto konkrétního hostitele musíte připojit ke stejné doméně všesměrového vysílání vrstvy 2.|
+| Používáte Switched-Embedded seskupování (nastavení) a máte několik členů týmu síťových adaptérů (NIC), jako jsou například síťové adaptéry,| všechny členy týmu síťových adaptérů pro tohoto konkrétního hostitele musíte připojit ke stejné doméně všesměrového vysílání vrstvy 2.|
 | Fyzický výpočetní hostitel používá další virtuální počítače infrastruktury, například síťový adaptér, SLB/multiplexor (MUX) nebo bránu. | Ujistěte se, že logická síť pro správu má pro každý hostovaný virtuální počítač dostatek IP adres. Ujistěte se také, že logická síť poskytovatele HNV má dostatečná IP adresa pro přidělení ke každému virtuálnímu počítači služby SLB/MUX a infrastruktury brány. I když je vyhrazená IP adresa spravovaná síťovým adaptérem, může se stát, že při nedostupnosti vyhradí novou IP adresu, může dojít k duplicitním IP adresám ve vaší síti.|
 
 Informace o virtualizaci sítě Hyper-V (HNV), kterou můžete použít k virtualizaci sítí v nasazení Microsoft SDN, najdete v tématu [virtualizace sítě Hyper-v](/windows-server/networking/sdn/technologies/hyper-v-network-virtualization/hyper-v-network-virtualization).
@@ -122,13 +122,13 @@ Síťové adaptéry, které podporují nové klíčové slovo *EncapOverhead* Ad
 ### <a name="switches"></a>Přepínače
 Při výběru fyzického přepínače a směrovače pro vaše prostředí se ujistěte, že podporuje následující sadu funkcí:
 - Vyžaduje se nastavení switchport MTU. \(\)
-- MTU nastavená na >= 1674 bajtů \( včetně hlavičky L2-Ethernet\)
+- MTU nastavená na >= 1674 bajtů \( včetně L2-Ethernet záhlaví\)
 - \(Vyžadovány protokoly L3\)
 - Směrování EQUAL-cost multi-Path (ECMP)
 - \( \) \- Ecmp založené na RFC IETF RFC 4271
 
 Implementace by měly podporovat příkazy musí být v následujících standardech IETF:
-- RFC 2545: [rozšíření protokolu BGP-4 pro směrování mezi doménami IPv6](https://tools.ietf.org/html/rfc2545)
+- RFC 2545: [rozšíření protokolu BGP-4 pro IPv6 Inter-Domain směrování](https://tools.ietf.org/html/rfc2545)
 - RFC 4760: [rozšíření protokolu BGP-4 s více protokoly](https://tools.ietf.org/html/rfc4760)
 - RFC 4893: [Podpora protokolu BGP se čtyřmi oktety jako číselného prostoru](https://tools.ietf.org/html/rfc4893)
 - RFC 4456: [reflexe trasy protokolu BGP: alternativa k internímu protokolu BGP pro celou síť (IBGP)](https://tools.ietf.org/html/rfc4456)
@@ -175,7 +175,7 @@ Role|požadavky na vCPU|Požadavky na paměť|Požadavky na disk|
 |Brána RAS<br> (jeden fond tří uzlů<br> brány, dvě aktivní, jedna pasivní)|8 vCPU|doporučuje se 8 GB|75 GB pro jednotku operačního systému
 |Směrovač protokolu BGP brány RAS<br> pro partnerský vztah SLB/MUX<br> (případně použijte přepínač "<br> jako směrovač protokolu BGP)|2 vCPU|2 GB|75 GB pro jednotku operačního systému|
 
-Pokud pro nasazení používáte nástroj System Center-Virtual Machine Manager (VMM), vyžadují se pro VMM a jinou infrastrukturu mimo SDN další prostředky virtuálních počítačů infrastruktury. Další informace najdete v tématu [požadavky na systém pro System Center Virtual Machine Manager](https://docs.microsoft.com/system-center/vmm/system-requirements?view=sc-vmm-2019&preserve-view=true).
+Pokud pro nasazení používáte nástroj System Center-Virtual Machine Manager (VMM), vyžadují se pro VMM a jinou infrastrukturu mimo SDN další prostředky virtuálních počítačů infrastruktury. Další informace najdete v tématu [požadavky na systém pro System Center Virtual Machine Manager](/system-center/vmm/system-requirements?preserve-view=true&view=sc-vmm-2019).
 
 ## <a name="extending-your-infrastructure"></a>Rozšíření vaší infrastruktury
 Požadavky na velikost a prostředky pro vaši infrastrukturu závisí na virtuálních počítačích úloh klientů, které chcete hostovat. Požadavky na procesor, paměť a disk pro virtuální počítače infrastruktury (například: síťový adaptér, SLB, brána atd.) jsou definované v předchozí tabulce. Můžete přidat další virtuální počítače infrastruktury pro škálování podle potřeby. Všechny virtuální počítače klientů, které běží na hostitelích Hyper-V, ale mají vlastní požadavky na procesor, paměť a disk, které je potřeba vzít v úvahu.
@@ -197,4 +197,4 @@ Příznak|Požadavky nasazení|Požadavky sítě|
 ## <a name="next-steps"></a>Další kroky
 Související informace najdete v tématu také:
 - [Požadavky pro nasazení síťového adaptéru](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller)
-- [SDN ve Azure Stack HCI](https://docs.microsoft.com/azure-stack/hci/concepts/software-defined-networking)
+- [SDN ve Azure Stack HCI](./software-defined-networking.md)

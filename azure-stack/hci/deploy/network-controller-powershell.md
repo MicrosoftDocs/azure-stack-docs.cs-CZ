@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: b9f86e715835ac52bbc34782e4f9eb41ca8b4851
-ms.sourcegitcommit: 9a3397f703ff9dd7d539372bd8e5fdbe6d6a0725
+ms.openlocfilehash: e217c8b3e2a67dafa121fe752b66af9f24f888a1
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91019567"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899546"
 ---
 # <a name="deploy-network-controller-using-windows-powershell"></a>Nasazení síťového adaptéru pomocí Windows PowerShellu
 
@@ -40,7 +40,7 @@ Tento postup slouží k instalaci role serveru síťového adaptéru na virtuál
 K provedení tohoto postupu se vyžaduje členství ve skupině **Administrators** nebo ekvivalentní.  
 
 >[!NOTE]
->Pokud chcete k instalaci síťového adaptéru použít Správce serveru místo Windows PowerShellu, přečtěte si téma [instalace role serveru síťového adaptéru pomocí Správce serveru](https://technet.microsoft.com/library/mt403348.aspx)
+>Pokud chcete k instalaci síťového adaptéru použít Správce serveru místo Windows PowerShellu, přečtěte si téma [instalace role serveru síťového adaptéru pomocí Správce serveru](/windows-server/networking/sdn/technologies/network-controller/install-the-network-controller-server-role-using-server-manager)
 
 Síťový adaptér nainstalujete tak, že zadáte následující příkazy:
 
@@ -186,17 +186,17 @@ Po nasazení síťového adaptéru můžete pomocí příkazů PowerShellu sprav
 
 Následující tabulka uvádí syntaxi příkazů PowerShellu, které můžete použít k provedení těchto úloh.
 
-|Úloha|Příkaz|Syntaxe|
+|Úloha|Příkaz|Syntax|
 |--------|-------|----------|
 |Úprava nastavení clusteru síťového adaptéru|Set-NetworkControllerCluster|`Set-NetworkControllerCluster [-ManagementSecurityGroup <string>][-Credential <PSCredential>] [-computerName <string>][-CertificateThumbprint <String> ] [-UseSSL]`
 |Upravit nastavení aplikace síťového adaptéru|Set-NetworkController|`Set-NetworkController [-ClientAuthentication <ClientAuthentication>] [-Credential <PSCredential>] [-ClientCertificateThumbprint <string[]>] [-ClientSecurityGroup <string>] [-ServerCertificate <X509Certificate2>] [-RestIPAddress <String>] [-ComputerName <String>][-CertificateThumbprint <String> ] [-UseSSL]`
 |Změnit nastavení uzlu síťového adaptéru|Set-NetworkControllerNode|`Set-NetworkControllerNode -Name <string> > [-RestInterface <string>] [-NodeCertificate <X509Certificate2>] [-Credential <PSCredential>] [-ComputerName <string>][-CertificateThumbprint <String> ] [-UseSSL]`
 |Upravit nastavení diagnostiky síťového adaptéru|Set-NetworkControllerDiagnostic|`Set-NetworkControllerDiagnostic [-LogScope <string>] [-DiagnosticLogLocation <string>] [-LogLocationCredential <PSCredential>] [-UseLocalLogLocation] >] [-LogLevel <loglevel>][-LogSizeLimitInMBs <uint32>] [-LogTimeLimitInDays <uint32>] [-Credential <PSCredential>] [-ComputerName <string>][-CertificateThumbprint <String> ] [-UseSSL]`
-|Odebrání aplikace síťového adaptéru|Odinstalace – NetworkController|`Uninstall-NetworkController [-Credential <PSCredential>][-ComputerName <string>] [-CertificateThumbprint <String> ] [-UseSSL]`
-|Odebrat cluster síťového adaptéru|Odinstalace – NetworkControllerCluster|`Uninstall-NetworkControllerCluster [-Credential <PSCredential>][-ComputerName <string>][-CertificateThumbprint <String> ] [-UseSSL]`
+|Odebrání aplikace síťového adaptéru|Uninstall-NetworkController|`Uninstall-NetworkController [-Credential <PSCredential>][-ComputerName <string>] [-CertificateThumbprint <String> ] [-UseSSL]`
+|Odebrat cluster síťového adaptéru|Uninstall-NetworkControllerCluster|`Uninstall-NetworkControllerCluster [-Credential <PSCredential>][-ComputerName <string>][-CertificateThumbprint <String> ] [-UseSSL]`
 |Přidání uzlu do clusteru síťového adaptéru|Add-NetworkControllerNode|`Add-NetworkControllerNode -FaultDomain <String> -Name <String> -RestInterface <String> -Server <String> [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-Force] [-NodeCertificate <X509Certificate2> ] [-PassThru] [-UseSsl]`
 |Zakázat uzel clusteru síťového adaptéru|Disable-NetworkControllerNode|`Disable-NetworkControllerNode -Name <String> [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-PassThru] [-UseSsl]`
-|Povolit uzel clusteru síťového adaptéru|Enable – NetworkControllerNode|`Enable-NetworkControllerNode -Name <String> [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-PassThru] [-UseSsl]`
+|Povolit uzel clusteru síťového adaptéru|Enable-NetworkControllerNode|`Enable-NetworkControllerNode -Name <String> [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-PassThru] [-UseSsl]`
 |Odebrání uzlu síťového adaptéru z clusteru|Remove-NetworkControllerNode|`Remove-NetworkControllerNode [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-Force] [-Name <String> ] [-PassThru] [-UseSsl]`
 
 Další informace najdete v referenční dokumentaci k prostředí Windows PowerShell pro síťový adaptér na adrese [NetworkController](/powershell/module/networkcontroller/?view=win10-ps).
@@ -218,4 +218,4 @@ Install-NetworkController -Node @($a,$b,$c) -ClientAuthentication Kerberos -Clie
 
 ## <a name="next-steps"></a>Další kroky
 
-Pokud při nasazení síťového adaptéru nepoužíváte protokol Kerberos, musíte nasadit certifikáty. Další informace najdete v tématu [kroky po nasazení pro síťový adaptér](https://docs.microsoft.com/windows-server/networking/sdn/technologies/network-controller/post-deploy-steps-nc).
+Pokud při nasazení síťového adaptéru nepoužíváte protokol Kerberos, musíte nasadit certifikáty. Další informace najdete v tématu [kroky po nasazení pro síťový adaptér](/windows-server/networking/sdn/technologies/network-controller/post-deploy-steps-nc).

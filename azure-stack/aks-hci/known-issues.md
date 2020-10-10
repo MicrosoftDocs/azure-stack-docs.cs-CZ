@@ -6,18 +6,18 @@ ms.topic: troubleshooting
 ms.date: 09/22/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: c11aadf13c33482337a46b1d6e59bf5997f11fc5
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: f5451a9d30f87c2f4b985e4ae82541b12de52461
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623179"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899699"
 ---
 # <a name="known-issues-for-azure-kubernetes-service-on-azure-stack-hci-public-preview"></a>Známé problémy služby Azure Kubernetes v Azure Stack HCI Public Preview
 Tento článek popisuje známé problémy s verzí Public Preview služby Azure Kubernetes v Azure Stack HCL.
 
 ## <a name="recovering-from-a-failed-aks-on-azure-stack-hci-deployment"></a>Obnovování z neúspěšného AKS nasazení v Azure Stack HCI
-Pokud máte problémy s nasazením nebo chcete resetovat nasazení, ujistěte se, že jste před spuštěním rutiny Uninstall-AksHci z okna pro správu prostředí PowerShell zavřeli všechny instance centra pro správu systému Windows připojené ke službě Azure Kubernetes na Azure Stack HCL.
+Pokud máte problémy s nasazením nebo chcete resetovat nasazení, ujistěte se, že jste před spuštěním Uninstall-AksHci z okna pro správu prostředí PowerShell zavřeli všechny instance centra pro správu systému Windows připojené ke službě Azure Kubernetes na Azure Stack HCL.
 
 ## <a name="when-using-kubectl-to-delete-a-node-the-associated-vm-might-not-be-deleted"></a>Při použití kubectl k odstranění uzlu se nemusí přidružený virtuální počítač odstranit.
 Tento problém budete splňovat, pokud budete postupovat podle těchto kroků:
@@ -36,12 +36,12 @@ Aby ověřování gMSA a AD fungovalo, zajistěte, aby byly uzly clusteru Azure 
 ## <a name="special-active-directory-permissions-are-needed-for-domain-joined-azure-stack-hci-nodes"></a>Pro připojené k doméně Azure Stackch uzlů HCI se vyžadují speciální oprávnění služby Active Directory. 
 Uživatelé, kteří nasazují a konfigurují službu Azure Kubernetes v Azure Stack HCI, musí mít oprávnění "úplné řízení" pro vytváření objektů služby AD v kontejneru služby Active Directory, ve kterém jsou vytvořeny objekty serveru a služby. 
 
-## <a name="get-akshcilogs-command-may-fail"></a>Příkaz Get-AksHciLogs se nemusí zdařit.
-U velkých clusterů může příkaz Get-AksHciLogs vyvolat výjimku, selže při vytváření výčtu uzlů nebo nebude generovat výstupní soubor c:\wssd\wssdlogs.zip.
+## <a name="get-akshcilogs-command-may-fail"></a>Get-AksHciLogs příkaz se nemusí zdařit.
+U velkých clusterů může příkaz Get-AksHciLogs vyvolat výjimku, selže při vytváření výčtu uzlů nebo negeneruje výstupní soubor c:\wssd\wssdlogs.zip.
 Důvodem je to, že příkaz prostředí PowerShell pro zip soubor `Compress-Archive` má omezení velikosti výstupního souboru na 2 GB. Tento problém bude opraven v budoucí verzi.
 
 ## <a name="azure-kubernetes-service-powershell-deployment-doesnt-check-for-available-memory-before-creating-a-new-target-cluster"></a>Nasazení PowerShellu služby Azure Kubernetes nepřed vytvořením nového cílového clusteru zkontroluje dostupnou paměť.
-Příkazy prostředí PowerShell AKS-HCI neověřují dostupnou paměť na hostitelském serveru před vytvořením uzlů Kubernetes. To může vést k vyčerpání paměti a virtuálním počítačům, aby se nespouštěly. Tato chyba se momentálně nezpracovává a nasazení přestane reagovat bez jasné chybové zprávy.
+Příkazy Aks-Hci PowerShellu neověřují dostupnou paměť na hostitelském serveru před vytvořením uzlů Kubernetes. To může vést k vyčerpání paměti a virtuálním počítačům, aby se nespouštěly. Tato chyba se momentálně nezpracovává a nasazení přestane reagovat bez jasné chybové zprávy.
 Pokud máte nasazení, které přestane reagovat, otevřete `Eventviewer` a vyhledejte chybové zprávy související s technologií Hyper-V, což znamená, že pro spuštění virtuálního počítače není dostatek paměti.
 Tento problém bude opraven v budoucí verzi.
 
@@ -69,7 +69,7 @@ Centrum pro správu Windows nebude nasazovat službu Azure Kubernetes do prostř
 Tento problém bude opraven v budoucí verzi.
 
 ## <a name="windows-admin-center-only-supports-azure-kubernetes-service-for-azure-stack-hci-in-desktop-mode"></a>Centrum pro správu systému Windows podporuje službu Azure Kubernetes jenom pro Azure Stack HCI v desktopovém režimu.
-Ve verzi Preview se všechny funkce služby Azure Kubernetes pro Azure Stack HCL podporují jenom v režimu desktopového centra pro správu systému Windows. Brána centra pro správu systému Windows musí být nainstalovaná na počítači s Windows 10. Další informace o možnostech instalace centra pro správu systému Windows najdete v [dokumentaci centra pro správu systému Windows](https://docs.microsoft.com/windows-server/manage/windows-admin-center/plan/installation-options). Další scénáře budou podporovány v budoucí verzi.
+Ve verzi Preview se všechny funkce služby Azure Kubernetes pro Azure Stack HCL podporují jenom v režimu desktopového centra pro správu systému Windows. Brána centra pro správu systému Windows musí být nainstalovaná na počítači s Windows 10. Další informace o možnostech instalace centra pro správu systému Windows najdete v [dokumentaci centra pro správu systému Windows](/windows-server/manage/windows-admin-center/plan/installation-options). Další scénáře budou podporovány v budoucí verzi.
 
 ## <a name="azure-kubernetes-service-host-setup-fails-in-windows-admin-center-if-reboots-are-required"></a>Pokud se vyžaduje restartování, instalace hostitele služby Azure Kubernetes se v centru pro správu systému Windows nezdařila.
 Průvodce instalací hostitele služby Azure Kubernetes selže, pokud jeden nebo více serverů, které používáte, se musí restartovat, aby se nainstalovaly role, jako je PowerShell nebo Hyper-V. Aktuálním řešením je ukončit průvodce a potom to zkusit znovu ve stejném systému, až se servery vrátí do režimu online. Tento problém bude opraven v budoucí verzi.

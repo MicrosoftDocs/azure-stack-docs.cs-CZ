@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 09/17/2020
-ms.openlocfilehash: 57aa49c075afad4f6ccb37802293424d8e0e309f
-ms.sourcegitcommit: c45f92186edf62b95b38d1020e0851dd54bc6536
+ms.openlocfilehash: ffa5f5149a3ddd681d20ae11b0aa79ec9fed29d0
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/18/2020
-ms.locfileid: "90765386"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899563"
 ---
 # <a name="release-notes-for-azure-stack-hci-public-preview"></a>Poznámky k verzi pro Azure Stack HCI Public Preview
 
@@ -80,11 +80,11 @@ Aktualizace zásobníku pro obsluhu (SSUs) provádějí změny, jak jsou aktuali
 ### <a name="file-information"></a>Informace o souboru
 Seznam souborů, které jsou k dispozici v této aktualizaci (OS Build 17784,1220), si můžete stáhnout z [informací o souboru kumulativní aktualizace 4577558](https://download.microsoft.com/download/8/f/6/8f612a9b-cb4e-4832-9397-156760848592/4577558.csv).
 
-### <a name="references"></a>Odkazy
+### <a name="references"></a>Reference
 
 Informace o SSUs najdete v následujících článcích:
 
-- [Aktualizace zásobníku údržby](https://docs.microsoft.com/windows/deployment/update/servicing-stack-updates)
+- [Aktualizace zásobníku údržby](/windows/deployment/update/servicing-stack-updates)
 - [Aktualizace zásobníku pro obsluhu (cestou nadřazené): nejčastější dotazy](https://support.microsoft.com/help/4535697)
 
 Seznamte se s [terminologií](https://support.microsoft.com/help/824684) , kterou Microsoft používá k popisu aktualizací softwaru.

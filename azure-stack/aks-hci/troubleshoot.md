@@ -1,61 +1,65 @@
 ---
-title: Poradce při potížích
-description: Průvodce odstraňováním potíží se službou Azure Kubernetes v Azure Stack HCI
+title: Řešení potíží s AKS
+description: Tento článek poskytuje informace o řešení potíží s Azure Kubernetes Service (AKS) na Azure Stack HCI.
 author: davannaw-msft
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: dawhite
-ms.openlocfilehash: e30d5ba784efc6453ce161bc2a87db7c728d3fce
-ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
+ms.openlocfilehash: 262648ce8c7d6c94fb7f9b55deaa5f78b7c5fb56
+ms.sourcegitcommit: 6a0f7f452998c404a80ca9d788dbf3cdf4d78b38
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91592928"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893913"
 ---
 # <a name="troubleshooting-azure-kubernetes-service-on-azure-stack-hci"></a>Řešení potíží se službou Azure Kubernetes v Azure Stack HCI
 
-Když vytváříte nebo spravujete cluster Kubernetes pomocí služby Azure Kubernetes Service v Azure Stack HCI, může občas docházet k problémům. Níže jsou uvedené pokyny pro řešení potíží, které vám pomohou tyto problémy vyřešit. 
+Když vytváříte nebo spravujete cluster Kubernetes pomocí služby Azure Kubernetes v Azure Stack HCI, může občas docházet k problémům. Tento článek popisuje pokyny pro řešení potíží, které vám pomohou tyto problémy vyřešit.
 
 ## <a name="troubleshooting-azure-stack-hci"></a>Řešení potíží Azure Stack HCI
-Pokud chcete řešit potíže s vytvářením sestav ověření clusteru pro síť a QoS úložiště (Quality of Service) na serverech v Azure Stack clusteru HCI a ověřte, jestli jsou definovaná důležitá pravidla, přečtěte si téma [řešení potíží s vytvářením sestav ověření clusteru](/azure-stack/hci/manage/validate-qos).
+Řešení potíží s vytvářením sestav ověření clusteru pro síťové služby a QoS úložiště (Quality of Service) v rámci serverů v Azure Stack clusteru HCI a ověření, že jsou definována důležitá pravidla, najdete v tématu [řešení potíží s vytvářením sestav ověření clusteru](/azure-stack/hci/manage/validate-qos).
 
-Řešení potíží se zprostředkovatelem CredSSP najdete v tématu [řešení potíží se zprostředkovatelem CredSSP](/azure-stack/hci/manage/troubleshoot-credssp).
+Další informace o řešení potíží s zprostředkovatelem CredSSP najdete v tématu [řešení potíží se zprostředkovatelem CredSSP](/azure-stack/hci/manage/troubleshoot-credssp).
 
 ## <a name="troubleshooting-windows-admin-center"></a>Řešení potíží s centrem pro správu systému Windows
-Tento produkt je aktuálně ve stavu Public Preview, což znamená, že stále probíhá vývoj. V současné době existuje několik problémů s rozšířením Azure Kubernetes Service Center pro správu Windows: 
-* V současné době každý server v clusteru systému, který používáte k nastavení služby Azure Kubernetes, na Azure Stack HCI musí být důvěryhodný server. To znamená, že centrum pro správu systému Windows musí být schopné provádět operace CredSSP na každém serveru v clusteru, nikoli jenom v jednom nebo několika z nich. 
-* Pokud narazíte na chybu `msft.sme.aks couldn't load` a zobrazí se chyba při načítání bloků dat selhala, použijte nejnovější verzi Microsoft Edge nebo Google Chrome a zkuste to znovu.
-* Před spuštěním Průvodce nastavením hostitele služby Azure Kubernetes nebo Průvodce vytvořením clusteru Kubernetes byste se měli přihlásit k Azure prostřednictvím centra pro správu Windows. Během pracovního postupu může být vyžadováno opakované podepisování. Pokud máte v centru pro správu Windows problémy s přihlášením k Azure, zkuste se k účtu Azure přihlásit z jiného zdroje, jako je [Azure Portal](https://portal.azure.com/). Pokud i nadále dochází k potížím, Projděte si článek o [známých problémech centra pro správu systému Windows](/windows-server/manage/windows-admin-center/support/known-issues) , než se dostanete k podpoře.
-* V aktuální iteraci služby Azure Kubernetes při nasazení Azure Stack HCI prostřednictvím centra pro správu Windows může vytvořit clustery Kubernetes v systému jenom uživatel, který je nastavený jako hostitel služby Azure Kubernetes. Pokud chcete tento problém obejít, zkopírujte `.wssd` složku z profilu uživatele, který nastavil hostitele služby Azure Kubernetes na profil uživatele, který bude spouštět nový cluster Kubernetes.
-* Pokud se zobrazí chyba v průvodci o nesprávnou konfiguraci, proveďte operace vyčištění clusteru. To může zahrnovat odebrání `C:\Program Files\AksHci\mocctl.exe` souboru.
-* Aby CredSSP mohl úspěšně fungovat v rámci Průvodce vytvořením clusteru, musí být nainstalováno centrum pro správu Windows a používat ho stejným účtem. Instalace s jedním účtem a jeho pokusem o jeho použití s jiným účtem bude mít za následek chyby.
-* Během nasazování clusteru může dojít k potížím s helm.zip přenos souborů. To často vede k chybě, která říká, že cesta k souboru helm.zip neexistuje nebo není platná. Pokud chcete tento problém vyřešit, vraťte se zpátky a zkuste nasazení zopakovat.
-* Pokud vaše nasazení přestane trvat delší dobu, můžete mít problémy CredSSP nebo připojení. Při řešení potíží s nasazením vyzkoušejte následující kroky: 
-    1.  V počítači se spuštěným WAC spusťte v okně PowerShellu následující příkaz: 
-    ```PowerShell
-    Enter-PSSession <servername>
-    ```
-    2.  V případě úspěšného provedení tohoto příkazu se můžete připojit k serveru a nedochází k potížím s připojením.
+Tento produkt je ve verzi Public Preview, což znamená, že je stále ve vývoji. V současnosti dochází k nějakým problémům s rozšířením Azure Kubernetes Service Center pro správu Windows: 
+* V současné době každý server v clusteru systému, který používáte k nastavení služby Azure Kubernetes v Azure Stack HCI, musí být důvěryhodný server. Proto centrum pro správu systému Windows musí být schopné spouštět operace CredSSP na každém serveru v clusteru, nikoli jenom na jednom nebo několika z nich. 
+* Pokud se zobrazí chyba, která říká `msft.sme.aks couldn't load` , že se chyba při načítání bloků dat nezdařila, použijte nejnovější verzi Microsoft Edge nebo Google Chrome a zkuste to znovu.
+* Než spustíte Průvodce nastavením hostitele služby Azure Kubernetes nebo Průvodce vytvořením clusteru Kubernetes, měli byste se přihlásit k Azure prostřednictvím centra pro správu Windows. Možná se budete muset přihlásit znovu během pracovního postupu. Pokud máte potíže s přihlášením k Azure prostřednictvím centra pro správu Windows, zkuste se přihlásit ke svému účtu Azure z jiného zdroje, jako je [Azure Portal](https://portal.azure.com/). Pokud budete mít i nadále problémy, podívejte se na článek o [známých problémech centra pro správu systému Windows](/windows-server/manage/windows-admin-center/support/known-issues) předtím, než se obrátíte na podporu.
+* V aktuální iteraci služby Azure Kubernetes při nasazení Azure Stack HCI prostřednictvím centra pro správu Windows může vytvořit clustery Kubernetes v systému jenom uživatel, který je nastavený jako hostitel služby Azure Kubernetes. Pokud chcete tento problém obejít, zkopírujte složku. WSSD z profilu uživatele, který hostuje službu Azure Kubernetes, do profilu uživatele, který bude vytvářet nový cluster Kubernetes.
+* Pokud se zobrazí chyba v průvodci o nesprávnou konfiguraci, proveďte operace vyčištění clusteru. Tyto operace mohou zahrnovat odebrání souboru C:\Program Files\AksHci\mocctl.exe.
+* V případě úspěšného fungování zprostředkovatele CredSSP v Průvodci vytvořením clusteru musí být nainstalováno centrum pro správu systému Windows a používáno stejným účtem. Pokud nainstalujete centrum pro správu Windows s jedním účtem a zkusíte ho použít s jiným účtem, zobrazí se chyby.
+* Během nasazování clusteru můžete narazit na problém s helm.zip přenos souborů. Tento problém často způsobuje chybu, která říká, že cesta k souboru helm.zip neexistuje nebo není platná. Pokud chcete tento problém vyřešit, zkuste nasazení zopakovat.
+* Pokud vaše nasazení přestane trvat delší dobu, můžete mít problémy se zprostředkovatelem CredSSP nebo s připojením. Při řešení potíží s nasazením zkuste použít tento postup: 
+    1.  V počítači, na kterém běží centrum pro správu Windows, spusťte v okně PowerShellu následující příkaz: 
+          ```PowerShell
+          Enter-PSSession <servername>
+          ```
+    2.  V případě úspěšného provedení tohoto příkazu se můžete připojit k serveru a nedochází k žádnému problému s připojením.
     
     3.  Pokud máte problémy s CredSSP, spusťte tento příkaz pro otestování vztahu důvěryhodnosti mezi počítačem brány a cílovým počítačem: 
-    ```PowerShell
-    Enter-PSSession –ComputerName <server> –Credential company\administrator –Authentication CredSSP
-    ``` 
-    K otestování vztahu důvěryhodnosti při přístupu k místní bráně můžete také spustit následující příkaz: 
-    ```PowerShell
-    Enter-PSSession -computer localhost -credential (Get-Credential)
-    ``` 
-* Pokud používáte Azure ARC a máte několik ID tenantů, spusťte následující příkaz, abyste před nasazením určili požadovaného tenanta. V takovém případě může dojít k selhání nasazení.
+          ```PowerShell
+          Enter-PSSession –ComputerName <server> –Credential company\administrator –Authentication CredSSP
+          ``` 
+        K otestování vztahu důvěryhodnosti při přístupu k místní bráně můžete také spustit následující příkaz: 
+          ```PowerShell
+          Enter-PSSession -computer localhost -credential (Get-Credential)
+          ``` 
+* Pokud používáte Azure ARC a máte několik ID tenantů, spusťte následující příkaz, abyste před nasazením určili požadovaného tenanta. Pokud to neuděláte, může dojít k selhání nasazení.
 
-```Azure CLI
-az login –tenant <tenant>
-```
-* Pokud jste právě vytvořili nový účet Azure a přihlásili jste se k účtu na počítači brány, může docházet k potížím s registrací brány WAC v Azure. Pokud chcete tento problém zmírnit, přihlaste se k účtu Azure na jiné kartě nebo v okně prohlížeče a pak zaregistrujte bránu WAC do Azure.
+   ```Azure CLI
+   az login –tenant <tenant>
+   ```
+* Pokud jste právě vytvořili nový účet Azure a ještě jste se k účtu přihlásili na počítači brány, může docházet k potížím při registraci brány centra pro správu Windows pomocí Azure. Pokud chcete tento problém zmírnit, přihlaste se ke svému účtu Azure na jiné kartě nebo v okně prohlížeče a pak zaregistrujte bránu centra pro správu Windows do Azure.
 
 ### <a name="creating-windows-admin-center-logs"></a>Vytváření protokolů centra pro správu Windows
-Při hlášení problémů v centru pro správu Windows je užitečné připojit protokoly, aby mohl vývojový tým diagnostikovat váš problém. Chyby v centru pro správu Windows se obecně nacházejí ve dvou formách: události, které se zobrazují v prohlížeči událostí na počítači, na kterém běží centrum pro správu Windows, nebo JavaScript, který se nachází v konzole prohlížeče. Pokud chcete shromažďovat protokoly pro centrum pro správu Windows, použijte `Get-SMEUILogs.ps1` skript uvedený v balíčku Public Preview. 
+Když nahlásíte problémy s centrem pro správu systému Windows, je vhodné připojit protokoly, aby mohl vývojový tým diagnostikovat váš problém. Chyby v centru pro správu Windows se obecně přidávají v jednom ze dvou forem: 
+- Události, které se zobrazí v prohlížeči událostí na počítači, na kterém běží centrum pro správu Windows 
+- JavaScriptové problémy, které jsou Surface v konzole prohlížeče 
+
+Pokud chcete shromažďovat protokoly pro centrum pro správu Windows, použijte skript Get-SMEUILogs.ps1, který je k dispozici v balíčku Public Preview. 
  
-Chcete-li použít skript, spusťte následující příkaz v adresáři souboru, ve kterém je uložen váš skript: 
+Chcete-li použít skript, spusťte tento příkaz ve složce, ve které je uložen skript: 
  
 ```PowerShell
 ./Get-SMEUILogs.ps1 -ComputerNames [comp1, comp2, etc.] -Destination [comp3] -HoursAgo [48] -NoCredentialPrompt
@@ -63,10 +67,10 @@ Chcete-li použít skript, spusťte následující příkaz v adresáři souboru
  
 Příkaz má následující parametry:
  
-* **-ComputerNames**: seznam počítačů, ze kterých chcete shromažďovat protokoly.
-* **-Destination**: počítač, do kterého chcete protokoly agregovat.
-* **-HoursAgo**: Tento parametr definuje počet hodin před modulem runtime skriptu, ze kterého chcete shromažďovat protokoly.
-* **-NoCredentialPrompt**: Toto je přepínač pro vypnutí výzvy k zadání přihlašovacích údajů a používání výchozích přihlašovacích údajů ve vašem aktuálním prostředí.
+* `-ComputerNames`: Seznam počítačů, ze kterých chcete shromažďovat protokoly.
+* `-Destination`: Počítač, do kterého chcete protokoly agregovat.
+* `-HoursAgo`: Čas spuštění shromažďování protokolů vyjádřený v hodinách před časem spuštění skriptu.
+* `-NoCredentialPrompt`: Přepínač pro vypnutí výzvy k zadání přihlašovacích údajů a používání výchozích přihlašovacích údajů ve vašem aktuálním prostředí.
  
 Pokud máte potíže s spuštěním tohoto skriptu, můžete spustit následující příkaz pro zobrazení textu v nápovědě: 
  
@@ -75,23 +79,23 @@ GetHelp .\Get-SMEUILogs.ps1 -Examples
 ```
 
 ## <a name="troubleshooting-windows-worker-nodes"></a>Řešení potíží s pracovními uzly Windows 
-Chcete-li se přihlásit k pracovnímu uzlu systému Windows, nejprve získejte IP adresu vašeho uzlu spuštěním `kubectl get` a poznamenejte si `EXTERNAL-IP` hodnotu:
+Chcete-li se přihlásit k pracovnímu uzlu systému Windows, nejprve získejte IP adresu vašeho uzlu spuštěním `kubectl get` . Poznamenejte si `EXTERNAL-IP` hodnotu.
 
 ```PowerShell
 kubectl get nodes -o wide
 ``` 
-Pomocí SSH na uzel použijte `ssh Administrator@ip` . Po přihlášení k uzlu můžete spustit, `net user administrator *` aby se aktualizovalo heslo správce. 
+Připojte se přes SSH k uzlu pomocí `ssh Administrator@ip` . Po přihlášení k uzlu přes SSH můžete spustit `net user administrator *` aktualizaci hesla správce. 
 
 ## <a name="troubleshooting-linux-worker-nodes"></a>Řešení potíží s pracovními uzly Linux 
-Pokud se chcete přihlásit k pracovnímu uzlu Linux, nejprve získejte IP adresu vašeho uzlu spuštěním `kubectl get` a poznamenejte si `EXTERNAL-IP` hodnotu:
+Pokud se chcete přihlásit k pracovnímu uzlu Linux, nejprve získejte IP adresu vašeho uzlu spuštěním `kubectl get` . Poznamenejte si `EXTERNAL-IP` hodnotu.
 
 ```PowerShell
 kubectl get nodes -o wide
 ``` 
-Pomocí SSH na uzel použijte `ssh clouduser@ip` . 
+Připojte se přes SSH k uzlu pomocí `ssh clouduser@ip` . 
 
-## <a name="troubleshooting-azure-arc-for-kubernetes"></a>Řešení potíží s obloukem Azure ARC pro Kubernetes
-Pokud chcete řešit některé běžné scénáře související s připojením, oprávněními a agenty ARC, přejděte na [Kubernetes řešení potíží s podporou Azure ARC](/azure/azure-arc/kubernetes/troubleshooting).
+## <a name="troubleshooting-azure-arc-kubernetes"></a>Řešení potíží s Kubernetes ARC Azure
+Další informace o řešení běžných scénářů týkajících se připojení, oprávnění a agentů ARC najdete v tématu [věnovaném řešení potíží s Kubernetes ARC Azure](/azure/azure-arc/kubernetes/troubleshooting).
 
 ## <a name="next-steps"></a>Další kroky
-Pokud během používání služby Azure Kubernetes ve službě Azure Stack HCI budete pokračovat v práci, zastavujte chyby prostřednictvím [GitHubu](https://aka.ms/aks-hci-issues).  
+Pokud budete při používání služby Azure Kubernetes v Azure Stack HCI nadále pracovat s problémy, můžete zaprotokolovat chyby prostřednictvím [GitHubu](https://aka.ms/aks-hci-issues).  

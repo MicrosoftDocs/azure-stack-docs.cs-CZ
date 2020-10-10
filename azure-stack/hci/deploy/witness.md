@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 43d63e4e565a36c30837e2a8b460e0d73a35c0a5
-ms.sourcegitcommit: 7d518629bd55f24e7459404bb19b7db8a54f4b94
+ms.openlocfilehash: 075198e9045ac2d735f2113164e7fc4e24b7934f
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88145524"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899512"
 ---
 # <a name="set-up-a-cluster-witness"></a>Nastavení určujícího clusteru
 
@@ -49,7 +49,7 @@ Když použijete stejný účet Azure Storage ke konfiguraci určujícího cloud
 
 ### <a name="to-create-an-azure-storage-account"></a>Vytvoření účtu služby Azure Storage
 
-1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
+1. Přihlaste se k [portálu Azure Portal](https://portal.azure.com).
 1. V nabídce centra vyberte nový-> data + úložiště-> účet úložiště.
 1. Na stránce Vytvořit účet úložiště udělejte toto:
     1. Zadejte název účtu úložiště.
@@ -84,7 +84,7 @@ Disk s kopií cloudu vždycky jako typ úložiště používá **objekt BLOB** .
 
 V Azure Portal přejděte na svůj účet úložiště, klikněte na **všechna nastavení** a potom klikněte na **vlastnosti** . zobrazí se a zkopírují se adresy URL koncových bodů.  
 
-:::image type="content" source="media/witness/cloud-witness-2.png" alt-text="Adresa URL koncového bodu sdílené složky cloudu" lightbox="media/witness/cloud-witness-2.png":::  
+:::image type="content" source="media/witness/cloud-witness-2.png" alt-text="Přístupové klíče pro disk s kopií cloudu" lightbox="media/witness/cloud-witness-2.png":::  
 
 ## <a name="set-up-a-witness-using-windows-powershell"></a>Nastavení určujícího disku pomocí Windows PowerShellu
 
@@ -106,4 +106,4 @@ Set-ClusterQuorum -FileShareWitness "\\fileserver\share" -Credential (Get-Creden
 
 - Další informace o kvoru clusteru najdete v tématu [Principy kvora clusteru a fondu v Azure Stack HCI](../concepts/quorum.md).
 
-- Další informace o vytváření a správě účtů Azure Storage najdete v tématu [o účtech Azure Storage](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/).
+- Další informace o vytváření a správě účtů Azure Storage najdete v tématu [o účtech Azure Storage](/azure/storage/common/storage-account-create).

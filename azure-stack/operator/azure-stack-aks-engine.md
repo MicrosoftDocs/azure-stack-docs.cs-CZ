@@ -7,19 +7,19 @@ ms.date: 09/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: 810aa253eb4872a58ea2e52070bb42eaaa1f6aaa
-ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
+ms.openlocfilehash: 4cbb253b88f86f18c69c7528b6beabb58d277d14
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90717984"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899444"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Přidání požadavků modulu Azure Kubernetes Services (AKS) do tržiště centra Azure Stack
 
 Můžete nastavit modul AKS (Azure Kubernetes Services) pro vaše uživatele. Přidejte položky popsané v tomto článku do centra Azure Stack. Uživatelé pak mohou nasadit cluster Kubernetes v rámci jediné koordinované operace. Tento článek vás provede kroky potřebnými k tomu, aby byl modul AKS k dispozici pro vaše uživatele v připojených i odpojených prostředích. Modul AKS závisí na identitě služby a na webu Marketplace, ve vlastním rozšíření skriptu a na základní imagi AKS. Modul AKS vyžaduje, abyste spustili [Azure Stack Hub 1910](release-notes.md?view=azs-1910&preserve-view=true) nebo vyšší.
 
 > [!NOTE]  
-> Mapování Azure Stackho centra na číslo verze modulu AKS najdete v [poznámkách k verzi modulu AKS](/azure-stack/user/kubernetes-aks-engine-release-notes#aks-engine-and-azure-stack-version-mapping).
+> Mapování Azure Stackho centra na číslo verze modulu AKS najdete v [poznámkách k verzi modulu AKS](../user/kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping).
 
 ## <a name="check-your-users-service-offering"></a>Ověření nabídky služeb uživatele
 

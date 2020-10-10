@@ -5,12 +5,12 @@ author: davannaw-msft
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: dawhite
-ms.openlocfilehash: c98ad58f92d69b0c3fa0f28a3408013612cc19a6
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: 2f442928c01c59bc85eb672153b2f5b21a653ef1
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623230"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899716"
 ---
 # <a name="quickstart-set-up-azure-kubernetes-service-on-azure-stack-hci-using-windows-admin-center"></a>Rychlý Start: nastavení služby Azure Kubernetes v Azure Stack HCI pomocí centra pro správu Windows
 
@@ -28,7 +28,7 @@ Než začnete, ujistěte se, že jste splnili všechny požadavky na stránce [p
 
 ## <a name="setting-up-windows-admin-center"></a>Nastavení centra pro správu Windows
 
-Pokud jste ještě nenainstalovali centrum pro správu systému Windows, přečtěte si téma [Instalace centra pro správu systému Windows](https://docs.microsoft.com/windows-server/manage/windows-admin-center/deploy/install). V případě veřejné verze Preview služby Azure Kubernetes Service na Azure Stack HCI je nutné stáhnout a spustit centrum pro správu systému Windows na počítači s Windows 10. Pouze režim Desktop Center pro správu systému Windows je kompatibilní se službou Azure Kubernetes Service v Azure Stack HCL hned. Služba Azure Kubernetes v Azure Stack funkce HCI je k dispozici pouze v centru pro správu systému Windows Build 2009 nebo vyšší.
+Pokud jste ještě nenainstalovali centrum pro správu systému Windows, přečtěte si téma [Instalace centra pro správu systému Windows](/windows-server/manage/windows-admin-center/deploy/install). V případě veřejné verze Preview služby Azure Kubernetes Service na Azure Stack HCI je nutné stáhnout a spustit centrum pro správu systému Windows na počítači s Windows 10. Pouze režim Desktop Center pro správu systému Windows je kompatibilní se službou Azure Kubernetes Service v Azure Stack HCL hned. Služba Azure Kubernetes v Azure Stack funkce HCI je k dispozici pouze v centru pro správu systému Windows Build 2009 nebo vyšší.
 
 ## <a name="installing-the-azure-kubernetes-service-extension"></a>Instalace rozšíření služby Azure Kubernetes
 

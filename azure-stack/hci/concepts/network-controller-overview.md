@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/7/2020
-ms.openlocfilehash: 50c50b618da84597826a9aa2b2d2bf348ec5d53a
-ms.sourcegitcommit: 9a91dbdaa556725f51bcf3d8e79a4ed2dd5a209f
+ms.date: 10/8/2020
+ms.openlocfilehash: c207b436571d85d0902cd69a2168144e176919b1
+ms.sourcegitcommit: 6a0f7f452998c404a80ca9d788dbf3cdf4d78b38
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91848482"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893896"
 ---
 # <a name="what-is-network-controller"></a>Co je síťový adaptér?
 
@@ -48,11 +48,11 @@ Pomocí rozhraní Northbound API můžete definovat pravidla brány firewall pro
 
 ## <a name="software-load-balancer-management"></a>Správa Load Balancer softwaru
 
-Funkce síťový adaptér umožňuje povolit více serverů pro hostování stejného pracovního vytížení a poskytuje vysokou dostupnost a škálovatelnost. Pomocí Load Balancer softwaru můžete nakonfigurovat a spravovat vyrovnávání zatížení, překlad adres (NAT) a odchozí přístup k Internetu pro úlohy připojené k tradičním sítím VLAN a virtuálním sítím.
+[Software Load Balancer](software-load-balancer.md) umožňuje, aby bylo možné hostovat více serverů pro hostování stejné úlohy a zajistit vysokou dostupnost a škálovatelnost. Pomocí Load Balancer softwaru můžete nakonfigurovat a spravovat vyrovnávání zatížení, překlad adres (NAT) a odchozí přístup k Internetu pro úlohy připojené k tradičním sítím VLAN a virtuálním sítím.
 
 ## <a name="gateway-management"></a>Správa brány
 
-Funkce síťový adaptér umožňuje nasazení, konfiguraci a správu virtuálních počítačů, které jsou členy fondu bran RAS, a poskytuje tak externí síťové připojení k vašim zákaznickým úlohám. U bran se mezi virtuálními a vzdálenými sítěmi podporují tyto typy připojení:
+[Brána RAS (Remote Access Service)](gateway-overview.md) umožňuje nasazovat, konfigurovat a spravovat virtuální počítače, které jsou členy fondu bran, a poskytuje tak externí síťové připojení k vašim zákaznickým úlohám. U bran se mezi virtuálními a vzdálenými sítěmi podporují tyto typy připojení:
 
 - Připojení brány virtuální privátní sítě (VPN) typu Site-to-site pomocí protokolu IPsec
 - Připojení brány VPN typu Site-to-site pomocí protokolu GRE (Generic Routing Encapsulation)
@@ -82,4 +82,5 @@ Další informace o trasách definovaných uživatelem najdete v tématu [použi
 Související informace najdete v tématu také:
 
 - [Plánování nasazení síťového adaptéru](network-controller.md)
+- [Nasazení síťového adaptéru pomocí Windows PowerShellu](../deploy/network-controller-powershell.md)
 - [SDN ve Azure Stack HCI](software-defined-networking.md)

@@ -9,12 +9,12 @@ ms.reviewer: ppacent
 ms.author: bryanla
 ms.lastreviewed: 08/15/2020
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: 7a5135b9b6610e8ceeca4f4d3e34dca1f2aafc88
-ms.sourcegitcommit: 9a91dbdaa556725f51bcf3d8e79a4ed2dd5a209f
+ms.openlocfilehash: aca163df1026193933ffb9d09dbdf4a854638a75
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91847628"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899801"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Otočení tajných kódů v centru Azure Stack
 
@@ -116,7 +116,7 @@ Pro rotaci externích tajných klíčů dokončete tyto další požadavky:
 3. Uložte zálohu do certifikátů používaných k otočení v umístění zabezpečené zálohy. Pokud se vaše otočení spustí a pak se nepovede, nahraďte certifikáty ve sdílené složce záložními kopiemi a teprve potom znovu spusťte otočení. Uchovávejte záložní kopie v umístění zabezpečené zálohy.
 4. Vytvořte sdílenou složku, ke které máte přístup z virtuálních počítačů s ERCS. Sdílená složka musí být čitelná a zapisovatelné pro **CloudAdmin** identitu.
 5. Otevřete konzolu PowerShellu ISE z počítače, ke kterému máte přístup ke sdílené složce. Přejděte do sdílené složky, kde vytvoříte adresáře, kam chcete umístit své externí certifikáty.
-6. Stáhněte **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** do síťové sdílené složky, ke které je možné přistupovat během rotace, a spusťte skript. Skript vytvoří strukturu složek, která bude vyhovovat ***.\Certificates\AAD*** nebo ***.\Certificates\ADFS***, v závislosti na vašem poskytovateli identity. Vaše struktura složky musí začínat složkou ** \\ certifikáty** , za kterou následuje jenom složka ** \\ AAD** nebo ** \\ ADFS** . Všechny další podadresáře jsou obsaženy v předchozí struktuře. Příklad:
+6. Stáhněte **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** do síťové sdílené složky, ke které je možné přistupovat během rotace, a spusťte skript. Skript vytvoří strukturu složek, která bude vyhovovat ***.\Certificates\AAD*** nebo ***.\Certificates\ADFS***, v závislosti na vašem poskytovateli identity. Vaše struktura složky musí začínat složkou ** \\ certifikáty** , za kterou následuje jenom složka ** \\ AAD** nebo ** \\ ADFS** . Všechny další podadresáře jsou obsaženy v předchozí struktuře. Například:
     - Sdílená složka = **\\\\\<IPAddress>\\\<ShareName>**
     - Kořenová složka certifikátu pro Azure AD Provider = ** \\ Certificates\AAD**
     - Úplná cesta = ** \\ \\ \<IPAddress> \\ \<ShareName> \Certificates\AAD**
@@ -224,7 +224,7 @@ Interní rotace tajných klíčů se vyžaduje jenom v případě, že máte pod
 
 Odkazování na skript PowerShell v kroku 2 [otočení externích tajných klíčů](#rotate-external-secrets). Skript poskytuje příklad, který můžete přizpůsobit pro zajištění interního tajného klíče, a to provedením několika změn ke spuštění následujících kroků:
 
-1. V části "spuštění tajného klíče" přidejte `-Internal` parametr do [rutiny Start-SecretRotation](/azure-stack/reference/pep-2002/start-secretrotation), například:
+1. V části "spuštění tajného klíče" přidejte `-Internal` parametr do [rutiny Start-SecretRotation](../reference/pep-2002/start-secretrotation.md), například:
 
     ```powershell
     # Run Secret Rotation
@@ -310,9 +310,9 @@ Odkazování na skript PowerShell v kroku 2 [otočení externích tajných klí�
 
 ## <a name="reference-start-secretrotation-cmdlet"></a>Reference: Start-SecretRotation – rutina
 
-[Rutina Start-SecretRotation](/azure-stack/reference/pep-2002/start-secretrotation) otočí tajné klíče infrastruktury Azure Stackho centrálního systému. Tuto rutinu je možné provést jenom proti PEP koncovému bodu s privilegovaným centrem Azure Stack pomocí  `Invoke-Command` bloku skriptu, který v parametru předává relaci `-Session` . Ve výchozím nastavení otočí jenom certifikáty všech koncových bodů infrastruktury externích sítí.
+[Rutina Start-SecretRotation](../reference/pep-2002/start-secretrotation.md) otočí tajné klíče infrastruktury Azure Stackho centrálního systému. Tuto rutinu je možné provést jenom proti PEP koncovému bodu s privilegovaným centrem Azure Stack pomocí  `Invoke-Command` bloku skriptu, který v parametru předává relaci `-Session` . Ve výchozím nastavení otočí jenom certifikáty všech koncových bodů infrastruktury externích sítí.
 
-| Parametr | Typ | Vyžadováno | Pozice | Výchozí | Popis |
+| Parametr | Typ | Vyžadováno | Pozice | Výchozí | Description |
 |--|--|--|--|--|--|
 | `PfxFilesPath` | Řetězec  | Nepravda  | Jmenovanou  | Žádné  | Cesta ke sdílené složce adresáře **\Certificates** obsahující všechny certifikáty koncového bodu externí sítě. Vyžaduje se pouze při otáčení externích tajných klíčů. Koncový adresář musí být **\Certificates**. |
 | `CertificatePassword` | SecureString | Nepravda  | Jmenovanou  | Žádné  | Heslo pro všechny certifikáty, které jsou k dispozici v-PfXFilesPath. Požadovaná hodnota, pokud je k dispozici PfxFilesPath při otočení externích tajných klíčů. |
@@ -320,7 +320,7 @@ Odkazování na skript PowerShell v kroku 2 [otočení externích tajných klí�
 | `PathAccessCredential` | PSCredential | Nepravda  | Jmenovanou  | Žádné  | Přihlašovací údaje PowerShellu pro sdílenou složku adresáře **\Certificates** obsahující všechny certifikáty koncového bodu externí sítě. Vyžaduje se pouze při otáčení externích tajných klíčů.  |
 | `ReRun` | Přepínací parametr | Nepravda  | Jmenovanou  | Žádné  | Po neúspěšném pokusu se musí použít neustále se střídání tajných klíčů. |
 
-### <a name="syntax"></a>Syntaxe
+### <a name="syntax"></a>Syntax
 
 #### <a name="for-external-secret-rotation"></a>Pro rotaci externích tajných klíčů
 

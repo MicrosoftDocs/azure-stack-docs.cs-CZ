@@ -8,12 +8,12 @@ ms.date: 09/25/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 9ae3d2a145b04c9f1e3fa6b926eb657a4af83ebf
-ms.sourcegitcommit: bf7b1a394ede397dba2b75f90bdf953b3ff2f2be
+ms.openlocfilehash: ac110a3ee90cd0b1439e34a418bf7473b8487502
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91367253"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899784"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Zásady obsluhy centra Azure Stack
 
@@ -47,9 +47,9 @@ Najděte si dokumentaci, jak naplánovat a spravovat aktualizace a jak zjistit a
 
 Informace o konkrétní aktualizaci, včetně toho, jak ji stáhnout, najdete v poznámkách k verzi této aktualizace:
 
-- [Aktualizace centra Azure Stack 2005](/azure-stack/operator/release-notes?view=azs-2005)
-- [Aktualizace centra Azure Stack 2002](/azure-stack/operator/release-notes?view=azs-2002)
-- [Aktualizace centra Azure Stack 1910](/azure-stack/operator/release-notes?view=azs-1910)
+- [Aktualizace centra Azure Stack 2005](./release-notes.md?view=azs-2005)
+- [Aktualizace centra Azure Stack 2002](./release-notes.md?view=azs-2002)
+- [Aktualizace centra Azure Stack 1910](./release-notes.md?view=azs-1910)
 
 ## <a name="hotfixes"></a>Opravy hotfix
 
@@ -61,9 +61,9 @@ Opravy hotfix se stáhnou a nainstalují stejně jako běžné úplné balíčky
 
 Informace o aktuálně dostupných opravách hotfix naleznete v poznámkách k verzi této aktualizace:
 
-- [2005 oprava hotfix centra Azure Stack](/azure-stack/operator/release-notes?view=azs-2005#hotfixes)
-- [2002 oprava hotfix centra Azure Stack](/azure-stack/operator/release-notes?view=azs-2002#hotfixes-1)
-- [1910 oprava hotfix centra Azure Stack](/azure-stack/operator/release-notes?view=azs-1910#hotfixes-2)
+- [2005 oprava hotfix centra Azure Stack](./release-notes.md?view=azs-2005#hotfixes)
+- [2002 oprava hotfix centra Azure Stack](./release-notes.md?view=azs-2002#hotfixes-1)
+- [1910 oprava hotfix centra Azure Stack](./release-notes.md?view=azs-1910#hotfixes-2)
 
 ## <a name="keep-your-system-under-support"></a>Zachování systému v rámci podpory
 

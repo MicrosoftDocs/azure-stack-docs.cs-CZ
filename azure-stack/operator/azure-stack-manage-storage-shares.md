@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: f2b51ad2bff721c2a8be6490902cf3bb07559fb2
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 8882128aba5d44bfed2fe8a89ff682443a549a77
+ms.sourcegitcommit: 6a0f7f452998c404a80ca9d788dbf3cdf4d78b38
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106821"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91893930"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Správa kapacity úložiště pro centrum Azure Stack
 
@@ -20,9 +20,9 @@ Tento článek pomáhá Azure Stack operátory cloudového cloudu monitorovat a 
 
 Jako operátor cloudu máte k dispozici omezené množství úložiště, se kterým pracujete. Velikost úložiště je definována řešením, které implementujete. Řešení zajišťuje dodavatel OEM při použití řešení s více uzly, nebo je poskytováno hardwarem, na kterém instalujete Azure Stack Development Kit (ASDK).
 
-Vzhledem k tomu, že centrum Azure Stack nepodporuje rozšíření kapacity úložiště, je důležité [monitorovat](#monitor-shares) dostupné úložiště, aby se zajistilo zachování efektivních operací.
+Rozbočovač Azure Stack podporuje pouze rozšíření kapacity úložiště přidáním dalších uzlů jednotek škálování. Další informace najdete [v tématu Přidání dalších uzlů jednotek škálování v centru Azure Stack](azure-stack-add-scale-node.md). Přidání disku physcial do uzlů nerozšíří kapacitu úložiště.
 
-Když se zbývající volná kapacita svazku omezí, naplánujte [správu dostupného místa](#manage-available-space) , aby sdílené složky nedocházelo k nedostatku kapacity.
+Je důležité [monitorovat](#monitor-shares) dostupné úložiště, aby se zajistilo zachování efektivních operací. Když se zbývající volná kapacita svazku omezí, naplánujte [správu dostupného místa](#manage-available-space) , aby sdílené složky nedocházelo k nedostatku kapacity.
 
 Mezi možnosti správy kapacity patří:
 - Kapacita se uvolňuje.
@@ -47,7 +47,7 @@ Když je na svazku úložiště objektů nedostatek volného místa a [akce pro 
 
 Informace o tom, jak uživatelé klienta pracují s úložištěm objektů BLOB v Azure Stackovém centru, najdete v tématu [služby úložiště Azure Stack hub](../user/azure-stack-storage-overview.md).
 
-### <a name="containers"></a>Containers
+### <a name="containers"></a>Kontejnery
 Uživatelé tenanta vytvářejí kontejnery, které se pak používají k ukládání dat objektů BLOB. I když se uživatelé rozhodují, ve kterém kontejneru umístit objekty blob, služba úložiště pomocí algoritmu určuje, který svazek se má vložit do kontejneru. Algoritmus obvykle zvolí svazek s největším množstvím dostupného místa.  
 
 Po umístění objektu blob do kontejneru může objekt BLOB zvětšit použití více místa. Při zvětšení nových objektů BLOB a zmenšení stávajících objektů BLOB se zmenší dostupné místo ve svazku, který obsahuje kontejner. 

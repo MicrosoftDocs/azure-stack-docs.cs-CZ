@@ -8,12 +8,12 @@ ms.date: 07/21/2020
 ms.author: v-myoung
 ms.reviewer: prchint
 ms.lastreviewed: 07/21/2020
-ms.openlocfilehash: 403335a81a5ac02f2e32432f54df584baf7c2a02
-ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
+ms.openlocfilehash: 290f6ba7a8f3c53aafe131dd5c8de5186b88d752
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91778137"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899767"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Řešení potíží v centru Azure Stack
 
@@ -83,7 +83,7 @@ Vyberte typ účtu sdílených služeb, který používáte pro Azure Stack hub.
 Pomocí PowerShellu můžete získat informace o využití razítka bez nutnosti pomáhat podpora Microsoftu. Získání využití razítka:
 
 1. Vytvořte relaci PEP.
-2. Spusťte `test-azurestack`.
+2. Spusťte příkaz `test-azurestack`.
 3. Ukončete relaci PEP.
 4. Spusťte `get-azurestacklog -filterbyrole seedring` pomocí volání vyvolání příkazu.
 5. Extrahujte soubor seedring. zip. Sestavu ověření můžete získat ze složky ERCS, ve které jste spustili `test-azurestack` .
@@ -226,5 +226,5 @@ Proces aktualizace a aktualizace centra Azure Stack slouží k tomu, aby operát
 
 **Příčina**: při pokusu o aktualizaci 2002 může aktualizace selhat a poskytnout tuto zprávu: `The private network parameter is missing from cloud parameters. Please use set-azsprivatenetwork cmdlet to set private networkTrace` .
 
-**Náprava**: [nastavte privátní interní síť](https://docs.microsoft.com/azure-stack/operator/azure-stack-network?view=azs-2002#private-network).
+**Náprava**: [nastavte privátní interní síť](./azure-stack-network.md?view=azs-2002#private-network).
 ::: moniker-end
