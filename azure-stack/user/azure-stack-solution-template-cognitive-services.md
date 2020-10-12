@@ -3,16 +3,16 @@ title: Nasazení služby Azure Cognitive Services do centra Azure Stack
 description: Přečtěte si, jak nasadit Azure Cognitive Services do centra Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 05/21/2020
+ms.date: 10/09/2020
 ms.author: mabrigg
 ms.reviewer: guanghu
-ms.lastreviewed: 05/21/2020
-ms.openlocfilehash: 8a1c71a86f5b0fe6290bddab35726eca5bda0144
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.lastreviewed: 10/09/2020
+ms.openlocfilehash: 121a26506fbbe2993786c2fa7f7bfe58fc85a3f0
+ms.sourcegitcommit: 1e97e42380734ee7b239ee7e995c302d9dc3e2b3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920623"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952402"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Nasazení služby Azure Cognitive Services do centra Azure Stack
 
@@ -22,8 +22,16 @@ Kontejnering je přístup k distribuci softwaru, ve kterém se aplikace nebo slu
 
 Podpora kontejnerů je aktuálně k dispozici pro podmnožinu Azure Cognitive Services:
 
-- Language Understanding
-- Analýza textu (mínění 3,0)
+- **Speech**
+    - Převod textu na řeč (standardně)
+    - Převod textu na řeč (vlastní)
+    - Převod textu na řeč (standardně)
+- **Jazyk**
+    - Rozpoznávání jazyka
+    - Analýza textu (analýza mínění)
+- **Rozhodnutí**
+    - Detektor anomálií
+
 
 > [!IMPORTANT]
 > Podmnožina Azure Cognitive Services pro centrum Azure Stack je aktuálně ve verzi Public Preview.
@@ -31,13 +39,17 @@ Podpora kontejnerů je aktuálně k dispozici pro podmnožinu Azure Cognitive Se
 
 Podpora kontejnerů je aktuálně ve verzi Public Preview pro podmnožinu Azure Cognitive Services:
 
-- Čtení (optické rozpoznávání znaků \[ OCR])
-- Extrakce klíčových frází
-- Rozpoznávání jazyka
-- Detektor anomálií
-- Nástroj pro rozpoznávání formulářů
-- Převod řeči na text (Custom, Standard)
-- Převod textu na řeč (vlastní, standardní)
+- **Počítačové zpracování obrazu**
+    - Přečíst 3,0, přečíst 3,1
+    - Prostorová analýza (novinka)
+- **Jazyk**
+    - extrakce klíčových frází,
+    - rozpoznávání jazyka,
+    - Analýza textu pro stav
+- **Speech**
+    - Rozpoznávání jazyka řeči
+    - Neuronové TTS
+    - Převod textu na řeč (vlastní)
 
 ## <a name="use-containers-with-cognitive-services-on-azure-stack-hub"></a>Použití kontejnerů s Cognitive Services v centru Azure Stack
 
@@ -53,7 +65,7 @@ Podpora kontejnerů je aktuálně ve verzi Public Preview pro podmnožinu Azure 
 - **Vysoká propustnost a nízká latence**  
    Poskytněte uživatelům aplikace možnost škálování s využitím špičky v provozu při vysoké propustnosti a nízké latenci. Umožněte, aby Cognitive Services běžely ve službě Azure Kubernetes, fyzicky blízko své aplikační logiky a data.
 
-Pomocí centra Azure Stack nasaďte Cognitive Services kontejnery v clusteru Kubernetes spolu s kontejnery aplikací pro zajištění vysoké dostupnosti a elastického škálování. Můžete vyvíjet aplikace kombinováním služeb rozpoznávání se součástmi postavenými na App Services, funkcích, BLOB Storage, SQL nebo mySQL databáze.
+Pomocí centra Azure Stack nasaďte Cognitive Services kontejnery v clusteru Kubernetes spolu s kontejnery aplikací pro zajištění vysoké dostupnosti a elastického škálování. Můžete vyvíjet aplikace kombinováním služeb rozpoznávání se součástmi postavenými na App Services, funkcích, BLOB Storage, SQL nebo MySQL databáze.
 
 Další podrobnosti o Cognitive Services kontejnerech najdete [v podpoře kontejnerů ve službě Azure Cognitive Services](/azure/cognitive-services/cognitive-services-container-support).
 
@@ -61,7 +73,7 @@ Další podrobnosti o Cognitive Services kontejnerech najdete [v podpoře kontej
 
 Tento článek popisuje, jak nasadit Azure Face API v clusteru Kubernetes v centru Azure Stack. Stejný přístup můžete použít k nasazení jiných kontejnerů služby pro rozpoznávání na Azure Stack clustery Kubernetes hub.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 Než začnete, budete potřebovat:
 
@@ -71,7 +83,7 @@ Než začnete, budete potřebovat:
 
 ## <a name="create-azure-resources"></a>Vytvoření prostředků Azure
 
-Vytvořte v Azure prostředek služby pro rozpoznávání, ve kterém můžete zobrazit Rozpoznávání textu LUIS kontejnery. K vytvoření instance kontejnerů služby pro rozpoznávání bude nutné použít klíč předplatného a adresu URL koncového bodu z prostředku.
+Vytvořte prostředek služby vnímání v Azure a zobrazte si náhled kontejnerů pro obličej, Language Understanding (LUIS) nebo Rozpoznávání textu. K vytvoření instance kontejnerů služby pro rozpoznávání bude nutné použít klíč předplatného a adresu URL koncového bodu z prostředku.
 
 1. Vytvořte prostředek Azure v Azure Portal. Pokud chcete zobrazit náhled kontejnerů obličeje, musíte nejprve vytvořit odpovídající prostředek Face v Azure Portal. Další informace najdete v tématu [rychlý Start: vytvoření účtu Cognitive Services v Azure Portal](/azure/cognitive-services/cognitive-services-apis-create-account).
 
