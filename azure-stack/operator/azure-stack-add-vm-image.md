@@ -3,16 +3,16 @@ title: Přidání vlastní image virtuálního počítače do centra Azure Stack
 description: Přečtěte si, jak přidat nebo odebrat vlastní image virtuálního počítače do centra Azure Stack.
 author: sethmanheim
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 10/12/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: 5266766786cd359446e8313ec19e07746b227fb2
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 5cb138865ec9a1bb9b55996a3b49c1b33e8103db
+ms.sourcegitcommit: 721727013119a830a9d341d373d494dcb2cffcae
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899478"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "91980385"
 ---
 # <a name="add-and-remove-a-custom-vm-image-to-azure-stack-hub"></a>Přidání a odebrání vlastní image virtuálního počítače do centra Azure Stack
 
@@ -38,13 +38,19 @@ Pokud chcete přidat image platformy do centra Azure Stack, použijte portál Az
 
 Přidejte image virtuálního počítače jako operátor Azure Stackového centra pomocí portálu.
 
-1. Přihlaste se k Azure Stack centrum jako operátor. V nabídce vyberte **všechny služby**  >  **COMPUTE**  >  **Image**  >  **Přidat**.
+1. Přihlaste se k Azure Stack centrum jako operátor. V levém navigačním **panelu vyberte řídicí panel** .
 
-   ![Přidání image virtuálního počítače](./media/azure-stack-add-vm-image/tca4.png)
+2. V seznamu **poskytovatelé prostředků** vyberte **COMPUTE**.
+
+   [![Výběr COMPUTE](./media/azure-stack-add-vm-image/dash-small.png)](./media/azure-stack-add-vm-image/dash.png#lightbox)
+
+3. Vyberte **image virtuálních počítačů**a pak vyberte **Přidat**.
+
+   [![Přidání image virtuálního počítače](./media/azure-stack-add-vm-image/tca4-small.png)](./media/azure-stack-add-vm-image/tca4.png#lightbox)
 
 2. V části **vytvořit image**zadejte identifikátor URI objektu BLOB pro **vydavatele**, **nabídku**, **SKU**, **verzi**a disk s operačním systémem. Pak vyberte **vytvořit** a začněte vytvářet image virtuálního počítače.
 
-   ![Vlastní uživatelské rozhraní pro zkušební načtení image](./media/azure-stack-add-vm-image/tca5.png)
+   [![Vlastní uživatelské rozhraní pro zkušební načtení image](./media/azure-stack-add-vm-image/tca5-small.png)](./media/azure-stack-add-vm-image/tca5.png#lightbox)
 
    Po úspěšném vytvoření image se stav image virtuálního počítače změní na **úspěch**.
 
