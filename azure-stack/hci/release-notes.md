@@ -6,19 +6,68 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/17/2020
-ms.openlocfilehash: ffa5f5149a3ddd681d20ae11b0aa79ec9fed29d0
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.date: 10/13/2020
+ms.openlocfilehash: 2432a7fb28ba65f08b0540113ec5d3f90f742509
+ms.sourcegitcommit: 64060ff02d2450c6cf91cb21cdefdcf6b720a75f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899563"
+ms.lasthandoff: 10/13/2020
+ms.locfileid: "92009838"
 ---
 # <a name="release-notes-for-azure-stack-hci-public-preview"></a>Poznámky k verzi pro Azure Stack HCI Public Preview
 
 > Platí pro: Azure Stack HCI, verze 20H2
 
 Tento článek popisuje obsah rozhraní Azure Stack HCI Public Preview aktualizace balíčků.
+
+## <a name="october-13-2020-security-update-kb4580363"></a>13. října 2020 aktualizace zabezpečení (KB4580363)
+
+Tato aktualizace zahrnuje vylepšení a opravy pro nejnovější verzi Azure Stack HCI.
+
+### <a name="improvements-and-fixes"></a>Vylepšení a opravy
+Tato aktualizace obsahuje různá vylepšení zabezpečení vnitřních funkcí operačního systému. Pro tuto verzi nebyly zdokumentovány žádné další problémy.
+
+Další informace o vyřešených chybách zabezpečení najdete v [příručce k aktualizaci zabezpečení](https://portal.msrc.microsoft.com/security-guidance).
+
+### <a name="known-issues-in-this-update"></a>Známé problémy v této aktualizaci
+Společnost Microsoft v současné době neví o problémech s touto aktualizací.
+
+### <a name="how-to-get-this-update"></a>Jak získat tuto aktualizaci
+2020 aktualizace zabezpečení (KB4580363) pro [Azure Stack HCI Preview](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) je poskytována prostřednictvím web Windows Update. Pokud ho chcete nainstalovat do clusteru Azure Stack HCI, přečtěte si téma [aktualizace Azure Stackch clusterů HCI](manage/update-cluster.md).
+
+### <a name="file-information"></a>Informace o souboru
+Seznam souborů, které jsou k dispozici v této aktualizaci (OS Build 17784,1288), si můžete stáhnout z [informací o souboru kumulativní aktualizace 4580363](https://download.microsoft.com/download/f/7/8/f78801f0-e7e5-4a3d-a971-f642ccd24ee4/4580363.csv).
+
+   > [!NOTE]
+   > Některé soubory mají ve sloupci "verze souboru CSV" hodnotu "nelze použít". To může vést k falešně pozitivním nebo falešně negativním hodnotám při použití nástrojů pro detekci kontroly třetích stran k ověření sestavení.
+
+## <a name="october-13-2020-servicing-stack-update-kb4583287"></a>13. října 2020 aktualizace sady Servicing (KB4583287)
+
+Tato aktualizace obsahuje vylepšení kvality pro nejnovější verzi Azure Stack HCL.
+
+### <a name="improvements-and-fixes"></a>Vylepšení a opravy
+Tato aktualizace přináší vylepšení kvality do zásobníku pro údržbu, což je součást, která instaluje aktualizace. Aktualizace cestou nadřazené (Servicing) zajistí, že máte robustní a spolehlivý zásobník pro údržbu, aby vaše zařízení mohla přijímat a instalovat aktualizace od Microsoftu.
+
+### <a name="how-to-get-this-update"></a>Jak získat tuto aktualizaci
+Aktualizace KB4583287 (Servicing) pro Azure Stack v 2020 rozhraní [HCI Preview](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) je dodávána prostřednictvím web Windows Update. Pokud ho chcete nainstalovat do clusteru Azure Stack HCI, přečtěte si téma [aktualizace Azure Stackch clusterů HCI](manage/update-cluster.md).
+
+### <a name="restart-information"></a>Informace o restartování
+Po instalaci této aktualizace nemusíte restartovat počítač.
+
+### <a name="removal-information"></a>Informace o odebrání
+Aktualizace zásobníku pro obsluhu (SSUs) provádějí změny, jak jsou aktualizace nainstalované a ze zařízení je nelze odinstalovat.
+
+### <a name="file-information"></a>Informace o souboru
+Seznam souborů, které jsou k dispozici v této aktualizaci (OS Build 17784,1287), si můžete stáhnout z [informací o souboru kumulativní aktualizace 4583287](https://download.microsoft.com/download/b/8/5/b85160fb-85d9-49f9-b9d5-7dbc0158a944/4583287.csv).
+
+### <a name="references"></a>Reference
+
+Informace o SSUs najdete v následujících článcích:
+
+- [Aktualizace zásobníku údržby](/windows/deployment/update/servicing-stack-updates)
+- [Aktualizace zásobníku pro obsluhu (cestou nadřazené): nejčastější dotazy](https://support.microsoft.com/help/4535697)
+
+Seznamte se s [terminologií](https://support.microsoft.com/help/824684) , kterou Microsoft používá k popisu aktualizací softwaru.
 
 ## <a name="september-17-2020-preview-update-kb4577629"></a>17. září 2020 – aktualizace Preview (KB4577629)
 
