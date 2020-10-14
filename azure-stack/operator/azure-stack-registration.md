@@ -10,12 +10,12 @@ ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 ms.custom: contperfq4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: dab71944ecc46fdaa92f7ca65d3ba5c848b24762
-ms.sourcegitcommit: dbc6739584aa407b26e4ad4921d967b7b608de38
+ms.openlocfilehash: f6d307b7fe165681e93c842596007ca1fde3a152
+ms.sourcegitcommit: 8122672409954815e472a5b251bb7319fab8f951
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/12/2020
-ms.locfileid: "90038824"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92060180"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Registrace centra Azure Stack s Azure
 
@@ -266,7 +266,7 @@ Potřebujete svůj registrační token a jedinečný název tokenu.
     Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
     ```
 
-Volitelně můžete použít rutinu Get-Content k ukázání na soubor, který obsahuje registrační token.
+Volitelně můžete pomocí rutiny Get-Content odkazovat na soubor, který obsahuje registrační token.
 
 Potřebujete svůj registrační token a jedinečný název tokenu.
 
@@ -375,7 +375,7 @@ Pokud chcete změnit předplatné, které používáte, musíte nejdřív spusti
   # switch to new subscription id
   Select-AzureRmSubscription -Subscription '<New subscription ID>'
   # register 
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<Billing model>' -RegistrationName '<Registration name>' --ResourceGroupName '<Registration resource group name>'
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<Billing model>' -RegistrationName '<Registration name>' -ResourceGroupName '<Registration resource group name>'
   ```
 
 ### <a name="change-billing-model-how-features-are-offered-or-re-register-your-instance"></a>Změna modelu fakturace, způsobu nabízení funkcí nebo opětovné registrace instance
@@ -507,7 +507,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
 
 ### <a name="get-azsregistrationtoken"></a>Get-AzsRegistrationToken
 
-Get-AzsRegistrationToken vygeneruje registrační token ze vstupních parametrů.
+Get-AzsRegistrationToken generuje registrační token ze vstupních parametrů.
 
 ```powershell  
 Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String>

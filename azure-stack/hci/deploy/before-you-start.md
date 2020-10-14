@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/01/2020
-ms.openlocfilehash: 8a4c8557fe708535bfdde383ef30dd78395b1c01
-ms.sourcegitcommit: 09572e1442c96a5a1c52fac8ee6b0395e42ab77d
+ms.date: 10/14/2020
+ms.openlocfilehash: 4ff495aba1f46824a6ab47c95601687402d24edb
+ms.sourcegitcommit: 8122672409954815e472a5b251bb7319fab8f951
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91625868"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92060102"
 ---
 # <a name="before-you-deploy-azure-stack-hci"></a>Před nasazením Azure Stack HCL
 
@@ -64,6 +64,8 @@ V Prostory úložiště s přímým přístupem existuje další síťový provo
 
 V případě roztaženého clusteru je mezi lokalitami předávány i další přenosy repliky úložiště. Provoz vrstvy úložiště (SBL) a sdílený svazek clusteru (CSV) mezi lokalitami nepřekračuje, jenom mezi uzly serveru v každé lokalitě.
 
+Požadavky a požadavky týkající se plánování síťových sítí najdete v tématu [Naplánování sítě hostitele pro Azure Stack HCI](../concepts/plan-host-networking.md).
+
 ### <a name="software-defined-networking-requirements"></a>Požadavky na softwarově definované sítě
 
 Když vytvoříte cluster Azure Stack HCI pomocí centra pro správu systému Windows, máte možnost nasadit síťový adaptér, který umožní softwarově definované sítě (SDN). Pokud máte v úmyslu použít SDN na Azure Stack HCI:
@@ -77,125 +79,6 @@ Další informace o přípravě na použití SDN v Azure Stack HCI najdete v té
 ### <a name="domain-requirements"></a>Požadavky na doménu
 
 Pro Azure Stack HCL nejsou k dispozici žádné zvláštní požadavky na úroveň funkčnosti domény pro váš řadič domény, který je stále podporován. Doporučujeme, abyste funkci Koš služby Active Directory zapnuli jako obecný osvědčený postup, pokud jste to ještě neudělali.
-
-### <a name="interconnect-requirements-between-nodes"></a>Požadavky propojení mezi uzly
-
-Tato část popisuje specifické požadavky sítě mezi uzly serveru v lokalitě, která se nazývá propojení. Je možné použít přepínací uzel nebo vzájemně propojené uzly, které jsou podporované:
-
-- **Přepnuto:** Uzly serveru se nejčastěji připojují přes sítě Ethernet, které používají síťové přepínače. Přepínače musí být správně nakonfigurovány pro zpracování šířky pásma a typu sítě. Pokud používáte RDMA, který implementuje protokol RoCE, je důležitá konfigurace síťového zařízení a přepínače.
-- Bez **přepínání:** Uzly serveru je taky možné propojit pomocí přímých připojení Ethernet bez přepínače. V takovém případě musí mít každý uzel serveru přímé spojení s každým jiným uzlem clusteru ve stejné lokalitě.
-
-#### <a name="interconnects-for-2-3-node-clusters"></a>Propojení clusterů uzlů 2-3
-
-Jedná se o *minimální* požadavky propojení pro clustery s jedním webem, které mají dva nebo tři uzly. Platí pro každý uzel serveru:
-
-- Jedna nebo víc síťových adaptérů s 1 GB, které se mají použít pro funkce správy
-- Jedna nebo více 10 GB (nebo rychlejších) síťových adaptérů pro provoz úložiště a úloh
-- Pro zajištění redundance a výkonu se doporučuje dvě nebo víc síťových připojení mezi jednotlivými uzly.
-
-#### <a name="interconnects-for-4-node-and-greater-clusters"></a>Propojení pro clustery se čtyřmi a více uzly
-
-Toto jsou *minimální* požadavky na propojení pro clustery se čtyřmi nebo více uzly a pro vysoce výkonné clustery. Platí pro každý uzel serveru:
-
-- Jedna nebo víc síťových adaptérů s 1 GB, které se mají použít pro funkce správy
-- Jedna nebo více 25 GB (nebo rychlejší) síťových adaptérů pro provoz úložiště a úloh. Pro zajištění redundance a výkonu doporučujeme dvě nebo víc síťových připojení.
-- Síťové karty, které podporují přímý přístup do paměti vzdáleného počítače (RDMA): iWARP (doporučeno) nebo RoCE.
-
-### <a name="site-to-site-requirements-stretched-cluster"></a>Požadavky na lokalitu (roztažené clustery)
-
-Při připojování mezi lokalitami pro roztažené clustery se stále používají požadavky na propojení v rámci každé lokality a mají další repliky úložiště a požadavky migrace Hyper-V za provozu, které je potřeba vzít v úvahu:
-
-- Aspoň jedno připojení RDMA nebo Ethernet/TCP mezi lokalitami pro synchronní replikaci. Upřednostňuje se připojení RDMA od 25 GB.
-- Síť mezi lokalitami s dostatečnou šířkou pásma, která bude obsahovat vaše vstupně-výstupní úlohy zápisu, a průměrnou latenci 5ms odezvy nebo nižší pro synchronní replikaci. Asynchronní replikace nemá doporučení pro latenci.
-- Pokud používáte jedno připojení mezi lokalitami, nastavte omezení šířky pásma protokolu SMB pro repliku úložiště pomocí PowerShellu. Další informace najdete v tématu [set-SmbBandwidthLimit](/powershell/module/smbshare/set-smbbandwidthlimit).
-- Pokud používáte více připojení mezi lokalitami, oddělte provoz mezi připojeními. Například vložte provoz repliky úložiště do samostatné sítě, než je migrace Hyper-V za provozu pomocí PowerShellu. Další informace najdete v tématu [set-SRNetworkConstraint](/powershell/module/storagereplica/set-srnetworkconstraint).
-
-### <a name="network-port-requirements"></a>Požadavky na síťový port
-
-Ujistěte se, že jsou mezi všemi uzly serveru v lokalitě i mezi lokalitami (pro roztažené clustery) otevřené správné síťové porty. Budete potřebovat patřičná pravidla brány firewall a směrovačů, aby bylo možné v obousměrném přenosu přes protokol ICMP, SMB (port 445 a port 5445 pro SMB Direct) a WS-MAN (port 5985) mezi všemi servery v clusteru.
-
-Při použití Průvodce vytvořením clusteru v centru pro správu systému Windows k vytvoření clusteru se v průvodci automaticky otevře příslušné porty brány firewall na každém serveru v clusteru pro clustering s podporou převzetí služeb při selhání, Hyper-V a repliku úložiště. Pokud na každém serveru používáte jinou bránu firewall softwaru, otevřete následující porty:
-
-#### <a name="failover-clustering-ports"></a>Porty clusteringu s podporou převzetí služeb při selhání
-
-- ICMPv4 a ICMPv6
-- Port TCP 445
-- Dynamické porty RPC
-- Port TCP 135
-- Port TCP 137
-- Port TCP 3343
-- Port UDP 3343
-
-#### <a name="hyper-v-ports"></a>Porty Hyper-V
-
-- Port TCP 135
-- Port TCP 80 (připojení HTTP)
-- Port TCP 443 (připojení HTTPS)
-- Port TCP 6600
-- Port TCP 2179
-- Dynamické porty RPC
-- Mapovač koncových bodů Endpoint Mapper RPC
-- Port TCP 445
-
-#### <a name="storage-replica-ports-stretched-cluster"></a>Porty repliky úložiště (roztažené clustery)
-
-- Port TCP 445
-- TCP 5445 (při použití iWarp RDMA)
-- Port TCP 5985
-- ICMPv4 a ICMPv6 (při použití test-SRTopology)
-
-Můžou se vyžadovat další porty, které nejsou uvedené výše. Toto jsou porty pro základní funkce rozhraní Azure Stack HCI.
-
-### <a name="network-switch-requirements"></a>Požadavky na síťový přepínač
-
-V této části jsou definovány požadavky na fyzické přepínače používané při Azure Stack HCI. Tyto požadavky uvádějí oborové specifikace, organizační standardy a protokoly, které jsou povinné pro všechna Azure Stack nasazení rozhraní HCI. Není-li uvedeno jinak, je vyžadována nejnovější aktivní (nenahrazená) verze Standard.
-
-Tyto požadavky vám pomůžou zajistit spolehlivou komunikaci mezi uzly v Azure Stack nasazeních clusteru HCI. Spolehlivá komunikace mezi uzly je kritická. Aby byla zajištěna potřebná úroveň spolehlivosti pro Azure Stack HCI, je nutné, aby byly přepínače:
-
-- Dodržování příslušných specifikací, standardů a protokolů v oboru
-- Poskytněte přehled o tom, které specifikace, standardy a protokoly podporuje přepínač.
-- Zadejte informace o tom, které funkce jsou povolené.
-
-Ujistěte se, že požádáte dodavatele přepínače, pokud váš přepínač podporuje následující:
-
-#### <a name="standard-ieee-8021q"></a>Standard: IEEE 802.1 Q
-
-Přepínače sítě Ethernet musí splňovat specifikaci IEEE 802.1 Q, která definuje sítě VLAN. SÍTĚ VLAN jsou vyžadovány pro několik aspektů Azure Stack HCI a jsou požadovány ve všech scénářích.
-
-#### <a name="standard-ieee-8021qbb"></a>Standard: IEEE 802.1 QBB
-
-Přepínače sítě Ethernet musí splňovat specifikaci IEEE 802.1 QBB, která definuje prioritní řízení toku (PFC). PFC se vyžaduje v případě, že se používá přemostění Datacenter (DCB). Vzhledem k tomu, že DCB se dá použít ve scénářích RoCE a iWARP RDMA, ve všech scénářích se vyžaduje 802.1 QBB. Bez downgradů možností přepínače nebo rychlosti portů se vyžadují minimálně tři priority třídy Service (CoS).
-
-#### <a name="standard-ieee-8021qaz"></a>Standard: IEEE 802.1 QAZ
-
-Přepínače sítě Ethernet musí splňovat specifikaci IEEE 802.1 Qaz, která definuje vylepšený výběr přenosu (ETS). ETS je vyžadován, kde se používá DCB. Vzhledem k tomu, že DCB se dá použít ve scénářích RoCE a iWARP RDMA, ve všech scénářích se vyžaduje 802.1 QAZ. Vyžaduje se minimálně tři prioritní priority bez downgradu možností přepnutí nebo rychlosti portu.
-
-#### <a name="standard-ieee-8021ab"></a>Standard: IEEE 802.1 AB
-
-Přepínače sítě Ethernet musí splňovat specifikaci IEEE 802.1 AB definující Protokol LLDP (Link Layer Discovery Protocol). LLDP se vyžaduje pro zjišťování konfigurace přepínače v systému Windows. Konfigurace hodnot typu LLDP-Length-Values (TLVs) musí být dynamicky povolena. Tyto přepínače nesmí vyžadovat další konfiguraci.
-
-Například povolení 802,1 podtyp 3 by mělo automaticky inzerovat všechny sítě VLAN, které jsou dostupné na portech přepínače.
-
-#### <a name="tlv-requirements"></a>Požadavky TLV
-
-LLDP umožňuje organizacím definovat a kódovat vlastní TLVs. Ty se nazývají organizace specifické pro TLVs. Všechny organizace specifické pro TLVs začínají s hodnotou typu LLDP TLV typu 127. Následující tabulka uvádí, které z organizačních specifických typů TLV (TLV Type 127) jsou povinné a které jsou volitelné:
-
-|Stav|Organizace|Typ TLV|
-|-|-|-|
-|Povinné|IEEE 802,1|Název sítě VLAN (podtyp = 3)|
-|Povinné|IEEE 802,3|Maximální velikost rámce (podtyp = 4)|
-|Volitelné|IEEE 802,1|ID VLAN portu (podtyp = 1)|
-|Volitelné|IEEE 802,1|IDENTIFIKÁTOR sítě VLAN portu a protokolu (podtyp = 2)|
-|Volitelné|IEEE 802,1|Agregace propojení (podtyp = 7)|
-|Volitelné|IEEE 802,1|Oznámení o zahlcení (podtyp = 8)|
-|Volitelné|IEEE 802,1|Konfigurace ETS (podtyp = 9)|
-|Volitelné|IEEE 802,1|Doporučení ETS (podtyp = A)|
-|Volitelné|IEEE 802,1|Konfigurace PFC (podtyp = B)|
-|Volitelné|IEEE 802,1|EVB (podtyp = D)|
-|Volitelné|IEEE 802,3|Agregace propojení (podtyp = 3)|
-
-> [!NOTE]
-> Některé z uvedených volitelných funkcí můžou být v budoucnu nutné.
 
 ### <a name="storage-requirements"></a>Požadavky na úložiště
 
