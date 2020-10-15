@@ -7,12 +7,12 @@ ms.date: 09/23/2020
 ms.author: v-myoung
 ms.reviewer: misainat
 ms.lastreviewed: 09/23/2020
-ms.openlocfilehash: b16247c53ea0677573573c827f68e56081a9de5e
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: dbd0398b7f6582c12288c2ae72137c4a673ddfcc
+ms.sourcegitcommit: 950dbc793b3498173923d0bc9fe56662a349abf1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106971"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92082084"
 ---
 # <a name="asdk-requirements-and-considerations"></a>Požadavky a předpoklady pro ASDK
 
@@ -97,10 +97,10 @@ Pokud chcete nasadit Azure Stack pomocí účtu Azure AD, musíte před spuště
    
    | **Účet Azure Active Directory** | **Doložen?** |
    | --- | --- |
-   | Pracovní nebo školní účet s platným globálním předplatným Azure |Ano |
-   | Účet Microsoft s platným globálním předplatným Azure |Ano |
-   | Pracovní nebo školní účet s platným Čínou – předplatné Azure |Ano |
-   | Pracovní nebo školní účet s platnými předplatné Azure pro státní správu USA |Ano |
+   | Pracovní nebo školní účet s platným globálním předplatným Azure |Yes |
+   | Účet Microsoft s platným globálním předplatným Azure |Yes |
+   | Pracovní nebo školní účet s platným Čínou – předplatné Azure |Yes |
+   | Pracovní nebo školní účet s platnými předplatné Azure pro státní správu USA |Yes |
 
 Po nasazení se oprávnění globálního správce služby Azure AD nevyžadují. Některé operace ale můžou vyžadovat přihlašovací údaje globálního správce. Příklady takových operací zahrnují skript instalačního programu poskytovatele prostředků nebo novou funkci, která vyžaduje udělení oprávnění. Můžete buď dočasně obnovit oprávnění globálního správce účtu, nebo použít samostatný účet globálního správce, který je vlastníkem *výchozího předplatného poskytovatele*.
 
@@ -108,7 +108,7 @@ Po nasazení se oprávnění globálního správce služby Azure AD nevyžadují
 ### <a name="switch"></a>Přepínač
 Jeden dostupný port na přepínači pro ASDK počítač.  
 
-Počítač ASDK podporuje připojení k portu pro přístup k přepínači nebo k portu kmene. Přepínač nevyžaduje žádné specializované funkce. Pokud používáte port kmene nebo pokud potřebujete nakonfigurovat ID sítě VLAN, musíte zadat ID sítě VLAN jako parametr nasazení.
+Počítač ASDK podporuje připojení k portu pro přístup k přepínači nebo k portu kmene. Přepínač nevyžaduje žádné specializované funkce.
 
 ### <a name="subnet"></a>Podsíť
 Nepřipojujte počítač ASDK k těmto podsítím:
@@ -129,7 +129,7 @@ Podporovaný je jenom protokol IPv4. Nemůžete vytvářet sítě IPv6.
 Ujistěte se, že je v síti k dispozici server DHCP, ke kterému se síťová karta připojuje. Pokud není služba DHCP k dispozici, musíte připravit další statickou síť IPv4 kromě těch, kterou používá hostitel. Tuto IP adresu a bránu zadejte jako parametr nasazení.
 
 ### <a name="internet-access"></a>Přístup k internetu
-Azure Stack vyžaduje přístup k Internetu, a to buď přímo, nebo prostřednictvím transparentního proxy serveru. Azure Stack nepodporuje konfiguraci webového proxy serveru, aby bylo možné povolit přístup k Internetu. IP adresa hostitele i nová IP adresa přiřazená k AzS-BGPNAT01 (pomocí protokolu DHCP nebo statické IP adresy) musí mít přístup k Internetu. Porty 80 a 443 se používají v doménách graph.windows.net a login.microsoftonline.com.
+Azure Stack vyžaduje přístup k Internetu, a to buď přímo, nebo prostřednictvím transparentního proxy serveru. Azure Stack nepodporuje konfiguraci webového proxy serveru, aby bylo možné povolit přístup k Internetu. Porty 80 a 443 se používají v doménách graph.windows.net a login.microsoftonline.com.
 
 
 ## <a name="next-steps"></a>Další kroky
