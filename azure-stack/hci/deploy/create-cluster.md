@@ -3,15 +3,15 @@ title: Vytvoření clusteru Azure Stack HCI pomocí centra pro správu Windows
 description: Zjistěte, jak vytvořit serverový cluster pro Azure Stack HCI pomocí centra pro správu Windows.
 author: v-dasis
 ms.topic: how-to
-ms.date: 09/21/2020
+ms.date: 10/16/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 992b06b652dbac306570e0f58e274cec7735d14a
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.openlocfilehash: 6ee8dbff672de60dbf134f9878b2077684f82dc9
+ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572683"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157712"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Vytvoření clusteru Azure Stack HCI pomocí centra pro správu Windows
 
@@ -190,6 +190,9 @@ Pokud po nějaké době řešení clusteru neproběhne úspěšně, můžete ve 
 ## <a name="step-5-sdn-optional"></a>Krok 5: SDN (volitelné)
 
 Tento volitelný krok vás provede nastavením součásti síťového adaptéru [softwarově definovaných sítí (SDN)](../concepts/software-defined-networking.md). Jakmile je síťový adaptér nastavený, dá se použít ke konfiguraci dalších komponent SDN, jako je Load Balancer softwaru a brány RAS.
+
+> [!NOTE]
+> SDN není pro roztažené clustery podporovaná nebo dostupná.
 
 :::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="Průvodce vytvořením clusteru – možnost HCI" lightbox="media/cluster/create-cluster-network-controller.png":::
 

@@ -6,19 +6,19 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/04/2020
-ms.openlocfilehash: 84d5292c3f812402027b310954a021752276a799
-ms.sourcegitcommit: 01dcda15d88c8d44b4918e2f599daca462a8e3d9
+ms.date: 10/16/2020
+ms.openlocfilehash: 47bfa8c656a2581c9dc125b1bd99379b9012e448
+ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/05/2020
-ms.locfileid: "89493797"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157627"
 ---
 # <a name="use-the-csv-in-memory-read-cache-with-azure-stack-hci"></a>Použít mezipaměť pro čtení v paměti sdíleného svazku clusteru s Azure Stack HCL
 
 > Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019
 
-Toto téma popisuje, jak pomocí systémové paměti zvýšit výkon Azure Stack HCI.
+V tomto tématu se dozvíte, jak pomocí systémové paměti zvýšit výkon Azure Stack HCL ukládáním častých čtení do mezipaměti. Zápisy nelze ukládat do mezipaměti v paměti.
 
 Azure Stack HCI je kompatibilní s mezipamětí pro čtení sdílený svazek clusteru (CSV). Použití systémové paměti pro čtení do mezipaměti může zlepšit výkon aplikací, jako je technologie Hyper-V, které pro přístup k souborům VHD nebo VHDX používá nebufferované vstupně-výstupní operace. (Vstupně-výstupních operací s neuloženými do vyrovnávací paměti jsou všechny operace, které správce mezipaměti systému Windows neukládá do mezipaměti.)
 
@@ -44,6 +44,8 @@ Mezipaměť pro čtení v paměti sdíleného svazku clusteru je k dispozici v A
 | Azure Stack HCI     | 1 GiB                  |
 | Windows Server 2019 | 1 GiB                  |
 | Windows Server 2016 | 0 (zakázáno)           |
+
+Pokud chcete nakonfigurovat mezipaměť pomocí centra pro správu Windows, vyberte v levém dolním rohu nabídky **nástroje** vlevo možnost **Nastavení** . Pak přejdete do **úložiště > mezipaměti v paměti**. Zaškrtávací políčko povoluje nebo zakazuje mezipaměť a můžete také zadat maximální paměť na server, který se má přidělit mezipaměti. Až provedete změny, nezapomeňte kliknout na **Uložit** v dolní části stránky.
 
 Chcete-li zjistit, kolik paměti je přiděleno pomocí prostředí PowerShell, spusťte příkaz:
 

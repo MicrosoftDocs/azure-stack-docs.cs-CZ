@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/29/2020
-ms.openlocfilehash: e14d0475c941f568f08a027de9e71eb25f00a999
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.date: 10/16/2020
+ms.openlocfilehash: 3aaee084c30dd8d6b3f6514d18951fd604bd75aa
+ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572649"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157661"
 ---
 # <a name="software-defined-networking-sdn-in-azure-stack-hci"></a>Softwarově definované sítě (SDN) v Azure Stack HCI
 
@@ -23,6 +23,9 @@ Softwarově definované sítě (SDN) poskytují způsob, jak centrálně konfigu
 Prvky virtuální sítě, jako je [virtuální přepínač Hyper-v](/windows-server/virtualization/hyper-v-virtual-switch/hyper-v-virtual-switch), [virtualizace sítě Hyper-v](/windows-server/networking/sdn/technologies/hyper-v-network-virtualization/hyper-v-network-virtualization), [Vyrovnávání zatížení softwaru](/windows-server/networking/sdn/technologies/network-function-virtualization/software-load-balancing-for-sdn)a [Brána služby RAS](/windows-server/networking/sdn/technologies/network-function-virtualization/ras-gateway-for-sdn) , jsou navržené tak, aby byly integrálními prvky vaší infrastruktury Sdn. Můžete také použít stávající zařízení kompatibilní s technologií SDN a dosáhnout tak hlubší integrace mezi úlohami spuštěnými ve virtuálních sítích a fyzickou sítí.
 
 Existují tři hlavní komponenty SDN na Azure Stack HCI a můžete zvolit, který chcete nasadit: síťový adaptér, Load Balancer softwaru a bránu.
+
+   > [!NOTE]
+   > SDN není v roztaženém clusteru (více lokalit) podporován.
 
 ## <a name="network-controller"></a>Síťový adaptér
 

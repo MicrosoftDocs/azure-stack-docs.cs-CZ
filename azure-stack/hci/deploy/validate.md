@@ -4,13 +4,13 @@ description: Pochopení důležitosti ověření clusteru a jeho spuštění v e
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: article
-ms.date: 10/2/2020
-ms.openlocfilehash: 682e9063f6f04f5298e7cab4053af179e1c90cd7
-ms.sourcegitcommit: 6ed6db8e393aace41586a0fba925dc297159d45e
+ms.date: 10/16/2020
+ms.openlocfilehash: fe49df76ccb2a90849587acd5d4df7a41e329efb
+ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91663937"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157695"
 ---
 # <a name="validate-an-azure-stack-hci-cluster"></a>Ověření Azure Stack clusteru HCI
 
@@ -50,11 +50,11 @@ V této části jsou popsány scénáře, ve kterých je ověřování také nut
 ## <a name="validate-networking"></a>Ověřit sítě
 Nástroj Microsoft Validate-DCB je navržený tak, aby ověřil konfiguraci přemostění datových Center (DCB) v clusteru. K tomu nástroj přebírá očekávanou konfiguraci jako vstup a pak testuje všechny servery v clusteru. Tato část popisuje, jak nainstalovat a spustit nástroj Validate-DCB, zkontrolovat výsledky a vyřešit chyby sítě, které nástroj identifikuje.
 
-V síti má přímý přístup do paměti vzdáleného počítače (RDMA) přes sblíženou síť Ethernet (RoCE) k zajištění bezeztrátu síťových prostředků infrastruktury technologie DCB. A i když iWARP nevyžaduje DCB, pořád se to doporučuje. Konfigurace DCB ale může být složitá s přesnou konfigurací požadovanou v rámci:
+V síti má přímý přístup do paměti vzdáleného počítače (RDMA) přes sblíženou síť Ethernet (RoCE) k zajištění bezeztrátu síťových prostředků infrastruktury technologie DCB. V iWARP je DCB volitelná. Konfigurace DCB ale může být složitá s přesnou konfigurací požadovanou v rámci:
 - Každý server v clusteru
 - Každý síťový port, který RDMA nachází přes prostředky infrastruktury
 
-### <a name="prerequisites"></a>Požadované součásti
+### <a name="prerequisites"></a>Předpoklady
 - Informace o nastavení sítě pro serverový cluster, který chcete ověřit, včetně:
     - Název hostitele nebo serverového clusteru
     - Název virtuálního přepínače
@@ -74,7 +74,7 @@ Postup instalace a spuštění nástroje Validate-DCB:
 1. Po připojení PowerShellu k síti Microsoftu ke stažení nástroje zadejte `Validate-DCB` a stisknutím klávesy **ENTER** spusťte Průvodce nástrojem.
 
     > [!NOTE]
-    > Pokud nemůžete spustit skript nástroje Validate-DCB, možná budete muset upravit zásady spouštění prostředí PowerShell. Pomocí rutiny Get-ExecutionPolicy můžete zobrazit aktuální nastavení zásad spouštění skriptů. Informace o nastavení zásad spouštění v PowerShellu najdete v tématu [o zásadách spouštění](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7).
+    > Pokud nemůžete spustit skript nástroje Validate-DCB, možná budete muset upravit zásady spouštění prostředí PowerShell. Pomocí rutiny Get-ExecutionPolicy si můžete zobrazit aktuální nastavení zásad spouštění skriptů. Informace o nastavení zásad spouštění v PowerShellu najdete v tématu [o zásadách spouštění](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-7).
 
 1. Na stránce Vítejte v Průvodci konfigurací ověření-DCB vyberte **Další**.
 1. Na stránce clustery a uzly zadejte název serverového clusteru, který chcete ověřit, vyberte možnost **vyřešit** , aby se seznam na stránce vybral, a pak vyberte **Další**.
@@ -191,7 +191,7 @@ Pokud k replikaci svazků v roztaženém clusteru nebo clusteru mezi clustery po
 
 V následujícím scénáři jsme nakonfigurovali repliku úložiště vytvořením replikačních skupin (RGs) pro dvě lokality a pak zadáte datové svazky a svazky protokolů pro uzly zdrojového serveru v Site1 (Server1, Server2) a cílové (replikované) uzly serveru v site2 (Server3, v Server4).
 
-Pokud chcete určit průběh replikace pro Server1 v Site1, spusťte příkaz GET-WinEvent a prověřte události 5015, 5002, 5004, 1237, 5001 a 2200:
+Pokud chcete určit průběh replikace pro Server1 v Site1, spusťte příkaz Get-WinEvent a prověřte události 5015, 5002, 5004, 1237, 5001 a 2200:
 
 ```powershell
 Get-WinEvent -ComputerName Server1 -ProviderName Microsoft-Windows-StorageReplica -max 20

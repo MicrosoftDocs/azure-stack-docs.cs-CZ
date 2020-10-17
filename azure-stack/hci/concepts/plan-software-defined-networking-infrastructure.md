@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.assetid: ea7e53c8-11ec-410b-b287-897c7aaafb13
 ms.author: anpaul
 author: AnirbanPaul
-ms.date: 09/11/2020
-ms.openlocfilehash: 986aba8f7591239abfa5502dc2c335177df2eed1
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.date: 10/16/2020
+ms.openlocfilehash: 6df469fcc6997b1f56a552bc141692c7a8a49808
+ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899529"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157678"
 ---
 # <a name="plan-a-software-defined-network-infrastructure"></a>Plánování infrastruktury softwarově definované sítě
 
@@ -20,7 +20,10 @@ ms.locfileid: "91899529"
 
 Seznamte se s plánováním nasazení infrastruktury softwarově definované sítě (SDN), včetně požadavků na hardware a software. Toto téma zahrnuje požadavky na plánování pro fyzickou a logickou konfiguraci sítě, směrování, brány, síťový hardware a další. Zahrnuje také požadavky na rozšíření infrastruktury SDN a používání postupného nasazení.
 
-## <a name="prerequisites"></a>Požadavky
+   > [!NOTE]
+   > SDN není v roztaženém clusteru (více lokalit) podporován.
+
+## <a name="prerequisites"></a>Předpoklady
 Pro infrastrukturu SDN je k dispozici několik hardwarových a softwarových požadavků, včetně:
 - **Skupiny zabezpečení a registrace dynamického serveru DNS**. Vaše datacentrum musíte připravit pro nasazení síťového adaptéru, což vyžaduje sadu virtuálních počítačů. Než budete moct nasadit síťový adaptér, musíte nakonfigurovat skupiny zabezpečení a dynamickou registraci DNS.
 
@@ -150,7 +153,7 @@ Následující položky poskytují dostupnost a redundanci:
 ### <a name="switch-configuration-examples"></a>Příklady konfigurace přepínače
 Aby bylo možné konfigurovat fyzický přepínač nebo směrovač, je k dispozici sada ukázkových konfiguračních souborů pro nejrůznější modely přepínačů a dodavatelů v [úložišti Microsoft SDN GitHub](https://github.com/microsoft/SDN/tree/master/SwitchConfigExamples). K dispozici jsou podrobné příkazy Readme a testované rozhraní příkazového řádku (CLI) pro konkrétní přepínače.
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Výpočetní prostředky
 Všichni hostitelé Hyper-V musí mít nainstalovaný příslušný operační systém, povolit Hyper-V a používat externí virtuální přepínač Hyper-V s aspoň jedním fyzickým adaptérem připojeným k logické síti pro správu. Hostitel musí být dosažitelný prostřednictvím IP adresy pro správu přiřazené k hostiteli pro správu vNIC.
 
 Můžete použít libovolný typ úložiště, který je kompatibilní s technologií Hyper-V, Shared nebo Local.
@@ -185,7 +188,7 @@ Když se virtuální počítače zatížení spouštějí na fyzických hostitel
 ## <a name="phased-deployment"></a>Dvoufázové nasazení
 Na základě vašich požadavků možná budete muset nasadit podmnožinu infrastruktury SDN. Například pokud chcete, aby se v datacentru spouštěly jenom úlohy zákazníka, a externí komunikace se nevyžaduje, můžete nasadit síťový adaptér a přeskočit nasazení SLB/MUX a virtuálních počítačů brány. Následující článek popisuje požadavky na infrastrukturu síťových funkcí pro dvoufázové nasazení infrastruktury SDN.
 
-Příznak|Požadavky nasazení|Požadavky sítě|
+Funkce|Požadavky nasazení|Požadavky sítě|
 --------|-------------------------|-------------------------
 |Správa logické sítě<br> Seznamy řízení přístupu (ACL) (pro síť využívající síť VLAN)<br> QoS (Quality of Service) (pro sítě založené na síti VLAN)<br>|Síťový adaptér|Žádné|
 |Virtuální sítě<br> Směrování definované uživatelem<br> Seznamy řízení přístupu (pro virtuální síť)<br> Šifrované podsítě<br> QoS (pro virtuální sítě)<br> Partnerský vztah virtuální sítě|Síťový adaptér|HNV PA – síť VLAN, podsíť, směrovač|

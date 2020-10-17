@@ -3,16 +3,16 @@ title: Poznámky k verzi centra Azure Stack
 description: Poznámky k verzi pro integrované systémy Azure Stack hub, včetně aktualizací a oprav chyb.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/28/2020
+ms.date: 10/08/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: cff17c92a44bec23d0a10620d6c182ad5240c451
-ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
+ms.openlocfilehash: 1bea13f3ba7b9e210c52ac9cffc32c7d8e4a79c6
+ms.sourcegitcommit: 82a8ddbf474a28cd551e86a69e0c41a624e0be2a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91495792"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92116177"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -63,7 +63,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Co je nového
+### <a name="whats-new"></a>Novinky
 
 <!-- What's new, also net new experiences and features. -->
 - Toto sestavení nabízí podporu 3 nových typů virtuálních počítačů GPU: NCv3 (NVIDIA V100), NVv4 (AMD MI25) a NCas_v4 (NVIDIA T4) velikosti virtuálních počítačů. Nasazení virtuálních počítačů bude úspěšné pro uživatele, kteří mají správný hardware a jsou připojeni do programu Azure Stack hub GPU ve verzi Preview. Pokud vás zajímá, zaregistrujte se do programu pro zobrazení GPU v https://aka.ms/azurestackhubgpupreview . Další informace [najdete v tématu](../user/gpu-vms-about.md).
@@ -142,7 +142,7 @@ Od verze 2005 se při aktualizaci na novou hlavní verzi (například 1.2002. x 
 
 Pokud se následně uvolní nějaké opravy hotfix 2005, měli byste po instalaci 2005 nainstalovat tyto opravy:
 
-- [1.2005.13.68 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4583399)
+- [1.2005.18.78 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4584238)
 ::: moniker-end
 
 ::: moniker range="azs-2002"
@@ -165,7 +165,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Co je nového
+### <a name="whats-new"></a>Novinky
 
 <!-- What's new, also net new experiences and features. -->
 
@@ -293,7 +293,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Co je nového
+### <a name="whats-new"></a>Novinky
 
 <!-- What's new, also net new experiences and features. -->
 

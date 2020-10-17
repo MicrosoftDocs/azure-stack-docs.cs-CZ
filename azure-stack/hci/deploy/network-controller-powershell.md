@@ -3,24 +3,26 @@ title: Nasazení síťového adaptéru pomocí Windows PowerShellu
 description: Informace o nasazení síťového adaptéru pomocí Windows PowerShellu
 author: v-dasis
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 10/16/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: e217c8b3e2a67dafa121fe752b66af9f24f888a1
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: e53206ae6ae5039d00cbe4bf82b6fb5b773a5270
+ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899546"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157644"
 ---
 # <a name="deploy-network-controller-using-windows-powershell"></a>Nasazení síťového adaptéru pomocí Windows PowerShellu
 
 > Platí pro Azure Stack HCL verze 20H2; Windows Server 2019
 
-Toto téma poskytuje pokyny k nasazení síťového adaptéru na jeden nebo více virtuálních počítačů, které jsou spuštěny v clusteru Azure Stack HCI, pomocí prostředí Windows PowerShell. Síťový adaptér je součástí softwarově definovaných sítí (SDN).
+Toto téma poskytuje pokyny k nasazení funkce síťového adaptéru na jednom nebo několika virtuálních počítačích, které jsou spuštěné v clusteru Azure Stack HCI, pomocí Windows PowerShellu. Síťový adaptér je součástí softwarově definovaných sítí (SDN).
 
->[!NOTE]
->Síťový adaptér můžete nasadit také pomocí Průvodce vytvořením clusteru v centru pro správu systému Windows. Další informace najdete v tématu [Vytvoření clusteru Azure Stack HCI pomocí centra pro správu systému Windows](create-cluster.md).
+Síťový adaptér můžete nasadit také pomocí Průvodce vytvořením clusteru v centru pro správu systému Windows. Další informace najdete v tématu [Vytvoření clusteru Azure Stack HCI pomocí centra pro správu systému Windows](create-cluster.md).
+
+> [!NOTE]
+> SDN není pro roztažené clustery podporovaná nebo dostupná.
 
 ## <a name="using-windows-powershell"></a>Použití Windows PowerShellu
 
@@ -199,7 +201,7 @@ Následující tabulka uvádí syntaxi příkazů PowerShellu, které můžete p
 |Povolit uzel clusteru síťového adaptéru|Enable-NetworkControllerNode|`Enable-NetworkControllerNode -Name <String> [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-PassThru] [-UseSsl]`
 |Odebrání uzlu síťového adaptéru z clusteru|Remove-NetworkControllerNode|`Remove-NetworkControllerNode [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-Force] [-Name <String> ] [-PassThru] [-UseSsl]`
 
-Další informace najdete v referenční dokumentaci k prostředí Windows PowerShell pro síťový adaptér na adrese [NetworkController](/powershell/module/networkcontroller/?view=win10-ps).
+Další informace najdete v referenční dokumentaci k prostředí Windows PowerShell pro síťový adaptér na adrese [NetworkController](/powershell/module/networkcontroller).
 
 ## <a name="sample-network-controller-configuration-script"></a>Ukázkový skript konfigurace síťového adaptéru
 
