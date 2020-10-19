@@ -1,0 +1,53 @@
+### YamlMime:Landing
+title: MDC (modulární datacentrum Azure) a dokumentace pro uživatele
+summary: Naučte se pracovat s modulárním datovým centrem Azure (MDC) a používat je.
+metadata:
+  title: MDC (modulární datacentrum pro Azure) a dokumentace pro uživatele – kurzy, koncepty, postupy, články
+  description: Modulární datové centrum Azure (MDC) je modulární datové centrum, které obsahuje Azure Stack řešení a úložiště centra. Můžete poskytovat služby Azure a hostovat rozsáhlou výpočetní kapacitu a úložiště v místním prostředí nebo na hraničních zařízeních, která se odpojí z Azure nebo se k němu připojí. Je optimalizovaná pro případy použití, které vyžadují suverenitu dat a místní řízení.
+  ms.service: azure-stack
+  ms.subservice: asdk
+  ms.topic: landing-page
+  author: justinha
+  ms.author: justinha
+  ms.date: 07/23/2020
+  ms.openlocfilehash: d02096ea41e17172f553efc3a92a5908845e03cd
+  ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+  ms.translationtype: MT
+  ms.contentlocale: cs-CZ
+  ms.lasthandoff: 10/19/2020
+  ms.locfileid: "92182968"
+landingContent:
+- title: Nasazení rozhraní MDC
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Přehled nasazení MDC
+      url: deployment-overview.md
+  - linkListType: deploy
+    links:
+    - text: Plánovač kapacity
+      url: azure-stack-capacity-planner.md
+- title: Začínáme
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Přidat položku webu Marketplace centra Azure Stack
+      url: ../operator/azure-stack-create-and-publish-marketplace-item.md
+  - linkListType: tutorial
+    links:
+    - text: Nabídka služeb IaaS
+      url: ../operator/tutorial-offer-services.md
+- title: Způsob použití
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Přihlášení k odběru nabídky
+      url: ../user/azure-stack-subscribe-services.md
+    - text: Vytvoření virtuálního počítače ze šablony
+      url: ../user/azure-stack-create-vm-template.md
+  - linkListType: how-to-guide
+    links:
+    - text: Aktualizovat firmware
+      url: extended-storage-firmware-updates.md
+    - text: Zkontrolovat stav
+      url: extended-storage-health-checks.md

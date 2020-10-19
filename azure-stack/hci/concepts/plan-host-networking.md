@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 8f18cd223faca91bc490b659e0a25fce1add3fea
-ms.sourcegitcommit: 4b1a4ec0ac0283faea9438e6617fcb3cfc6fee6d
+ms.openlocfilehash: aedccf6f41c2bf7e21fd98308fd153c2742af8e9
+ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041203"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92179495"
 ---
 # <a name="plan-host-networking-for-azure-stack-hci"></a>Plánování sítě hostitele pro Azure Stack HCI
 
@@ -35,7 +35,6 @@ Provoz SMB může přenášet do těchto protokolů:
 
 - Protokol TCP (Transport Control Protocol) – používá se mezi lokalitami
 - Přímý přístup do paměti vzdáleného počítače (RDMA)
-- QUIC – budoucnost
 
 ## <a name="traffic-bandwidth-allocation"></a>Přidělení šířky pásma provozu
 
@@ -187,17 +186,17 @@ LLDP umožňuje organizacím definovat a kódovat vlastní TLVs. Ty se nazývaj�
 
 |Stav|Organizace|Typ TLV|
 |-|-|-|
-|Vyžadováno|IEEE 802,1|Název sítě VLAN (podtyp = 3)|
-|Vyžadováno|IEEE 802,3|Maximální velikost rámce (podtyp = 4)|
-|Volitelné|IEEE 802,1|ID VLAN portu (podtyp = 1)|
-|Volitelné|IEEE 802,1|IDENTIFIKÁTOR sítě VLAN portu a protokolu (podtyp = 2)|
-|Volitelné|IEEE 802,1|Agregace propojení (podtyp = 7)|
-|Volitelné|IEEE 802,1|Oznámení o zahlcení (podtyp = 8)|
-|Volitelné|IEEE 802,1|Konfigurace ETS (podtyp = 9)|
-|Volitelné|IEEE 802,1|Doporučení ETS (podtyp = A)|
-|Volitelné|IEEE 802,1|Konfigurace PFC (podtyp = B)|
-|Volitelné|IEEE 802,1|EVB (podtyp = D)|
-|Volitelné|IEEE 802,3|Agregace propojení (podtyp = 3)|
+|Povinné|IEEE 802,1|Název sítě VLAN (podtyp = 3)|
+|Povinné|IEEE 802,3|Maximální velikost rámce (podtyp = 4)|
+|Nepovinné|IEEE 802,1|ID VLAN portu (podtyp = 1)|
+|Nepovinné|IEEE 802,1|IDENTIFIKÁTOR sítě VLAN portu a protokolu (podtyp = 2)|
+|Nepovinné|IEEE 802,1|Agregace propojení (podtyp = 7)|
+|Nepovinné|IEEE 802,1|Oznámení o zahlcení (podtyp = 8)|
+|Nepovinné|IEEE 802,1|Konfigurace ETS (podtyp = 9)|
+|Nepovinné|IEEE 802,1|Doporučení ETS (podtyp = A)|
+|Nepovinné|IEEE 802,1|Konfigurace PFC (podtyp = B)|
+|Nepovinné|IEEE 802,1|EVB (podtyp = D)|
+|Nepovinné|IEEE 802,3|Agregace propojení (podtyp = 3)|
 
 > [!NOTE]
 > Některé z uvedených volitelných funkcí můžou být v budoucnu nutné.

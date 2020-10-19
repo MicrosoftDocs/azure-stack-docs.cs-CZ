@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Naučte se spravovat infrastrukturu úložiště pro centrum Azure Stack. Viz jak monitorovat svazky a jednotky. Podívejte se na tipy pro řešení potíží při přidávání jednotek do fondů.
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 5/4/2020
+ms.date: 10/19/2020
 ms.author: inhenkel
 ms.lastreviewed: 5/4/2020
 ms.reviewer: jiaha
-ms.openlocfilehash: a267c0bf5429bdd97b5a722f45f2fd188b63efb2
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: 7141d52e100ce465a20637da2a40cbb75b417939
+ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623196"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92179454"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Správa infrastruktury úložiště pro centrum Azure Stack
 Tento článek popisuje stav a provozní stav prostředků infrastruktury úložiště služby Azure Stack hub. Mezi tyto prostředky patří jednotky a svazky úložiště. Informace v tomto tématu vám pomůžou při odstraňování různých problémů, například když se do fondu nedá přidat jednotka.
@@ -93,7 +93,7 @@ Následující části popisují stav, ve kterém může být jednotka:
 | OK | Svazek je v pořádku. |
 | V provozu | Jednotka provádí některé interní operace údržbu. Po dokončení akce by se měla jednotka vrátit do stavu OK. |
 
-### <a name="drive-health-state-healthy"></a>Stav jednotky: v dobrém stavu
+### <a name="drive-health-state-warning"></a>Stav jednotky: upozornění
 
 Jednotka ve stavu varování může úspěšně číst a zapisovat data, ale má problém.
 
