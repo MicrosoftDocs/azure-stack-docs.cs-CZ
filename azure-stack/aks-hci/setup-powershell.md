@@ -5,24 +5,34 @@ author: jessicaguan
 ms.topic: quickstart
 ms.date: 09/23/2020
 ms.author: jeguan
-ms.openlocfilehash: b4b128c5d51d7f916e0936102224283dd77a971d
-ms.sourcegitcommit: 849be7ebd02a1e54e8d0ec59736c9917c67e309e
+ms.openlocfilehash: 089488e246bdb7c12bbd0808ef2e92a4c83b0fce
+ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91134657"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92253956"
 ---
 # <a name="quickstart-set-up-an-azure-kubernetes-service-host-on-azure-stack-hci-using-powershell"></a>Rychlý Start: nastavení hostitele služby Azure Kubernetes na Azure Stack HCI pomocí prostředí PowerShell
 
 > Platí pro: Azure Stack HCI
 
-V tomto rychlém startu se dozvíte, jak nastavit hostitele služby Azure Kubernetes na Azure Stack HCI pomocí prostředí PowerShell. Pokud chcete místo toho použít Centrum pro správu Windows, přečtěte si téma [nastavení v centru pro správu Windows](setup.md).
+V tomto rychlém startu se dozvíte, jak nastavit hostitele služby Azure Kubernetes na Azure Stack HCI pomocí prostředí PowerShell. Pokud chcete místo toho použít Centrum pro správu systému Windows, přečtěte si téma [nastavení v centru pro správu Windows](setup.md).
 
 ## <a name="before-you-begin"></a>Než začnete
 
-Než začnete, ujistěte se, že máte cluster 2-4 Azure Stack HCI nebo jeden uzel Azure Stack HCI. **Doporučujeme, abyste měli Azure Stack clusteru HCI v uzlu 2-4.** Pokud to neuděláte, postupujte podle pokynů uvedených [tady](./system-requirements.md).
+Než začnete, ujistěte se, že máte cluster 2-4 Azure Stack HCI nebo jeden uzel Azure Stack HCI. **Doporučujeme, abyste měli Azure Stack clusteru HCI v uzlu 2-4.** Pokud to neuděláte, postupujte podle pokynů na [stránce registrace rozhraní HCI Azure Stack](https://azure.microsoft.com/products/azure-stack/hci/hci-download/).
 
-Budete taky muset zajistit, aby byl nainstalovaný modul AksHci PowerShellu. Stažený balíček, který najdete [tady](https://aka.ms/AKS-HCI-Evaluate) , bude obsahovat modul v souboru ZIP. Přesvědčte se, zda je soubor zip extrahován ve správném umístění ( `%systemdrive%\program files\windowspowershell\modules` ), a poté spusťte následující příkaz v okně pro správu prostředí PowerShell.
+## <a name="step-1-download-and-install-the-akshci-powershell-module"></a>Krok 1: stažení a instalace modulu AksHci PowerShellu
+
+Stáhněte si `AKS-HCI-Public=Preview-Oct-2020` ze [služby Azure Kubernetes na stránce registrace HCL Azure Stack](https://aka.ms/AKS-HCI-Evaluate). Soubor zip `AksHci.Powershell.zip` obsahuje modul PowerShellu.
+
+Pokud jste dříve nainstalovali službu Azure Kubernetes Service na Azure Stack HCL pomocí prostředí PowerShell nebo centra pro správu Windows, před pokračováním spusťte následující příkaz.
+
+   ```powershell
+   Uninstall-AksHci
+   ```
+
+**Zavřete všechna okna PowerShellu.** Odstraňte všechny existující adresáře pro AksHci, AksHci. Day2 a MSK8sDownloadAgent, které se nacházejí v cestě `%systemdrive%\program files\windowspowershell\modules` . Až to uděláte, můžete extrahovat obsah nového souboru ZIP. Přesvědčte se, zda je soubor zip extrahován ve správném umístění ( `%systemdrive%\program files\windowspowershell\modules` ).
 
    ```powershell
    Import-Module AksHci
@@ -30,9 +40,9 @@ Budete taky muset zajistit, aby byl nainstalovaný modul AksHci PowerShellu. Sta
 
 Po spuštění výše uvedeného příkazu zavřete všechna okna prostředí PowerShell a znovu otevřete relaci pro správu a spusťte příkazy v následujících krocích.
 
-## <a name="step-1-prepare-your-machines-for-deployment"></a>Krok 1: Příprava počítačů na nasazení
+## <a name="step-2-prepare-your-machines-for-deployment"></a>Krok 2: Příprava počítačů na nasazení
 
-Nejdřív spustíte kontroly na každém fyzickém uzlu, abyste zjistili, jestli jsou splněné všechny požadavky k instalaci služby Azure Kubernetes Service na Azure Stack HCI.
+Spuštěním kontrol na každém fyzickém uzlu zjistíte, jestli jsou splněné všechny požadavky, aby se nainstalovala služba Azure Kubernetes na Azure Stack HCL.
 
 Otevřete PowerShell jako správce a spusťte následující příkaz.
 
@@ -42,7 +52,7 @@ Otevřete PowerShell jako správce a spusťte následující příkaz.
 
 Po dokončení kontrol se zobrazí text "Hotovo" zobrazený zeleným textem.
 
-## <a name="step-2-configure-your-deployment"></a>Krok 2: konfigurace nasazení
+## <a name="step-3-configure-your-deployment"></a>Krok 3: konfigurace nasazení
 
 Nastavte nastavení konfigurace pro hostitele služby Azure Kubernetes. **V případě clusteru 2-4 Azure Stack HCL musíte zadat `MultiNode` v `-deploymentType` `wssdImageDir` `cloudConfigLocation` parametrech a.** V případě clusteru s 1 uzly Azure Stack HCL jsou všechny parametry volitelné a nastavené na výchozí hodnoty. Pro zajištění optimálního výkonu však doporučujeme **použít Azure Stack nasazení clusteru HCI v uzlu 2-4.**
 
@@ -61,6 +71,8 @@ Nakonfigurujte nasazení pomocí následujícího příkazu.
                     [-vipPoolEndIp]
                     [-macPoolStart]
                     [-macPoolEnd]
+                    [-vlanID]
+                    [-cloudServiceCidr]
                     [-wssdDir]
                     [-akshciVersion]
                     [-vnetType]
@@ -124,6 +136,14 @@ Tato možnost slouží k určení začátku adresy MAC pro fond adres MAC, kter�
 
 Tato možnost slouží k určení konce adresy MAC pro fond adres MAC, který chcete použít pro virtuální počítač hostitele služby Azure Kubernetes. Syntaxe adresy MAC vyžaduje, aby nejméně významný bit prvního bajtu měl vždy hodnotu 0 a první bajt by měl být vždy sudým číslem (tj. 00, 02, 04, 06...). První bajt předané adresy jako `-macPoolEnd` by měl být stejný jako první bajt adresy předané jako `-macPoolStart` . Výchozí hodnota je none.
 
+`-vlandID`
+
+Dá se použít k zadání ID sítě VLAN. Síťové adaptéry hostitele služby Azure Kubernetes a síťové adaptéry Kubernetes clusteru se označí pomocí zadaného ID sítě VLAN. Výchozí hodnota je none.
+
+`cloudServiceCidr`
+
+Dá se použít k zadání předpony statické IP adresy nebo sítě, která se má přiřadit ke službě Course CloudAgent. Tato hodnota by měla být poskytnuta pomocí formátu CIDR. (Příklad: 192.168.1.2/16). Výchozí hodnota je none.
+
 `-wssdDir`
 
 Toto je pracovní adresář, který modul používá k ukládání malých souborů. `%PROGRAMFILES%\AksHci`   U většiny nasazení je výchozí hodnota a neměla by se měnit.  
@@ -162,7 +182,7 @@ Tento příznak použijte, pokud chcete přeskočit všechny dostupné aktualiza
 
 `-forceDnsReplication`
 
-Replikace DNS může v některých systémech trvat až hodinu. Tím dojde k pomalému nasazení. Pokud se tento problém opakuje, uvidíte, že Install-AksHci se zablokuje ve smyčce. Pokud chcete tento problém obdržet, zkuste použít tento příznak. `-forceDnsReplication`Příznak není zaručená oprava. Pokud logika za příznakem selže, bude chyba skrytá a příkaz bude proveden, jako by nebyl poskytnut příznak.
+Replikace DNS může v některých systémech trvat až hodinu. Tím dojde k pomalému nasazení. Pokud dojde k tomuto problému, uvidíte, že Install-AksHci zablokování ve smyčce. Pokud chcete tento problém obdržet, zkuste použít tento příznak. `-forceDnsReplication`Příznak není zaručená oprava. Pokud logika za příznakem selže, bude chyba skrytá a příkaz bude proveden, jako by nebyl poskytnut příznak.
 
 ### <a name="reset-the-azure-kubernetes-service-on-azure-stack-hci-configuration"></a>Resetování služby Azure Kubernetes v Azure Stack konfiguraci rozhraní HCI
 
@@ -172,7 +192,7 @@ Pokud chcete resetovat službu Azure Kubernetes na Azure Stack konfiguraci HCI, 
 Set-AksHciConfig
 ```
 
-## <a name="step-3-start-a-new-deployment"></a>Krok 3: spuštění nového nasazení
+## <a name="step-4-start-a-new-deployment"></a>Krok 4: zahájení nového nasazení
 
 Po dokončení konfigurace nasazení musíte spustit nasazení. Tím se nainstaluje služba Azure Kubernetes na Azure Stack agenti a služby HCI a hostitele služby Azure Kubernetes.
 
@@ -182,21 +202,34 @@ Nasazení zahájíte spuštěním následujícího příkazu.
 Install-AksHci
 ```
 
-### <a name="check-your-deployed-clusters"></a>Kontrolovat nasazené clustery
+### <a name="verify-your-deployed-azure-kubernetes-service-host"></a>Ověření nasazeného hostitele služby Azure Kubernetes
 
-Pokud chcete získat seznam nasazených hostitelů služby Azure Kubernetes, spusťte následující příkaz. Po nasazení budete moci získat clustery s Kubernetes pomocí stejného příkazu.
+Pokud chcete zajistit, aby byl nasazený hostitel služby Azure Kubernetes, spusťte následující příkaz. Po nasazení budete moci získat clustery s Kubernetes pomocí stejného příkazu.
 
 ```powershell
 Get-AksHciCluster
 ```
 
-## <a name="step-4-access-your-clusters-using-kubectl"></a>Krok 4: přístup ke clusterům pomocí kubectl
+## <a name="step-5-access-your-clusters-using-kubectl"></a>Krok 5: přístup ke svým clusterům pomocí kubectl
 
 Pokud chcete získat přístup k hostiteli služby Azure Kubernetes nebo ke clusteru Kubernetes pomocí kubectl, spusťte následující příkaz. Tato akce použije zadaný soubor kubeconfig clusteru jako výchozí soubor kubeconfig pro kubectl.
 
 ```powershell
-Set-AksHciKubeConfig -clusterName
+Get-AksHciCredential -clusterName
+                     [-outputLocation]
 ```
+
+### <a name="required-parameters"></a>Povinné parametry
+
+`clusterName`
+
+Název clusteru.
+
+### <a name="optional-parameters"></a>Volitelné parametry
+
+`outputLocation`
+
+Umístění chcete stáhnout kubeconfig. Výchozí je `%USERPROFILE%\.kube`.
 
 ## <a name="get-logs"></a>Získání protokolů
 

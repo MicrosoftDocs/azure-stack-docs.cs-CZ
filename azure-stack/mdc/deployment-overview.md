@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2020
+ms.date: 10/20/2020
 ms.author: justinha
 ms.reviewer: asganesh
-ms.lastreviewed: 04/09/2020
-ms.openlocfilehash: 1daee460239e178641c4c0b073d2d24a0e63053c
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.lastreviewed: 10/20/2020
+ms.openlocfilehash: 60361a3e44b5ad54c63e6a94223d75a7b5106b9e
+ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92183033"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92253923"
 ---
 # <a name="mdc-deployment-overview"></a>Přehled nasazení MDC
 
@@ -33,8 +33,6 @@ Mezi cíle tohoto průvodce patří:
 - Zaveďte klíčové součásti MDC.
 - Popište, jak nainstalovat a nakonfigurovat klíčové komponenty.
 - Ověřte nasazení zákazníka.
-
-Tato příručka pro nasazení je určená pro tým Microsoft Field Professional, který zodpovídá za nasazení MDC na webu zákazníka.
 
 K úplnému pochopení obsahu tohoto průvodce se vyžaduje technické prostředí s virtualizací, servery, operačními systémy, sítěmi a řešeními úložiště. Inženýr nasazení musí mít znalosti Microsoft Windows serveru 2019 s Hyper-V, Azure Stack hub, Azure a Microsoft PowerShellem.
 
@@ -50,7 +48,7 @@ Každé z nich se skládá ze dvou 42U stojanů. Objekt pod zahrnuje přepínač
 
 V následující tabulce jsou uvedeny některé z podmínek, které jsou použity v této příručce.
 
-|Označení    |Definice |
+|Pojem    |Definice |
 |-------|-----------|
 |Hostitel životního cyklu hardwaru (HLH)|    HLH je fyzický server, který se používá k počátečnímu zavádění nasazení, a také průběžnou správu hardwaru, podporu a zálohování infrastruktury Azure Stack hub. HLH spouští Windows Server 2019 s desktopovým prostředím a rolí Hyper-V. Server slouží k hostování nástrojů pro správu hardwaru, nástrojů pro správu přepínačů, Azure Stack nástrojů centra partnerů a virtuálního počítače pro nasazení. |
 |Virtuální počítač pro nasazení (DVM)|    DVM je virtuální počítač, který se vytvoří v HLH po dobu trvání nasazení softwaru Azure Stack hub. DVM spouští modul orchestrace softwaru Azure Stack hub s názvem Enterprise Cloud Engine (EHK) pro instalaci a konfiguraci Azure Stack infrastruktury centra prostředků infrastruktury na všech serverech centra Azure Stack škály, které jsou v síti.|

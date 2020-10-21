@@ -6,19 +6,60 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/13/2020
-ms.openlocfilehash: 2432a7fb28ba65f08b0540113ec5d3f90f742509
-ms.sourcegitcommit: 64060ff02d2450c6cf91cb21cdefdcf6b720a75f
+ms.date: 10/20/2020
+ms.openlocfilehash: 6d480f1229fb0c38cb3241c4a9de5bc53eadf87c
+ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92009838"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92254008"
 ---
 # <a name="release-notes-for-azure-stack-hci-public-preview"></a>Poznámky k verzi pro Azure Stack HCI Public Preview
 
 > Platí pro: Azure Stack HCI, verze 20H2
 
 Tento článek popisuje obsah rozhraní Azure Stack HCI Public Preview aktualizace balíčků.
+
+## <a name="october-20-2020-preview-update-kb4580388"></a>20. října 2020, aktualizace Preview (KB4580388)
+
+Tato aktualizace zahrnuje vylepšení a opravy pro nejnovější verzi Azure Stack HCI.
+
+### <a name="improvements-and-fixes"></a>Vylepšení a opravy
+Tato nezabezpečená aktualizace zahrnuje vylepšení kvality. Mezi klíčové změny patří:
+
+- V této aktualizaci Azure Stack zákazníci se systémem HCI, kteří uchovávají platné licence na Windows Server 2019 Datacenter Edition, je můžou používat k pohodlné aktivaci virtuálních počítačů hostovaných na Azure Stack HCI, aniž by museli spravovat kódy Product Key pro každý virtuální počítač.
+
+### <a name="known-issues-in-this-update"></a>Známé problémy v této aktualizaci
+
+Společnost Microsoft si je vědoma jednoho problému s touto aktualizací.
+
+#### <a name="symptom"></a>Příznak
+Při použití Migrace za provozu k přesunu virtuálního počítače mezi systémy Windows Server a Azure Stack HCL se může zobrazit chyba "blokovaná operace migrace pro virtuální počítač, <vmname> protože migrace virtuálních počítačů mezi různými edicemi Windows není podporovaná (ID virtuálního počítače)."
+
+Případně to může také způsobit selhání operace aktualizace pro clustery (CAU), pokud se očekává, že se některé z virtuálních počítačů Migrace za provozu během aktualizace pro clustery.
+
+#### <a name="workaround"></a>Alternativní řešení
+
+Místo Migrace za provozu použijte rychlou migraci. Pokud používáte funkci CAU, změňte výchozí chování dočasně tak, aby funkce CAU používala rychlou migraci.
+
+Příklad:
+
+```powershell
+Get-ClusterResourceType "Virtual Machine" | Set-ClusterParameter MoveTypeThreshold 3001
+```
+
+`MoveTypeThreshold`Po úspěšném dokončení aktualizace pro clustery se doporučuje vrátit zpět na předchozí hodnotu.
+
+Další informace najdete v tématu [Konfigurace způsobu přesunutí virtuálních počítačů při vyprázdnění uzlu](https://techcommunity.microsoft.com/t5/failover-clustering/configuring-how-vms-are-moved-when-a-node-is-drained/ba-p/371848).
+
+### <a name="how-to-get-this-update"></a>Jak získat tuto aktualizaci
+20. října 2020 aktualizace zabezpečení (KB4580388) pro [Azure Stack HCI Preview](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) je poskytována prostřednictvím web Windows Update. Pokud ho chcete nainstalovat do clusteru Azure Stack HCI, přečtěte si téma [aktualizace Azure Stackch clusterů HCI](manage/update-cluster.md).
+
+### <a name="file-information"></a>Informace o souboru
+Seznam souborů, které jsou k dispozici v této aktualizaci (OS Build 17784,1321), si můžete stáhnout z [informací o souboru kumulativní aktualizace 4580388](https://download.microsoft.com/download/2/f/b/2fb766d3-c4c8-4279-8718-8efbd0b6f211/4580388.csv).
+
+   > [!NOTE]
+   > Některé soubory mají ve sloupci "verze souboru CSV" hodnotu "nelze použít". To může vést k falešně pozitivním nebo falešně negativním hodnotám při použití nástrojů pro detekci kontroly třetích stran k ověření sestavení.
 
 ## <a name="october-13-2020-security-update-kb4580363"></a>13. října 2020 aktualizace zabezpečení (KB4580363)
 

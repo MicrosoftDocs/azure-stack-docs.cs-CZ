@@ -5,12 +5,12 @@ author: jessicaguan
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: jeguan
-ms.openlocfilehash: 35d527b56a2429676d343ba8098fc6821835fb00
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: b9287add391d2a3132b3ef0baadf5668b1ea057e
+ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948880"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92253974"
 ---
 # <a name="quickstart-create-kubernetes-clusters-on-azure-stack-hci-using-windows-powershell"></a>Rychlý Start: vytvoření clusterů Kubernetes ve Azure Stack HCI pomocí prostředí Windows PowerShell
 
@@ -130,11 +130,24 @@ Pokud chcete použít uzly Windows, minimální požadovaná verze je v 1.1.8.6.
 
 ## <a name="step-4-access-your-clusters-using-kubectl"></a>Krok 4: přístup ke clusterům pomocí kubectl
 
-Pokud chcete získat přístup k hostiteli služby Azure Kubernetes nebo ke clusteru Kubernetes pomocí kubectl, spusťte následující příkaz. Tato akce použije zadaný soubor kubeconfig clusteru jako výchozí soubor kubeconfig pro kubectl.
+Pokud chcete získat přístup ke clusterům Kubernetes pomocí kubectl, spusťte následující příkaz. Tato akce použije zadaný soubor kubeconfig clusteru jako výchozí soubor kubeconfig pro kubectl.
 
 ```powershell
-Set-AksHciKubeConfig -clusterName
+Get-AksHciCredential -clusterName
+                     [-outputLocation]
 ```
+
+### <a name="required-parameters"></a>Povinné parametry
+
+`clusterName`
+
+Název clusteru.
+
+### <a name="optional-parameters"></a>Volitelné parametry
+
+`outputLocation`
+
+Umístění chcete stáhnout kubeconfig. Výchozí je `%USERPROFILE%\.kube`.
 
 ## <a name="delete-a-kubernetes-cluster"></a>Odstranění clusteru Kubernetes
 

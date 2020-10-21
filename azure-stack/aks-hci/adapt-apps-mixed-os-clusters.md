@@ -3,15 +3,15 @@ title: Přizpůsobení aplikací pro použití v clusterech Kubernetes se smíš
 description: Jak používat selektory uzlů nebo chuti a funkce pro službu Azure Kubernetes, abyste zajistili, že se aplikace v kombinovaných clusterech Kubernetes s operačním systémem běžícím na Azure Stack HCI naplánovaly na správném operačním systému pracovního uzlu
 author: abha
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 10/20/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: e70ac456929b5c8402e49c969ca8b9c87a703311
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 04b103fee921cf8bdab82a4004c6c80afd54d687
+ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948942"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92253940"
 ---
 # <a name="adapt-apps-for-mixed-os-kubernetes-clusters-using-node-selectors-or-taints-and-tolerations"></a>Přizpůsobení aplikací pro clustery Kubernetes se smíšenými operačními systémy pomocí selektorů uzlů nebo příchuti a tolerovánosti
 
@@ -41,7 +41,7 @@ Další informace o nodeSelectors najdete v [selektorech uzlů](https://kubernet
 Uzly operačního systému Windows ve službě Azure Kubernetes v Azure Stack HCI se můžou nacházet s následující dvojicí klíč-hodnota. Uživatelé by neměli používat jiný uživatel.
 
 ```yaml
-node.kubernetes.io/os=Windowss:NoSchedule
+node.kubernetes.io/os=Windows:NoSchedule
 ```
 Spusťte `kubectl get` a Identifikujte pracovní uzly systému Windows, které chcete použít pro obchuti.
 

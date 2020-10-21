@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 6b081f5285daf5f6963c7626a62993f9ea8587c4
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 750e35c81a386687f80445011b9841196f86f6b6
+ms.sourcegitcommit: 81e2d627c9dc4cc365deb4a0e0674b5ab3a7efbf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572200"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92297872"
 ---
 # <a name="prerequisites-for-installing-event-hubs-on-azure-stack-hub"></a>Předpoklady pro instalaci Event Hubs v centru Azure Stack
 
@@ -25,11 +25,11 @@ Aby bylo možné nainstalovat Event Hubs do centra Azure Stack, je nutné prové
 > Tyto požadavky předpokládají, že jste už nasadili aspoň Azure Stack integrovaný systém centra pro 4 uzly. Event Hubs poskytovatel prostředků není podporován na Azure Stack Development Kit (ASDK).
 
 > [!IMPORTANT]
-> Event Hubs vyžaduje verzi buildu centra Azure Stack 2002 nebo vyšší. Všimněte si, že Azure Stack sestavení centra jsou přírůstková. Například pokud máte nainstalovanou [verzi 1910](./release-notes.md?view=azs-1910#1910-build-reference) , musíte nejdřív upgradovat na [2002](./release-notes.md?view=azs-2002#2002-build-reference)a pak na 2005. To znamená, že nemůžete přeskočit sestavení mezi.
+> Event Hubs vyžaduje verzi buildu centra Azure Stack 2002 nebo vyšší. Všimněte si, že Azure Stack sestavení centra jsou přírůstková. Například pokud máte nainstalovanou [verzi 1910](./release-notes.md?view=azs-1910&preserve-view=true#1910-build-reference) , musíte nejdřív upgradovat na [2002](./release-notes.md?view=azs-2002&preserve-view=true#2002-build-reference)a pak na 2005. To znamená, že nemůžete přeskočit sestavení mezi.
 
 ## <a name="common-prerequisites"></a>Společné požadavky
 
-[!INCLUDE [Common RP prerequisites](../includes/marketplace-resource-provider-prerequisites.md)]
+[!INCLUDE [Common RP prerequisites](../includes/resource-provider-prerequisites.md)]
 
 ## <a name="event-hubs-prerequisites"></a>Event Hubs předpoklady
 

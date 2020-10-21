@@ -5,12 +5,12 @@ author: davannaw-msft
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: dawhite
-ms.openlocfilehash: 2f442928c01c59bc85eb672153b2f5b21a653ef1
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 2ac65146c78c2ed1aaf9b98ee50392a13be050c4
+ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899716"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92253991"
 ---
 # <a name="quickstart-set-up-azure-kubernetes-service-on-azure-stack-hci-using-windows-admin-center"></a>Rychlý Start: nastavení služby Azure Kubernetes v Azure Stack HCI pomocí centra pro správu Windows
 
@@ -20,11 +20,16 @@ V tomto rychlém startu nastavíte službu Azure Kubernetes na Azure Stack HCI p
 
 Nastavení zahrnuje následující úlohy:
 
+* Stažení služby Azure Kubernetes na Azure Stack HCL
 * Nastavte centrum pro správu Windows, pokud jste to ještě neudělali.
 * Instalace služby Azure Kubernetes pro Azure Stack rozšíření HCI pro centrum pro správu Windows
 * Nastavte hostitele služby Azure Kubernetes v systému, do kterého chcete nasadit cluster Kubernetes.
 
 Než začnete, ujistěte se, že jste splnili všechny požadavky na stránce [požadavky na systém](.\system-requirements.md) .
+
+## <a name="download-azure-kubernetes-service-on-azure-stack-hci"></a>Stažení služby Azure Kubernetes na Azure Stack HCL
+
+Pokud jste si ještě nestáhli software verze Preview, přečtěte si téma [vyhodnocení AKS na Azure Stack HCI](https://aka.ms/AKS-HCI-Evaluate). Budete požádáni, abyste si stáhli AKS na Azure Stack HCL i v centru pro správu systému Windows.
 
 ## <a name="setting-up-windows-admin-center"></a>Nastavení centra pro správu Windows
 
