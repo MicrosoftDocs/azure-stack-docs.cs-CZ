@@ -8,12 +8,12 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/13/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: e779ea4166f2e7693b87e1fe7ba4b084ca7451d0
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: d750c52eb60ecea29e4b850dce23e25705cd1383
+ms.sourcegitcommit: 81e2d627c9dc4cc365deb4a0e0674b5ab3a7efbf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573356"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92297901"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>Požadavky na nasazení služby App Service ve službě Azure Stack Hub
 
@@ -27,7 +27,7 @@ V této části jsou uvedeny předpoklady pro nasazení integrovaných systémů
 
 ### <a name="resource-provider-prerequisites"></a>Požadavky poskytovatele prostředků
 
-[!INCLUDE [Common RP prerequisites](../includes/marketplace-resource-provider-prerequisites.md)]
+[!INCLUDE [Common RP prerequisites](../includes/resource-provider-prerequisites.md)]
 
 ### <a name="installer-and-helper-scripts"></a>Instalační a pomocné skripty
 
@@ -271,10 +271,10 @@ K vytvoření certifikátů použijte následující postup:
 
 #### <a name="create-appservicecertsps1-script-parameters"></a>Parametry skriptu Create-AppServiceCerts.ps1
 
-| parametr | Požadované nebo volitelné | Výchozí hodnota | Popis |
+| Parametr | Požadované nebo volitelné | Výchozí hodnota | Popis |
 | --- | --- | --- | --- |
-| pfxPassword | Vyžadováno | Null | Heslo, které pomáhá chránit privátní klíč certifikátu |
-| DomainName | Vyžadováno | Local. azurestack. external | Oblast centra Azure Stack a přípona domény |
+| pfxPassword | Povinné | Null | Heslo, které pomáhá chránit privátní klíč certifikátu |
+| DomainName | Povinné | Local. azurestack. external | Oblast centra Azure Stack a přípona domény |
 
 ### <a name="quickstart-template-for-file-server-for-deployments-of-azure-app-service-on-asdk"></a>Šablona pro rychlý Start pro souborový server pro nasazení Azure App Service v ASDK.
 
@@ -333,10 +333,10 @@ Když spustíte následující příkaz PowerShellu, musíte zadat privilegovan�
 
 #### <a name="get-azurestackrootcertps1-script-parameters"></a>Parametry skriptu Get-AzureStackRootCert.ps1
 
-| parametr | Požadované nebo volitelné | Výchozí hodnota | Popis |
+| Parametr | Požadované nebo volitelné | Výchozí hodnota | Popis |
 | --- | --- | --- | --- |
-| PrivilegedEndpoint | Vyžadováno | AzS-ERCS01 | Privilegovaný koncový bod |
-| CloudAdminCredential | Vyžadováno | AzureStack\CloudAdmin | Přihlašovací údaje účtu domény pro správce cloudu Azure Stack hub |
+| PrivilegedEndpoint | Povinné | AzS-ERCS01 | Privilegovaný koncový bod |
+| CloudAdminCredential | Povinné | AzureStack\CloudAdmin | Přihlašovací údaje účtu domény pro správce cloudu Azure Stack hub |
 
 ## <a name="network-and-identity-configuration"></a>Konfigurace sítě a identity
 
@@ -394,15 +394,15 @@ Pomocí těchto kroků vytvořte instanční objekt v tenantovi služby Azure AD
     Create-AADIdentityApp.ps1
 ```
 
-| parametr | Požadované nebo volitelné | Výchozí hodnota | Popis |
+| Parametr | Požadované nebo volitelné | Výchozí hodnota | Popis |
 | --- | --- | --- | --- |
-| DirectoryTenantName | Vyžadováno | Null | ID tenanta Azure AD. Zadejte GUID nebo řetězec. Příkladem je myazureaaddirectory.onmicrosoft.com. |
-| AdminArmEndpoint | Vyžadováno | Null | Správce Azure Resource Manager koncový bod. Příkladem je adminmanagement. Local. azurestack. external. |
-| TenantARMEndpoint | Vyžadováno | Null | Koncový bod klienta Azure Resource Manager. Příkladem může být Management. Local. azurestack. external. |
-| AzureStackAdminCredential | Vyžadováno | Null | Přihlašovací údaje správce služby Azure AD. |
-| CertificateFilePath | Vyžadováno | Null | **Úplná cesta** k souboru certifikátu aplikace identity vygenerovaného dříve. |
-| CertificatePassword | Vyžadováno | Null | Heslo, které pomáhá chránit privátní klíč certifikátu. |
-| Prostředí | Volitelné | AzureCloud | Název podporovaného cloudového prostředí, ve kterém je dostupná cílová služba Azure Active Directory Graph.  Povolené hodnoty: "AzureCloud", "AzureChinaCloud", "AzureUSGovernment", "AzureGermanCloud".|
+| DirectoryTenantName | Povinné | Null | ID tenanta Azure AD. Zadejte GUID nebo řetězec. Příkladem je myazureaaddirectory.onmicrosoft.com. |
+| AdminArmEndpoint | Povinné | Null | Správce Azure Resource Manager koncový bod. Příkladem je adminmanagement. Local. azurestack. external. |
+| TenantARMEndpoint | Povinné | Null | Koncový bod klienta Azure Resource Manager. Příkladem může být Management. Local. azurestack. external. |
+| AzureStackAdminCredential | Povinné | Null | Přihlašovací údaje správce služby Azure AD. |
+| CertificateFilePath | Povinné | Null | **Úplná cesta** k souboru certifikátu aplikace identity vygenerovaného dříve. |
+| CertificatePassword | Povinné | Null | Heslo, které pomáhá chránit privátní klíč certifikátu. |
+| Prostředí | Nepovinné | AzureCloud | Název podporovaného cloudového prostředí, ve kterém je dostupná cílová služba Azure Active Directory Graph.  Povolené hodnoty: "AzureCloud", "AzureChinaCloud", "AzureUSGovernment", "AzureGermanCloud".|
 ::: zone-end
 
 #### <a name="create-an-adfs-app"></a>Vytvoření aplikace ADFS
@@ -418,13 +418,13 @@ Pomocí těchto kroků vytvořte instanční objekt v tenantovi služby Azure AD
     Create-ADFSIdentityApp.ps1
 ```
 
-| parametr | Požadované nebo volitelné | Výchozí hodnota | Popis |
+| Parametr | Požadované nebo volitelné | Výchozí hodnota | Popis |
 | --- | --- | --- | --- |
-| AdminArmEndpoint | Vyžadováno | Null | Správce Azure Resource Manager koncový bod. Příkladem je adminmanagement. Local. azurestack. external. |
-| PrivilegedEndpoint | Vyžadováno | Null | Privilegovaný koncový bod. Příkladem je AzS-ERCS01. |
-| CloudAdminCredential | Vyžadováno | Null | Přihlašovací údaje účtu domény pro cloudové správce Azure Stack hub Příkladem je Azurestack\CloudAdmin. |
-| CertificateFilePath | Vyžadováno | Null | **Úplná cesta** k souboru PFX pro certifikát aplikace identity |
-| CertificatePassword | Vyžadováno | Null | Heslo, které pomáhá chránit privátní klíč certifikátu. |
+| AdminArmEndpoint | Povinné | Null | Správce Azure Resource Manager koncový bod. Příkladem je adminmanagement. Local. azurestack. external. |
+| PrivilegedEndpoint | Povinné | Null | Privilegovaný koncový bod. Příkladem je AzS-ERCS01. |
+| CloudAdminCredential | Povinné | Null | Přihlašovací údaje účtu domény pro cloudové správce Azure Stack hub Příkladem je Azurestack\CloudAdmin. |
+| CertificateFilePath | Povinné | Null | **Úplná cesta** k souboru PFX pro certifikát aplikace identity |
+| CertificatePassword | Povinné | Null | Heslo, které pomáhá chránit privátní klíč certifikátu. |
 
 <!--Connected/Disconnected-->
 

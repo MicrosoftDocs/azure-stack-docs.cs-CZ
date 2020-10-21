@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 09/24/2020
-ms.openlocfilehash: 621662110b2e842a432183dfb7415f3c8365907b
-ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
+ms.openlocfilehash: 8e5f1a07425224c8e343d4193cee2d721ae1f0b6
+ms.sourcegitcommit: 81e2d627c9dc4cc365deb4a0e0674b5ab3a7efbf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91230491"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92297896"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Připojení Azure Stack HCl k Azure
 
@@ -71,7 +71,7 @@ Pomocí následujícího postupu zaregistrujete Azure Stack clusteru HCI do Azur
    > [!NOTE]
    > 1. Může se zobrazit výzva například "Přejete si, aby PowerShellGet instalovat a importovat zprostředkovatele NuGet?" na kterou byste měli odpovědět ano (Y).
    > 2. Může se vám zobrazit výzva "určitě chcete nainstalovat moduly z" PSGallery "?" na které byste měli odpovědět ano (Y).
-   > 3. Nakonec můžete předpokládat, že instalace celého modulu **AZ** Module by zahrnovala dílčí modul **StackHCI** a ta bude správně dlouhodobá. Pro každou standardní Azure PowerShell konvenci ale dílčí moduly ve verzi Preview nejsou zahrnuté automaticky. místo toho je třeba je explicitně zadat. Proto je třeba explicitně požádat o **AZ. StackHCI** , jak je uvedeno výše.
+   > 3. Nakonec můžete předpokládat, že instalace celého modulu **AZ** Module by zahrnovala dílčí modul **StackHCI** , ale to není případ. Dílčí moduly ve verzi Preview nejsou automaticky zahrnuty na základě standardní Azure PowerShell konvence, takže potřebujete explicitně požádat o **AZ. StackHCI** , jak je uvedeno výše.
 
 4. Proveďte vlastní registraci:
 

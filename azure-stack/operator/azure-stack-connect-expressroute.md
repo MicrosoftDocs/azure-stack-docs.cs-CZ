@@ -3,16 +3,16 @@ title: Připojení centra Azure Stack k Azure pomocí ExpressRoute
 description: Naučte se, jak propojit virtuální sítě v Azure Stack hub k virtuálním sítím v Azure pomocí ExpressRoute.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 10/20/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: 04efed21fad37888c6c0be0a92d9da35af1e1b56
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: f736f95105b12bdb51fe452c2749e6331c390065
+ms.sourcegitcommit: 81e2d627c9dc4cc365deb4a0e0674b5ab3a7efbf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250397"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92297916"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Připojení služby Azure Stack Hub k Azure s využitím Azure ExpressRoute
 
@@ -34,7 +34,7 @@ V tomto článku se předpokládá, že:
 * Máte základní znalosti centra Azure Stack.
 * Máte základní znalosti o sítích.
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 
 Pokud chcete připojit Azure Stack hub a Azure pomocí ExpressRoute, musíte splnit následující požadavky:
 
@@ -580,7 +580,7 @@ New-NetFirewallRule `
 
 1. Najděte virtuální počítač, který jste vytvořili, a vyberte ho.
 
-1. Vyberte **Připojit**.
+1. Vyberte **Connect** (Připojit).
 
 1. Z příkazového řádku Windows nebo PowerShellu se zvýšenými oprávněními zadejte **ipconfig/all**. Poznamenejte si adresu IPv4 vrácenou ve výstupu.
 
@@ -596,8 +596,6 @@ Pokud chcete zjistit, kolik přenosů prochází přes vaše připojení, najdet
 1. Přejděte do skupiny prostředků pro vaši VPN Gateway a vyberte typ objektu **připojení** .
 1. Vyberte připojení **ConnectToAzure** ze seznamu.
 1. V **Connections**části  >  **Přehled**připojení vidíte statistiku pro **data v** nástroji a **data odchozí**. Měly by se zobrazit některé nenulové hodnoty.
-
-   ![Data a odchozí data](media/azure-stack-connect-expressroute/DataInDataOut.png)
 
 ## <a name="next-steps"></a>Další kroky
 
