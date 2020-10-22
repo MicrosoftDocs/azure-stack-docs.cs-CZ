@@ -7,12 +7,12 @@ ms.date: 10/05/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/05/2020
-ms.openlocfilehash: b428c99f7c8b847e575e40af2915a4da60f2312f
-ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
+ms.openlocfilehash: fa3c25ca3ca46d0ce8533694f8135803b20f87a4
+ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91778016"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92354085"
 ---
 # <a name="deploy-a-template-using-the-portal-in-azure-stack-hub"></a>Nasazení šablony pomocí portálu v Azure Stackovém centru
 
@@ -22,17 +22,17 @@ K nasazení Azure Resource Manager šablon do centra Azure Stack můžete použ�
 
 1. Přihlaste se na portál pro uživatele centra Azure Stack. Vyberte **+ vytvořit prostředek**  >  **vlastní**  >  **template Deployment**.
 
-   ![Vytvoření prostředku na portálu Azure Stack hub](media/azure-stack-deploy-template-portal/template-deploy1.png)
+   ![Vytvoření prostředku na portálu Azure Stack hub](media/azure-stack-deploy-template-portal/template-deploy1a.png)
 
 2. Můžete buď vybrat **typ pro spuštění filtru** , a zvolit šablonu pro rychlý Start GitHubu, nebo zvolit **vytvořit vlastní šablonu v editoru**.
 
-   ![Nasazení šablony na portálu centra Azure Stack](media/azure-stack-deploy-template-portal/template-deploy2.png)
+   ![Nasazení šablony na portálu centra Azure Stack](media/azure-stack-deploy-template-portal/template-deploy2a.png)
 
     [**AzureStack – rychlý Start – šablony**](https://github.com/Azure/AzureStack-QuickStart-Templates) vytváří člen komunity centra Azure Stack, nikoli Microsoft. Na každou šablonu vám na základě licenční smlouvy uděluje její vlastník, ne Microsoft. Společnost Microsoft není zodpovědná za tyto šablony a není na obrazovce pro zabezpečení, kompatibilitu nebo výkon. Šablony komunity nejsou podporované v rámci žádné služby nebo programu podpory Microsoftu a jsou dostupné tak, *jak* jsou, bez jakékoli záruky.
 
 3. Pokud jste **v editoru vybrali možnost sestavit vlastní šablonu**, vložte kód šablony JSON do okna Code (kód).
 
-   ![Upravit šablonu na portálu centra Azure Stack](media/azure-stack-deploy-template-portal/template-deploy3.png)
+   ![Upravit šablonu na portálu centra Azure Stack](media/azure-stack-deploy-template-portal/template-deploy3a.png)
 
     - Vyberte **šablonu pro rychlý Start** , která načte šablonu komunity v editoru.
 
@@ -44,15 +44,15 @@ K nasazení Azure Resource Manager šablon do centra Azure Stack můžete použ�
 
 4. Vyberte **předplatné**. Vyberte předplatné, které chcete použít. Vyberte **skupinu prostředků**. Můžete vybrat existující skupinu prostředků nebo vytvořit novou, a pak vybrat **OK**. Pak vyberte **zkontrolovat + vytvořit**.
 
-   ![Upravit parametry na portálu centra Azure Stack](media/azure-stack-deploy-template-portal/template-deploy4.png)
+   ![Upravit parametry na portálu centra Azure Stack](media/azure-stack-deploy-template-portal/template-deploy4a.png)
 
 5. Vyberte **Vytvořit**.
 
-   ![Výběr předplatného na portálu Azure Stack hub](media/azure-stack-deploy-template-portal/template-deploy5.png)
+   ![Výběr předplatného na portálu Azure Stack hub](media/azure-stack-deploy-template-portal/template-deploy5a.png)
 
 6. Nová dlaždice na řídicím panelu sleduje průběh nasazení šablony.
 
-   ![Vybrat skupinu prostředků na portálu Azure Stack hub](media/azure-stack-deploy-template-portal/template-deploy6.png)
+   ![Vybrat skupinu prostředků na portálu Azure Stack hub](media/azure-stack-deploy-template-portal/template-deploy6a.png)
 
    Šablony Azure Resource Manager můžete použít k nasazení a zřízení všech prostředků aplikace v rámci jediné koordinované operace. Šablony můžete také znovu nasadit, abyste provedli změny prostředků ve skupině prostředků. Další informace o používání šablon pomocí centra Azure Stack najdete v tématu [použití šablon Azure Resource Manager v centru Azure Stack](azure-stack-arm-templates.md).
 

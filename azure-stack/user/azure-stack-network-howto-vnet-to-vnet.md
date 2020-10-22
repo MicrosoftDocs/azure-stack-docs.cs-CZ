@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 9d9bf332c71bbafd78a235cf0257283738e5a304
-ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
+ms.openlocfilehash: d4589e4ed9bc7850ce095456a27d3a9a642a1664
+ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91815508"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92354512"
 ---
 # <a name="vnet-peering-with-fortigate"></a>VNET peering s FortiGate
 
@@ -77,13 +77,13 @@ Následující tabulka shrnuje parametry, které se v těchto nasazeních použ�
 
 2.  Vyberte **vytvořit prostředek** a vyhledejte `FortiGate` .
 
-    ![Seznam výsledků hledání ukazuje nasazení FortiGate NGFW-Single VM.](./media/azure-stack-network-howto-vnet-to-onprem/image6.png)
+    ![Seznam výsledků hledání ukazuje nasazení FortiGate NGFW-Single VM.](./media/azure-stack-network-howto-vnet-to-onprem/image6a.png)
 
 3.  Vyberte **FORTIGATE NGFW** a vyberte **vytvořit**.
 
 4.  Dokončete **základy** pomocí parametrů z tabulky [parametrů nasazení](#deployment-parameters) .
 
-    ![Obrazovka základy má hodnoty z vybraných parametrů nasazení a zadané v seznamu a v textových polích.](./media/azure-stack-network-howto-vnet-to-onprem/image7.png)
+    ![Obrazovka základy má hodnoty z vybraných parametrů nasazení a zadané v seznamu a v textových polích.](./media/azure-stack-network-howto-vnet-to-onprem/image7a.png)
 
 5.  Vyberte **OK**.
 
@@ -96,7 +96,7 @@ Následující tabulka shrnuje parametry, které se v těchto nasazeních použ�
 
 8.  Nakonfigurujte veřejnou IP adresu pro Fortigate síťové virtuální zařízení:
 
-    ![V dialogovém okně přiřazení IP adres se zobrazuje hodnota forti1-publicip1 pro "název veřejné IP adresy" a "static" pro "typ veřejné IP adresy".](./media/azure-stack-network-howto-vnet-to-onprem/image8.png)
+    ![V dialogovém okně přiřazení IP adres se zobrazuje hodnota forti1-publicip1 pro "název veřejné IP adresy" a "static" pro "typ veřejné IP adresy".](./media/azure-stack-network-howto-vnet-to-onprem/image8a.png)
 
 9.  Vyberte **OK**. A pak vyberte **OK**.
 
@@ -112,17 +112,17 @@ Proveďte tyto kroky pro obě nasazení, forti1-RG1 a forti2-RG1.
 
 1. Vyberte skupiny prostředků. Zadejte `forti1-rg1` Filtr a dvakrát klikněte na skupinu prostředků forti1-RG1.
 
-    ! [Pro skupinu prostředků forti1-RG1 se zobrazí deset prostředků.]] (./Media/Azure-Stack-Network-HOWTO-VNet-to-OnPrem/image9.png)
+    ![Pro skupinu prostředků forti1-RG1 se zobrazí deset prostředků.](./media/azure-stack-network-howto-vnet-to-onprem/image9a.png)
 
 1. Vyberte prostředek **forti1-forti1-InsideSubnet-Routes-xxxx** .
 
 1. V části **Nastavení**vyberte **trasy** .
 
-    ![Tlačítko trasy je vybráno v dialogovém okně nastavení.](./media/azure-stack-network-howto-vnet-to-onprem/image10.png)
+    ![Tlačítko trasy je vybráno v dialogovém okně nastavení.](./media/azure-stack-network-howto-vnet-to-onprem/image10a.png)
 
 1. Odstraňte trasu **k Internetu** .
 
-    ![Směrování na Internet je jediná trasa uvedená v seznamu a je vybrána. Tlačítko Odstranit je k dispozici.](./media/azure-stack-network-howto-vnet-to-onprem/image11.png)
+    ![Směrování na Internet je jediná trasa uvedená v seznamu a je vybrána. Tlačítko Odstranit je k dispozici.](./media/azure-stack-network-howto-vnet-to-onprem/image11a.png)
 
 1. Vyberte *Ano*.
 
@@ -134,7 +134,7 @@ Proveďte tyto kroky pro obě nasazení, forti1-RG1 a forti2-RG1.
 
 1. Vyberte **virtuální zařízení** pro **typ dalšího segmentu směrování** a `172.16.1.4` . Rozsah IP adres použijte v případě, že používáte jiný rozsah IP adres.
 
-    ![V dialogovém okně Přidat trasu se zobrazí čtyři hodnoty, které byly vybrány a zadány do textových polí.](./media/azure-stack-network-howto-vnet-to-onprem/image12.png)
+    ![V dialogovém okně Přidat trasu se zobrazí čtyři hodnoty, které byly vybrány a zadány do textových polí.](./media/azure-stack-network-howto-vnet-to-onprem/image12a.png)
 
 1. Vyberte **Uložit**.
 
@@ -150,19 +150,19 @@ Následující kroky proveďte jak pro forti1 síťové virtuální zařízení,
 
 1. Přiřazenou veřejnou IP adresu získáte tak, že přejdete na stránku Přehled virtuálního počítače fortiX:
 
-    ![Na stránce s přehledem virtuálního počítače forti1 se zobrazují hodnoty pro forti1, jako je například skupina prostředků a stav.](./media/azure-stack-network-howto-vnet-to-vnet/image13.png)
+    ![Na stránce s přehledem virtuálního počítače forti1 se zobrazují hodnoty pro forti1, jako je například skupina prostředků a stav.](./media/azure-stack-network-howto-vnet-to-vnet/image13a.png)
 
 1. Zkopírujte přiřazenou IP adresu, otevřete prohlížeč a vložte adresu do adresního řádku. Prohlížeč vás může zobrazit upozornění, že certifikát zabezpečení není důvěryhodný. Pokračujte i nadále.
 
 1. Zadejte uživatelské jméno a heslo správce FortiGate, které jste zadali během nasazování.
 
-    ![Přihlašovací dialogové okno obsahuje textová pole uživatel a heslo a tlačítko pro přihlášení.](./media/azure-stack-network-howto-vnet-to-vnet/image14.png)
+    ![Přihlašovací dialogové okno obsahuje textová pole uživatel a heslo a tlačítko pro přihlášení.](./media/azure-stack-network-howto-vnet-to-vnet/image14a.png)
 
 1. Vyberte **systémové**  >  **firmware**.
 
 1. Zaškrtněte políčko, které zobrazuje nejnovější firmware, například `FortiOS v6.2.0 build0866` .
 
-    ![V dialogovém okně firmware je identifikátor firmwaru "FortiOS v 6.2.0 build0866", odkaz na poznámky k verzi a dvě tlačítka: "Konfigurace zálohování a upgrade" a upgrade.](./media/azure-stack-network-howto-vnet-to-vnet/image15.png)
+    ![V dialogovém okně firmware je identifikátor firmwaru "FortiOS v 6.2.0 build0866", odkaz na poznámky k verzi a dvě tlačítka: "Konfigurace zálohování a upgrade" a upgrade.](./media/azure-stack-network-howto-vnet-to-vnet/image15a.png)
 
 1. Vyberte možnost **Konfigurace zálohování a**  >  **pokračovat**v upgradu.
 
@@ -174,7 +174,7 @@ Následující kroky proveďte jak pro forti1 síťové virtuální zařízení,
 
 1. Vyberte **Tento web je za překladem adres (NAT)**.
 
-    ![Snímek obrazovky Průvodce vytvořením sítě VPN zobrazuje v prvním kroku nastavení sítě VPN. Jsou vybrány následující hodnoty: "Site to Site" pro typ šablony, "FortiGate" pro typ vzdáleného zařízení a "Tato lokalita je za překladem adres (NAT)" pro konfiguraci překladu adres (NAT).](./media/azure-stack-network-howto-vnet-to-vnet/image16.png)
+    ![Snímek obrazovky Průvodce vytvořením sítě VPN zobrazuje v prvním kroku nastavení sítě VPN. Jsou vybrány následující hodnoty: "Site to Site" pro typ šablony, "FortiGate" pro typ vzdáleného zařízení a "Tato lokalita je za překladem adres (NAT)" pro konfiguraci překladu adres (NAT).](./media/azure-stack-network-howto-vnet-to-vnet/image16a.png)
 
 1. Vyberte **Další**.
 
@@ -187,7 +187,7 @@ Následující kroky proveďte jak pro forti1 síťové virtuální zařízení,
     > [!NOTE]  
     > Tento klíč budete potřebovat k nastavení připojení na místním zařízení VPN, to znamená, že se musí *přesně*shodovat.
 
-    ![Snímek obrazovky Průvodce vytvořením sítě VPN se zobrazí v druhém kroku, ověřování a vybrané hodnoty budou zvýrazněny.](./media/azure-stack-network-howto-vnet-to-vnet/image17.png)
+    ![Snímek obrazovky Průvodce vytvořením sítě VPN se zobrazí v druhém kroku, ověřování a vybrané hodnoty budou zvýrazněny.](./media/azure-stack-network-howto-vnet-to-vnet/image17a.png)
 
 1. Vyberte **Další**.
 
@@ -205,13 +205,13 @@ Následující kroky proveďte jak pro forti1 síťové virtuální zařízení,
 
     Rozsah IP adres použijte v případě, že používáte jiný rozsah IP adres.
 
-    ![Snímek obrazovky Průvodce vytvořením sítě VPN se zobrazí v třetím kroku, zásady & směrování. Zobrazuje vybrané a zadané hodnoty.](./media/azure-stack-network-howto-vnet-to-vnet/image18.png)
+    ![Snímek obrazovky Průvodce vytvořením sítě VPN se zobrazí v třetím kroku, zásady & směrování. Zobrazuje vybrané a zadané hodnoty.](./media/azure-stack-network-howto-vnet-to-vnet/image18a.png)
 
 1. Vyberte **Vytvořit**.
 
 1. Vyberte **Síťová**  >  **rozhraní**.
 
-    ![Seznam rozhraní zobrazuje dvě rozhraní: PORT1, která byla nakonfigurována a Port2, což ještě není. K dispozici jsou tlačítka pro vytváření, úpravy a odstraňování rozhraní.](./media/azure-stack-network-howto-vnet-to-vnet/image19.png)
+    ![Seznam rozhraní zobrazuje dvě rozhraní: PORT1, která byla nakonfigurována a Port2, což ještě není. K dispozici jsou tlačítka pro vytváření, úpravy a odstraňování rozhraní.](./media/azure-stack-network-howto-vnet-to-vnet/image19a.png)
 
 1. Dvakrát klikněte na **PORT2**.
 
@@ -227,11 +227,11 @@ Po výše uvedeném případě se u *obou* síťová virtuální zařízení dok
 
 1.  Na webové konzole forti2 Fortigate vyberte možnost **monitorování**  >  **protokolu IPSec**. 
 
-    ![Zobrazí se monitorování pro conn1 připojení VPN. Zobrazuje se jako nefunkční, stejně jako odpovídající selektor fáze 2.](./media/azure-stack-network-howto-vnet-to-vnet/image20.png)
+    ![Zobrazí se monitorování pro conn1 připojení VPN. Zobrazuje se jako nefunkční, stejně jako odpovídající selektor fáze 2.](./media/azure-stack-network-howto-vnet-to-vnet/image20a.png)
 
 2.  Zvýrazněte `conn1` a vyberte **Bring Up**  >  **možnost zahrnout všechny selektory fáze 2**.
 
-    ![Sestavování monitorování a fáze 2 se zobrazuje současně.](./media/azure-stack-network-howto-vnet-to-vnet/image21.png)
+    ![Sestavování monitorování a fáze 2 se zobrazuje současně.](./media/azure-stack-network-howto-vnet-to-vnet/image21a.png)
 
 ## <a name="test-and-validate-connectivity"></a>Testování a ověření připojení
 

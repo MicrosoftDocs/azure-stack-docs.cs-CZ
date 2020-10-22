@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 90467f57cdae2b12038c8f237fcbe5e41fb1c039
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 2a3eb313122f5f8798129592f35656bdad443f02
+ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574053"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92353832"
 ---
 # <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>Nasazení virtuálního počítače se systémem Linux pro hostování webové aplikace v centru Azure Stack
 
@@ -33,7 +33,7 @@ V tomto procesu vytvoříte tajný klíč, použijete základní bitovou kopii v
 
 Než začnete, ujistěte se, že máte všechno, co potřebujete.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 - Předplatné centra Azure Stack s přístupem k imagi LTS serveru Ubuntu 16,04. Můžete použít novější verzi image, ale tyto pokyny se zapisují s 16,04 LTS. Pokud tuto image nemáte, obraťte se na svého operátora cloudu, abyste získali image do tržiště centra Azure Stack.
 
@@ -46,7 +46,7 @@ Pokud chcete nasadit virtuální počítač, postupujte podle pokynů v následu
 1. Vytvořte veřejný klíč Secure Shell (SSH) pro váš server. Další informace najdete v tématu [Jak používat veřejný klíč SSH](azure-stack-dev-start-howto-ssh-public-key.md).
 1. Na portálu centra Azure Stack vyberte **vytvořit prostředek**  >  **COMPUTE**  >  **Ubuntu Server 16,04 LTS**.
 
-    ![Nasazení webové aplikace do virtuálního počítače centra Azure Stack](media/azure-stack-dev-start-howto-deploy-linux/001-portal-compute.png)
+    ![Nasazení webové aplikace do virtuálního počítače centra Azure Stack](media/azure-stack-dev-start-howto-deploy-linux/001-portal-computea.png)
 
 4. V podokně **vytvořit virtuální počítač** pro **1. Konfigurovat základní nastavení**:
 
