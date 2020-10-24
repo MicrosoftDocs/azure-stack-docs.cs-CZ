@@ -7,12 +7,12 @@ ms.date: 09/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: cfa531c42ebcc191461d4a801d0c17ce9526b912
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.openlocfilehash: 16ffbd474886d477f37b7e2d39695e896984eb30
+ms.sourcegitcommit: 74b3e14abfa33c8136eccdd4677868eb622c843e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89473142"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92523537"
 ---
 # <a name="scale-a-kubernetes-cluster-on-azure-stack-hub"></a>Škálování clusteru Kubernetes na rozbočovači Azure Stack
 
@@ -26,7 +26,7 @@ Pomocí příkazu **Scale** můžete škálovat cluster pomocí modulu AKS. Př�
 
 Následující parametry používá příkaz Scale k vyhledání souboru definice clusteru a aktualizaci clusteru.
 
-| parametr | Příklad | Popis |
+| Parametr | Příklad | Popis |
 | --- | --- | --- | 
 | Azure – ENV | AzureStackCloud | Při použití centra Azure Stack musí být názvy prostředí nastavené na `AzureStackCloud` . | 
 | location | local | Toto je oblast pro vaši instanci centra Azure Stack. V případě ASDK je oblast nastavena na `local` .  | 
@@ -35,8 +35,8 @@ Následující parametry používá příkaz Scale k vyhledání souboru definic
 | ID klienta |  | ID klienta instančního objektu používaného při vytváření clusteru z modulu AKS. | 
 | tajný kód klienta |  | Tajný klíč instančního objektu použitý při vytváření clusteru | 
 | rozhraní API – model | Kube-RG/apimodel.jszapnuto | Cesta k souboru definice clusteru (apimodel.jszapnutá). Může to být: _output/ \<dnsPrefix> /apimodel.jsna | 
-| -New-Node-Count | 9 | Požadovaný počet uzlů. | 
-| – hlavní – plně kvalifikovaný název domény |  | Hlavní plně kvalifikovaný název domény. Nutné při horizontálním navýšení kapacity. |
+| nový uzel-počet | 9 | Požadovaný počet uzlů. | 
+| apiserver |  | Hlavní plně kvalifikovaný název domény. Nutné při horizontálním navýšení kapacity. |
 | Identita – systém | službou | Nepovinný parametr. Pokud používáte federované služby Active Directory (AD FS), zadejte svoje řešení pro správu identit. |
 
 Při škálování clusteru v Azure Stackovém centru musíte zadat parametr **--Azure-ENV** . Další informace o parametrech a jejich hodnotách, které se používají v příkazu **Scale** pro modul AKS, najdete v tématu [Scale-Parameters](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md#parameters).
@@ -55,7 +55,7 @@ aks-engine scale \
     --client-secret xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
     --api-model <path to your apomodel.json file>
     --new-node-count <desired node count> \
-    --master-FQDN <master FQDN> \
+    --apiserver <master FQDN> \
     --identity-system adfs # required if using AD FS
 ```
 

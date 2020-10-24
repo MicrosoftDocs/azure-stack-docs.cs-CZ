@@ -3,16 +3,16 @@ title: Obnovení z závažné ztráty dat v centru Azure Stack
 description: Naučte se obnovovat a obnovovat data infrastruktury v Azure Stack hub po závažných ztrátách dat.
 author: justinha
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 10/23/2020
 ms.author: justinha
 ms.reviewer: hectorl
-ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 7f57336cdb15be2f55fdcd3756f5f3714f51b1af
-ms.sourcegitcommit: d197e8d3c3b69c20d09de4c43d8089ec0a993baf
+ms.lastreviewed: 10/23/2020
+ms.openlocfilehash: 35d55eec6c1311c39014f94f94fb04d39c7acb3b
+ms.sourcegitcommit: 25f6211aa16308d50315872f647d840f402fa62e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/21/2020
-ms.locfileid: "90836501"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496414"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Obnovení z katastrofické ztráty dat
 
@@ -60,6 +60,10 @@ Centrum Azure Stack podporuje typ nasazení s názvem režim Cloud Recovery. Ten
  - Přiřazení zásad RBAC a přiřazení rolí
 
 Žádná z prostředků infrastruktury uživatele jako služba (IaaS) ani platforma jako služba (PaaS) se během nasazování neobnovuje. Mezi tyto ztráty patří virtuální počítače s IaaS, účty úložiště, objekty blob, tabulky, konfigurace sítě a tak dále. Účelem cloudového obnovení je zajistit, aby se operátoři a uživatelé mohli po dokončení nasazení znovu přihlásit k portálu. Uživatelům, kteří se přihlašují zpátky, se nezobrazují žádné prostředky. Uživatelé mají obnovené předplatné a společně s tím původní plány, nabídky a zásady definované správcem. Uživatelé, kteří se přihlašují zpátky do systému, pracují se stejnými omezeními, která jsou před haváriem způsobená původními řešeními. Po dokončení cloudového obnovení může operátor ručně obnovit hodnoty – přidat a RPs třetí strany a přidružená data.
+
+## <a name="validate-backups"></a>Ověřit zálohy 
+
+ASDK můžete použít k otestování zálohy a potvrzení, že jsou data platná a použitelná. Další informace najdete v tématu [použití ASDK k ověření zálohy Azure Stack](../asdk/asdk-validate-backup.md).
 
 ## <a name="next-steps"></a>Další kroky
 

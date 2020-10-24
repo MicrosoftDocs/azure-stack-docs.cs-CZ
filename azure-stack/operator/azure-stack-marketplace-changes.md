@@ -3,16 +3,16 @@ title: Co je nového v tržišti Azure Stack hub
 description: Podívejte se, co je nového v tržišti Azure Stack hub, včetně nových, zastaralých a aktualizovaných položek Marketplace.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/23/2020
+ms.date: 10/23/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 1647c49115cb9f27c1485e59d1b85eb9a9bc1146
-ms.sourcegitcommit: 849be7ebd02a1e54e8d0ec59736c9917c67e309e
+ms.openlocfilehash: ecf0ce541ff95d3fbee3192841f227c81a68dcd5
+ms.sourcegitcommit: 25f6211aa16308d50315872f647d840f402fa62e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91134759"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496390"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Změny v tržišti centra Azure Stack
 
@@ -63,13 +63,74 @@ V tomto článku najdete seznam nedávných přidání, aktualizací, změn a od
 - Bitnami Codiad
 - Bitnami X2Engine Sales CRM
 - Bitnami SugarCRM
-- Bitnami Node.js cluster s vysokou dostupností
+- Cluster Bitnami Node.js High-Availability
 - Bitnami ProcessMaker Enterprise Edition
 - A10 vThunder: L4 – kontroler doručení aplikace L7, globální vyrovnávání zatížení serveru (GSLB), přehled SSL
 - Správa zabezpečení Check Point vSEC
 
 ## <a name="updated-marketplace-items"></a>Aktualizované položky Marketplace
 
+- 10/22/2020: Windows Server 2008 R2 SP1-Pay podle vaší 7601.24560.2009040118 verze
+- 10/22/2020: Windows Server 2008 R2 SP1-Bring vaše vlastní licence na verzi 7601.24560.2009040118
+- 10/22/2020: [smalldisk] Windows Server 2008 R2 SP1-Pay, jak se dostanete – verze 7601.24560.2009040118
+- 10/22/2020: [smalldisk] Windows Server 2008 R2 SP1-Bring vaše vlastní licence na verzi 7601.24560.2009040118
+- 10/22/2020: [smalldisk] Windows Server 2012 Datacenter-Pay jako na cestách – verze 9200.23149.2009040500
+- 10/22/2020: [smalldisk] Windows Server 2012 Datacenter-Bring vlastní licenci – verze 9200.23149.2009040500
+- 10/22/2020: Windows Server 2012 Datacenter-Pay podle vaší 9200.23149.2009040500 verze
+- 10/22/2020: Windows Server 2012 Datacenter-Bring vaše vlastní licence na verzi 9200.23149.2009040500
+- 10/22/2020: Windows Server 2012 R2 Datacenter-Pay podle vaší 9600.19817.2009040500 verze
+- 10/22/2020: Windows Server 2012 R2 Datacenter-Bring vaše vlastní licence na verzi 9600.19817.2009040500
+- 10/22/2020: [smalldisk] Windows Server 2012 R2 Datacenter-Pay, jak se dostanete – verze 9600.19817.2009040500
+- 10/22/2020: [smalldisk] Windows Server 2012 R2 Datacenter-Bring vaše vlastní licence na verzi 9600.19817.2009040500
+- 10/22/2020: [smalldisk] Windows Server 2016 Datacenter-Pay jako na cestách – verze 14393.3930.2009041537
+- 10/22/2020: [smalldisk] Windows Server 2016 Datacenter-Bring vlastní licenci – verze 14393.3930.2009041537
+- 10/22/2020: [smalldisk] Windows Server 2016 Datacenter – Server Core-Pay podle vaší verze 14393.3930.2009041537
+- 10/22/2020: [smalldisk] Windows Server 2016 Datacenter-Server Core-Bring vaší vlastní licencí – verze 14393.3930.2009041537
+- 10/22/2020: Windows Server 2016 Datacenter-Pay podle vaší 14393.3930.2009041537 verze
+- 10/22/2020: Windows Server 2016 Datacenter-Bring vaše vlastní licence na verzi 14393.3930.2009041537
+- 10/22/2020: Windows Server 2016 Datacenter – Server Core-Pay podle vaší verze 14393.3930.2009041537
+- 10/22/2020: Windows Server 2016 Datacenter – Server Core-Bring vaše vlastní licence – verze 14393.3930.2009041537
+- 10/22/2020: Windows Server 2019 Datacenter-Pay podle vaší 17763.1457.2009030514 verze
+- 10/22/2020: Windows Server 2019 Datacenter-Bring vaše vlastní licence na verzi 17763.1457.2009030514
+- 10/22/2020: [smalldisk] Windows Server 2019 Datacenter Server Core-Pay podle vaší verze 17763.1457.2009030514
+- 10/22/2020: [smalldisk] Windows Server 2019 Datacenter Server Core-Bring vaše vlastní licence na verzi 17763.1457.2009030514
+- 10/22/2020: [smalldisk] Windows Server, verze 1809 s Containers-Pay podle vaší verze 17763.1457.2009030514
+- 10/22/2020: [smalldisk] Windows Server verze 1809 s Containers-Bring vaší vlastní licencí – verze 17763.1457.2009030514
+- 10/22/2020: [smalldisk] Windows Server 2019 Datacenter-Pay jako na cestách – verze 17763.1457.2009030514
+- 10/22/2020: [smalldisk] Windows Server 2019 Datacenter-Bring vlastní licenci – verze 17763.1457.2009030514
+- 10/22/2020: [smalldisk] Windows Server 2019 Datacenter Server Core s Containers-Pay podle vaší verze 17763.1457.2009030514
+- 10/22/2020: [smalldisk] Windows Server 2019 Datacenter Server Core s Containers-Bring vaše vlastní licence-verze 17763.1457.2009030514
+- 10/22/2020: Windows Server 2019 Datacenter s Containers-Pay, jak se dostanete k verzi 17763.1457.2009030514
+- 10/22/2020: Windows Server 2019 Datacenter s Containers-Bring vaší vlastní 17763.1457.2009030514 verze licence
+- 10/22/2020: Windows Server 2019 Datacenter Server Core s Containers-Pay, jak se dostanete k verzi 17763.1457.2009030514
+- 10/22/2020: Windows Server 2019 Datacenter Server Core s Containers-Bring vaše vlastní 17763.1457.2009030514 verze licence
+- 10/22/2020: Windows Server 2019 Datacenter Server Core-Pay podle vaší 17763.1457.2009030514 verze
+- 10/22/2020: Windows Server 2019 Datacenter Server Core-Bring vaše vlastní licence na verzi 17763.1457.2009030514
+- 10/22/2020: [smalldisk] Windows Server 2019 Datacenter s Containers-Pay podle vaší verze 17763.1457.2009030514
+- 10/22/2020: [smalldisk] Windows Server 2019 Datacenter s Containers-Bring vaše vlastní licence-verze 17763.1457.2009030514
+- 10/22/2020: [smalldisk] Windows Server, verze 1903 s Containers-Pay podle vaší verze 18362.1082.2009070708
+- 10/22/2020: [smalldisk] Windows Server verze 1903 s Containers-Bring vaší vlastní licencí – verze 18362.1082.2009070708
+- 10/22/2020: [smalldisk] Windows Server, verze 1909 s Containers-Pay podle vaší verze 18363.1082.2009070706
+- 10/22/2020: [smalldisk] Windows Server verze 1909 s Containers-Bring vaší vlastní licencí – verze 18363.1082.2009070706
+- 10/22/2020: [smalldisk] Windows Server, verze 2004 s Containers-Pay podle vaší verze 19041.508.2009070256
+- 10/22/2020: [smalldisk] Windows Server verze 2004 s Containers-Bring vaší vlastní licencí – verze 19041.508.2009070256
+- 10/22/2020: Windows 10 Enterprise 2016 LTSB-Bring vaše vlastní licence – 14393.3930.2009041537 verze
+- 10/22/2020: Windows 10 Enterprise N 2016 LTSB-Bring vaší vlastní 14393.3930.2009041537 verze licence
+- 10/22/2020: Windows 10 Enterprise, verze 1809 – uvedení vlastní licence na verzi 17763.1457.2009030514
+- 10/22/2020: Windows 10 pro N, verze 1809 – Přineste si vlastní licenci na verzi 17763.1457.2009030514
+- 10/22/2020: Windows 10 Enterprise 2019 LTSC-Bring vaše vlastní licence – 17763.1457.2009030514 verze
+- 10/22/2020: Windows 10 Enterprise N 2019 LTSC-Bring vaší vlastní 17763.1457.2009030514 verze licence
+- 10/22/2020: Windows 10 Enterprise N, verze 1809 – Přineste si vlastní licenci na verzi 17763.1457.2009030514
+- 10/22/2020: Windows 10 pro, verze 1809 – uvedení vlastní licence na verzi 17763.1457.2009030514
+- 10/22/2020: Windows 10 Enterprise N, verze 1903 – Přineste si vlastní licenci na verzi 18362.1082.2009070708
+- 10/22/2020: Windows 10 pro N, verze 1903 – Přineste si vlastní licenci na verzi 18362.1082.2009070708
+- 10/22/2020: Windows 10 pro, verze 1903 – uvedení vlastní licence na verzi 18362.1082.2009070708
+- 10/22/2020: Windows 10 Enterprise, verze 1903 – uvedení vlastní licence na verzi 18362.1082.2009070708
+- 10/22/2020: Windows 10 Enterprise N, verze 1909 – Přineste si vlastní licenci na verzi 18363.1082.2009070706
+- 10/22/2020: Windows 10 pro, verze 1909 – uvedení vlastní licence na verzi 18363.1082.2009070706
+- 10/22/2020: Windows 10 Enterprise, verze 1909 – uvedení vlastní licence na verzi 18363.1082.2009070706
+- 10/22/2020: Windows 10 pro N, verze 1909 – Přineste si vlastní licenci na verzi 18363.1082.2009070706
+- 10/22/2020: Windows 10 Enterprise, verze 2004 – uvedení vlastní licence na verzi 19041.508.2009070256
 - 09/21/2020: Brána CentOS pro připojení k aplikacím – verze 7.2.0
 - 09/09/2020: FortiGate NGFW – nasazení s jedním virtuálním počítačem (BYOL) – verze 1.0.2
 - 09/04/2020: CentOS-based 6,10 – verze 6.10.2020042900
@@ -78,145 +139,141 @@ V tomto článku najdete seznam nedávných přidání, aktualizací, změn a od
 - 09/04/2020: CentOS-based 7,6 – verze 7.6.201909120
 - 09/04/2020: CentOS-based 7,7 – verze 7.7.2020062400
 - 09/04/2020: CentOS-based 8,0 – verze 8.0.201912060
-- 09/03/2020: [smalldisk] Windows Server 2008 R2 SP1 – průběžné platby – verze 7601.24559.2008080510
-- 09/03/2020: [smalldisk] Windows Server 2008 R2 SP1 – zajistěte si vlastní licenci – verze 7601.24559.2008080510
-- 09/03/2020: Windows Server 2008 R2 SP1 – průběžné platby – 7601.24559.2008080510 verze
-- 09/03/2020: Windows Server 2008 R2 SP1 – zajistěte si vlastní licenci na verzi 7601.24559.2008080510
-- 09/03/2020: Windows Server 2012 Datacenter – průběžné platby – verze 9200.23121.2008080510
-- 09/03/2020: Windows Server 2012 Datacenter – Přineste si vlastní licenci na verzi 9200.23121.2008080510
-- 09/03/2020: [smalldisk] Windows Server 2012 Datacenter – průběžné platby – verze 9200.23121.2008080510
-- 09/03/2020: [smalldisk] Windows Server 2012 Datacenter – Přineste si vlastní licenci – verze 9200.23121.2008080510
-- 09/03/2020: [smalldisk] Windows Server 2012 R2 Datacenter – průběžné platby – verze 9600.19785.2008100926
-- 09/03/2020: [smalldisk] Windows Server 2012 R2 Datacenter – Přineste si vlastní licenci – verze 9600.19785.2008100926
-- 09/03/2020: Windows Server 2012 R2 Datacenter – průběžné platby – 9600.19785.2008100926 verze
-- 09/03/2020: Windows Server 2012 R2 Datacenter – Přineste si vlastní licenci na verzi 9600.19785.2008100926
-- 09/03/2020: Windows 10 Enterprise N 2016 LTSB-Přineste si vlastní licenci na verzi 14393.3866.2008081933
-- 09/03/2020: Windows 10 Enterprise 2016 LTSB-Přineste si vlastní licenci – verze 14393.3866.2008081933
-- 09/03/2020: [smalldisk] Windows Server 2016 Datacenter – Server Core – průběžné platby – verze 14393.3866.2008081933
-- 09/03/2020: [smalldisk] Windows Server 2016 Datacenter – Server Core – uvedení vlastní licence na verzi 14393.3866.2008081933
-- 09/03/2020: [smalldisk] Windows Server 2016 Datacenter – průběžné platby – verze 14393.3866.2008081933
-- 09/03/2020: [smalldisk] Windows Server 2016 Datacenter – Přineste si vlastní licenci – verze 14393.3866.2008081933
-- 09/03/2020: Windows Server 2016 Datacenter – Server Core – průběžné platby – 14393.3866.2008081933 verze
-- 09/03/2020: Windows Server 2016 Datacenter – Server Core – Přineste si vlastní licenci na verzi 14393.3866.2008081933
-- 09/03/2020: Windows Server 2016 Datacenter – průběžné platby – verze 14393.3866.2008081933
-- 09/03/2020: Windows Server 2016 Datacenter – Přineste si vlastní licenci na verzi 14393.3866.2008081933
+- 09/03/2020: [smalldisk] Windows Server 2008 R2 SP1-Pay, jak se dostanete – verze 7601.24559.2008080510
+- 09/03/2020: [smalldisk] Windows Server 2008 R2 SP1-Bring vaše vlastní licence na verzi 7601.24559.2008080510
+- 09/03/2020: Windows Server 2008 R2 SP1-Pay podle vaší 7601.24559.2008080510 verze
+- 09/03/2020: Windows Server 2008 R2 SP1-Bring vaše vlastní licence na verzi 7601.24559.2008080510
+- 09/03/2020: Windows Server 2012 Datacenter-Pay podle vaší 9200.23121.2008080510 verze
+- 09/03/2020: Windows Server 2012 Datacenter-Bring vaše vlastní licence na verzi 9200.23121.2008080510
+- 09/03/2020: [smalldisk] Windows Server 2012 Datacenter-Pay jako na cestách – verze 9200.23121.2008080510
+- 09/03/2020: [smalldisk] Windows Server 2012 Datacenter-Bring vlastní licenci – verze 9200.23121.2008080510
+- 09/03/2020: [smalldisk] Windows Server 2012 R2 Datacenter-Pay, jak se dostanete – verze 9600.19785.2008100926
+- 09/03/2020: [smalldisk] Windows Server 2012 R2 Datacenter-Bring vaše vlastní licence na verzi 9600.19785.2008100926
+- 09/03/2020: Windows Server 2012 R2 Datacenter-Pay podle vaší 9600.19785.2008100926 verze
+- 09/03/2020: Windows Server 2012 R2 Datacenter-Bring vaše vlastní licence na verzi 9600.19785.2008100926
+- 09/03/2020: Windows 10 Enterprise N 2016 LTSB-Bring vaší vlastní 14393.3866.2008081933 verze licence
+- 09/03/2020: Windows 10 Enterprise 2016 LTSB-Bring vaše vlastní licence – 14393.3866.2008081933 verze
+- 09/03/2020: [smalldisk] Windows Server 2016 Datacenter – Server Core-Pay podle vaší verze 14393.3866.2008081933
+- 09/03/2020: [smalldisk] Windows Server 2016 Datacenter-Server Core-Bring vaší vlastní licencí – verze 14393.3866.2008081933
+- 09/03/2020: [smalldisk] Windows Server 2016 Datacenter-Pay jako na cestách – verze 14393.3866.2008081933
+- 09/03/2020: [smalldisk] Windows Server 2016 Datacenter-Bring vlastní licenci – verze 14393.3866.2008081933
+- 09/03/2020: Windows Server 2016 Datacenter – Server Core-Pay podle vaší verze 14393.3866.2008081933
+- 09/03/2020: Windows Server 2016 Datacenter – Server Core-Bring vaše vlastní licence – verze 14393.3866.2008081933
+- 09/03/2020: Windows Server 2016 Datacenter-Pay podle vaší 14393.3866.2008081933 verze
+- 09/03/2020: Windows Server 2016 Datacenter-Bring vaše vlastní licence na verzi 14393.3866.2008081933
 - 09/03/2020: Windows 10 Enterprise, verze 1809 – uvedení vlastní licence na verzi 17763.1397.2008070242
 - 09/03/2020: Windows 10 pro, verze 1809 – uvedení vlastní licence na verzi 17763.1397.2008070242
 - 09/03/2020: Windows 10 pro N, verze 1809 – Přineste si vlastní licenci na verzi 17763.1397.2008070242
-- 09/03/2020: Windows 10 Enterprise 2019 LTSC-Přineste si vlastní licenci – verze 17763.1397.2008070242
-- 09/03/2020: Windows 10 Enterprise multi-session verze 1809 – přinese si vlastní 17763.1397.2008070242 verze licence
+- 09/03/2020: Windows 10 Enterprise 2019 LTSC-Bring vaše vlastní licence – 17763.1397.2008070242 verze
 - 09/03/2020: Windows 10 Enterprise N, verze 1809 – Přineste si vlastní licenci na verzi 17763.1397.2008070242
-- 09/03/2020: Windows 10 Enterprise N 2019 LTSC-Přineste si vlastní licenci na verzi 17763.1397.2008070242
-- 09/03/2020: Windows Server 2019 Datacenter Server Core – průběžné platby – 17763.1397.2008070242 verze
-- 09/03/2020: Windows Server 2019 Datacenter Server Core – uvedení vlastní licence na verzi 17763.1397.2008070242
-- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter Server Core s kontejnery – průběžné platby – verze 17763.1397.2008070242
-- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter Server Core s kontejnery – Přineste si vlastní licenci – verze 17763.1397.2008070242
-- 09/03/2020: Windows Server 2019 Datacenter – průběžné platby – verze 17763.1397.2008070242
-- 09/03/2020: Windows Server 2019 Datacenter – Přineste si vlastní licenci na verzi 17763.1397.2008070242
-- 09/03/2020: [smalldisk] Windows Server, verze 1809 s kontejnery – průběžné platby – verze 17763.1397.2008070242
-- 09/03/2020: [smalldisk] Windows Server, verze 1809 s kontejnery – Přineste si vlastní licenci – verze 17763.1397.2008070242
-- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter Server Core – průběžné platby – verze 17763.1397.2008070242
-- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter Server Core – uvedení vlastní licence na verzi 17763.1397.2008070242
-- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter – průběžné platby – verze 17763.1397.2008070242
-- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter – Přineste si vlastní licenci – verze 17763.1397.2008070242
-- 09/03/2020: Windows Server 2019 Datacenter s kontejnery – průběžné platby – verze 17763.1397.2008070242
-- 09/03/2020: Windows Server 2019 Datacenter s kontejnery – Přineste si vlastní licenci verze 17763.1397.2008070242
-- 09/03/2020: Windows Server 2019 Datacenter Server Core s kontejnery – průběžné platby – verze 17763.1397.2008070242
-- 09/03/2020: Windows Server 2019 Datacenter Server Core s kontejnery – Přineste si vlastní licenci – verze 17763.1397.2008070242
-- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter s kontejnery – průběžné platby – verze 17763.1397.2008070242
-- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter s kontejnery – Přineste si vlastní licenci – verze 17763.1397.2008070242
-- 09/03/2020: Windows 10 Enterprise multi-session verze 1903 – přinese si vlastní 18362.1016.2008062123 verze licence
+- 09/03/2020: Windows 10 Enterprise N 2019 LTSC-Bring vaší vlastní 17763.1397.2008070242 verze licence
+- 09/03/2020: Windows Server 2019 Datacenter Server Core-Pay podle vaší 17763.1397.2008070242 verze
+- 09/03/2020: Windows Server 2019 Datacenter Server Core-Bring vaše vlastní licence na verzi 17763.1397.2008070242
+- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter Server Core s Containers-Pay podle vaší verze 17763.1397.2008070242
+- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter Server Core s Containers-Bring vaše vlastní licence-verze 17763.1397.2008070242
+- 09/03/2020: Windows Server 2019 Datacenter-Pay podle vaší 17763.1397.2008070242 verze
+- 09/03/2020: Windows Server 2019 Datacenter-Bring vaše vlastní licence na verzi 17763.1397.2008070242
+- 09/03/2020: [smalldisk] Windows Server, verze 1809 s Containers-Pay podle vaší verze 17763.1397.2008070242
+- 09/03/2020: [smalldisk] Windows Server verze 1809 s Containers-Bring vaší vlastní licencí – verze 17763.1397.2008070242
+- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter Server Core-Pay podle vaší verze 17763.1397.2008070242
+- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter Server Core-Bring vaše vlastní licence na verzi 17763.1397.2008070242
+- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter-Pay jako na cestách – verze 17763.1397.2008070242
+- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter-Bring vlastní licenci – verze 17763.1397.2008070242
+- 09/03/2020: Windows Server 2019 Datacenter s Containers-Pay, jak se dostanete k verzi 17763.1397.2008070242
+- 09/03/2020: Windows Server 2019 Datacenter s Containers-Bring vaší vlastní 17763.1397.2008070242 verze licence
+- 09/03/2020: Windows Server 2019 Datacenter Server Core s Containers-Pay, jak se dostanete k verzi 17763.1397.2008070242
+- 09/03/2020: Windows Server 2019 Datacenter Server Core s Containers-Bring vaše vlastní 17763.1397.2008070242 verze licence
+- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter s Containers-Pay podle vaší verze 17763.1397.2008070242
+- 09/03/2020: [smalldisk] Windows Server 2019 Datacenter s Containers-Bring vaše vlastní licence-verze 17763.1397.2008070242
 - 09/03/2020: Windows 10 Enterprise N, verze 1903 – Přineste si vlastní licenci na verzi 18362.1016.2008062123
 - 09/03/2020: Windows 10 Enterprise, verze 1903 – uvedení vlastní licence na verzi 18362.1016.2008062123
 - 09/03/2020: Windows 10 pro N, verze 1903 – Přineste si vlastní licenci na verzi 18362.1016.2008062123
 - 09/03/2020: Windows 10 pro, verze 1903 – uvedení vlastní licence na verzi 18362.1016.2008062123
-- 09/03/2020: [smalldisk] Windows Server, verze 1903 s kontejnery – průběžné platby – verze 18362.1016.2008062123
-- 09/03/2020: [smalldisk] Windows Server, verze 1903 s kontejnery – Přineste si vlastní licenci – verze 18362.1016.2008062123
+- 09/03/2020: [smalldisk] Windows Server, verze 1903 s Containers-Pay podle vaší verze 18362.1016.2008062123
+- 09/03/2020: [smalldisk] Windows Server verze 1903 s Containers-Bring vaší vlastní licencí – verze 18362.1016.2008062123
 - 09/03/2020: Windows 10 Enterprise N, verze 1909 – Přineste si vlastní licenci na verzi 18363.1016.2008070242
 - 09/03/2020: Windows 10 Enterprise, verze 1909 – uvedení vlastní licence na verzi 18363.1016.2008070242
-- 09/03/2020: Windows 10 Enterprise multi-session verze 1909 – přinese si vlastní 18363.1016.2008070242 verze licence
 - 09/03/2020: Windows 10 pro, verze 1909 – uvedení vlastní licence na verzi 18363.1016.2008070242
 - 09/03/2020: Windows 10 pro N, verze 1909 – Přineste si vlastní licenci na verzi 18363.1016.2008070242
-- 09/03/2020: [smalldisk] Windows Server, verze 1909 s kontejnery – průběžné platby – verze 18363.1016.2008070242
-- 09/03/2020: [smalldisk] Windows Server, verze 1909 s kontejnery – Přineste si vlastní licenci – verze 18363.1016.2008070242
-- 09/03/2020: Windows 10 Enterprise multi-session verze 2004 – přinese si vlastní 19041.450.2008080726 verze licence
+- 09/03/2020: [smalldisk] Windows Server, verze 1909 s Containers-Pay podle vaší verze 18363.1016.2008070242
+- 09/03/2020: [smalldisk] Windows Server verze 1909 s Containers-Bring vaší vlastní licencí – verze 18363.1016.2008070242
 - 09/03/2020: Windows 10 Enterprise, verze 2004 – uvedení vlastní licence na verzi 19041.450.2008080726
-- 09/03/2020: [smalldisk] Windows Server, verze 2004 s kontejnery – průběžné platby – verze 19041.450.2008080726
-- 09/03/2020: [smalldisk] Windows Server, verze 2004 s kontejnery – Přineste si vlastní licenci – verze 19041.450.2008080726
+- 09/03/2020: [smalldisk] Windows Server, verze 2004 s Containers-Pay podle vaší verze 19041.450.2008080726
+- 09/03/2020: [smalldisk] Windows Server verze 2004 s Containers-Bring vaší vlastní licencí – verze 19041.450.2008080726
 - 08/31/2020: AKS Base Ubuntu 16,04-LTS image distribuce, srpen 2020 – verze 2020.08.24
 - 08/21/2020: Windows 10 Enterprise, verze 1903 – uvedení vlastní licence na verzi 18362.959.2007101755
 - 08/21/2020: Windows 10 pro, verze 1903 – uvedení vlastní licence na verzi 18362.959.2007101755
 - 08/21/2020: Windows 10 Enterprise, verze 1909 – uvedení vlastní licence na verzi 18363.959.2007101752
 - 08/21/2020: Windows 10 pro, verze 1909 – uvedení vlastní licence na verzi 18363.959.2007101752
 - 08/21/2020: Windows 10 Enterprise, verze 2004 – uvedení vlastní licence na verzi 19041.388.2007101729
-- 08/21/2020: Windows 10 Enterprise 2016 LTSB-Přineste si vlastní licenci – verze 14393.3808.2007101707
-- 08/21/2020: Windows 10 Enterprise 2019 LTSC-Přineste si vlastní licenci – verze 17763.1339.2007101755
+- 08/21/2020: Windows 10 Enterprise 2016 LTSB-Bring vaše vlastní licence – 14393.3808.2007101707 verze
+- 08/21/2020: Windows 10 Enterprise 2019 LTSC-Bring vaše vlastní licence – 17763.1339.2007101755 verze
 - 08/21/2020: Windows 10 pro, verze 1809 – uvedení vlastní licence na verzi 17763.1339.2007101755
-- 08/21/2020: Windows Server 2008 R2 SP1 – průběžné platby – 7601.24557.2007101756 verze
-- 08/21/2020: [smalldisk] Windows Server 2008 R2 SP1 – průběžné platby – verze 7601.24557.2007101756
-- 08/21/2020: Windows Server 2012 Datacenter – průběžné platby – verze 9200.23086.2007131700
-- 08/21/2020: [smalldisk] Windows Server 2012 Datacenter – průběžné platby – verze 9200.23086.2007131700
-- 08/21/2020: Windows Server 2012 R2 Datacenter – průběžné platby – 9600.19756.2007111612 verze
-- 08/21/2020: [smalldisk] Windows Server 2012 R2 Datacenter – průběžné platby – verze 9600.19756.2007111612
-- 08/21/2020: Windows Server 2016 Datacenter – průběžné platby – verze 14393.3808.2007101707
-- 08/21/2020: Windows Server 2016 Datacenter – Server Core – průběžné platby – 14393.3808.2007101707 verze
-- 08/21/2020: [smalldisk] Windows Server 2016 Datacenter – Server Core – průběžné platby – verze 14393.3808.2007101707
-- 08/21/2020: [smalldisk] Windows Server 2016 Datacenter – průběžné platby – verze 14393.3808.2007101707
-- 08/21/2020: Windows Server 2019 Datacenter Server Core – průběžné platby – 17763.1339.2007101755 verze
-- 08/21/2020: [smalldisk] Windows Server 2019 Datacenter Server Core – průběžné platby – verze 17763.1339.2007101755
-- 08/21/2020: Windows Server 2019 Datacenter Server Core s kontejnery – průběžné platby – verze 17763.1339.2007101755
-- 08/21/2020: [smalldisk] Windows Server 2019 Datacenter Server Core s kontejnery – průběžné platby – verze 17763.1339.2007101755
-- 08/21/2020: Windows Server 2019 Datacenter – průběžné platby – verze 17763.1339.2007101755
-- 08/21/2020: [smalldisk] Windows Server 2019 Datacenter – průběžné platby – verze 17763.1339.2007101755
-- 08/21/2020: Windows Server 2019 Datacenter s kontejnery – průběžné platby – verze 17763.1339.2007101755
-- 08/21/2020: [smalldisk] Windows Server 2019 Datacenter s kontejnery – průběžné platby – verze 17763.1339.2007101755
-- 08/21/2020: [smalldisk] Windows Server, verze 1809 s kontejnery – průběžné platby – verze 17763.1339.2007101755
-- 08/21/2020: [smalldisk] Windows Server, verze 1903 s kontejnery – průběžné platby – verze 18362.959.2007101755
-- 08/21/2020: [smalldisk] Windows Server, verze 1909 s kontejnery – průběžné platby – verze 18363.959.2007101752
-- 08/21/2020: [smalldisk] Windows Server, verze 2004 s kontejnery – průběžné platby – verze 19041.388.2007101729
-- 08/04/2020: Windows Server 2008 R2 SP1 – zajistěte si vlastní licenci na verzi 7601.24556.2006050139
-- 08/04/2020: Windows Server 2008 R2 SP1 – průběžné platby – 7601.24556.2006050139 verze
-- 08/04/2020: [smalldisk] Windows Server 2008 R2 SP1 – zajistěte si vlastní licenci – verze 7601.24556.2006050139
-- 08/04/2020: [smalldisk] Windows Server 2008 R2 SP1 – průběžné platby – verze 7601.24556.2006050139
-- 08/04/2020: Windows Server 2012 Datacenter – Přineste si vlastní licenci na verzi 9200.23066.2006051749
-- 08/04/2020: Windows Server 2012 Datacenter – průběžné platby – verze 9200.23066.2006051749
-- 08/04/2020: [smalldisk] Windows Server 2012 Datacenter – Přineste si vlastní licenci – verze 9200.23066.2006051749
-- 08/04/2020: [smalldisk] Windows Server 2012 Datacenter – průběžné platby – verze 9200.23066.2006051749
-- 08/04/2020: Windows Server 2012 R2 Datacenter – Přineste si vlastní licenci na verzi 9600.19728.2006050139
-- 08/04/2020: Windows Server 2012 R2 Datacenter – průběžné platby – 9600.19728.2006050139 verze
-- 08/04/2020: [smalldisk] Windows Server 2012 R2 Datacenter – Přineste si vlastní licenci – verze 9600.19728.2006050139
-- 08/04/2020: [smalldisk] Windows Server 2012 R2 Datacenter – průběžné platby – verze 9600.19728.2006050139
-- 08/04/2020: Windows Server 2016 Datacenter – Přineste si vlastní licenci na verzi 14393.3750.2006031549
-- 08/04/2020: Windows Server 2016 Datacenter – průběžné platby – verze 14393.3750.2006031549
-- 08/04/2020: Windows Server 2016 Datacenter – Server Core – Přineste si vlastní licenci na verzi 14393.3750.2006031549
-- 08/04/2020: Windows Server 2016 Datacenter – Server Core – průběžné platby – 14393.3750.2006031549 verze
-- 08/04/2020: [smalldisk] Windows Server 2016 Datacenter – Server Core – uvedení vlastní licence na verzi 14393.3750.2006031549
-- 08/04/2020: [smalldisk] Windows Server 2016 Datacenter – Server Core – průběžné platby – verze 14393.3750.2006031549
-- 08/04/2020: [smalldisk] Windows Server 2016 Datacenter – Přineste si vlastní licenci – verze 14393.3750.2006031549
-- 08/04/2020: [smalldisk] Windows Server 2016 Datacenter – průběžné platby – verze 14393.3750.2006031549
-- 08/04/2020: Windows Server 2019 Datacenter – Přineste si vlastní licenci na verzi 17763.1282.2006061952
-- 08/04/2020: Windows Server 2019 Datacenter Server Core – uvedení vlastní licence na verzi 17763.1282.2006061952
-- 08/04/2020: Windows Server 2019 Datacenter Server Core – průběžné platby – 17763.1282.2006061952 verze
-- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter Server Core – uvedení vlastní licence na verzi 17763.1282.2006061952
-- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter Server Core – průběžné platby – verze 17763.1282.2006061952
-- 08/04/2020: Windows Server 2019 Datacenter Server Core s kontejnery – Přineste si vlastní licenci – verze 17763.1282.2006061952
-- 08/04/2020: Windows Server 2019 Datacenter Server Core s kontejnery – průběžné platby – verze 17763.1282.2006061952
-- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter Server Core s kontejnery – Přineste si vlastní licenci – verze 17763.1282.2006061952
-- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter Server Core s kontejnery – průběžné platby – verze 17763.1282.2006061952
-- 08/04/2020: Windows Server 2019 Datacenter – průběžné platby – verze 17763.1282.2006061952
-- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter – Přineste si vlastní licenci – verze 17763.1282.2006061952
-- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter – průběžné platby – verze 17763.1282.2006061952
-- 08/04/2020: Windows Server 2019 Datacenter s kontejnery – Přineste si vlastní licenci verze 17763.1282.2006061952
-- 08/04/2020: Windows Server 2019 Datacenter s kontejnery – průběžné platby – verze 17763.1282.2006061952
-- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter s kontejnery – Přineste si vlastní licenci – verze 17763.1282.2006061952
-- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter s kontejnery – průběžné platby – verze 17763.1282.2006061952
-- 08/04/2020: [smalldisk] Windows Server, verze 1809 s kontejnery – Přineste si vlastní licenci – verze 17763.1282.2006061952
-- 08/04/2020: [smalldisk] Windows Server, verze 1809 s kontejnery – průběžné platby – verze 17763.1282.2006061952
-- 08/04/2020: [smalldisk] Windows Server, verze 1903 s kontejnery – Přineste si vlastní licenci – verze 18362.900.2006061800
-- 08/04/2020: [smalldisk] Windows Server, verze 1903 s kontejnery – průběžné platby – verze 18362.900.2006061800
-- 08/04/2020: [smalldisk] Windows Server, verze 2004 s kontejnery – Přineste si vlastní licenci – verze 19041.329.2006042019
-- 08/04/2020: Windows 10 Enterprise 2016 LTSB-Přineste si vlastní licenci – verze 14393.3750.2006031549
-- 08/04/2020: Windows 10 Enterprise 2019 LTSC-Přineste si vlastní licenci – verze 17763.1282.2006061952
+- 08/21/2020: Windows Server 2008 R2 SP1-Pay podle vaší 7601.24557.2007101756 verze
+- 08/21/2020: [smalldisk] Windows Server 2008 R2 SP1-Pay, jak se dostanete – verze 7601.24557.2007101756
+- 08/21/2020: Windows Server 2012 Datacenter-Pay podle vaší 9200.23086.2007131700 verze
+- 08/21/2020: [smalldisk] Windows Server 2012 Datacenter-Pay jako na cestách – verze 9200.23086.2007131700
+- 08/21/2020: Windows Server 2012 R2 Datacenter-Pay podle vaší 9600.19756.2007111612 verze
+- 08/21/2020: [smalldisk] Windows Server 2012 R2 Datacenter-Pay, jak se dostanete – verze 9600.19756.2007111612
+- 08/21/2020: Windows Server 2016 Datacenter-Pay podle vaší 14393.3808.2007101707 verze
+- 08/21/2020: Windows Server 2016 Datacenter – Server Core-Pay podle vaší verze 14393.3808.2007101707
+- 08/21/2020: [smalldisk] Windows Server 2016 Datacenter – Server Core-Pay podle vaší verze 14393.3808.2007101707
+- 08/21/2020: [smalldisk] Windows Server 2016 Datacenter-Pay jako na cestách – verze 14393.3808.2007101707
+- 08/21/2020: Windows Server 2019 Datacenter Server Core-Pay podle vaší 17763.1339.2007101755 verze
+- 08/21/2020: [smalldisk] Windows Server 2019 Datacenter Server Core-Pay podle vaší verze 17763.1339.2007101755
+- 08/21/2020: Windows Server 2019 Datacenter Server Core s Containers-Pay, jak se dostanete k verzi 17763.1339.2007101755
+- 08/21/2020: [smalldisk] Windows Server 2019 Datacenter Server Core s Containers-Pay podle vaší verze 17763.1339.2007101755
+- 08/21/2020: Windows Server 2019 Datacenter-Pay podle vaší 17763.1339.2007101755 verze
+- 08/21/2020: [smalldisk] Windows Server 2019 Datacenter-Pay jako na cestách – verze 17763.1339.2007101755
+- 08/21/2020: Windows Server 2019 Datacenter s Containers-Pay, jak se dostanete k verzi 17763.1339.2007101755
+- 08/21/2020: [smalldisk] Windows Server 2019 Datacenter s Containers-Pay podle vaší verze 17763.1339.2007101755
+- 08/21/2020: [smalldisk] Windows Server, verze 1809 s Containers-Pay podle vaší verze 17763.1339.2007101755
+- 08/21/2020: [smalldisk] Windows Server, verze 1903 s Containers-Pay podle vaší verze 18362.959.2007101755
+- 08/21/2020: [smalldisk] Windows Server, verze 1909 s Containers-Pay podle vaší verze 18363.959.2007101752
+- 08/21/2020: [smalldisk] Windows Server, verze 2004 s Containers-Pay podle vaší verze 19041.388.2007101729
+- 08/04/2020: Windows Server 2008 R2 SP1-Bring vaše vlastní licence na verzi 7601.24556.2006050139
+- 08/04/2020: Windows Server 2008 R2 SP1-Pay podle vaší 7601.24556.2006050139 verze
+- 08/04/2020: [smalldisk] Windows Server 2008 R2 SP1-Bring vaše vlastní licence na verzi 7601.24556.2006050139
+- 08/04/2020: [smalldisk] Windows Server 2008 R2 SP1-Pay, jak se dostanete – verze 7601.24556.2006050139
+- 08/04/2020: Windows Server 2012 Datacenter-Bring vaše vlastní licence na verzi 9200.23066.2006051749
+- 08/04/2020: Windows Server 2012 Datacenter-Pay podle vaší 9200.23066.2006051749 verze
+- 08/04/2020: [smalldisk] Windows Server 2012 Datacenter-Bring vlastní licenci – verze 9200.23066.2006051749
+- 08/04/2020: [smalldisk] Windows Server 2012 Datacenter-Pay jako na cestách – verze 9200.23066.2006051749
+- 08/04/2020: Windows Server 2012 R2 Datacenter-Bring vaše vlastní licence na verzi 9600.19728.2006050139
+- 08/04/2020: Windows Server 2012 R2 Datacenter-Pay podle vaší 9600.19728.2006050139 verze
+- 08/04/2020: [smalldisk] Windows Server 2012 R2 Datacenter-Bring vaše vlastní licence na verzi 9600.19728.2006050139
+- 08/04/2020: [smalldisk] Windows Server 2012 R2 Datacenter-Pay, jak se dostanete – verze 9600.19728.2006050139
+- 08/04/2020: Windows Server 2016 Datacenter-Bring vaše vlastní licence na verzi 14393.3750.2006031549
+- 08/04/2020: Windows Server 2016 Datacenter-Pay podle vaší 14393.3750.2006031549 verze
+- 08/04/2020: Windows Server 2016 Datacenter – Server Core-Bring vaše vlastní licence – verze 14393.3750.2006031549
+- 08/04/2020: Windows Server 2016 Datacenter – Server Core-Pay podle vaší verze 14393.3750.2006031549
+- 08/04/2020: [smalldisk] Windows Server 2016 Datacenter-Server Core-Bring vaší vlastní licencí – verze 14393.3750.2006031549
+- 08/04/2020: [smalldisk] Windows Server 2016 Datacenter – Server Core-Pay podle vaší verze 14393.3750.2006031549
+- 08/04/2020: [smalldisk] Windows Server 2016 Datacenter-Bring vlastní licenci – verze 14393.3750.2006031549
+- 08/04/2020: [smalldisk] Windows Server 2016 Datacenter-Pay jako na cestách – verze 14393.3750.2006031549
+- 08/04/2020: Windows Server 2019 Datacenter-Bring vaše vlastní licence na verzi 17763.1282.2006061952
+- 08/04/2020: Windows Server 2019 Datacenter Server Core-Bring vaše vlastní licence na verzi 17763.1282.2006061952
+- 08/04/2020: Windows Server 2019 Datacenter Server Core-Pay podle vaší 17763.1282.2006061952 verze
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter Server Core-Bring vaše vlastní licence na verzi 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter Server Core-Pay podle vaší verze 17763.1282.2006061952
+- 08/04/2020: Windows Server 2019 Datacenter Server Core s Containers-Bring vaše vlastní 17763.1282.2006061952 verze licence
+- 08/04/2020: Windows Server 2019 Datacenter Server Core s Containers-Pay, jak se dostanete k verzi 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter Server Core s Containers-Bring vaše vlastní licence-verze 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter Server Core s Containers-Pay podle vaší verze 17763.1282.2006061952
+- 08/04/2020: Windows Server 2019 Datacenter-Pay podle vaší 17763.1282.2006061952 verze
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter-Bring vlastní licenci – verze 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter-Pay jako na cestách – verze 17763.1282.2006061952
+- 08/04/2020: Windows Server 2019 Datacenter s Containers-Bring vaší vlastní 17763.1282.2006061952 verze licence
+- 08/04/2020: Windows Server 2019 Datacenter s Containers-Pay, jak se dostanete k verzi 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter s Containers-Bring vaše vlastní licence-verze 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server 2019 Datacenter s Containers-Pay podle vaší verze 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server verze 1809 s Containers-Bring vaší vlastní licencí – verze 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server, verze 1809 s Containers-Pay podle vaší verze 17763.1282.2006061952
+- 08/04/2020: [smalldisk] Windows Server verze 1903 s Containers-Bring vaší vlastní licencí – verze 18362.900.2006061800
+- 08/04/2020: [smalldisk] Windows Server, verze 1903 s Containers-Pay podle vaší verze 18362.900.2006061800
+- 08/04/2020: [smalldisk] Windows Server verze 2004 s Containers-Bring vaší vlastní licencí – verze 19041.329.2006042019
+- 08/04/2020: Windows 10 Enterprise 2016 LTSB-Bring vaše vlastní licence – 14393.3750.2006031549 verze
+- 08/04/2020: Windows 10 Enterprise 2019 LTSC-Bring vaše vlastní licence – 17763.1282.2006061952 verze
 - 08/04/2020: Windows 10 Enterprise, verze 1809 – uvedení vlastní licence na verzi 17763.1282.2006061952
 - 08/04/2020: Windows 10 pro, verze 1809 – uvedení vlastní licence na verzi 17763.1282.2006061952
 - 08/04/2020: Windows 10 Enterprise, verze 1903 – uvedení vlastní licence na verzi 18362.900.2006061800
