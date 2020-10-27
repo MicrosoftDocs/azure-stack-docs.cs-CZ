@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/28/2020
 ms.custom: conteperfq4
-ms.openlocfilehash: 2906846b3f9aac2a748955032d8f9bce060f14cd
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 19e2bf9ef9d11f1975881fd064b86004422190de
+ms.sourcegitcommit: 6a51687a98c417a004cd4295ad06ae813e1978cc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488242"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638831"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Použití privilegovaného koncového bodu v centru Azure Stack
 
@@ -32,13 +32,13 @@ PEP zaznamená všechny akce (a odpovídající výstupy), které v relaci Power
 
 ## <a name="access-the-privileged-endpoint"></a>Přístup k privilegovanému koncovému bodu
 
-K PEP přistupujete prostřednictvím vzdálené relace PowerShellu na virtuálním počítači, který hostuje PEP. V ASDK se tento virtuální počítač jmenuje **AzS-ERCS01**. Pokud používáte integrovaný systém, existují tři instance PEP, z nichž každý běží v rámci virtuálního počítače (*předpona*-ERCS01, *prefix*-ERCS02 nebo *prefix*-ERCS03) na různých hostitelích pro zajištění odolnosti.
+K PEP přistupujete prostřednictvím vzdálené relace PowerShellu na virtuálním počítači, který hostuje PEP. V ASDK se tento virtuální počítač jmenuje **AzS-ERCS01** . Pokud používáte integrovaný systém, existují tři instance PEP, z nichž každý běží v rámci virtuálního počítače ( *předpona* -ERCS01, *prefix* -ERCS02 nebo *prefix* -ERCS03) na různých hostitelích pro zajištění odolnosti.
 
 Než zahájíte tento postup pro integrovaný systém, ujistěte se, že máte přístup k PEP buď podle IP adresy, nebo prostřednictvím DNS. Po počátečním nasazení centra Azure Stack můžete k PEP přistupovat jenom pomocí IP adresy, protože integrace DNS zatím není nastavená. Dodavatel hardwaru OEM vám poskytne soubor JSON s názvem **AzureStackStampDeploymentInfo** , který obsahuje IP adresy PEP.
 
-IP adresu můžete najít také na portálu pro správu centra Azure Stack. Otevřete portál, například `https://adminportal.local.azurestack.external` . Vyberte **Vlastnosti správy oblastí**  >  **Properties**.
+IP adresu můžete najít také na portálu pro správu centra Azure Stack. Otevřete portál, například `https://adminportal.local.azurestack.external` . Vyberte **Vlastnosti správy oblastí**  >  **Properties** .
 
-`en-US`Při spuštění privilegovaného koncového bodu budete potřebovat nastavit aktuální nastavení jazykové verze, jinak rutiny jako test-AzureStack nebo Get-AzureStackLog nebudou fungovat podle očekávání.
+`en-US`Při spuštění privilegovaného koncového bodu budete muset nastavit aktuální nastavení jazykové verze, jinak rutiny, jako je Test-AzureStack nebo Get-AzureStackLog, nebudou fungovat podle očekávání.
 
 > [!NOTE]
 > Z bezpečnostních důvodů vyžadujeme, abyste se připojili ke službě PEP jenom z posíleného virtuálního počítače, který běží na hostiteli životního cyklu hardwaru, nebo z vyhrazeného a zabezpečeného počítače, jako je například [pracovní stanice privilegovaného přístupu](/windows-server/identity/securing-privileged-access/privileged-access-workstations). Původní konfigurace hostitele životního cyklu hardwaru nesmí být upravena z původní konfigurace (včetně instalace nového softwaru) nebo používaná pro připojení k PEP.
@@ -80,41 +80,41 @@ IP adresu můžete najít také na portálu pro správu centra Azure Stack. Otev
     
    - Po zobrazení výzvy použijte následující přihlašovací údaje:
    
-       - **Uživatelské jméno**: zadejte účet CloudAdmin ve formátu ** &lt; *Azure Stack centrum doména* &gt; \cloudadmin**. (Pro ASDK se uživatelské jméno **azurestack\cloudadmin**.)
+       - **Uživatelské jméno** : zadejte účet CloudAdmin ve formátu **&lt; *Azure Stack centrum doména* &gt; \cloudadmin** . (Pro ASDK se uživatelské jméno **azurestack\cloudadmin** .)
   
-        - **Heslo**: zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
+        - **Heslo** : zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
 
       > [!NOTE]
       > Pokud se nemůžete připojit ke koncovému bodu ERCS, opakujte kroky jedna a dvě s jinou IP adresou virtuálního počítače ERCS.
 
-3. Po připojení se výzva změní na **[*IP adresa nebo název virtuálního počítače ERCS*]: PS>** nebo na **[AZS-ercs01]: PS>**, v závislosti na prostředí. Z tohoto místa spusťte příkaz `Get-Command` pro zobrazení seznamu dostupných rutin.
+3. Po připojení se výzva změní na **[ *IP adresa nebo název virtuálního počítače ERCS* ]: PS>** nebo na **[AZS-ercs01]: PS>** , v závislosti na prostředí. Z tohoto místa spusťte příkaz `Get-Command` pro zobrazení seznamu dostupných rutin.
 
     Odkaz na rutiny najdete v [referenčních informacích o privilegovaném koncovém bodu Azure Stack hub](../reference/pep-2002/index.md) .
 
    Mnohé z těchto rutin jsou určené jenom pro integrovaná systémová prostředí (například rutiny související s integrací Datacenter). V ASDK byly ověřeny následující rutiny:
 
-   - Vymazat – hostitel
-   - Zavřít – PrivilegedEndpoint
-   - Konec – PSSession
+   - Clear-Host
+   - Close-PrivilegedEndpoint
+   - Exit-PSSession
    - Get-AzureStackLog
    - Get-AzureStackStampInformation
    - Get-Command
    - Get-FormatData
-   - Získat nápovědu
+   - Get-Help
    - Get-ThirdPartyNotices
-   - Measure – objekt
+   - Measure-Object
    - New-CloudAdminUser
-   - Výstupní – výchozí
+   - Out-Default
    - Remove-CloudAdminUser
    - Select-Object
    - Set-CloudAdminUserPassword
    - Test-AzureStack
-   - Stop – AzureStack
+   - Stop-AzureStack
    - Get-ClusterLog
 
 ## <a name="how-to-use-the-privileged-endpoint"></a>Použití privilegovaného koncového bodu 
 
-Jak je uvedeno výše, PEP je koncový bod [POWERSHELL JEA](/powershell/scripting/learn/remoting/jea/overview) . Při poskytování silné bezpečnostní vrstvy JEA koncový bod omezuje některé základní funkce PowerShellu, jako je například skriptování nebo dokončování karet. Pokud se pokusíte použít nějaký typ operace skriptu, operace se nezdařila s chybou **ScriptsNotAllowed**. Toto selhání je očekávané chování.
+Jak je uvedeno výše, PEP je koncový bod [POWERSHELL JEA](/powershell/scripting/learn/remoting/jea/overview) . Při poskytování silné bezpečnostní vrstvy JEA koncový bod omezuje některé základní funkce PowerShellu, jako je například skriptování nebo dokončování karet. Pokud se pokusíte použít nějaký typ operace skriptu, operace se nezdařila s chybou **ScriptsNotAllowed** . Toto selhání je očekávané chování.
 
 Chcete-li například získat seznam parametrů pro danou rutinu, spusťte následující příkaz:
 
@@ -160,8 +160,8 @@ Pokud chcete importovat relaci PEP na místním počítači, proveďte následuj
 
      Po zobrazení výzvy použijte následující přihlašovací údaje:
 
-     - **Uživatelské jméno**: zadejte účet CloudAdmin ve formátu ** &lt; *Azure Stack centrum doména* &gt; \cloudadmin**. (Pro ASDK se uživatelské jméno **azurestack\cloudadmin**.)
-     - **Heslo**: zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
+     - **Uživatelské jméno** : zadejte účet CloudAdmin ve formátu **&lt; *Azure Stack centrum doména* &gt; \cloudadmin** . (Pro ASDK se uživatelské jméno **azurestack\cloudadmin** .)
+     - **Heslo** : zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
 
 3. Importujte relaci PEP do místního počítače:
 
@@ -196,6 +196,53 @@ Po úspěšném přenosu souborů protokolu přepisu do sdílené složky se aut
 
 > [!NOTE]
 > Pokud zavřete relaci PEP pomocí rutin `Exit-PSSession` nebo `Exit` nebo pouze zavřete konzolu PowerShellu, protokoly přepisu se nepřenášejí do sdílené složky. Zůstávají v PEP. Při příštím spuštění `Close-PrivilegedEndpoint` a zahrnutí sdílené složky se také přenesou protokoly přepisu z předchozích relací. Nepoužívejte `Exit-PSSession` nebo `Exit` k ukončení relace PEP použijte `Close-PrivilegedEndpoint` místo toho.
+
+## <a name="unlocking-the-privileged-endpoint-for-support-scenarios"></a>Odemknutí privilegovaného koncového bodu pro scénáře podpory
+
+ Během scénáře podpory může pracovník podpory společnosti Microsoft potřebovat zvýšit relaci prostředí PowerShell privilegovaného koncového bodu, aby mohl získat přístup k interním údajům infrastruktury centra Azure Stack. Tento proces je někdy neformálně označován jako "rozbití skla" nebo "Unlock The PEP". Proces zvýšení úrovně relace PEP je dvěma kroky, dvou, dvou a dvou procesů ověřování organizace. Postup odemknutí je iniciován operátorem centra Azure Stack, který neustále uchovává kontrolu nad prostředím. Operátor přistupuje ke službě PEP a provede tuto rutinu:
+ 
+ ```powershell  
+      Get-SupportSessionToken
+  ```
+ Rutina vrátí token žádosti o relaci podpory, velmi dlouhý alfanumerický řetězec. Operátor pak předá pracovníkovi podpory společnosti Microsoft prostřednictvím choise (např. chat, e-mail atd.). Pracovník podpory společnosti Microsoft používá token žádosti pro vygenerování, pokud je platný, token pro autorizaci relace podpory a pošle ho zpět do operátoru centra Azure Stack. Ve stejné relaci PowerShellu PEP operátor pak předá do této rutiny autorizační token jako vstup:
+
+ ```powershell  
+      unlock-supportsession
+      cmdlet Unlock-SupportSession at command pipeline position 1
+      Supply values for the following parameters:
+      ResponseToken:
+  ```
+
+Pokud je autorizační token platný, relace PowerShellu PEP se zvýší na vyšší úroveň tím, že poskytuje úplné možnosti správy a úplný přístup k infrastruktuře. 
+
+> [!NOTE]
+> Všechny operace a rutiny spouštěné v relaci PEP se zvýšenými oprávněními se musí provádět v rámci striktního dozoru technické podpory společnosti Microsoft. Tato chyba by mohla vést k vážným výpadkům, ztrátě dat a může vyžadovat úplné opětovné nasazení prostředí Azure Stack hub.
+
+ Po ukončení relace podpory je velmi důležité zavřít zpátky relaci PEP s vyššími oprávněními pomocí rutiny **Close-PrivilegedEndpoint** , jak je vysvětleno v části výše. Jedna relace PEP je ukončena, token odemčení již není platný a nelze jej znovu použít k odemčení relace PEP.
+Relace PEP se zvýšenými oprávněními má platnost 8 hodin, po které se v případě neukončení ukončí relace PEP se zvýšenými oprávněními automaticky znovu na běžnou relaci PEP.
+
+## <a name="content-of-the-privileged-endpoint-tokens"></a>Obsah tokenů privilegovaných koncových bodů
+
+ PEP podporuje požadavek relace a tokeny autorizace k ochraně přístupu a zajištění, aby relace PEP mohla odemknout pouze autorizované tokeny. Tokeny jsou navržené tak, aby kryptograficky zaručují, že token odpovědi může přijmout jenom relace PEP, která vygenerovala token žádosti. Tokeny PEP neobsahují žádný druh informací, které by mohly jednoznačně identifikovat Azure Stackho centra nebo zákazníka. Jsou zcela anonymní. Jsou uvedené podrobnosti o obsahu jednotlivých tokenů.
+ 
+### <a name="support-session-request-token"></a>Token žádosti o relaci podpory
+
+ Token žádosti o relaci podpory PEP se skládá ze tří objektů:
+
+      - A randomly generated Session ID.
+      - A self-signed certificate, generated for the purpose of having a one-time public/private key pair. The certificate does not contain any information on the environment. 
+      - A time stamp that indicates the request token expiration.
+      
+  Token žádosti je pak zašifrovaný pomocí veřejného klíče cloudu Azure, ke kterému je prostředí centra Azure Stack zaregistrované.
+ 
+ ### <a name="support-session-authorization-response-token"></a>Token odpovědi na autorizaci relace podpory
+
+Token odpovědi na ověření PEP support se skládá ze dvou objektů:
+
+      - The randomly generated session ID extracted from the request token.
+      - A time stamp that indicates the response token expiration.
+      
+ Token odpovědi je pak zašifrovaný pomocí certifikátu podepsaného svým držitelem, který je obsažený v tokenu žádosti. Certifikát podepsaný svým držitelem byl dešifrován pomocí privátního klíče přidruženého ke cloudu Azure, proti kterému je prostředí centra Azure Stack registrované.
 
 
 ## <a name="next-steps"></a>Další kroky
