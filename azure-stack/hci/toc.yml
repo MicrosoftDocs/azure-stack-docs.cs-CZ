@@ -74,6 +74,8 @@
           href: manage/monitor-cluster.md
         - name: Přidat nebo odebrat servery
           href: manage/add-cluster.md
+        - name: Převést Server do offline režimu kvůli údržbě
+          href: manage/maintain-servers.md
         - name: Správa registrace Azure
           href: manage/manage-azure-registration.md
         - name: Změnit jazyky
@@ -140,7 +142,7 @@
           href: concepts/billing.md
         - name: Aktualizace a upgrady
           href: concepts/updates.md
-        - name: Aspekty zabezpečení
+        - name: Důležité informace o zabezpečení
           href: concepts/security.md
 - name: Referenční informace
   items:

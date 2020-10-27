@@ -8,16 +8,16 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 08/06/2020
-ms.openlocfilehash: 2aa24a852e5388a36b1103c2a61f5aa70930d84d
-ms.sourcegitcommit: 1ab1293b594fe8ffc00dc800c663cf1323dc41ce
+ms.openlocfilehash: 8d188c77ab04044db94e13cdbf36fdb0e7cbe839
+ms.sourcegitcommit: 6a51687a98c417a004cd4295ad06ae813e1978cc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87939526"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638814"
 ---
 # <a name="data-at-rest-encryption-in-azure-stack-hub"></a>Šifrování neaktivních dat v centru Azure Stack
 
-Centrum Azure Stack chrání data uživatelů a infrastruktury na úrovni subsystému úložiště pomocí šifrování v klidovém prostředí. Subsystém úložiště Azure Stackového rozbočovače je šifrován pomocí nástroje BitLocker s 128 šifrováním AES. Klíče BitLockeru jsou trvale uložené v interním úložišti tajných klíčů.
+Centrum Azure Stack chrání data uživatelů a infrastruktury na úrovni subsystému úložiště pomocí šifrování v klidovém prostředí. Ve výchozím nastavení je subsystém úložiště Azure Stackho rozbočovače zašifrovaný pomocí nástroje BitLocker s 128 šifrováním AES. Klíče BitLockeru jsou trvale uložené v interním úložišti tajných klíčů. V době nasazení je také možné nakonfigurovat nástroj BitLocker tak, aby používal šifrování AES 256-bit.
 
 Šifrování neaktivních dat je běžným požadavkem na mnoho hlavních standardů dodržování předpisů (například PCI-DSS, FedRAMP, HIPAA). Centrum Azure Stack vám umožní splnit tyto požadavky bez dalších požadavků na práci nebo konfigurace. Další informace o tom, jak centrum Azure Stack pomáhá splnit standardy dodržování předpisů, najdete na [portálu Microsoft Trust Service](https://aka.ms/AzureStackCompliance).
 
