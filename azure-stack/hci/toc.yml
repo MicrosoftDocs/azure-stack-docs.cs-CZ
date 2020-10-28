@@ -146,6 +146,10 @@
           href: concepts/security.md
 - name: Referenční informace
   items:
+    - name: Příkazy Azure CLI pro registraci Azure
+      href: 'https://docs.microsoft.com/cli/azure/ext/stack-hci/stack-hci'
+    - name: Příkazy PowerShellu pro registraci Azure
+      href: 'https://docs.microsoft.com/powershell/module/az.stackhci'
     - name: Příkazy prostředí PowerShell technologie Hyper-V
       href: /powershell/module/hyper-v
     - name: Příkazy prostředí PowerShell pro úložiště

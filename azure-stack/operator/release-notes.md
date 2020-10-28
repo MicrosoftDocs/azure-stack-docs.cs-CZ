@@ -3,16 +3,16 @@ title: Poznámky k verzi centra Azure Stack
 description: Poznámky k verzi pro integrované systémy Azure Stack hub, včetně aktualizací a oprav chyb.
 author: sethmanheim
 ms.topic: article
-ms.date: 10/20/2020
+ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: 923dbd141ad7911326f896d0d4f8d124648035e5
-ms.sourcegitcommit: b6d5d59481c3569a5ff670a91b3a46a9d3a7a63d
+ms.openlocfilehash: 5fa0debb10152d94095d6ba79100e74c2116633e
+ms.sourcegitcommit: 61e616745cd20940eaeee6dfe90333ebe621e0ea
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92336886"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92763130"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -49,11 +49,11 @@ Balíček aktualizace centra Azure Stack můžete stáhnout pomocí [nástroje A
 ::: moniker range="azs-2005"
 ## <a name="2005-build-reference"></a>2005 – odkaz na sestavení
 
-Číslo buildu aktualizace centra Azure Stack 2005 je **1.2005.6.53**.
+Číslo buildu aktualizace centra Azure Stack 2005 je **1.2005.6.53** .
 
 ### <a name="update-type"></a>Typ aktualizace
 
-Typ sestavení aktualizace centra Azure Stack 2005 je **plný**.
+Typ sestavení aktualizace centra Azure Stack 2005 je **plný** .
 
 Velikost balíčku aktualizace 2005 je v porovnání s předchozími aktualizacemi větší. Zvýšení velikosti má za následek delší dobu stahování. Aktualizace zůstane ve stavu **přípravy** po dlouhou dobu a operátoři můžou očekávat, že tento proces trvá déle než u předchozích aktualizací. Aktualizace 2005 obsahovala v našem interním testování – 4 uzly následující očekávané moduly runtime: 13-20 hodin, 8 uzlů: 16-26 hodin, 12 uzlů: 19-32 hodiny, 16 uzlů: 22-38 hodin. Přesné běhové moduly pro aktualizaci jsou obvykle závislé na kapacitě používané v systému podle zatížení klientů, připojení k systémové síti (Pokud je připojeno k Internetu) a specifikacemi hardwaru systému. Běhové moduly, které jsou kratší nebo delší než očekávaná hodnota, nejsou neobvyklé a nevyžadují akci Azure Stack operátory centra, pokud se aktualizace nezdařila. Tato přibližná doba běhu je specifická pro aktualizaci 2005 a neměla by se porovnávat s jinými aktualizacemi centra Azure Stack.
 
@@ -94,7 +94,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 ### <a name="changes"></a>Změny
 
-- Odeberou se akce, které se mají zastavit, vypnout a restartovat instanci role infrastruktury na portálu pro správu. V poskytovateli prostředků infrastruktury se odebraly taky odpovídající rozhraní API. Následující rutiny PowerShellu v modulu Správce RM a AZ Preview pro Azure Stack hub už nefungují: **stop-AzsInfrastructureRoleInstance**, **Disable-InfrastructureRoleInstance**a **restart-InfrastructureRoleInstance**. Tyto rutiny se odeberou z dalšího správce AZ Module Release for Azure Stack hub.
+- Odeberou se akce, které se mají zastavit, vypnout a restartovat instanci role infrastruktury na portálu pro správu. V poskytovateli prostředků infrastruktury se odebraly taky odpovídající rozhraní API. Následující rutiny PowerShellu v modulu Správce RM a AZ Preview pro Azure Stack hub už nefungují: **stop-AzsInfrastructureRoleInstance** , **Disable-InfrastructureRoleInstance** a **restart-InfrastructureRoleInstance** . Tyto rutiny se odeberou z dalšího správce AZ Module Release for Azure Stack hub.
 - Centrum Azure Stack 2005 teď podporuje [App Service na Azure Stack hub 2020 (verze 87. x)](app-service-release-notes-2020-Q2.md).
 
 ### <a name="fixes"></a>Opravy
@@ -103,7 +103,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 - Opravili jsme problém, který by mohl způsobit selhání uzlu jednotky škálování v opravě, protože se nepovedlo najít cestu k základní imagi operačního systému.
 - Opravili jsme problém se škálováním na více instancí a nahorizontálním navýšení kapacity pro roli infrastruktury podpory, která má kaskádový efekt na opravu uzlů jednotek škálování.
-- Opravili jsme problém, ve kterém je. Rozšíření VHD (namísto. VHD) se nepovolilo, když operátoři přidali své vlastní image na portál Azure Stack Center pro správu na **všech službách > compute > VM images > přidat**.
+- Opravili jsme problém, ve kterém je. Rozšíření VHD (namísto. VHD) se nepovolilo, když operátoři přidali své vlastní image na portál Azure Stack Center pro správu na **všech službách > compute > VM images > přidat** .
 - Opravili jsme problém, kdy předchozí operace restartování virtuálního počítače způsobila následné neočekávané restartování po jakékoli jiné operaci aktualizace virtuálních počítačů (přidávání disků, značek atd.).
 - Opravili jsme problém, kdy vytvoření duplicitní zóny DNS způsobilo, že portál přestane reagovat. Měla by nyní zobrazit příslušnou chybu.
 - Opravili jsme problém, kdy **příkaz Get-AzureStackLogs** neshromažďuje požadované protokoly pro řešení problémů se sítí. 
@@ -142,20 +142,20 @@ Od verze 2005 se při aktualizaci na novou hlavní verzi (například 1.2002. x 
 
 Pokud se následně uvolní nějaké opravy hotfix 2005, měli byste po instalaci 2005 nainstalovat tyto opravy:
 
-- [1.2005.18.78 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4584238)
+- [1.2005.19.80 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4591132)
 ::: moniker-end
 
 ::: moniker range="azs-2002"
 ## <a name="2002-build-reference"></a>2002 – odkaz na sestavení
 
-Číslo buildu aktualizace centra Azure Stack 2002 je **1.2002.0.35**.
+Číslo buildu aktualizace centra Azure Stack 2002 je **1.2002.0.35** .
 
 > [!IMPORTANT]  
 > V rámci aktualizace centra Azure Stack 2002 společnost Microsoft dočasně rozšiřuje naše [příkazy zásad podpory centra Azure Stack](azure-stack-servicing-policy.md).  Spolupracujeme se zákazníky po celém světě, kteří reagují na COVID-19 a kteří můžou dělat důležitá rozhodnutí o svých Azure Stackch systémech, jak se aktualizují a spravují, a výsledkem je, že obchodní operace datového centra budou fungovat normálně. V rámci podpory našich zákazníků nabízí Microsoft dočasnou příponu pro změnu zásad, která zahrnuje tři předchozí verze aktualizací.  V důsledku toho bude podporována nově vydaná aktualizace 2002 a kterákoli ze tří předchozích verzí aktualizace (například 1910, 1908 a 1907).
 
 ### <a name="update-type"></a>Typ aktualizace
 
-Typ sestavení aktualizace centra Azure Stack 2002 je **plný**.
+Typ sestavení aktualizace centra Azure Stack 2002 je **plný** .
 
 Velikost balíčku aktualizace 2002 je v porovnání s předchozími aktualizacemi větší. Zvýšení velikosti má za následek delší dobu stahování. Aktualizace zůstane ve stavu **přípravy** po dlouhou dobu a operátoři můžou očekávat, že tento proces trvá déle než u předchozích aktualizací. Aktualizace 2002 obsahovala v našem interním testování – 4 uzly následující očekávané moduly runtime: 15-42 hodin, 8 uzlů: 20-50 hodin, 12 uzlů: 20-60 hodiny, 16 uzlů: 25-70 hodin. Přesné běhové moduly pro aktualizaci jsou obvykle závislé na kapacitě používané v systému podle zatížení klientů, připojení k systémové síti (Pokud je připojeno k Internetu) a specifikacemi hardwaru systému. Běhové moduly, které jsou kratší nebo delší než očekávaná hodnota, nejsou neobvyklé a nevyžadují akci Azure Stack operátory centra, pokud se aktualizace nezdařila. Tato přibližná doba běhu je specifická pro aktualizaci 2002 a neměla by se porovnávat s jinými aktualizacemi centra Azure Stack.
 
@@ -172,8 +172,8 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 - K dispozici je nová verze (1.8.1) Azure Stack moduly PowerShellu pro správce centra založené na AzureRM.
 - K dispozici je nová verze REST API Správce centra Azure Stack. Podrobnosti o koncových bodech a nekonečných změnách najdete v referenčních informacích k [rozhraní API](/rest/api/azure-stack/).
 - Noví Azure PowerShell moduly tenanta budou vydány pro Azure Stack centra 15. dubna 2020. Aktuálně používané moduly Azure RM budou fungovat i nadále, ale po sestavení 2002 už se neaktualizují.
-- Přidání nového upozornění na portál správce centra Azure Stack k hlášení problémů s připojením s nakonfigurovaným serverem syslog. Název výstrahy: **u klienta syslog došlo při odesílání zprávy syslog k potížím se sítí**.
-- Přidání nového upozornění na portál správce centra Azure Stack k hlášení problémů s připojením k serveru NTP (Network Time Protocol). Název výstrahy je **neplatný čas zdroje na [název uzlu]**.
+- Přidání nového upozornění na portál správce centra Azure Stack k hlášení problémů s připojením s nakonfigurovaným serverem syslog. Název výstrahy: **u klienta syslog došlo při odesílání zprávy syslog k potížím se sítí** .
+- Přidání nového upozornění na portál správce centra Azure Stack k hlášení problémů s připojením k serveru NTP (Network Time Protocol). Název výstrahy je **neplatný čas zdroje na [název uzlu]** .
 - [Sada Java SDK](https://azure.microsoft.com/develop/java/) vydala nové balíčky z důvodu zásadní změny v 2002 v souvislosti s omezeními TLS. Je nutné nainstalovat novou závislost sady Java SDK. Pokyny najdete v tématu [profily verze Java a rozhraní API](../user/azure-stack-version-profiles-java.md?view=azs-2002#java-and-api-version-profiles).
 - K dispozici je nová verze (1.0.5.10) sady MP centra System Center Operations Manager-Azure Stack, která se vyžaduje pro všechny systémy se systémem 2002 z důvodu porušení změn rozhraní API. Změny rozhraní API mají vliv na řídicí panely pro zálohování a úložiště a před aktualizací MP doporučujeme nejprve aktualizovat všechny systémy na 2002.
 
@@ -277,13 +277,13 @@ Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix
 ::: moniker range="azs-1910"
 ## <a name="1910-build-reference"></a>1910 – odkaz na sestavení
 
-Číslo buildu aktualizace centra Azure Stack 1910 je **1.1910.0.58**.
+Číslo buildu aktualizace centra Azure Stack 1910 je **1.1910.0.58** .
 
 ### <a name="update-type"></a>Typ aktualizace
 
 Počínaje 1908 se příslušný operační systém, na kterém Azure Stack centra spouští, aktualizoval na Windows Server 2019. Tato aktualizace umožňuje základní základní vylepšení a možnost přinášet další možnosti do centra Azure Stack.
 
-Typ sestavení aktualizace centra Azure Stack 1910 je **Express**.
+Typ sestavení aktualizace centra Azure Stack 1910 je **Express** .
 
 Balíček aktualizace 1910 je v porovnání s předchozími aktualizacemi větší, což má za následek delší dobu stahování. Tato aktualizace zůstane ve stavu **Příprava** pro dlouhou dobu a operátoři můžou očekávat, že tento proces trvá déle než předchozí aktualizace. Očekávaná doba dokončení aktualizace 1910 je přibližně 10 hodin, bez ohledu na počet fyzických uzlů ve vašem prostředí Azure Stack hub. Přesné běhové moduly pro aktualizaci jsou obvykle závislé na kapacitě používané v systému podle zatížení klientů, připojení k systémové síti (Pokud je připojeno k Internetu) a specifikacemi hardwaru systému. Běhové moduly trvající déle než očekávaná hodnota nejsou běžné a nevyžadují akci Azure Stack operátory centra, pokud se aktualizace nezdařila. Tato přibližná doba běhu je specifická pro aktualizaci 1910 a neměla by se porovnávat s jinými aktualizacemi centra Azure Stack.
 
@@ -383,11 +383,11 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 - Služba infrastruktura zálohování přidá službu identit do datové části zálohy pro nasazení AAD.  
 
 - Modul PowerShellu centra Azure Stack se aktualizoval na verzi 1.8.0 pro verzi 1910.<br>Změny zahrnují:
-   - **Nový modul Správce DRP**: poskytovatel prostředků nasazení (DRP) umožňuje Orchestrované nasazení poskytovatelů prostředků do centra Azure Stack. Tyto příkazy komunikují s Azure Resource Managerou vrstvou a komunikují s DRP.
-   - **BRP**: <br />
+   - **Nový modul Správce DRP** : poskytovatel prostředků nasazení (DRP) umožňuje Orchestrované nasazení poskytovatelů prostředků do centra Azure Stack. Tyto příkazy komunikují s Azure Resource Managerou vrstvou a komunikují s DRP.
+   - **BRP** : <br />
            – Podporuje obnovení jedné role pro zálohování infrastruktury Azure Stack. <br />
            – Přidejte parametr `RoleName` do rutiny `Restore-AzsBackup` .
-   - **FRP**: zásadní změny prostředků **jednotky** a **svazku** pomocí verze rozhraní API `2019-05-01` . Funkce jsou podporovány centrem Azure Stack 1910 a novějším: <br />
+   - **FRP** : zásadní změny prostředků **jednotky** a **svazku** pomocí verze rozhraní API `2019-05-01` . Funkce jsou podporovány centrem Azure Stack 1910 a novějším: <br />
             – Hodnota,, `ID` `Name` a byla `HealthStatus` `OperationalStatus` změněna. <br />
             – Podporované nové vlastnosti `FirmwareVersion` , `IsIndicationEnabled` , `Manufacturer` a `StoragePool` pro prostředky **jednotky** . <br />
             – Vlastnosti `CanPool` a `CannotPoolReason` prostředky **jednotky** jsou zastaralé. `OperationalStatus` místo toho použijte.
