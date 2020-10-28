@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2020
+ms.date: 10/27/2020
 ms.author: justinha
 ms.reviewer: asganesh
-ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 7c98b382988e0f462261bc453ebadb07d9c9a7d7
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.lastreviewed: 10/27/2020
+ms.openlocfilehash: f170ab6025effe394c891aa4fb3ad7111bac7133
+ms.sourcegitcommit: 716ca50bd198fd51a4eec5b40d5247f6f8c16530
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92183034"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92898615"
 ---
-# <a name="customer-journey"></a>Cesta zákazníka
+# <a name="mdc-integration-overview"></a>Přehled integrace MDC
 
-Tento článek popisuje kompletní proces integrace datacenter Azure Stack hub od nákupu po nasazení. Integrací je projekt pro spolupráci mezi zákazníkem a Microsoftem. Následující oddíly obsahují různé fáze pro časovou osu projektu a konkrétní kroky pro členy projektu.
+Tento článek popisuje kompletní proces integrace MDC z nákupu až po nasazení. Integrací je projekt pro spolupráci mezi zákazníkem a Microsoftem. Následující oddíly obsahují různé fáze pro časovou osu projektu a konkrétní kroky pro členy projektu.
 
 ## <a name="introduction"></a>Úvod
 
@@ -33,52 +33,14 @@ Následující tabulka znázorňuje, co je možné očekávat v různých fází
 
 |   |Proces pořadí  |Před nasazením |Integrace, ověřování, přenos |Nasazení na pracovišti  |Po nasazení |
 |---|---------------|---------------|-----------------------------------|--------------------|----------------|
-|Partnerský vztah Microsoftu  |-Signál k doručování do umístění USA<br>– Modulární datové centrum (MDC) = 15 dní   |Poskytování požadovaných nástrojů a dokumentace pro shromažďování požadavků Datacenter  |– Ověření artefaktů konfigurace a kontrola výsledků ověření<br>– Zajistěte doručení hardwaru  |– Rack a zásobník<br>– Integrace sítě<br>– Azure Stack nasazení centra<br>-Předat zákazníkovi    |Registrace a syndikace webu Marketplace|
+|Partnerský vztah Microsoftu  |-Signál k doručování do umístění USA    |Poskytování požadovaných nástrojů a dokumentace pro shromažďování požadavků Datacenter  |– Ověření artefaktů konfigurace a kontrola výsledků ověření<br>– Zajistěte doručení hardwaru  |– Rack a zásobník<br>– Integrace sítě<br>– Azure Stack nasazení centra<br>-Předat zákazníkovi    |Registrace a syndikace webu Marketplace|
 |Zákazník   |Označuje nákup   |– Vyplní podrobnosti sítě v listu nasazení.<br>– Shromáždí certifikáty<br>– Získá účty Azure AD.<br>– Spustí jakýkoli poskytnutý Nástroj pro ověření.    |Ujistěte se, že je lokalita připravená na síť, výkon, požadavky na chlazení.    |– Připravte se na artefakty konfigurace nasazení.<br>– K dispozici je inženýr sítě zákazníka   |     |
 
 
 ## <a name="order-process"></a>Proces pořadí
 
-Vaše organizace bude spolupracovat s Microsoftem a umístit objednávku na přidělený počet systémů. Po umístění objednávky bude mít společnost Microsoft 15 dní, aby MDC do svého umístění v USA. Microsoft zajistí splnění všech požadavků na zabezpečený dodavatelský řetězec. 
+Vaše organizace bude spolupracovat s Microsoftem a umístit objednávku na přidělený počet systémů. Po umístění objednávky Microsoft doručí MDC k vašemu umístění v USA. Microsoft zajistí splnění všech požadavků na zabezpečený dodavatelský řetězec. 
 
->[!NOTE] 
->Fakturace začíná 14 dní od odeslání hardwaru.
-
-Chcete-li vytvořit prostředek centra Azure Stack, proveďte v Azure Portal následující kroky.
-
-1. Pomocí přihlašovacích údajů pro Microsoft Azure se přihlaste k Azure Portal na této adrese URL: [https://portal.azure.com](https://portal.azure.com) .
-1. V levém podokně vyberte **+ vytvořit prostředek**. Vyhledejte a vyberte **modulární datová centra**. Vyberte **Vytvořit**.
-1. Vyberte předplatné, které chcete použít pro zařízení Azure Stack hub. Vyberte zemi, do které chcete toto fyzické zařízení dodávat. Vyberte **Zobrazit zařízení**.
-1. Zobrazí se krátký tvar. Vyplňte formulář a vyberte **Odeslat**. Microsoft umožní vaše předplatné.
-1. Po povolení předplatného byste měli být schopní pokračovat v vytváření prostředků. V okně **Vybrat typ zařízení** zvolte **Vybrat**. 
-1. Na kartě **základy** zadejte nebo vyberte následující **Podrobnosti o projektu**.
-    
-    |Nastavení  |Hodnota  |
-    |---------|---------|
-    |Předplatné    |Tato hodnota se vyplní automaticky na základě dřívějšího výběru. Předplatné je propojené s vaším fakturačním účtem. |
-    |Skupina prostředků  |Vyberte existující skupinu nebo vytvořte novou.   |
-
-1. Zadejte nebo vyberte následující **Podrobnosti o instanci**.
-
-    |Nastavení  |Hodnota  |
-    |---------|---------|
-    |Název   | Popisný název pro identifikaci prostředku.<br>Název musí obsahovat 2 až 50 znaků a může obsahovat písmena, číslice a spojovníky.<br> Název musí začínat a končit na písmeno nebo číslici.        |
-    |Oblast     |Seznam všech oblastí, ve kterých je prostředek centra Azure Stack k dispozici, najdete v tématu [Dostupné produkty Azure v jednotlivých oblastech](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Pokud používáte Azure Government, jsou dostupné všechny oblasti státní správy, jak je znázorněno v [oblastech Azure](https://azure.microsoft.com/global-infrastructure/regions/).<br> Zvolte umístění, které je nejblíže zeměpisné oblasti, ve které chcete zařízení nasadit.|
-
-
-1. Vyberte **Další: adresa příjemce**.
-
-    - Pokud už máte nějaké zařízení, vyberte pole se seznamem, **které má zařízení Azure Stack hub**.
-
-    - Pokud se jedná o nové zařízení, které objednáváte, zadejte jméno kontaktu, společnost, adresu pro odeslání zařízení a kontaktní údaje.
-
-1. Vyberte **Další: Zkontrolovat a vytvořit**.
-1. Na kartě **Revize + vytvořit** si přečtěte **Podrobnosti o cenách**, **podmínky použití**a podrobnosti k vašemu prostředku. Zaškrtněte pole se seznamem pro **uživatele, kteří si prošli podmínka ochrany osobních údajů**.
-1. Vyberte **Vytvořit**.
-
-Vytvoření prostředku trvá několik minut. Po úspěšném vytvoření a nasazení prostředku budete upozorněni. Vyberte **Přejít k prostředku**.
-
-Po uvedení objednávky Microsoft zkontroluje pořadí a zavede vám (prostřednictvím e-mailu) informace o expedici.
 
 ## <a name="pre-deployment"></a>Před nasazením
 
@@ -95,6 +57,10 @@ Vyberte následující položky:
 - **Požadavky na certifikát.** Je důležité, aby byly k dispozici všechny [požadované certifikáty](../operator/azure-stack-pki-certs.md) předtím, než dorazí pracovník služby do vašeho datacentra pro nasazení.
 
 Jakmile se všechny informace o požadovaných součástech shromažďují prostřednictvím listu nasazení, Microsoft zajistí, že se spustí všechny nástroje pro ověřování a že budou pomáhat s případnými dalšími otázkami, které máte k dispozici. 
+
+## <a name="site-preparation"></a>Příprava lokality
+
+Další informace o požadavcích pro přípravu lokality najdete v Úvodní příručka.
 
 ## <a name="hardware-delivery"></a>Hardwarové doručování
 
@@ -120,11 +86,11 @@ Následující kontroly byste měli očekávat od inženýra při nasazení v r�
 - Připojení k napájení a zapnutí řešení
 - Ověřuje se stav fyzického hardwaru.
 - Zkontrolujte všechna připojení kabelů a ohraničení, abyste zajistili správné sestavování řešení a splňovali vaše požadavky.
-- Nakonfigurujte HLH řešení (hostitel životního cyklu životnosti hardwaru).
+- Konfigurace HLH řešení (hostitel životního cyklu hardwaru)
 - Integrace sítě Datacenter
-- Zkontrolujte, jestli jsou všechna nastavení fyzického hardwaru správná.
+- Zaškrtněte, pokud chcete zkontrolovat, jestli jsou všechna nastavení fyzického hardwaru správná.
 - Ujistěte se, že řešení firmware pro všechny komponenty má nejnovější schválenou verzi.
-- Spusťte nasazení. 
+- Spustit nasazení
 
 ## <a name="post-deployment"></a>Po nasazení
 
@@ -132,12 +98,12 @@ Před předáním řešení zákazníkovi je nutné provést několik kroků v r
 
 Akce, které by měly být provedeny nástrojem Microsoft Deployment inženýr:
 
-- Povolte možnost Přidat poskytovatele prostředků (RPs).
-- Spusťte rutinu [test-azurestack](../operator/azure-stack-diagnostic-test.md).
-- [Registrace](../operator/azure-stack-registration-role.md) v Azure.
-- [Syndikace Marketplace](../operator/azure-stack-marketplace.md).
+- Povolit poskytovatelům hodnot přidat prostředky (RPs)
+- Spuštění rutiny [test-azurestack](../operator/azure-stack-diagnostic-test.md)
+- [Registrace](../operator/azure-stack-registration-role.md) v Azure
+- [Syndikace Marketplace](../operator/azure-stack-marketplace.md)
 - Konfigurace záložního přepínače a konfigurační soubory HLH
-- Připravte si Shrnutí zákazníka pro nasazení.
+- Příprava Shrnutí zákazníka pro nasazení
 - [Zkontrolujte aktualizace](../operator/azure-stack-updates.md) a ujistěte se, že je software řešení aktualizovaný na nejnovější verzi.
 
 ## <a name="next-steps"></a>Další kroky

@@ -157,7 +157,7 @@
                       href: vm-move-specialized.md
                     - name: Zobecněný virtuální počítač v-Prem
                       href: vm-move-generalized.md
-            - name: Storage
+            - name: Úložiště
               items:
                 - name: Přehled
                   href: azure-stack-storage-overview.md
@@ -250,6 +250,8 @@
                       href: azure-stack-kubernetes-aks-engine-scale.md
                     - name: Upgrade clusteru
                       href: azure-stack-kubernetes-aks-engine-upgrade.md
+                    - name: Povolit projekce svazku tokenu účtu služby
+                      href: kubernetes-aks-engine-service-account.md
                     - name: Řešení potíží s modulem AKS
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
                     - name: Použití Azure Monitor pro kontejnery
@@ -343,7 +345,7 @@
           href: iaas-architecture-sql-n-tier-multi-region.md
         - name: Síťová virtuální zařízení
           href: iaas-architecture-nva-architecture.md
-- name: Odkaz
+- name: Referenční informace
   items:
     - name: Prostředí PowerShell centra Azure Stack
       href: /powershell/azure/azure-stack/overview

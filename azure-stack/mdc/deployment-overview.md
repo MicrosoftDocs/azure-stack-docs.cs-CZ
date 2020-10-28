@@ -16,12 +16,12 @@ ms.date: 10/20/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 10/20/2020
-ms.openlocfilehash: 60361a3e44b5ad54c63e6a94223d75a7b5106b9e
-ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
+ms.openlocfilehash: aa5d67405ff471cecf147256d4b2109e94d993ef
+ms.sourcegitcommit: 716ca50bd198fd51a4eec5b40d5247f6f8c16530
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92253923"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92898591"
 ---
 # <a name="mdc-deployment-overview"></a>Přehled nasazení MDC
 
@@ -58,10 +58,6 @@ V následující tabulce jsou uvedeny některé z podmínek, které jsou použit
 |Jednotka škálování    |Základní součást centra Azure Stack, která poskytuje výpočetní prostředky a prostředky úložiště pro Azure Stack infrastruktury a zatížení prostředků infrastruktury. Každý pod zahrnuje osm serverů MDC R840 označovaných také jako uzly.|
 |Úložiště Isilon |    Komponenta centra Azure Stack, která je specifická pro řešení MDC. Isilon poskytuje další objekty BLOB a úložiště souborů pro úlohy centra Azure Stack. Každý pod zahrnuje 48 uzlů úložiště Isilon.|
 |Nulu    |V kontextu MDC je pod nezávislou logickou jednotkou, která se skládá ze dvou propojených fyzických stojanů. Kompletní řešení zahrnuje tři lusky nainstalované v jednom kontejneru.|
-
-
-
-
 
 ## <a name="deployment-workflow"></a>Pracovní postup nasazení
 
