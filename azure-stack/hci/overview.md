@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/24/2020
-ms.openlocfilehash: 135cf9147b69410b4276860dcde2b167e771a695
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.date: 10/28/2020
+ms.openlocfilehash: 6168b36dd57e0814f59d7e05f2b385f091a0a07c
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572530"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064697"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Přehled řešení Azure Stack HCI
 
@@ -69,8 +69,8 @@ Pracujeme na vytváření dalších možností, takže je ještě více vyladěn
 Můžete se také přihlásit k odběru dalších hybridních služeb Azure:
 
 - **Azure Site Recovery** pro zajištění vysoké dostupnosti a zotavení po havárii jako služba (DRaaS).
-- **Azure monitor**centralizované centrum, které sleduje, co se děje napříč vašimi aplikacemi, sítí a infrastrukturou – díky pokročilým analýzám, které využívají AI.
-- **Disk s kopií cloudu**, aby bylo možné používat Azure jako zjednodušené rozšíření pro kvorum clusteru.
+- **Azure monitor** centralizované centrum, které sleduje, co se děje napříč vašimi aplikacemi, sítí a infrastrukturou – díky pokročilým analýzám, které využívají AI.
+- **Disk s kopií cloudu** , aby bylo možné používat Azure jako zjednodušené rozšíření pro kvorum clusteru.
 - **Azure Backup** k ochraně dat mimo lokalitu a k ochraně před ransomwarem.
 - **Azure Update Management** pro posouzení aktualizací a nasazení aktualizací pro virtuální počítače s Windows běžící v Azure a v místním prostředí.
 - **Síťový adaptér Azure** pro připojení prostředků v místním prostředí k virtuálním počítačům v Azure prostřednictvím sítě VPN typu Point-to-site.
@@ -97,9 +97,9 @@ Začněte tím, že budete potřebovat:
 - Cluster dvou nebo více serverů z [katalogu Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/catalog/), zakoupený od preferovaného poskytovatele hardwaru Microsoftu
 - [Předplatné Azure](https://azure.microsoft.com/)
 - Připojení k Internetu pro každý server v clusteru, který se může připojit prostřednictvím odchozího provozu HTTPS do následujícího koncového bodu nejméně každých 30 dnů: *-azurestackhci-usage.azurewebsites.net
-- U clusterů roztaženécích napříč lokalitami potřebujete alespoň jedno připojení mezi lokalitami (s 25 GB RDMA, které je upřednostňováno), s průměrnou latencí 5 MS na konci přenosu, pokud chcete provést synchronní replikaci, kde se v obou lokalitách vyskytují zápisy současně.
+- Pro roztažené clustery mezi lokalitami potřebujete minimálně 1 1 GB připojení mezi lokalitami (upřednostňuje se 25 GB připojení RDMA), s průměrnou latencí 5 MS na konci přenosu, pokud chcete provést synchronní replikaci, kde se v obou lokalitách vyskytují zápisy současně.
 
-Další informace najdete v tématu [než začnete](deploy/before-you-start.md). Informace o požadavcích na Azure Stack HCL pro službu Azure Kubernetes najdete v tématu [AKS požadavky na Azure Stack HCL](../aks-hci/overview.md#what-you-need-to-get-started).
+Další informace najdete v tématu [požadavky na systém](concepts/system-requirements.md). Informace o požadavcích na Azure Stack HCL pro službu Azure Kubernetes najdete v tématu [AKS požadavky na Azure Stack HCL](../aks-hci/overview.md#what-you-need-to-get-started).
 
 ## <a name="hardware-partners"></a>Hardwarové partneři
 
@@ -134,7 +134,7 @@ Chcete-li tyto technologie spravovat, můžete použít následující nástroje
 - Další nástroje pro správu, jako jsou [Správce serveru](/windows-server/administration/server-manager/server-manager)a moduly snap-in konzoly MMC
 - Nástroje od jiných společností než Microsoft, jako je společnosti 5NINE Manager
 
-## <a name="faq"></a>Časté otázky
+## <a name="faq"></a>Nejčastější dotazy
 
 ### <a name="how-does-azure-stack-hci-relate-to-windows-server"></a>Jak se vztahuje Azure Stack HCL na Windows Server?
 
@@ -162,7 +162,7 @@ Díky Azure Stack HCI spouštíte virtualizované úlohy místně, spravované p
 
 Technologie s jednou konvergou Microsoftu je už základem centra Azure Stack.
 
-Mnoho zákazníků Microsoftu má složitá IT prostředí a naším cílem je poskytovat řešení, která je splňují, kde jsou s správnou technologií pro správné obchodní potřeby. Azure Stack HCI je vývoj řešení definovaných na základě softwaru Windows Server (WSSD), která byla dříve k dispozici od našich hardwarových partnerů. Připravili jsme ji do Azure Stack řady, protože jsme začali nabízet nové možnosti pro bezproblémové připojení s Azure pro služby správy infrastruktury.
+Mnoho zákazníků Microsoftu má složitá IT prostředí a naším cílem je poskytovat řešení, která je splňují, kde jsou s správnou technologií pro správné obchodní potřeby. Azure Stack HCI je vývoj řešení Windows Server Software-Defined (WSSD), která byla dříve k dispozici od našich hardwarových partnerů. Připravili jsme ji do Azure Stack řady, protože jsme začali nabízet nové možnosti pro bezproblémové připojení s Azure pro služby správy infrastruktury.
 
 ### <a name="can-i-upgrade-from-azure-stack-hci-to-azure-stack-hub"></a>Můžu upgradovat z Azure Stack HCL na Azure Stack hub?
 
@@ -230,7 +230,7 @@ Mnoho zákazníků si může zajímat, jestli je Windows Server nebo Azure Stack
 | --------------- | --------------- |
 | Windows Server může běžet místně nebo v cloudu, ale samo o ni ještě nepředstavuje kompletní nabídku.| Použijte Azure Stack HCL ke spouštění virtuálních počítačů místně, případně roztažené napříč dvěma lokalitami a s připojeními k Azure Hybrid Services. Je to snadný způsob, jak modernizovat a zabezpečit vaše datová centra a firemní pobočky, dosáhnout nejlepšího výkonu pro SQL Serveré databáze a místní spouštění virtuálních klientů pro zajištění nízké latence a suverenity dat.|
 | Windows Server je skvělým "švýcarským" všestranným nůžm pro všechny role Windows serveru, které jsou virtualizované nebo ne. | Použijte Azure Stack HCI k virtualizaci klasických podnikových aplikací, jako je Exchange, SharePoint a SQL Server, a k virtualizaci rolí Windows serveru, jako jsou souborové servery, DNS, DHCP, IIS a AD. Zahrnuje neomezený přístup ke všem funkcím Hyper-V, jako jsou stíněné virtuální počítače.|
-| Mnoho nasazení Windows serveru běží na základě stárnutí hardwaru. | Použijte Azure Stack HCI k použití softwarově definované infrastruktury místo polí úložišť nebo síťových zařízení, bez hlavní opětovné architektury. Integrované technologie Hyper-V, Prostory úložiště s přímým přístupem a softwarově definované sítě (SDN) jsou přímo přístupné a spravovatelné. Spouštějte aplikace v rámci virtuálních počítačů se systémem Windows nebo Linux.|
+| Mnoho nasazení Windows serveru běží na základě stárnutí hardwaru. | Použijte Azure Stack HCI k použití softwarově definované infrastruktury místo polí úložišť nebo síťových zařízení, bez hlavní opětovné architektury. Integrované technologie Hyper-V, Prostory úložiště s přímým přístupem a Software-Defined Networking (SDN) jsou přímo přístupné a spravovatelné. Spouštějte aplikace v rámci virtuálních počítačů se systémem Windows nebo Linux.|
 
 ## <a name="compare-azure-stack-hub-and-azure-stack-hci"></a>Porovnat centra Azure Stack a Azure Stack HCI
 
@@ -255,26 +255,26 @@ V případě, že vaše organizace bude digitálně transformovat, můžete se s
 | --------------- | --------------- |
 | Azure Stack hub vyžaduje minimálně 4 uzly a vlastní síťové přepínače. | Pro minimální nároky na vzdálené pobočky a větve použijte Azure Stack HCL. Začněte s využitím pouhých 2 uzlů serveru a bez přepínat zpět na zpětnou síť pro zjednodušení a dostupnost. V nabídce hardware se spouští 4 jednotky, 64 GB paměti, a to i v poli $10 000/uzel. |
 | Rozbočovač Azure Stack omezuje možnost využití technologie Hyper-V a sadu funkcí pro zajištění konzistence s Azure. | K virtualizaci Frills technologie Hyper-V pro klasické podnikové aplikace, jako je Exchange, SharePoint a SQL Server a Virtualizujte role Windows serveru jako souborové servery, DNS, DHCP, IIS a AD, použijte Azure Stack HCI. Neomezený přístup ke všem funkcím technologie Hyper-V, jako jsou stíněné virtuální počítače.|
-| Azure Stack hub nezveřejňuje tyto technologie infrastruktury. | Použijte Azure Stack HCI k použití softwarově definované infrastruktury místo polí úložišť nebo síťových zařízení, bez hlavní opětovné architektury. Integrované technologie Hyper-V, Prostory úložiště s přímým přístupem a softwarově definované sítě (SDN) jsou přímo přístupné a spravovatelné. |
+| Azure Stack hub nezveřejňuje tyto technologie infrastruktury. | Použijte Azure Stack HCI k použití softwarově definované infrastruktury místo polí úložišť nebo síťových zařízení, bez hlavní opětovné architektury. Integrované technologie Hyper-V, Prostory úložiště s přímým přístupem a Software-Defined Networking (SDN) jsou přímo přístupné a spravovatelné. |
 
 ## <a name="whats-new-in-azure-stack-hci"></a>Co je nového v Azure Stack HCL
 
 Centrum pro správu systému Windows verze 2009 přidává řadu funkcí Azure Stack HCL, včetně následujících:
 
-- **Možnosti hostování služeb Azure Kubernetes**: teď můžete nainstalovat verzi Preview [služby Azure Kubernetes Service na Azure Stack HCL](https://azure.microsoft.com/products/azure-stack/hci/hci-download/).
-- **Zahrnutí softwarově definovaných sítí v Průvodci vytvořením clusteru**: Průvodce vytvořením clusteru teď obsahuje možnost nasazení funkce síťového adaptéru s [softwarově definovanými sítěmi (SDN)](concepts/software-defined-networking.md) během [vytváření clusteru](deploy/create-cluster.md#step-5-sdn-optional).
+- **Možnosti hostování služeb Azure Kubernetes** : teď můžete nainstalovat verzi Preview [služby Azure Kubernetes Service na Azure Stack HCL](https://azure.microsoft.com/products/azure-stack/hci/hci-download/).
+- **Zahrnutí softwarově definovaných sítí v Průvodci vytvořením clusteru** : Průvodce vytvořením clusteru teď obsahuje možnost nasazení funkce síťového adaptéru s [softwarově definovanými sítěmi (SDN)](concepts/software-defined-networking.md) během [vytváření clusteru](deploy/create-cluster.md#step-5-sdn-optional).
 
 Podrobnosti o nových funkcích centra pro správu systému Windows najdete na [blogu centra pro správu systému Windows](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/bg-p/Windows-Admin-Center-Blog).
 
 Clustery se systémem Azure Stack HCI verze 20H2 ve srovnání s řešeními založenými na Windows serveru 2019 obsahují následující nové funkce:
 
-- **Nové funkce v centru pro správu Windows**: Díky možnosti vytvářet a aktualizovat sblížené clustery prostřednictvím INTUITIVNÍHO uživatelského rozhraní Azure Stack HCL jednodušší než dřív.
-- **Roztažené clustery pro automatické převzetí služeb při selhání**: clusterování s více lokalitami s replikací replik úložiště a automatickým převzetím služeb při selhání pro clustery, které používají prostory úložiště s přímým přístupem, zajišťuje nativní zotavení po havárii.
-- **Spřažení a pravidla**vzájemného spřažení: můžete je použít podobně jako způsob, jakým Azure používá zóny dostupnosti k udržení všech virtuálních počítačů a úložišť v clusterech s více doménami selhání, jako jsou například roztažené clustery.
-- **Azure Portal Integration**: Azure Portal prostředí pro Azure Stack HCI je navrženo tak, aby zobrazilo všechny vaše Azure Stack clustery HCI po celém světě a nové funkce ve vývoji.
-- **Akcelerace GPU pro úlohy s vysokým výkonem**: aplikace AI/ml můžou těžit z zvyšování výkonu pomocí GPU.
-- **Šifrování BitLockeru**: teď můžete použít BitLocker k šifrování obsahu datových svazků v Azure Stack HCL a pomáhat státním institucím a dalším zákazníkům, aby dodržovali standardy jako FIPS 140-2 a HIPAA.
-- **Vylepšená rychlost opravy prostory úložiště s přímým přístupem svazků**: Opravte svazky rychle a hladce.
+- **Nové funkce v centru pro správu Windows** : Díky možnosti vytvářet a aktualizovat sblížené clustery prostřednictvím INTUITIVNÍHO uživatelského rozhraní Azure Stack HCL jednodušší než dřív.
+- **Roztažené clustery pro automatické převzetí služeb při selhání** : clusterování s více lokalitami s replikací replik úložiště a automatickým převzetím služeb při selhání pro clustery, které používají prostory úložiště s přímým přístupem, zajišťuje nativní zotavení po havárii.
+- **Spřažení a pravidla** vzájemného spřažení: můžete je použít podobně jako způsob, jakým Azure používá zóny dostupnosti k udržení všech virtuálních počítačů a úložišť v clusterech s více doménami selhání, jako jsou například roztažené clustery.
+- **Azure Portal Integration** : Azure Portal prostředí pro Azure Stack HCI je navrženo tak, aby zobrazilo všechny vaše Azure Stack clustery HCI po celém světě a nové funkce ve vývoji.
+- **Akcelerace GPU pro úlohy s vysokým výkonem** : aplikace AI/ml můžou těžit z zvyšování výkonu pomocí GPU.
+- **Šifrování BitLockeru** : teď můžete použít BitLocker k šifrování obsahu datových svazků v Azure Stack HCL a pomáhat státním institucím a dalším zákazníkům, aby dodržovali standardy jako FIPS 140-2 a HIPAA.
+- **Vylepšená rychlost opravy prostory úložiště s přímým přístupem svazků** : Opravte svazky rychle a hladce.
 
 Centrum pro správu systému Windows, verze 20H2, poskytuje také nové prostředí aktualizace clusteru pro clustery založené na systému Windows Server, včetně původních řešení Azure Stack HCI. A i když můžete použít Průvodce vytvořením nového clusteru s Windows serverem, nemůže vytvářet clustery Windows serveru s Prostory úložiště s přímým přístupem; pro to budete potřebovat operační systém Azure Stack HCI.
 

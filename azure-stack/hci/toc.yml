@@ -12,26 +12,26 @@
   items:
     - name: Použití Azure Stack HCL s centrem pro správu Windows
       href: get-started.md
-- name: Nasazení
+- name: Nasadit
   items:
     - name: Přehled nasazení
       href: deploy/deployment-overview.md
-    - name: Než začnete
-      href: deploy/before-you-start.md
     - name: Nasazení operačního systému Azure Stack HCI
       href: deploy/operating-system.md
     - name: Vytvoření clusteru
       href: deploy/create-cluster.md
-    - name: Vytvoření clusteru pomocí prostředí PowerShell
-      href: deploy/create-cluster-powershell.md
     - name: Nastavení určujícího clusteru
       href: deploy/witness.md
     - name: Registrace v Azure
       href: deploy/register-with-azure.md
     - name: Ověřit cluster
       href: deploy/validate.md
-    - name: Nasazení síťového adaptéru
-      href: deploy/network-controller-powershell.md
+    - name: Nasazení s využitím PowerShellu
+      items:
+        - name: Vytvoření clusteru pomocí prostředí PowerShell
+          href: deploy/create-cluster-powershell.md
+        - name: Nasazení síťového adaptéru pomocí PowerShellu
+          href: deploy/network-controller-powershell.md
 - name: Spravovat
   items:
     - name: Správa virtuálních počítačů
@@ -104,6 +104,8 @@
   items:
     - name: Úložiště a clustery
       items:
+        - name: Požadavky na systém
+          href: concepts/system-requirements.md
         - name: Zvolit jednotky
           href: concepts/choose-drives.md
         - name: Požadavky na symetrii jednotky
@@ -144,7 +146,7 @@
           href: concepts/updates.md
         - name: Důležité informace o zabezpečení
           href: concepts/security.md
-- name: Referenční informace
+- name: Odkaz
   items:
     - name: Příkazy Azure CLI pro registraci Azure
       href: 'https://docs.microsoft.com/cli/azure/ext/stack-hci/stack-hci'

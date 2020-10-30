@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: abhilashaagarwala
 ms.author: abha
 ms.date: 09/22/2020
-ms.openlocfilehash: 4c91dad12e4d6680ca0887da2e6ca314cdbd64ee
-ms.sourcegitcommit: 3e225b30a54159b6b8dbeb2f843a2e5a721b746e
+ms.openlocfilehash: 62b1b2983b2e41b5c6d991b4d53338a67bc5aeab
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91519382"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064663"
 ---
 # <a name="system-requirements-for-azure-kubernetes-service-on-azure-stack-hci"></a>Požadavky na systém pro službu Azure Kubernetes ve Azure Stack HCL
 
@@ -40,7 +40,7 @@ Aby služba Azure Kubernetes Service na Azure Stack HCL fungovala optimálně v 
 
  - I když můžete technicky spouštět službu Azure Kubernetes na jednom uzlu Azure Stack HCI Server, nedoporučujeme to.
 
- - Další požadavky na výpočetní výkon pro službu Azure Kubernetes v Azure Stack HCI jsou v souladu s požadavky Azure Stack HCL. Další podrobnosti o požadavcích na server Azure Stack HCL najdete v [Azure Stack požadavků na HCI](../hci/deploy/before-you-start.md) .  
+ - Další požadavky na výpočetní výkon pro službu Azure Kubernetes v Azure Stack HCI jsou v souladu s požadavky Azure Stack HCL. Další podrobnosti o požadavcích na Azure Stack HCI serveru najdete v [Azure Stack požadavky na systém HCI](../hci/concepts/system-requirements.md#server-requirements) .
 
  - Tato verze Preview vyžaduje, abyste na každém serveru v clusteru nainstalovali operační systém Azure Stack HCI s použitím oblastí EN-US a výběr jazyka. Změna po instalaci v tuto chvíli nestačí.
 
@@ -71,7 +71,7 @@ Služba Azure Kubernetes v Azure Stack HCI vyžaduje spolehlivé síťové přip
 Při vytváření clusteru Azure Kubernetes na Azure Stack HCI se na každém serveru v clusteru automaticky otevřou následující porty brány firewall. 
 
 
-| Port brány firewall               | Popis         | 
+| Port brány firewall               | Description         | 
 | ---------------------------- | ------------ | 
 | 45000           | port serveru wssdagent GPRC           |
 | 45001             | Port ověřování wssdagent GPRC  | 
@@ -95,7 +95,7 @@ ecpacr.azurecr.io | 443 | Kubernetes | Stahování imagí kontejneru
 
 Služba Azure Kubernetes v Azure Stack HCL podporuje následující implementace úložiště: 
 
-|  Název                         | Typ úložiště | Požadovaná kapacita |
+|  Name                         | Typ úložiště | Požadovaná kapacita |
 | ---------------------------- | ------------ | ----------------- |
 | Azure Stack clusteru HCI          | CSV          | 1 TB              |
 | Jeden uzel Azure Stack HCI | Přímo připojené úložiště | 500 GB|

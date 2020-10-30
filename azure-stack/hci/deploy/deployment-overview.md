@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/09/2020
-ms.openlocfilehash: 34a93a65d45861c7c7ff1727347cc95465968151
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.date: 10/28/2020
+ms.openlocfilehash: 61cd03f7c4b381a434b5f99175b57b99169cb058
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572513"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064459"
 ---
 # <a name="what-is-the-deployment-process-for-azure-stack-hci"></a>Jaký je proces nasazení Azure Stack HCI?
 
@@ -38,41 +38,39 @@ Pokud je nasazení Azure Stack HCI roztaženo mezi více lokalit, určete, kolik
 
 ## <a name="deploy"></a>Nasadit
 
-### <a name="1-before-you-begin"></a>1. než začnete
+Před nasazením operačního systému Zjistěte, jestli hardware splňuje požadavky na [systém](../concepts/system-requirements.md) pro Azure Stack HCI. Pak [nainstalujte centrum pro správu systému Windows](/windows-server/manage/windows-admin-center/deploy/install) , ve kterém můžete spravovat cluster Azure Stack HCI.
 
-Než začnete, [Určete, jestli hardware splňuje základní požadavky, a shromážděte informace potřebné](before-you-start.md) k nasazení Azure Stack HCI. Pak [nainstalujte centrum pro správu systému Windows](/windows-server/manage/windows-admin-center/deploy/install) , ve kterém můžete spravovat cluster Azure Stack HCI.
+### <a name="1-deploy-azure-stack-hci"></a>1. nasazení Azure Stack HCL
 
-### <a name="2-deploy-azure-stack-hci"></a>2. nasazení Azure Stack HCL
+[Stáhněte si Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) a nasaďte Azure Stack [operační systém](operating-system.md) HCI na každém serveru, který chcete clusterovat. Pokud jste si koupili Azure Stack hardware integrovaného systémového řešení z [katalogu Azure Stack HCI](https://azure.microsoft.com/en-us/products/azure-stack/hci/catalog/) přes preferovaný hardwarový partner společnosti Microsoft, měl by být operační systém Azure Stack HCI předem nainstalován. V takovém případě můžete tento krok přeskočit a přejít na #2.
 
-[Stáhněte si Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) a nasaďte Azure Stack [operační systém](operating-system.md) HCI na každém serveru, který chcete clusterovat.
-
-### <a name="3-create-the-cluster"></a>3. vytvoření clusteru
+### <a name="2-create-the-cluster"></a>2. vytvoření clusteru
 
 Vytvořte cluster s podporou převzetí služeb při selhání pomocí [centra pro správu Windows](create-cluster.md) nebo [PowerShellu](create-cluster-powershell.md). Pro nativní zotavení po havárii a kontinuitu podnikových aplikací můžete nasadit [roztažené clustery](../concepts/stretched-clusters.md) , které budou zahrnovat dvě geograficky oddělené lokality.
 
-### <a name="4-set-up-a-cluster-witness"></a>4. nastavení určujícího clusteru
+### <a name="3-set-up-a-cluster-witness"></a>3. nastavení určujícího clusteru
 
 [Nastavení prostředku určujícího zdroje](witness.md) je pro všechny clustery povinné. Clustery se dvěma uzly potřebují určující určující, aby jeden server v režimu offline nezpůsobí, že druhý uzel nebude k dispozici také. Clustery se třemi a vyššími uzly potřebují určující, aby bylo možné vydržet dva servery, které jsou neúspěšné nebo offline. 
 
-### <a name="5-register-with-azure"></a>5. Zaregistrujte se do Azure
+### <a name="4-register-with-azure"></a>4. Zaregistrujte se do Azure
 
 Azure Stack HCI vyžaduje připojení k Azure. Pokud chcete připojit svůj cluster k Azure, přečtěte si téma [registrace Azure Stack HCL pomocí Azure](register-with-azure.md). Po registraci se cluster automaticky připojí na pozadí.
 
-### <a name="6-validate-the-cluster"></a>6. ověření clusteru
+### <a name="5-validate-the-cluster"></a>5. ověření clusteru
 
 Po vytvoření a registraci clusteru [Spusťte testy pro ověření clusteru](validate.md) , abyste zachytili problémy s hardwarem nebo konfigurací předtím, než cluster přejde do produkčního prostředí.
 
-### <a name="7-deploy-storage"></a>7. nasazení úložiště
+### <a name="6-deploy-storage"></a>6. nasazení úložiště
 
 [Vytvořte svazky](../manage/create-volumes.md) v clusteru s jednou lokalitou nebo [vytvořte svazky a nastavte replikaci na roztaženém clusteru](../manage/create-stretched-volumes.md).
 
-### <a name="8-deploy-workloads"></a>8. nasazení úloh
+### <a name="7-deploy-workloads"></a>7. nasazení úloh
 
 Nyní jste připraveni [vytvořit virtuální počítače](../manage/vm.md) a nasazovat úlohy do Azure Stack HCI pomocí centra pro správu Windows.
 
 ## <a name="next-steps"></a>Další kroky
 
-Přečtěte si, co je potřeba udělat před nasazením Azure Stack HCL.
+Přečtěte si, jak nasadit operační systém Azure Stack HCI.
 
 > [!div class="nextstepaction"]
-> [Před zahájením](before-you-start.md)
+> [Nasazení operačního systému Azure Stack HCI](operating-system.md)

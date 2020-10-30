@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/21/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: ecf7974cec80888b149454c0a2ff90eb48c2e9e3
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.openlocfilehash: 611f76491f6edd5cb8700a13e79c0769c02c4fad
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86867293"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064748"
 ---
 # <a name="stretched-clusters-overview"></a>Přehled roztaženého clusteru
 
@@ -40,11 +40,11 @@ Následující diagram znázorňuje web 1 jako aktivní lokalitu s replikací do
 
 Následující diagram ukazuje lokalitu 1 i Web 2 jako aktivní lokality a obousměrnou replikaci na druhou lokalitu.
 
-:::image type="content" source="media/stretched-cluster/active-active-stretched-cluster.png" alt-text="Scénář aktivního/aktivního roztaženého clusteru" lightbox="media/stretched-cluster/active-active-stretched-cluster.png":::
+:::image type="content" source="media/stretched-cluster/active-active-stretched-cluster.png" alt-text="Scénář aktivního nebo pasivního roztaženého clusteru" lightbox="media/stretched-cluster/active-active-stretched-cluster.png":::
 
 ## <a name="next-steps"></a>Další kroky
 
-- Seznamte se s hardwarem a dalšími požadavky na roztažené clustery. [Než začnete](../deploy/before-you-start.md), přečtěte si téma.
+- Seznamte se s hardwarem a dalšími požadavky na roztažené clustery. Viz [požadavky na systém](system-requirements.md).
 - Naučte se nasadit roztaženého clusteru pomocí centra pro správu Windows. Další informace najdete v tématu [Vytvoření clusteru pomocí centra pro správu systému Windows](../deploy/create-cluster.md).
 - Naučte se nasazovat roztaženého clusteru pomocí prostředí PowerShell. Další informace najdete v tématu [Vytvoření clusteru pomocí prostředí PowerShell](../deploy/create-cluster-powershell.md).
 - Naučte se vytvářet svazky a nastavovat replikaci pro roztažené clustery. Přečtěte si téma [vytvoření svazků a nastavení replikace pro roztažené clustery](../manage/create-stretched-volumes.md).

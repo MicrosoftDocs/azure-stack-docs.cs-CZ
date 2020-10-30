@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.assetid: ea7e53c8-11ec-410b-b287-897c7aaafb13
 ms.author: anpaul
 author: AnirbanPaul
-ms.date: 10/16/2020
-ms.openlocfilehash: 6df469fcc6997b1f56a552bc141692c7a8a49808
-ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
+ms.date: 10/28/2020
+ms.openlocfilehash: d75e22814afcb9610bdd1f9af3824d3e12e3199b
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92157678"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064561"
 ---
 # <a name="plan-a-software-defined-network-infrastructure"></a>Plánování infrastruktury softwarově definované sítě
 
@@ -25,13 +25,13 @@ Seznamte se s plánováním nasazení infrastruktury softwarově definované sí
 
 ## <a name="prerequisites"></a>Předpoklady
 Pro infrastrukturu SDN je k dispozici několik hardwarových a softwarových požadavků, včetně:
-- **Skupiny zabezpečení a registrace dynamického serveru DNS**. Vaše datacentrum musíte připravit pro nasazení síťového adaptéru, což vyžaduje sadu virtuálních počítačů. Než budete moct nasadit síťový adaptér, musíte nakonfigurovat skupiny zabezpečení a dynamickou registraci DNS.
+- **Skupiny zabezpečení a registrace dynamického serveru DNS** . Vaše datacentrum musíte připravit pro nasazení síťového adaptéru, což vyžaduje sadu virtuálních počítačů. Než budete moct nasadit síťový adaptér, musíte nakonfigurovat skupiny zabezpečení a dynamickou registraci DNS.
 
     Další informace o nasazení síťového adaptéru pro vaše datové centrum najdete v tématu [požadavky pro nasazení síťového adaptéru](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller).
 
-- **Fyzická síť**. K nakonfigurování virtuálních místních sítí (VLAN), směrování a Border Gateway Protocol (BGP) potřebujete přístup k fyzickým síťovým zařízením. Toto téma poskytuje pokyny pro konfiguraci ručního přepínání a také možnosti pro použití partnerského vztahu protokolu BGP u přepínačů a směrovačů vrstvy 3 nebo virtuálního počítače serveru Směrování a vzdálený přístup (RRAS).
+- **Fyzická síť** . K nakonfigurování virtuálních místních sítí (VLAN), směrování a Border Gateway Protocol (BGP) potřebujete přístup k fyzickým síťovým zařízením. Toto téma poskytuje pokyny pro konfiguraci ručního přepínání a také možnosti pro použití partnerského vztahu protokolu BGP u přepínačů a směrovačů vrstvy 3 nebo virtuálního počítače serveru Směrování a vzdálený přístup (RRAS).
 
-- **Fyzické hostitele COMPUTE**. Tito hostitelé používají technologii Hyper-V a jsou vyžadovány pro hostování infrastruktury SDN a virtuálních počítačů klientů. Konkrétní síťový hardware je na těchto hostitelích vyžadován pro dosažení co nejlepších výsledků, jak je popsáno v části [síťový hardware](#network-hardware) .
+- **Fyzické hostitele COMPUTE** . Tito hostitelé používají technologii Hyper-V a jsou vyžadovány pro hostování infrastruktury SDN a virtuálních počítačů klientů. K dosažení nejlepšího výkonu se na těchto hostitelích vyžaduje konkrétní síťový hardware, jak je popsáno v tématu [požadavky na hardware SDN](system-requirements.md#sdn-hardware-requirements).
 
 ## <a name="physical-and-logical-network-configuration"></a>Konfigurace fyzické a logické sítě
 Každý fyzický výpočetní hostitel vyžaduje připojení k síti přes jeden nebo více síťových adaptérů připojených k portu fyzického přepínače. [Síť VLAN](https://en.wikipedia.org/wiki/Virtual_LAN) úrovně 2 podporuje sítě rozdělené do několika segmentů logické sítě.
@@ -108,52 +108,12 @@ Počítače nakonfigurované pro připojení k více sítím, jako jsou fyzické
 - U virtuálních počítačů SLB/MUX použijte jako výchozí bránu síť pro správu.
 - Pro virtuální počítače brány použijte jako výchozí bránu síť poskytovatele HNV. Toto nastavení by mělo být nastaveno na front-endové kartě virtuálních počítačů brány.
 
-## <a name="network-hardware"></a>Síťový hardware
-Tato část uvádí požadavky na nasazení síťového hardwaru pro síťové adaptéry a fyzické přepínače.
+## <a name="switches-and-routers"></a>Přepínače a směrovače
+Aby bylo možné konfigurovat fyzický přepínač nebo směrovač, je k dispozici sada ukázkových konfiguračních souborů pro nejrůznější modely přepínačů a dodavatelů v [úložišti Microsoft SDN GitHub](https://github.com/microsoft/SDN/tree/master/SwitchConfigExamples). K dispozici je soubor Readme a testované příkazy rozhraní příkazového řádku (CLI) pro konkrétní přepínače.
 
-### <a name="network-interface-cards-nics"></a>Karty síťového rozhraní
-Síťové adaptéry, které používáte ve svých hostitelích Hyper-V a hostitelích úložiště, vyžadují konkrétní možnosti, abyste dosáhli nejlepšího výkonu.
+Podrobné požadavky na přepínače a směrovače najdete v tématu [požadavky na hardware SDN](system-requirements.md#sdn-hardware-requirements).
 
-Přímý přístup do paměti vzdáleného počítače (RDMA) je technika obejít jádra, která umožňuje přenos velkých objemů dat bez použití hostitelského procesoru, který uvolňuje CPU k provedení jiné práce. Přepínač Embedded Teaming (SET) je alternativním řešením pro seskupování síťových adaptérů, které můžete použít v prostředích, která zahrnují technologii Hyper-V a sadu SDN. SADA integruje některé funkce seskupování síťových adaptérů do virtuálního přepínače Hyper-V.
-
-Další informace najdete v tématech [přímý přístup do paměti vzdáleného počítače (RDMA) a Switch Embedded Teaming (set)](/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming).
-
-Aby bylo možné přihlédnout k režii v provozu virtuální sítě tenanta způsobené hlavičkou zapouzdření VXLAN nebo NVGRE, musí být maximální přenosová jednotka (MTU) síťové infrastruktury vrstvy 2 (přepínače a hostitelé) nastavená na hodnotu větší nebo rovna 1674 bajtů, \( včetně hlaviček sítě Ethernet vrstvy 2 \) .
-
-Síťové adaptéry, které podporují nové klíčové slovo *EncapOverhead* Advanced Adapter, nastaví jednotku MTU automaticky prostřednictvím agenta hostitele síťového adaptéru. Síťové adaptéry, které nepodporují nové klíčové slovo *EncapOverhead* , musí ručně nastavit velikost jednotky MTU na každém fyzickém hostiteli *JumboPacket* pomocí \( klíčového slova JumboPacket nebo ekvivalentního \) .
-
-### <a name="switches"></a>Přepínače
-Při výběru fyzického přepínače a směrovače pro vaše prostředí se ujistěte, že podporuje následující sadu funkcí:
-- Vyžaduje se nastavení switchport MTU. \(\)
-- MTU nastavená na >= 1674 bajtů \( včetně L2-Ethernet záhlaví\)
-- \(Vyžadovány protokoly L3\)
-- Směrování EQUAL-cost multi-Path (ECMP)
-- \( \) \- Ecmp založené na RFC IETF RFC 4271
-
-Implementace by měly podporovat příkazy musí být v následujících standardech IETF:
-- RFC 2545: [rozšíření protokolu BGP-4 pro IPv6 Inter-Domain směrování](https://tools.ietf.org/html/rfc2545)
-- RFC 4760: [rozšíření protokolu BGP-4 s více protokoly](https://tools.ietf.org/html/rfc4760)
-- RFC 4893: [Podpora protokolu BGP se čtyřmi oktety jako číselného prostoru](https://tools.ietf.org/html/rfc4893)
-- RFC 4456: [reflexe trasy protokolu BGP: alternativa k internímu protokolu BGP pro celou síť (IBGP)](https://tools.ietf.org/html/rfc4456)
-- RFC 4724: [mechanismus úspěšného restartování pro protokol BGP](https://tools.ietf.org/html/rfc4724)
-
-Jsou vyžadovány následující protokoly označování:
-- SÍŤ VLAN – izolace různých typů provozu
-- 802.1 q – šachta
-
-Ovládací prvek odkaz poskytují tyto položky:
-- PFC kvality služeb \( QoS se \) \( vyžaduje jenom v případě, že používáte roce.\)
-- Vylepšený výběr provozu \( 802.1 QAZ\)
-- Řízení toku na základě priority (PFC) \( 802.1 p/Q a 802.1 QBB\)
-
-Následující položky poskytují dostupnost a redundanci:
-- Dostupnost přepínače (povinné)
-- K provádění funkcí brány je nutný vysoce dostupný směrovač. Můžete to poskytnout pomocí switch\router a technologií, jako je nebo VRRP (Virtual router redundance Protocol).
-
-### <a name="switch-configuration-examples"></a>Příklady konfigurace přepínače
-Aby bylo možné konfigurovat fyzický přepínač nebo směrovač, je k dispozici sada ukázkových konfiguračních souborů pro nejrůznější modely přepínačů a dodavatelů v [úložišti Microsoft SDN GitHub](https://github.com/microsoft/SDN/tree/master/SwitchConfigExamples). K dispozici jsou podrobné příkazy Readme a testované rozhraní příkazového řádku (CLI) pro konkrétní přepínače.
-
-## <a name="compute"></a>Výpočetní prostředky
+## <a name="compute"></a>Compute
 Všichni hostitelé Hyper-V musí mít nainstalovaný příslušný operační systém, povolit Hyper-V a používat externí virtuální přepínač Hyper-V s aspoň jedním fyzickým adaptérem připojeným k logické síti pro správu. Hostitel musí být dosažitelný prostřednictvím IP adresy pro správu přiřazené k hostiteli pro správu vNIC.
 
 Můžete použít libovolný typ úložiště, který je kompatibilní s technologií Hyper-V, Shared nebo Local.
@@ -188,7 +148,7 @@ Když se virtuální počítače zatížení spouštějí na fyzických hostitel
 ## <a name="phased-deployment"></a>Dvoufázové nasazení
 Na základě vašich požadavků možná budete muset nasadit podmnožinu infrastruktury SDN. Například pokud chcete, aby se v datacentru spouštěly jenom úlohy zákazníka, a externí komunikace se nevyžaduje, můžete nasadit síťový adaptér a přeskočit nasazení SLB/MUX a virtuálních počítačů brány. Následující článek popisuje požadavky na infrastrukturu síťových funkcí pro dvoufázové nasazení infrastruktury SDN.
 
-Funkce|Požadavky nasazení|Požadavky sítě|
+Doporučené|Požadavky nasazení|Požadavky sítě|
 --------|-------------------------|-------------------------
 |Správa logické sítě<br> Seznamy řízení přístupu (ACL) (pro síť využívající síť VLAN)<br> QoS (Quality of Service) (pro sítě založené na síti VLAN)<br>|Síťový adaptér|Žádné|
 |Virtuální sítě<br> Směrování definované uživatelem<br> Seznamy řízení přístupu (pro virtuální síť)<br> Šifrované podsítě<br> QoS (pro virtuální sítě)<br> Partnerský vztah virtuální sítě|Síťový adaptér|HNV PA – síť VLAN, podsíť, směrovač|

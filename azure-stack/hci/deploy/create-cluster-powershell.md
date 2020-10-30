@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: c51a6296caac3c173650ee57af8e1d23b2473f26
-ms.sourcegitcommit: 877fe2207b569500aeefa6594eed990f15609776
+ms.openlocfilehash: 4bd669e04f2b4b4e1ef173a3a44e52d8c6067a60
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90082490"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064510"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>Vytvoření clusteru Azure Stack HCI pomocí prostředí Windows PowerShell
 
@@ -36,7 +36,7 @@ Pokud vás zajímá testování Azure Stack HCI, ale mají omezený nebo žádn�
 
 Než začnete, ujistěte se, že jste:
 
-- [Před nasazením Azure Stack HCI](before-you-start.md)si přečtěte hardware a další požadavky v nástroji.
+- Přečtěte si téma [požadavky na systém Azure Stack HCI](../concepts/system-requirements.md).
 - Nainstalujte do každého serveru v clusteru Azure Stack operační systém HCI. Viz [nasazení operačního systému Azure Stack HCI](operating-system.md).
 - Mít účet, který je členem místní skupiny Administrators na každém serveru.
 - Mít práva ve službě Active Directory k vytváření objektů.

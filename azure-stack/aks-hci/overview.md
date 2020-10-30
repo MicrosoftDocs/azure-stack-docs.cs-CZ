@@ -5,12 +5,12 @@ ms.topic: overview
 author: jasongerend
 ms.author: jgerend
 ms.date: 09/22/2020
-ms.openlocfilehash: fad630d143fee31c4b63b4008c02bef697475155
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: ef2cc07ca9c228b9d427d11f8065e2d943e1626b
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948983"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064612"
 ---
 # <a name="what-is-azure-kubernetes-service-on-azure-stack-hci"></a>Co je služba Azure Kubernetes v Azure Stack HCI?
 
@@ -97,7 +97,7 @@ Tady je několik zjednodušených diagramů, které ukazují, jak architektura s
 
 :::image type="content" source="media\overview\aks-azure-architecture.png" alt-text="Architektura služby Azure Kubernetes hostované v Azure, která ukazuje, jak jsou služby platformy a většina řídicí plochy spravované v Azure, zatímco clustery Kubernetes, které spouštějí vaše aplikace s vašimi aplikacemi, jsou spravované zákazníkem." lightbox="media\overview\aks-azure-architecture.png":::
 
-:::image type="content" source="media\overview\aks-hci-architecture.png" alt-text="Architektura služby Azure Kubernetes na Azure Stack HCI, která ukazuje, jak všechno běží na Azure Stack clusteru HCI, včetně platformy Azure Kubernetes Service, roviny ovládacího prvku a Kubernetes clusterů, které spouštějí vaše aplikace s kontejnerem." lightbox="media\overview\aks-hci-architecture.png":::
+:::image type="content" source="media\overview\aks-hci-architecture.png" alt-text="Architektura služby Azure Kubernetes hostované v Azure, která ukazuje, jak jsou služby platformy a většina řídicí plochy spravované v Azure, zatímco clustery Kubernetes, které spouštějí vaše aplikace s vašimi aplikacemi, jsou spravované zákazníkem." lightbox="media\overview\aks-hci-architecture.png":::
 
 ## <a name="what-you-need-to-get-started"></a>Co potřebujete, než začnete
 
@@ -121,7 +121,7 @@ Cluster se systémem Azure Stack HCI, verze 20H2 nebo novější má následují
 - Aspoň 30 GB volné paměti pro provozování virtuálních počítačů služby Azure Kubernetes
 - Všechny servery v clusteru musí používat pro tuto verzi Preview výběr oblasti a jazyka EN-US.
 
-Obecné požadavky na Azure Stack HCI najdete v tématu [před nasazením Azure Stack HCI](../hci/deploy/before-you-start.md).
+Obecné požadavky na systém Azure Stack HCI najdete v článku o [požadavcích na systém Azure Stack HCI](../hci/concepts/system-requirements.md).
 
 ### <a name="the-network-configuration-for-azure-stack-hci"></a>Konfigurace sítě pro Azure Stack HCI
 

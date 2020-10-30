@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 075198e9045ac2d735f2113164e7fc4e24b7934f
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 2d2db45af0df86ebe6ea210df9b4a86da22c3303
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899512"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064476"
 ---
 # <a name="set-up-a-cluster-witness"></a>Nastavení určujícího clusteru
 
@@ -21,20 +21,20 @@ Nastavení prostředku určujícího disku je pro všechny clustery povinné a p
 
 Můžete buď použít sdílenou složku SMB jako určující disk, nebo použít cloudovou kopii Azure. Doporučuje se sdílené složky Azure v cloudu, za předpokladu, že všechny uzly serveru v clusteru mají spolehlivé připojení k Internetu. Další informace najdete v tématu [nasazení určujícího cloudu pro cluster s podporou převzetí služeb při selhání](/windows-server/failover-clustering/deploy-cloud-witness).
 
-Pro určující sdílené složky sdílení souborů platí požadavky na souborový server. Další informace najdete v tématu [ještě před nasazením Azure Stack HCL](before-you-start.md) .
+Pro určující sdílené složky sdílení souborů platí požadavky na souborový server. Další informace najdete v části [požadavky na systém](../concepts/system-requirements.md) .
 
 ## <a name="set-up-a-witness-using-windows-admin-center"></a>Nastavení určujícího disku pomocí centra pro správu Windows
 
 1. V centru pro správu systému Windows vyberte ze šipky nahoru v horním rozevíracím seznamu položku **Správce clusteru** .
-1. V části **připojení clusteru**vyberte cluster.
-1. V části **nástroje**vyberte **Nastavení**.
-1. V pravém podokně vyberte **určující**.
-1. Jako **Typ určující kopie**vyberte jednu z následujících možností:
+1. V části **připojení clusteru** vyberte cluster.
+1. V části **nástroje** vyberte **Nastavení** .
+1. V pravém podokně vyberte **určující** .
+1. Jako **Typ určující kopie** vyberte jednu z následujících možností:
       - **Disk s kopií cloudu** – zadejte název svého účtu služby Azure Storage, přístupový klíč a adresu URL koncového bodu, jak je popsáno níže.
       - **Určující sdílená složka** – zadejte cestu sdílení souborů (//server/share).
 
 > [!NOTE]
-> Třetí možnost, **určující disk**není vhodná pro použití v roztaženém clusteru.
+> Třetí možnost, **určující disk** není vhodná pro použití v roztaženém clusteru.
 
 ## <a name="create-an-azure-storage-account-to-use-as-a-cloud-witness"></a>Vytvoření účtu Azure Storage pro použití jako určujícího cloudu
 
@@ -49,21 +49,21 @@ Když použijete stejný účet Azure Storage ke konfiguraci určujícího cloud
 
 ### <a name="to-create-an-azure-storage-account"></a>Vytvoření účtu služby Azure Storage
 
-1. Přihlaste se k [portálu Azure Portal](https://portal.azure.com).
+1. Přihlaste se na [Azure Portal](https://portal.azure.com).
 1. V nabídce centra vyberte nový-> data + úložiště-> účet úložiště.
 1. Na stránce Vytvořit účet úložiště udělejte toto:
     1. Zadejte název účtu úložiště.
     <br>Názvy účtů úložiště musí mít délku 3 až 24 znaků a můžou obsahovat jenom číslice a malá písmena. Název účtu úložiště musí být v rámci Azure taky jedinečný.
-    1. Jako **druh účtu**vyberte **obecné účely**.
+    1. Jako **druh účtu** vyberte **obecné účely** .
     <br>Účet úložiště BLOB nelze použít pro diskovou kopii cloudu.
-    1. **Výkon** – vyberte **Standard**.
+    1. **Výkon** – vyberte **Standard** .
     <br>Pro disk s kopií cloudu nejde použít Azure Premium Storage.
-    1. V případě **replikace**vyberte **místně redundantní úložiště (LRS)** .
+    1. V případě **replikace** vyberte **místně redundantní úložiště (LRS)** .
     <br>Clustering s podporou převzetí služeb při selhání používá jako arbitrážní bod soubor objektu blob, který při čtení dat vyžaduje určité záruky konzistence. Proto musíte pro typ **replikace** vybrat **místně redundantní úložiště** .
 
 ### <a name="view-and-copy-storage-access-keys-for-your-azure-storage-account"></a>Zobrazení a zkopírování přístupových klíčů k úložišti pro Azure Storage účet
 
-Když vytváříte účet Microsoft Azure Storage, je přidružen ke dvěma přístupovým klíčům, které se automaticky generují – primární přístupový klíč a sekundární přístupový klíč. Při prvním vytváření sdílené složky cloudu použijte **Primární přístupový klíč**. Neexistuje žádné omezení týkající se klíče, který se má použít pro disk s kopií cloudu.  
+Když vytváříte účet Microsoft Azure Storage, je přidružen ke dvěma přístupovým klíčům, které se automaticky generují – primární přístupový klíč a sekundární přístupový klíč. Při prvním vytváření sdílené složky cloudu použijte **Primární přístupový klíč** . Neexistuje žádné omezení týkající se klíče, který se má použít pro disk s kopií cloudu.  
 
 #### <a name="to-view-and-copy-storage-access-keys"></a>Zobrazení a zkopírování přístupových klíčů k úložišti
 

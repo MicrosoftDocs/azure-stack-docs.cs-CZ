@@ -6,12 +6,12 @@ ms.author: yiygu
 ms.service: azure-stack
 ms.topic: how-to
 ms.date: 12/12/2019
-ms.openlocfilehash: 2d68f076bf5687279aa5878083e7d007d5bc2e32
-ms.sourcegitcommit: 0e3296fb27b9dabbc2569bf85656c4c7b1d58ba9
+ms.openlocfilehash: 098168947a28214a3955a1961c80a2c06825126b
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93049772"
+ms.locfileid: "93064714"
 ---
 # <a name="overview-of-iot-hub-on-azure-stack-hub"></a>Přehled IoT Hub v centru Azure Stack
 
@@ -104,6 +104,8 @@ IoT Hub v centru Azure Stack vám umožní vytvářet hybridní řešení IoT. I
 | Spotřeba zpráv | https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin |Ve výchozím nastavení jsou zprávy směrovány do integrovaného koncového bodu s přístupem ke službě (zprávy/události), které jsou kompatibilní s Event Hubs. V cloudu Azure můžete ke zprávám z koncového bodu přistupovat pomocí IoT Hub připojovacího řetězce nebo připojovacího řetězce centra událostí. V Azure Stackovém centru se však podporuje pouze připojovací řetězec centra událostí. |
 
 ## <a name="next-steps"></a>Další kroky
+
+Pokud ve vašem předplatném není IoT Hub k dispozici, spolupracujte se svým správcem a [nainstalujte IoT Hub do poskytovatele prostředků služby Azure Stack hub](../operator/iot-hub-rp-overview.md).
 
 Informace o tom, jak používat IoT Hub, najdete [v dokumentaci k Azure IoT Hub](/azure/iot-hub/).
 

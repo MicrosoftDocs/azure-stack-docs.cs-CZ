@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/01/2020
-ms.openlocfilehash: 545a0b90ad938a172a184748780974ba7403f19f
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.date: 10/29/2020
+ms.openlocfilehash: 6cf983d6cf64b0b41bb9710bdf720dd1777c9ad6
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742396"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064799"
 ---
 # <a name="drive-symmetry-considerations-for-azure-stack-hci"></a>Požadavky na symetrii na disku pro Azure Stack HCI
 
@@ -25,6 +25,8 @@ Ve skutečnosti to znamená, že to není vždycky praktické, protože Azure St
 Toto téma vysvětluje omezení a poskytuje příklady podporovaných a nepodporovaných konfigurací.
 
 ## <a name="constraints"></a>Omezení
+
+Tato část vysvětluje omezení z podmínek typu jednotky, modelu, velikosti a počtu jednotek.
 
 ### <a name="type"></a>Typ
 
@@ -41,7 +43,7 @@ Pokud má například jeden server šest SSD, měly by mít *všechny* šest SSD
    > [!NOTE]
    > Je v pořádku, kolik jednotek se v průběhu selhání nebo při přidávání nebo odebírání jednotek bude dočasně lišit.
 
-### <a name="model"></a>Modelování
+### <a name="model"></a>Model
 
 Pokud je to možné, doporučujeme použít jednotky stejného modelu a verze firmwaru. Pokud nemůžete, pečlivě vyberte jednotky, které jsou co nejblíže. Nemůžeme si vymíchat jednotky stejného typu s ostrými různou charakteristikou výkonu nebo životnosti (Pokud jedna z nich není mezipaměť a druhá kapacita), protože Azure Stack HCI distribuuje v/v v/v v závislosti na modelu i nestejnou diskriminaci.
 
@@ -99,7 +101,7 @@ První dva servery používají NVMe model "X", ale třetí server používá mo
 | 2 x NVMe Model X (mezipaměť)    | 2 x NVMe Model X (mezipaměť)    | 2 x NVMe model Z (mezipaměť)    |
 | 10 x SSD model Y (kapacita) | 10 x SSD model Y (kapacita) | 10 x SSD model Y (kapacita) |
 
-To je podporováno.
+Tento scénář se podporuje.
 
 ### <a name="image-typeicon-sourcemediadrive-symmetry-considerationssupportedpng-borderfalse-supported-different-models-within-server"></a>:::image type="icon" source="media/drive-symmetry-considerations/supported.png" border="false"::: Podporováno: různé modely v rámci serveru
 
@@ -111,7 +113,7 @@ Každý server používá jinou kombinaci modelů HDD "Y" a "Z", které jsou vel
 | 7 × model HDD Y (kapacita) | 5 × model HDD Y (kapacita) | 1 x model HDD Y (kapacita) |
 | 3 x HDD modelu Z (kapacita) | 5 x HDD modelu Z (kapacita) | 9 x HDD modelu Z (kapacita) |
 
-To je podporováno.
+Tento scénář se podporuje.
 
 ### <a name="image-typeicon-sourcemediadrive-symmetry-considerationssupportedpng-borderfalse-supported-different-sizes-across-servers"></a>:::image type="icon" source="media/drive-symmetry-considerations/supported.png" border="false"::: Podporováno: různé velikosti mezi servery
 
@@ -134,7 +136,7 @@ Každý server používá jinou kombinaci 1,2 TB a velmi podobných 1,6 TB SSD. 
 | 1 x 1,6 TB SSD (mezipaměť)   | 2 x 1,6 TB SSD (mezipaměť)   | -                        |
 | 20 × 4 TB HDD (kapacita) | 20 × 4 TB HDD (kapacita) | 20 × 4 TB HDD (kapacita) |
 
-To je podporováno.
+Tento scénář se podporuje.
 
 ### <a name="image-typeicon-sourcemediadrive-symmetry-considerationsunsupportedpng-borderfalse-not-supported-different-types-of-drives-across-servers"></a>:::image type="icon" source="media/drive-symmetry-considerations/unsupported.png" border="false"::: Nepodporováno: různé typy jednotek mezi servery
 
@@ -175,8 +177,8 @@ Aby rekapitulace každý server v clusteru měl mít stejné typy jednotek a ste
 
 | Jedinečn | Stav |
 |--|--|
-| Stejné typy jednotek na každém serveru | **Požadováno** |
-| Stejný počet každého typu na každém serveru | **Požadováno** |
+| Stejné typy jednotek na každém serveru | **Povinné** |
+| Stejný počet každého typu na každém serveru | **Povinné** |
 | Stejné modely jednotek na každém serveru | Doporučeno |
 | Stejné velikosti jednotek na každém serveru | Doporučeno |
 
@@ -184,5 +186,5 @@ Aby rekapitulace každý server v clusteru měl mít stejné typy jednotek a ste
 
 Související informace najdete v tématu také:
 
-- [Před nasazením Azure Stack HCL](../deploy/before-you-start.md)
+- [Požadavky na systém](system-requirements.md)
 - [Zvolit jednotky](choose-drives.md)

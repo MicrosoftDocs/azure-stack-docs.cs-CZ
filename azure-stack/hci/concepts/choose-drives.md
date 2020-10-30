@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 09/01/2020
-ms.openlocfilehash: a1283982ba04acd8de0b54c02fbc0bb88da9ebc6
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: e5069745a1ada76f37a9dea78eeeafa18a481cff
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742296"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064646"
 ---
 # <a name="choose-drives-for-azure-stack-hci"></a>Zvolit jednotky pro Azure Stack HCI
 
@@ -24,7 +24,7 @@ V tomto tématu najdete pokyny k výběru jednotek pro splnění požadavků na 
 
 Azure Stack HCL aktuálně pracuje se čtyřmi typy jednotek:
 
-| Typ jednotky | Popis |
+| Typ jednotky | Description |
 |----------------------|--------------------------|
 |![PMem](media/choose-drives/pmem-100px.png)|**PMem** odkazuje na trvalou paměť, což je nový typ úložiště s nízkou latencí a vysokým výkonem.|
 |![NVMe](media/choose-drives/NVMe-100-px.png)|**NVMe** (nestálá paměť Express) odkazuje na jednotky Solid-State, které přímo sedí na sběrnici PCIe. Obecné faktory pro formuláře jsou 2,5 "U. 2, PCIe Add-in-Card (AIC) a M. 2. NVMe nabízí vyšší propustnost vstupně-výstupních operací za sekundu s nižší latencí než jakýkoli jiný typ disku, který podporujeme dnes s výjimkou PMem.|
@@ -60,9 +60,9 @@ U prostředí s nejrůznějšími aplikacemi a úlohami, které jsou s přísný
 
 ![Diagram zobrazuje možnosti nasazení, včetně N V M e pro mezipaměť s H D d pro kapacitu, s D pro mezipaměť s H D d pro kapacitu, a N V M E pro mezipaměť se smíšenou příponou D a H + D pro kapacitu.](media/choose-drives/Hybrid-Deployment-Possibilities.png)
 
-1. **NVMe + HDD**. Jednotky NVMe urychlují čtení a zápisy ukládáním do mezipaměti. Čtení do mezipaměti umožňuje HDD Zaměřte se na zápisy. Zápisy do mezipaměti absorbují shluky a umožňují zápisy do COALESCE a mají být v případě potřeby v uměle serializovaném stavu, který maximalizuje vstupně-výstupní operace HDD a propustnost vstupně-výstupních operací. To poskytuje NVMeelné charakteristiky pro zápis a často i nedávno čtená data, a to i v NVMe, jako jsou vlastnosti čtení.
+1. **NVMe + HDD** . Jednotky NVMe urychlují čtení a zápisy ukládáním do mezipaměti. Čtení do mezipaměti umožňuje HDD Zaměřte se na zápisy. Zápisy do mezipaměti absorbují shluky a umožňují zápisy do COALESCE a mají být v případě potřeby v uměle serializovaném stavu, který maximalizuje vstupně-výstupní operace HDD a propustnost vstupně-výstupních operací. To poskytuje NVMeelné charakteristiky pro zápis a často i nedávno čtená data, a to i v NVMe, jako jsou vlastnosti čtení.
 
-2. **SSD + HDD**. Podobně jako u výše uvedeného bude SSD zrychlit čtení a zápisy ukládáním do mezipaměti. To poskytuje charakteristiky pro zápis na disku SSD a charakteristiky pro čtení z disku SSD pro často nebo nedávno načtená data.
+2. **SSD + HDD** . Podobně jako u výše uvedeného bude SSD zrychlit čtení a zápisy ukládáním do mezipaměti. To poskytuje charakteristiky pro zápis na disku SSD a charakteristiky pro čtení z disku SSD pro často nebo nedávno načtená data.
 
     Existuje jedna další, spíše neexotická možnost: pro použití jednotek *všech tří* typů.
 
@@ -77,7 +77,7 @@ Pro úlohy, které vyžadují rozsáhlou kapacitu a zápis, jako je archivace, c
 
 ![Možnosti nasazení pro maximalizaci kapacity](media/choose-drives/maximizing-capacity.png)
 
-1. **SSD + HDD**. SSD zapíše do mezipaměti čtení a zápisy, aby absorbují shluky a poskytovala výkon zápisu z disku SSD s použitím optimalizovaného zrušení přípravy později k HDD.
+1. **SSD + HDD** . SSD zapíše do mezipaměti čtení a zápisy, aby absorbují shluky a poskytovala výkon zápisu z disku SSD s použitím optimalizovaného zrušení přípravy později k HDD.
 
 >[!IMPORTANT]
 >Konfigurace pouze s HDD není podporována. Nedoporučuje se SSD ukládání do mezipaměti s vysokou životností do nízké životnosti SSD.
@@ -99,7 +99,7 @@ Doporučujeme omezit celkovou kapacitu úložiště na jeden server na přibliž
 Další informace najdete v tématu také:
 
 - [Pochopení mezipaměti](cache.md)
-- [Určení hardwarových požadavků](../deploy/before-you-start.md#determine-hardware-requirements)
+- [Požadavky na systém](system-requirements.md)
 - [Požadavky na symetrii jednotky](drive-symmetry-considerations.md)
 - [Plánování svazků](plan-volumes.md)
 - [Odolnost proti chybám a efektivita úložiště](fault-tolerance.md)
