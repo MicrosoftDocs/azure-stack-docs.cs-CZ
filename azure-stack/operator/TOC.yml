@@ -351,6 +351,32 @@
                   href: 'https://techcommunity.microsoft.com/t5/Event-Hubs-Blog/bg-p/EventHubs'
             - name: Odebrat
               href: event-hubs-rp-remove.md
+        - name: IoT Hub v centru Azure Stack
+          items:
+            - name: Přehled
+              href: iot-hub-rp-overview.md
+            - name: Požadavky
+              href: iot-hub-rp-prerequisites.md
+            - name: Instalace
+              href: iot-hub-rp-install.md
+            - name: Správa životního cyklu
+              items:
+                - name: Instalace aktualizací
+                  href: resource-provider-apply-updates.md
+                - name: Zálohování a obnovení
+                  href: azure-stack-backup-infrastructure-backup.md
+                - name: Shromažďování protokolů
+                  href: azure-stack-diagnostic-log-collection-overview.md
+                - name: Výstrahy & stavu
+                  href: azure-stack-monitor-health.md
+                - name: Spravovat
+                  href: iot-hub-rp-manage.md
+                - name: Otočit tajné klíče
+                  href: iot-hub-rp-rotate-secrets.md
+                - name: Oznámení o aktualizacích služby
+                  href: 'https://azure.microsoft.com/updates/?query=IoT%20Hub'
+            - name: Odebrat
+              href: iot-hub-rp-remove.md
         - name: MySQL v centru Azure Stack
           items:
             - name: Přehled
@@ -455,7 +481,7 @@
           href: azure-stack-backup-best-practices.md
         - name: Odkaz na zálohování
           href: azure-stack-backup-reference.md
-    - name: Získat podporu
+    - name: Získání podpory
       items:
         - name: Pracovní stanice pro přístup k operátoru
           href: operator-access-workstation.md
@@ -473,7 +499,7 @@
                   href: azure-stack-get-azurestacklog.md
         - name: Ověřování centra Azure Stack
           href: azure-stack-diagnostic-test.md
-        - name: Poradce při potížích
+        - name: Řešení potíží
           href: azure-stack-troubleshooting.md
 - name: Odkaz
   items:
