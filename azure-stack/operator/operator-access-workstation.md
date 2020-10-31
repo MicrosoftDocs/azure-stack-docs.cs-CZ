@@ -7,12 +7,12 @@ ms.date: 09/24/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: 46946f72fe22345ee60c620ba2cf0283e056ae99
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 42e8d171b173aca4f928cfd38e6a9d5787b003fd
+ms.sourcegitcommit: 8f8baf397e1d39ac69745cc796341a24d3bfc2ba
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899818"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122448"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Pracovní stanice pro přístup k operátorovi centra Azure Stack 
 
@@ -48,7 +48,7 @@ param(
     $DownloadedOAWZipFilePath
 )
 
-$expectedHash = '97022E2FB06D4448A78E987ED3513831741BA89100B5972ABDAD629A93E01648'
+$expectedHash = 'CADAD42A1316C3E19819B8E197CEC279964805677D528F4CCFE2FC16D3119136'
 $actualHash = (Get-FileHash -Path $DownloadedOAWZipFilePath).Hash
 
 Write-Host "Expected hash: $expectedHash"
@@ -82,7 +82,7 @@ V následující tabulce je uveden předinstalovaný software na virtuálním po
 | [Microsoft Edge pro firmy](https://www.microsoft.com/edge/business/)                                            | \[Systémová_jednotka \] \Program Files (x86) \Microsoft\Edge\Application                                                                                        |
 | [AZ modules](./powershell-install-az-module.md)                         | \[Systémová_jednotka \] \ProgramFiles\WindowsPowerShell\Modules                                         |  
 | [PowerShell 7](https://devblogs.microsoft.com/powershell/announcing-PowerShell-7-0/)| \[Systémová_jednotka \] \Program Files\PowerShell\7                                                                       |
-| [Rozhraní příkazového řádku Azure Command-Line (CLI)](/cli/azure/?view=azure-cli-latest) | \[Systémová_jednotka \] \Program Files (x86) \Microsoft SDKs\Azure\CLI2 |
+| [Rozhraní příkazového řádku Azure (CLI)](/cli/azure/?view=azure-cli-latest) | \[Systémová_jednotka \] \Program Files (x86) \Microsoft SDKs\Azure\CLI2 |
 | [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)   | \[Systémová_jednotka \] \Program Files (x86) \microsoft Průzkumník služby Azure Storage                                                                       |
 | [AzCopy](/azure/storage/common/storage-use-azcopy-v10)                             | \[Systémová_jednotka \] \vmsoftware\ azcopy_windows_amd64_10.3.4                                         |
 | [AzureStack – nástroje](https://github.com/Azure/AzureStack-Tools/tree/az)                  | \[Systémová_jednotka \] \VMSoftware\AzureStack-Tools                                                    |
@@ -200,8 +200,8 @@ V následující tabulce je uveden seznam definic pro každý parametr.
 | DNS                        | Vyžadováno | Servery DNS pro konfiguraci protokolu TCP/IP na virtuálním počítači.                                                          |
 | ImageFilePath              | Volitelné | Cesta k souboru OAW. vhdx, kterou poskytla společnost Microsoft. Výchozí hodnota je **OAW. vhdx** ve stejné nadřazené složce tohoto skriptu. |
 | VirtualMachineName         | Volitelné | Název, který se má přiřadit k virtuálnímu počítači. Pokud se dá předpona pro pojmenování najít v DeploymentData.jssouboru, použije se jako výchozí název. V opačném případě se jako výchozí název použije **AzSOAW** . Pokud chcete přepsat výchozí hodnotu, můžete zadat jiný název. |
-| VirtualMachineMemory       | Volitelné | Paměť, která se má přiřadit k virtuálnímu počítači. Výchozí hodnota je **4 GB**.                            |
-| VirtualProcessorCount      | Volitelné | Počet virtuálních procesorů, které mají být přiřazeny k virtuálnímu počítači. Výchozí hodnota je **8**.        |
+| VirtualMachineMemory       | Volitelné | Paměť, která se má přiřadit k virtuálnímu počítači. Výchozí hodnota je **4 GB** .                            |
+| VirtualProcessorCount      | Volitelné | Počet virtuálních procesorů, které mají být přiřazeny k virtuálnímu počítači. Výchozí hodnota je **8** .        |
 | VirtualMachineDiffDiskPath | Volitelné | Cesta pro uložení dočasných souborů rozdílového disku, zatímco byl virtuální počítač pro správu aktivní. Výchozí hodnota je **DiffDisks** podadresář ve stejné nadřazené složce tohoto skriptu. |
 | AzureStackCertificatePath  | Volitelné | Cesta k certifikátům, které se mají importovat do virtuálního počítače pro přístup ke službě Azure Stack hub |
 | CertificatePassword        | Volitelné | Heslo certifikátu, který se má importovat do virtuálního počítače pro přístup ke službě Azure Stack hub |
@@ -244,7 +244,7 @@ Následující skript odebere virtuální počítač OAW, který se používá p
    Remove-OAW.ps1 -VirtualMachineName <name>
    ```
 
-   Kde \<name\> je název virtuálního počítače, který se má odebrat. Ve výchozím nastavení je název **AzSOAW**.
+   Kde \<name\> je název virtuálního počítače, který se má odebrat. Ve výchozím nastavení je název **AzSOAW** .
 
    Například:
 
