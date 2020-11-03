@@ -7,12 +7,12 @@ ms.date: 10/01/2020
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: aa2773519250a901be421f1177d2f940b1670644
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: 6eb455dbcf30b1d77818b13d1fc7db6b6b11c6f9
+ms.sourcegitcommit: 62fc0592fdec706ade2b14e685448256ad0b4fe9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623281"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93239559"
 ---
 # <a name="monitor-azure-stack-hub-hardware-components"></a>Monitorovat hardwarové součásti centra Azure Stack
 
@@ -22,11 +22,11 @@ Systém Azure Stackho centra stavů a monitorování sleduje stav subsystému ú
 - Systémová teplota
 - Zdroj napájení
 - CPUs
-- Memory (Paměť)
+- Paměť
 - Spouštěcí jednotky
 
 > [!NOTE]
-> Než tuto funkci povolíte, musíte ověřit u svého hardwarového partnera, že jsou připravené. K povolení této funkce v řadiči pro správu základní desky vám poskytne váš hardwarový partner taky podrobný postup.
+> Než tuto funkci povolíte, musíte ověřit u svého hardwarového partnera, že jsou připravené. K povolení této funkce v řadiči pro správu základní desky vám poskytne váš hardwarový partner taky podrobný postup. Šifrování uživatele v řadiči pro správu základní desky musí být nastavené na AES pro Build 2005 a novější. 
 
 ## <a name="snmp-listener-scenario"></a>Scénář naslouchacího procesu SNMP
 

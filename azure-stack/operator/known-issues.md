@@ -3,16 +3,16 @@ title: Známé problémy centra Azure Stack
 description: Přečtěte si o známých problémech v Azure Stackch vydáních centra.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/28/2020
+ms.date: 11/02/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/13/2020
-ms.openlocfilehash: b52944255569197e9390db879f690f9e5d5a21d5
-ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
+ms.openlocfilehash: 50b80df35ceed77242e7deb45c54664fb5a9563f
+ms.sourcegitcommit: 62fc0592fdec706ade2b14e685448256ad0b4fe9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91495775"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93239593"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Známé problémy centra Azure Stack
 
@@ -37,6 +37,13 @@ Chcete-li získat přístup ke známým problémům pro jinou verzi, použijte r
 ## <a name="update"></a>Aktualizace
 
 Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešení potíží s aktualizacemi v centru Azure Stack](azure-stack-troubleshooting.md#troubleshoot-azure-stack-hub-updates).
+
+### <a name="update-failed-to-install-package-microsoftazurestackcomputeinstaller-to-ca-vm"></a>Při aktualizaci se nepovedlo nainstalovat balíček Microsoft. AzureStack. Compute. Installer do virtuálního počítače certifikační autority.
+
+- Platí: Tento problém se vztahuje na všechny podporované verze.
+- Příčina: během aktualizace proces převezme zámek na novém obsahu, který se musí zkopírovat do virtuálního počítače certifikační autority. V případě, že se aktualizace nezdařila, je zámek uvolněn.
+- Náprava: pokračovat v aktualizaci.
+- Výskyt: vzácná
 
 ## <a name="portal"></a>Portál
 
@@ -93,7 +100,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Náprava: Pokud chcete veřejnou IP adresu vrátit do úspěšného stavu, změňte hodnotu **IdleTimeoutInMinutes** u pravidla vyrovnávání zatížení, které odkazuje na veřejnou IP adresu zpátky na původní hodnotu (výchozí hodnota je 4 minuty).
 - Výskyt: běžné
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Výpočetní prostředky
 
 ### <a name="issues-deploying-virtual-machine-scale-set-with-standard_ds2_v2-size-using-the-portal"></a>Problémy s nasazením sady škálování virtuálních počítačů s Standard_DS2_v2 velikostí pomocí portálu
 
@@ -103,7 +110,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 
 ### <a name="issues-using-vm-extensions-in-ubuntu-server-2004"></a>Problémy s rozšířeními virtuálních počítačů na serveru Ubuntu 20,04
 
-- Platí: Tento problém se týká **Ubuntu serveru 20,04 LTS**.
+- Platí: Tento problém se týká **Ubuntu serveru 20,04 LTS** .
 - Příčina: některé distribuce systému Linux přešly do Pythonu 3,8 a úplně odebraly starší verze `/usr/bin/python` EntryPoint pro Python. Uživatelé distribuce systému Linux, kteří přešli na Python 3. x, musí `/usr/bin/python` před pokusem o nasazení těchto rozšíření na své virtuální počítače zajistit, aby existoval starý vstupní bod. V opačném případě může nasazení rozšíření selhat.
 - Náprava: postupujte podle kroků řešení v části [problémy s používáním rozšíření virtuálních počítačů v Pythonu 3. v systémech Linux Azure Virtual Machines systémy](/azure/virtual-machines/extensions/issues-using-vm-extensions-python-3) , ale přeskočte krok 2, protože centrum Azure Stack nemá funkci **příkazu Spustit** .
 
@@ -123,8 +130,8 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>Okno s přehledem virtuálních počítačů nezobrazuje správný název počítače
 
 - Platí: Tento problém se vztahuje na všechny verze.
-- Příčina: při zobrazení podrobností o VIRTUÁLNÍm počítači v okně Přehled se zobrazí název počítače **(není k dispozici)**. Jedná se o návrh pro virtuální počítače vytvořené z specializovaných disků nebo snímků disku a zobrazují se také pro image na webu Marketplace.
-- Náprava: v části **Nastavení**zobrazte okno **vlastnosti** .
+- Příčina: při zobrazení podrobností o VIRTUÁLNÍm počítači v okně Přehled se zobrazí název počítače **(není k dispozici)** . Jedná se o návrh pro virtuální počítače vytvořené z specializovaných disků nebo snímků disku a zobrazují se také pro image na webu Marketplace.
+- Náprava: v části **Nastavení** zobrazte okno **vlastnosti** .
 
 ### <a name="virtual-machine-scale-set"></a>Škálovací sada virtuálních počítačů
 
@@ -134,7 +141,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: vytváření virtuálních počítačů ve skupině dostupnosti 3 domén selhání a vytvoření instance sady škálování virtuálního počítače selže s chybou **FabricVmPlacementErrorUnsupportedFaultDomainSize** během procesu aktualizace v prostředí centra Azure Stack se 4 uzly.
 - Náprava: můžete vytvořit jeden virtuální počítač ve skupině dostupnosti se dvěma doménami selhání úspěšně. Vytvoření instance sady škálování však není během procesu aktualizace ve 4 Azure Stackovém nasazení centra stále k dispozici.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Úložiště
 
 ### <a name="retention-period-reverts-to-0"></a>Doba uchování se vrátí na 0.
 
@@ -171,6 +178,13 @@ Po instalaci aktualizace 2002 se může na portálu pro správu nesprávně zobr
 
 Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešení potíží s aktualizacemi v centru Azure Stack](azure-stack-troubleshooting.md#troubleshoot-azure-stack-hub-updates).
 
+### <a name="update-failed-to-install-package-microsoftazurestackcomputeinstaller-to-ca-vm"></a>Při aktualizaci se nepovedlo nainstalovat balíček Microsoft. AzureStack. Compute. Installer do virtuálního počítače certifikační autority.
+
+- Platí: Tento problém se vztahuje na všechny podporované verze.
+- Příčina: během aktualizace proces převezme zámek na novém obsahu, který se musí zkopírovat do virtuálního počítače certifikační autority. V případě, že se aktualizace nezdařila, je zámek uvolněn.
+- Náprava: pokračovat v aktualizaci.
+- Výskyt: vzácná
+
 ## <a name="portal"></a>Portál
 
 ### <a name="administrative-subscriptions"></a>Předplatná pro správu
@@ -190,7 +204,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="storage-account-options"></a>Možnosti účtu úložiště
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal se názvy účtů úložiště zobrazují jako **účet úložiště – objekt blob, soubor, tabulka, fronta**; v Azure Stackovém centru se ale nepodporuje **soubor** .
+- Příčina: na portálu User Portal se názvy účtů úložiště zobrazují jako **účet úložiště – objekt blob, soubor, tabulka, fronta** ; v Azure Stackovém centru se ale nepodporuje **soubor** .
 - Výskyt: běžné
 
 ### <a name="create-managed-disk-snapshot"></a>Vytvořit snímek spravovaného disku
@@ -269,7 +283,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
   - [Okruhy ExpressRoute](azure-stack-connect-expressroute.md)
   - [Zadat vlastní zásady IPsec/IKE](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Výpočetní prostředky
 
 ### <a name="cannot-create-a-virtual-machine-scale-set-with-standard_ds2_v2-vm-size-on-portal"></a>Nejde vytvořit sadu škálování virtuálního počítače s Standard_DS2_v2 velikostí virtuálního počítače na portálu.
 
@@ -280,8 +294,8 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>Okno s přehledem virtuálních počítačů nezobrazuje správný název počítače
 
 - Platí: Tento problém se vztahuje na všechny verze.
-- Příčina: při zobrazení podrobností o VIRTUÁLNÍm počítači v okně Přehled se zobrazí název počítače **(není k dispozici)**. Jedná se o návrh pro virtuální počítače vytvořené z specializovaných disků nebo snímků disku a zobrazují se také pro image na webu Marketplace.
-- Náprava: v části **Nastavení**zobrazte okno **vlastnosti** .
+- Příčina: při zobrazení podrobností o VIRTUÁLNÍm počítači v okně Přehled se zobrazí název počítače **(není k dispozici)** . Jedná se o návrh pro virtuální počítače vytvořené z specializovaných disků nebo snímků disku a zobrazují se také pro image na webu Marketplace.
+- Náprava: v části **Nastavení** zobrazte okno **vlastnosti** .
 
 ### <a name="nvv4-vm-size-on-portal"></a>Velikost virtuálního počítače NVv4 na portálu
 
@@ -292,14 +306,14 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="vm-boot-diagnostics"></a>Diagnostika spouštění virtuálních počítačů
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: při vytváření nového virtuálního počítače se může zobrazit následující chyba: **nepovedlo se spustit virtuální počítač s názvem VM-Name. Chyba: nepovedlo se aktualizovat nastavení sériového výstupu pro virtuální počítač s názvem VM-Name**. K této chybě dojde, pokud povolíte diagnostiku spouštění na virtuálním počítači, ale odstraníte účet úložiště diagnostiky spouštění.
+- Příčina: při vytváření nového virtuálního počítače se může zobrazit následující chyba: **nepovedlo se spustit virtuální počítač s názvem VM-Name. Chyba: nepovedlo se aktualizovat nastavení sériového výstupu pro virtuální počítač s názvem VM-Name** . K této chybě dojde, pokud povolíte diagnostiku spouštění na virtuálním počítači, ale odstraníte účet úložiště diagnostiky spouštění.
 - Náprava: vytvořte znovu účet úložiště se stejným názvem, který jste použili dříve.
 - Výskyt: běžné
 
 ### <a name="vm-boot-diagnostics"></a>Diagnostika spouštění virtuálních počítačů
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: při pokusu o spuštění virtuálního počítače, který není přidělen, se může zobrazit následující chyba: **účet úložiště diagnostiky virtuálních počítačů ' diagnosticstorageaccount ' nebyl nalezen. Ujistěte se, že se účet úložiště neodstranil**. K této chybě dojde, pokud se pokusíte spustit virtuální počítač s povolenou diagnostikou spouštění, ale odkazovaný účet úložiště diagnostiky spouštění se odstraní.
+- Příčina: při pokusu o spuštění virtuálního počítače, který není přidělen, se může zobrazit následující chyba: **účet úložiště diagnostiky virtuálních počítačů ' diagnosticstorageaccount ' nebyl nalezen. Ujistěte se, že se účet úložiště neodstranil** . K této chybě dojde, pokud se pokusíte spustit virtuální počítač s povolenou diagnostikou spouštění, ale odkazovaný účet úložiště diagnostiky spouštění se odstraní.
 - Náprava: vytvořte znovu účet úložiště se stejným názvem, který jste použili dříve.
 - Výskyt: běžné
 
@@ -332,7 +346,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: při konfiguraci automatizované zálohy virtuálních počítačů SQL s existujícím účtem úložiště dojde k selhání s chybou **SQL Server agenta IaaS: základní připojení bylo ukončeno: došlo k neočekávané chybě při odeslání.**
 - Výskyt: běžné
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Úložiště
 
 ### <a name="retention-period-revert-to-0"></a>Doba uchování se vrátí na 0.
 
@@ -367,6 +381,13 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 
 Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešení potíží s aktualizacemi v centru Azure Stack](azure-stack-troubleshooting.md#troubleshoot-azure-stack-hub-updates).
 
+### <a name="update-failed-to-install-package-microsoftazurestackcomputeinstaller-to-ca-vm"></a>Při aktualizaci se nepovedlo nainstalovat balíček Microsoft. AzureStack. Compute. Installer do virtuálního počítače certifikační autority.
+
+- Platí: Tento problém se vztahuje na všechny podporované verze.
+- Příčina: během aktualizace proces převezme zámek na novém obsahu, který se musí zkopírovat do virtuálního počítače certifikační autority. V případě, že se aktualizace nezdařila, je zámek uvolněn.
+- Náprava: pokračovat v aktualizaci.
+- Výskyt: vzácná
+
 ## <a name="portal"></a>Portál
 
 ### <a name="administrative-subscriptions"></a>Předplatná pro správu
@@ -379,7 +400,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="duplicate-subscription-button-in-lock-blade"></a>Tlačítko Duplikovat předplatné v okně zámku
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu pro správu má okno **zámku** pro předplatné uživatele dvě tlačítka, která říká **předplatné**.
+- Příčina: na portálu pro správu má okno **zámku** pro předplatné uživatele dvě tlačítka, která říká **předplatné** .
 - Výskyt: běžné
 
 ### <a name="subscription-permissions"></a>Oprávnění předplatného
@@ -392,7 +413,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="storage-account-settings"></a>Nastavení účtu úložiště
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazuje okno **Konfigurace** účtu úložiště možnost změny **typu přenosu zabezpečení**. Tato funkce v současnosti není v centru Azure Stack podporována.
+- Příčina: na portálu User Portal zobrazuje okno **Konfigurace** účtu úložiště možnost změny **typu přenosu zabezpečení** . Tato funkce v současnosti není v centru Azure Stack podporována.
 - Výskyt: běžné
 
 ### <a name="upload-blob-with-oauth-error"></a>Nahrát objekt BLOB s chybou OAuth
@@ -405,7 +426,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="upload-blob-option-unsupported"></a>Možnost nahrát objekt BLOB není podporována
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal se při pokusu o nahrání objektu BLOB v okně nahrávání dá vybrat možnost ověřování **AAD** nebo **klíč**, ale v centru Azure Stack se nepodporuje **AAD** .
+- Příčina: na portálu User Portal se při pokusu o nahrání objektu BLOB v okně nahrávání dá vybrat možnost ověřování **AAD** nebo **klíč** , ale v centru Azure Stack se nepodporuje **AAD** .
 - Výskyt: běžné
 
 ### <a name="alert-for-network-interface-disconnected"></a>Výstraha pro síťové rozhraní odpojena
@@ -417,14 +438,14 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="incorrect-tooltip-when-creating-vm"></a>Nesprávný popis při vytváření virtuálního počítače
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: když v uživatelském portálu vyberete spravovaný disk s typem disku SSD úrovně Premium, zobrazí se v rozevíracím seznamu **disk s operačním systémem**. Popis vedle této možnosti říká, že **některé velikosti disků s operačním systémem můžou být dostupné zdarma s bezplatným účtem Azure**; to však není platné pro Azure Stack hub. Seznam navíc zahrnuje **bezplatný nárok na účet** , který není platný i pro centrum Azure Stack.
+- Příčina: když v uživatelském portálu vyberete spravovaný disk s typem disku SSD úrovně Premium, zobrazí se v rozevíracím seznamu **disk s operačním systémem** . Popis vedle této možnosti říká, že **některé velikosti disků s operačním systémem můžou být dostupné zdarma s bezplatným účtem Azure** ; to však není platné pro Azure Stack hub. Seznam navíc zahrnuje **bezplatný nárok na účet** , který není platný i pro centrum Azure Stack.
 - Výskyt: běžné
 
 ### <a name="delete-a-storage-container"></a>Odstranění kontejneru úložiště
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: když se uživatel pokusí odstranit kontejner úložiště, v uživatelském portálu se operace nepovede, když uživatel nepřepne **Nastavení Role Azure Policy a RBAC**.
-- Náprava: Ujistěte se, že je zaškrtnuté políčko **přepsat Azure Policy a nastavení role RBAC**.
+- Příčina: když se uživatel pokusí odstranit kontejner úložiště, v uživatelském portálu se operace nepovede, když uživatel nepřepne **Nastavení Role Azure Policy a RBAC** .
+- Náprava: Ujistěte se, že je zaškrtnuté políčko **přepsat Azure Policy a nastavení role RBAC** .
 - Výskyt: běžné
 
 ### <a name="refresh-button-on-virtual-machines-fails"></a>Tlačítko Aktualizovat na virtuálních počítačích se nezdařila
@@ -437,13 +458,13 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="storage-account-options"></a>Možnosti účtu úložiště
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal se názvy účtů úložiště zobrazují jako **účet úložiště – objekt blob, soubor, tabulka, fronta**; v Azure Stackovém centru se ale nepodporuje **soubor** .
+- Příčina: na portálu User Portal se názvy účtů úložiště zobrazují jako **účet úložiště – objekt blob, soubor, tabulka, fronta** ; v Azure Stackovém centru se ale nepodporuje **soubor** .
 - Výskyt: běžné
 
 ### <a name="storage-account-configuration"></a>Konfigurace účtu úložiště
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal při vytváření účtu úložiště a zobrazení jeho **Konfigurace**nemůžete uložit změny konfigurace, protože výsledkem je chyba AJAX.
+- Příčina: na portálu User Portal při vytváření účtu úložiště a zobrazení jeho **Konfigurace** nemůžete uložit změny konfigurace, protože výsledkem je chyba AJAX.
 - Výskyt: běžné
 
 ### <a name="capacity-monitoring-in-sql-resource-provider-keeps-loading"></a>Sledování kapacity v poskytovateli prostředků SQL udržuje načítání
@@ -456,8 +477,8 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="access-control-iam"></a>Access Control (IAM)
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: rozšíření IAM není aktuální. Portál Ibiza, který se dodává s centrem Azure Stack, zavádí nové chování, které způsobí selhání rozšíření RBAC, pokud uživatel otevírá okno **Access Control (IAM)** pro předplatné, které není vybrané v nástroji pro výběr globálního předplatného (**adresář + předplatné** na portálu User Portal). V okně se zobrazí **načítání** ve smyčce a uživatel nemůže do předplatného přidat nové role. Okno **Přidat** také zobrazuje **načítání** ve smyčce.
-- Náprava: Ujistěte se, že je předplatné zaškrtnuté v nabídce **adresář a předplatné** . Do této nabídky můžete přejít z horní části portálu vedle tlačítka **Oznámení** nebo přes zástupce v okně **Všechny prostředky** s textem **Nezobrazuje se předplatné? Otevřete nastavení Adresář a předplatné**. V této nabídce je potřeba vybrat předplatné.
+- Příčina: rozšíření IAM není aktuální. Portál Ibiza, který se dodává s centrem Azure Stack, zavádí nové chování, které způsobí selhání rozšíření RBAC, pokud uživatel otevírá okno **Access Control (IAM)** pro předplatné, které není vybrané v nástroji pro výběr globálního předplatného ( **adresář + předplatné** na portálu User Portal). V okně se zobrazí **načítání** ve smyčce a uživatel nemůže do předplatného přidat nové role. Okno **Přidat** také zobrazuje **načítání** ve smyčce.
+- Náprava: Ujistěte se, že je předplatné zaškrtnuté v nabídce **adresář a předplatné** . Do této nabídky můžete přejít z horní části portálu vedle tlačítka **Oznámení** nebo přes zástupce v okně **Všechny prostředky** s textem **Nezobrazuje se předplatné? Otevřete nastavení Adresář a předplatné** . V této nabídce je potřeba vybrat předplatné.
 
 ### <a name="sql-resource-provider"></a>Poskytovatel prostředků SQL
 
@@ -476,7 +497,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="load-balancer"></a>Nástroj pro vyrovnávání zatížení
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Když přidáváte virtuální počítače skupiny dostupnosti do back-endu fondu nástroje pro vyrovnávání zatížení, na portálu se zobrazí chybová zpráva s oznámením, že **se nepodařilo uložit fond back-endu nástroje pro**vyrovnávání zatížení. Jedná se o problém s kosmetickým rozhraním na portálu. funkce jsou pořád na místě a virtuální počítače se úspěšně přidávají do back-endu fondu.
+- Příčina: Když přidáváte virtuální počítače skupiny dostupnosti do back-endu fondu nástroje pro vyrovnávání zatížení, na portálu se zobrazí chybová zpráva s oznámením, že **se nepodařilo uložit fond back-endu nástroje pro** vyrovnávání zatížení. Jedná se o problém s kosmetickým rozhraním na portálu. funkce jsou pořád na místě a virtuální počítače se úspěšně přidávají do back-endu fondu.
 - Výskyt: běžné
 
 ### <a name="network-security-groups"></a>Network Security Groups (Skupiny zabezpečení sítě)
@@ -488,7 +509,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="service-endpoints"></a>Koncové body služby
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazuje okno **Virtual Network** možnost používat **koncové body služby**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
+- Příčina: na portálu User Portal zobrazuje okno **Virtual Network** možnost používat **koncové body služby** . Tato funkce se v současnosti v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
 ### <a name="cannot-delete-an-nsg-if-nics-not-attached-to-running-vm"></a>Nejde odstranit NSG, pokud nejsou připojené síťové karty ke spuštěnému virtuálnímu počítači.
@@ -524,19 +545,19 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 #### <a name="alerts"></a>Výstrahy
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal se v okně **Virtual Network brány** zobrazí možnost použít **výstrahy**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
+- Příčina: na portálu User Portal se v okně **Virtual Network brány** zobrazí možnost použít **výstrahy** . Tato funkce se v současnosti v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
 #### <a name="active-active"></a>Aktivní–aktivní
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal při vytváření a v nabídce prostředků **služby Virtual Network Gateway**se zobrazí možnost povolit konfiguraci **typu aktivní-aktivní** . Tato funkce se v současnosti v centru Azure Stack nepodporuje.
+- Příčina: na portálu User Portal při vytváření a v nabídce prostředků **služby Virtual Network Gateway** se zobrazí možnost povolit konfiguraci **typu aktivní-aktivní** . Tato funkce se v současnosti v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
 #### <a name="vpn-troubleshooter"></a>Poradce při potížích s VPN
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal zobrazí okno **připojení** funkci **s názvem Poradce při potížích s VPN**. Tato funkce se v současnosti v centru Azure Stack nepodporuje.
+- Příčina: na portálu User Portal zobrazí okno **připojení** funkci **s názvem Poradce při potížích s VPN** . Tato funkce se v současnosti v centru Azure Stack nepodporuje.
 - Výskyt: běžné
 
 #### <a name="vpn-troubleshooter"></a>Poradce při potížích s VPN
@@ -556,12 +577,12 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
   - [Okruhy ExpressRoute](azure-stack-connect-expressroute.md)
   - [Zadat vlastní zásady IPsec/IKE](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Výpočetní prostředky
 
 ### <a name="vm-boot-diagnostics"></a>Diagnostika spouštění virtuálních počítačů
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: Když vytváříte nový virtuální počítač s Windows, může se zobrazit následující chyba: **nepovedlo se spustit virtuální počítač s názvem VM-Name. Chyba: nepovedlo se aktualizovat nastavení sériového výstupu pro virtuální počítač s názvem VM-Name**. K této chybě dojde, pokud povolíte diagnostiku spouštění na virtuálním počítači, ale odstraníte účet úložiště diagnostiky spouštění.
+- Příčina: Když vytváříte nový virtuální počítač s Windows, může se zobrazit následující chyba: **nepovedlo se spustit virtuální počítač s názvem VM-Name. Chyba: nepovedlo se aktualizovat nastavení sériového výstupu pro virtuální počítač s názvem VM-Name** . K této chybě dojde, pokud povolíte diagnostiku spouštění na virtuálním počítači, ale odstraníte účet úložiště diagnostiky spouštění.
 - Náprava: vytvořte znovu účet úložiště se stejným názvem, který jste použili dříve.
 - Výskyt: běžné
 

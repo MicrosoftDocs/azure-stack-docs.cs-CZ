@@ -7,12 +7,12 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: 5fa0debb10152d94095d6ba79100e74c2116633e
-ms.sourcegitcommit: 61e616745cd20940eaeee6dfe90333ebe621e0ea
+ms.openlocfilehash: 736cf2dbc122a757edaa2204d15f035582f02f4f
+ms.sourcegitcommit: 62fc0592fdec706ade2b14e685448256ad0b4fe9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92763130"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93239576"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -96,6 +96,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 - Odeberou se akce, které se mají zastavit, vypnout a restartovat instanci role infrastruktury na portálu pro správu. V poskytovateli prostředků infrastruktury se odebraly taky odpovídající rozhraní API. Následující rutiny PowerShellu v modulu Správce RM a AZ Preview pro Azure Stack hub už nefungují: **stop-AzsInfrastructureRoleInstance** , **Disable-InfrastructureRoleInstance** a **restart-InfrastructureRoleInstance** . Tyto rutiny se odeberou z dalšího správce AZ Module Release for Azure Stack hub.
 - Centrum Azure Stack 2005 teď podporuje [App Service na Azure Stack hub 2020 (verze 87. x)](app-service-release-notes-2020-Q2.md).
+- Nastavení šifrování uživatele vyžadované pro monitorování hardwaru bylo změněno z DES na AES, aby se zvýšilo zabezpečení. Obraťte se na svého hardwarového partnera, kde se dozvíte, jak změnit nastavení v řadiči pro správu základní desky (BMC). Po provedení změny v řadiči pro správu základní desky může být potřeba znovu spustit rutinu **set-BmcCredential** pomocí koncového bodu privilegovaná. Další informace najdete v tématu [otočení tajných kódů v centru Azure Stack](azure-stack-rotate-secrets.md) .
 
 ### <a name="fixes"></a>Opravy
 
