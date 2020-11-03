@@ -3,87 +3,28 @@ title: Správa centra Azure Stack pomocí Azure CLI
 description: Naučte se používat rozhraní příkazového řádku (CLI) pro různé platformy ke správě a nasazení prostředků v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 08/24/2020
+ms.date: 10/26/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 12/10/2019
-ms.openlocfilehash: 1fb17516e5ef0b4e3a670703a34e1e895c847b52
-ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
+ms.lastreviewed: 10/26/2020
+ms.openlocfilehash: 35378da825d9b2d9c7446148101f1d205a22b2c4
+ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88818840"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93291256"
 ---
-# <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>Správa a nasazení prostředků do centra Azure Stack pomocí Azure CLI
+# <a name="install-azure-cli-on-azure-stack-hub"></a>Instalace rozhraní příkazového řádku Azure CLI do centra Azure Stack
 
-Podle kroků v tomto článku nastavte rozhraní příkazového řádku Azure (CLI) pro správu prostředků Azure Stack Development Kit (ASDK) z klientských platforem Linux, Mac a Windows.
+Rozhraní příkazového řádku Azure můžete nainstalovat pro správu centra Azure Stack s počítači se systémem Windows nebo Linux. Tento článek vás provede kroky instalace a nastavení Azure CLI.
 
-## <a name="prepare-for-azure-cli"></a>Příprava pro Azure CLI
+## <a name="install-azure-cli"></a>Instalace rozhraní příkazového řádku Azure CLI
 
-Pokud používáte ASDK, budete potřebovat kořenový certifikát certifikační autority pro Azure Stack centra pro použití rozhraní příkazového řádku Azure CLI na vašem vývojovém počítači. Certifikát použijete ke správě prostředků přes rozhraní příkazového řádku.
+1. Přihlaste se k vývojové pracovní stanici a nainstalujte rozhraní příkazového řádku. Azure Stack hub vyžaduje Azure CLI verze 2,0 nebo novější. 
 
- - Pokud používáte rozhraní příkazového řádku z pracovní stanice mimo ASDK, vyžaduje se **kořenový certifikát CA centra Azure Stack** .  
+2. Rozhraní příkazového řádku můžete nainstalovat pomocí postupu popsaného v článku [instalace Azure CLI](/cli/azure/install-azure-cli) . 
 
- - **Aliasy aliasů virtuálních počítačů** poskytují alias, například "UbuntuLTS" nebo "Win2012Datacenter". Tento alias odkazuje na vydavatele image, nabídku, SKU a verzi jako jeden parametr při nasazování virtuálních počítačů.  
-
-Následující části popisují, jak tyto hodnoty získat.
-
-### <a name="export-the-azure-stack-hub-ca-root-certificate"></a>Export kořenového certifikátu certifikační autority centra Azure Stack
-
-Pokud používáte integrovaný systém, nemusíte exportovat kořenový certifikát certifikační autority. Pokud používáte ASDK, exportujte kořenový certifikát CA na ASDK.
-
-Export kořenového certifikátu ASDK ve formátu PEM:
-
-1. Získání názvu kořenového certifikátu centra Azure Stack:
-    - Přihlaste se k portálu Azure Stack nebo uživateli centra pro správu.
-    - Klikněte na **zabezpečený** poblíž panelu Adresa.
-    - V automaticky otevíraném okně klikněte na **platné**.
-    - V okně certifikát klikněte na kartu **cesta k certifikaci** .
-    - Poznamenejte si název kořenového certifikátu centra Azure Stack.
-
-    ![Kořenový certifikát centra Azure Stack](media/azure-stack-version-profiles-azurecli2/root-cert-name.png)
-
-2. [Vytvořte virtuální počítač s Windows na rozbočovači Azure Stack](azure-stack-quick-windows-portal.md).
-
-3. Přihlaste se k virtuálnímu počítači, otevřete příkazový řádek prostředí PowerShell se zvýšenými oprávněními a spusťte následující skript:
-
-    ```powershell  
-      $label = "<the name of your Azure Stack Hub root cert from Step 1>"
-      Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
-      $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
-      if (-not $root)
-      {
-          Write-Error "Certificate with subject CN=$label not found"
-          return
-      }
-
-    Write-Host "Exporting certificate"
-    Export-Certificate -Type CERT -FilePath root.cer -Cert $root
-
-    Write-Host "Converting certificate to PEM format"
-    certutil -encode root.cer root.pem
-    ```
-
-4. Zkopírujte certifikát do místního počítače.
-
-
-### <a name="set-up-the-virtual-machine-aliases-endpoint"></a>Nastavte koncový bod aliasy virtuálních počítačů.
-
-Můžete nastavit veřejně přístupný koncový bod, který hostuje soubor s aliasem virtuálního počítače. Soubor aliasu virtuálního počítače je soubor JSON, který poskytuje běžný název pro obrázek. Název použijete při nasazení virtuálního počítače jako parametru Azure CLI.
-
-1. Pokud publikujete vlastní image, poznamenejte si informace o vydavateli, nabídce, SKU a verzi, které jste zadali během publikování. Pokud se jedná o image z webu Marketplace, můžete zobrazit informace pomocí ```Get-AzureVMImage``` rutiny.  
-
-2. Stáhněte si [ukázkový soubor](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) z GitHubu.
-
-3. Vytvořte účet úložiště v centru Azure Stack. Až to bude hotové, vytvořte kontejner objektů BLOB. Nastavte zásady přístupu na veřejné.  
-
-4. Nahrajte soubor JSON do nového kontejneru. Až to uděláte, můžete zobrazit adresu URL objektu BLOB. Vyberte název objektu BLOB a potom vyberte adresu URL z vlastností objektu BLOB.
-
-### <a name="install-or-upgrade-cli"></a>Instalace nebo upgrade rozhraní příkazového řádku
-
-Přihlaste se k vývojové pracovní stanici a nainstalujte rozhraní příkazového řádku. Azure Stack hub vyžaduje Azure CLI verze 2,0 nebo novější. Nejnovější verze profilů rozhraní API vyžaduje aktuální verzi rozhraní příkazového řádku. Rozhraní příkazového řádku nainstalujete pomocí postupu popsaného v článku [instalace Azure CLI](/cli/azure/install-azure-cli) . 
-
-1. Chcete-li ověřit, zda byla instalace úspěšná, otevřete okno terminálu nebo příkazového řádku a spusťte následující příkaz:
+3. Chcete-li ověřit, zda byla instalace úspěšná, otevřete okno terminálu nebo příkazového řádku a spusťte následující příkaz:
 
     ```shell
     az --version
@@ -93,68 +34,21 @@ Přihlaste se k vývojové pracovní stanici a nainstalujte rozhraní příkazov
 
     ![Rozhraní příkazového řádku Azure v umístění Pythonu centra Azure Stack](media/azure-stack-version-profiles-azurecli2/cli-python-location.png)
 
-2. Poznamenejte si umístění Pythonu pro rozhraní příkazového řádku. Pokud používáte ASDK, musíte k přidání certifikátu použít toto umístění.
+2. Poznamenejte si umístění Pythonu pro rozhraní příkazového řádku. Pokud používáte ASDK, musíte k přidání certifikátu použít toto umístění. Pokyny k nastavení certifikátů pro instalaci rozhraní příkazového řádku na ASDK najdete v tématu [nastavení certifikátů pro Azure CLI v Azure Stack Development Kit](../asdk/asdk-cli.md).
 
+## <a name="set-up-azure-cli"></a>Nastavení Azure CLI
 
-## <a name="windows-azure-ad"></a>Windows (Azure AD)
+### <a name="azure-ad-on-windows"></a>[Azure AD ve Windows](#tab/ad-win)
 
 V této části se dozvíte, jak nastavit rozhraní příkazového řádku, pokud používáte Azure AD jako službu pro správu identit a používáte rozhraní příkazového řádku v počítači s Windows.
 
-### <a name="trust-the-azure-stack-hub-ca-root-certificate"></a>Důvěřovat kořenovému certifikátu certifikační autority centra Azure Stack
+#### <a name="connect-to-azure-stack-hub"></a>Připojení k centru Azure Stack
 
-Pokud používáte ASDK, musíte na svém vzdáleném počítači důvěřovat kořenovému certifikátu certifikační autority. Tento krok není nezbytný u integrovaných systémů.
+1. Pokud používáte ASDK, důvěřovat kořenovému certifikátu certifikační autority centra Azure Stack. Pokyny najdete v tématu [důvěryhodnost certifikátu](../asdk/asdk-cli.md#trust-the-certificate).
 
-Pokud chcete důvěřovat kořenovému certifikátu certifikační autority centra Azure Stack, přidejte ho do stávajícího úložiště certifikátů Pythonu pro verzi Pythonu nainstalovanou pomocí Azure CLI. Možná budete pracovat s vlastní instancí Pythonu. Azure CLI obsahuje svou vlastní verzi Pythonu.
+2. Zaregistrujte své prostředí Azure Stackového centra spuštěním `az cloud register` příkazu.
 
-1. Najděte umístění úložiště certifikátů na vašem počítači.  Umístění můžete najít spuštěním příkazu  `az --version` .
-
-2. Přejděte do složky, která obsahuje aplikaci CLI v Pythonu. Chcete spustit tuto verzi Pythonu. Pokud jste v systémové cestě nastavili Python, spustí Python svou vlastní verzi Pythonu. Místo toho chcete spustit verzi používanou rozhraním CLI a přidat do této verze svůj certifikát. Například rozhraní CLI Python může být v: `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\` .
-
-    Použijte následující příkazy:
-
-    ```powershell  
-    cd "c:\pathtoyourcliversionofpython"
-    .\python -c "import certifi; print(certifi.where())"
-    ```
-
-    Poznamenejte si umístění certifikátu. Například, `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem`. Vaše konkrétní cesta závisí na vašem operačním systému a na instalaci rozhraní příkazového řádku.
-
-2. Důvěřování kořenovému certifikátu certifikační autority centra Azure Stack tak, že ho připojíte k existujícímu certifikátu Pythonu.
-
-    ```powershell
-    $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
-
-    $root = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
-    $root.Import($pemFile)
-
-    Write-Host "Extracting required information from the cert file"
-    $md5Hash    = (Get-FileHash -Path $pemFile -Algorithm MD5).Hash.ToLower()
-    $sha1Hash   = (Get-FileHash -Path $pemFile -Algorithm SHA1).Hash.ToLower()
-    $sha256Hash = (Get-FileHash -Path $pemFile -Algorithm SHA256).Hash.ToLower()
-
-    $issuerEntry  = [string]::Format("# Issuer: {0}", $root.Issuer)
-    $subjectEntry = [string]::Format("# Subject: {0}", $root.Subject)
-    $labelEntry   = [string]::Format("# Label: {0}", $root.Subject.Split('=')[-1])
-    $serialEntry  = [string]::Format("# Serial: {0}", $root.GetSerialNumberString().ToLower())
-    $md5Entry     = [string]::Format("# MD5 Fingerprint: {0}", $md5Hash)
-    $sha1Entry    = [string]::Format("# SHA1 Fingerprint: {0}", $sha1Hash)
-    $sha256Entry  = [string]::Format("# SHA256 Fingerprint: {0}", $sha256Hash)
-    $certText = (Get-Content -Path $pemFile -Raw).ToString().Replace("`r`n","`n")
-
-    $rootCertEntry = "`n" + $issuerEntry + "`n" + $subjectEntry + "`n" + $labelEntry + "`n" + `
-    $serialEntry + "`n" + $md5Entry + "`n" + $sha1Entry + "`n" + $sha256Entry + "`n" + $certText
-
-    Write-Host "Adding the certificate content to Python Cert store"
-    Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
-
-    Write-Host "Python Cert store was updated to allow the Azure Stack Hub CA root certificate"
-    ```
-
-### <a name="connect-to-azure-stack-hub"></a>Připojení k centru Azure Stack
-
-1. Zaregistrujte své prostředí Azure Stackového centra spuštěním `az cloud register` příkazu.
-
-2. Zaregistrujte své prostředí. Při spuštění použijte následující parametry `az cloud register` :
+3. Zaregistrujte své prostředí. Při spuštění použijte následující parametry `az cloud register` :
 
     | Hodnota | Příklad | Popis |
     | --- | --- | --- |
@@ -162,19 +56,19 @@ Pokud chcete důvěřovat kořenovému certifikátu certifikační autority cent
     | Správce prostředků koncový bod | `https://management.local.azurestack.external` | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
     | Koncový bod úložiště | Local. azurestack. external | `local.azurestack.external` je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
     | Přípona trezoru klíčů | . trezor. Local. azurestack. external | `.vault.local.azurestack.external` je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
-    | Koncový bod dokumentu aliasu pro image virtuálního počítače – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Identifikátor URI dokumentu, který obsahuje aliasy imagí virtuálních počítačů Další informace najdete v tématu [Nastavení koncového bodu aliasy virtuálních počítačů](#set-up-the-virtual-machine-aliases-endpoint). |
+    | Koncový bod dokumentu aliasu pro image virtuálního počítače – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Identifikátor URI dokumentu, který obsahuje aliasy imagí virtuálních počítačů Další informace najdete v tématu [Nastavení koncového bodu aliasu virtuálního počítače](../asdk/asdk-cli.md#set-up-the-virtual-machine-alias-endpoint). |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
     ```
 
-1. Nastavte aktivní prostředí pomocí následujících příkazů.
+4. Nastavte aktivní prostředí pomocí následujících příkazů.
 
       ```azurecli
       az cloud set -n <environmentname>
       ```
 
-1. Aktualizujte konfiguraci prostředí tak, aby používala profil konkrétní verze rozhraní API centra Azure Stack. Chcete-li aktualizovat konfiguraci, spusťte následující příkaz:
+5. Aktualizujte konfiguraci prostředí tak, aby používala profil konkrétní verze rozhraní API centra Azure Stack. Chcete-li aktualizovat konfiguraci, spusťte následující příkaz:
 
     ```azurecli
     az cloud update --profile 2019-03-01-hybrid
@@ -183,9 +77,9 @@ Pokud chcete důvěřovat kořenovému certifikátu certifikační autority cent
     >[!NOTE]  
     >Pokud používáte verzi centra Azure Stack před sestavením 1808, musíte použít profil verze API **2017-03-09-Profile** , nikoli profil verze rozhraní API **2019-03-01-Hybrid**. Musíte také použít nejnovější verzi Azure CLI.
  
-1. Přihlaste se k prostředí Azure Stackového centra pomocí `az login` příkazu. Přihlaste se do prostředí Azure Stack hub buď jako uživatel, nebo jako [instanční objekt](/azure/active-directory/develop/app-objects-and-service-principals). 
+6. Přihlaste se k prostředí Azure Stackového centra pomocí `az login` příkazu. Přihlaste se do prostředí Azure Stack hub buď jako uživatel, nebo jako [instanční objekt](/azure/active-directory/develop/app-objects-and-service-principals). 
 
-   - Přihlaste se jako *uživatel*: 
+   - Přihlaste se jako *uživatel* : 
 
      Můžete buď zadat uživatelské jméno a heslo přímo v rámci `az login` příkazu, nebo ověřit pomocí prohlížeče. Pokud má váš účet povolené ověřování Multi-Factor Authentication, musíte to udělat:
 
@@ -196,7 +90,7 @@ Pokud chcete důvěřovat kořenovému certifikátu certifikační autority cent
      > [!NOTE]
      > Pokud má váš uživatelský účet povolený službu Multi-Factor Authentication, použijte `az login` příkaz bez zadání `-u` parametru. Spuštěním tohoto příkazu získáte adresu URL a kód, který je nutné použít k ověření.
 
-   - Přihlaste se jako *instanční objekt*: 
+   - Přihlaste se jako *instanční objekt* : 
     
      Než se přihlásíte, [vytvořte instanční objekt pomocí Azure Portal nebo rozhraní](../operator/azure-stack-create-service-principals.md?view=azs-2002) příkazového řádku a přiřaďte mu roli. Teď se přihlaste pomocí následujícího příkazu:
 
@@ -204,7 +98,7 @@ Pokud chcete důvěřovat kořenovému certifikátu certifikační autority cent
      az login --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> --service-principal -u <Application Id of the Service Principal> -p <Key generated for the Service Principal>
      ```
 
-### <a name="test-the-connectivity"></a>Testování připojení
+#### <a name="test-the-connectivity"></a>Testování připojení
 
 Když máte všechno nastavené, pomocí rozhraní příkazového řádku můžete vytvářet prostředky v rámci centra Azure Stack. Můžete například vytvořit skupinu prostředků pro aplikaci a přidat virtuální počítač. Pomocí následujícího příkazu vytvořte skupinu prostředků s názvem "MyResourceGroup":
 
@@ -216,58 +110,18 @@ Pokud je skupina prostředků úspěšně vytvořená, předchozí příkaz vytv
 
 ![Skupina prostředků – vytvořit výstup](media/azure-stack-connect-cli/image1.png)
 
-## <a name="windows-ad-fs"></a>Windows (AD FS)
+### <a name="ad-fs-on-windows"></a>[AD FS ve Windows](#tab/adfs-win)
 
 V této části se dozvíte, jak nastavit rozhraní příkazového řádku, pokud jako službu pro správu identit používáte službu Active Directory federovaného Services (AD FS) a používáte rozhraní příkazového řádku (CLI) na počítači s Windows.
 
-### <a name="trust-the-azure-stack-hub-ca-root-certificate"></a>Důvěřovat kořenovému certifikátu certifikační autority centra Azure Stack
+#### <a name="connect-to-azure-stack-hub"></a>Připojení k centru Azure Stack
 
-Pokud používáte ASDK, musíte na svém vzdáleném počítači důvěřovat kořenovému certifikátu certifikační autority. Tento krok není nezbytný u integrovaných systémů.
 
-1. Najděte umístění certifikátu na svém počítači. Umístění se může lišit v závislosti na tom, kde jste nainstalovali Python. Otevřete příkazový řádek nebo příkazový řádek PowerShell se zvýšenými oprávněními a zadejte tento příkaz:
+1. Pokud používáte ASDK, důvěřovat kořenovému certifikátu certifikační autority centra Azure Stack. Pokyny najdete v tématu [důvěryhodnost certifikátu](../asdk/asdk-cli.md#trust-the-certificate).
 
-    ```powershell  
-      python -c "import certifi; print(certifi.where())"
-    ```
+2. Zaregistrujte své prostředí Azure Stackového centra spuštěním `az cloud register` příkazu.
 
-    Poznamenejte si umístění certifikátu. Například, `~/lib/python3.5/site-packages/certifi/cacert.pem`. Vaše konkrétní cesta závisí na vašem operačním systému a verzi Pythonu, kterou jste nainstalovali.
-
-2. Důvěřování kořenovému certifikátu certifikační autority centra Azure Stack tak, že ho připojíte k existujícímu certifikátu Pythonu.
-
-    ```powershell
-    $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
-
-    $root = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2
-    $root.Import($pemFile)
-
-    Write-Host "Extracting required information from the cert file"
-    $md5Hash    = (Get-FileHash -Path $pemFile -Algorithm MD5).Hash.ToLower()
-    $sha1Hash   = (Get-FileHash -Path $pemFile -Algorithm SHA1).Hash.ToLower()
-    $sha256Hash = (Get-FileHash -Path $pemFile -Algorithm SHA256).Hash.ToLower()
-
-    $issuerEntry  = [string]::Format("# Issuer: {0}", $root.Issuer)
-    $subjectEntry = [string]::Format("# Subject: {0}", $root.Subject)
-    $labelEntry   = [string]::Format("# Label: {0}", $root.Subject.Split('=')[-1])
-    $serialEntry  = [string]::Format("# Serial: {0}", $root.GetSerialNumberString().ToLower())
-    $md5Entry     = [string]::Format("# MD5 Fingerprint: {0}", $md5Hash)
-    $sha1Entry    = [string]::Format("# SHA1 Fingerprint: {0}", $sha1Hash)
-    $sha256Entry  = [string]::Format("# SHA256 Fingerprint: {0}", $sha256Hash)
-    $certText = (Get-Content -Path $pemFile -Raw).ToString().Replace("`r`n","`n")
-
-    $rootCertEntry = "`n" + $issuerEntry + "`n" + $subjectEntry + "`n" + $labelEntry + "`n" + `
-    $serialEntry + "`n" + $md5Entry + "`n" + $sha1Entry + "`n" + $sha256Entry + "`n" + $certText
-
-    Write-Host "Adding the certificate content to Python Cert store"
-    Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
-
-    Write-Host "Python Cert store was updated to allow the Azure Stack Hub CA root certificate"
-    ```
-
-### <a name="connect-to-azure-stack-hub"></a>Připojení k centru Azure Stack
-
-1. Zaregistrujte své prostředí Azure Stackového centra spuštěním `az cloud register` příkazu.
-
-2. Zaregistrujte své prostředí. Při spuštění použijte následující parametry `az cloud register` :
+3. Zaregistrujte své prostředí. Při spuštění použijte následující parametry `az cloud register` :
 
     | Hodnota | Příklad | Popis |
     | --- | --- | --- |
@@ -275,19 +129,19 @@ Pokud používáte ASDK, musíte na svém vzdáleném počítači důvěřovat k
     | Správce prostředků koncový bod | `https://management.local.azurestack.external` | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
     | Koncový bod úložiště | Local. azurestack. external | `local.azurestack.external` je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
     | Přípona trezoru klíčů | . trezor. Local. azurestack. external | `.vault.local.azurestack.external` je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
-    | Koncový bod dokumentu aliasu pro image virtuálního počítače – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Identifikátor URI dokumentu, který obsahuje aliasy imagí virtuálních počítačů Další informace najdete v tématu [Nastavení koncového bodu aliasy virtuálních počítačů](#set-up-the-virtual-machine-aliases-endpoint). |
+    | Koncový bod dokumentu aliasu pro image virtuálního počítače – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Identifikátor URI dokumentu, který obsahuje aliasy imagí virtuálních počítačů Další informace najdete v tématu [Nastavení koncového bodu aliasu virtuálního počítače](../asdk/asdk-cli.md#set-up-the-virtual-machine-alias-endpoint). |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
     ```
 
-1. Nastavte aktivní prostředí pomocí následujících příkazů.
+4. Nastavte aktivní prostředí pomocí následujících příkazů.
 
       ```azurecli
       az cloud set -n <environmentname>
       ```
 
-1. Aktualizujte konfiguraci prostředí tak, aby používala profil konkrétní verze rozhraní API centra Azure Stack. Chcete-li aktualizovat konfiguraci, spusťte následující příkaz:
+5. Aktualizujte konfiguraci prostředí tak, aby používala profil konkrétní verze rozhraní API centra Azure Stack. Chcete-li aktualizovat konfiguraci, spusťte následující příkaz:
 
     ```azurecli
     az cloud update --profile 2019-03-01-hybrid
@@ -296,9 +150,9 @@ Pokud používáte ASDK, musíte na svém vzdáleném počítači důvěřovat k
     >[!NOTE]  
     >Pokud používáte verzi centra Azure Stack před sestavením 1808, musíte použít profil verze API **2017-03-09-Profile** , nikoli profil verze rozhraní API **2019-03-01-Hybrid**. Musíte také použít nejnovější verzi Azure CLI.
 
-1. Přihlaste se k prostředí Azure Stackového centra pomocí `az login` příkazu. K prostředí služby Azure Stack hub se můžete přihlásit buď jako uživatel, nebo jako [instanční objekt](/azure/active-directory/develop/app-objects-and-service-principals). 
+6. Přihlaste se k prostředí Azure Stackového centra pomocí `az login` příkazu. K prostředí služby Azure Stack hub se můžete přihlásit buď jako uživatel, nebo jako [instanční objekt](/azure/active-directory/develop/app-objects-and-service-principals). 
 
-   - Přihlaste se jako *uživatel*:
+   - Přihlaste se jako *uživatel* :
 
      Můžete buď zadat uživatelské jméno a heslo přímo v rámci `az login` příkazu, nebo ověřit pomocí prohlížeče. Pokud má váš účet povolené ověřování Multi-Factor Authentication, musíte to udělat:
 
@@ -309,7 +163,7 @@ Pokud používáte ASDK, musíte na svém vzdáleném počítači důvěřovat k
      > [!NOTE]
      > Pokud má váš uživatelský účet povolený službu Multi-Factor Authentication, použijte `az login` příkaz bez zadání `-u` parametru. Spuštěním tohoto příkazu získáte adresu URL a kód, který je nutné použít k ověření.
 
-   - Přihlaste se jako *instanční objekt*: 
+   - Přihlaste se jako *instanční objekt* : 
     
      Připravte soubor. pem, který se má použít pro přihlašovací objekty instančního objektu.
 
@@ -327,7 +181,7 @@ Pokud používáte ASDK, musíte na svém vzdáleném počítači důvěřovat k
       --debug 
      ```
 
-### <a name="test-the-connectivity"></a>Testování připojení
+#### <a name="test-the-connectivity"></a>Testování připojení
 
 Když máte všechno nastavené, pomocí rozhraní příkazového řádku můžete vytvářet prostředky v rámci centra Azure Stack. Můžete například vytvořit skupinu prostředků pro aplikaci a přidat virtuální počítač. Pomocí následujícího příkazu vytvořte skupinu prostředků s názvem "MyResourceGroup":
 
@@ -339,46 +193,20 @@ Pokud je skupina prostředků úspěšně vytvořená, předchozí příkaz vytv
 
 ![Skupina prostředků – vytvořit výstup](media/azure-stack-connect-cli/image1.png)
 
-
-## <a name="linux-azure-ad"></a>Linux (Azure AD)
+### <a name="azure-ad-on-linux"></a>[Azure AD v systému Linux](#tab/ad-lin)
 
 V této části se seznámíte s nastavením rozhraní příkazového řádku, pokud používáte Azure AD jako službu pro správu identit a používáte rozhraní příkazového řádku v počítači se systémem Linux.
 
-### <a name="trust-the-azure-stack-hub-ca-root-certificate"></a>Důvěřovat kořenovému certifikátu certifikační autority centra Azure Stack
-
-Pokud používáte ASDK, musíte na svém vzdáleném počítači důvěřovat kořenovému certifikátu certifikační autority. Tento krok není nezbytný u integrovaných systémů.
-
-Důvěřování kořenovému certifikátu certifikační autority centra Azure Stack tak, že ho připojíte k existujícímu certifikátu Pythonu.
-
-1. Najděte umístění certifikátu na svém počítači. Umístění se může lišit v závislosti na tom, kde jste nainstalovali Python. Musíte mít nainstalovaný PIP a modul certifi. Z příkazového řádku bash použijte následující příkaz Pythonu:
-
-    ```bash  
-    az --version
-    ```
-
-    Poznamenejte si umístění certifikátu. Například, `~/lib/python3.5/site-packages/certifi/cacert.pem`. Vaše konkrétní cesta závisí na vašem operačním systému a verzi Pythonu, kterou jste nainstalovali.
-
-2. Spusťte následující příkaz bash s cestou k vašemu certifikátu.
-
-   - Pro vzdálený počítač se systémem Linux:
-
-     ```bash  
-     sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
-     ```
-
-   - Pro počítač se systémem Linux v prostředí Azure Stack hub:
-
-     ```bash  
-     sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
-     ```
-
-### <a name="connect-to-azure-stack-hub"></a>Připojení k centru Azure Stack
+#### <a name="connect-to-azure-stack-hub"></a>Připojení k centru Azure Stack
 
 Pomocí následujících kroků se připojte k centru Azure Stack:
 
-1. Zaregistrujte své prostředí Azure Stackového centra spuštěním `az cloud register` příkazu.
 
-2. Zaregistrujte své prostředí. Při spuštění použijte následující parametry `az cloud register` :
+1. Pokud používáte ASDK, důvěřovat kořenovému certifikátu certifikační autority centra Azure Stack. Pokyny najdete v tématu [důvěryhodnost certifikátu](../asdk/asdk-cli.md#trust-the-certificate).
+
+2. Zaregistrujte své prostředí Azure Stackového centra spuštěním `az cloud register` příkazu.
+
+3. Zaregistrujte své prostředí. Při spuštění použijte následující parametry `az cloud register` :
 
     | Hodnota | Příklad | Popis |
     | --- | --- | --- |
@@ -386,19 +214,19 @@ Pomocí následujících kroků se připojte k centru Azure Stack:
     | Správce prostředků koncový bod | `https://management.local.azurestack.external` | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
     | Koncový bod úložiště | Local. azurestack. external | `local.azurestack.external` je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
     | Přípona trezoru klíčů | . trezor. Local. azurestack. external | `.vault.local.azurestack.external` je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
-    | Koncový bod dokumentu aliasu pro image virtuálního počítače – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Identifikátor URI dokumentu, který obsahuje aliasy imagí virtuálních počítačů Další informace najdete v tématu [Nastavení koncového bodu aliasy virtuálních počítačů](#set-up-the-virtual-machine-aliases-endpoint). |
+    | Koncový bod dokumentu aliasu pro image virtuálního počítače – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Identifikátor URI dokumentu, který obsahuje aliasy imagí virtuálních počítačů Další informace najdete v tématu [Nastavení koncového bodu aliasu virtuálního počítače](../asdk/asdk-cli.md#set-up-the-virtual-machine-alias-endpoint). |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
     ```
 
-3. Nastavte aktivní prostředí. 
+4. Nastavte aktivní prostředí. 
 
       ```azurecli
         az cloud set -n <environmentname>
       ```
 
-4. Aktualizujte konfiguraci prostředí tak, aby používala profil konkrétní verze rozhraní API centra Azure Stack. Chcete-li aktualizovat konfiguraci, spusťte následující příkaz:
+5. Aktualizujte konfiguraci prostředí tak, aby používala profil konkrétní verze rozhraní API centra Azure Stack. Chcete-li aktualizovat konfiguraci, spusťte následující příkaz:
 
     ```azurecli
       az cloud update --profile 2019-03-01-hybrid
@@ -407,9 +235,9 @@ Pomocí následujících kroků se připojte k centru Azure Stack:
     >[!NOTE]  
     >Pokud používáte verzi centra Azure Stack před sestavením 1808, musíte použít profil verze API **2017-03-09-Profile** , nikoli profil verze rozhraní API **2019-03-01-Hybrid**. Musíte také použít nejnovější verzi Azure CLI.
 
-5. Přihlaste se k prostředí Azure Stackového centra pomocí `az login` příkazu. K prostředí služby Azure Stack hub se můžete přihlásit buď jako uživatel, nebo jako [instanční objekt](/azure/active-directory/develop/app-objects-and-service-principals). 
+6. Přihlaste se k prostředí Azure Stackového centra pomocí `az login` příkazu. K prostředí služby Azure Stack hub se můžete přihlásit buď jako uživatel, nebo jako [instanční objekt](/azure/active-directory/develop/app-objects-and-service-principals). 
 
-   * Přihlaste se jako *uživatel*:
+   * Přihlaste se jako *uživatel* :
 
      Můžete buď zadat uživatelské jméno a heslo přímo v rámci `az login` příkazu, nebo ověřit pomocí prohlížeče. Pokud má váš účet povolené ověřování Multi-Factor Authentication, musíte to udělat:
 
@@ -434,7 +262,7 @@ Pomocí následujících kroků se připojte k centru Azure Stack:
        -p <Key generated for the Service Principal>
      ```
 
-### <a name="test-the-connectivity"></a>Testování připojení
+#### <a name="test-the-connectivity"></a>Testování připojení
 
 Když máte všechno nastavené, pomocí rozhraní příkazového řádku můžete vytvářet prostředky v rámci centra Azure Stack. Můžete například vytvořit skupinu prostředků pro aplikaci a přidat virtuální počítač. Pomocí následujícího příkazu vytvořte skupinu prostředků s názvem "MyResourceGroup":
 
@@ -446,45 +274,19 @@ Pokud je skupina prostředků úspěšně vytvořená, předchozí příkaz vytv
 
 ![Skupina prostředků – vytvořit výstup](media/azure-stack-connect-cli/image1.png)
 
-## <a name="linux-ad-fs"></a>Linux (AD FS)
+### <a name="ad-fs-linux"></a>[AD FS Linux](#tab/adfs-lin)
 
 V této části se dozvíte, jak nastavit rozhraní příkazového řádku, pokud jako službu pro správu používáte službu Active Directory federovaného Services (AD FS) a používáte rozhraní příkazového řádku (CLI) na počítači se systémem Linux.
 
-### <a name="trust-the-azure-stack-hub-ca-root-certificate"></a>Důvěřovat kořenovému certifikátu certifikační autority centra Azure Stack
-
-Pokud používáte ASDK, musíte na svém vzdáleném počítači důvěřovat kořenovému certifikátu certifikační autority. Tento krok není nezbytný u integrovaných systémů.
-
-Důvěřování kořenovému certifikátu certifikační autority centra Azure Stack tak, že ho připojíte k existujícímu certifikátu Pythonu.
-
-1. Najděte umístění certifikátu na svém počítači. Umístění se může lišit v závislosti na tom, kde jste nainstalovali Python. Musíte mít nainstalovaný PIP a modul certifi. Z příkazového řádku bash použijte následující příkaz Pythonu:
-
-    ```bash  
-    az --version 
-    ```
-
-    Poznamenejte si umístění certifikátu. Například, `~/lib/python3.5/site-packages/certifi/cacert.pem`. Vaše konkrétní cesta závisí na vašem operačním systému a verzi Pythonu, kterou jste nainstalovali.
-
-2. Spusťte následující příkaz bash s cestou k vašemu certifikátu.
-
-   - Pro vzdálený počítač se systémem Linux:
-
-     ```bash  
-     sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
-     ```
-
-   - Pro počítač se systémem Linux v prostředí Azure Stack hub:
-
-     ```bash  
-     sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
-     ```
-
-### <a name="connect-to-azure-stack-hub"></a>Připojení k centru Azure Stack
+#### <a name="connect-to-azure-stack-hub"></a>Připojení k centru Azure Stack
 
 Pomocí následujících kroků se připojte k centru Azure Stack:
 
-1. Zaregistrujte své prostředí Azure Stackového centra spuštěním `az cloud register` příkazu.
+1. Pokud používáte ASDK, důvěřovat kořenovému certifikátu certifikační autority centra Azure Stack. Pokyny najdete v tématu [důvěryhodnost certifikátu](../asdk/asdk-cli.md#trust-the-certificate).
 
-2. Zaregistrujte své prostředí. Při spuštění použijte následující parametry `az cloud register` .
+2. Zaregistrujte své prostředí Azure Stackového centra spuštěním `az cloud register` příkazu.
+
+3. Zaregistrujte své prostředí. Při spuštění použijte následující parametry `az cloud register` .
 
     | Hodnota | Příklad | Popis |
     | --- | --- | --- |
@@ -492,19 +294,19 @@ Pomocí následujících kroků se připojte k centru Azure Stack:
     | Správce prostředků koncový bod | `https://management.local.azurestack.external` | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
     | Koncový bod úložiště | Local. azurestack. external | `local.azurestack.external` je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
     | Přípona trezoru klíčů | . trezor. Local. azurestack. external | `.vault.local.azurestack.external` je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
-    | Koncový bod dokumentu aliasu pro image virtuálního počítače – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Identifikátor URI dokumentu, který obsahuje aliasy imagí virtuálních počítačů Další informace najdete v tématu [Nastavení koncového bodu aliasy virtuálních počítačů](#set-up-the-virtual-machine-aliases-endpoint). |
+    | Koncový bod dokumentu aliasu pro image virtuálního počítače – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Identifikátor URI dokumentu, který obsahuje aliasy imagí virtuálních počítačů Další informace najdete v tématu [Nastavení koncového bodu aliasu virtuálního počítače](../asdk/asdk-cli.md#set-up-the-virtual-machine-alias-endpoint). |
 
     ```azurecli  
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
     ```
 
-3. Nastavte aktivní prostředí. 
+4. Nastavte aktivní prostředí. 
 
       ```azurecli
         az cloud set -n <environmentname>
       ```
 
-4. Aktualizujte konfiguraci prostředí tak, aby používala profil konkrétní verze rozhraní API centra Azure Stack. Chcete-li aktualizovat konfiguraci, spusťte následující příkaz:
+5. Aktualizujte konfiguraci prostředí tak, aby používala profil konkrétní verze rozhraní API centra Azure Stack. Chcete-li aktualizovat konfiguraci, spusťte následující příkaz:
 
     ```azurecli
       az cloud update --profile 2019-03-01-hybrid
@@ -513,9 +315,9 @@ Pomocí následujících kroků se připojte k centru Azure Stack:
     >[!NOTE]  
     >Pokud používáte verzi centra Azure Stack před sestavením 1808, musíte použít profil verze API **2017-03-09-Profile** , nikoli profil verze rozhraní API **2019-03-01-Hybrid**. Musíte také použít nejnovější verzi Azure CLI.
 
-5. Přihlaste se k prostředí Azure Stackového centra pomocí `az login` příkazu. K prostředí služby Azure Stack hub se můžete přihlásit buď jako uživatel, nebo jako [instanční objekt](/azure/active-directory/develop/app-objects-and-service-principals). 
+6. Přihlaste se k prostředí Azure Stackového centra pomocí `az login` příkazu. K prostředí služby Azure Stack hub se můžete přihlásit buď jako uživatel, nebo jako [instanční objekt](/azure/active-directory/develop/app-objects-and-service-principals). 
 
-6. Přihlásit se: 
+7. Přihlásit se: 
 
    *  Jako **uživatel** používající webový prohlížeč s kódem zařízení:  
 
@@ -544,7 +346,7 @@ Pomocí následujících kroků se připojte k centru Azure Stack:
         --debug 
       ```
 
-### <a name="test-the-connectivity"></a>Testování připojení
+#### <a name="test-the-connectivity"></a>Testování připojení
 
 Když máte všechno nastavené, pomocí rozhraní příkazového řádku můžete vytvářet prostředky v rámci centra Azure Stack. Můžete například vytvořit skupinu prostředků pro aplikaci a přidat virtuální počítač. Pomocí následujícího příkazu vytvořte skupinu prostředků s názvem "MyResourceGroup":
 
@@ -556,13 +358,15 @@ Pokud je skupina prostředků úspěšně vytvořená, předchozí příkaz vytv
 
 ![Skupina prostředků – vytvořit výstup](media/azure-stack-connect-cli/image1.png)
 
-## <a name="known-issues"></a>Známé problémy
+### <a name="known-issues"></a>Známé problémy
 
 Při použití rozhraní příkazového řádku v Azure Stackovém centru jsou známé problémy:
 
  - Interaktivní režim rozhraní příkazového řádku Například `az interactive` příkaz není v Azure Stackovém centru dosud podporován.
  - Pokud chcete získat seznam imagí virtuálních počítačů, které jsou k dispozici v Azure Stackovém centru, použijte `az vm image list --all` příkaz místo `az vm image list` příkazu. Zadáním `--all` možnosti zajistíte, že odpověď vrátí pouze obrázky, které jsou k dispozici ve vašem prostředí Azure Stack hub.
  - Aliasy imagí virtuálních počítačů, které jsou dostupné v Azure, se nedají použít pro centrum Azure Stack. Při použití imagí virtuálních počítačů musíte použít celý parametr URN (kanonický: UbuntuServer: 14.04.3-LTS: 1.0.0) místo aliasu image. Tento název URN se musí shodovat s specifikacemi obrázku odvozenými z `az vm images list` příkazu.
+
+---
 
 ## <a name="next-steps"></a>Další kroky
 

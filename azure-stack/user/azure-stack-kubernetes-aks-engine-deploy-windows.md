@@ -7,12 +7,12 @@ ms.date: 09/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: d3a16f92cb441a92a045721e477b3b10933d174d
-ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
+ms.openlocfilehash: 29255d706edcb052711b2ed42e65fd3dc0b6412b
+ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90717952"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93291235"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Instalace stroje AKS ve Windows do centra Azure Stack
 
@@ -88,8 +88,8 @@ Pokud spouštíte virtuální počítač klienta pro modul AKS na ASDK na počí
 
 Pokud používáte ASDK, váš Azure Resource Manager koncový bod používá certifikát podepsaný svým držitelem, musíte tento certifikát explicitně přidat do důvěryhodného úložiště certifikátů počítače. Kořenový certifikát ASDK najdete na každém virtuálním počítači, který nasadíte v ASDK.
 
-1. Exportujte kořenový certifikát certifikační autority. Pokyny najdete v tématu [Export kořenového certifikátu certifikační autority centra Azure Stack](./azure-stack-version-profiles-azurecli2.md#export-the-azure-stack-hub-ca-root-certificate).
-2. Důvěřovat kořenovému certifikátu certifikační autority centra Azure Stack. Pokyny najdete v tématu [důvěřování kořenovému certifikátu certifikační autority centra Azure Stack](./azure-stack-version-profiles-azurecli2.md#trust-the-azure-stack-hub-ca-root-certificate).
+1. Exportujte kořenový certifikát certifikační autority. Pokyny najdete v tématu [Export kořenového certifikátu certifikační autority centra Azure Stack](../asdk/asdk-cli.md#export-the-azure-stack-hub-ca-root-certificate).
+2. Důvěřovat kořenovému certifikátu certifikační autority centra Azure Stack. Pokyny najdete v tématu [důvěřování kořenovému certifikátu certifikační autority centra Azure Stack](../asdk/asdk-cli.md#trust-the-certificate).
 
 ## <a name="next-steps"></a>Další kroky
 

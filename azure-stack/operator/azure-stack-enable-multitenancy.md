@@ -7,12 +7,12 @@ ms.date: 06/18/2020
 ms.author: bryanla
 ms.reviewer: bryanr
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: e99c1cc09f3dc6b0a04ff22f5b5dc96004ba305e
-ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
+ms.openlocfilehash: 6d6e6f3c28a4386a099727f132d28f97cf4dacbe
+ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88857497"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93291207"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>Konfigurace víceklientské architektury v centru Azure Stack
 

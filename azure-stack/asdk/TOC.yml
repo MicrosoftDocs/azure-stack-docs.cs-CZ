@@ -43,13 +43,15 @@
       href: asdk-validate-backup.md
     - name: Připojení k ASDK
       href: asdk-connect.md
-    - name: Poradce při potížích
+    - name: Nastavení Azure CLI
+      href: asdk-cli.md
+    - name: Řešení potíží
       href: asdk-troubleshooting.md
 - name: Odkaz
   items:
     - name: Azure Stack PowerShell
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
-    - name: Rozhraní příkazového řádku
+    - name: CLI
       href: /cli/azure/?view=azure-cli-2017-03-09-profile
 - name: Související
   items:
@@ -59,7 +61,7 @@
       href: ../user/index.yml
     - name: Dokumentace k hybridnímu cloudu Azure
       href: /hybrid
-- name: Zdroje a prostředky
+- name: Prostředky
   items:
     - name: Azure Stack silniční mapa
       href: 'https://azure.microsoft.com/updates/?query=azure%20stack%20hub'
