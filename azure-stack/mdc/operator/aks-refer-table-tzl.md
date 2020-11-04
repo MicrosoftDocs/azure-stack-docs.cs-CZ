@@ -1,0 +1,56 @@
+---
+title: Křížové odkazy na odkazy v centru Azure Stack
+description: Vyhledejte referenční odkazy portálu Azure Stack hub.
+services: azure-stack
+documentationcenter: ''
+author: mattbriggs
+manager: femila
+editor: ''
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: reference
+ms.date: 10/26/2020
+ms.author: mabrigg
+ms.lastreviewed: 10/26/2020
+ms.reviewer: efemmano
+ms.openlocfilehash: dd52df36363e45868e586c0e980950b10b7c6836
+ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.translationtype: MT
+ms.contentlocale: cs-CZ
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93329072"
+---
+# <a name="alerts-akams-link-reference-for-azure-stack-hub"></a>Odkaz na odkaz na aka.msu výstrahy pro centrum Azure Stack
+
+Toto téma obsahuje seznam křížových odkazů pro odkazy, které se zobrazují v rámci výstrah na portálu pro správu. 
+
+## <a name="link-cross-reference"></a>Odkazování mezi odkazy
+
+| Odkaz na Aka.ms | Článek |
+| --- | --- |
+| `https://aka.ms/azsrotatebmcpassword` | [Aktualizace přihlašovacích údajů řadiče pro správu základní desky (BMC)](../../operator/azure-stack-rotate-secrets.md#update-the-bmc-credential) |
+| `https://aka.ms/azsrotatecertificates` | [Obměna tajných klíčů ve službě Azure Stack](../../operator/azure-stack-rotate-secrets.md) |
+| `https://aka.ms/azsrotateinternalcertificates` | [Obměna tajných klíčů ve službě Azure Stack](../../operator/azure-stack-rotate-secrets.md) |
+| `https://aka.ms/azsrotateuseraccounts` | [Obměna tajných klíčů ve službě Azure Stack](../../operator/azure-stack-rotate-secrets.md) |
+| `https://aka.ms/azurestackaddcapacity` | [Přidání dalších uzlů jednotek škálování ve službě Azure Stack](../../operator/azure-stack-add-scale-node.md) |
+| `https://aka.ms/azurestackaddnode` | [Přidání dalších uzlů jednotek škálování ve službě Azure Stack](../../operator/azure-stack-add-scale-node.md) |
+| `https://aka.ms/azurestackhealthreport` | [https://github.com/Azure/AzureStack-Tools/blob/master/Identity/README.md#retrieve-azure-stack-identity-health-report](https://aka.ms/aa708dy) |
+| `https://aka.ms/azurestacklogfiles` | [Shromažďovat protokoly diagnostiky Azure Stack na vyžádání](../../operator/azure-stack-configure-on-demand-diagnostic-log-collection-portal.md) |
+| `https://aka.ms/azurestackpep` | [Použití privilegovaného koncového bodu v Azure Stack](../../operator/azure-stack-privileged-endpoint.md) |
+| `https://aka.ms/azurestackreplacenode` | [Nahrazení uzlu jednotky škálování v integrovaném systému Azure Stack](../../operator/azure-stack-replace-node.md) |
+| `https://aka.ms/azurestackupdatedirectory` | [https://github.com/Azure/AzureStack-Tools/tree/master/Identity#updating-the-azure-stack-aad-home-directory-after-installing-updates-or-new-resource-providers](https://aka.ms/aa700j2) |
+| `https://aka.ms/backupazurestack` | [Obnovení dat v Azure Stack pomocí služby Infrastructure Backup](../../operator/azure-stack-backup-infrastructure-backup.md) |
+| `https://aka.ms/migratecontainer` | [Správa dostupného místa](../../operator/azure-stack-manage-storage-shares.md#manage-available-space) |
+| `https://aka.ms/reclaimcapacity` | [Uvolnit kapacitu](../../operator/azure-stack-manage-storage-shares.md#reclaim-capacity) |
+| `https://aka.ms/validateazurestackbackupsettings` | [Spuštění nástroje pro ověření pro otestování síťové infrastruktury](../../operator/azure-stack-diagnostic-test.md#run-validation-tool-to-test-infrastructure-backup-settings) |
+| `https://aka.ms/virtualdiskhealth` | [Nahrazení fyzického disku v Azure Stack](../../operator/azure-stack-replace-disk.md) |
+| `https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints` | [Publikování Azure Stackch služeb ve vašem datovém centru](../../operator/azure-stack-integrate-endpoints.md) |
+| `https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-identity` | [Integrace AD FS identity s vaším Azure Stack Datacenter](../../operator/azure-stack-integrate-identity.md) |
+| `https://docs.microsoft.com/azure/azure-stack/azure-stack-register` | [Registrace služby Azure Stack v Azure](../../operator/azure-stack-registration.md) |
+| `https://docs.microsoft.com/azure/azure-stack/azure-stack-registration` | [Registrace služby Azure Stack v Azure](../../operator/azure-stack-registration.md) |
+
+## <a name="next-steps"></a>Další kroky
+
+Další informace o **nápovědě a podpoře** najdete v článku [Microsoft Azure Stack nápovědu a podpora](../../operator/azure-stack-help-and-support-overview.md) .

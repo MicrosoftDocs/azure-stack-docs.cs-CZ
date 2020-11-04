@@ -7,12 +7,12 @@ ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 076ea0efb7307ce9a87b04c19608a5b3c723d3f4
-ms.sourcegitcommit: e6665cfb15fae57218e58cd6de6053f16c1f9044
+ms.openlocfilehash: 00a44e66563bbb038928c55f1f643f2ca0ffbd37
+ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89274071"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93327479"
 ---
 # <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Přehled služeb Azure Stack hub, plánů, nabídek a předplatných
 
@@ -55,7 +55,7 @@ Můžete také kombinovat služby pro integraci a vytváření složitých řeš
 
 ### <a name="quotas"></a>Kvóty
 
-Pro lepší správu kapacity cloudu můžete použít předem nakonfigurované *kvóty*nebo vytvořit novou kvótu pro každou službu v plánu. Kvóty definují horní omezení prostředků, které může předplatné uživatele zřizovat nebo využívat. Kvóta například může uživateli umožnit vytvoření až pěti virtuálních počítačů.
+Pro lepší správu kapacity cloudu můžete použít předem nakonfigurované *kvóty* nebo vytvořit novou kvótu pro každou službu v plánu. Kvóty definují horní omezení prostředků, které může předplatné uživatele zřizovat nebo využívat. Kvóta například může uživateli umožnit vytvoření až pěti virtuálních počítačů.
 
 > [!IMPORTANT]
 > Může trvat až dvě hodiny, než budou nové kvóty dostupné na portálu User Portal nebo před tím, než se vynutila změněná kvóta.
@@ -63,7 +63,7 @@ Pro lepší správu kapacity cloudu můžete použít předem nakonfigurované *
 Můžete nastavit kvóty podle oblasti. Například plán, který poskytuje výpočetní služby pro oblast A, může mít kvótu dvou virtuálních počítačů.
 
 >[!NOTE]
->V Azure Stack Development Kit (ASDK) je k dispozici pouze jedna oblast (s názvem *místní*).
+>V Azure Stack Development Kit (ASDK) je k dispozici pouze jedna oblast (s názvem *místní* ).
 
 Přečtěte si další informace o [typech kvót v centru Azure Stack](azure-stack-quota-types.md).
 
@@ -90,11 +90,11 @@ Když [vytvoříte nabídku](azure-stack-create-offer.md), musíte zahrnout aspo
 
 Při plánování nabídek mějte na paměti následující body:
 
-**Nabídky zkušební verze**: pomocí nabídek zkušební verze přilákat nové uživatele, kteří pak můžou upgradovat na další služby. Pokud chcete vytvořit nabídku zkušební verze, vytvořte si malý [základní plán](service-plan-offer-subscription-overview.md#base-plan) s volitelným větším doplňkovým plánem. Alternativně můžete vytvořit zkušební nabídku skládající se z malého základního plánu a samostatnou nabídku s větším plánem průběžných plateb.
+**Nabídky zkušební verze** : pomocí nabídek zkušební verze přilákat nové uživatele, kteří pak můžou upgradovat na další služby. Pokud chcete vytvořit nabídku zkušební verze, vytvořte si malý [základní plán](service-plan-offer-subscription-overview.md#base-plan) s volitelným větším doplňkovým plánem. Alternativně můžete vytvořit zkušební nabídku skládající se z malého základního plánu a samostatnou nabídku s větším plánem průběžných plateb.
 
-**Plánování kapacity**: může se stát, že budete mít obavy o uživatele, kteří přijímají velké objemy prostředků, a CLOG systém pro všechny uživatele. Abyste mohli zvýšit výkon, můžete [nakonfigurovat plány s](service-plan-offer-subscription-overview.md#plans) využitím kvót na Cap.
+**Plánování kapacity** : může se stát, že budete mít obavy o uživatele, kteří přijímají velké objemy prostředků, a CLOG systém pro všechny uživatele. Abyste mohli zvýšit výkon, můžete [nakonfigurovat plány s](service-plan-offer-subscription-overview.md#plans) využitím kvót na Cap.
 
-**Delegovaní zprostředkovatelé**: můžete udělit ostatním možnost vytvářet nabídky ve vašem prostředí. Pokud jste například poskytovatelem služeb, můžete tuto možnost [delegovat](azure-stack-delegated-provider.md) pro prodejce. Nebo, pokud jste organizace, můžete delegovat na jiné divize/pobočky.
+**Delegovaní zprostředkovatelé** : můžete udělit ostatním možnost vytvářet nabídky ve vašem prostředí. Pokud jste například poskytovatelem služeb, můžete tuto možnost [delegovat](azure-stack-delegated-provider.md) pro prodejce. Nebo, pokud jste organizace, můžete delegovat na jiné divize/pobočky.
 
 ## <a name="subscriptions"></a>Předplatná
 
@@ -105,6 +105,8 @@ Uživatelé vytvoří nové odběry a získají přístup k existujícím předp
 Jako operátor centra Azure Stack se můžete podívat na informace o předplatných tenanta, ale nemůžete získat přístup k obsahu těchto předplatných, pokud správce tenanta daného předplatného nepřidáte explicitně prostřednictvím RBAC. Díky tomu můžou klienti vymáhat oddělení výkonu a zodpovědnosti mezi Azure Stackm operátorem centra a prostorem klienta. 
 
 Výjimkou z tohoto případu je, že vlastník předplatného není schopen poskytnout operátorovi přístup k předplatnému, který vyžaduje, aby správce převzal vlastnictví předplatného, jak je popsáno v tématu [Změna majitele fakturace pro předplatné uživatele centra Azure Stack](azure-stack-change-subscription-owner.md).
+
+Pokud je vaše instance centra Azure Stack odpojená a máte dvě různé domény, kde uživatelé v doméně 1 vytvářejí předplatná, která používají uživatelé v doméně 2, můžou se některé odběry zobrazit na portálu pro správu, ale nezobrazí se na portálu User Portal. Pokud to chcete opravit, uživatelé v doméně 1 nastavili správnou RBAC pro odběry v doméně 2.
 
 ### <a name="default-provider-subscription"></a>Předplatné výchozího poskytovatele
 
