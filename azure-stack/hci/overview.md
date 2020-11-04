@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/28/2020
-ms.openlocfilehash: 6168b36dd57e0814f59d7e05f2b385f091a0a07c
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.date: 11/3/2020
+ms.openlocfilehash: 5b54efc32bf62c0abeca97ecdee9bb4414cced9f
+ms.sourcegitcommit: ecd98662194d2cdb15c22f8b1f99812fc5f4c15a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064697"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93344860"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Přehled řešení Azure Stack HCI
 
@@ -134,68 +134,6 @@ Chcete-li tyto technologie spravovat, můžete použít následující nástroje
 - Další nástroje pro správu, jako jsou [Správce serveru](/windows-server/administration/server-manager/server-manager)a moduly snap-in konzoly MMC
 - Nástroje od jiných společností než Microsoft, jako je společnosti 5NINE Manager
 
-## <a name="faq"></a>Nejčastější dotazy
-
-### <a name="how-does-azure-stack-hci-relate-to-windows-server"></a>Jak se vztahuje Azure Stack HCL na Windows Server?
-
-Windows Server je základem skoro každého produktu Azure a všechny funkce, které zadáváte, jsou dál dodávané a podporované ve Windows serveru. Počáteční nabídka Azure Stack HCL byla založená na Windows serveru 2019 a používala tradiční licenční model Windows serveru. V dnešní době má Azure Stack HCI svůj vlastní operační systém a licenční model na základě předplatného. Azure Stack HCI je doporučený způsob, jak nasadit lokálně v místním prostředí s využitím hardwaru ověřeného společností Microsoft od našich partnerů.
-
-### <a name="does-azure-stack-hci-need-to-connect-to-azure"></a>Musí se Azure Stack HCI připojit k Azure?
-
-Ano, cluster se musí ke službě Azure připojit nejméně jednou za 30 dní, aby se počet jader vyhodnotil pro účely fakturace. Můžete také využít výhod integrace s Azure pro hybridní scénáře, jako je zálohování mimo lokalitu a zotavení po havárii, a cloudové monitorování a správa aktualizací, ale jsou volitelné. Nejedná se o problém spuštění odpojení z Internetu po delší dobu.
-
-### <a name="can-i-upgrade-from-windows-server-2019-to-azure-stack-hci"></a>Můžu upgradovat z Windows serveru 2019 na Azure Stack HCI?
-
-V tuto chvíli není k dispozici žádný místní upgrade ze systému Windows Server na Azure Stack HCL. Udržujte si přehled o konkrétních pokynech k migraci pro zákazníky, kteří na počítačích využívají Windows Server 2019 a 2016.
-
-### <a name="what-do-azure-stack-hub-and-azure-stack-hci-solutions-have-in-common"></a>Co jsou běžné řešení Azure Stack hub a Azure Stack HCL?
-
-Azure Stack rozhraní HCI obsahuje stejné technologie pro výpočetní prostředky, úložiště a sítě založené na technologii Hyper-V, jako centrum Azure Stack. Obě nabídky splňují přísná kritéria testování a ověřování, která zajišťují spolehlivost a kompatibilitu s podkladovou hardwarovou platformou.
-
-### <a name="how-are-they-different"></a>Jaký je mezi nimi rozdíl?
-
-Pomocí centra Azure Stack spustíte cloudové služby v místním prostředí. Můžete spouštět služby Azure IaaS a PaaS v místním prostředí a konzistentně vytvářet a spouštět cloudové aplikace odkudkoli a spravovat je s Azure Portal v místním prostředí.
-
-Díky Azure Stack HCI spouštíte virtualizované úlohy místně, spravované pomocí centra pro správu Windows a známých nástrojů Windows serveru. Můžete se také připojit k Azure pro hybridní scénáře, jako jsou cloudové Site Recovery, monitorování a další.
-
-### <a name="why-is-microsoft-bringing-its-hci-offering-to-the-azure-stack-family"></a>Proč společnost Microsoft do řady Azure Stack přinese svou nabídku HCI?
-
-Technologie s jednou konvergou Microsoftu je už základem centra Azure Stack.
-
-Mnoho zákazníků Microsoftu má složitá IT prostředí a naším cílem je poskytovat řešení, která je splňují, kde jsou s správnou technologií pro správné obchodní potřeby. Azure Stack HCI je vývoj řešení Windows Server Software-Defined (WSSD), která byla dříve k dispozici od našich hardwarových partnerů. Připravili jsme ji do Azure Stack řady, protože jsme začali nabízet nové možnosti pro bezproblémové připojení s Azure pro služby správy infrastruktury.
-
-### <a name="can-i-upgrade-from-azure-stack-hci-to-azure-stack-hub"></a>Můžu upgradovat z Azure Stack HCL na Azure Stack hub?
-
-Ne, ale zákazníci můžou migrovat své úlohy z Azure Stack HCI na Azure Stack hub nebo Azure.
-
-### <a name="what-azure-services-can-i-connect-to-azure-stack-hci"></a>Které služby Azure se mohu připojit k Azure Stack HCI?
-
-Aktualizovaný seznam služeb Azure, ke kterým se můžete připojit Azure Stack HCL, najdete v tématu [připojení Windows serveru k Azure Hybrid Services](/windows-server/manage/windows-admin-center/azure/index).
-
-### <a name="does-azure-stack-hci-collect-any-data-from-my-system"></a>Shromažďuje Azure Stack HCI všechna data ze systému?
-
-Ano – shromažďují se velmi omezené sady dat. Tato data se používají k udržení aktuálního stavu rozhraní HCI, správnému fungování, poskytování informací Azure Portal a vyhodnocení počtu jader procesoru v clusteru pro účely fakturace.
-
-### <a name="to-which-endpoints-is-the-data-transmitted"></a>Do kterých koncových bodů se data přenáší?  
-
-Azure Stack HCI k přenosu fakturačních dat používá následující koncový bod: *-azurestackhci-usage.azurewebsites.net
-
-### <a name="how-do-i-identify-an-azure-stack-hci-server"></a>Návody identifikovat Azure Stack Server HCI?
-
-Centrum pro správu systému Windows obsahuje seznam operačních systémů v seznamu všechna připojení a na různých dalších místech, případně můžete použít následující příkaz prostředí PowerShell pro dotaz na název a verzi operačního systému.
-
-```PowerShell
-Get-ComputerInfo -Property 'osName', 'osDisplayVersion'
-```
-
-Tady je příklad výstupu:
-
-```
-OsName                    OSDisplayVersion
-------                    ----------------
-Microsoft Azure Stack HCI 20H2
-```
-
 ## <a name="the-azure-stack-family"></a>Řada Azure Stack
 
 Azure Stack rozhraní HCI je součástí řady Azure a Azure Stack, která využívá stejný software definovaný pro výpočetní prostředky, úložiště a síťový software jako centrum Azure Stack. V následující části najdete stručný přehled různých řešení. Další informace najdete v tématu [porovnání Azure Stack ekosystému](../operator/compare-azure-azure-stack.md).
@@ -205,7 +143,7 @@ Azure Stack rozhraní HCI je součástí řady Azure a Azure Stack, která využ
 - [Azure Stack](https://azure.microsoft.com/overview/azure-stack/hci) v prostředí HCI – spouštění virtualizovaných aplikací v místním prostředí, výměna a konsolidace infrastruktury serveru pro stárnutí a připojení k Azure pro cloudové služby.
 - [Azure Stack centrum](../operator/azure-stack-overview.md) – spouštění cloudových aplikací v místním prostředí, pokud je odpojená, nebo aby splňovaly zákonné požadavky, a to s využitím konzistentních služeb Azure.
 
-:::image type="content" source="media/overview/azure-family-updated.png" alt-text="Operační systém Azure Stack HCI běží nad ověřeným hardwarem, spravuje centrum pro správu systému Windows a připojuje se k Azure." border="false":::
+:::image type="content" source="media/overview/azure-family-updated.png" alt-text="Diagram řešení Azure Stack Family" border="false":::
 
 ## <a name="compare-windows-server-and-azure-stack-hci"></a>Porovnání Windows serveru a Azure Stack HCL
 

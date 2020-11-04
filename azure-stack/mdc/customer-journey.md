@@ -3,7 +3,7 @@ title: Přeprava zákazníků z nákupu do centra Azure Stack po nasazení | Mic
 description: Přečtěte si, co očekávat úspěšné nasazení modulárního datového centra (MDC) v lokalitě, od plánování po nasazení.
 services: azure-stack
 documentationcenter: ''
-author: asganesh
+author: ashika789
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,24 +12,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2020
+ms.date: 11/04/2020
 ms.author: justinha
 ms.reviewer: asganesh
-ms.lastreviewed: 10/27/2020
-ms.openlocfilehash: f170ab6025effe394c891aa4fb3ad7111bac7133
-ms.sourcegitcommit: 716ca50bd198fd51a4eec5b40d5247f6f8c16530
+ms.lastreviewed: 11/04/2020
+ms.openlocfilehash: 12631a118600e67611294c87636cd2fa62bfaaea
+ms.sourcegitcommit: ecd98662194d2cdb15c22f8b1f99812fc5f4c15a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92898615"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93344775"
 ---
-# <a name="mdc-integration-overview"></a>Přehled integrace MDC
+# <a name="modular-data-center-integration-overview"></a>Přehled integrace datového centra v modulárním centru
 
 Tento článek popisuje kompletní proces integrace MDC z nákupu až po nasazení. Integrací je projekt pro spolupráci mezi zákazníkem a Microsoftem. Následující oddíly obsahují různé fáze pro časovou osu projektu a konkrétní kroky pro členy projektu.
 
 ## <a name="introduction"></a>Úvod
 
-Následující tabulka znázorňuje, co je možné očekávat v různých fázích nasazení.
+Následující tabulka uvádí, co je možné očekávat během různých fází nasazení.
 
 |   |Proces pořadí  |Před nasazením |Integrace, ověřování, přenos |Nasazení na pracovišti  |Po nasazení |
 |---|---------------|---------------|-----------------------------------|--------------------|----------------|
@@ -41,6 +41,19 @@ Následující tabulka znázorňuje, co je možné očekávat v různých fází
 
 Vaše organizace bude spolupracovat s Microsoftem a umístit objednávku na přidělený počet systémů. Po umístění objednávky Microsoft doručí MDC k vašemu umístění v USA. Microsoft zajistí splnění všech požadavků na zabezpečený dodavatelský řetězec. 
 
+## <a name="hardware-delivery"></a>Hardwarové doručování
+
+Microsoft bude s vámi spolupracovat, abyste zajistili, že veškerý požadovaný hardware dorazí do umístění USA v rámci přiděleného času.  
+
+Je **důležité** , aby všechna data požadovaných součástí byla uzamčena a k dispozici před tím, *než se dorazí pracovník pro nasazení společnosti Microsoft k nasazení řešení.*
+
+- V sešitu nasazení jsou vyplněna všechna data. 
+- Všechny certifikáty musí být ověřené a připravené.
+- Musí být rozhodnuto o názvu oblasti.
+- Všechny parametry integrace sítě se dokončují.
+
+>[!Tip]
+>Pokud se některá z těchto informací změnila, ujistěte se, že pracujete s vaší interní organizací, abyste se ujistili, že jsou informace aktualizované před příchodem do nástroje pro analýzu nasazení v lokalitě. Tím zabráníte případným zpožděním v procesu nasazení.
 
 ## <a name="pre-deployment"></a>Před nasazením
 
@@ -57,24 +70,6 @@ Vyberte následující položky:
 - **Požadavky na certifikát.** Je důležité, aby byly k dispozici všechny [požadované certifikáty](../operator/azure-stack-pki-certs.md) předtím, než dorazí pracovník služby do vašeho datacentra pro nasazení.
 
 Jakmile se všechny informace o požadovaných součástech shromažďují prostřednictvím listu nasazení, Microsoft zajistí, že se spustí všechny nástroje pro ověřování a že budou pomáhat s případnými dalšími otázkami, které máte k dispozici. 
-
-## <a name="site-preparation"></a>Příprava lokality
-
-Další informace o požadavcích pro přípravu lokality najdete v Úvodní příručka.
-
-## <a name="hardware-delivery"></a>Hardwarové doručování
-
-Microsoft bude s vámi spolupracovat, abyste zajistili, že veškerý požadovaný hardware dorazí do umístění USA v rámci přiděleného času.  
-
-Je **důležité** , aby všechna data požadovaných součástí byla uzamčena a k dispozici před tím, *než se dorazí pracovník pro nasazení společnosti Microsoft k nasazení řešení.*
-
-- V sešitu nasazení jsou vyplněna všechna data. 
-- Všechny certifikáty musí být ověřené a připravené.
-- Musí být rozhodnuto o názvu oblasti.
-- Všechny parametry integrace sítě se dokončují.
-
->[!Tip]
->Pokud se některá z těchto informací změnila, ujistěte se, že pracujete s vaší interní organizací, abyste se ujistili, že jsou informace aktualizované před příchodem do nástroje pro analýzu nasazení v lokalitě. Tím zabráníte případným zpožděním v procesu nasazení.
 
 ## <a name="onsite-deployment"></a>Nasazení na pracovišti
 
@@ -108,5 +103,5 @@ Akce, které by měly být provedeny nástrojem Microsoft Deployment inženýr:
 
 ## <a name="next-steps"></a>Další kroky
 
-Přečtěte si další informace o [postupu instalace a konfigurace modulárního datového centra](deployment-overview.md).
+[Přehled nasazení modulárního datového centra](deployment-overview.md)
 

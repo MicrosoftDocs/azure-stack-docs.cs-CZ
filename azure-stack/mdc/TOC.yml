@@ -124,7 +124,7 @@
                   items:
                     - name: Plánování kapacity
                       href: ../operator/event-hubs-rp-capacity-planning.md?toc=/azure-stack/tca/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                    - name: Předpoklady
+                    - name: Požadavky
                       href: ../operator/event-hubs-rp-prerequisites.md?toc=/azure-stack/tca/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Instalace
                       href: ../operator/event-hubs-rp-install.md?toc=/azure-stack/tca/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -152,7 +152,7 @@
               href: ../operator/azure-stack-azsreadiness-cmdlet.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Zobrazit sestavu připravenosti
               href: ../operator/azure-stack-validation-report.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-        - name: Integrace datových center
+        - name: Konfigurace datacentra
           items:
             - name: Konfigurace služby DNS pro přeposílání
               href: ../operator/azure-stack-configure-dns.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -360,7 +360,7 @@
                   href: ../operator/event-hubs-rp-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Plánování kapacity
                   href: ../operator/event-hubs-rp-capacity-planning.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                - name: Předpoklady
+                - name: Požadavky
                   href: ../operator/event-hubs-rp-prerequisites.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Instalace
                   href: ../operator/event-hubs-rp-install.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -591,7 +591,7 @@
                   href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Použití služeb
               items:
-                - name: Výpočetní prostředky
+                - name: Compute
                   items:
                     - name: Přehled
                       href: ../user/azure-stack-compute-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -611,7 +611,7 @@
                       href: ../user/azure-stack-sql-server-vm-considerations.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Virtuální počítače GPU
                       href: azure-stack-gpu.md
-                - name: Úložiště
+                - name: Storage
                   items:
                     - name: Přehled
                       href: ../user/azure-stack-storage-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -762,7 +762,7 @@
                   href: ../user/network-howto-vpn-tunnel-gre.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Vytvoření tunelu VPN (IPSEC)
                   href: ../user/network-howto-vpn-tunnel-ipsec.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: Zálohování a obnova
+            - name: Backup a obnovení
               items:
                 - name: Zálohování virtuálního počítače v MDC pomocí CommVault
                   href: ../user/azure-stack-network-howto-backup-commvault.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
