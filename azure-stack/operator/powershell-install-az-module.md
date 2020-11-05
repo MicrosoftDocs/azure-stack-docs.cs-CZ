@@ -7,12 +7,12 @@ ms.date: 06/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 06/22/2020
-ms.openlocfilehash: bc10f4dc985172deccef997d55520d656121867a
-ms.sourcegitcommit: af7f169c7e204ffdf344f47c07ab8426e2afbd1d
+ms.openlocfilehash: da2a12256a6714c727a5bfa5cdf8fe635d5b742e
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87865162"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363958"
 ---
 # <a name="install-powershell-az-preview-module-for-azure-stack-hub"></a>Instalace prostředí PowerShell AZ Preview Module pro Azure Stack hub
 
@@ -86,7 +86,7 @@ Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
 > 2.0.0 pro modul centra Azure Stack je zásadní změna. Podrobnosti najdete [v tématu Migrace z AzureRM na adresu Azure PowerShell AZ in Azure Stack hub](migrate-azurerm-az.md) .
 
 > [!WARNING]
-> Pro PowerShell 5.1 pro Windows nemůžete mít nainstalované moduly AzureRM a Az současně. Pokud ve svém systému potřebujete zachovat AzureRM, nainstalujte si modul Az pro PowerShell Core 6.x nebo novější. Pokud to chcete provést, [nainstalujte si PowerShell Core 6.x nebo novější](/powershell/scripting/install/installing-powershell-core-on-windows) a pak postupujte podle těchto pokynů v terminálu PowerShellu Core.
+> Pro PowerShell 5.1 pro Windows nemůžete mít nainstalované moduly AzureRM a Az současně. Pokud ve svém systému potřebujete zachovat AzureRM, nainstalujte si modul Az pro PowerShell Core 6.x nebo novější. Pokud to chcete provést, [nainstalujte PowerShell Core 6. x nebo novější](/powershell/scripting/install/installing-powershell-core-on-windows) a pak postupujte podle těchto pokynů v terminálu PowerShell Core.
 
 ## <a name="5-disconnected-install-without-internet-connection"></a>5. odpojeno: instalace bez připojení k Internetu
 
@@ -116,7 +116,7 @@ Import-Module -Name PackageManagement -ErrorAction Stop
 
 $savedModulesPath = "<Path that is used to save the packages>"
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Az -Path $savedModulesPath -Force -RequiredVersion 0.10.0-preview
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $savedModulesPath -Force -RequiredVersion 2.0.1-preview
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $savedModulesPath -Force -RequiredVersion 2.0.2-preview
 ```
 ::: moniker-end
 

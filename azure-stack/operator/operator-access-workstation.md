@@ -7,12 +7,12 @@ ms.date: 09/24/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: 42e8d171b173aca4f928cfd38e6a9d5787b003fd
-ms.sourcegitcommit: 8f8baf397e1d39ac69745cc796341a24d3bfc2ba
+ms.openlocfilehash: cc83edf05e9b63a8d1e09ed6bf960959b9f7f673
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93122448"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363941"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Pracovní stanice pro přístup k operátorovi centra Azure Stack 
 
@@ -191,7 +191,7 @@ New-OAW
 
 V následující tabulce je uveden seznam definic pro každý parametr.
 
-| Parametr   | Požadováno/volitelné  | Description       |
+| Parametr   | Požadováno/volitelné  | Popis       |
 |-------------|--------------------|-------------------|
 | LocalAdministratorPassword | Vyžadováno | Heslo pro účet místního správce virtuálního počítače AdminUser. |
 | IPAddress                  | Vyžadováno | Statická adresa IPv4 pro konfiguraci protokolu TCP/IP na virtuálním počítači.                                                |
@@ -200,8 +200,8 @@ V následující tabulce je uveden seznam definic pro každý parametr.
 | DNS                        | Vyžadováno | Servery DNS pro konfiguraci protokolu TCP/IP na virtuálním počítači.                                                          |
 | ImageFilePath              | Volitelné | Cesta k souboru OAW. vhdx, kterou poskytla společnost Microsoft. Výchozí hodnota je **OAW. vhdx** ve stejné nadřazené složce tohoto skriptu. |
 | VirtualMachineName         | Volitelné | Název, který se má přiřadit k virtuálnímu počítači. Pokud se dá předpona pro pojmenování najít v DeploymentData.jssouboru, použije se jako výchozí název. V opačném případě se jako výchozí název použije **AzSOAW** . Pokud chcete přepsat výchozí hodnotu, můžete zadat jiný název. |
-| VirtualMachineMemory       | Volitelné | Paměť, která se má přiřadit k virtuálnímu počítači. Výchozí hodnota je **4 GB** .                            |
-| VirtualProcessorCount      | Volitelné | Počet virtuálních procesorů, které mají být přiřazeny k virtuálnímu počítači. Výchozí hodnota je **8** .        |
+| VirtualMachineMemory       | Volitelné | Paměť, která se má přiřadit k virtuálnímu počítači. Výchozí hodnota je **4 GB**.                            |
+| VirtualProcessorCount      | Volitelné | Počet virtuálních procesorů, které mají být přiřazeny k virtuálnímu počítači. Výchozí hodnota je **8**.        |
 | VirtualMachineDiffDiskPath | Volitelné | Cesta pro uložení dočasných souborů rozdílového disku, zatímco byl virtuální počítač pro správu aktivní. Výchozí hodnota je **DiffDisks** podadresář ve stejné nadřazené složce tohoto skriptu. |
 | AzureStackCertificatePath  | Volitelné | Cesta k certifikátům, které se mají importovat do virtuálního počítače pro přístup ke službě Azure Stack hub |
 | CertificatePassword        | Volitelné | Heslo certifikátu, který se má importovat do virtuálního počítače pro přístup ke službě Azure Stack hub |
@@ -244,7 +244,7 @@ Následující skript odebere virtuální počítač OAW, který se používá p
    Remove-OAW.ps1 -VirtualMachineName <name>
    ```
 
-   Kde \<name\> je název virtuálního počítače, který se má odebrat. Ve výchozím nastavení je název **AzSOAW** .
+   Kde \<name\> je název virtuálního počítače, který se má odebrat. Ve výchozím nastavení je název **AzSOAW**.
 
    Například:
 

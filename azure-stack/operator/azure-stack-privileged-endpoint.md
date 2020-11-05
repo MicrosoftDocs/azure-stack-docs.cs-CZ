@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/28/2020
 ms.custom: conteperfq4
-ms.openlocfilehash: 19e2bf9ef9d11f1975881fd064b86004422190de
-ms.sourcegitcommit: 6a51687a98c417a004cd4295ad06ae813e1978cc
+ms.openlocfilehash: 9009064b2664d09a677ad1b2e21b2a3e5b17b57f
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638831"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363924"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Použití privilegovaného koncového bodu v centru Azure Stack
 
@@ -30,13 +30,15 @@ PEP zaznamená všechny akce (a odpovídající výstupy), které v relaci Power
 > [!NOTE]
 > V Azure Stack Development Kit (ASDK) můžete spouštět některé příkazy, které jsou k dispozici v PEP, přímo z relace PowerShellu na hostiteli vývojové sady. Můžete ale chtít otestovat některé operace pomocí PEP, jako je například shromažďování protokolů, protože se jedná o jedinou metodu, kterou lze použít k provádění určitých operací v prostředí integrovaných systémů.
 
+[!INCLUDE [Azure Stack Hub Operator Access Workstation](../includes/operator-note-owa.md)]
+
 ## <a name="access-the-privileged-endpoint"></a>Přístup k privilegovanému koncovému bodu
 
-K PEP přistupujete prostřednictvím vzdálené relace PowerShellu na virtuálním počítači, který hostuje PEP. V ASDK se tento virtuální počítač jmenuje **AzS-ERCS01** . Pokud používáte integrovaný systém, existují tři instance PEP, z nichž každý běží v rámci virtuálního počítače ( *předpona* -ERCS01, *prefix* -ERCS02 nebo *prefix* -ERCS03) na různých hostitelích pro zajištění odolnosti.
+K PEP přistupujete prostřednictvím vzdálené relace PowerShellu na virtuálním počítači, který hostuje PEP. V ASDK se tento virtuální počítač jmenuje **AzS-ERCS01**. Pokud používáte integrovaný systém, existují tři instance PEP, z nichž každý běží v rámci virtuálního počítače ( *předpona* -ERCS01, *prefix* -ERCS02 nebo *prefix* -ERCS03) na různých hostitelích pro zajištění odolnosti.
 
 Než zahájíte tento postup pro integrovaný systém, ujistěte se, že máte přístup k PEP buď podle IP adresy, nebo prostřednictvím DNS. Po počátečním nasazení centra Azure Stack můžete k PEP přistupovat jenom pomocí IP adresy, protože integrace DNS zatím není nastavená. Dodavatel hardwaru OEM vám poskytne soubor JSON s názvem **AzureStackStampDeploymentInfo** , který obsahuje IP adresy PEP.
 
-IP adresu můžete najít také na portálu pro správu centra Azure Stack. Otevřete portál, například `https://adminportal.local.azurestack.external` . Vyberte **Vlastnosti správy oblastí**  >  **Properties** .
+IP adresu můžete najít také na portálu pro správu centra Azure Stack. Otevřete portál, například `https://adminportal.local.azurestack.external` . Vyberte **Vlastnosti správy oblastí**  >  **Properties**.
 
 `en-US`Při spuštění privilegovaného koncového bodu budete muset nastavit aktuální nastavení jazykové verze, jinak rutiny, jako je Test-AzureStack nebo Get-AzureStackLog, nebudou fungovat podle očekávání.
 
@@ -80,7 +82,7 @@ IP adresu můžete najít také na portálu pro správu centra Azure Stack. Otev
     
    - Po zobrazení výzvy použijte následující přihlašovací údaje:
    
-       - **Uživatelské jméno** : zadejte účet CloudAdmin ve formátu **&lt; *Azure Stack centrum doména* &gt; \cloudadmin** . (Pro ASDK se uživatelské jméno **azurestack\cloudadmin** .)
+       - **Uživatelské jméno** : zadejte účet CloudAdmin ve formátu **&lt; *Azure Stack centrum doména* &gt; \cloudadmin**. (Pro ASDK se uživatelské jméno **azurestack\cloudadmin**.)
   
         - **Heslo** : zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
 
@@ -114,7 +116,7 @@ IP adresu můžete najít také na portálu pro správu centra Azure Stack. Otev
 
 ## <a name="how-to-use-the-privileged-endpoint"></a>Použití privilegovaného koncového bodu 
 
-Jak je uvedeno výše, PEP je koncový bod [POWERSHELL JEA](/powershell/scripting/learn/remoting/jea/overview) . Při poskytování silné bezpečnostní vrstvy JEA koncový bod omezuje některé základní funkce PowerShellu, jako je například skriptování nebo dokončování karet. Pokud se pokusíte použít nějaký typ operace skriptu, operace se nezdařila s chybou **ScriptsNotAllowed** . Toto selhání je očekávané chování.
+Jak je uvedeno výše, PEP je koncový bod [POWERSHELL JEA](/powershell/scripting/learn/remoting/jea/overview) . Při poskytování silné bezpečnostní vrstvy JEA koncový bod omezuje některé základní funkce PowerShellu, jako je například skriptování nebo dokončování karet. Pokud se pokusíte použít nějaký typ operace skriptu, operace se nezdařila s chybou **ScriptsNotAllowed**. Toto selhání je očekávané chování.
 
 Chcete-li například získat seznam parametrů pro danou rutinu, spusťte následující příkaz:
 
@@ -160,7 +162,7 @@ Pokud chcete importovat relaci PEP na místním počítači, proveďte následuj
 
      Po zobrazení výzvy použijte následující přihlašovací údaje:
 
-     - **Uživatelské jméno** : zadejte účet CloudAdmin ve formátu **&lt; *Azure Stack centrum doména* &gt; \cloudadmin** . (Pro ASDK se uživatelské jméno **azurestack\cloudadmin** .)
+     - **Uživatelské jméno** : zadejte účet CloudAdmin ve formátu **&lt; *Azure Stack centrum doména* &gt; \cloudadmin**. (Pro ASDK se uživatelské jméno **azurestack\cloudadmin**.)
      - **Heslo** : zadejte stejné heslo, které bylo zadáno během instalace pro účet správce domény AzureStackAdmin.
 
 3. Importujte relaci PEP do místního počítače:
@@ -188,8 +190,8 @@ Ukončení relace koncového bodu:
 
    | Parametr | Popis | Typ | Vyžadováno |
    |---------|---------|---------|---------|
-   | *TranscriptsPathDestination* | Cesta k externímu sdílení souborů definovaná jako "fileshareIP\sharefoldername" | Řetězec | Ano|
-   | *Přihlašovací údaj* | Přihlašovací údaje pro přístup ke sdílené složce souborů | SecureString |   Ano |
+   | *TranscriptsPathDestination* | Cesta k externímu sdílení souborů definovaná jako "fileshareIP\sharefoldername" | Řetězec | Yes|
+   | *Přihlašovací údaj* | Přihlašovací údaje pro přístup ke sdílené složce souborů | SecureString |   Yes |
 
 
 Po úspěšném přenosu souborů protokolu přepisu do sdílené složky se automaticky odstraní z PEP. 
@@ -199,12 +201,12 @@ Po úspěšném přenosu souborů protokolu přepisu do sdílené složky se aut
 
 ## <a name="unlocking-the-privileged-endpoint-for-support-scenarios"></a>Odemknutí privilegovaného koncového bodu pro scénáře podpory
 
- Během scénáře podpory může pracovník podpory společnosti Microsoft potřebovat zvýšit relaci prostředí PowerShell privilegovaného koncového bodu, aby mohl získat přístup k interním údajům infrastruktury centra Azure Stack. Tento proces je někdy neformálně označován jako "rozbití skla" nebo "Unlock The PEP". Proces zvýšení úrovně relace PEP je dvěma kroky, dvou, dvou a dvou procesů ověřování organizace. Postup odemknutí je iniciován operátorem centra Azure Stack, který neustále uchovává kontrolu nad prostředím. Operátor přistupuje ke službě PEP a provede tuto rutinu:
+ Během scénáře podpory může pracovník podpory společnosti Microsoft potřebovat zvýšit relaci prostředí PowerShell privilegovaného koncového bodu, aby mohl získat přístup k interním údajům infrastruktury centra Azure Stack. Tento proces je někdy neformálně označován jako "rozbití skla" nebo "Unlock The PEP". Proces zvýšení úrovně relace PEP je dvěma kroky, dvou, dvou a dvou procesů ověřování organizace. Postup odemknutí je iniciován operátorem centra Azure Stack, který neustále uchovává kontrolu nad prostředím. Operátor přistupuje k PEP a provede tuto rutinu:
  
  ```powershell  
       Get-SupportSessionToken
   ```
- Rutina vrátí token žádosti o relaci podpory, velmi dlouhý alfanumerický řetězec. Operátor pak předá pracovníkovi podpory společnosti Microsoft prostřednictvím choise (např. chat, e-mail atd.). Pracovník podpory společnosti Microsoft používá token žádosti pro vygenerování, pokud je platný, token pro autorizaci relace podpory a pošle ho zpět do operátoru centra Azure Stack. Ve stejné relaci PowerShellu PEP operátor pak předá do této rutiny autorizační token jako vstup:
+ Rutina vrátí token žádosti o relaci podpory, velmi dlouhý alfanumerický řetězec. Operátor pak předá pracovníkovi technické podpory společnosti Microsoft prostřednictvím konkrétního výběru (např. chat, e-mail). Pracovník podpory společnosti Microsoft používá token žádosti pro vygenerování, pokud je platný, token pro autorizaci relace podpory a pošle ho zpět do operátoru centra Azure Stack. Ve stejné relaci PowerShellu PEP operátor pak předá do této rutiny autorizační token jako vstup:
 
  ```powershell  
       unlock-supportsession

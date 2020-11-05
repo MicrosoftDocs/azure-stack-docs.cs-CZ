@@ -7,12 +7,12 @@ ms.date: 06/07/2019
 ms.author: justinha
 ms.reviewer: efemmano
 ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: d7951500afe21ec0800328230d6b5f1653934c40
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: 4c79d8a9c9aa5877dd2dfb264257f2a7cfaaa46f
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819202"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363975"
 ---
 # <a name="use-the-administrator-portal-in-azure-stack-hub"></a>Použití portálu pro správu v centru Azure Stack
 
@@ -30,6 +30,8 @@ Pokud chcete získat přístup k portálu pro správu, přejděte na adresu URL 
 
 > [!TIP]
 > Pro prostředí ASDK je potřeba nejdřív zajistit, abyste se mohli [připojit k hostiteli vývojové sady](../asdk/asdk-connect.md) prostřednictvím připojení ke vzdálené ploše nebo prostřednictvím virtuální privátní sítě (VPN).
+
+[!INCLUDE [Azure Stack Hub Operator Access Workstation](../includes/operator-note-owa.md)]
 
  ![Portál pro správu centra Azure Stack](media/azure-stack-manage-portals/admin-portal.png)
 
@@ -65,9 +67,9 @@ Správce a uživatelské portály jsou zajištěny oddělenými instancemi Azure
 
 ### <a name="customize-the-dashboard"></a>Přizpůsobit řídicí panel
 
-Řídicí panel obsahuje sadu výchozích dlaždic. Můžete vybrat **Upravit řídicí panel** pro úpravu výchozího řídicího panelu, nebo výběrem **nového řídicího** panelu Přidat vlastní řídicí panel. Do řídicího panelu můžete přidat také dlaždice. Vyberte například **+ vytvořit prostředek**, klikněte pravým tlačítkem **nabídky nabídky + plány**a pak vyberte **Připnout na řídicí panel**.
+Řídicí panel obsahuje sadu výchozích dlaždic. Můžete vybrat **Upravit řídicí panel** pro úpravu výchozího řídicího panelu, nebo výběrem **nového řídicího** panelu Přidat vlastní řídicí panel. Do řídicího panelu můžete přidat také dlaždice. Vyberte například **+ vytvořit prostředek** , klikněte pravým tlačítkem **nabídky nabídky + plány** a pak vyberte **Připnout na řídicí panel**.
 
-V některých případech se může na portálu zobrazit prázdný řídicí panel. Řídicí panel obnovíte tak, že kliknete na **Upravit řídicí panel**a kliknete pravým tlačítkem a vyberete **obnovit do výchozího stavu**.
+V některých případech se může na portálu zobrazit prázdný řídicí panel. Řídicí panel obnovíte tak, že kliknete na **Upravit řídicí panel** a kliknete pravým tlačítkem a vyberete **obnovit do výchozího stavu**.
 
 ### <a name="quick-access-to-online-documentation"></a>Rychlý přístup k online dokumentaci
 
@@ -75,14 +77,14 @@ Pokud chcete získat přístup k dokumentaci k operátorovi centra Azure Stack, 
 
 ### <a name="quick-access-to-help-and-support"></a>Rychlý přístup k nápovědě a podpoře
 
-Pokud kliknete na ikonu nápovědy (otazník) v pravém horním rohu portálu pro správu, klikněte na tlačítko **Nápověda a podpora**a potom klikněte na možnost **Nová žádost o podporu** v části **Podpora**, dojde k jednomu z následujících výsledků:
+Pokud kliknete na ikonu nápovědy (otazník) v pravém horním rohu portálu pro správu, klikněte na tlačítko **Nápověda a podpora** a potom klikněte na možnost **Nová žádost o podporu** v části **Podpora** , dojde k jednomu z následujících výsledků:
 
 - Pokud používáte integrovaný systém, tato akce otevře web, na kterém můžete přímo otevřít lístek podpory s podpora Microsoftu. Přečtěte si, [kde získat podporu](azure-stack-manage-basics.md#where-to-get-support) pro pochopení, kdy byste měli projít podporu Microsoftu, nebo prostřednictvím podpory dodavatele hardwaru OEM (Original Equipment Manufacturer).
 - Pokud používáte ASDK, otevře se tato akce přímo na [webu fóra centra Azure Stack](https://social.msdn.microsoft.com/Forums/home?forum=AzureStack) . Tato fóra se pravidelně monitorují. Vzhledem k tomu, že ASDK je zkušební prostředí, není k dispozici žádná oficiální podpora prostřednictvím podpora Microsoftu.
 
 ### <a name="quick-access-to-the-azure-roadmap"></a>Rychlý přístup k plánu Azure
 
-Pokud v pravém horním rohu portálu pro správu vyberete **Nápověda a podpora** (otazník) a pak vyberete **plán Azure**, otevře se nová karta prohlížeče a přejdete na plán Azure. Zadáním **Azure Stack hub** do vyhledávacího pole **produkty** můžete zobrazit všechny aktualizace plánu centra Azure Stack.
+Pokud v pravém horním rohu portálu pro správu vyberete **Nápověda a podpora** (otazník) a pak vyberete **plán Azure** , otevře se nová karta prohlížeče a přejdete na plán Azure. Zadáním **Azure Stack hub** do vyhledávacího pole **produkty** můžete zobrazit všechny aktualizace plánu centra Azure Stack.
 
 ## <a name="next-steps"></a>Další kroky
 

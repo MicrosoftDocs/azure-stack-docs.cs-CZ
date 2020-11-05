@@ -10,12 +10,12 @@ ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 ms.custom: contperfq4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: f6d307b7fe165681e93c842596007ca1fde3a152
-ms.sourcegitcommit: 8122672409954815e472a5b251bb7319fab8f951
+ms.openlocfilehash: 5f2067bed0b6efea8a19e921c2cb4c59caabd505
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92060180"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93364009"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Registrace centra Azure Stack s Azure
 
@@ -41,10 +41,16 @@ Před registrací proveďte následující předpoklady:
 
 Před registrací centra Azure Stack s Azure musíte mít:
 
-- ID předplatného pro předplatné Azure. Pro registraci jsou podporovány pouze odběry služeb EA, CSP nebo CSP sdílené služby. CSP musí rozhodnout, jestli se má [použít předplatné CSP nebo APSS](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription).<br><br>ID získáte tak, že se přihlásíte k Azure a kliknete na **všechny služby**. Pak v kategorii **Obecné** vyberte **předplatná**, klikněte na předplatné, které chcete použít, a v části **Essentials** můžete najít ID předplatného. Jako osvědčený postup použijte samostatné odběry pro produkční a vývojové nebo testovací prostředí. 
+::: zone pivot="state-connected"
+- ID předplatného pro předplatné Azure. Pro registraci jsou podporovány pouze odběry služeb EA, CSP nebo CSP sdílené služby. CSP musí rozhodnout, jestli se má [použít předplatné CSP nebo APSS](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription).<br><br>ID získáte tak, že se přihlásíte k Azure a kliknete na **všechny služby**. Pak v kategorii **Obecné** vyberte **předplatná** , klikněte na předplatné, které chcete použít, a v části **Essentials** můžete najít ID předplatného. Jako osvědčený postup použijte samostatné odběry pro produkční a vývojové nebo testovací prostředí. 
+::: zone-end
+::: zone pivot="state-disconnected"
+- ID předplatného pro předplatné Azure. Pro registraci jsou podporovány pouze předplatná EA. 
 
-  > [!Note]  
-  > V současné době se nepodporují předplatné pro Německo Cloud.
+    ID získáte tak, že se přihlásíte k Azure a kliknete na **všechny služby**. Pak v kategorii **Obecné** vyberte **předplatná** , klikněte na předplatné, které chcete použít, a v části **Essentials** můžete najít ID předplatného. Jako osvědčený postup použijte samostatné odběry pro produkční a vývojové nebo testovací prostředí. 
+::: zone-end
+   > [!Note]  
+   > V současné době se nepodporují předplatné pro Německo Cloud.  
 
 - Uživatelské jméno a heslo pro účet, který je vlastníkem předplatného.
 
@@ -83,6 +89,8 @@ Pokud není nejnovější verze ještě nainstalovaná, přečtěte si téma [in
 
 Abyste měli jistotu, že používáte nejnovější verzi, odstraňte všechny existující verze nástrojů centra Azure Stack a Stáhněte si [nejnovější verzi z GitHubu](azure-stack-powershell-download.md) před registrací v Azure.
 
+[!INCLUDE [Azure Stack Hub Operator Access Workstation](../includes/operator-note-owa.md)]
+
 ### <a name="determine-your-billing-model"></a>Určení modelu fakturace
 ::: zone pivot="state-connected"
  Připojené nasazení umožňuje rozbočovači Azure Stack připojit se k Internetu a k Azure. Jako úložiště identit můžete také použít službu Azure AD nebo Active Directory Federation Services (AD FS) (AD FS) a vybírat ze dvou modelů fakturace: průběžné platby nebo využití kapacity. Účtovací model se určí později při spuštění registračního skriptu.
@@ -94,7 +102,7 @@ Abyste měli jistotu, že používáte nejnovější verzi, odstraňte všechny 
 
 ### <a name="determine-your-unique-registration-name"></a>Určení jedinečného názvu registrace
 
-Po spuštění registračního skriptu je nutné zadat jedinečný název registrace. Snadný způsob, jak přidružit předplatné centra Azure Stack k registraci Azure, je použití **ID cloudu**Azure Stack hub.
+Po spuštění registračního skriptu je nutné zadat jedinečný název registrace. Snadný způsob, jak přidružit předplatné centra Azure Stack k registraci Azure, je použití **ID cloudu** Azure Stack hub.
 
 > [!NOTE]
 > Registrace centra Azure Stack pomocí fakturačního modelu založeného na kapacitě bude muset změnit jedinečný název při opětovné registraci po vypršení platnosti tohoto ročního předplatného, pokud [neodstraníte registraci s vypršenou platností](#renew-or-change-registration) a znovu zaregistrujete do Azure.
@@ -121,7 +129,7 @@ Připojená prostředí mají přístup k Internetu a k Azure. V těchto prostř
 
    | Parametr | Popis |  
    |-----|-----|
-   | EnvironmentName | Název prostředí Azure Cloud Subscription. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment**, nebo pokud používáte čínské předplatné Azure **AzureChinaCloud**.  |
+   | EnvironmentName | Název prostředí Azure Cloud Subscription. Podporované názvy prostředí jsou **AzureCloud** , **AzureUSGovernment** , nebo pokud používáte čínské předplatné Azure **AzureChinaCloud**.  |
 
    >[!Note]
    > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete jednoduše přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí rutiny Add-AzureRmAccount: `Remove-AzureRmAccount-Scope Process`
@@ -152,7 +160,7 @@ Připojená prostředí mají přístup k Internetu a k Azure. V těchto prostř
 
    | Parametr | Popis |  
    |-----|-----|
-   | EnvironmentName | Název prostředí Azure Cloud Subscription. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment**, nebo pokud používáte čínské předplatné Azure **AzureChinaCloud**.  |
+   | EnvironmentName | Název prostředí Azure Cloud Subscription. Podporované názvy prostředí jsou **AzureCloud** , **AzureUSGovernment** , nebo pokud používáte čínské předplatné Azure **AzureChinaCloud**.  |
 
 7. Ve stejné relaci prostředí PowerShell spusťte rutinu **set-AzsRegistration** . PowerShell ke spuštění:  
 
@@ -188,7 +196,7 @@ Připojená prostředí mají přístup k Internetu a k Azure. V těchto prostř
 
    | Parametr | Popis |  
    |-----|-----|
-   | EnvironmentName | Název prostředí Azure Cloud Subscription. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment**, nebo pokud používáte čínské předplatné Azure **AzureChinaCloud**.  |
+   | EnvironmentName | Název prostředí Azure Cloud Subscription. Podporované názvy prostředí jsou **AzureCloud** , **AzureUSGovernment** , nebo pokud používáte čínské předplatné Azure **AzureChinaCloud**.  |
 
 3. Máte-li více předplatných, spusťte následující příkaz a vyberte ten, který chcete použít:  
 
@@ -326,16 +334,16 @@ Pomocí dlaždice **Správa oblastí** můžete ověřit, zda byla registrace ce
 
 2. Z řídicího panelu vyberte **Správa oblastí**.
 
-3. Vyberte **Vlastnosti**. Toto okno zobrazuje stav a podrobnosti vašeho prostředí. Stav lze **zaregistrovat**, **není zaregistrováno**nebo **vypršela jeho platnost**.
+3. Vyberte **Vlastnosti**. Toto okno zobrazuje stav a podrobnosti vašeho prostředí. Stav lze **zaregistrovat** , **není zaregistrováno** nebo **vypršela jeho platnost**.
 
     [![Dlaždice správy oblastí na portálu pro správu centra Azure Stack](media/azure-stack-registration/admin1sm.png "Dlaždice správy oblastí")](media/azure-stack-registration/admin1.png#lightbox)
 
     Pokud jsou zaregistrované, zahrnují tyto vlastnosti:
     
-    - **ID předplatného registrace**: ID předplatného Azure zaregistrované a přidružené k rozbočovači Azure Stack.
-    - **Skupina prostředků registrace**: Skupina prostředků Azure v souvisejícím předplatném, které obsahuje prostředky centra Azure Stack.
+    - **ID předplatného registrace** : ID předplatného Azure zaregistrované a přidružené k rozbočovači Azure Stack.
+    - **Skupina prostředků registrace** : Skupina prostředků Azure v souvisejícím předplatném, které obsahuje prostředky centra Azure Stack.
 
-4. K zobrazení registračních prostředků centra Azure Stack můžete použít Azure Portal a ověřit, zda byla registrace úspěšná. Přihlaste se k [Azure Portal](https://portal.azure.com) pomocí účtu přidruženého k předplatnému, které jste použili k registraci centra Azure Stack. Vyberte **všechny prostředky**, povolte zaškrtávací políčko **Zobrazit skryté typy** a vyberte název registrace.
+4. K zobrazení registračních prostředků centra Azure Stack můžete použít Azure Portal a ověřit, zda byla registrace úspěšná. Přihlaste se k [Azure Portal](https://portal.azure.com) pomocí účtu přidruženého k předplatnému, které jste použili k registraci centra Azure Stack. Vyberte **všechny prostředky** , povolte zaškrtávací políčko **Zobrazit skryté typy** a vyberte název registrace.
 
 5. Pokud se registrace nezdařila, je nutné znovu provést registraci pomocí následujících [kroků](#change-the-subscription-you-use) pro vyřešení problému.  
 
@@ -365,7 +373,7 @@ Chcete-li obnovit nebo změnit registraci, potřebujete následující informace
 
 ### <a name="change-the-subscription-you-use"></a>Změna předplatného, které používáte
 
-Pokud chcete změnit předplatné, které používáte, musíte nejdřív spustit rutinu **Remove-AzsRegistration** a pak se ujistit, že jste přihlášeni ke správnému kontextu Azure PowerShell. Pak spusťte rutinu **set-AzsRegistration** se všemi změněnými parametry, včetně `<billing model>` . Při spuštění **Remove-AzsRegistration**musíte být přihlášeni k předplatnému, které jste použili při registraci a použití hodnot `RegistrationName` `ResourceGroupName` parametrů a, jak je znázorněno na [portálu pro správu](#verify-azure-stack-hub-registration):
+Pokud chcete změnit předplatné, které používáte, musíte nejdřív spustit rutinu **Remove-AzsRegistration** a pak se ujistit, že jste přihlášeni ke správnému kontextu Azure PowerShell. Pak spusťte rutinu **set-AzsRegistration** se všemi změněnými parametry, včetně `<billing model>` . Při spuštění **Remove-AzsRegistration** musíte být přihlášeni k předplatnému, které jste použili při registraci a použití hodnot `RegistrationName` `ResourceGroupName` parametrů a, jak je znázorněno na [portálu pro správu](#verify-azure-stack-hub-registration):
 
   ```powershell  
   # select the subscription used during the registration (shown in portal)

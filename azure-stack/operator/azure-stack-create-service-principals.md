@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.lastreviewed: 05/07/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 5842ac27969a136ceaace4647ed5791bc3260b1c
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+zone_pivot_groups: state-connected-disconnected
+ms.openlocfilehash: cc73e0cd735c12a15d45efec080c7861d9ea9f00
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573135"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363992"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Použití identity aplikace pro přístup k prostředkům Azure Stack hub
 
@@ -24,7 +25,7 @@ Můžete mít například aplikaci pro správu konfigurace, která používá Az
 
 Podobně jako uživatel musí aplikace při ověřování prezentovat přihlašovací údaje. Toto ověření se skládá ze dvou prvků:
 
-- **ID aplikace**, někdy označované jako ID klienta. Identifikátor GUID, který jedinečně identifikuje registraci aplikace v tenantovi služby Active Directory.
+- **ID aplikace** , někdy označované jako ID klienta. Identifikátor GUID, který jedinečně identifikuje registraci aplikace v tenantovi služby Active Directory.
 - **Tajný kód** PŘIDRUŽENÝ k ID aplikace Můžete buď vygenerovat řetězec tajného klíče klienta (podobně jako heslo), nebo zadat certifikát x509 (který používá jeho veřejný klíč).
 
 Spuštění aplikace v rámci vlastní identity je vhodnější, když ji spustíte v rámci identity uživatele z následujících důvodů:
@@ -42,6 +43,7 @@ Tento článek začíná procesem vytvoření a správy instančního objektu v 
 
 Pak se dozvíte, jak přiřadit instanční objekt roli a omezit jeho přístup k prostředkům.
 
+::: zone pivot="state-connected"
 ## <a name="manage-an-azure-ad-app-identity"></a>Správa identity aplikace Azure AD
 
 Pokud jste nasadili Azure Stack centrum s Azure AD jako službu pro správu identit, vytvoříte instanční objekty stejným způsobem jako u Azure. V této části se dozvíte, jak provádět kroky prostřednictvím Azure Portal. Než začnete, ověřte, že máte [požadovaná oprávnění služby Azure AD](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) .
@@ -54,7 +56,7 @@ V této části zaregistrujete aplikaci pomocí Azure Portal, která vytvoří o
 2. Vyberte **Azure Active Directory**  >  **Registrace aplikací**  >  **novou registraci**.
 3. Zadejte **název** aplikace.
 4. Vyberte příslušné **podporované typy účtů**.
-5. V části **identifikátor URI pro přesměrování**vyberte jako typ aplikace **Web**  a (volitelně) zadejte identifikátor URI přesměrování, pokud to vaše aplikace vyžaduje.
+5. V části **identifikátor URI pro přesměrování** vyberte jako typ aplikace **Web**  a (volitelně) zadejte identifikátor URI přesměrování, pokud to vaše aplikace vyžaduje.
 6. Po nastavení hodnot vyberte **Registrovat**. Vytvoří se registrace aplikace a zobrazí se stránka s **přehledem** .
 7. Zkopírujte **ID aplikace** pro použití v kódu aplikace. Tato hodnota se také označuje jako ID klienta.
 8. Pokud chcete vygenerovat tajný klíč klienta, vyberte stránku **certifikáty & tajných** kódů. Vyberte **Nový tajný klíč klienta**.
@@ -65,6 +67,7 @@ V této části zaregistrujete aplikaci pomocí Azure Portal, která vytvoří o
     ![Uložený klíč v tajných klíčích klienta](./media/azure-stack-create-service-principal/create-service-principal-in-azure-stack-secret.png)
 
 Nyní přejděte k tématu [přiřazení role](#assign-a-role) , abyste se dozvěděli, jak vytvořit řízení přístupu na základě role pro identitu aplikace.
+::: zone-end
 
 ## <a name="manage-an-ad-fs-app-identity"></a>Správa identity AD FS aplikace
 
@@ -312,7 +315,7 @@ $AppList = Invoke-Command -Session $Session -ScriptBlock {Get-GraphApplication}
 Invoke-Command -Session $Session -ScriptBlock {Remove-GraphApplication -ApplicationIdentifier "<AppIdentifier>"}
 ```
 
-Z volání rutiny Remove-GraphApplication v privilegovaném koncovém bodě se nevrátí žádný výstup, ale během provádění rutiny uvidíte doslovné výstup potvrzení do konzoly:
+Nevrátí se žádný výstup z volání rutiny Remove-GraphApplication v privilegovaném koncovém bodu, ale v průběhu provádění rutiny uvidíte doslovné výstup potvrzení do konzoly:
 
 ```shell
 VERBOSE: Deleting graph application with identifier S-1-5-21-1634563105-1224503876-2692824315-2623.
@@ -323,7 +326,7 @@ VERBOSE: Remove-GraphApplication : END on AZS-ADFS01 under ADFSGraphEndpoint con
 
 ## <a name="assign-a-role"></a>Přiřazení role
 
-Přístup k prostředkům Azure uživatelům a aplikacím je autorizovaný prostřednictvím Access Control na základě rolí (RBAC). Pokud chcete, aby aplikace měla přístup k prostředkům ve vašem předplatném, je nutné *přiřadit* instanční objekt k *roli* pro konkrétní *prostředek*. Nejdřív se rozhodněte, která role představuje správná *oprávnění* pro aplikaci. Další informace o dostupných rolích najdete v tématu [předdefinované role pro prostředky Azure](/azure/role-based-access-control/built-in-roles).
+Přístup k prostředkům Azure uživatelům a aplikacím je autorizovaný prostřednictvím Role-Based Access Control (RBAC). Pokud chcete, aby aplikace měla přístup k prostředkům ve vašem předplatném, je nutné *přiřadit* instanční objekt k *roli* pro konkrétní *prostředek*. Nejdřív se rozhodněte, která role představuje správná *oprávnění* pro aplikaci. Další informace o dostupných rolích najdete v tématu [předdefinované role pro prostředky Azure](/azure/role-based-access-control/built-in-roles).
 
 Typ prostředku, který zvolíte, taky vytvoří *obor přístupu* pro aplikaci. Rozsah přístupu můžete nastavit na úrovni předplatného, skupiny prostředků nebo prostředku. Oprávnění jsou zděděna na nižší úrovně rozsahu. Například přidání aplikace do role čtenář pro skupinu prostředků znamená, že může číst skupinu prostředků a všechny prostředky, které obsahuje.
 
@@ -331,14 +334,14 @@ Typ prostředku, který zvolíte, taky vytvoří *obor přístupu* pro aplikaci.
 
    > [!NOTE]
    > Chcete-li přidat přiřazení rolí pro daný prostředek, musí váš uživatelský účet patřit do role, která toto `Microsoft.Authorization/roleAssignments/write` oprávnění deklaruje. Můžete například použít předdefinované role [vlastníka](/azure/role-based-access-control/built-in-roles#owner) nebo [Správce přístupu uživatele](/azure/role-based-access-control/built-in-roles#user-access-administrator) .  
-2. Přejděte k prostředku, ke kterému chcete aplikaci udělit přístup. V tomto příkladu přiřaďte instanční objekt aplikace k roli v oboru předplatného tak, že vyberete **odběry**a pak konkrétní předplatné. Místo toho můžete vybrat skupinu prostředků nebo konkrétní prostředek, jako je třeba virtuální počítač.
+2. Přejděte k prostředku, ke kterému chcete aplikaci udělit přístup. V tomto příkladu přiřaďte instanční objekt aplikace k roli v oboru předplatného tak, že vyberete **odběry** a pak konkrétní předplatné. Místo toho můžete vybrat skupinu prostředků nebo konkrétní prostředek, jako je třeba virtuální počítač.
 
      ![Výběr předplatného pro přiřazení](./media/azure-stack-create-service-principal/select-subscription.png)
 
 3. Vyberte stránku **Access Control (IAM)** , která je univerzální napříč všemi prostředky, které podporují RBAC.
 4. Vybrat **+ Přidat**
-5. V části **role**vyberte roli, kterou chcete aplikaci přiřadit.
-6. V části **Vybrat**vyhledejte aplikaci pomocí úplného nebo částečného názvu aplikace. Během registrace se název aplikace vygeneruje jako *Azurestack- \<YourAppName\> - \<ClientId\> *. Pokud jste například použili název aplikace *app2*a ClientID *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* byl během vytváření přiřazen, bude mít úplný název  *Azurestack-app2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*. Můžete vyhledat přesný řetězec nebo část, jako je například *Azurestack* nebo *Azurestack-app2*.
+5. V části **role** vyberte roli, kterou chcete aplikaci přiřadit.
+6. V části **Vybrat** vyhledejte aplikaci pomocí úplného nebo částečného názvu aplikace. Během registrace se název aplikace vygeneruje jako *Azurestack- \<YourAppName\> - \<ClientId\>*. Pokud jste například použili název aplikace *app2* a ClientID *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* byl během vytváření přiřazen, bude mít úplný název  *Azurestack-app2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*. Můžete vyhledat přesný řetězec nebo část, jako je například *Azurestack* nebo *Azurestack-app2*.
 7. Jakmile aplikaci najde, vyberte ji a zobrazí se v části **Vybraní členové**.
 8. Kliknutím na **Uložit** dokončete přiřazení role.
 

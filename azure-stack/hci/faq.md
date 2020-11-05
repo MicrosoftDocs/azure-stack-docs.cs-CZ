@@ -6,13 +6,13 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/03/2020
-ms.openlocfilehash: 67d81ee3bcec9ba1007296a6a50c028653b7d7b7
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.date: 11/04/2020
+ms.openlocfilehash: f54b62a26b9e3c0409493cec26bdb42ac990b35b
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329060"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363890"
 ---
 # <a name="azure-stack-hci-faq"></a>Nejčastější dotazy k Azure Stack HCI
 Nejčastější dotazy k rozhraní Azure Stack HCI obsahují část Azure Stack připojení HCI a obecné části Nejčastější dotazy.
@@ -24,17 +24,17 @@ Azure Stack HCI je místní vysoce sblížená infrastruktura, která se dodáv�
 
 **Odesílají se data uložená v Azure Stack HCL do cloudu?**
 
-Obecně ne. Názvy, metadata, konfigurace a obsah místních virtuálních počítačů se nikdy neodesílají do cloudu, pokud pro tento účel nezapnete další služby, například Azure Backup nebo Azure Site Recovery. Nebo pokud tyto virtuální počítače nezaregistrujete jednotlivě do služeb Cloud Management, jako je Azure ARC.
+Ne. Názvy, metadata, konfigurace a obsah místních virtuálních počítačů se nikdy neodesílají do cloudu, pokud pro tento účel nezapnete další služby, například Azure Backup nebo Azure Site Recovery. Nebo pokud tyto virtuální počítače nezaregistrujete jednotlivě do služeb Cloud Management, jako je Azure ARC.
 
 ### <a name="edge-local-management-and-control"></a>Řízení a řízení hraničních zařízení – místní
 
 **Prochází se přes Cloud rovina ovládacího prvku Azure Stack HCI?**
 
-Obecně ne, i když závisí na tom, jaké funkce používáte. Pomocí nástrojů pro centrální správu, jako je centrum pro správu Windows, PowerShell nebo System Center, můžete spravovat přímo hostitelskou infrastrukturu a virtuální počítače i v případě, že je vaše síťové připojení k cloudu mimo provoz nebo má závažné omezení. Běžné každodenní operace, jako je přesun virtuálního počítače mezi hostiteli, výměna jednotky, která selhala, nebo konfigurace IP adres nezávisí na cloudu. Cloudové připojení se ale potřebuje k získání aktualizací softwaru v letadle, změně registrace Azure nebo použití funkcí, které přímo využívají cloudové služby pro zálohování, monitorování a další funkce.
+Ne. Pomocí nástrojů pro centrální správu, jako je centrum pro správu Windows, PowerShell nebo System Center, můžete spravovat přímo hostitelskou infrastrukturu a virtuální počítače i v případě, že je vaše síťové připojení k cloudu mimo provoz nebo má závažné omezení. Běžné každodenní operace, jako je přesun virtuálního počítače mezi hostiteli, výměna jednotky, která selhala, nebo konfigurace IP adres nezávisí na cloudu. Cloudové připojení se ale potřebuje k získání aktualizací softwaru v letadle, změně registrace Azure nebo použití funkcí, které přímo využívají cloudové služby pro zálohování, monitorování a další funkce.
 
 **Existují požadavky na šířku pásma nebo latenci mezi Azure Stackmi HCI a cloudem?**
 
-Obecně ne, i když závisí na tom, jaké funkce používáte. Připojení s omezením šířky pásma, jako jsou linky venkovského T1 nebo satelitní/mobilní připojení, jsou dostačující pro Azure Stack ke synchronizaci HCI. Minimální požadované připojení je jen několik kilobajtů za den. Další služby mohou vyžadovat větší šířku pásma, zejména pro replikaci nebo zálohování celých virtuálních počítačů, stažení velkých aktualizací softwaru nebo nahrání podrobných protokolů pro analýzu a monitorování v cloudu.
+Ne. Připojení s omezením šířky pásma, jako jsou linky venkovského T1 nebo satelitní/mobilní připojení, jsou dostačující pro Azure Stack ke synchronizaci HCI. Minimální požadované připojení je jen několik kilobajtů za den. Další služby mohou vyžadovat větší šířku pásma, zejména pro replikaci nebo zálohování celých virtuálních počítačů, stažení velkých aktualizací softwaru nebo nahrání podrobných protokolů pro analýzu a monitorování v cloudu.
 
 ### <a name="designed-for-intermittent-and-limited-connectivity"></a>Navrženo pro přerušované a omezené připojení
 
