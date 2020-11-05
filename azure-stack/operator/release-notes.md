@@ -3,16 +3,16 @@ title: Poznámky k verzi centra Azure Stack
 description: Poznámky k verzi pro integrované systémy Azure Stack hub, včetně aktualizací a oprav chyb.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/03/2020
+ms.date: 11/04/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: 07ad819985268ad88f86c3c2bf7b7b18e75d491f
-ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
+ms.openlocfilehash: 827f06af4cbe725180054d2e32acf120258654bf
+ms.sourcegitcommit: 227cf63f6e09d7eebaa8c1e0983c812fb351fe5c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/05/2020
-ms.locfileid: "93363873"
+ms.locfileid: "93401155"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -135,7 +135,7 @@ Opravy hotfix centra Azure Stack se vztahují pouze na integrované systémy Azu
 
 Verze 2005 centra Azure Stack se musí použít ve verzi 2002 s následujícími opravami hotfix:
 
-- [1.2002.56.152 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4582983)
+- [1.2002.61.163 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4592241)
 
 ### <a name="after-successfully-applying-the-2005-update"></a>Po úspěšné instalaci aktualizace 2005
 
@@ -272,7 +272,7 @@ Verze 2002 centra Azure Stack se musí použít ve verzi 1910 s následujícími
 Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix.
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [1.2002.56.152 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4582983)
+- [1.2002.61.163 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4592241)
 ::: moniker-end
 
 ::: moniker range="azs-1910"
