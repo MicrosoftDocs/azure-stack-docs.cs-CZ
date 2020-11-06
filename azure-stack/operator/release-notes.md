@@ -3,16 +3,16 @@ title: Poznámky k verzi centra Azure Stack
 description: Poznámky k verzi pro integrované systémy Azure Stack hub, včetně aktualizací a oprav chyb.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/04/2020
+ms.date: 11/05/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: 827f06af4cbe725180054d2e32acf120258654bf
-ms.sourcegitcommit: 227cf63f6e09d7eebaa8c1e0983c812fb351fe5c
+ms.openlocfilehash: 31e4d2ec34c2031c1034917e2ded2eb0421a62f1
+ms.sourcegitcommit: a0e2c636d8b9b8940f01a81a5a3733f79bd3f42c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93401155"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94334291"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -63,7 +63,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Novinky
+### <a name="whats-new"></a>Co je nového
 
 <!-- What's new, also net new experiences and features. -->
 - Toto sestavení nabízí podporu 3 nových typů virtuálních počítačů GPU: NCv3 (NVIDIA V100), NVv4 (AMD MI25) a NCas_v4 (NVIDIA T4) velikosti virtuálních počítačů. Nasazení virtuálních počítačů bude úspěšné pro uživatele, kteří mají správný hardware a jsou připojeni do programu Azure Stack hub GPU ve verzi Preview. Pokud vás zajímá, zaregistrujte se do programu pro zobrazení GPU v https://aka.ms/azurestackhubgpupreview . Další informace [najdete v tématu](../user/gpu-vms-about.md).
@@ -166,7 +166,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Novinky
+### <a name="whats-new"></a>Co je nového
 
 <!-- What's new, also net new experiences and features. -->
 
@@ -265,7 +265,7 @@ Další informace o opravách hotfix najdete v tématu [zásady obsluhy centra A
 Verze 2002 centra Azure Stack se musí použít ve verzi 1910 s následujícími opravami hotfix:
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [1.1910.81.224 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4583406)
+- [1.1910.84.230 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4592243)
 
 ### <a name="after-successfully-applying-the-2002-update"></a>Po úspěšné instalaci aktualizace 2002
 
@@ -294,7 +294,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Novinky
+### <a name="whats-new"></a>Co je nového
 
 <!-- What's new, also net new experiences and features. -->
 
@@ -431,7 +431,7 @@ Verze 1910 centra Azure Stack se musí použít ve verzi 1908 s následujícími
 Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix. Další informace najdete v našich [zásadách obsluhy](azure-stack-servicing-policy.md).
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [1.1910.81.224 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4583406)
+- [1.1910.84.230 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4592243)
 ::: moniker-end
 
 <!------------------------------------------------------------>
