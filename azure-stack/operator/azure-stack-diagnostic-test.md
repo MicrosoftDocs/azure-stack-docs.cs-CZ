@@ -7,16 +7,16 @@ ms.date: 01/10/2020
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 40a916a282f4808d9897cc5c23ea953739b0a0cf
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 4c91954e4a3a19640d519d16363c0d2742077d67
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572931"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415160"
 ---
 # <a name="validate-azure-stack-hub-system-state"></a>Ověřit stav systému centra Azure Stack
 
-Jako operátor centra Azure Stack je možné určit stav systému na vyžádání v podstatě. Nástroj pro ověření centra Azure Stack (**test-AzureStack**) je rutina prostředí PowerShell, která umožňuje spustit sérii testů v systému, aby bylo možné identifikovat chyby, pokud jsou k dispozici. Obvykle budete požádáni o spuštění tohoto nástroje prostřednictvím [privilegovaného koncového bodu (PEP)](azure-stack-privileged-endpoint.md) při kontaktování podpory zákaznických služeb microsoftu (podpora Microsoftu) s problémem. Když jsou dostupné informace o stavu a stavu v rámci systému, podpora Microsoftu můžou shromažďovat a analyzovat podrobné protokoly, soustředit se na oblast, kde došlo k chybě, a spolupracovat s vámi, abyste problém vyřešili.
+Jako operátor centra Azure Stack je možné určit stav systému na vyžádání v podstatě. Nástroj pro ověření centra Azure Stack ( **test-AzureStack** ) je rutina prostředí PowerShell, která umožňuje spustit sérii testů v systému, aby bylo možné identifikovat chyby, pokud jsou k dispozici. Obvykle budete požádáni o spuštění tohoto nástroje prostřednictvím [privilegovaného koncového bodu (PEP)](azure-stack-privileged-endpoint.md) při kontaktování podpory zákaznických služeb microsoftu (podpora Microsoftu) s problémem. Když jsou dostupné informace o stavu a stavu v rámci systému, podpora Microsoftu můžou shromažďovat a analyzovat podrobné protokoly, soustředit se na oblast, kde došlo k chybě, a spolupracovat s vámi, abyste problém vyřešili.
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>Spuštění nástroje pro ověřování a přístup k výsledkům
 
@@ -47,7 +47,7 @@ Jak je uvedeno výše, nástroj pro ověření se spouští přes PEP. Každý t
 
    Další informace najdete v tématu věnovaném [parametrům](azure-stack-diagnostic-test.md#parameter-considerations) a [příkladům případu použití](azure-stack-diagnostic-test.md#use-case-examples).
 
-1. Pokud dojde k **selhání**jakékoli testy, spusťte příkaz `Get-AzureStackLog` . Pokyny k integrovanému systému najdete v tématu spuštění rutiny [Get-AzureStackLog v systémech integrovaných v centru Azure Stack](azure-stack-get-azurestacklog.md).
+1. Pokud dojde k **selhání** jakékoli testy, spusťte příkaz `Get-AzureStackLog` . Pokyny k integrovanému systému najdete v tématu spuštění rutiny [Get-AzureStackLog v systémech integrovaných v centru Azure Stack](azure-stack-get-azurestacklog.md).
 
    Rutina shromáždí protokoly generované rutinou test-AzureStack. Doporučujeme, abyste protokoly neshromáždili a místo toho kontaktovali podpora Microsoftu, když testy hlásí **Upozornění**.
 
@@ -130,7 +130,7 @@ Následující cloudové scénáře jsou testovány nástrojem pro ověření:
 - **DetailedResults** lze použít k získání informací o předání a selhání a upozornění pro každý test a také na celkovém běhu. Pokud není zadaný, **test-AzureStack** vrátí **$true** , pokud nedochází k žádným chybám, a **$false** , pokud dojde k chybám.
 - **TimeoutSeconds** se dá použít k nastavení konkrétní doby pro každou skupinu k dokončení.
 
-- Nástroj pro ověřování také podporuje běžné parametry prostředí PowerShell: Verbose, Debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, inbuffer, PipelineVariable a subvariable. Další informace najdete v tématu [o běžných parametrech](https://go.microsoft.com/fwlink/?LinkID=113216).  
+- Nástroj pro ověřování také podporuje běžné parametry prostředí PowerShell: Verbose, Debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, inbuffer, PipelineVariable a subvariable. Další informace najdete v tématu [o běžných parametrech](/powershell/module/microsoft.powershell.core/about/about_commonparameters).  
 
 ## <a name="use-case-examples"></a>Příklady případů použití
 
@@ -163,16 +163,16 @@ Uživatelské jméno správce cloudu musí být zadané ve formátu hlavního n�
 
 ### <a name="groups"></a>Skupiny
 
-Pro zlepšení prostředí operátora je povolený parametr **skupiny** , aby bylo možné spustit více kategorií testů současně. V současné době jsou definovány tři skupiny: **Default**, **UpdateReadiness**a **SecretRotationReadiness**.
+Pro zlepšení prostředí operátora je povolený parametr **skupiny** , aby bylo možné spustit více kategorií testů současně. V současné době jsou definovány tři skupiny: **Default** , **UpdateReadiness** a **SecretRotationReadiness**.
 
-- **Výchozí**: považuje se za standardní běh rutiny **test-AzureStack**. Tato skupina se spouští ve výchozím nastavení, pokud nejsou vybrané žádné jiné skupiny.
-- **UpdateReadiness**: zkontroluje, jestli se instance centra Azure Stack dá aktualizovat. Když je spuštěná skupina **UpdateReadiness** , zobrazí se upozornění jako chyby ve výstupu konzoly a měla by se považovat za blokování pro aktualizaci. Od centra Azure Stack verze 1910 jsou součástí skupiny **UpdateReadiness** tyto kategorie:
+- **Výchozí** : považuje se za standardní běh rutiny **test-AzureStack**. Tato skupina se spouští ve výchozím nastavení, pokud nejsou vybrané žádné jiné skupiny.
+- **UpdateReadiness** : zkontroluje, jestli se instance centra Azure Stack dá aktualizovat. Když je spuštěná skupina **UpdateReadiness** , zobrazí se upozornění jako chyby ve výstupu konzoly a měla by se považovat za blokování pro aktualizaci. Od centra Azure Stack verze 1910 jsou součástí skupiny **UpdateReadiness** tyto kategorie:
 
   - **AzsInfraFileValidation**
   - **AzsActionPlanStatus**
   - **AzsStampBMCSummary**
 
-- **SecretRotationReadiness**: zkontroluje, jestli je instance centra Azure Stack ve stavu, ve kterém je možné spustit rotaci tajných klíčů. Když je spuštěná skupina **SecretRotationReadiness** , zobrazí se upozornění jako chyby ve výstupu konzoly a měla by se považovat za blokování pro rotaci tajných klíčů. Následující kategorie jsou součástí skupiny SecretRotationReadiness:
+- **SecretRotationReadiness** : zkontroluje, jestli je instance centra Azure Stack ve stavu, ve kterém je možné spustit rotaci tajných klíčů. Když je spuštěná skupina **SecretRotationReadiness** , zobrazí se upozornění jako chyby ve výstupu konzoly a měla by se považovat za blokování pro rotaci tajných klíčů. Následující kategorie jsou součástí skupiny SecretRotationReadiness:
 
   - **AzsAcsSummary**
   - **AzsDefenderSummary**
@@ -192,7 +192,7 @@ Následující příklad spustí **test-AzureStack** pro otestování připraven
 Test-AzureStack -Group UpdateReadiness
 ```
 
-Pokud v centru Azure Stack běží verze před 1811, spusťte rutinu **test-AzureStack**pomocí následujících příkazů PowerShellu:
+Pokud v centru Azure Stack běží verze před 1811, spusťte rutinu **test-AzureStack** pomocí následujících příkazů PowerShellu:
 
 ```powershell
 New-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 

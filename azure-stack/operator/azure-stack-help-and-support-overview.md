@@ -7,12 +7,12 @@ ms.date: 02/26/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: c0cf805773100e2f265c2e088a6f6cd442553ec2
-ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
+ms.openlocfilehash: db1a7919987803682ff0a9df84565fa7aef47620
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91778271"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415296"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Pomoc a podpora centra Azure Stack
 
@@ -32,11 +32,11 @@ V horní části **okna Help + support** byste se měli vyzkoušet jako první, 
 
 ![Samoobslužná podpora ve službě Azure Stack hub](media/azure-stack-help-and-support/get-support-tiles.png)
 
-- **Dokumentaci**. [Dokumentace k operátorovi centra Azure Stack](index.yml) zahrnuje koncepty, témata s postupy a kurzy, které ukazují, jak nabízet služby Azure Stack hub. Mezi tyto služby patří virtuální počítače, databáze SQL, webové aplikace a další.
+- **Dokumentace:** [Dokumentace k operátorovi centra Azure Stack](index.yml) zahrnuje koncepty, témata s postupy a kurzy, které ukazují, jak nabízet služby Azure Stack hub. Mezi tyto služby patří virtuální počítače, databáze SQL, webové aplikace a další.
 
 - **Přečtěte si o fakturaci**. Získejte tipy na [používání a fakturaci](azure-stack-billing-and-chargeback.md).
 
-- **Možnosti podpory**. Operátory centra Azure Stack si můžou vybrat z škály [možností podpory Azure](https://aka.ms/azstacksupport) , které můžou vyhovovat potřebám všech podniků.
+- **Možnosti podpory**. Operátory centra Azure Stack si můžou vybrat z škály [možností podpory Azure](./azure-stack-manage-basics.md) , které můžou vyhovovat potřebám všech podniků.
 
 ### <a name="get-expert-help"></a>Získat odbornou pomoc
 
@@ -50,7 +50,7 @@ Pokud dojde k potížím s nasazením, opravou a aktualizací, hardwarem (včetn
 
 Pro Azure Stack Development Kit (ASDK) můžete klást otázky týkající se podpory ve [fóru Azure Stack centra MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack).
 
-V pravém horním rohu portálu pro správu vyberte **help** (otazník) a pak kliknutím na **Nápověda + podpora** otevřete **Přehled nápovědy**a podpory, který má odkaz na fórum. Fóra MSDN se pravidelně monitorují. Vzhledem k tomu, že ASDK je zkušební prostředí, není k dispozici žádná oficiální podpora prostřednictvím podpora Microsoftu.
+V pravém horním rohu portálu pro správu vyberte **help** (otazník) a pak kliknutím na **Nápověda + podpora** otevřete **Přehled nápovědy** a podpory, který má odkaz na fórum. Fóra MSDN se pravidelně monitorují. Vzhledem k tomu, že ASDK je zkušební prostředí, není k dispozici žádná oficiální podpora prostřednictvím podpora Microsoftu.
 
 Můžete se také obrátit na fóra MSDN a diskutovat o problémech nebo pořídit online školení a vylepšit své vlastní dovednosti.
 
@@ -76,10 +76,10 @@ Diagnostické protokoly můžete společnosti Microsoft odeslat dvěma způsoby:
 
 ## <a name="diagnostic-log-collection"></a>Shromažďování protokolů diagnostiky
 
-Od verze 1907 existují dva nové způsoby, jak shromažďovat protokoly v **nápovědě a podpoře**:
+Od verze 1907 existují dva nové způsoby, jak shromažďovat protokoly v **nápovědě a podpoře** :
 
-- **Automatická kolekce**: Pokud je tato možnost povolená, spustí se shromažďování protokolů konkrétními upozorněními na stav.
-- **Shromažďovat protokoly nyní**: můžete zvolit posuvné okno 1-4 hodin za posledních sedm dní.
+- **Automatická kolekce** : Pokud je tato možnost povolená, spustí se shromažďování protokolů konkrétními upozorněními na stav.
+- **Shromažďovat protokoly nyní** : můžete zvolit posuvné okno 1-4 hodin za posledních sedm dní.
 
 ![Možnosti shromažďování protokolů diagnostiky](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
 
@@ -87,11 +87,11 @@ Integrované systémy můžou sdílet diagnostické protokoly s podpora Microsof
 
 ## <a name="help-and-support-for-earlier-releases-azure-stack-hub-pre-1905"></a>Pomoc a podpora pro starší verze Azure Stack centra (pre-1905)
 
-Předchozí verze centra Azure Stack mají také odkaz na **pomoc a podporu** , která přesměruje na [dokumentaci k operátorovi centra Azure Stack](https://aka.ms/adminportaldocs).
+Předchozí verze centra Azure Stack mají také odkaz na **pomoc a podporu** , která přesměruje na [dokumentaci k operátorovi centra Azure Stack](./index.yml).
 
 ![Získat kurzy k podpoře](media/azure-stack-help-and-support/get-support-previous.png)
 
-Pokud dojde k problému s cloudovou službou, podpora je poskytována prostřednictvím podpora Microsoftu. V pravém horním rohu portálu pro správu můžete vybrat **help** (otazník), vybrat **Nápověda a podpora**a pak vybrat **novou žádost o podporu** , která odešle novou žádost o podporu pomocí podpora Microsoftu.
+Pokud dojde k problému s cloudovou službou, podpora je poskytována prostřednictvím podpora Microsoftu. V pravém horním rohu portálu pro správu můžete vybrat **help** (otazník), vybrat **Nápověda a podpora** a pak vybrat **novou žádost o podporu** , která odešle novou žádost o podporu pomocí podpora Microsoftu.
 
 Pro integrovaný systém existuje koordinovaný proces eskalace a rozlišení mezi společností Microsoft a našimi partnery OEM. Pokud dojde k problému s cloudovou službou, podpora je poskytována prostřednictvím podpora Microsoftu.
 

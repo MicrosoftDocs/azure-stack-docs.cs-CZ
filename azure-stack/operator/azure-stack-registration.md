@@ -10,12 +10,12 @@ ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 ms.custom: contperfq4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 5f2067bed0b6efea8a19e921c2cb4c59caabd505
-ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
+ms.openlocfilehash: 15da8dc1fadcd0bbe1f76513e1afd31ca20c2743
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93364009"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415279"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Registrace centra Azure Stack s Azure
 
@@ -26,7 +26,7 @@ Informace v tomto článku popisují registraci Azure Stack integrovaných syst�
 > [!IMPORTANT]  
 > K podpoře kompletních funkcí centra Azure Stack, včetně položek nabídky na webu Marketplace, se vyžaduje registrace. Pokud se nezaregistrujete při použití modelu fakturace s průběžnými platbami, budete mít porušení licenčních podmínek centra Azure Stack. Další informace o modelech licencování centra Azure Stack najdete na [stránce Jak koupit](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 Před registrací proveďte následující předpoklady:
 
@@ -355,13 +355,13 @@ Případně můžete pomocí funkce správy Marketplace ověřit, jestli byla re
 ## <a name="renew-or-change-registration"></a>Obnovit nebo změnit registraci
 
 ::: zone pivot="state-connected"
-Registraci je potřeba aktualizovat nebo obnovit v následujících případech:
+Registraci musíte aktualizovat v následujících případech:
 
 - Po obnovení ročního předplatného založeného na kapacitě.
 - Když změníte model fakturace.
 - Při škálování změn (přidávání nebo odebírání uzlů) pro účely fakturace na základě kapacity.
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 
 Chcete-li obnovit nebo změnit registraci, potřebujete následující informace z [portálu pro správu](#verify-azure-stack-hub-registration) :
 

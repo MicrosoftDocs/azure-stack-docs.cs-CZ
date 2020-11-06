@@ -5,12 +5,12 @@ author: davannaw-msft
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: dawhite
-ms.openlocfilehash: eaa5879f0e8cd00f43a37247f03f7ce09ecdb78c
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 4f13aff85c1444197fce5a01c62319026f844fe6
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899614"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415041"
 ---
 # <a name="troubleshooting-azure-kubernetes-service-on-azure-stack-hci"></a>Řešení potíží se službou Azure Kubernetes v Azure Stack HCI
 
@@ -98,4 +98,4 @@ Připojte se přes SSH k uzlu pomocí `ssh clouduser@ip` .
 Další informace o řešení běžných scénářů týkajících se připojení, oprávnění a agentů ARC najdete v tématu [věnovaném řešení potíží s Kubernetes ARC Azure](/azure/azure-arc/kubernetes/troubleshooting).
 
 ## <a name="next-steps"></a>Další kroky
-Pokud budete při používání služby Azure Kubernetes v Azure Stack HCI nadále pracovat s problémy, můžete zaprotokolovat chyby prostřednictvím [GitHubu](https://aka.ms/aks-hci-issues).  
+Pokud budete při používání služby Azure Kubernetes v Azure Stack HCI nadále pracovat s problémy, můžete zaprotokolovat chyby prostřednictvím [GitHubu](https://aka.ms/aks-hci-issues).

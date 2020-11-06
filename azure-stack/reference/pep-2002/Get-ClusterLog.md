@@ -1,18 +1,18 @@
 ---
-title: Privilegovaný koncový bod Get-ClusterLog pro centrum Azure Stack
-description: Referenční informace o Azure Stack privilegovaného koncového bodu prostředí PowerShell – Get-ClusterLog
+title: Get-ClusterLog privilegovaného koncového bodu pro centrum Azure Stack
+description: Reference pro Azure Stack s privilegovaným koncovým bodem Get-ClusterLog PowerShellu
 author: mattbriggs
 ms.topic: reference
 ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: ec984252235334b5706a79a510852868c8f40dba
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: c8da0312a9c0d3f3250ed603523fd28b13dab38e
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487103"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415364"
 ---
 # <a name="get-clusterlog"></a>Get-ClusterLog
 
@@ -223,6 +223,6 @@ Accept wildcard characters: False
 
 ## <a name="next-steps"></a>Další kroky
 
-[https://go.microsoft.com/fwlink/?LinkId=216212](https://go.microsoft.com/fwlink/?LinkId=216212)
+[https://go.microsoft.com/fwlink/?LinkId=216212](/powershell/module/failoverclusters/get-clusterlog)
 
 Informace o přístupu a používání privilegovaného koncového bodu najdete v tématu [použití privilegovaného koncového bodu v centru Azure Stack](../../operator/azure-stack-privileged-endpoint.md).

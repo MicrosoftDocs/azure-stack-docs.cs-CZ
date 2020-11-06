@@ -8,12 +8,12 @@ ms.date: 1/16/2020
 ms.author: inhenkel
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: afaf8f4716443631ae0d2bbe1b82cd84b9d0e424
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 66bd65158222cad224ea1673de666bd4c464dab4
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487732"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415126"
 ---
 # <a name="configure-azure-stack-hub-telemetry"></a>Konfigurace telemetrie centra Azure Stack
 
@@ -78,7 +78,7 @@ Data zabezpečení a základní data o stavu a kvalitě. Základní informace o 
   - Atributy procesoru a paměti, jako je počet jader a množství nainstalované paměti.
   - Atributy úložiště, například počet jednotek, typ jednotky a velikost jednotky.
 
-- *Funkce telemetrie*, včetně procenta nahraných událostí, vyřazených událostí a času posledního nahrávání dat.
+- *Funkce telemetrie* , včetně procenta nahraných událostí, vyřazených událostí a času posledního nahrávání dat.
 - *Informace související s kvalitou* , které pomáhají Microsoftu vyvíjet základní znalosti o tom, jak probíhá Azure Stack hub. Například počet kritických výstrah pro konkrétní hardwarovou konfiguraci.
 - *Data kompatibility* , která pomáhají poskytnout informace o tom, které poskytovatelé prostředků jsou nainstalovaná v systému a virtuálním počítači (VM). Tato možnost identifikuje potenciální problémy s kompatibilitou.
 
@@ -89,12 +89,12 @@ Další přehledy, včetně: jak se používají služby operačního systému a
 > Toto je výchozí nastavení telemetrie.
 
 **3 (plná)**</br>
-Veškerá data potřebná pro identifikaci a pomoc při řešení problémů a data ze **zabezpečení**, úrovně **Basic**a **vylepšené** úrovně.
+Veškerá data potřebná pro identifikaci a pomoc při řešení problémů a data ze **zabezpečení** , úrovně **Basic** a **vylepšené** úrovně.
 
 > [!IMPORTANT]
 > Tyto úrovně telemetrie se vztahují jenom na komponenty centra Microsoft Azure Stack. Softwarové komponenty a služby od jiných výrobců než od Microsoftu, které jsou spuštěné v rámci životního cyklu hardwarových partnerů od Azure Stack hub mohou komunikovat s Cloud Services mimo tyto úrovně telemetrie. Měli byste pracovat s vaším poskytovatelem hardwarových řešení Azure Stack, abyste pochopili jejich zásady telemetrie a jak se můžete rozhodnout nebo odhlásit.
 
-Vypnutí telemetrie Windows a centra Azure Stack taky zakáže telemetrii SQL. Další informace o důsledcích nastavení telemetrie Windows serveru najdete na stránce [White paper o telemetrie Windows](https://aka.ms/winservtelemetry).
+Vypnutí telemetrie Windows a centra Azure Stack taky zakáže telemetrii SQL. Další informace o důsledcích nastavení telemetrie Windows serveru najdete na stránce [White paper o telemetrie Windows](/windows/privacy/configure-windows-diagnostic-data-in-your-organization).
 
 ### <a name="asdk-set-the-telemetry-level-in-the-windows-registry"></a>ASDK: Nastavte úroveň telemetrie v registru Windows.
 

@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: a99339b2a8708bac8c20b5f2fb507e42fc7588de
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 2e4882717b4dc708298df7b4ee9a8dc0ef2c1b9c
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488650"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415313"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>Správa účtů úložiště Azure Stack hub
 
@@ -37,12 +37,12 @@ Pokud vás zajímá konkrétní účet úložiště, můžete **filtrovat a nač
 **Filtrování účtů:**
 
 1. V horní části podokna vyberte **Filtr** .
-2. V podokně filtru můžete zadat **název účtu**, **ID předplatného**nebo **stav** , abyste mohli vyladit seznam účtů úložiště, které se mají zobrazit. Použijte je podle potřeby.
+2. V podokně filtru můžete zadat **název účtu** , **ID předplatného** nebo **stav** , abyste mohli vyladit seznam účtů úložiště, které se mají zobrazit. Použijte je podle potřeby.
 3. Při psaní se v seznamu automaticky použije filtr.
 
     ![Filtrování účtů úložiště Azure Stack hub](media/azure-stack-manage-storage-accounts/image5.png)
 
-4. Postup obnovení filtru: vyberte **Filtr**, zrušte výběr a aktualizujte.
+4. Postup obnovení filtru: vyberte **Filtr** , zrušte výběr a aktualizujte.
 
 Textové pole Hledat (v horní části podokna Seznam účtů úložiště) umožňuje v seznamu účtů zvýraznit vybraný text. Tuto možnost můžete použít, pokud není úplný název nebo ID snadno dostupné.
 
@@ -91,7 +91,7 @@ Nastavení doby uchovávání umožňuje operátorovi cloudu nastavit časové o
 
 1. Přihlaste se k portálu pro správu `https://adminportal.local.azurestack.external` .
 2. V části Správa vyberte **všechny služby**  >  **Správa oblastí** . **Administration**
-3. Vyberte **prostředky**  >  **Storage**  >  **Nastavení**úložiště poskytovatelé. Vaše cesta je domovská > *oblast* – poskytovatelé prostředků > úložiště.
+3. Vyberte **prostředky**  >  **Storage**  >  **Nastavení** úložiště poskytovatelé. Vaše cesta je domovská > *oblast* – poskytovatelé prostředků > úložiště.
 4. Vyberte **Konfigurace** a pak upravte hodnotu Doba uchování.
 
    Nastavte počet dnů a pak ho uložte.
@@ -124,7 +124,7 @@ Pomocí prostředí PowerShell můžete také explicitně přepsat dobu uchován
 
 1. Potvrďte, že máte nainstalovanou a nakonfigurovanou Azure PowerShell. V takovém případě postupujte podle následujících pokynů: 
    * Pokud chcete nainstalovat nejnovější verzi Azure PowerShell a přidružit ji k předplatnému Azure, přečtěte si téma [Jak nainstalovat a nakonfigurovat Azure PowerShell](/powershell/azure/).
-   Další informace o rutinách Azure Resource Manager najdete v tématu [použití Azure PowerShell s Azure Resource Manager](https://go.microsoft.com/fwlink/?LinkId=394767).
+   Další informace o rutinách Azure Resource Manager najdete v tématu [použití Azure PowerShell s Azure Resource Manager](/azure/azure-resource-manager/management/manage-resources-powershell).
 2. Spusťte následující rutiny:
 
 > [!NOTE]  

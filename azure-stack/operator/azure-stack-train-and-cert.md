@@ -8,12 +8,12 @@ ms.date: 11/11/2019
 ms.author: inhenkel
 ms.lastreviewed: 11/11/2019
 ms.reviewer: efemm
-ms.openlocfilehash: a1fa7c9ee34532857a8968a286c2248947115acd
-ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
+ms.openlocfilehash: 7693aeeba9a1cdf47cafffab212b904ae4afb6a3
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91815355"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415058"
 ---
 # <a name="azure-stack-hub-training-and-certification"></a>Školení a certifikace centra Azure Stack
 
@@ -27,14 +27,14 @@ Chcete se dozvědět víc o centru Azure Stack a předvedení centra Azure Stack
    - [Kurz 20537A: konfigurace a provoz hybridního cloudu pomocí centra Microsoft Azure Stack](https://aka.ms/azsmoc)
 
 - Otevřete EDX:
-   - [edX: Online kurz konfigurace a provozu centra Microsoft Azure Stack](https://aka.ms/AzureStackMOOC)
+   - [edX: Online kurz konfigurace a provozu centra Microsoft Azure Stack]()
    
 - Cesty školení Microsoftu:
    - [Role úloh a studijních cest](https://azure.microsoft.com/training/learning-paths/)
 
 ## <a name="certification"></a>Certifikace
 
-*Konfigurace a provozování hybridního cloudu s certifikací Microsoft Azure Stackho centra*, [zkouška 70-537](https://www.microsoft.com/learning/exam-70-537.aspx)
+*Konfigurace a provozování hybridního cloudu s certifikací Microsoft Azure Stackho centra* , [zkouška 70-537](https://www.microsoft.com/learning/exam-70-537.aspx)
 
 ## <a name="next-steps"></a>Další kroky
 
