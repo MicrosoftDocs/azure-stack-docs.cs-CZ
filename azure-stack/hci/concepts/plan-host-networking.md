@@ -3,15 +3,15 @@ title: Plánování sítě hostitele pro Azure Stack HCI
 description: Naučte se plánovat sítě hostitele pro Azure Stack clustery HCI
 author: v-dasis
 ms.topic: how-to
-ms.date: 10/13/2020
+ms.date: 11/06/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 46f98ba8f5d2f33e0b5d9d85ee9c2469a098c17d
-ms.sourcegitcommit: d835e211fe65dc54a0d49dfb21ca2465ced42aa4
+ms.openlocfilehash: e9a03fa7518c6a450204cdbdb40483b593b1867b
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92200480"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383471"
 ---
 # <a name="plan-host-networking-for-azure-stack-hci"></a>Plánování sítě hostitele pro Azure Stack HCI
 
@@ -54,7 +54,7 @@ Následující tabulka uvádí přidělení šířky pásma pro různé typy pro
 |10|20|10|70 %|7|14% *|1,4 *|14 %|1.4|2 %|0,2|
 |25|50|25|70 %|17,5|15% *|3,75 *|14 %|3,5|1 %|0,25|
 |40|80| 40|70 %|28|15 %|6|14 %|5,6|1 %|0,4|
-|50|100|50|70 %|35|15 %|7,5|14 %|7|1 %|0.5|
+|50|100|50|70 %|35|15 %|7,5|14 %|7|1 %|0,5|
 |100|200|100|70 %|70|15 %|15|14 %|14|1 %|1|
 |200|400|200|70 %|140|15 %|30|14 %|28|1 %|2|
 
@@ -186,20 +186,49 @@ LLDP umožňuje organizacím definovat a kódovat vlastní TLVs. Ty se nazývaj�
 
 |Stav|Organizace|Typ TLV|
 |-|-|-|
-|Povinné|IEEE 802,1|Název sítě VLAN (podtyp = 3)|
-|Povinné|IEEE 802,3|Maximální velikost rámce (podtyp = 4)|
-|Nepovinné|IEEE 802,1|ID VLAN portu (podtyp = 1)|
-|Nepovinné|IEEE 802,1|IDENTIFIKÁTOR sítě VLAN portu a protokolu (podtyp = 2)|
-|Nepovinné|IEEE 802,1|Agregace propojení (podtyp = 7)|
-|Nepovinné|IEEE 802,1|Oznámení o zahlcení (podtyp = 8)|
-|Nepovinné|IEEE 802,1|Konfigurace ETS (podtyp = 9)|
-|Nepovinné|IEEE 802,1|Doporučení ETS (podtyp = A)|
-|Nepovinné|IEEE 802,1|Konfigurace PFC (podtyp = B)|
-|Nepovinné|IEEE 802,1|EVB (podtyp = D)|
-|Nepovinné|IEEE 802,3|Agregace propojení (podtyp = 3)|
+|Vyžadováno|IEEE 802,1|Název sítě VLAN (podtyp = 3)|
+|Vyžadováno|IEEE 802,3|Maximální velikost rámce (podtyp = 4)|
+|Volitelné|IEEE 802,1|ID VLAN portu (podtyp = 1)|
+|Volitelné|IEEE 802,1|IDENTIFIKÁTOR sítě VLAN portu a protokolu (podtyp = 2)|
+|Volitelné|IEEE 802,1|Agregace propojení (podtyp = 7)|
+|Volitelné|IEEE 802,1|Oznámení o zahlcení (podtyp = 8)|
+|Volitelné|IEEE 802,1|Konfigurace ETS (podtyp = 9)|
+|Volitelné|IEEE 802,1|Doporučení ETS (podtyp = A)|
+|Volitelné|IEEE 802,1|Konfigurace PFC (podtyp = B)|
+|Volitelné|IEEE 802,1|EVB (podtyp = D)|
+|Volitelné|IEEE 802,3|Agregace propojení (podtyp = 3)|
 
 > [!NOTE]
 > Některé z uvedených volitelných funkcí můžou být v budoucnu nutné.
+
+## <a name="example-cluster-network-design"></a>Příklad návrhu sítě s clustery
+
+Následující diagram znázorňuje standardní konfiguraci (bez roztaženého) clusteru se dvěma clustery ve stejné podsíti a stejné lokalitě. Uzly serveru spolu komunikují ve stejném clusteru pomocí redundantních síťových adaptérů připojených k duálním přepínačům rozhraní příkazového stojanu. Komunikace mezi clustery prochází přes duální síťová hřbetová zařízení.
+
+:::image type="content" source="media/plan-host-networking/rack-topology-non-stretched-cluster.png" alt-text="Cluster bez roztažení" lightbox="media/plan-host-networking/rack-topology-non-stretched-cluster.png":::
+
+## <a name="example-stretched-cluster-network-design"></a>Ukázkový návrh roztažené sítě clusteru
+
+Následující diagramy znázorňují roztaženou konfiguraci clusteru s jedním clusterem se serverovými uzly umístěnými v různých lokalitách a podsítích (čtyři uzly na lokalitu). Uzly serveru spolu navzájem komunikují ve stejném clusteru pomocí redundantních síťových adaptérů připojených k přepínačům pro připojení s duálním připojením. Komunikace mezi lokalitami prochází přes duální směrovače pomocí repliky úložiště pro převzetí služeb při selhání.
+
+:::image type="content" source="media/plan-host-networking/rack-topology-stretched-cluster.png" alt-text="Roztažený cluster" lightbox="media/plan-host-networking/rack-topology-stretched-cluster.png":::
+
+### <a name="stretched-cluster-node-networking-option-1"></a>Síť roztaženého uzlu clusteru – možnost sítě 1
+
+Následující diagram znázorňuje roztažené clustery, které používají přepínač s vloženým seskupením (nastaveno) k řízení toku, Migrace za provozu a provoz repliky úložiště mezi lokalitami na stejném vNIC. Použijte rutiny prostředí PowerShell [set-SmbBandwidthLimit](https://docs.microsoft.com/powershell/module/smbshare/set-smbbandwidthlimit) a [set-SRNetworkConstraint](https://docs.microsoft.com/powershell/module/storagereplica/set-srnetworkconstraint) k omezení šířky pásma migrace za provozu a provozu repliky úložiště. 
+
+Pamatujte, že protokol TCP se používá pro přenosy mezi lokalitami, zatímco RDMA se používá pro provoz úložiště v rámci lokality Migrace za provozu.
+
+:::image type="content" source="media/plan-host-networking/stretched-cluster-option-1.png" alt-text="Síť roztaženého uzlu clusteru – možnost sítě 1" lightbox="media/plan-host-networking/stretched-cluster-option-1.png":::
+
+### <a name="stretched-cluster-node-networking-option-2"></a>Síť roztaženého uzlu clusteru – možnost sítě 2
+
+Následující diagram znázorňuje pokročilejší konfiguraci roztaženého clusteru, který používá [vícekanálový protokol SMB](https://docs.microsoft.com/azure-stack/hci/manage/manage-smb-multichannel) pro přenos replik úložiště mezi lokalitami a vyhrazený adaptér pro provoz správy clusteru. Použijte rutiny prostředí PowerShell [set-SmbBandwidthLimit](https://docs.microsoft.com/powershell/module/smbshare/set-smbbandwidthlimit) a [set-SRNetworkConstraint](https://docs.microsoft.com/powershell/module/storagereplica/set-srnetworkconstraint) k omezení šířky pásma migrace za provozu a provozu repliky úložiště.
+
+Pamatujte, že protokol TCP se používá pro přenosy mezi lokalitami, zatímco RDMA se používá pro provoz úložiště v rámci lokality.
+
+:::image type="content" source="media/plan-host-networking/stretched-cluster-option-2.png" alt-text="Síť roztaženého uzlu clusteru – možnost sítě 2" lightbox="media/plan-host-networking/stretched-cluster-option-2.png":::
+
 
 ## <a name="next-steps"></a>Další kroky
 

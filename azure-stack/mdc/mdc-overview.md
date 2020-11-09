@@ -5,15 +5,15 @@ author: BryanLa
 ms.author: bryanla
 ms.service: azure-stack
 ms.topic: overview
-ms.date: 01/13/2020
+ms.date: 11/06/2020
 ms.reviewer: prchint
-ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: d2803f1968be7a4a3e64f65f3d86a2dbb41aaf1c
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.lastreviewed: 11/06/2020
+ms.openlocfilehash: eaa84fb673863935dc4778f34a6fce592590a7a8
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92182962"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383397"
 ---
 # <a name="modular-data-center-overview"></a>Přehled modulárních datových center 
 
@@ -27,7 +27,7 @@ Azure Stack dodává se čtyřmi základními principy, které se konzistentně 
 
 ### <a name="develop-and-deliver-apps-with-a-common-devops-model-including-api-symmetry-with-azure"></a>Vývoj a doručování aplikací pomocí společného modelu DevOps, včetně rozhraní API symetrie s Azure
 
-Konzistence mezi Azure a Azure Stack znamená řešení pro War stíhacích, která se nasazují pro podporu různých případů použití, a zabezpečená a udržovaná pomocí společné sady nástrojů, jako je Azure Key Vault pro správu klíčů a Azure Monitor pro monitorování a správu prostředků. Azure Stack se vzájemně spolupracují s místními daty, aplikacemi a nástroji pro DevOps a zabezpečené operace, jako je například Správa klíčů.
+Konzistence mezi Azure a Azure Stack znamená, že řešení se vyvíjí jednou, nasazená tak, aby podporovala různé případy použití a byla zabezpečená a udržovaná pomocí společné sady nástrojů, jako je Azure Key Vault pro správu klíčů a Azure Monitor pro monitorování a správu prostředků. Azure Stack se vzájemně spolupracují s místními daty, aplikacemi a nástroji pro DevOps a zabezpečené operace, jako je například Správa klíčů.
 
 ### <a name="deliver-azure-services-on-premises"></a>Místní doručování služeb Azure
 
@@ -35,7 +35,7 @@ Azure Stack se spouští v nevýhodných komunikačních prostředích (s riziky
 
 ### <a name="use-integrated-hardware-and-software-delivery-experience"></a>Použití integrovaného prostředí pro doručování hardwaru a softwaru
 
-Modulární Edge vyžaduje škálu funkcí, které poskytují nejen standardní výpočetní služby a služby úložiště, ale také pokročilé funkce pro strojové učení, AI a analýzy. Možnost připojit se k zabezpečenému cloudu z modulárního okraje, pokud je to možné, nebo naopak, aby fungoval nezávisle na tom, jak je v prostředí austere, je důležité zajistit přístup k datům, která jsou potřebná pro rozhodování, v War Fighters.
+Modulární Edge vyžaduje škálu funkcí, které poskytují nejen standardní výpočetní služby a služby úložiště, ale také pokročilé funkce pro strojové učení, AI a analýzy. Možnost připojit se k zabezpečenému cloudu z modulárního okraje, pokud je to možné, nebo naopak, aby fungoval nezávisle na tom, jak je v prostředí austere, je důležité zajistit přístup k datům potřebným pro rozhodování.
 
 ### <a name="keep-your-datacenter-secure-and-available-with-hybrid-cloud-security-operations"></a>Udržujte své datacentrum zabezpečené a dostupné s hybridními operacemi zabezpečení cloudu
 

@@ -124,7 +124,7 @@
                   items:
                     - name: Plánování kapacity
                       href: ../operator/event-hubs-rp-capacity-planning.md?toc=/azure-stack/tca/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                    - name: Předpoklady
+                    - name: Požadavky
                       href: ../operator/event-hubs-rp-prerequisites.md?toc=/azure-stack/tca/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Instalace
                       href: ../operator/event-hubs-rp-install.md?toc=/azure-stack/tca/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -178,12 +178,8 @@
                   href: ../operator/azure-stack-enable-multitenancy.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
     - name: Návody
       items:
-        - name: Rozšířené úložiště
-          items:
-            - name: OneFS a aktualizace firmwaru
-              href: extended-storage-firmware-updates.md
-            - name: Kontroly stavu
-              href: extended-storage-health-checks.md
+        - name: Rozšířené kontroly stavu úložiště
+          href: extended-storage-health-checks.md
         - name: Spravovat
           items:
             - name: Základy správy
@@ -360,7 +356,7 @@
                   href: ../operator/event-hubs-rp-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Plánování kapacity
                   href: ../operator/event-hubs-rp-capacity-planning.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                - name: Předpoklady
+                - name: Požadavky
                   href: ../operator/event-hubs-rp-prerequisites.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Instalace
                   href: ../operator/event-hubs-rp-install.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -468,7 +464,7 @@
       items:
         - name: Azure Stack PowerShell
           href: /powershell/azure/azure-stack/overview
-    - name: Prostředky
+    - name: Zdroje a prostředky
       items:
         - name: Školení a certifikace
           href: ../operator/azure-stack-train-and-cert.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -591,7 +587,7 @@
                   href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Použití služeb
               items:
-                - name: Compute
+                - name: Výpočetní prostředky
                   items:
                     - name: Přehled
                       href: ../user/azure-stack-compute-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json

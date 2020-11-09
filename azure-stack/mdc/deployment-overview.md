@@ -16,31 +16,30 @@ ms.date: 10/20/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 10/20/2020
-ms.openlocfilehash: aa5d67405ff471cecf147256d4b2109e94d993ef
-ms.sourcegitcommit: 716ca50bd198fd51a4eec5b40d5247f6f8c16530
+ms.openlocfilehash: 339927d28c2778a5c2953d8acf90e04931e3c815
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92898591"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383628"
 ---
-# <a name="mdc-deployment-overview"></a>Přehled nasazení MDC
+# <a name="mdc-requirements-overview"></a>Přehled požadavků na MDC
 
-Tato příručka pro nasazení popisuje kroky pro instalaci a konfiguraci modulárního datového centra (MDC). Tento průvodce také popisuje automatizovaný proces pro nastavení management server Azure Stack HLH hub Host pro nasazení centra Azure Stack.
+Tato příručka popisuje požadavky potřebné k instalaci a konfiguraci modulárního datového centra (MDC). 
 
 Mezi cíle tohoto průvodce patří:
 
 - Zadáním kontrolního seznamu před nasazením ověřte, zda byly před instalací součástí splněny všechny požadavky.
 - Zaveďte klíčové součásti MDC.
-- Popište, jak nainstalovat a nakonfigurovat klíčové komponenty.
 - Ověřte nasazení zákazníka.
 
-K úplnému pochopení obsahu tohoto průvodce se vyžaduje technické prostředí s virtualizací, servery, operačními systémy, sítěmi a řešeními úložiště. Inženýr nasazení musí mít znalosti Microsoft Windows serveru 2019 s Hyper-V, Azure Stack hub, Azure a Microsoft PowerShellem.
+K úplnému pochopení obsahu tohoto průvodce se vyžaduje technické prostředí s virtualizací, servery, operačními systémy, sítěmi a řešeními úložiště. 
 
-Tato příručka se zaměřuje na nasazení základních komponent centra Microsoft Azure Stack a specifikuje řešení MDC. Průvodce nevysvětluje provozní postupy centra Azure Stack a nezahrnuje všechny funkce, které jsou dostupné v centru Azure Stack. Další informace najdete v tématu [Průvodce pro operátora centra Azure Stack](https://docs.microsoft.com/azure-stack/operator/).
+Tato příručka se zaměřuje na nasazení základních komponent centra Microsoft Azure Stack a specifikuje řešení MDC. Průvodce nevysvětluje provozní postupy centra Azure Stack a nezahrnuje všechny funkce, které jsou dostupné v centru Azure Stack. 
 
 ## <a name="introduction"></a>Úvod
 
-MDC je integrovaná nabídka pro Azure Stack hub na úrovni Standard 40-chodidla zásobník pro expedici v metalu. Kontejner zahrnuje jednotku řízení klimatu, systém osvětlení a výstrahy. Základní komponenty centra Azure Stack, jako jsou servery a přepínače, jsou nainstalovány ve šesti fyzických rackech, které jsou logicky uspořádány do tří nezávislých lusků.
+MDC je integrovaná nabídka pro Azure Stack hub na úrovni Standard 40-chodidla zásobník pro expedici v metalu. Kontejner zahrnuje jednotku řízení klimatu, systém osvětlení a výstrahy. Základní komponenty centra Azure Stack jsou nainstalovány jako tři nezávislé lusky: pod 1, Rack 1 a stojan 2, pod 2, Rack 1 a stojan 2 a pod 3, stojan 1 a Rack 2.
 
 Každé z nich se skládá ze dvou 42U stojanů. Objekt pod zahrnuje přepínače Top-of-Rack, přepínače Edge a přepínač řadiče pro správu základní desky (BMC). Každý pod navíc zahrnuje hostitele životního cyklu hardwaru (HLH) a koncentrátor sériového portu. Základní výpočetní kapacitu a úložnou kapacitu nabízí Azure Stack jednotky škálování centra (SU), které se skládají z osmi serverů R840 (REA). Další kapacitu úložiště poskytuje Isilon uzly úložiště 48. Fyzická konfigurace všech lusků je shodná.
 
@@ -87,6 +86,4 @@ Proces nasazení MDC se na vysoké úrovni skládá z následujících kroků:
 1. Fáze ověření – samostatně pro každé tři lusky:
    1. Ověření stavu po nasazení.
    1. Probíhá registrace centra Azure Stack s Microsoftem.
-   1. Operátor centra Azure Stack ruky.
-  
-Všechna výše uvedená témata jsou podrobněji vysvětlena v tomto průvodci.
+   1. Azure Stack zákazníka centra.

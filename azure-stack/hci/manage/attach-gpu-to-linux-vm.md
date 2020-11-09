@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.date: 07/01/2020
-ms.openlocfilehash: 1d881db2d8802e93611437cbc14fe9782540be16
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: de2526b2807f4deff66efdf6db69bf4b791f5814
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106953"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383679"
 ---
 # <a name="attaching-a-gpu-to-an-ubuntu-linux-vm-on-azure-stack-hci"></a>Připojení GPU k virtuálnímu počítači s Ubuntu Linux v Azure Stack HCI
 
@@ -25,7 +25,7 @@ V tomto dokumentu se předpokládá, že máte nasazený cluster Azure Stack HCI
 2. Zapněte na každém serveru.
 3. Přihlaste se pomocí účtu s oprávněními správce k serveru s nainstalovaným grafickým procesorem NVIDIA.
 4. Otevřete **Device Manager** a přejděte do části *Další zařízení* . Mělo by se zobrazit zařízení uvedené jako "3D video Controller".
-5. Kliknutím pravým tlačítkem myši na 3D video Controller zobrazte stránku **vlastností** . Klikněte na tlačítko **Podrobnosti**. V rozevíracím seznamu pod položkou **vlastnost**vyberte možnost cesty umístění.
+5. Kliknutím pravým tlačítkem myši na 3D video Controller zobrazte stránku **vlastností** . Klikněte na tlačítko **Podrobnosti**. V rozevíracím seznamu pod položkou **vlastnost** vyberte možnost cesty umístění.
 6. Všimněte si hodnoty pomocí řetězce PCIRoot, jak je zvýrazněno na snímku obrazovky níže. Klikněte pravým tlačítkem na **hodnotu** a zkopírujte nebo uložte.
     :::image type="content" source="media/attach-gpu-to-linux-vm/pciroot.png" alt-text="Snímek cesty k umístění":::
 7. Otevřete prostředí Windows PowerShell se zvýšenými oprávněními a spusťte `Dismount-VMHostAssignableDevice` rutinu, která odpojí zařízení GPU pro položku DDA s virtuálním počítačem. Hodnotu *LocationPath* nahraďte hodnotou svého zařízení získaného v kroku 6.
@@ -37,7 +37,7 @@ V tomto dokumentu se předpokládá, že máte nasazený cluster Azure Stack HCI
 
 ## <a name="create-and-configure-an-ubuntu-virtual-machine"></a>Vytvoření a konfigurace virtuálního počítače s Ubuntu
 
-1. Stáhněte si [Ubuntu Desktop Release 18.04.02 ISO](http://cdimage.ubuntu.com/lubuntu/releases/18.04.2/release/lubuntu-18.04.2-desktop-amd64.iso).
+1. Stáhněte si [Ubuntu Desktop Release 18.04.02 ISO](http://old-releases.ubuntu.com/releases/18.04.2/).
 2. Otevřete **Správce technologie Hyper-V** v uzlu systému s nainstalovaným grafickým procesorem.
    > [!NOTE]
    > [DDA nepodporují převzetí služeb při selhání](/windows-server/virtualization/hyper-v/plan/plan-for-deploying-devices-using-discrete-device-assignment). Toto je omezení virtuálních počítačů s využitím DDA. Proto doporučujeme použít **Správce technologie Hyper-V** k nasazení virtuálního počítače na uzel místo **Správce clusteru s podporou převzetí služeb při selhání**. Použití **Správce clusteru s podporou převzetí služeb při selhání** s ÚDAJEm DDA se nezdaří a zobrazí se chybová zpráva oznamující, že virtuální počítač má zařízení, které nepodporuje vysokou dostupnost.
@@ -91,7 +91,7 @@ V tomto dokumentu se předpokládá, že máte nasazený cluster Azure Stack HCI
     > [!IMPORTANT]
     > Pokud se grafický procesor NVIDIA nezobrazuje jako "prostorový kontroler", nepokračujte dále. Než budete pokračovat, ujistěte se, že výše uvedené kroky jsou následovány.
 
-11. V rámci virtuálního počítače vyhledejte a otevřete **aktualizace softwaru &**. Přejděte na **Další ovladače**a pak zvolte nejnovější ovladače NVIDIA GPU uvedené v seznamu. Dokončete instalaci ovladače kliknutím na tlačítko **použít změny** .
+11. V rámci virtuálního počítače vyhledejte a otevřete **aktualizace softwaru &**. Přejděte na **Další ovladače** a pak zvolte nejnovější ovladače NVIDIA GPU uvedené v seznamu. Dokončete instalaci ovladače kliknutím na tlačítko **použít změny** .
     :::image type="content" source="media/attach-gpu-to-linux-vm/driver-install.png" alt-text="Snímek instalace ovladače":::
 
 12. Po dokončení instalace ovladače restartujte virtuální počítač Ubuntu. Jakmile se virtuální počítač spustí, připojte se přes klienta SSH a vydejte příkaz **NVIDIA-SMI** , který ověří, jestli se instalace ovladače NVIDIA GPU úspěšně dokončila. Výstup by měl být podobný snímku obrazovky níže: :::image type="content" source="media/attach-gpu-to-linux-vm/nvidia-smi.png" alt-text="snímek obrazovky, který zobrazuje výstup z příkazu NVIDIA-SMI.":::
@@ -418,7 +418,7 @@ Pro přípravu této konfigurace si přečtěte nejčastější dotazy, které n
     file-loop=1
     ```
 
-12. Přejděte na Azure Portal. Vyberte **IoT Hub zřízené**, klikněte na **automatickou správu zařízení**a pak klikněte na **IoT Edge**:
+12. Přejděte na Azure Portal. Vyberte **IoT Hub zřízené** , klikněte na **automatickou správu zařízení** a pak klikněte na **IoT Edge** :
 
     :::image type="content" source="media/attach-gpu-to-linux-vm/iot-edge.png" alt-text="Snímek obrazovky automatické správy zařízení":::
 
@@ -476,7 +476,7 @@ Pro přípravu této konfigurace si přečtěte nejčastější dotazy, které n
     }
     ```
 
-18. Klikněte na tlačítko **zkontrolovat a vytvořit**a na další stránce klikněte na **vytvořit**. Nyní byste měli vidět tři níže uvedené moduly pro zařízení IoT Edge v Azure Portal:
+18. Klikněte na tlačítko **zkontrolovat a vytvořit** a na další stránce klikněte na **vytvořit**. Nyní byste měli vidět tři níže uvedené moduly pro zařízení IoT Edge v Azure Portal:
 
     :::image type="content" source="media/attach-gpu-to-linux-vm/edge-hub-connections.png" alt-text="Snímek obrazovky moduly a IoT Edge připojení centra":::
 
@@ -519,7 +519,7 @@ Pro přípravu této konfigurace si přečtěte nejčastější dotazy, které n
 
 21. Pomocí příkazu **ifconfig** potvrďte adresu TCP/IP pro virtuální počítač s Ubuntu a vyhledejte adresu TCP/IP vedle rozhraní **eth0** .
 
-22. Nainstalujte do pracovní stanice VLC Player. V VLC Playeru klikněte na **multimédia – > otevřít síťový Stream**a zadejte adresu v tomto formátu:
+22. Nainstalujte do pracovní stanice VLC Player. V VLC Playeru klikněte na **multimédia – > otevřít síťový Stream** a zadejte adresu v tomto formátu:
 
     rtsp://ipaddress:8554/ds-test
 

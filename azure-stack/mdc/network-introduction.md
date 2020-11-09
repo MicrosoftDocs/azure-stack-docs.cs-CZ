@@ -7,12 +7,12 @@ ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 12/31/2019
 ms.lastreviewed: 12/31/2019
-ms.openlocfilehash: 511ea66e0f70041ffc237463e33fccdbf390360d
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 4aec8b6dde194590d0bc5cb00f42869462fc365e
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92182997"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383543"
 ---
 # <a name="modular-data-center-mdc-network-introduction"></a>Úvod do modulárního datového centra (MDC)
 
@@ -57,7 +57,7 @@ Následující tabulka uvádí logické sítě a přidružené rozsahy podsítí
 | Veřejná virtuální IP adresa (VIP) | MDC používá celkem 31 adres z této sítě. Osm veřejných IP adres se používá pro malou sadu MDC služeb a zbývající jsou používány virtuálními počítači klienta. Pokud plánujete použít App Service a poskytovatele prostředků SQL, použijí se 7 dalších adres. Zbývajících 15 IP adres se rezervuje pro budoucí služby Azure. | /26 (62 hostitelů)-/22 (1022 hostitelů) <br><Br>Doporučené =/24 (254 hostitelů) |
 | Přepnout infrastrukturu | IP adresy Point-to-Point pro účely směrování, rozhraní pro správu vyhrazených přepínačů a adresy zpětné smyčky přiřazené přepínači. | za 26 |
 | Infrastruktura | Slouží k komunikaci s interními komponentami MDC. | za 24 |
-| Soukromé | Používá se pro síť úložiště, privátní virtuální IP adresy, kontejnery infrastruktury a další interní funkce. | /20 |
+| Privátní | Používá se pro síť úložiště, privátní virtuální IP adresy, kontejnery infrastruktury a další interní funkce. | /20 |
 | Řadič pro správu základní desky (BMC) | Slouží ke komunikaci s řadiči pro správu základní desky na fyzických hostitelích. | za 26 |
 | Isilon | Slouží ke komunikaci s úložištěm Isilon. | 1x/25 mandát 1x/25 BMC (Správa) |
 
@@ -79,9 +79,9 @@ HLH také hostuje virtuální počítač nasazení (DVM). DVM se používá běh
 
 Síť/20 (IP adresy hostitele 4096) je privátní pro MDC oblast. Nerozšíří se za zařízení přepínače ohraničení oblasti MDC. Tato síť je rozdělená do několika podsítí, například:
 
-- **Síť úložiště**: a/25 (128 IP adres), která se používá k podpoře použití prostorových přímých a přenosů úložiště protokolu SMB (Server Message Block) a migrace za provozu virtuálních počítačů.
+- **Síť úložiště** : a/25 (128 IP adres), která se používá k podpoře použití prostorových přímých a přenosů úložiště protokolu SMB (Server Message Block) a migrace za provozu virtuálních počítačů.
 - Interní virtuální IP síť: A/25 síť vyhrazenou pouze pro interní VIP pro nástroj pro vyrovnávání zatížení softwaru.
-- **Síť kontejneru**: a/23 (512 IP adres), které jsou vyhrazené jenom pro interní přenosy mezi kontejnery, na kterých běží služby infrastruktury
+- **Síť kontejneru** : a/23 (512 IP adres), které jsou vyhrazené jenom pro interní přenosy mezi kontejnery, na kterých běží služby infrastruktury
 
 Změnila se velikost privátní sítě/20 (4096 IP adres) privátního ADRESního prostoru. Tato síť je soukromá pro MDC systém. Netrasuje se nad rámec hraničních zařízení systému MDC a je možné ho znovu použít v několika MDC systémech. I když je síť soukromá pro MDC, nesmí se překrývat s ostatními sítěmi v datacentru. Pokyny k privátnímu adresnímu prostoru IP adres vám doporučujeme postupovat podle dokumentu RFC 1918.
 
@@ -109,7 +109,7 @@ K dispozici jsou dvě/25 sítí, jeden, který se nachází na přepínači pro 
 
 ## <a name="dns-design-overview"></a>Přehled návrhu DNS
 
-Pokud chcete získat přístup k koncovým bodům MDC (*portál*, *adminportal*, *Management*, *adminmanagement*) mimo MDC, musíte integrovat služby DNS MDC se servery DNS, které hostují zóny DNS, které chcete používat v MDC.
+Pokud chcete získat přístup k koncovým bodům MDC ( *portál* , *adminportal* , *Management* , *adminmanagement* ) mimo MDC, musíte integrovat služby DNS MDC se servery DNS, které hostují zóny DNS, které chcete používat v MDC.
 
 ### <a name="mdc-dns-namespace"></a>Obor názvů DNS MDC
 
@@ -120,15 +120,15 @@ Když nasadíte MDC, budete muset poskytnout nějaké důležité informace týk
 | Oblast | Zeměpisné umístění vašeho nasazení MDC. | *Atlantiku* |
 | Název externí domény | Název zóny, kterou chcete použít pro nasazení MDC. | *cloud.fabrikam.com* |
 | Interní název domény | Název interní zóny, která se používá pro služby infrastruktury v MDC. Je to integrovaná a soukromá adresářová služba (není dostupná z vnějšku nasazení MDC). | *azurestack. Local* |
-| Servery DNS pro přeposílání | Servery DNS, které se používají k přeposílání dotazů DNS, zón DNS a záznamů hostovaných mimo MDC, a to buď na podnikovém intranetu nebo na veřejném Internetu. Po nasazení můžete hodnotu služby DNS resílat upravit pomocí rutiny **set-AzSDnsForwarder**   . | |
-| Předpona názvů (volitelné) | Předpona názvů, kterou chcete, aby názvy počítačů v instancích rolí infrastruktury MDC měly. Pokud není zadaný, použije se výchozí hodnota *AZS*. | *azs* |
+| Servery DNS pro přeposílání | Servery DNS, které se používají k přeposílání dotazů DNS, zón DNS a záznamů hostovaných mimo MDC, a to buď na podnikovém intranetu nebo na veřejném Internetu. Po nasazení můžete hodnotu služby DNS resílat upravit pomocí rutiny **set-AzSDnsForwarder** . | |
+| Předpona názvů (volitelné) | Předpona názvů, kterou chcete, aby názvy počítačů v instancích rolí infrastruktury MDC měly. Pokud není zadaný, použije se výchozí hodnota *AZS*. | *azs* |
 
 Plně kvalifikovaný název domény (FQDN) vašeho nasazení MDC a koncových bodů je kombinací parametru region a parametru názvu externí domény. Pomocí hodnot z příkladů v předchozí tabulce bude plně kvalifikovaný název domény pro toto nasazení MDC: *East.Cloud.fabrikam.com* .
 
 Například příklady některých koncových bodů tohoto nasazení by vypadaly jako následující adresy URL:
 
-- https://portal.east.cloud.fabrikam.com
-- https://adminportal.east.cloud.fabrikam.com
+- `https://portal.east.cloud.fabrikam.com`
+- `https://adminportal.east.cloud.fabrikam.com`
 
 Pokud chcete tento příklad oboru názvů DNS pro nasazení MDC použít, vyžadují se tyto podmínky:
 
@@ -142,9 +142,9 @@ Chcete-li přeložit názvy DNS pro koncové body a instance MDC mimo MDC, je nu
 
 #### <a name="dns-name-labels"></a>Popisky názvů DNS
 
-MDC podporuje přidání popisku názvu DNS k veřejné IP adrese, aby bylo možné překlad názvů pro veřejné IP adresy. Popisky DNS představují pohodlný způsob, jak uživatelům oslovit aplikace a služby hostované v MDC podle názvu. Popisek názvu DNS používá mírně odlišný obor názvů než koncové body infrastruktury. V následujícím ukázkovém oboru názvů bude obor názvů pro popisky názvů DNS: * \* . East.cloudapp.Cloud.fabrikam.com*. 
+MDC podporuje přidání popisku názvu DNS k veřejné IP adrese, aby bylo možné překlad názvů pro veřejné IP adresy. Popisky DNS představují pohodlný způsob, jak uživatelům oslovit aplikace a služby hostované v MDC podle názvu. Popisek názvu DNS používá mírně odlišný obor názvů než koncové body infrastruktury. V následujícím ukázkovém oboru názvů bude obor názvů pro popisky názvů DNS: *\* . East.cloudapp.Cloud.fabrikam.com*. 
 
-Pokud tenant určí pole **MyApp**   v poli popisek názvu DNS prostředku veřejné IP adresy, vytvoří záznam a pro MyApp v zóně **East.cloudapp.Cloud.fabrikam.com**   na externím serveru DNS MDC. Výsledný plně kvalifikovaný název domény by byl: *MyApp.East.cloudapp.Cloud.fabrikam.com*. 
+Pokud tenant určí pole **MyApp** v poli popisek názvu DNS prostředku veřejné IP adresy, vytvoří záznam a pro MyApp v zóně **East.cloudapp.Cloud.fabrikam.com** na externím serveru DNS MDC. Výsledný plně kvalifikovaný název domény by byl: *MyApp.East.cloudapp.Cloud.fabrikam.com*. 
 
 Pokud chcete tuto funkci využít a použít tento obor názvů, musíte integrovat servery DNS. Včetně serverů, které jsou hostiteli externí zóny DNS pro MDC, a serverů DNS, které hostují nadřazenou zónu, kterou chcete použít taky. Tento obor názvů je jiný než ten, který se používá pro koncové body služby MDC, takže musíte vytvořit další pravidlo delegování nebo podmíněného předávání.
 
@@ -162,7 +162,7 @@ MDC zahrnuje autoritativní i rekurzivní servery DNS. Rekurzivní servery se po
 
 ### <a name="resolving-external-dns-names-from-mdc"></a>Překlad externích názvů DNS z MDC
 
-Chcete-li přeložit názvy DNS pro koncové body mimo MDC (například: www.bing.com), je nutné poskytnout servery DNS pro MDC k přeposílání požadavků DNS, pro které není MDC autoritativní. V listu nasazení (v poli pro přeposílání DNS) se vyžadují servery DNS, na které MDC požadavky na přeposílání. Pro odolnost proti chybám zadejte v tomto poli aspoň dva servery. Bez těchto hodnot se nasazení MDC nezdařilo. Po nasazení můžete hodnoty DNS pro přeposílání upravit pomocí rutiny **set-AzSDnsForwarder** .
+Chcete-li přeložit názvy DNS pro koncové body mimo MDC (například: www.bing.com), je nutné poskytnout servery DNS pro MDC k přeposílání požadavků DNS, pro které není MDC autoritativní. V listu nasazení (v poli pro přeposílání DNS) se vyžadují servery DNS, na které MDC požadavky na přeposílání. Pro odolnost proti chybám zadejte v tomto poli aspoň dva servery. Bez těchto hodnot se nasazení MDC nezdařilo. Po nasazení můžete hodnoty DNS pro přeposílání upravit pomocí rutiny **set-AzSDnsForwarder** .
 
 ## <a name="firewall-design-overview"></a>Přehled návrhu brány firewall
 
@@ -174,7 +174,7 @@ Koncové body pro Azure Resource Manager (správce), portál pro správu a Key V
 
 V případě podnikových organizací může být externí síť stávající podnikovou sítí. V tomto scénáři musíte publikovat koncové body pro provozování MDC z podnikové sítě.
 
-### <a name="network-address-translation"></a>Překlad síťových adres (NAT)
+### <a name="network-address-translation"></a>Překlad síťových adres
 
 Překlad síťových adres (NAT) je doporučená metoda, která umožňuje virtuálnímu počítači pro nasazení (DVM) získat přístup k externím prostředkům během nasazování. Také pro virtuální počítače ERCS (Emergency Recovery Console) nebo privilegovaného koncového bodu (PEP) během registrace a odstraňování potíží.
 
@@ -202,9 +202,9 @@ Veřejné IP adresy určené pro veřejný fond VIP z externí sítě v době na
 
 V podnikovém intranetu nebo hraničním nasazení je MDC nasazený v bráně firewall s více zónami nebo mezi hraniční branou firewall a interní bránou firewall podnikové sítě. Provoz se pak distribuuje mezi zabezpečenou, hraniční sítí (nebo DMZ) a nezabezpečenými zónami, jak je popsáno níže:
 
-- **Zabezpečená zóna**: interní síť, která používá interní nebo firemní IP adresy, které se používají. Zabezpečenou síť lze rozdělit. Může mít internetový odchozí přístup prostřednictvím NAT brány firewall. Obvykle je k dispozici ve vašem datovém centru prostřednictvím interní sítě. Všechny sítě MDC by se měly nacházet v zabezpečené zóně, s výjimkou veřejného fondu VIP externí sítě.
-- **Hraniční zóna**: hraniční síť je obvykle nasazená na externí nebo internetové aplikace, jako jsou webové servery. Bránu firewall obvykle monitoruje, aby nedocházelo k útokům, jako je DDoS a vniknutí (hacker), a zároveň přitom povoluje zadaný příchozí provoz z Internetu. V zóně DMZ by se měl nacházet jenom MDC fond virtuálních IP adres externí sítě. 
-- **Nezabezpečená zóna**: externí síť, Internet. Nasazení MDC v nezabezpečené **zóně se** nedoporučuje.
+- **Zabezpečená zóna** : interní síť, která používá interní nebo firemní IP adresy, které se používají. Zabezpečenou síť lze rozdělit. Může mít internetový odchozí přístup prostřednictvím NAT brány firewall. Obvykle je k dispozici ve vašem datovém centru prostřednictvím interní sítě. Všechny sítě MDC by se měly nacházet v zabezpečené zóně, s výjimkou veřejného fondu VIP externí sítě.
+- **Hraniční zóna** : hraniční síť je obvykle nasazená na externí nebo internetové aplikace, jako jsou webové servery. Bránu firewall obvykle monitoruje, aby nedocházelo k útokům, jako je DDoS a vniknutí (hacker), a zároveň přitom povoluje zadaný příchozí provoz z Internetu. V zóně DMZ by se měl nacházet jenom MDC fond virtuálních IP adres externí sítě. 
+- **Nezabezpečená zóna** : externí síť, Internet. Nasazení MDC v nezabezpečené **zóně se** nedoporučuje.
 
 ![Scénář brány firewall hraniční sítě](media/network-introduction/perimeter-network-firewall-scenario-50.png) 
 
@@ -222,7 +222,7 @@ Každá virtuální síť může mít dvě brány virtuální sítě, ale každ�
 
 Než vytvoříte a nakonfigurujete brány VPN pro MDC, přečtěte si téma požadavky na MDC Networking. Zjistíte, jak se konfigurace pro MDC liší od Azure.
 
-V Azure se propustnost šířky pásma pro SKLADOVOU položku brány VPN, kterou zvolíte, musí rozdělit mezi všechna připojení, která jsou připojená k bráně. V MDC se ale hodnota šířky pásma pro SKU brány VPN použije u každého prostředku připojení, který je připojený k bráně. Například: 
+V Azure se propustnost šířky pásma pro SKLADOVOU položku brány VPN, kterou zvolíte, musí rozdělit mezi všechna připojení, která jsou připojená k bráně. V MDC se ale hodnota šířky pásma pro SKU brány VPN použije u každého prostředku připojení, který je připojený k bráně. Zde je příklad: 
 
 - V Azure může základní propustnost služby VPN Gateway vyhovět přibližně 100 MB/s agregované propustnosti. Pokud vytvoříte dvě připojení k této bráně VPN a jedno připojení používá 50 MB/s šířky pásma, pak je k dispozici 50 MB/s pro druhé připojení.
 
@@ -235,8 +235,8 @@ Když vytvoříte bránu virtuální sítě pro konfiguraci brány sítě VPN, m
 >[!IMPORTANT]
 > V současné době MDC podporuje pouze typ sítě VPN založené na trasách. Pokud vaše zařízení podporuje jenom sítě VPN založené na zásadách, pak připojení k těmto zařízením z MDC nejsou podporovaná. V tuto chvíli nepodporuje MDC používání selektorů přenosu na základě zásad pro brány založené na trasách, protože vlastní konfigurace zásad IPSec/IKE se nepodporují. 
 
-- **PolicyBased**: sítě VPN založené na zásadách šifrují a směrují pakety prostřednictvím tunelů IPsec v závislosti na zásadách IPSec. Zásady se konfigurují s kombinacemi předpon adres mezi vaší místní sítí a virtuální sítí MDC. Zásada nebo selektor provozu je obvykle seznam přístupu v konfiguraci zařízení VPN. **PolicyBased**   podporuje se v Azure, ale ne v MDC. 
-- **RouteBased**: sítě VPN založené na směrování používají trasy, které jsou nakonfigurované v tabulce předávání IP nebo směrovací tabulky. Směruje pakety přímé na odpovídající rozhraní tunelového propojení. Rozhraní tunelového propojení potom šifrují nebo dešifrují pakety směřující do tunelových propojení nebo z nich. Zásady nebo selektor provozu pro **RouteBased**   sítě VPN RouteBased jsou nakonfigurovány jako libovolné (nebo používají zástupné karty). Ve výchozím nastavení se nedají změnit. Hodnota pro typ VPN **RouteBased**   je **RouteBased**.
+- **PolicyBased** : sítě VPN založené na zásadách šifrují a směrují pakety prostřednictvím tunelů IPsec v závislosti na zásadách IPSec. Zásady se konfigurují s kombinacemi předpon adres mezi vaší místní sítí a virtuální sítí MDC. Zásada nebo selektor provozu je obvykle seznam přístupu v konfiguraci zařízení VPN. **PolicyBased** se podporuje v Azure, ale ne v MDC. 
+- **RouteBased** : sítě VPN založené na směrování používají trasy, které jsou nakonfigurované v tabulce předávání IP nebo směrovací tabulky. Směruje pakety přímé na odpovídající rozhraní tunelového propojení. Rozhraní tunelového propojení potom šifrují nebo dešifrují pakety směřující do tunelových propojení nebo z nich. Zásady nebo selektor provozu pro sítě VPN **RouteBased** jsou nakonfigurovány jako libovolné (nebo používají zástupné karty). Ve výchozím nastavení se nedají změnit. Hodnota pro typ VPN **RouteBased** je **RouteBased**.
 
 ### <a name="configuring-a-vpn-gateway"></a>Konfigurace služby VPN Gateway
 
@@ -263,7 +263,7 @@ Diagramy a popisy v následujících částech vám pomůžou vybrat topologii p
 
 #### <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Síť typu Site-to-site a Multi-Site (tunel VPN IPsec/IKE)
 
-##### <a name="site-to-site"></a>Site-to-Site
+##### <a name="site-to-site"></a>Připojení typu site-to-site
 
 Připojení brány VPN typu Site-to-Site (S2S) je připojení přes tunelové připojení VPN pomocí protokolu IPsec/IKE (IKEv2). Tento typ připojení vyžaduje zařízení VPN, které je umístěné místně a má přiřazenou veřejnou IP adresu. Toto zařízení se nemůže nacházet za překladem adres (NAT). Připojení S2S můžete použít pro konfigurace mezi různými místy a pro hybridní konfigurace.
 

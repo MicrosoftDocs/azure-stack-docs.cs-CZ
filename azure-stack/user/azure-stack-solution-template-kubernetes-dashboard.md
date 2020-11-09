@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 03dcd58562aaa0bc65bbc545e19c9e3a24c52a4b
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 0497cf3b457276df9fc6c4938e7a1c1370eaa4a3
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920487"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383645"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>Přístup k řídicímu panelu Kubernetes v centru Azure Stack 
 
@@ -29,7 +29,7 @@ Kubernetes zahrnuje webový řídicí panel, který můžete použít pro zákla
 
 * Klient SSH
 
-    K zabezpečení připojení k hlavnímu uzlu v clusteru budete potřebovat klienta SSH. Pokud používáte systém Windows, můžete použít výstup do [výstupu](/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm). Budete potřebovat privátní klíč, který se použije při nasazení clusteru Kubernetes.
+    K zabezpečení připojení k hlavnímu uzlu v clusteru budete potřebovat klienta SSH. Pokud používáte systém Windows, můžete použít výstup do [výstupu](https://www.ssh.com/ssh/putty/download). Budete potřebovat privátní klíč, který se použije při nasazení clusteru Kubernetes.
 
 * FTP (PSCP)
 
@@ -52,7 +52,7 @@ Adresu URL řídicího panelu můžete načíst z hlavního uzlu v clusteru.
 
 2. Otevřete hlavní uzel na portálu. Zkopírujte **veřejnou IP** adresu. Kliknutím na **připojit** získáte své uživatelské jméno v poli  **přihlášení pomocí místního účtu virtuálního počítače** . Toto je stejné uživatelské jméno, které jste nastavili při vytváření clusteru. Místo soukromé IP adresy uvedené v okně připojit použijte veřejnou IP adresu.
 
-3.  Otevřete klienta SSH pro připojení k hlavnímu serveru. Pokud pracujete v systému Windows, můžete vytvořit připojení pomocí [výstupu](/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm) . Použijete veřejnou IP adresu pro hlavní uzel, uživatelské jméno a přidáte privátní klíč, který jste použili při vytváření clusteru.
+3.  Otevřete klienta SSH pro připojení k hlavnímu serveru. Pokud pracujete v systému Windows, můžete vytvořit připojení pomocí [výstupu](https://www.ssh.com/ssh/putty/download) . Použijete veřejnou IP adresu pro hlavní uzel, uživatelské jméno a přidáte privátní klíč, který jste použili při vytváření clusteru.
 
 4.  Po připojení terminálu zadejte `kubectl` a otevřete klienta příkazového řádku Kubernetes.
 
