@@ -6,19 +6,68 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/20/2020
-ms.openlocfilehash: 6d480f1229fb0c38cb3241c4a9de5bc53eadf87c
-ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
+ms.date: 11/10/2020
+ms.openlocfilehash: eaa9417abd41828495d3cd685ecc1f56c42c92e1
+ms.sourcegitcommit: 96bc36a203954622be411fdb038d601e49f97d4e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92254008"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441170"
 ---
 # <a name="release-notes-for-azure-stack-hci-public-preview"></a>Poznámky k verzi pro Azure Stack HCI Public Preview
 
 > Platí pro: Azure Stack HCI, verze 20H2
 
 Tento článek popisuje obsah rozhraní Azure Stack HCI Public Preview aktualizace balíčků.
+
+## <a name="november-10-2020-security-update-kb4586811"></a>10. listopadu 2020 aktualizace zabezpečení (KB4586811)
+
+Tato aktualizace zahrnuje vylepšení a opravy pro nejnovější verzi Azure Stack HCI.
+
+### <a name="improvements-and-fixes"></a>Vylepšení a opravy
+Tato aktualizace obsahuje různá vylepšení zabezpečení vnitřních funkcí operačního systému. Pro tuto verzi nebyly zdokumentovány žádné další problémy.
+
+Další informace o vyřešených chybách zabezpečení najdete v [příručce k aktualizaci zabezpečení](https://portal.msrc.microsoft.com/security-guidance).
+
+### <a name="known-issues-in-this-update"></a>Známé problémy v této aktualizaci
+Společnost Microsoft v současné době neví o problémech s touto aktualizací.
+
+### <a name="how-to-get-this-update"></a>Jak získat tuto aktualizaci
+Aktualizace zabezpečení (KB4586811) 10. listopadu 2020 pro [Azure Stack HCI Preview](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) se doručuje prostřednictvím web Windows Update. Pokud ho chcete nainstalovat do clusteru Azure Stack HCI, přečtěte si téma [aktualizace Azure Stackch clusterů HCI](manage/update-cluster.md).
+
+### <a name="file-information"></a>Informace o souboru
+Seznam souborů, které jsou k dispozici v této aktualizaci (OS Build 17784,1345), si můžete stáhnout z [informací o souboru kumulativní aktualizace 4586811](https://download.microsoft.com/download/8/f/2/8f2ce4bb-e113-4abc-b3ff-f0f4c4c71403/4586811.csv).
+
+   > [!NOTE]
+   > Některé soubory mají ve sloupci "verze souboru CSV" hodnotu "nelze použít". To může vést k falešně pozitivním nebo falešně negativním hodnotám při použití nástrojů pro detekci kontroly třetích stran k ověření sestavení.
+
+## <a name="november-10-2020-servicing-stack-update-kb4590242"></a>10. listopadu 2020 aktualizace servisního zásobníku (KB4590242)
+
+Tato aktualizace obsahuje vylepšení kvality pro nejnovější verzi Azure Stack HCL.
+
+### <a name="improvements-and-fixes"></a>Vylepšení a opravy
+Tato aktualizace přináší vylepšení kvality do zásobníku pro údržbu, což je součást, která instaluje aktualizace. Aktualizace cestou nadřazené (Servicing) zajistí, že máte robustní a spolehlivý zásobník pro údržbu, aby vaše zařízení mohla přijímat a instalovat aktualizace od Microsoftu.
+
+### <a name="how-to-get-this-update"></a>Jak získat tuto aktualizaci
+Aktualizace KB4590242 (Údržba Stack 2020) pro [Azure Stack HCI Preview](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) se doručuje prostřednictvím web Windows Update. Pokud ho chcete nainstalovat do clusteru Azure Stack HCI, přečtěte si téma [aktualizace Azure Stackch clusterů HCI](manage/update-cluster.md).
+
+### <a name="restart-information"></a>Informace o restartování
+Po instalaci této aktualizace nemusíte restartovat počítač.
+
+### <a name="removal-information"></a>Informace o odebrání
+Aktualizace zásobníku pro obsluhu (SSUs) provádějí změny, jak jsou aktualizace nainstalované a ze zařízení je nelze odinstalovat.
+
+### <a name="file-information"></a>Informace o souboru
+Seznam souborů, které jsou k dispozici v této aktualizaci (OS Build 17784,1342), si můžete stáhnout z [informací o souboru kumulativní aktualizace 4590242](https://download.microsoft.com/download/b/b/4/bb4fb4f5-c0ba-4e55-bada-d72310857982/4590242.csv).
+
+### <a name="references"></a>Reference
+
+Informace o SSUs najdete v následujících článcích:
+
+- [Aktualizace zásobníku údržby](/windows/deployment/update/servicing-stack-updates)
+- [Aktualizace zásobníku pro obsluhu (cestou nadřazené): nejčastější dotazy](https://support.microsoft.com/help/4535697)
+
+Seznamte se s [terminologií](https://support.microsoft.com/help/824684) , kterou Microsoft používá k popisu aktualizací softwaru.
 
 ## <a name="october-20-2020-preview-update-kb4580388"></a>20. října 2020, aktualizace Preview (KB4580388)
 

@@ -3,15 +3,15 @@ title: Přehled roztaženého clusteru
 description: Přečtěte si o roztažené clustery
 author: v-dasis
 ms.topic: how-to
-ms.date: 07/21/2020
+ms.date: 11/05/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 611f76491f6edd5cb8700a13e79c0769c02c4fad
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.openlocfilehash: e9651111e82b3449823ec7d13135154e7f0a447e
+ms.sourcegitcommit: 96bc36a203954622be411fdb038d601e49f97d4e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064748"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441136"
 ---
 # <a name="stretched-clusters-overview"></a>Přehled roztaženého clusteru
 
@@ -30,6 +30,9 @@ Jediným pojmem je *aktivní* lokalita, která má prostředky a poskytuje role 
 
 Lokality můžou být ve dvou různých stavech, v různých městech, v různých podlažích nebo různých místnostech. Roztažené clustery, které používají dvě lokality, poskytují zotavení po havárii a kontinuitu podnikového prostředí, protože lokalita utrpěla výpadek nebo selhání.
 
+Pokud si chcete přehrát video v roztaženém clusteringu s Azure Stackm HCI, zabrat několik minut:
+> [!VIDEO https://www.youtube.com/embed/rYnZL1wMiqU]
+
 ## <a name="active-passive-stretched-cluster"></a>Aktivní – pasivní roztažený cluster
 
 Následující diagram znázorňuje web 1 jako aktivní lokalitu s replikací do lokality 2, což je jednosměrná replikace.
@@ -40,7 +43,7 @@ Následující diagram znázorňuje web 1 jako aktivní lokalitu s replikací do
 
 Následující diagram ukazuje lokalitu 1 i Web 2 jako aktivní lokality a obousměrnou replikaci na druhou lokalitu.
 
-:::image type="content" source="media/stretched-cluster/active-active-stretched-cluster.png" alt-text="Scénář aktivního nebo pasivního roztaženého clusteru" lightbox="media/stretched-cluster/active-active-stretched-cluster.png":::
+:::image type="content" source="media/stretched-cluster/active-active-stretched-cluster.png" alt-text="Scénář aktivního/aktivního roztaženého clusteru" lightbox="media/stretched-cluster/active-active-stretched-cluster.png":::
 
 ## <a name="next-steps"></a>Další kroky
 
