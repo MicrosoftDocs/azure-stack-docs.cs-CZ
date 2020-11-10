@@ -3,16 +3,16 @@ title: Rozhraní API pro využití prostředků poskytovatele centra Azure Stack
 description: Referenční informace k rozhraní API pro využití prostředků, které načítá informace o využití centra Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 0e167bdfeb0685b8b4612e887b904d010ffd666b
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: 2d8b1eddb295a07a120858e1fa5845b51858ab9a
+ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250771"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94414023"
 ---
 # <a name="provider-resource-usage-api"></a>Rozhraní API využití prostředků poskytovatele
 
@@ -26,17 +26,17 @@ Pojem *zprostředkovatel* se vztahuje na správce služeb a na všechny delegova
 
 Požadavek získá podrobnosti o spotřebě pro požadovaná předplatná a pro požadovaný časový rámec. Tělo žádosti není k dispozici.
 
-Toto rozhraní API pro použití je poskytovatele API, takže volajícímu musí být v předplatném poskytovatele přiřazená role **vlastník**, **Přispěvatel**nebo **Čtenář** .
+Toto rozhraní API pro použití je poskytovatele API, takže volajícímu musí být v předplatném poskytovatele přiřazená role **vlastník** , **Přispěvatel** nebo **Čtenář** .
 
 | Metoda | Identifikátor URI žádosti |
 | --- | --- |
 | GET |`https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&subscriberId={sub1.1}&api-version=2015-06-01-preview&continuationToken={token-value}` |
 
-### <a name="arguments"></a>Argumenty
+### <a name="arguments"></a>Arguments
 
 | Argument | Popis |
 | --- | --- |
-| `armendpoint` |Azure Resource Manager koncový bod vašeho prostředí centra Azure Stack. Azure Stack konvence centra je název koncového bodu Azure Resource Manager ve formátu `https://adminmanagement.{domain-name}` . Například pro Azure Stack Development Kit (ASDK), pokud je název domény *Local. azurestack. external*, pak je koncový bod správce prostředků `https://adminmanagement.local.azurestack.external` . |
+| `armendpoint` |Azure Resource Manager koncový bod vašeho prostředí centra Azure Stack. Azure Stack konvence centra je název koncového bodu Azure Resource Manager ve formátu `https://adminmanagement.{domain-name}` . Například pro Azure Stack Development Kit (ASDK), pokud je název domény *Local. azurestack. external* , pak je koncový bod správce prostředků `https://adminmanagement.local.azurestack.external` . |
 | `subId` |ID předplatného uživatele, který provádí volání. |
 | `reportedStartTime` |Počáteční čas dotazu. Hodnota pro `DateTime` by měla být v koordinovaném světovým čase (UTC) a na začátku hodiny, například 13:00. U denní agregace nastavte tuto hodnotu na půlnoc UTC. Formát je řídicí. ISO 8601; Například, v `2015-06-16T18%3a53%3a11%2b00%3a00Z` případě, že dvojtečka je uvozena na `%3a` a znaménkem plus je uvozena tak, aby byla přičtena k `%2b` identifikátoru URI. |
 | `reportedEndTime` |Koncový čas dotazu. U tohoto argumentu platí i omezení, která platí pro `reportedStartTime` . Hodnota pro `reportedEndTime` nemůže být v budoucnosti nebo aktuální datum. Pokud je, výsledek je nastaven na "zpracování není dokončeno". |

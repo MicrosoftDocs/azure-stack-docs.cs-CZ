@@ -3,16 +3,16 @@ title: Umožněte vašemu poskytovateli cloudového řešení spravovat předpla
 description: Naučte se, jak umožněte poskytovateli Cloud Solution Provider (CSP) spravovat předplatné centra Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/20/2019
-ms.openlocfilehash: fd0caa7e841b960f4bdab6d5712fd3563710ef20
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: d54b73595b3f8f79cfa606a1fb41ad945f40157d
+ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87251043"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94414108"
 ---
 # <a name="let-your-cloud-solution-provider-manage-your-azure-stack-hub-subscription"></a>Umožněte vašemu poskytovateli cloudového řešení spravovat předplatné centra Azure Stack.
 
@@ -40,7 +40,7 @@ Přidejte zprostředkovatele CSP jako **vlastníka** k vašemu předplatnému.
 
 1. Přidejte svého CSP jako uživatele typu Host do adresáře tenanta. Informace o přidání uživatele najdete v tématu [Přidání nových uživatelů do Azure Active Directory](/azure/active-directory/add-users-azure-active-directory).
 
-2. Přidejte roli **vlastníka** k hostovanému uživateli CSP. Informace o přidání uživatele CSP k předplatnému najdete v tématu [použití Access Control na základě rolí ke správě přístupu k prostředkům předplatného Azure](/azure/role-based-access-control/role-assignments-portal). Zprostředkovatel CSP vytvoří pro vás místní předplatné centra Azure Stack. Jste připraveni začít používat centrum Azure Stack.
+2. Přidejte roli **vlastníka** k hostovanému uživateli CSP. Informace o přidání uživatele CSP k předplatnému najdete v tématu [použití Role-Based Access Control ke správě přístupu k prostředkům předplatného Azure](/azure/role-based-access-control/role-assignments-portal). Zprostředkovatel CSP vytvoří pro vás místní předplatné centra Azure Stack. Jste připraveni začít používat centrum Azure Stack.
 3. Váš CSP by měl vytvořit prostředek ve vašem předplatném, aby ověřil, že může spravovat vaše prostředky.
 
 ## <a name="next-steps"></a>Další kroky

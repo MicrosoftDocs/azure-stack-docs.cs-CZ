@@ -3,16 +3,16 @@ title: Co je nového v tržišti Azure Stack hub
 description: Podívejte se, co je nového v tržišti Azure Stack hub, včetně nových, zastaralých a aktualizovaných položek Marketplace.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/06/2020
+ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: f4d719e133b2e8246606e9ba1d8efc11b187833a
-ms.sourcegitcommit: 08ef9545316798c9a21c2f9bc1da8c15cb648982
+ms.openlocfilehash: 50c5bb306585709c9fdd8aeadc126709e4967e72
+ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94360152"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94414142"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Změny v tržišti centra Azure Stack
 
@@ -169,18 +169,18 @@ V tomto článku najdete seznam nedávných přidání, aktualizací, změn a od
 - 11/05/2020: SQL Server 2017 standard v systému Windows Server 2016 – zajistěte si vlastní licenci verze 14.0.20201015
 - 11/05/2020: SQL Server 2017 Standard na Windows serveru 2016 – průběžné platby – 14.0.20201015 verze
 - 11/05/2020: SQL Server 2017 Enterprise Windows Server 2016 – zajistěte si vlastní 14.0.20201015 verze licence.
-- 11/05/2020: SQL Server 2017 Enterprise Windows Server 2016 – zajistěte si vlastní 14.0.20201015 verze licence.
+- 11/05/2020: SQL Server 2017 Enterprise Windows Server 2016 – průběžné platby – 14.0.20201015 verze
 - 11/05/2020: SQL Server 2016 SP2 Standard na Windows serveru 2016 – Přineste si vlastní licenci 13.2.20201015
-- 11/05/2020: SQL Server 2016 SP2 Standard na Windows serveru 2016 – Přineste si vlastní licenci 13.2.20201015
-- 11/05/2020: SQL Server 2016 SP2 Enterprise v systému Windows Server 2016 – Přineste si vlastní licenci – 13.2.20201015 verze
+- 11/05/2020: SQL Server 2016 SP2 Standard na Windows serveru 2016 – průběžné platby – verze 13.2.20201015
+- 11/05/2020: SQL Server 2016 SP2 Enterprise na Windows serveru 2016 – průběžné platby – verze 13.2.20201015
 - 11/05/2020: licence na bezplatnou SQL Server: SQL Server 2017 Express na Windows serveru 2016 – zajistěte si vlastní 14.0.20201015 verze licence.
-- 11/05/2020: licence na bezplatnou SQL Server: SQL Server 2017 Express na Windows serveru 2016 – zajistěte si vlastní 14.0.20201015 verze licence.
+- 11/05/2020: licence na bezplatnou SQL Server: SQL Server 2017 Express na Windows serveru 2016 – průběžné platby – 14.0.20201015 verze
 - 11/05/2020: licence na bezplatnou SQL Server: SQL Server 2017 vývojář na Windows serveru 2016 – zajistěte si vlastní 14.0.20201015 verze licence.
-- 11/05/2020: licence na bezplatnou SQL Server: SQL Server 2017 vývojář na Windows serveru 2016 – zajistěte si vlastní 14.0.20201015 verze licence.
+- 11/05/2020: licence na bezplatnou SQL Server: SQL Server 2017 vývojář na Windows serveru 2016 – průběžné platby – 14.0.20201015 verze
 - 11/05/2020: licence Free: SQL Server 2016 SP2 Express na Windows serveru 2016 – Přineste si vlastní licenci na verzi 13.2.20201015
-- 11/05/2020: {WS-PAYG} licence k bezplatné verzi: SQL Server 2016 SP2 Express na Windows serveru 2016 – Přineste si vlastní licenci – verze 13.2.20201015
+- 11/05/2020: licence Free: SQL Server 2016 SP2 Express na Windows serveru 2016 – průběžné platby – verze 13.2.20201015
 - 11/05/2020: licence na bezplatnou verzi: SQL Server 2016 SP2 Developer on Windows Server 2016 – Přineste si vlastní licenci 13.2.20201015
-- 11/05/2020: licence na bezplatnou verzi: SQL Server 2016 SP2 Developer on Windows Server 2016 – Přineste si vlastní licenci 13.2.20201015
+- 11/05/2020: licence zdarma: SQL Server 2016 SP2 Developer on Windows Server 2016 – průběžné platby – verze 13.2.20201015
 - 11/05/2020: SQL Server 2016 SP2 Enterprise v systému Windows Server 2016 – Přineste si vlastní licenci – 13.2.20201015 verze
 - 11/04/2020: Teradici Cloud Access pro Azure Stack nonGPU – verze 1.0.2
 - 10/29/2020: [smalldisk] Windows Server 2008 R2 SP1-Pay, jak se dostanete – verze 7601.24561.2010082056

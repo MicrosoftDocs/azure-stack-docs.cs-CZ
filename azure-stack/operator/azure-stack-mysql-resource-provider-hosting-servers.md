@@ -7,12 +7,12 @@ ms.date: 11/06/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 90b20ddcc129b8077cf28fa1a1a758054795de60
-ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
+ms.openlocfilehash: bbf96c0716d6bb9fdfca7ce0b52268281e6169c6
+ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202507"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94414159"
 ---
 # <a name="add-mysql-hosting-servers-in-azure-stack-hub"></a>Přidání hostitelských serverů MySQL do centra Azure Stack
 
@@ -29,7 +29,7 @@ Pro hostitelské servery lze použít verze MySQL 5,6, 5,7 a 8,0. MySQL RP nepod
 
 Ve výchozím nastavení není pro MySQL na hostitelském virtuálním počítači nakonfigurován žádný veřejný přístup. Aby mohl poskytovatel prostředků MySQL Azure Stack připojit a spravovat server MySQL, je nutné vytvořit pravidlo skupiny zabezpečení příchozí sítě (NSG).
 
-1. Na portálu pro správu přejdete do skupiny prostředků vytvořené při nasazení serveru MySQL a vyberete skupinu zabezpečení sítě (**výchozí-Subnet-SG**):
+1. Na portálu pro správu přejdete do skupiny prostředků vytvořené při nasazení serveru MySQL a vyberete skupinu zabezpečení sítě ( **výchozí-Subnet-SG** ):
 
    ![Vybrat skupinu zabezpečení sítě na portálu pro správu centra Azure Stack](media/azure-stack-tutorial-mysqlrp/img6.png)
 
@@ -72,7 +72,7 @@ Než bude možné server MySQL přidat jako hostitele serveru MySQL Azure Stack 
 
 4. Vytvořte uživatelský účet vzdáleného přístupu, který bude používat hostitelský server služby Azure Stack hub MySQL pro připojení k MySQL.
 
-    Spusťte následující příkazy, abyste se přihlásili do MySQL jako kořenový adresář pomocí kořenového hesla, které se zaznamenává v *~/bitnami_credentials*. Vytvořte nového uživatele s oprávněními správce a nahraďte * \< uživatelské jméno \> * a * \< heslo \> * podle požadavků vašeho prostředí. V tomto příkladu je vytvořeným uživatelem název **sqlsa** a používá se silné heslo:
+    Spusťte následující příkazy, abyste se přihlásili do MySQL jako kořenový adresář pomocí kořenového hesla, které se zaznamenává v *~/bitnami_credentials*. Vytvořte nového uživatele správce a nahraďte *\<username\>* *\<password\>* ho a podle potřeby pro vaše prostředí. V tomto příkladu je vytvořeným uživatelem název **sqlsa** a používá se silné heslo:
 
    ```sql
    mysql -u root -p
@@ -98,7 +98,7 @@ Než bude možné server MySQL přidat jako hostitele serveru MySQL Azure Stack 
 Ujistěte se, že máte přihlašovací údaje k účtu s oprávněními správce systému.
 
 > [!NOTE]
-> Pro MySQL 8,0 a novější verze není vzdálený přístup ve výchozím nastavení povolen. Musíte vytvořit nový uživatelský účet a před tím, než ho přidáte jako hostitelský server, udělit previledge vzdálený přístup k tomuto uživatelskému účtu.
+> Pro MySQL 8,0 a novější verze není vzdálený přístup ve výchozím nastavení povolen. Musíte vytvořit nový uživatelský účet a udělit mu oprávnění pro vzdálený přístup k tomuto uživatelskému účtu před tím, než ho přidáte jako hostitelský server.
 
 Chcete-li přidat hostitelský server, postupujte podle následujících kroků:
 
@@ -110,12 +110,12 @@ Chcete-li přidat hostitelský server, postupujte podle následujících kroků:
 
 4. Zadejte podrobnosti o připojení instance serveru MySQL.
 
-   * Pro **název hostitelského serveru MySQL**zadejte plně kvalifikovaný název domény (FQDN) nebo platnou adresu IPv4. Nepoužívejte krátký název virtuálního počítače.
+   * Pro **název hostitelského serveru MySQL** zadejte plně kvalifikovaný název domény (FQDN) nebo platnou adresu IPv4. Nepoužívejte krátký název virtuálního počítače.
    * Výchozí **uživatelské jméno** správce pro Image Bitnami MySQL dostupné v tržišti služby Azure Stack hub je *root*.
-   * Pokud neznáte kořenové **heslo**, přečtěte si [dokumentaci k Bitnami](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) , kde najdete informace o tom, jak je získat.
+   * Pokud neznáte kořenové **heslo** , přečtěte si [dokumentaci k Bitnami](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) , kde najdete informace o tom, jak je získat.
    * Není zadaná výchozí instance MySQL, takže musíte zadat **Velikost hostitelského serveru v GB**. Zadejte velikost, která je blízko kapacity databázového serveru.
    * Ponechte výchozí nastavení pro **předplatné**.
-   * Pro **skupinu prostředků**, vytvořte novou nebo použijte existující skupinu.
+   * Pro **skupinu prostředků** , vytvořte novou nebo použijte existující skupinu.
 
    > [!NOTE]
    > Pokud má klient přístup k instanci MySQL a Azure Resource Manager pro správu, můžete ho umístit pod kontrolu poskytovatele prostředků. Instance MySQL se ale **musí** přidělit výhradně poskytovateli prostředků.
@@ -130,7 +130,7 @@ Chcete-li přidat hostitelský server, postupujte podle následujících kroků:
    > [!NOTE]
    > SKU může trvat až hodinu, než se na portálu zobrazí. Nemůžete vytvořit databázi, dokud není SKU nasazená a spuštěná.
 
-7. V části **Přidat hostitelský server MySQL**vyberte **vytvořit**.
+7. V části **Přidat hostitelský server MySQL** vyberte **vytvořit**.
 
 Když přidáváte servery, přiřadíte je k nové nebo existující SKU, abyste rozlišili nabídky služeb. Můžete mít například instanci Enterprise MySQL, která poskytuje vyšší databázi a automatické zálohování. Tento vysoce výkonný Server můžete vyhradit pro různá oddělení ve vaší organizaci.
 
@@ -157,9 +157,9 @@ Osvědčeným postupem je, že všechny hostitelské servery v SKU by měly mít
 
 SKU nelze přiřadit konkrétním uživatelům nebo skupinám.
 
-Pokud chcete upravit SKU, otevřete **všechny služby**  >  SKU**adaptéru MySQL**  >  **SKUs**. Vyberte SKLADOVOU položku, kterou chcete upravit, proveďte potřebné změny a uložte změny kliknutím na **Uložit** . 
+Pokud chcete upravit SKU, otevřete **všechny služby**  >  SKU **adaptéru MySQL**  >  **SKUs**. Vyberte SKLADOVOU položku, kterou chcete upravit, proveďte potřebné změny a uložte změny kliknutím na **Uložit** . 
 
-Pokud chcete odstranit SKU, které už nepotřebujete, přečtěte si **všechny služby**  >  SKU**adaptéru MySQL**  >  **SKUs**. Klikněte pravým tlačítkem na název SKU a vyberte **Odstranit** a odstraňte ho.
+Pokud chcete odstranit SKU, které už nepotřebujete, přečtěte si **všechny služby**  >  SKU **adaptéru MySQL**  >  **SKUs**. Klikněte pravým tlačítkem na název SKU a vyberte **Odstranit** a odstraňte ho.
 
 > [!IMPORTANT]
 > Může trvat až hodinu, než se nové SKU zpřístupní na portálu User Portal.

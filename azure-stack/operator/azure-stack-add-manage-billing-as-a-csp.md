@@ -3,16 +3,16 @@ title: Správa využití centra Azure Stack a fakturace jako poskytovatel Cloud 
 description: Naučte se registrovat Azure Stack hub jako poskytovatele Cloud Solution Provider (CSP) a přidat zákazníky k fakturaci.
 author: sethmanheim
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 03206007c60d438149baad267117e447bd5b0a14
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 0c3e82753835adfb70be13f43a14c20701881885
+ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573475"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94414074"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>Správa využití a fakturace pro centra Azure Stack jako poskytovatele Cloud Solution Provider
 
@@ -37,7 +37,7 @@ Vytvořili jsme výukové video, které vám pomůže pochopit, jak spravovat va
 
 > [!VIDEO https://www.youtube.com/embed/ZP6jkbLeS34]
 
-#### <a name="azure-partner-shared-services"></a>Sdílené služby pro partnery Azure
+#### <a name="azure-partner-shared-services"></a>Azure Partner Shared Services
 
 Předplatné Azure partner Shared Services (APSS) jsou upřednostňovanou volbou pro registraci v případě, že přímý CSP nebo distributor CSP funguje Azure Stack hub.
 

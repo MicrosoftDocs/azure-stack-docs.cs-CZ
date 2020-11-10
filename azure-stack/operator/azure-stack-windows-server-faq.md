@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Seznam nejčastějších dotazů k webu centra Azure Stack pro Windows Server.
 author: sethmanheim
 ms.topic: article
-ms.date: 07/23/2020
+ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: fff299a0d537bb4190e66a57eb642db7e8b9824d
-ms.sourcegitcommit: f2a5ce52fcf69e05fe89be8211b7360de46f4a94
+ms.openlocfilehash: cb3f1fe4bb0e8eb1181445479dd44d781a34bf28
+ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133635"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94414125"
 ---
 # <a name="azure-stack-hub-marketplace-faq"></a>Nejčastější dotazy k webu Azure Stack hub Marketplace
 
@@ -35,9 +35,9 @@ Pokud navíc některé sady škálování virtuálních počítačů odkazují n
 
 Microsoft nabízí dvě verze imagí Windows serveru prostřednictvím tržiště centra Azure Stack. V prostředí Azure Stack hub se dá použít jenom jedna verze této image.  
 
-- **Průběžné platby (PAYG)**: tyto image spouštějí měřiče Windows s plnou cenou.
-   Kdo má použít tuto možnost: zákazníci smlouva Enterprise (EA), kteří používají *Model fakturace spotřeby*; CSP, kteří nechtějí používat licencování SPLA
-- **Přineste si vlastní licenci (BYOL)**: tyto image spouštějí základní měřiče.
+- **Průběžné platby (PAYG)** : tyto image spouštějí měřiče Windows s plnou cenou.
+   Kdo má použít tuto možnost: zákazníci smlouva Enterprise (EA), kteří používají *Model fakturace spotřeby* ; CSP, kteří nechtějí používat licencování SPLA
+- **Přineste si vlastní licenci (BYOL)** : tyto image spouštějí základní měřiče.
    Kdo má použít tuto možnost: zákazníci se smlouvou EA s licencí k Windows serveru; CSP, kteří používají licencování SPLA.
 
 Zvýhodněné hybridní využití Azure (AHUB) se v centru Azure Stack nepodporuje. Zákazníci, kteří mají licenci prostřednictvím modelu "Capacity", musí používat Image BYOL. Pokud testujete pomocí Azure Stack Development Kit (ASDK), můžete použít kteroukoli z těchto možností.
@@ -58,7 +58,7 @@ $vm.LicenseType = "None"
 Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
 ```
 
-Typ licence vašeho virtuálního počítače můžete ověřit spuštěním následujícího příkazu. Pokud licenční model uvádí **Windows_Server**, bude se vám účtovat cena za BYOL. V opačném případě se vám bude účtovat měřič Windows podle modelu PAYG:
+Typ licence vašeho virtuálního počítače můžete ověřit spuštěním následujícího příkazu. Pokud licenční model uvádí **Windows_Server** , bude se vám účtovat cena za BYOL. V opačném případě se vám bude účtovat měřič Windows podle modelu PAYG:
 
 ```powershell
 $vm | ft Name, VmId,LicenseType,ProvisioningState

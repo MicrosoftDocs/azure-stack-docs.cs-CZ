@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 8dff2f6debb12b8579e3b8e0b451b8d6bac17cad
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: e11eedc6cade8b3546182d2abf66a0dbb7e1c91a
+ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250346"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94414210"
 ---
 # <a name="report-azure-stack-hub-usage-data-to-azure"></a>Sestava Azure Stack data o využití centra do Azure
 
@@ -73,7 +73,7 @@ Využití prostředků je pro ASDK zdarma. Azure Stack systémy s více uzly, vi
 
 ## <a name="are-users-charged-for-the-infrastructure-vms"></a>Účtují se uživatelé za virtuální počítače infrastruktury?
 
-No. Data o využití některých virtuálních počítačů poskytovatele prostředků centra Azure Stack se oznamují do Azure, ale pro tyto virtuální počítače se neúčtují žádné poplatky, ani pro virtuální počítače vytvořené během nasazení za účelem povolení infrastruktury centra Azure Stack.  
+Ne. Data o využití některých virtuálních počítačů poskytovatele prostředků centra Azure Stack se oznamují do Azure, ale pro tyto virtuální počítače se neúčtují žádné poplatky, ani pro virtuální počítače vytvořené během nasazení za účelem povolení infrastruktury centra Azure Stack.  
 
 Uživatelům se účtují jenom virtuální počítače, které běží v předplatných tenanta. Všechny úlohy musí být nasazené v rámci předplatných tenantů, aby byly v souladu s licenčními podmínkami centra Azure Stack.
 

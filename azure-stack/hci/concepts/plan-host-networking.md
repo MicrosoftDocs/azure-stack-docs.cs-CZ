@@ -3,15 +3,15 @@ title: Plánování sítě hostitele pro Azure Stack HCI
 description: Naučte se plánovat sítě hostitele pro Azure Stack clustery HCI
 author: v-dasis
 ms.topic: how-to
-ms.date: 11/06/2020
+ms.date: 11/09/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: e9a03fa7518c6a450204cdbdb40483b593b1867b
-ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
+ms.openlocfilehash: b6cfbfcff408483d7086c311dff41fdab59c9524
+ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94383471"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94414057"
 ---
 # <a name="plan-host-networking-for-azure-stack-hci"></a>Plánování sítě hostitele pro Azure Stack HCI
 
@@ -19,72 +19,9 @@ ms.locfileid: "94383471"
 
 Toto téma popisuje požadavky a požadavky na plánování sítě hostitele v prostředích clusteru bez roztažení a roztažení Azure Stack HCI.
 
-## <a name="traffic-types-supported"></a>Podporované typy provozu
-
-Azure Stack HCI používá protokol SMB (Server Message Block). SMB on Azure Stack HCI podporuje následující typy přenosů:
-
-- Vrstva sběrnice úložiště (SBL) – používá Prostory úložiště s přímým přístupem; provoz s nejvyšší prioritou
-- Sdílené svazky clusteru
-- Migrace za provozu (LM)
-- Replika úložiště (SR) – používá se v roztaženém clusteru
-- Sdílené složky souborů (FS) – tradiční a Scale-Out souborový server služby FS (SOFS)
-- Prezenční signál clusteru (s)
-- Komunikace s clustery (spojení uzlů, aktualizace clusteru, aktualizace registru)
-
-Provoz SMB může přenášet do těchto protokolů:
-
-- Protokol TCP (Transport Control Protocol) – používá se mezi lokalitami
-- Přímý přístup do paměti vzdáleného počítače (RDMA)
-
-## <a name="traffic-bandwidth-allocation"></a>Přidělení šířky pásma provozu
-
-Následující tabulka uvádí přidělení šířky pásma pro různé typy provozu, kde:
-
-- Všechny jednotky jsou v GB/s.
-- Hodnoty platí jak pro roztažené, tak i bez roztažené clustery.
-- Provoz SMB získá 50% celkového přidělení šířky pásma.
-- Provoz sběrnice nebo sdílený svazek clusteru (SBL/CSV) sběrnice úložiště získá 70% zbývající 50% přidělení
-- Přenos Migrace za provozu (LM) dostane 15% zbývajícího přidělení 50%.
-- Provoz repliky úložiště (SR) získá 14% zbývajícího přidělení 50%.
-- Přenos prezenčního signálu (nezatíženého signálu) získá 1% zbývajícího přidělení 50%.
-- * = by měl používat kompresi místo RDMA, pokud je přidělení šířky pásma pro přenosy LM <5 GB/s
-
-|Rychlost síťové karty|Šířka pásma týmu|Rezervace SMB 50%|SBL/CSV%|Šířka pásma SBL/CSV|HASH|Šířka pásma LM|UVEDENO |Šířka pásma pro rozpoznávání řeči|Nejenom%|Šířka pásma|
-|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-|10|20|10|70 %|7|14% *|1,4 *|14 %|1.4|2 %|0,2|
-|25|50|25|70 %|17,5|15% *|3,75 *|14 %|3,5|1 %|0,25|
-|40|80| 40|70 %|28|15 %|6|14 %|5,6|1 %|0,4|
-|50|100|50|70 %|35|15 %|7,5|14 %|7|1 %|0,5|
-|100|200|100|70 %|70|15 %|15|14 %|14|1 %|1|
-|200|400|200|70 %|140|15 %|30|14 %|28|1 %|2|
-
-## <a name="rdma-considerations"></a>Požadavky RDMA
-
-Přímý přístup do paměti vzdáleného počítače (RDMA) je přímý přístup do paměti z paměti jednoho počítače do jiného bez nutnosti použít operační systém počítače. To umožňuje sítě s vysokou propustností a nízkou latencí při minimalizaci využití procesoru, což je zvláště užitečné v clusterech.
-
-Veškerý provoz RDMA hostitele využívá funkci SMB Direct. SMB Direct je přenos SMB 3,0 odeslaný přes RDMA a je multiplexější prostřednictvím portu 445. Aby provoz RDMA zůstal kompatibilní se většinou současných a budoucích fyzických přepínačů na trhu, musí se použít minimálně dvě PFC (TCs) s povoleným škálováním na základě priority.
-
-Protokol iWARP (Internet WAN Area RDMA Protocol) spouští RDMA přes protokol TCP, zatímco RDMA přes sblíženou síť Ethernet (RoCE) zabraňuje použití TCP, ale vyžaduje jak síťové adaptéry, tak fyzické přepínače, které ji podporují. Sblížené síťové požadavky pro RDMA přes RoCE najdete v [Průvodci nasazením Windows serveru 2016 a 2019 RDMA](https://github.com/Microsoft/SDN/blob/master/Diagnostics/S2D%20WS2016_ConvergedNIC_Configuration.docx).
-
-Služba RDMA je ve výchozím nastavení povolená pro všechny přenosy na východ a západ mezi uzly clusteru v lokalitě ve stejné podsíti. RDMA je zakázané a nepodporuje se u Severově roztaženého provozu clusteru mezi lokalitami v různých podsítích.
-
-Požadavky na RDMA pro Azure Stack HCI:
-
-- Veškerý provoz mezi podsítěmi a mezi lokalitami (roztažené clustery) musí používat rozhraní WinSock TCP. Zprostředkující směrování sítě je mimo zobrazení a kontrolu nad Azure Stack HCI.
-- RDMA mezi podsítěmi a mezi lokalitami (roztažené clustery) se nepodporuje. Použití odchozích připojení a více síťových zařízení znamená více bodů selhání, kde se může stát nestabilní a nepodporují se.
-- Pro provoz repliky úložiště pro roztažené clustery nejsou potřeba žádné další virtuální síťové karty. Pro účely řešení potíží ale může být užitečné, aby přenosy mezi lokalitami a různými podsítěmi byly oddělené od provozu v oblasti východ až na síť RDMA. Pokud funkce SMB Direct nemůže být nativně vypnutá mezi lokalitami a mezi jednotlivými toky, pak:
-    - Pro repliku úložiště by se měl zřídit minimálně jeden další virtuální síťové adaptéry.
-    - Virtuální síťové adaptéry repliky úložiště musí mít zakázaný přístup RDMA pomocí rutiny [disabled-NetAdapterRDMA](https://docs.microsoft.com/powershell/module/netadapter/disable-netadapterrdma) prostředí PowerShell, protože se jedná o definiční nasazení mezi lokalitami a mezi podsítěmi.
-    - Nativní adaptéry RDMA by vyžadovaly virtuální přepínač a virtuální síťové adaptéry pro podporu repliky úložiště, aby splňovaly výše uvedené požadavky na lokalitu a podsíť.
-    - Požadavky na šířku pásma RDMA mezi lokalitami vyžadují znalost procentuálních hodnot šířky pásma na typ provozu, jak je popsáno v části **přidělení šířky pásma přenosu** . Tím se zajistí, že se pro provoz v oblasti Východ a západ (mezi uzly) můžou použít vhodné rezervace a omezení šířky pásma.
-- Provoz repliky úložiště Migrace za provozu a úložiště musí být omezený na šířku pásma SMB, jinak by mohl spotřebovat veškerou šířku pásma a omezují provoz úložiště s vysokou prioritou. Další informace najdete v tématu rutiny PowerShellu [set-SmbBandwidthLimit](https://docs.microsoft.com/powershell/module/smbshare/set-smbbandwidthlimit) a [set-SRNetworkConstraint](https://docs.microsoft.com/powershell/module/storagereplica/set-srnetworkconstraint) .
-
-> [!NOTE]
-> Při použití rutiny je potřeba převést bity na bajty `Set-SmbBandwidthLimit` .
-
 ## <a name="node-interconnect-requirements"></a>Požadavky propojení uzlů
 
-Tato část popisuje specifické požadavky sítě mezi uzly serveru v lokalitě, která se nazývá propojení. Je možné použít přepínací uzel nebo vzájemně propojené uzly, které jsou podporované:
+Tato část popisuje konkrétní síťové požadavky mezi servery v lokalitě, která se nazývá propojení. Je možné použít přepínací uzel nebo vzájemně propojené uzly, které jsou podporované:
 
 - **Přepnuto:** Uzly serveru se nejčastěji připojují přes sítě Ethernet, které používají síťové přepínače. Přepínače musí být správně nakonfigurovány pro zpracování šířky pásma a typu sítě. Pokud používáte RDMA, který implementuje protokol RoCE, je důležitá konfigurace síťového zařízení a přepínače.
 - Bez **přepínání:** Uzly serveru je taky možné propojit pomocí přímých připojení Ethernet bez přepínače. V takovém případě musí mít každý uzel serveru přímé spojení s každým jiným uzlem clusteru ve stejné lokalitě.
@@ -113,6 +50,52 @@ Při připojování mezi lokalitami pro roztažené clustery se stále používa
 - Síť mezi lokalitami s dostatečnou šířkou pásma, která bude obsahovat vaše vstupně-výstupní úlohy zápisu, a průměrnou latenci 5ms odezvy nebo nižší pro synchronní replikaci. Asynchronní replikace nemá doporučení pro latenci.
 - Pokud používáte jedno připojení mezi lokalitami, nastavte omezení šířky pásma protokolu SMB pro repliku úložiště pomocí PowerShellu. Další informace najdete v tématu [set-SmbBandwidthLimit](/powershell/module/smbshare/set-smbbandwidthlimit).
 - Pokud používáte více připojení mezi lokalitami, oddělte provoz mezi připojeními. Například vložte provoz repliky úložiště do samostatné sítě, než je migrace Hyper-V za provozu pomocí PowerShellu. Další informace najdete v tématu [set-SRNetworkConstraint](/powershell/module/storagereplica/set-srnetworkconstraint).
+
+## <a name="rdma-considerations"></a>Požadavky RDMA
+
+Přímý přístup do paměti vzdáleného počítače (RDMA) je přímý přístup do paměti z paměti jednoho počítače do jiného bez nutnosti použít operační systém počítače. To umožňuje sítě s vysokou propustností a nízkou latencí při minimalizaci využití procesoru, což je zvláště užitečné v clusterech.
+
+Veškerý provoz RDMA hostitele využívá funkci SMB Direct. SMB Direct je přenos SMB 3,0 odeslaný přes RDMA a je multiplexější prostřednictvím portu 445. Aby provoz RDMA zůstal kompatibilní se většinou současných a budoucích fyzických přepínačů na trhu, musí se použít minimálně dvě PFC (TCs) s povoleným škálováním na základě priority.
+
+Protokol iWARP (Internet WAN Area RDMA Protocol) spouští RDMA přes protokol TCP, zatímco RDMA přes sblíženou síť Ethernet (RoCE) zabraňuje použití TCP, ale vyžaduje jak síťové adaptéry, tak fyzické přepínače, které ji podporují. Sblížené síťové požadavky pro RDMA přes RoCE najdete v [Průvodci nasazením Windows serveru 2016 a 2019 RDMA](https://github.com/Microsoft/SDN/blob/master/Diagnostics/S2D%20WS2016_ConvergedNIC_Configuration.docx).
+
+Služba RDMA je ve výchozím nastavení povolená pro všechny přenosy na východ a západ mezi uzly clusteru v lokalitě ve stejné podsíti. RDMA je zakázané a nepodporuje se u Severově roztaženého provozu clusteru mezi lokalitami v různých podsítích.
+
+Požadavky na RDMA pro Azure Stack HCI:
+
+- Veškerý provoz mezi podsítěmi a mezi lokalitami (roztažené clustery) musí používat rozhraní WinSock TCP. Zprostředkující směrování sítě je mimo zobrazení a kontrolu nad Azure Stack HCI.
+- RDMA mezi podsítěmi a mezi lokalitami (roztažené clustery) se nepodporuje. Použití odchozích připojení a více síťových zařízení znamená více bodů selhání, kde se může stát nestabilní a nepodporují se.
+- Pro provoz repliky úložiště pro roztažené clustery nejsou potřeba žádné další virtuální síťové karty. Pro účely řešení potíží ale může být užitečné, aby přenosy mezi lokalitami a různými podsítěmi byly oddělené od provozu v oblasti východ až na síť RDMA. Pokud funkce SMB Direct nemůže být nativně vypnutá mezi lokalitami a mezi jednotlivými toky, pak:
+    - Pro repliku úložiště by se měl zřídit minimálně jeden další virtuální síťové adaptéry.
+    - Virtuální síťové adaptéry repliky úložiště musí mít zakázaný přístup RDMA pomocí rutiny [disabled-NetAdapterRDMA](https://docs.microsoft.com/powershell/module/netadapter/disable-netadapterrdma) prostředí PowerShell, protože se jedná o definiční nasazení mezi lokalitami a mezi podsítěmi.
+    - Nativní adaptéry RDMA by vyžadovaly virtuální přepínač a virtuální síťové adaptéry pro podporu repliky úložiště, aby splňovaly výše uvedené požadavky na lokalitu a podsíť.
+    - Požadavky na šířku pásma RDMA mezi lokalitami vyžadují znalost procentuálních hodnot šířky pásma na typ provozu, jak je popsáno v části **přidělení šířky pásma přenosu** . Tím se zajistí, že se pro provoz v oblasti Východ a západ (mezi uzly) můžou použít vhodné rezervace a omezení šířky pásma.
+- Provoz repliky úložiště Migrace za provozu a úložiště musí být omezený na šířku pásma SMB, jinak by mohl spotřebovat veškerou šířku pásma a omezují provoz úložiště s vysokou prioritou. Další informace najdete v tématu rutiny PowerShellu [set-SmbBandwidthLimit](https://docs.microsoft.com/powershell/module/smbshare/set-smbbandwidthlimit) a [set-SRNetworkConstraint](https://docs.microsoft.com/powershell/module/storagereplica/set-srnetworkconstraint) .
+
+> [!NOTE]
+> Při použití rutiny je potřeba převést bity na bajty `Set-SmbBandwidthLimit` .
+
+## <a name="traffic-bandwidth-allocation"></a>Přidělení šířky pásma provozu
+
+Následující tabulka uvádí přidělení šířky pásma pro různé typy provozu, kde:
+
+- Všechny jednotky jsou v GB/s.
+- Hodnoty platí jak pro roztažené, tak i bez roztažené clustery.
+- Provoz SMB získá 50% celkového přidělení šířky pásma.
+- Provoz sběrnice nebo sdílený svazek clusteru (SBL/CSV) sběrnice úložiště získá 70% zbývající 50% přidělení
+- Přenos Migrace za provozu (LM) dostane 15% zbývajícího přidělení 50%.
+- Provoz repliky úložiště (SR) získá 14% zbývajícího přidělení 50%.
+- Přenos prezenčního signálu (nezatíženého signálu) získá 1% zbývajícího přidělení 50%.
+- * = by měl používat kompresi místo RDMA, pokud je přidělení šířky pásma pro přenosy LM <5 GB/s
+
+|Rychlost síťové karty|Šířka pásma týmu|Rezervace SMB 50%|SBL/CSV%|Šířka pásma SBL/CSV|HASH|Šířka pásma LM|UVEDENO |Šířka pásma pro rozpoznávání řeči|Nejenom%|Šířka pásma|
+|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+|10|20|10|70 %|7|14% *|1,4 *|14 %|1.4|2 %|0,2|
+|25|50|25|70 %|17,5|15% *|3,75 *|14 %|3,5|1 %|0,25|
+|40|80| 40|70 %|28|15 %|6|14 %|5,6|1 %|0,4|
+|50|100|50|70 %|35|15 %|7,5|14 %|7|1 %|0,5|
+|100|200|100|70 %|70|15 %|15|14 %|14|1 %|1|
+|200|400|200|70 %|140|15 %|30|14 %|28|1 %|2|
 
 ## <a name="network-port-requirements"></a>Požadavky na síťový port
 
@@ -201,33 +184,22 @@ LLDP umožňuje organizacím definovat a kódovat vlastní TLVs. Ty se nazývaj�
 > [!NOTE]
 > Některé z uvedených volitelných funkcí můžou být v budoucnu nutné.
 
-## <a name="example-cluster-network-design"></a>Příklad návrhu sítě s clustery
+## <a name="traffic-types-supported"></a>Podporované typy provozu
 
-Následující diagram znázorňuje standardní konfiguraci (bez roztaženého) clusteru se dvěma clustery ve stejné podsíti a stejné lokalitě. Uzly serveru spolu komunikují ve stejném clusteru pomocí redundantních síťových adaptérů připojených k duálním přepínačům rozhraní příkazového stojanu. Komunikace mezi clustery prochází přes duální síťová hřbetová zařízení.
+Azure Stack HCI používá protokol SMB (Server Message Block). SMB on Azure Stack HCI podporuje následující typy přenosů:
 
-:::image type="content" source="media/plan-host-networking/rack-topology-non-stretched-cluster.png" alt-text="Cluster bez roztažení" lightbox="media/plan-host-networking/rack-topology-non-stretched-cluster.png":::
+- Vrstva sběrnice úložiště (SBL) – používá Prostory úložiště s přímým přístupem; provoz s nejvyšší prioritou
+- Sdílené svazky clusteru
+- Migrace za provozu (LM)
+- Replika úložiště (SR) – používá se v roztaženém clusteru
+- Sdílené složky souborů (FS) – tradiční a Scale-Out souborový server služby FS (SOFS)
+- Prezenční signál clusteru (s)
+- Komunikace s clustery (spojení uzlů, aktualizace clusteru, aktualizace registru)
 
-## <a name="example-stretched-cluster-network-design"></a>Ukázkový návrh roztažené sítě clusteru
+Provoz SMB může přenášet do těchto protokolů:
 
-Následující diagramy znázorňují roztaženou konfiguraci clusteru s jedním clusterem se serverovými uzly umístěnými v různých lokalitách a podsítích (čtyři uzly na lokalitu). Uzly serveru spolu navzájem komunikují ve stejném clusteru pomocí redundantních síťových adaptérů připojených k přepínačům pro připojení s duálním připojením. Komunikace mezi lokalitami prochází přes duální směrovače pomocí repliky úložiště pro převzetí služeb při selhání.
-
-:::image type="content" source="media/plan-host-networking/rack-topology-stretched-cluster.png" alt-text="Roztažený cluster" lightbox="media/plan-host-networking/rack-topology-stretched-cluster.png":::
-
-### <a name="stretched-cluster-node-networking-option-1"></a>Síť roztaženého uzlu clusteru – možnost sítě 1
-
-Následující diagram znázorňuje roztažené clustery, které používají přepínač s vloženým seskupením (nastaveno) k řízení toku, Migrace za provozu a provoz repliky úložiště mezi lokalitami na stejném vNIC. Použijte rutiny prostředí PowerShell [set-SmbBandwidthLimit](https://docs.microsoft.com/powershell/module/smbshare/set-smbbandwidthlimit) a [set-SRNetworkConstraint](https://docs.microsoft.com/powershell/module/storagereplica/set-srnetworkconstraint) k omezení šířky pásma migrace za provozu a provozu repliky úložiště. 
-
-Pamatujte, že protokol TCP se používá pro přenosy mezi lokalitami, zatímco RDMA se používá pro provoz úložiště v rámci lokality Migrace za provozu.
-
-:::image type="content" source="media/plan-host-networking/stretched-cluster-option-1.png" alt-text="Síť roztaženého uzlu clusteru – možnost sítě 1" lightbox="media/plan-host-networking/stretched-cluster-option-1.png":::
-
-### <a name="stretched-cluster-node-networking-option-2"></a>Síť roztaženého uzlu clusteru – možnost sítě 2
-
-Následující diagram znázorňuje pokročilejší konfiguraci roztaženého clusteru, který používá [vícekanálový protokol SMB](https://docs.microsoft.com/azure-stack/hci/manage/manage-smb-multichannel) pro přenos replik úložiště mezi lokalitami a vyhrazený adaptér pro provoz správy clusteru. Použijte rutiny prostředí PowerShell [set-SmbBandwidthLimit](https://docs.microsoft.com/powershell/module/smbshare/set-smbbandwidthlimit) a [set-SRNetworkConstraint](https://docs.microsoft.com/powershell/module/storagereplica/set-srnetworkconstraint) k omezení šířky pásma migrace za provozu a provozu repliky úložiště.
-
-Pamatujte, že protokol TCP se používá pro přenosy mezi lokalitami, zatímco RDMA se používá pro provoz úložiště v rámci lokality.
-
-:::image type="content" source="media/plan-host-networking/stretched-cluster-option-2.png" alt-text="Síť roztaženého uzlu clusteru – možnost sítě 2" lightbox="media/plan-host-networking/stretched-cluster-option-2.png":::
+- Protokol TCP (Transport Control Protocol) – používá se mezi lokalitami
+- Přímý přístup do paměti vzdáleného počítače (RDMA)
 
 
 ## <a name="next-steps"></a>Další kroky

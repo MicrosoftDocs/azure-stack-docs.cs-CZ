@@ -11,22 +11,22 @@ ms.workload: tzl
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: 31e574a24660367cd1189ad95890e2fffaaa15f2
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: cfee01600d9db4017e56b7e53c9f90351b3bb323
+ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329065"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94414040"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>Ochrana virtuálních počítačů nasazených v centru Azure Stack
 
 Tento článek slouží jako vodítko pro vývoj plánu ochrany virtuálních počítačů, které uživatelé nasazují v Azure Stack hub.
 
-Pro zajištění ochrany před únikem informací a neplánovanými výpadky implementujte plán ochrany dat a zotavení po havárii pro aplikace založené na virtuálních počítačích v centru Azure Stack. Implementovaný plán ochrany bude záviset na požadavcích firmy a návrhu aplikace. Tento plán by měl postupovat podle rozhraní, které vaše organizace zavedla v \' komplexní strategii pro provozní kontinuitu a zotavení po havárii (BC/Dr). Základní informace o požadavcích BC/DR pro centrum Azure Stack najdete v článku Azure Stack: požadavky na provozní kontinuitu a zotavení po havárii.
+Pro zajištění ochrany před únikem informací a neplánovanými výpadky implementujte plán ochrany dat a zotavení po havárii pro aplikace založené na virtuálních počítačích v centru Azure Stack. Implementovaný plán ochrany bude záviset na požadavcích firmy a návrhu aplikace. Tento plán by měl postupovat podle architektury stanovené strategiemi komplexní provozní kontinuity a zotavení po havárii (BC/DR) vaší organizace. Základní informace o požadavcích BC/DR pro centrum Azure Stack najdete v článku Azure Stack: požadavky na provozní kontinuitu a zotavení po havárii.
 
 ## <a name="application-recovery-objectives"></a>Cíle obnovení aplikace
 
@@ -40,7 +40,7 @@ Určete množství výpadku a ztráty dat, které vaše organizace může tolero
 
 Proveďte posouzení pro definování RTO a RPO pro každou aplikaci.
 
-Další důležitou metrikou, kterou je třeba zvážit, je **Střední doba obnovení** (MTTR), což je průměrná doba potřebná k obnovení aplikace po selhání. MTTR je empirická hodnota pro systém. Pokud MTTR překročí RTO, pak selhání v systému způsobí nepřijatelné výpadky v podniku, protože bylo výhra, že je \' možné obnovit systém v rámci definovaného RTO.
+Další důležitou metrikou, kterou je třeba zvážit, je **Střední doba obnovení** (MTTR), což je průměrná doba potřebná k obnovení aplikace po selhání. MTTR je empirická hodnota pro systém. Pokud MTTR překročí RTO, pak selhání v systému způsobí nepřijatelné přerušení v podniku, protože nebude možné obnovit systém v rámci definovaného RTO.
 
 ## <a name="protection-options-for-iaas-vms"></a>Možnosti ochrany pro virtuální počítače s IaaS
 
