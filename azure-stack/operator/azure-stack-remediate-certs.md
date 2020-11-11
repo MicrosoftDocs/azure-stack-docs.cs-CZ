@@ -2,18 +2,18 @@
 title: Řešení běžných problémů s certifikáty PKI
 titleSuffix: Azure Stack Hub
 description: Řešení běžných problémů s Azure Stackmi certifikáty PKI centra pomocí nástroje pro kontrolu připravenosti centra Azure Stack
-author: IngridAtMicrosoft
+author: BryanLa
 ms.topic: how-to
-ms.date: 03/04/2020
-ms.author: inhenkel
+ms.date: 11/10/2020
+ms.author: bryanla
 ms.reviewer: unknown
 ms.lastreviewed: 11/19/2019
-ms.openlocfilehash: c7f17c603a6b54474db4036953f0fbd755d496cf
-ms.sourcegitcommit: e72145ebb5eac17a47ba1c9119fd31de545fdace
+ms.openlocfilehash: 070430d438334417f7c6acbd6e8f70798ba3c576
+ms.sourcegitcommit: 7b189e5317b8fe5f8ad825565da3607a39a1b899
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88724842"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94493626"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>Řešení běžných problémů s certifikáty PKI Azure Stack hub
 
@@ -85,7 +85,7 @@ Velikost klíče **problému** je menší než 2048.
 
 ## <a name="fix-common-packaging-issues"></a>Řešení běžných problémů s balíčkem
 
-Nástroj **AzsReadinessChecker** obsahuje pomocnou rutinu nazvanou **Repair-AzsPfxCertificate**, která může importovat a exportovat soubor PFX za účelem opravy běžných problémů s balíčkem, včetně:
+Nástroj **AzsReadinessChecker** obsahuje pomocnou rutinu nazvanou **Repair-AzsPfxCertificate** , která může importovat a exportovat soubor PFX za účelem opravy běžných problémů s balíčkem, včetně:
 
 - **Šifrování PFX** není v TRIPLEDES-SHA1.
 - V **privátním klíči** chybí atribut místního počítače.
@@ -94,7 +94,7 @@ Nástroj **AzsReadinessChecker** obsahuje pomocnou rutinu nazvanou **Repair-AzsP
 
 **Oprava – AzsPfxCertificate** nemůže pomáhat, pokud potřebujete vygenerovat nového CSR a znovu vystavit certifikát.
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 
 Na počítači, na kterém je nástroj spuštěný, musí být nahlášené tyto požadavky:
 
@@ -116,10 +116,10 @@ Na počítači, na kterém je nástroj spuštěný, musí být nahlášené tyto
    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
    ```
 
-2. Z příkazového řádku PowerShellu spusťte následující rutinu a nastavte heslo PFX. Nahraďte `PFXpassword` skutečným heslem:
+2. Z příkazového řádku PowerShellu spusťte následující rutinu a nastavte heslo PFX. Po zobrazení výzvy zadejte heslo:
 
    ```powershell
-   $password = Read-Host -Prompt PFXpassword -AsSecureString
+   $password = Read-Host -Prompt "Enter password" -AsSecureString
    ```
 
 3. Z příkazového řádku PowerShellu spusťte následující příkaz pro export nového souboru PFX:

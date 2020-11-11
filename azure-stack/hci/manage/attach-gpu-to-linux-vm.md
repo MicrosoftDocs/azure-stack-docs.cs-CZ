@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.date: 07/01/2020
-ms.openlocfilehash: de2526b2807f4deff66efdf6db69bf4b791f5814
-ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
+ms.openlocfilehash: 422f6984fad6218387673d2dc9292f0ae7cb1739
+ms.sourcegitcommit: 7b189e5317b8fe5f8ad825565da3607a39a1b899
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94383679"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94493646"
 ---
 # <a name="attaching-a-gpu-to-an-ubuntu-linux-vm-on-azure-stack-hci"></a>Připojení GPU k virtuálnímu počítači s Ubuntu Linux v Azure Stack HCI
 
@@ -426,13 +426,25 @@ Pro přípravu této konfigurace si přečtěte nejčastější dotazy, které n
 
     :::image type="content" source="media/attach-gpu-to-linux-vm/set-modules.png" alt-text="Snímek obrazovky s nastavením modulů":::
 
-14. V části IoT Edge moduly klikněte na a vyberte modul Marketplace:
+14. V části moduly IoT Edge klikněte na a vyberte IoT Edge modul:
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/marketplace-module.png" alt-text="Snímek obrazovky modulu Marketplace":::
+    :::image type="content" source="media/attach-gpu-to-linux-vm/marketplace-module.png" alt-text="Přidat snímek obrazovky modulu IoT Edge":::
 
-15. Vyhledejte NVIDIA a vyberte DeepStream SDK, jak je zobrazeno níže:
+15. V podokně **přidat IoT Edge modul** vyberte kartu **nastavení modulu** a pak zadejte nebo vyberte následující hodnoty:
 
-    :::image type="content" source="media/attach-gpu-to-linux-vm/deepstream.png" alt-text="Snímek obrazovky sady DeepStream SDK":::
+    - **Název modulu IoT Edge** : NVIDIADeepStreamSDK
+
+    - **Identifikátor URI image** : Marketplace.azurecr.IO/NVIDIA/deepstream-iot2
+
+    - **Zásady restartování** : vždycky
+
+    - **Požadovaný stav** : spuštěno
+
+    - **Zásada pro vyžádání obsahu image** : *prázdná*
+    
+    Vyberte **Přidat**.
+
+    :::image type="content" source="media/attach-gpu-to-linux-vm/deepstream-module-settings.png" alt-text="Snímek obrazovky sady DeepStream SDK":::
 
 16. Ujistěte se, že je modul NvidiaDeepStreamSDK uvedený v části IoT Edge moduly:
 
