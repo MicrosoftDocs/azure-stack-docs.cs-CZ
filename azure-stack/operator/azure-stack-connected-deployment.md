@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: b8f8dfe95e50b81c7032e2e2348c2d4e6a6d888d
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: c9defcc7f569ba30628cb16632b52c00ae7f2bec
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78364764"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543864"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Rozhodnutí týkající se plánování nasazení spojené s Azure pro integrované systémy centra Azure Stack
 Až se rozhodnete, [jak budete Azure Stack hub integrovat do svého hybridního cloudového prostředí](azure-stack-connection-models.md), můžete dokončit rozhodnutí o nasazení Azure Stack centra.
@@ -34,6 +34,11 @@ Použití Azure AD pro úložiště identit vyžaduje dva účty Azure AD: úče
     - K zřizování a delegování aplikací a instančních objektů pro všechny služby centra Azure Stack, které potřebují komunikovat s Azure AD a Graph API.
     - Jako účet správce služby. Tento účet je vlastníkem výchozího předplatného poskytovatele (které můžete později změnit). Pomocí tohoto účtu se můžete přihlásit k portálu správce centra Azure Stack a můžete ho použít k vytvoření nabídek a plánů, nastavení kvót a provádění dalších funkcí správy v centru Azure Stack.
 
+> [!IMPORTANT]
+> - Účet globálního správce není potřebný ke spuštění centra Azure Stack a je možné ho zakázat po nasazení.
+> - Zabezpečte globální účet správce podle [osvědčených postupů popsaných tady](/azure/security/fundamentals/identity-management-best-practices).
+
+
 2. **Fakturační účet** (potřebný pro připojená i odpojená nasazení). Tento účet Azure slouží k navázání fakturačního vztahu mezi vaším integrovaným systémem vašeho centra Azure Stack a back-endu Azure Commerce. Toto je účet, který se účtuje za Azure Stack poplatky za centrum. Tento účet se taky použije pro nabídky položek na webu Marketplace a dalších hybridních scénářích.
 
 ### <a name="ad-fs-identity-store"></a>AD FS úložiště identit
@@ -43,7 +48,7 @@ Tuto možnost vyberte, pokud chcete pro účty správce služby používat vlast
 Můžete si vybrat buď průběžné **platby** , nebo model fakturace **kapacity** . Nasazení fakturačního modelu s průběžnými platbami podle aktuálního využití musí být schopné hlásit využití prostřednictvím připojení do Azure nejméně jednou za 30 dní. Proto je model fakturace s průběžnými platbami podle využití dostupný jenom pro připojená nasazení.  
 
 ### <a name="pay-as-you-use"></a>Průběžné platby
-S využitím modelu fakturace s průběžnými platbami podle aktuálního využití se účtují poplatky za použití v rámci předplatného Azure. Platíte jenom v případě, že používáte služby centra Azure Stack. Pokud se jedná o model, který se rozhodnete používat, budete potřebovat předplatné Azure a ID účtu přidružené k tomuto předplatnému (například serviceadmin@contoso.onmicrosoft.com). Předplatné EA, CSP a CSL se podporují. Vytváření sestav využití se konfiguruje během [registrace centra Azure Stack](azure-stack-registration.md).
+S využitím modelu fakturace s průběžnými platbami podle aktuálního využití se účtují poplatky za použití v rámci předplatného Azure. Platíte jenom v případě, že používáte služby centra Azure Stack. Pokud se jedná o model, který se rozhodnete používat, budete potřebovat předplatné Azure a ID účtu přidružené k tomuto předplatnému (například serviceadmin@contoso.onmicrosoft.com ). Předplatné EA, CSP a CSL se podporují. Vytváření sestav využití se konfiguruje během [registrace centra Azure Stack](azure-stack-registration.md).
 
 > [!NOTE]
 > Ve většině případů budou Podnikoví zákazníci používat předplatná EA a poskytovatelé služeb budou používat předplatná CSP nebo CSL.
@@ -52,8 +57,8 @@ Pokud se chystáte použít předplatné CSP, Projděte si následující tabulk
 
 |Scénář|Možnosti domény a předplatného|
 |-----|-----|
-|Jste přímý poskytovatel **CSP** nebo **nepřímo zprostředkovatel CSP**a budete pracovat s centrem Azure Stack.|Použijte předplatné CSL (Common Service Layer).<br>     – nebo –<br>Vytvořte tenanta Azure AD s popisným názvem v partnerském centru. &lt;Vaše organizace například>CSPAdmin s předplatným CSP Azure, které je k němu přidružené.|
-|Jste **nepřímým prodejcem CSP**a budete pracovat s centrem Azure Stack.|Požádejte svého nepřímý poskytovatel CSP, aby vytvořil tenanta Azure AD pro vaši organizaci s předplatným CSP Azure, které je k němu přidruženo pomocí partnerského centra.|
+|Jste přímý poskytovatel **CSP** nebo **nepřímo zprostředkovatel CSP** a budete pracovat s centrem Azure Stack.|Použijte předplatné CSL (Common Service Layer).<br>     nebo<br>Vytvořte tenanta Azure AD s popisným názvem v partnerském centru. &lt;Vaše organizace například>CSPAdmin s předplatným CSP Azure, které je k němu přidružené.|
+|Jste **nepřímým prodejcem CSP** a budete pracovat s centrem Azure Stack.|Požádejte svého nepřímý poskytovatel CSP, aby vytvořil tenanta Azure AD pro vaši organizaci s předplatným CSP Azure, které je k němu přidruženo pomocí partnerského centra.|
 
 ### <a name="capacity-based-billing"></a>Fakturace na základě kapacity
 Pokud se rozhodnete použít model fakturace kapacity, musíte si koupit skladovou jednotku plánu centra Azure Stack v závislosti na kapacitě systému. Abyste si mohli koupit správné množství, potřebujete znát počet fyzických jader v centru Azure Stack.

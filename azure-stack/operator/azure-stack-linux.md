@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: sethm
 ms.reviewer: ''
 ms.lastreviewed: 11/16/2019
-ms.openlocfilehash: 32e16bac548193a7c0af517c3a60e78a3e52f3ce
-ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
+ms.openlocfilehash: fb0584b79c3e3555ec59cd225db37847b02a41d2
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88857531"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544169"
 ---
 # <a name="add-linux-images-to-the-azure-stack-hub-marketplace"></a>Přidání imagí pro Linux do webu centra Azure Stack Marketplace
 
@@ -30,7 +30,7 @@ Pokud je to možné, Stáhněte si image dostupné prostřednictvím správy Mar
 
 ### <a name="azure-linux-agent"></a>Agent Azure Linux
 
-Je vyžadován agent Azure Linux (obvykle označovaný jako **WALinuxAgent** nebo **WALinuxAgent**) a ne všechny verze agenta fungují v centru Azure Stack. Verze mezi 2.2.21 a 2.2.34 (včetně) se v Azure Stackovém centru nepodporují. Pokud chcete použít nejnovější verze agenta výše než 2.2.35, použijte opravu hotfix 1901 hotfix/1902 nebo aktualizujte centrum Azure Stack na verzi 1903 (nebo novější). Všimněte si, že [Cloud-init](https://cloud-init.io/) se podporuje v Azure Stack vydáních centra později než 1910.
+Je vyžadován agent Azure Linux (obvykle označovaný jako **WALinuxAgent** nebo **WALinuxAgent** ) a ne všechny verze agenta fungují v centru Azure Stack. Verze mezi 2.2.21 a 2.2.34 (včetně) se v Azure Stackovém centru nepodporují. Pokud chcete použít nejnovější verze agenta výše než 2.2.35, použijte opravu hotfix 1901 hotfix/1902 nebo aktualizujte centrum Azure Stack na verzi 1903 (nebo novější). Všimněte si, že [Cloud-init](https://cloud-init.io/) se podporuje v Azure Stack vydáních centra později než 1910.
 
 | Sestavování centra Azure Stack | Sestavení agenta Azure Linux |
 | ------------- | ------------- |
@@ -109,7 +109,7 @@ V současné době se použití Cloud-init pro nasazení virtuálního počíta�
 Podle [těchto pokynů](../user/azure-stack-quick-create-vm-linux-powershell.md) můžete vytvořit virtuální počítač Linux pomocí prostředí PowerShell, ale nezapomeňte na cloud-init.txt odkazovat jako na součást `-CustomData` příznaku:
 
 ```powershell
-$VirtualMachine =Set-AzureRmVMOperatingSystem -VM $VirtualMachine `
+$VirtualMachine =Set-AzVMOperatingSystem -VM $VirtualMachine `
   -Linux `
   -ComputerName "MainComputer" `
   -Credential $cred -CustomData "#include https://cloudinitstrg.blob.core.windows.net/strg/cloud-init.txt"

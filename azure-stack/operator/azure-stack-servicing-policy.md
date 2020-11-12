@@ -8,12 +8,12 @@ ms.date: 09/25/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: ac110a3ee90cd0b1439e34a418bf7473b8487502
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: cff03367985558bd5b9b6786455cf626993836db
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899784"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545563"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Zásady obsluhy centra Azure Stack
 
@@ -25,7 +25,7 @@ Společnost Microsoft vydává úplné balíčky aktualizací i balíčky oprav 
 
 Úplné balíčky aktualizací se hostují v zabezpečeném koncovém bodu Azure. Můžete je stáhnout ručně pomocí [nástroje Azure Stack hub](https://aka.ms/azurestackupdatedownload)pro stažení aktualizací. Pokud je jednotka škálování připojená, zobrazí se automaticky na portálu pro správu, jakmile bude **k dispozici aktualizace**. Další informace o jednotlivých vydáních můžete kliknout na libovolnou verzi v části [aktualizace tempo verze](#update-package-release-cadence) v tomto článku.
 
-Balíčky aktualizací oprav hotfix jsou hostovány ve stejném zabezpečeném koncovém bodu Azure. Můžete si je stáhnout pomocí vložených odkazů v každé z příslušných článků o opravě hotfix KB. například [Azure Stack 1.1809.12.114ování v centru pro opravy](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Podobně jako u úplných, měsíčních aktualizačních balíčků můžou operátory centra Azure Stack stahovat soubory. XML a. zip a importovat je pomocí postupu v části [použití aktualizací v centru Azure Stack](azure-stack-apply-updates.md). U operátorů centra Azure Stack s připojenými jednotkami škálování se tyto opravy hotfix automaticky zobrazí na portálu pro správu a **k dispozici je aktualizace**zprávy.
+Balíčky aktualizací oprav hotfix jsou hostovány ve stejném zabezpečeném koncovém bodu Azure. Můžete si je stáhnout pomocí vložených odkazů v každé z příslušných článků o opravě hotfix KB. například [Azure Stack 1.1809.12.114ování v centru pro opravy](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Podobně jako u úplných, měsíčních aktualizačních balíčků můžou operátory centra Azure Stack stahovat soubory. XML a. zip a importovat je pomocí postupu v části [použití aktualizací v centru Azure Stack](azure-stack-apply-updates.md). U operátorů centra Azure Stack s připojenými jednotkami škálování se tyto opravy hotfix automaticky zobrazí na portálu pro správu a **k dispozici je aktualizace** zprávy.
 
 Pokud vaše jednotka škálování není připojená a chcete být upozorněni na každou verzi opravy hotfix, přihlaste se k odběru informačního kanálu [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) nebo [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) v každé vydané verzi.
 
@@ -47,9 +47,9 @@ Najděte si dokumentaci, jak naplánovat a spravovat aktualizace a jak zjistit a
 
 Informace o konkrétní aktualizaci, včetně toho, jak ji stáhnout, najdete v poznámkách k verzi této aktualizace:
 
-- [Aktualizace centra Azure Stack 2005](./release-notes.md?view=azs-2005)
-- [Aktualizace centra Azure Stack 2002](./release-notes.md?view=azs-2002)
-- [Aktualizace centra Azure Stack 1910](./release-notes.md?view=azs-1910)
+- [Aktualizace centra Azure Stack 2008](/azure-stack/operator/release-notes?view=azs-2008)
+- [Aktualizace centra Azure Stack 2005](/azure-stack/operator/release-notes?view=azs-2005)
+- [Aktualizace centra Azure Stack 2002](/azure-stack/operator/release-notes?view=azs-2002)
 
 ## <a name="hotfixes"></a>Opravy hotfix
 
@@ -61,14 +61,10 @@ Opravy hotfix se stáhnou a nainstalují stejně jako běžné úplné balíčky
 
 Informace o aktuálně dostupných opravách hotfix naleznete v poznámkách k verzi této aktualizace:
 
-- [2005 oprava hotfix centra Azure Stack](./release-notes.md?view=azs-2005#hotfixes)
-- [2002 oprava hotfix centra Azure Stack](./release-notes.md?view=azs-2002#hotfixes-1)
-- [1910 oprava hotfix centra Azure Stack](./release-notes.md?view=azs-1910#hotfixes-2)
+- [2005 oprava hotfix centra Azure Stack](/azure-stack/operator/release-notes?view=azs-2005#hotfixes)
+- [2002 oprava hotfix centra Azure Stack](/azure-stack/operator/release-notes?view=azs-2002#hotfixes-1)
 
 ## <a name="keep-your-system-under-support"></a>Zachování systému v rámci podpory
-
-> [!IMPORTANT]  
-> Díky [vydání 2002](release-notes.md?view=azs-2002) Azure Stack centra a podpoře našich zákazníků po celém světě, kteří reagují na COVID-19 a kteří mohou provádět důležitá rozhodnutí týkající se svých systémů Azure Stackch rozbočovačů, společnost Microsoft dočasně rozšířila své zásady podpory, aby zahrnovala tři předchozí verze aktualizací (N-3). S verzí 2005 budeme pokračovat v tomto rozšíření o dalších 45 dní (do 25. září 2020). V důsledku toho bude podporována nově vydaná aktualizace 2005 a kterákoli ze tří předchozích verzí aktualizace (2002, 1910 a 1908 nebo N-3). Po uplynutí 45 dnů (po 25. září 2020) se vrátíme k naší standardní zásadě podpory, což znamená, že podporované verze budou 2005, 2002 a 1910 nebo N-2.
 
 Aby vaše instance centra Azure Stack zůstala v podporovaném stavu, musí instance běžet z poslední vydané verze aktualizace nebo spustit jednu z těchto dvou předchozích verzí aktualizace.
 
@@ -84,7 +80,7 @@ U poskytovatelů prostředků Azure Stack hub je důležité poznamenat, že je 
 
 Další informace o kompatibilitě poskytovatele prostředků najdete v poznámkách k verzi pro konkrétního poskytovatele prostředků.
 
-## <a name="get-support"></a>Získat podporu
+## <a name="get-support"></a>Získání podpory
 
 Centrum Azure Stack se řídí stejným procesem podpory jako Azure. Podnikoví zákazníci mohou postupovat podle postupu popsaného v tématu [Postup vytvoření žádosti o podporu Azure](/azure/azure-supportability/how-to-create-azure-support-request). Pokud jste zákazníkem poskytovatele Cloud Solution Provider (CSP), požádejte o podporu svého CSP. Další informace najdete v nejčastějších dotazech k [podpoře Azure](https://azure.microsoft.com/support/faq/).
 

@@ -3,16 +3,16 @@ title: Nastavení požadavků pro modul AKS v centru Azure Stack
 description: Stanovte požadavky na spuštění stroje dotazů v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/08/2020
+ms.date: 10/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/08/2020
-ms.openlocfilehash: 6b3443b64dae560451d4d04d653e097d055fa5c1
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: c703d9cd9c20e48dec6172e3e0e3c12fcc3a7e2a
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573798"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543523"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack-hub"></a>Nastavení požadavků pro modul AKS v centru Azure Stack
 
@@ -46,8 +46,8 @@ Můžete nastavit následující položky.
 | Privátní veřejný klíč | Pokud chcete použít otevřené připojení SSH z vývojového počítače k VIRTUÁLNÍmu počítači serveru ve vaší instanci centra Azure Stack, který je hostitelem vaší webové aplikace, je potřeba vytvořit dvojici veřejného a privátního klíče Secure Shell (SSH). | Vyžadováno | Pokyny k vygenerování klíče najdete v tématu [generování klíče SSH](./azure-stack-dev-start-howto-ssh-public-key.md).|
 
 
-> [!NOTE]  
-> Můžete také vytvořit požadavky pro modul AKS pomocí rozhraní příkazového [řádku Azure CLI pro centra Azure Stack](./azure-stack-version-profiles-azurecli2.md) nebo [powershellu centra Azure Stack](../operator/azure-stack-powershell-install.md).
+> [!Note]  
+> Můžete také vytvořit požadavky pro modul AKS pomocí rozhraní příkazového [řádku Azure CLI pro centra Azure Stack](./azure-stack-version-profiles-azurecli2.md) nebo [powershellu centra Azure Stack](../operator/powershell-install-az-module.md).
 
 ## <a name="matching-engine-to-base-image-version"></a>Shodný modul se základní verzí image
 

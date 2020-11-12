@@ -7,12 +7,12 @@ ms.date: 9/02/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 5/28/2020
-ms.openlocfilehash: e0d426ac19645cbbc318f66b827946534539d125
-ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
+ms.openlocfilehash: 43ceccf55807367606bae5f3aa8fcdebf6f9aace
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89448567"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543812"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Přidat tenanta pro využití a fakturace do centra Azure Stack
 
@@ -52,22 +52,22 @@ Aktualizujte svou registraci pomocí nového zákaznického předplatného. Azur
 1. Otevřete prostředí Windows PowerShell v příkazovém řádku se zvýšenými oprávněními a spusťte příkaz:  
 
    ```powershell
-   Add-AzureRmAccount
+   Add-AzAccount
    ```
 
    >[!NOTE]
-   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo pokud chcete jednoduše přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí rutiny **Add-AzureRmAccount**: `Remove-AzureRmAccount-Scope Process` .
+   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo pokud chcete jednoduše přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí rutiny **Add-AzAccount** : `Remove-AzAccount-Scope Process` .
 
 2. Zadejte svoje přihlašovací údaje Azure.
 3. V relaci PowerShellu spusťte příkaz:
 
    ```powershell
-   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
+   New-AzResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
    ```
 
-### <a name="new-azurermresource-powershell-parameters"></a>Parametry prostředí PowerShell pro New-AzureRmResource
+### <a name="new-azresource-powershell-parameters"></a>Parametry New-AzResource PowerShellu
 
-V následující části jsou popsány parametry pro rutinu **New-AzureRmResource** :
+V následující části jsou popsány parametry pro rutinu **New-AzResource** :
 
 | Parametr | Popis |
 | --- | --- |

@@ -3,16 +3,16 @@ title: Konfigurace víceklientské architektury v centru Azure Stack
 description: Naučte se, jak povolit a zakázat více Azure Active Directory tenantů v centru Azure Stack.
 author: BryanLa
 ms.topic: how-to
-ms.date: 06/18/2020
+ms.date: 10/16/2020
 ms.author: bryanla
 ms.reviewer: bryanr
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 6d6e6f3c28a4386a099727f132d28f97cf4dacbe
-ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: 923c430291c742069a29806449b45d4fc9cdef07
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93291207"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544220"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>Konfigurace víceklientské architektury v centru Azure Stack
 
@@ -31,8 +31,8 @@ Pokud jste poskytovatelem Cloud Solution Provider (CSP), máte k dispozici dalš
 Předtím, než nakonfigurujete víceklientské architektury v Azure Stackovém centru, je nutné mít na zřeteli několik požadavků:
   
  - A Marie musí koordinovat kroky správy v rámci adresáře Azure Stackho centra, který je nainstalovaný v (Contoso), a v adresáři hosta (Fabrikam).
- - Ujistěte se, že jste [nainstalovali](azure-stack-powershell-install.md) a [nakonfigurovali](azure-stack-powershell-configure-admin.md) PowerShell pro Azure Stack hub.
- - [Stáhněte si nástroje Azure Stack hub](azure-stack-powershell-download.md)a importujte moduly identity:
+ - Ujistěte se, že jste [nainstalovali](powershell-install-az-module.md) a [nakonfigurovali](azure-stack-powershell-configure-admin.md) PowerShell pro Azure Stack hub.
+ - [Stáhněte si nástroje Azure Stack hub](azure-stack-powershell-download.md)a importujte moduly připojení a identita:
 
     ```powershell
     Import-Module .\Identity\AzureStack.Identity.psm1

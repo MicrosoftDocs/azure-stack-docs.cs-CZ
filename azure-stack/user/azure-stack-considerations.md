@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/21/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 25d836bece262f881901df6c62b5dc8f4aeaf11d
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: f4a0ff18d8b96c6c92aa3020031e604d2775c893
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90946464"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543557"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>Rozdíly mezi centrem Azure Stack a Azure při používání služeb a sestavování aplikací
 
@@ -41,7 +41,7 @@ Následující tabulka popisuje rozdíly vysoké úrovně mezi Azure Stack hub a
 | Dostupné služby | Podívejte se na seznam [produktů Azure](https://azure.microsoft.com/services/?b=17.04b). Dostupné služby se liší podle oblasti Azure. | Centrum Azure Stack podporuje podmnožinu služeb Azure. Skutečné služby se budou lišit v závislosti na tom, co vaše organizace nebo poskytovatel služeb zvolí jako nabídky.
 | Azure Resource Manager koncový bod * | `https://management.azure.com` | Pro integrovaný systém Azure Stack hub použijte koncový bod, který poskytuje váš operátor centra Azure Stack.<br><br>Pro vývojovou sadu použijte: `https://management.local.azurestack.external` .
 | Adresa URL portálu * | [https://portal.azure.com](https://portal.azure.com) | Pro integrovaný systém Azure Stack hub použijte adresu URL, kterou poskytuje operátor centra Azure Stack.<br><br>Pro vývojovou sadu použijte: `https://portal.local.azurestack.external` .
-| Region (Oblast) | Můžete vybrat, do které oblasti chcete nasazení nasadit. | Pro integrovaný systém Azure Stack hub použijte oblast, která je k dispozici ve vašem systému.<br><br>U Azure Stack Development Kit (ASDK) bude oblast vždycky **místní**.
+| Oblast | Můžete vybrat, do které oblasti chcete nasazení nasadit. | Pro integrovaný systém Azure Stack hub použijte oblast, která je k dispozici ve vašem systému.<br><br>U Azure Stack Development Kit (ASDK) bude oblast vždycky **místní**.
 | Skupiny prostředků | Skupina prostředků může zahrnovat oblasti. | V případě integrovaných systémů i vývojové sady existuje pouze jedna oblast.
 |Podporované obory názvů, typy prostředků a verze API | Nejnovější (nebo starší verze, které ještě nejsou zastaralé). | Centrum Azure Stack podporuje konkrétní verze. Viz část [požadavky na verzi](#version-requirements) v tomto článku.
 | | |
@@ -52,9 +52,9 @@ Následující tabulka popisuje rozdíly vysoké úrovně mezi Azure Stack hub a
 
 Microsoft poskytuje nástroje a pokyny, které vám pomůžou při vývoji centra Azure Stack.
 
-| Doporučení | Odkazy |
+| Doporučení | Reference |
 | -------- | ------------- |
-| Nainstalujte do pracovní stanice pro vývojáře správné nástroje. | - [Instalace PowerShellu](../operator/azure-stack-powershell-install.md)<br>- [Nástroje ke stažení](../operator/azure-stack-powershell-download.md)<br>- [Konfigurace PowerShellu](azure-stack-powershell-configure-user.md)<br>- [Nainstalovat Visual Studio](azure-stack-install-visual-studio.md)
+| Nainstalujte do pracovní stanice pro vývojáře správné nástroje. | - [Instalace PowerShellu](../operator/powershell-install-az-module.md)<br>- [Nástroje ke stažení](../operator/azure-stack-powershell-download.md)<br>- [Konfigurace PowerShellu](azure-stack-powershell-configure-user.md)<br>- [Nainstalovat Visual Studio](azure-stack-install-visual-studio.md)
 | Zkontrolujte informace o následujících položkách:<br>– Pokyny pro šablonu Azure Resource Manager.<br>– Jak najít šablony pro rychlý Start.<br>– Použijte modul zásad, který vám umožní využít Azure k vývoji pro centra Azure Stack. | [Vývoj pro centrum Azure Stack](azure-stack-developer.md) |
 | Projděte si osvědčené postupy pro šablony a použijte je. | [Šablony pro rychlý Start Správce prostředků](https://aka.ms/aa6yz42)
 | | |
@@ -68,14 +68,14 @@ Abyste měli jistotu, že používáte správnou verzi Azure PowerShell, použij
 > [!NOTE]
 > Pokud používáte Azure Stack Development Kit a máte přístup správce, přečtěte si část [určení aktuální verze](../operator/azure-stack-updates.md) , která určuje Azure Stack sestavení centra.
 
-U jiných rozhraní API spusťte následující příkaz PowerShellu pro výstup oborů názvů, typů prostředků a verzí rozhraní API, které jsou podporované v rámci vašeho předplatného centra Azure Stack (na úrovni vlastností můžou existovat rozdíly). Aby tento příkaz fungoval, je nutné, abyste už [nainstalovali](../operator/azure-stack-powershell-install.md) a [nakonfigurovali](azure-stack-powershell-configure-user.md) PowerShell pro prostředí Azure Stack hub. Musíte mít také předplatné nabídky centra Azure Stack.
+U jiných rozhraní API spusťte následující příkaz PowerShellu pro výstup oborů názvů, typů prostředků a verzí rozhraní API, které jsou podporované v rámci vašeho předplatného centra Azure Stack (na úrovni vlastností můžou existovat rozdíly). Aby tento příkaz fungoval, je nutné, abyste už [nainstalovali](../operator/powershell-install-az-module.md) a [nakonfigurovali](azure-stack-powershell-configure-user.md) PowerShell pro prostředí Azure Stack hub. Musíte mít také předplatné nabídky centra Azure Stack.
 
 ```powershell
-Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
+Get-AzResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
 Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} 
 ```
 
-Příklad výstupu (zkrácený): ![ příklad výstupu příkazu Get-AzureRmResourceProvider](media/azure-stack-considerations/image1.png)
+Ukázkový výstup (zkrácený): ![ příklad výstupu Get-AzResourceProvider příkazu](media/azure-stack-considerations/image1.png)
 
 ## <a name="next-steps"></a>Další kroky
 

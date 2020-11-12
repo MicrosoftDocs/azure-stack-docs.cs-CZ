@@ -8,12 +8,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 12/02/2019
-ms.openlocfilehash: ec161fd296785f42049b7b2917142f08b47ac910
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 172512b35e4f13a7ad86011162fe7ca9ebb825e5
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78367842"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545376"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack-hub"></a>Nahrazení fyzického disku v Azure Stackovém centru
 
@@ -48,7 +48,7 @@ Po nahrazení disku Azure Stack centrum automaticky zjistí nový disk a spustí
 
 Po nahrazení disku můžete monitorovat stav virtuálního disku a průběh úlohy opravy pomocí centra Azure Stack PowerShell.
 
-1. Ověřte, že máte nainstalovaný PowerShell Azure Stack hub. Další informace najdete v tématu [instalace PowerShellu pro centrum Azure Stack](azure-stack-powershell-install.md).
+1. Ověřte, že máte nainstalovaný PowerShell Azure Stack hub. Další informace najdete v tématu [instalace PowerShellu pro centrum Azure Stack](powershell-install-az-module.md).
 2. Připojte se k Azure Stack centra pomocí PowerShellu jako operátoru. Další informace najdete v tématu [připojení k Azure Stack hub pomocí PowerShellu jako operátoru](azure-stack-powershell-configure-admin.md).
 3. Spusťte následující rutiny k ověření stavu virtuálního disku a stavu opravy:
 

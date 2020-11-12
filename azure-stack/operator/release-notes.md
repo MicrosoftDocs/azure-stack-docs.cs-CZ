@@ -3,16 +3,16 @@ title: Poznámky k verzi centra Azure Stack
 description: Poznámky k verzi pro integrované systémy Azure Stack hub, včetně aktualizací a oprav chyb.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/06/2020
+ms.date: 11/11/2020
 ms.author: sethm
 ms.reviewer: sranthar
-ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: fa4b463f13d36b81134d144b357962128ee52a95
-ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
+ms.lastreviewed: 09/09/2020
+ms.openlocfilehash: 74b1be3736d21d968fa45135034637d4ca3cd5eb
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94383391"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546051"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -20,11 +20,11 @@ Tento článek popisuje obsah balíčků aktualizací centra Azure Stack. Tato a
 
 Pokud chcete získat přístup k poznámkám k verzi pro jinou verzi, použijte rozevírací nabídku selektor verzí nad obsahem vlevo.
 
-::: moniker range=">=azs-1910"
+::: moniker range=">=azs-2002"
 > [!IMPORTANT]  
 > Tento balíček aktualizace je určen pouze pro integrované systémy Azure Stack hub. Tento balíček aktualizace nepoužívejte na Azure Stack Development Kit (ASDK).
 ::: moniker-end
-::: moniker range="<azs-1910"
+::: moniker range="<azs-2002"
 > [!IMPORTANT]  
 > Pokud je vaše instance centra Azure Stack za více než dvěma aktualizacemi, je považována za nedodržující předpisy. Aby bylo možné [získat podporu, musíte aktualizovat aspoň minimální podporovanou verzi](azure-stack-servicing-policy.md#keep-your-system-under-support).
 ::: moniker-end
@@ -46,6 +46,89 @@ Balíček aktualizace centra Azure Stack můžete stáhnout pomocí [nástroje A
 <!---------------------------------------------------------->
 <!------------------- SUPPORTED VERSIONS ------------------->
 <!---------------------------------------------------------->
+::: moniker range="azs-2008"
+## <a name="2008-build-reference"></a>2008 – odkaz na sestavení
+
+Číslo buildu aktualizace centra Azure Stack 2008 je **1.2008.13.88**.
+
+### <a name="update-type"></a>Typ aktualizace
+
+Typ sestavení aktualizace centra Azure Stack 2008 je **plný**.
+
+Velikost balíčku aktualizace 2008 je v porovnání s předchozími aktualizacemi větší. Zvýšení velikosti má za následek delší dobu stahování. Aktualizace zůstane ve stavu **přípravy** po dlouhou dobu a operátoři můžou očekávat, že tento proces trvá déle než u předchozích aktualizací. Aktualizace 2008 obsahovala v našem interním testování – 4 uzly následující očekávané moduly runtime: 13-20 hodin, 8 uzlů: 16-26 hodin, 12 uzlů: 19-32 hodiny, 16 uzlů: 22-38 hodin. Přesné běhové moduly pro aktualizaci jsou obvykle závislé na kapacitě používané v systému podle zatížení klientů, připojení k systémové síti (Pokud je připojeno k Internetu) a specifikacemi hardwaru systému. Běhové moduly, které jsou kratší nebo delší než očekávaná hodnota, nejsou neobvyklé a nevyžadují akci Azure Stack operátory centra, pokud se aktualizace nezdařila. Tato přibližná doba běhu je specifická pro aktualizaci 2008 a neměla by se porovnávat s jinými aktualizacemi centra Azure Stack.
+
+Další informace o typech sestavení aktualizací najdete v tématu [Správa aktualizací v centru Azure Stack](azure-stack-updates.md).
+
+<!-- ## What's in this update -->
+
+<!-- The current theme (if any) of this release. -->
+
+### <a name="whats-new"></a>Co je nového
+
+<!-- What's new, also net new experiences and features. -->
+- Azure Stack hub teď podporuje partnerský vztah VNET, který umožňuje připojení virtuální sítě bez síťového virtuálního zařízení (síťové virtuální zařízení). Další informace najdete v [dokumentaci nové sítě VNet peering](../user/virtual-network-peering.md).
+- Úložiště objektů BLOB centra Azure Stack teď umožňuje uživatelům používat neměnné objekty blob. Nastavením neměnných zásad na kontejneru můžete ukládat datové objekty kritické pro podnikání do ČERVa (napsat jednou, číst mnoho). V této verzi se neměnné zásady dají nastavit jenom prostřednictvím REST API nebo klientských sad SDK. V této verzi nejsou taky možné připojovat zápisy objektů BLOB. Další informace o neměnných objektech blob najdete v tématu [ukládání důležitých podnikových dat objektů BLOB s neměnném úložištěm](/azure/storage/blobs/storage-blob-immutable-storage).
+- Úložiště centra Azure Stack nyní podporuje rozhraní API služby Azure Storage Services verze 2019-07-07. Pro klientské knihovny Azure, které jsou kompatibilní s novou verzí REST API, přečtěte si téma [vývojové nástroje pro úložiště Azure Stack hub](../user/azure-stack-storage-dev.md#azure-client-libraries).
+- Azure Stack Center COMPUTE teď podporuje Azure COMPUTE API verze 2020-06-01 s podmnožinou celkových dostupných funkcí.
+- Verze Preview centra pro správu Windows, která se teď může připojit k Azure Stackmu centru, aby poskytovala podrobné přehledy o infrastruktuře během operací podpory (vyžaduje se rozbití).
+- Možnost přidání přihlašovacího nápisu do privilegovaného koncového bodu (PEP) v době nasazení.
+- Vydávalo více **exkluzivních provozních** proužků, což vylepší viditelnost operací, které se v systému v současné době děje, a zakažte uživatelům spouštění (a následně neúspěšných) všech dalších exkluzivních operací.
+- Zavedli jsme dvě nové nápisy na stránce produktu Azure Stack centra na webu Marketplace. Pokud dojde k chybě při stahování Marketplace, můžou operátoři zobrazit podrobnosti o chybě a zkusit problém vyřešit pomocí doporučených kroků.
+- Vydali jste nástroj pro hodnocení, který zákazníkům poskytuje zpětnou vazbu. To umožní centru Azure Stack měřit a optimalizovat prostředí pro zákazníky.
+
+### <a name="improvements"></a>Vylepšen
+
+<!-- Changes and product improvements with tangible customer-facing value. -->
+- Bylo implementováno interní monitorování pro síťový adaptér a agenty hostitele SLB, takže služby budou automaticky opraveny, pokud někdy vstoupí do stavu Zastaveno.
+- Active Directory Federation Services (AD FS) (AD FS) nyní načte nový podpisový certifikát tokenu grafice zákazník ho otočí na svém vlastním serveru AD FS. Aby bylo možné využít tuto novou funkci pro už nakonfigurované systémy, musí být AD FS integrace nakonfigurována znovu. Další informace najdete v tématu [integrace AD FS identity s vaším centrem Azure Stack hub](azure-stack-integrate-identity.md).
+- Změny v procesu spuštění a vypnutí u instancí rolí infrastruktury a jejich závislosti na uzlech jednotek škálování. Tím se zvyšuje spolehlivost při spuštění a vypnutí centra Azure Stack.
+- Sada **AzSScenarios** nástroje **test-AzureStack** Validation Tool se aktualizovala tak, aby poskytovatelé cloudových služeb mohli úspěšně spouštět tuto sadu s ověřováním službou Multi-Factor Authentication u všech zákaznických účtů.
+- Vylepšená spolehlivost výstrah přidáním logiky potlačení za 29 zákaznických výstrah během operací životního cyklu.
+
+### <a name="changes"></a>Změny
+
+- Vlastnost typu prostředku účtu úložiště **supportHttpsTrafficOnly** v rozhraní SRP API verze **2016-01-01** a **2016-05-01** je povolená, ale tato vlastnost není v Azure Stackovém centru podporovaná.
+- Vyvolala prahovou hodnotu pro výstrahu využití kapacity svazku z 80% (upozornění) a 90% (kritické) na 90% (Warning) a 95% (kritická). Další informace najdete v tématu [Upozornění na místo v úložišti](azure-stack-manage-storage-shares.md#storage-space-alerts) .
+- Kroky konfigurace služby AD Graph se v této verzi mění. Další informace najdete v tématu [integrace AD FS identity s vaším centrem Azure Stack hub](azure-stack-integrate-identity.md).
+- Aby bylo možné zarovnat se k aktuálním osvědčeným postupům definovaným pro Windows Server 2019, Azure Stack centrálního centra se mění tak, aby se k dalšímu oddělení komunikace mezi serverem a serverem podporovala další třída provozu a Priorita. Výsledek těchto změn zajišťuje lepší odolnost proti komunikaci clusteru s podporou převzetí služeb při selhání. Tato konfigurace rezervace třídy provozu a šířky pásma se provádí změnou v přepínačích rozhraní příkazového centra pro Azure Stack a na hostiteli nebo serverech centra Azure Stack.
+
+  Všimněte si, že tyto změny jsou přidány na úrovni hostitele systému Azure Stack hub. Obraťte se na výrobce OEM, aby bylo možné provést požadované změny v přepínačích sítě v horní části racku. Tato změna mandátu se dá provést buď před aktualizací verze 2008, nebo po aktualizaci na 2008. Další informace najdete v [dokumentaci k integraci sítě](azure-stack-network.md).
+
+  - Velikosti virtuálních počítačů podporující GPU **NCas_v4 (NVIDIA T4)** se v tomto sestavení nahradily **NCasT4_v3** velikosti virtuálních počítačů, aby byly konzistentní s Azure. Všimněte si, že tyto prvky ještě nejsou zobrazené na portálu a dají se použít jenom prostřednictvím šablon Azure datamanageru.
+
+### <a name="fixes"></a>Opravy
+
+<!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
+- Opravili jsme problém, kdy se nepovedlo odstranit NSG síťové karty, která není připojená k běžícímu virtuálnímu počítači.
+- Opravili jsme problém, kdy se upraví hodnota **IdleTimeoutInMinutes** pro veřejnou IP adresu, která je přidružená k nástroji pro vyrovnávání zatížení, uvedla veřejnou IP adresu ve stavu selhání.
+- Opravili jsme rutinu **Get-AzsDisk** , která pro připojené spravované disky vrátí správný stav **připojení** místo **OnlineMigration**.
+
+## <a name="security-updates"></a>Aktualizace zabezpečení
+
+Informace o aktualizacích zabezpečení v této aktualizaci centra Azure Stack najdete v tématu [aktualizace zabezpečení centra Azure Stack](release-notes-security-updates.md).
+
+## <a name="hotfixes"></a>Opravy hotfix
+
+Azure Stack centrum pravidelně vydává opravy hotfix. Od verze 2005 se při aktualizaci na novou hlavní verzi (například 1.2002. x na 1.2005. x) automaticky nainstalují nejnovější opravy hotfix (pokud nějaké jsou) v nové hlavní verzi. Od tohoto okamžiku předem, pokud byla vydána oprava hotfix pro sestavení, měli byste ji nainstalovat.
+
+> [!NOTE]
+> Verze oprav hotfix centra Azure Stack jsou kumulativní; potřebujete jenom nainstalovat nejnovější opravu hotfix, abyste získali všechny opravy, které jsou součástí všech předchozích verzí oprav hotfix pro danou verzi.
+
+Další informace najdete v našich [zásadách obsluhy](azure-stack-servicing-policy.md).
+
+Opravy hotfix centra Azure Stack se vztahují pouze na integrované systémy Azure Stack hub. Nepokoušejte se instalovat opravy hotfix na ASDK.
+
+### <a name="prerequisites-before-applying-the-2008-update"></a>Požadavky: před instalací aktualizace 2008
+
+Při aktualizaci na novou hlavní verzi (například 1.2005. x na 1.2008. x) se automaticky nainstalují nejnovější opravy hotfix (pokud nějaké jsou) v nové hlavní verzi. Od tohoto okamžiku předem, pokud byla vydána oprava hotfix pro sestavení, měli byste ji nainstalovat.
+
+### <a name="after-successfully-applying-the-2008-update"></a>Po úspěšné instalaci aktualizace 2008
+
+Pokud se následně uvolní nějaké opravy hotfix 2008, měli byste po instalaci 2008 nainstalovat tyto opravy:
+
+- Není dostupná žádná oprava hotfix centra Azure Stack pro 2008.
+::: moniker-end
+
 ::: moniker range="azs-2005"
 ## <a name="2005-build-reference"></a>2005 – odkaz na sestavení
 
@@ -63,7 +146,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Novinky
+### <a name="whats-new"></a>Co je nového
 
 <!-- What's new, also net new experiences and features. -->
 - Toto sestavení nabízí podporu 3 nových typů virtuálních počítačů GPU: NCv3 (NVIDIA V100), NVv4 (AMD MI25) a NCas_v4 (NVIDIA T4) velikosti virtuálních počítačů. Nasazení virtuálních počítačů bude úspěšné pro uživatele, kteří mají správný hardware a jsou připojeni do programu Azure Stack hub GPU ve verzi Preview. Pokud vás zajímá, zaregistrujte se do programu pro zobrazení GPU v https://aka.ms/azurestackhubgpupreview . Další informace [najdete v tématu](../user/gpu-vms-about.md).
@@ -166,7 +249,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Novinky
+### <a name="whats-new"></a>Co je nového
 
 <!-- What's new, also net new experiences and features. -->
 
@@ -275,168 +358,12 @@ Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix
 - [1.2002.61.163 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4592241)
 ::: moniker-end
 
-::: moniker range="azs-1910"
-## <a name="1910-build-reference"></a>1910 – odkaz na sestavení
-
-Číslo buildu aktualizace centra Azure Stack 1910 je **1.1910.0.58**.
-
-### <a name="update-type"></a>Typ aktualizace
-
-Počínaje 1908 se příslušný operační systém, na kterém Azure Stack centra spouští, aktualizoval na Windows Server 2019. Tato aktualizace umožňuje základní základní vylepšení a možnost přinášet další možnosti do centra Azure Stack.
-
-Typ sestavení aktualizace centra Azure Stack 1910 je **Express**.
-
-Balíček aktualizace 1910 je v porovnání s předchozími aktualizacemi větší, což má za následek delší dobu stahování. Tato aktualizace zůstane ve stavu **Příprava** pro dlouhou dobu a operátoři můžou očekávat, že tento proces trvá déle než předchozí aktualizace. Očekávaná doba dokončení aktualizace 1910 je přibližně 10 hodin, bez ohledu na počet fyzických uzlů ve vašem prostředí Azure Stack hub. Přesné běhové moduly pro aktualizaci jsou obvykle závislé na kapacitě používané v systému podle zatížení klientů, připojení k systémové síti (Pokud je připojeno k Internetu) a specifikacemi hardwaru systému. Běhové moduly trvající déle než očekávaná hodnota nejsou běžné a nevyžadují akci Azure Stack operátory centra, pokud se aktualizace nezdařila. Tato přibližná doba běhu je specifická pro aktualizaci 1910 a neměla by se porovnávat s jinými aktualizacemi centra Azure Stack.
-
-Další informace o typech sestavení aktualizací najdete v tématu [Správa aktualizací v centru Azure Stack](azure-stack-updates.md).
-
-<!-- ## What's in this update -->
-
-<!-- The current theme (if any) of this release. -->
-
-### <a name="whats-new"></a>Novinky
-
-<!-- What's new, also net new experiences and features. -->
-
-- Portál pro správu nyní zobrazuje IP adresy privilegovaného koncového bodu v nabídce Vlastnosti oblasti pro snazší zjišťování. Kromě toho zobrazuje aktuální nakonfigurovaný časový server a servery DNS pro přeposílání. Další informace najdete v tématu [Použití privilegovaného koncového bodu ve službě Azure Stack Hub](azure-stack-privileged-endpoint.md).
-
-- Pokud dojde k chybě, může teď systém monitorování stavu a monitorování centra Azure Stack vyvolat výstrahy pro různé hardwarové součásti. Tyto výstrahy vyžadují další konfiguraci. Další informace najdete v tématu [monitorování hardwarových komponent centra Azure Stack](azure-stack-hardware-monitoring.md).
-
-- [Podpora Cloud-init pro Azure Stack hub](/azure/virtual-machines/linux/using-cloud-init): Cloud-init je široce používaný přístup k přizpůsobení virtuálního počítače se systémem Linux při prvním spuštění. Pomocí cloud-init můžete instalovat balíčky a zapisovat soubory nebo konfigurovat uživatele a zabezpečení. Vzhledem k tomu, že se během procesu prvotního spuštění volá Cloud-init, neexistují žádné další kroky ani nepotřebné agenti pro použití konfigurace. Image Ubuntu na webu Marketplace byly aktualizovány tak, aby podporovaly Cloud-init pro zřizování.
-
-- Centrum Azure Stack nyní podporuje všechny verze agenta Windows Azure Linux jako Azure.
-
-- K dispozici je nová verze modulů PowerShellu pro správce centra Azure Stack. <!-- For more information, see -->
-
-- Od 15. dubna 2020 byly vydány nové moduly tenanta Azure PowerShell pro centrum Azure Stack. Aktuálně používané moduly Azure RM budou fungovat i nadále, ale po sestavení 2002 už se neaktualizují.
-
-- Přidání rutiny **set-AzSDefenderManualUpdate** do privilegovaného koncového bodu (PEP) ke konfiguraci ruční aktualizace definicí programu Windows Defender v infrastruktuře centra Azure Stack. Další informace najdete v tématu [aktualizace antivirové ochrany v programu Windows Defender v centru Azure Stack](azure-stack-security-av.md).
-
-- Přidání rutiny **Get-AzSDefenderManualUpdate** do privilegovaného koncového bodu (PEP), který načte konfiguraci ruční aktualizace definicí programu Windows Defender v infrastruktuře centra Azure Stack. Další informace najdete v tématu [aktualizace antivirové ochrany v programu Windows Defender v centru Azure Stack](azure-stack-security-av.md).
-
-- Přidání rutiny **set-AzSDnsForwarder** do privilegovaného koncového bodu (PEP) pro změnu nastavení serveru DNS pro server DNS v centru Azure Stack. Další informace o konfiguraci DNS najdete v tématu [Azure Stack integrace služby DNS centra Datacenter](azure-stack-integrate-dns.md).
-
-- Přidání rutiny **Get-AzSDnsForwarder** do privilegovaného koncového bodu (PEP), aby se načetlo nastavení serveru DNS pro servery DNS v centru Azure Stack. Další informace o konfiguraci DNS najdete v tématu [Azure Stack integrace služby DNS centra Datacenter](azure-stack-integrate-dns.md).
-
-- Přidání podpory pro správu **clusterů Kubernetes** pomocí [modulu AKS](../user/azure-stack-kubernetes-aks-engine-overview.md) Od této aktualizace můžou zákazníci nasazovat produkční clustery Kubernetes. Modul AKS umožňuje uživatelům provádět tyto akce:
-  - Spravujte životní cyklus svých clusterů Kubernetes. Můžou vytvářet, aktualizovat a škálovat clustery.
-  - Spravujte své clustery pomocí spravovaných imagí vyprodukovaných AKS a týmy centra Azure Stack.
-  - Využijte poskytovatele cloudu Kubernetes integrovaného s Azure Resource Manager, který sestaví clustery s využitím nativních prostředků Azure.
-  - Nasaďte a spravujte svoje clustery v připojených nebo odpojených Azure Stackch razítkech rozbočovače.
-  - Použití hybridních funkcí Azure:
-    - Integrace se službou Azure ARC.
-    - Integrace s Azure Monitor pro kontejnery.
-  - Používejte kontejnery Windows s modulem AKS.
-  - Dostávat podpora Microsoftu a technické podpory pro jejich nasazení.
-
-### <a name="improvements"></a>Vylepšen
-
-<!-- Changes and product improvements with tangible customer-facing value. -->
-
-- Centrum Azure Stack zlepšilo svou schopnost automaticky opravovat některé aktualizace a problémy s aktualizací, které dříve způsobily chyby aktualizace, nebo brání operátorům zahájit Azure Stack aktualizace centra. Výsledkem je, že ve skupině **test-AzureStack-UpdateReadiness** je k dispozici méně testů. Další informace najdete v tématu [ověření stavu systému centra Azure Stack](azure-stack-diagnostic-test.md#groups). Ve skupině **UpdateReadiness** zůstanou tyto tři testy:
-
-  - **AzSInfraFileValidation**
-  - **AzSActionPlanStatus**
-  - **AzsStampBMCSummary**
-
-- Přidalo se pravidlo auditování, které oznamuje, že externí zařízení (například klíč USB) je připojené k uzlu infrastruktury centra Azure Stack. Protokol auditu se vysílá přes protokol syslog a zobrazí se jako **Microsoft-Windows-Security-audit: 6416 | Technologie Plug and Play události** Další informace o tom, jak nakonfigurovat klienta syslog, najdete v tématu [předávání SYSLOG](azure-stack-integrate-security.md).
-
-- Rozbočovač Azure Stack se přesouvá do 4096 klíčů RSA pro vnitřní certifikáty. Spuštění interního rotace tajných klíčů nahradí staré 2048 certifikátů pomocí 4096 bitů dlouhých certifikátů. Další informace o rotaci tajných kódů v centru Azure Stack najdete v tématu [otočení tajných kódů v centru Azure Stack](azure-stack-rotate-secrets.md).
-
-- Provede upgrade na složitost kryptografických algoritmů a složitosti klíčů pro několik interních součástí, aby splňovala předpisy výboru pro národní systémy zabezpečení – zásady 15 (CNSSP-15), které poskytují osvědčené postupy pro používání veřejných standardů pro bezpečné sdílení informací. Mezi vylepšeními je AES256 ověřování protokolem Kerberos a SHA384 pro šifrování pomocí sítě VPN. Další informace o CNSSP-15 najdete na stránce věnované [národním bezpečnostním systémům a zásadám](https://www.cnss.gov/CNSS/issuances/Policies.cfm).
-
-- Z důvodu výše uvedeného upgradu Azure Stack hub teď má nové výchozí hodnoty pro konfigurace protokolu IPsec/IKEv2. Nové výchozí hodnoty, které se používají na straně centra Azure Stack, jsou následující:
-
-   **Parametry protokolu IKE fáze 1 (hlavní režim)**
-
-   | Vlastnost              | Hodnota|
-   |-|-|
-   | Verze IKE           | IKEv2 |
-   |Skupina Diffie-Hellman   | ECP384 |
-   | Metoda ověřování | Předsdílený klíč |
-   |Algoritmy šifrování a hash | AES256, SHA384 |
-   |Životnost SA (čas)     | 28 800 sekund|
-
-   **Parametry protokolu IKE fáze 2 (rychlý režim)**
-
-   | Vlastnost| Hodnota|
-   |-|-|
-   |Verze IKE |IKEv2 |
-   |Šifrování & algoritmy hash (šifrování)     | GCMAES256|
-   |Šifrování šifrovacích & algoritmů hash (ověřování) | GCMAES256|
-   |Životnost SA (čas)  | 27 000 sekund  |
-   |Životnost SA (kilobajty) | 33 553 408     |
-   |Metoda Perfect Forward Secrecy (PFS) | ECP384 |
-   |Detekce mrtvých partnerských zařízení | Podporováno|
-
-   Tyto změny se projeví také ve výchozí dokumentaci k [návrhu protokolu IPSec/IKE](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters) .
-
-- Služba infrastruktura zálohování vylepšuje logiku, která počítá požadované místo na zálohování místo spoléhání na pevnou prahovou hodnotu. Služba bude používat velikost zálohování, zásady uchovávání informací, rezervu a aktuální využití externího umístění úložiště k určení, jestli se má pro operátor vyvolat upozornění.
-
-### <a name="changes"></a>Změny
-
-- Při stahování položek z webu Marketplace z Azure do centra Azure Stack je k dispozici nové uživatelské rozhraní, které umožňuje zadat verzi položky, pokud existuje více verzí. Nové uživatelské rozhraní je k dispozici v rámci připojených i odpojených scénářů. Další informace najdete v tématu [stažení položek Marketplace z Azure do centra Azure Stack](azure-stack-download-azure-marketplace-item.md).  
-
-- Počínaje verzí 1910 **vyžaduje** systém Azure Stack hub další/20 privátní interní IP místo. Další informace najdete v tématu [Plánování integrace sítě pro Azure Stack](azure-stack-network.md) .
-  
-- Služba zálohování infrastruktury odstraní částečně nahraná zálohovaná data v případě, že umístění externího úložiště během procesu nahrávání vyčerpá kapacitu.  
-
-- Služba infrastruktura zálohování přidá službu identit do datové části zálohy pro nasazení AAD.  
-
-- Modul PowerShellu centra Azure Stack se aktualizoval na verzi 1.8.0 pro verzi 1910.<br>Změny zahrnují:
-   - **Nový modul Správce DRP** : poskytovatel prostředků nasazení (DRP) umožňuje Orchestrované nasazení poskytovatelů prostředků do centra Azure Stack. Tyto příkazy komunikují s Azure Resource Managerou vrstvou a komunikují s DRP.
-   - **BRP** : <br />
-           – Podporuje obnovení jedné role pro zálohování infrastruktury Azure Stack. <br />
-           – Přidejte parametr `RoleName` do rutiny `Restore-AzsBackup` .
-   - **FRP** : zásadní změny prostředků **jednotky** a **svazku** pomocí verze rozhraní API `2019-05-01` . Funkce jsou podporovány centrem Azure Stack 1910 a novějším: <br />
-            – Hodnota,, `ID` `Name` a byla `HealthStatus` `OperationalStatus` změněna. <br />
-            – Podporované nové vlastnosti `FirmwareVersion` , `IsIndicationEnabled` , `Manufacturer` a `StoragePool` pro prostředky **jednotky** . <br />
-            – Vlastnosti `CanPool` a `CannotPoolReason` prostředky **jednotky** jsou zastaralé. `OperationalStatus` místo toho použijte.
-
-### <a name="fixes"></a>Opravy
-
-<!-- Product fixes that came up from customer deployments worth highlighting, especially if there's an SR/ICM associated to it. -->
-
-- Opravili jsme problém, který zabránil vynucování zásad TLS 1,2 v prostředích nasazených před vydáním Azure Stack centra 1904.
-- Opravili jsme problém, kdy se virtuální počítač s Ubuntu 18,04 vytvořený s povoleným autorizací SSH neumožňuje používat klíče SSH k přihlášení.
-- **Heslo pro resetování** se odebralo z uživatelského rozhraní sady škálování virtuálního počítače.
-- Opravili jsme problém, kdy odstranění nástroje pro vyrovnávání zatížení z portálu nezpůsobilo odstranění objektu ve vrstvě infrastruktury.
-- Opravili jsme problém, který ukázal nepřesné procento výstrahy využití fondu brány na portálu pro správu.
-<!-- Fixed an issue where adding more than one public IP on the same NIC on a Virtual Machine resulted in internet connectivity issues. Now, a NIC with two public IPs should work as expected.[This fix actually didn't go in 1910 due to build issues, commenting out until next build (2002) ] -->
-
-## <a name="security-updates"></a>Aktualizace zabezpečení
-
-Informace o aktualizacích zabezpečení v této aktualizaci centra Azure Stack najdete v tématu [aktualizace zabezpečení centra Azure Stack](release-notes-security-updates.md).
-
-Zprávu o ohrožení zabezpečení Qualys pro tuto verzi je možné stáhnout z [webu Qualys](https://www.qualys.com/azure-stack/).
-
-## <a name="hotfixes"></a>Opravy hotfix
-
-Azure Stack centrum pravidelně vydává opravy hotfix. Před aktualizací centra Azure Stack na 1910 se ujistěte, že jste nainstalovali nejnovější opravu hotfix centra Azure Stack pro 1908.
-
-> [!NOTE]
-> Verze oprav hotfix centra Azure Stack jsou kumulativní; potřebujete jenom nainstalovat nejnovější opravu hotfix, abyste získali všechny opravy, které jsou součástí všech předchozích verzí oprav hotfix pro danou verzi.
-
-Opravy hotfix centra Azure Stack se vztahují pouze na integrované systémy Azure Stack hub. Nepokoušejte se instalovat opravy hotfix na ASDK.
-
-### <a name="prerequisites-before-applying-the-1910-update"></a>Požadavky: před instalací aktualizace 1910
-
-Verze 1910 centra Azure Stack se musí použít ve verzi 1908 s následujícími opravami hotfix:
-
-<!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [1.1908.59.150 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4592778)
-
-### <a name="after-successfully-applying-the-1910-update"></a>Po úspěšné instalaci aktualizace 1910
-
-Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix. Další informace najdete v našich [zásadách obsluhy](azure-stack-servicing-policy.md).
-
-<!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [1.1910.84.230 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4592243)
-::: moniker-end
-
 <!------------------------------------------------------------>
 <!------------------- UNSUPPORTED VERSIONS ------------------->
 <!------------------------------------------------------------>
+::: moniker range="azs-1910"
+## <a name="1910-archived-release-notes"></a>1910 archivované poznámky k verzi
+::: moniker-end
 ::: moniker range="azs-1908"
 ## <a name="1908-archived-release-notes"></a>1908 archivované poznámky k verzi
 ::: moniker-end
@@ -486,6 +413,6 @@ Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix
 ## <a name="1802-archived-release-notes"></a>1802 archivované poznámky k verzi
 ::: moniker-end
 
-::: moniker range="<azs-1910"
+::: moniker range="<azs-2002"
 Do Galerie TechNet můžete získat přístup ke [starším verzím poznámky k verzi centra Azure Stack](https://aka.ms/azsarchivedrelnotes). Tyto archivované dokumenty jsou k dispozici pouze pro referenční účely a neznamenají podporu těchto verzí. Informace o podpoře centra Azure Stack najdete v tématu [zásady obsluhy centra Azure Stack](azure-stack-servicing-policy.md). Pokud potřebujete další pomoc, obraťte se na službu zákaznické podpory společnosti Microsoft.
 ::: moniker-end

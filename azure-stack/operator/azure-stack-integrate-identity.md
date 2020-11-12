@@ -8,12 +8,12 @@ ms.author: bryanla
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
 ms.custom: conteperfq4
-ms.openlocfilehash: 8e6ec9fcb6428b9f8dad7c4f78acde54291b30f1
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 3087e7b4f84aa710a89a2f122e91bcfd643eed8d
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488616"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544186"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>Integrace AD FS identity s vaším datacenterm centra Azure Stack
 
@@ -53,7 +53,7 @@ Graf podporuje pouze integraci s jednou doménovou strukturou služby Active Dir
 
 Jako vstupy pro parametry automatizace se vyžadují tyto informace:
 
-|parametr|Parametr listu nasazení|Popis|Příklad|
+|Parametr|Parametr listu nasazení|Popis|Příklad|
 |---------|---------|---------|---------|
 |`CustomADGlobalCatalog`|AD FS plně kvalifikovaný název domény doménové struktury|Plně kvalifikovaný název domény cílové doménové struktury služby Active Directory, se kterou chcete integrovat|Contoso.com|
 |`CustomADAdminCredentials`| |Uživatel s oprávněním ke čtení protokolu LDAP|YOURDOMAIN\graphservice|
@@ -74,8 +74,8 @@ Další informace o lokalitách služby Active Directory najdete v tématu [navr
 Volitelně můžete vytvořit účet pro službu Graph Service v existující službě Active Directory. Tento krok proveďte, pokud ještě nemáte účet, který chcete použít.
 
 1. V existující službě Active Directory vytvořte následující uživatelský účet (doporučení):
-   - **Uživatelské jméno**: graphservice
-   - **Heslo**: použijte silné heslo a nakonfigurujte heslo tak, aby nikdy nevypršela platnost.
+   - **Uživatelské jméno** : graphservice
+   - **Heslo** : použijte silné heslo a nakonfigurujte heslo tak, aby nikdy nevypršela platnost.
 
    Nevyžadují se žádná zvláštní oprávnění ani členství.
 
@@ -87,13 +87,23 @@ Pro tento postup použijte počítač v síti datového centra, který může ko
 
    ```powershell  
    $creds = Get-Credential
-   Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
+   $pep = New-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
-2. Teď, když jste připojeni k privilegovanému koncovému bodu, spusťte následující příkaz: 
+2. Teď, když máte relaci s privilegovaným koncovým bodem, spusťte následující příkaz: 
 
    ```powershell  
-   Register-DirectoryService -CustomADGlobalCatalog contoso.com
+    $i = @(
+           [pscustomobject]@{ 
+                     CustomADGlobalCatalog="fabrikam.com"
+                     CustomADAdminCredential= get-credential
+                     SkipRootDomainValidation = $false 
+                     ValidateParameters = $true
+                   }) 
+
+    Invoke-Command -Session $pep -ScriptBlock {Register-DirectoryService -customCatalog $using:i} 
+
+
    ```
 
    Po zobrazení výzvy zadejte pověření pro uživatelský účet, který chcete použít pro službu Graph Service (například graphservice). Vstup pro rutinu Register-DirectoryService musí být název doménové struktury nebo kořenová doména v doménové struktuře, nikoli žádná jiná doména v doménové struktuře.
@@ -105,8 +115,8 @@ Pro tento postup použijte počítač v síti datového centra, který může ko
 
    |Parametr|Popis|
    |---------|---------|
-   |`-SkipRootDomainValidation`|Určuje, že se místo Doporučené kořenové domény musí použít podřízená doména.|
-   |`-Force`|Obchází všechny kontroly ověřování.|
+   |`SkipRootDomainValidation`|Určuje, že se místo Doporučené kořenové domény musí použít podřízená doména.|
+   |`ValidateParameters`|Obchází všechny kontroly ověřování.|
 
 #### <a name="graph-protocols-and-ports"></a>Protokoly a porty grafu
 
@@ -125,7 +135,7 @@ Služba Graph Service v centru Azure Stack používá ke komunikaci s cílovou s
 
 Pro parametry automatizace se jako vstup vyžadují tyto informace:
 
-|parametr|Parametr listu nasazení|Popis|Příklad|
+|Parametr|Parametr listu nasazení|Popis|Příklad|
 |---------|---------|---------|---------|
 |CustomAdfsName|Název poskytovatele AD FS|Název zprostředkovatele deklarací identity.<br>Toto zobrazení se zobrazí na AD FS cílové stránce.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|Identifikátor URI AD FS metadat|Odkaz federačních metadat| https: \/ /ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |

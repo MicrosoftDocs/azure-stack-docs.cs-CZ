@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2019
-ms.openlocfilehash: 44fa05f5841952d581a35d8394300e96333bfc4f
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: a5250e18ab253a6c1a2b184ba1f261b5837bc879
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847074"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543473"
 ---
 # <a name="connect-to-the-asdk"></a>Připojení k ASDK
 
@@ -29,13 +29,13 @@ Jeden souběžný uživatel může spravovat prostředky na portálu pro správu
 > [!TIP]
 > Tato možnost také umožňuje znovu použít protokol RDP při přihlášení k hostitelskému počítači ASDK pro přihlášení k virtuálním počítačům vytvořeným v hostitelském počítači ASDK.
 
-1. Otevřete Připojení ke vzdálené ploše (mstc. exe) a připojte se k IP adrese hostitelského počítače ASDK. Ujistěte se, že používáte účet autorizovaný pro vzdálené přihlášení k hostitelskému počítači ASDK. Ve výchozím nastavení má **AzureStack\AzureStackAdmin** oprávnění ke vzdálenému přístupu k hostitelskému počítači ASDK.  
+1. Otevřete Připojení ke vzdálené ploše (mstc.exe) a připojte se k IP adrese hostitelského počítače ASDK. Ujistěte se, že používáte účet autorizovaný pro vzdálené přihlášení k hostitelskému počítači ASDK. Ve výchozím nastavení má **AzureStack\AzureStackAdmin** oprávnění ke vzdálenému přístupu k hostitelskému počítači ASDK.  
 
-2. Na hostitelském počítači s ASDK otevřete Správce serveru (ServerManager. exe). Vyberte **místní server**, vypněte **konfiguraci rozšířeného zabezpečení aplikace Internet explorer**a zavřete Správce serveru.
+2. Na hostitelském počítači ASDK otevřete Správce serveru (ServerManager.exe). Vyberte **místní server** , vypněte **konfiguraci rozšířeného zabezpečení aplikace Internet explorer** a zavřete Správce serveru.
 
-3. Přihlaste se k portálu pro správu jako **AzureStack\CloudAdmin** nebo použijte jiné přihlašovací údaje operátora Azure Stack. Adresa portálu správce ASDK je `https://adminportal.local.azurestack.external`.
+3. Přihlaste se k portálu pro správu jako **AzureStack\CloudAdmin** nebo použijte jiné přihlašovací údaje operátora Azure Stack. Adresa portálu správce ASDK je `https://adminportal.local.azurestack.external` .
 
-4. Přihlaste se k portálu User Portal jako **AzureStack\CloudAdmin** nebo použijte jiné přihlašovací údaje uživatele Azure Stack. Adresa uživatelského portálu ASDK je `https://portal.local.azurestack.external`.
+4. Přihlaste se k portálu User Portal jako **AzureStack\CloudAdmin** nebo použijte jiné přihlašovací údaje uživatele Azure Stack. Adresa uživatelského portálu ASDK je `https://portal.local.azurestack.external` .
 
 > [!NOTE]
 > Další informace o tom, kdy použít tento účet, najdete v tématu [základy správy ASDK](asdk-admin-basics.md#what-account-should-i-use).
@@ -62,7 +62,7 @@ Pokud chcete vytvořit připojení VPN k ASDK, otevřete PowerShell jako správc
 
 ```powershell
 # Change directories to the default Azure Stack tools directory
-cd C:\AzureStack-Tools-master
+cd C:\AzureStack-Tools-az
 
 # Configure Windows Remote Management (WinRM), if it's not already configured.
 winrm quickconfig  
@@ -107,7 +107,7 @@ Pokud je instalace úspěšná, **Azure Stack** se zobrazí v seznamu připojen�
       -Password $Password
     ```
 
-  * V místním počítači vyberte **Nastavení** > **sítě VPN** > **Azure Stack** > **připojit**. Do příkazového řádku pro přihlášení zadejte uživatelské jméno (**AzureStack\AzureStackAdmin**) a heslo.
+  * V místním počítači vyberte **nastavení sítě**  >  **VPN**  >  **Azure Stack**  >  **připojit**. Do příkazového řádku pro přihlášení zadejte uživatelské jméno ( **AzureStack\AzureStackAdmin** ) a heslo.
 
 Při prvním připojení budete vyzváni k instalaci Azure Stack kořenového certifikátu z **AzureStackCertificateAuthority** do úložiště certifikátů v místním počítači. Tento krok přidá ASDK certifikační autoritu (CA) do seznamu důvěryhodných hostitelů. Certifikát nainstalujete kliknutím na **Ano** .
 
@@ -118,10 +118,10 @@ Při prvním připojení budete vyzváni k instalaci Azure Stack kořenového ce
 
 ### <a name="test-vpn-connectivity"></a>Testovat připojení VPN
 
-Chcete-li otestovat připojení k portálu, otevřete prohlížeč a pak klikněte na portál User Portal na `https://portal.local.azurestack.external/` portálu nebo na portál `https://adminportal.local.azurestack.external/`pro správu.
+Chcete-li otestovat připojení k portálu, otevřete prohlížeč a pak klikněte na portál User Portal na `https://portal.local.azurestack.external/` portálu nebo na portál pro správu `https://adminportal.local.azurestack.external/` .
 
 Přihlaste se pomocí příslušných přihlašovacích údajů předplatného pro vytváření a správu prostředků.  
 
 ## <a name="next-steps"></a>Další kroky
 
-[Odstraňování potíží](asdk-troubleshooting.md)
+[Řešení potíží](asdk-troubleshooting.md)

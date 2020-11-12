@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: 5347225398e6494d89ba70d6468a6657d13b58e0
-ms.sourcegitcommit: 34db213dc6549f21662ed44d090f55359cfe8469
+ms.openlocfilehash: 5fd3f9f3d4d13ccf2fa03d656ac76d9cab462103
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88564764"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546272"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack-hub"></a>Nasazení clusteru Service Fabric v centru Azure Stack
 
@@ -80,7 +80,7 @@ Pomocí následujícího skriptu vytvořte Key Vault a přidejte do něj *certif
             $pfxCertObject = Get-ThumbprintFromPfx -PfxFilePath $PfxFilePath -Password $Password
     
             Write-Host "KeyVault id: " -ForegroundColor Green
-            (Get-AzureRmKeyVault -VaultName $KeyVaultName).ResourceId
+            (Get-AzKeyVault -VaultName $KeyVaultName).ResourceId
             
             Write-Host "Secret Id: " -ForegroundColor Green
             (Get-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $keyVaultSecretName).id
@@ -97,15 +97,15 @@ Pomocí následujícího skriptu vytvořte Key Vault a přidejte do něj *certif
     $clusterCertPfxPassword = "Your_password_for_ClusterCert.pfx"
     #==============================================================================
     
-    Add-AzureRmEnvironment -Name AzureStack -ARMEndpoint $armEndpoint
-    Login-AzureRmAccount -Environment AzureStack -TenantId $tenantId
+    Add-AzEnvironment -Name AzureStack -ARMEndpoint $armEndpoint
+    Login-AzAccount -Environment AzureStack -TenantId $tenantId
     
     $rgName = "sfvaultrg"
     Write-Host "Creating Resource Group..." -ForegroundColor Yellow
-    New-AzureRmResourceGroup -Name $rgName -Location $location
+    New-AzResourceGroup -Name $rgName -Location $location
     
     Write-Host "Creating Key Vault..." -ForegroundColor Yellow
-    $Vault = New-AzureRmKeyVault -VaultName sfvault -ResourceGroupName $rgName -Location $location -EnabledForTemplateDeployment -EnabledForDeployment -EnabledForDiskEncryption
+    $Vault = New-AzKeyVault -VaultName sfvault -ResourceGroupName $rgName -Location $location -EnabledForTemplateDeployment -EnabledForDeployment -EnabledForDiskEncryption
     
     Write-Host "Publishing certificate to Vault..." -ForegroundColor Yellow
     Publish-SecretToKeyVault -PfxFilePath $clusterCertPfxPath -Password $clusterCertPfxPassword -KeyVaultName $vault.VaultName
@@ -120,7 +120,7 @@ Další informace najdete v tématu [správa Key Vault v centru Azure Stack pomo
 
    ![Vybrat Cluster Service Fabric](./media/azure-stack-solution-template-service-fabric-cluster/image2.png)
 
-2. Pro každou stránku, například *základy*, vyplňte formulář nasazení. Pokud si nejste jisti hodnotou, použijte výchozí nastavení.
+2. Pro každou stránku, například *základy* , vyplňte formulář nasazení. Pokud si nejste jisti hodnotou, použijte výchozí nastavení.
 
     Pro nasazení do odpojeného centra Azure Stack nebo pro nasazení jiné verze Service Fabric si Stáhněte balíček Service Fabric pro nasazení a jeho odpovídající balíček runtime a zahostte ho v Azure Stack objekt BLOB centra. Zadejte tyto hodnoty do polí **Adresa URL balíčku pro nasazení Service Fabric** a **Adresa URL balíčku za běhu Service Fabric** .
     > [!NOTE]  
@@ -139,7 +139,7 @@ Další informace najdete v tématu [správa Key Vault v centru Azure Stack pomo
 
 4. Na stránce *zabezpečení* přidejte hodnoty, které jste získali z [Vytvoření Azure Key Vault](#add-a-secret-to-key-vault) a odeslání tajného klíče.
 
-   Pro *kryptografický otisk certifikátu klienta správce*zadejte kryptografický otisk *certifikátu klienta správce*. (Viz [požadavky](#prerequisites).)
+   Pro *kryptografický otisk certifikátu klienta správce* zadejte kryptografický otisk *certifikátu klienta správce*. (Viz [požadavky](#prerequisites).)
    
    - Zdroj Key Vault: zadejte celý `keyVault id` řetězec z výsledků skriptu. 
    - Adresa URL certifikátu clusteru: zadejte celou adresu URL z `Secret Id` z výsledků skriptu. 
@@ -165,7 +165,7 @@ Ke clusteru Service Fabric můžete přistupovat pomocí Service Fabric Explorer
 
     a. Otevřete Internet Explorer a přejít na certifikáty obsahu **Možnosti Internetu**  >  **Content**  >  **Certificates**.
   
-    b. V části certifikáty vyberte **importovat** a spusťte *Průvodce importem certifikátu*a potom klikněte na **Další**. Na stránce *importovat soubor* klikněte na **Procházet**a vyberte **certifikát klienta správce** , který jste zadali pro šablonu Azure Resource Manager.
+    b. V části certifikáty vyberte **importovat** a spusťte *Průvodce importem certifikátu* a potom klikněte na **Další**. Na stránce *importovat soubor* klikněte na **Procházet** a vyberte **certifikát klienta správce** , který jste zadali pro šablonu Azure Resource Manager.
         
        > [!NOTE]  
        > Tento certifikát není certifikátem clusteru, který byl dříve přidán do Key Vault.  
@@ -174,7 +174,7 @@ Ke clusteru Service Fabric můžete přistupovat pomocí Service Fabric Explorer
 
        ![Personal Information Exchange](media/azure-stack-solution-template-service-fabric-cluster/image8.png)  
 
-    d. Na stránce *úložiště certifikátů* vyberte **osobní**a pak dokončete průvodce.  
+    d. Na stránce *úložiště certifikátů* vyberte **osobní** a pak dokončete průvodce.  
        ![Úložiště certifikátů](media/azure-stack-solution-template-service-fabric-cluster/image9.png)  
 1. Zjištění plně kvalifikovaného názvu domény Service Fabric clusteru:  
 
@@ -189,9 +189,9 @@ Ke clusteru Service Fabric můžete přistupovat pomocí Service Fabric Explorer
 1. Pokud chcete najít adresu URL pro Service Fabric Explorer a koncový bod připojení klienta, Projděte si výsledky Template deployment.
 
 1. V prohlížeči přejděte na `https://*FQDN*:19080`. V kroku 2 nahraďte *plně kvalifikovaný název* domény plně kvalifikovaným názvem domény vašeho clusteru Service Fabric.   
-   Pokud jste použili certifikát podepsaný svým držitelem, zobrazí se upozornění, že připojení není zabezpečené. Chcete-li pokračovat na web, vyberte **Další informace**a potom **přejděte na webovou stránku**. 
+   Pokud jste použili certifikát podepsaný svým držitelem, zobrazí se upozornění, že připojení není zabezpečené. Chcete-li pokračovat na web, vyberte **Další informace** a potom **přejděte na webovou stránku**. 
 
-1. Chcete-li provést ověření v lokalitě, je nutné vybrat certifikát, který chcete použít. Vyberte **Další možnosti**, vyberte příslušný certifikát a potom se kliknutím na tlačítko **OK** připojte k Service Fabric Explorer. 
+1. Chcete-li provést ověření v lokalitě, je nutné vybrat certifikát, který chcete použít. Vyberte **Další možnosti** , vyberte příslušný certifikát a potom se kliknutím na tlačítko **OK** připojte k Service Fabric Explorer. 
 
    ![Ověření](media/azure-stack-solution-template-service-fabric-cluster/image14.png)
 
@@ -203,13 +203,13 @@ Ke clusteru Service Fabric můžete přistupovat pomocí Service Fabric Explorer
 
 1. Po dokončení instalace nakonfigurujte proměnné prostředí systému, aby se zajistilo, že jsou rutiny Service Fabric dostupné z PowerShellu.  
     
-    a. Otevřete **Ovládací panely**  >  **systém a zabezpečení**  >  **System**a pak vyberte **Upřesnit nastavení systému**.  
+    a. Otevřete **Ovládací panely**  >  **systém a zabezpečení**  >  **System** a pak vyberte **Upřesnit nastavení systému**.  
     
       ![Ovládací panely](media/azure-stack-solution-template-service-fabric-cluster/image15.png) 
 
-    b. Na kartě **Upřesnit** v okně *Vlastnosti systému*vyberte **proměnné prostředí**.  
+    b. Na kartě **Upřesnit** v okně *Vlastnosti systému* vyberte **proměnné prostředí**.  
 
-    c. V případě *systémových proměnných*upravte **cestu** a ujistěte se, že **C: \\ Program Files \\ Microsoft Service Fabric bin Fabric Fabric Fabric \\ \\ \\ . kód** je v horní části seznamu proměnných prostředí.  
+    c. V případě *systémových proměnných* upravte **cestu** a ujistěte se, že **C: \\ Program Files \\ Microsoft Service Fabric bin Fabric Fabric Fabric \\ \\ \\ . kód** je v horní části seznamu proměnných prostředí.  
 
       ![Seznam proměnných prostředí](media/azure-stack-solution-template-service-fabric-cluster/image16.png)
 

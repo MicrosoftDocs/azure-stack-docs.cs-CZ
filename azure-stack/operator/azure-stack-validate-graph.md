@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Pomocí nástroje pro kontrolu připravenosti centra Azure Stack ověřte integraci grafů pro Azure Stack centrum.
 author: BryanLa
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 10/19/2020
 ms.author: bryanla
 ms.reviewer: jerskine
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: e4af68d1d4f9a44bb957f318f0f13ec1d2c9ecdd
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: 1abb44838e0c70764d08a4aa47a0fdf73660072d
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173835"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545597"
 ---
 # <a name="validate-graph-integration-for-azure-stack-hub"></a>Ověřit integraci grafu pro Azure Stack hub
 
@@ -56,7 +56,7 @@ Je nutné, aby byly splněny následující požadavky.
 1. V počítači, který splňuje požadavky, otevřete příkazový řádek PowerShell pro správu a spusťte následující příkaz, kterým nainstalujete AzsReadinessChecker:
 
     ```powershell
-    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
+    Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
     ```
 
 1. Z příkazového řádku PowerShellu spusťte následující příkaz, který nastaví proměnnou *$graphCredential* na účet grafu. Nahraďte `contoso\graphservice` účtem pomocí `domain\username` formátu.
@@ -99,16 +99,16 @@ V produkčních prostředích není testování připojení k síti z pracovní 
 
 ## <a name="report-and-log-file"></a>Soubor sestavy a protokolu
 
-Pokaždé, když se ověřování spustí, protokoluje výsledky do **AzsReadinessChecker. log** a **AzsReadinessCheckerReport. JSON**. Umístění těchto souborů se zobrazí s výsledky ověřování v prostředí PowerShell.
+Pokaždé, když se ověřování spustí, protokoluje výsledky do **AzsReadinessChecker. log** a **AzsReadinessCheckerReport.js**. Umístění těchto souborů se zobrazí s výsledky ověřování v prostředí PowerShell.
 
 Soubory ověření vám můžou přispět ke sdílení stavu před nasazením centra Azure Stack nebo prozkoumání problémů s ověřováním. Oba soubory uchovávají výsledky každé následné kontroly ověření. Tato sestava poskytne vašemu týmu nasazení potvrzení konfigurace identity. Soubor protokolu může pomoci týmu nasazení nebo podpory prozkoumat problémy s ověřením.
 
-Ve výchozím nastavení jsou oba soubory zapisovány `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\`do.
+Ve výchozím nastavení jsou oba soubory zapisovány do `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\` .
 
 Použije
 
 * `-OutputPath`: Parametr *path* na konci příkazu Run pro určení jiného umístění sestavy.
-* `-CleanReport`: Parametr na konci příkazu Run vymaže *AzsReadinessCheckerReport. JSON* předchozí informace sestavy. Další informace najdete v tématu [Sestava ověřování centra Azure Stack](azure-stack-validation-report.md).
+* `-CleanReport`: Parametr na konci příkazu Run pro vymazání *AzsReadinessCheckerReport.js* z předchozí informace sestavy. Další informace najdete v tématu [Sestava ověřování centra Azure Stack](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Selhání ověřování
 

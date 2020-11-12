@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 1a8e4618f81f157ff05117505bf5b76922bd4c35
-ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
+ms.openlocfilehash: 10af23001cd3b7e12aa080a2dbecc136be0acfc8
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91815134"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543591"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>Integrace řešení pro externí monitorování pomocí centra Azure Stack
 
@@ -117,7 +117,7 @@ Následující parametry jsou k dispozici pro konfiguraci v souboru azurestack. 
 
 Další informace o tom, jak vytvořit hlavní název služby (SPN), najdete v tématu [použití identity aplikace pro přístup k prostředkům](azure-stack-create-service-principals.md).
 
-| Parametr | Popis | Authentication |
+| Parametr | Popis | Ověřování |
 | --- | --- | --- |
 | **External_domain_fqdn** | Plně kvalifikovaný název domény externí domény |    |
 | **věřitel** | Název oblasti |    |
@@ -201,16 +201,16 @@ Výstrahu můžete také uzavřít pomocí terminálu s následujícím příkaz
 
 Pokud nepoužíváte Operations Manager, Nagios nebo řešení založené na Nagios, můžete pomocí PowerShellu povolit širokou škálu řešení monitorování pro integraci se službou Azure Stack hub.
 
-1. Pokud chcete používat PowerShell, ujistěte se, že máte [nainstalovaný PowerShell a nakonfigurovat](azure-stack-powershell-install.md) ho pro prostředí operátora centra Azure Stack. Nainstalujte PowerShell do místního počítače, který se může připojit ke koncovému bodu Správce prostředků (správce) ( https://adminmanagement . [ oblast]. [External_FQDN]).
+1. Pokud chcete používat PowerShell, ujistěte se, že máte [nainstalovaný PowerShell a nakonfigurovat](powershell-install-az-module.md) ho pro prostředí operátora centra Azure Stack. Nainstalujte PowerShell do místního počítače, který se může připojit ke koncovému bodu Správce prostředků (správce) ( https://adminmanagement . [ oblast]. [External_FQDN]).
 
 2. Spusťte následující příkazy, které se připojí k prostředí Azure Stack hub jako operátor centra Azure Stack:
 
    ```powershell
-   Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN] `
+   Add-AzEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN] `
       -AzureKeyVaultDnsSuffix adminvault.[Region].[External_FQDN] `
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.[Region].[External_FQDN]
 
-   Connect-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+   Connect-AzAccount -EnvironmentName "AzureStackAdmin"
    ```
 
 3. Pro práci s výstrahami použijte příkazy, jako jsou následující příklady:

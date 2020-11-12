@@ -3,16 +3,16 @@ title: Stažení nástrojů centra Azure Stack z GitHubu
 description: Naučte se stahovat nástroje potřebné pro práci s Azure Stack hub.
 author: mattbriggs
 ms.topic: article
-ms.date: 8/28/2020
+ms.date: 10/16/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 8/28/2020
-ms.openlocfilehash: 1c85de355be1597c09db7083b5ca335a5469154c
-ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: 023e04d807ff34f78bd4acbc68487e8893831ba4
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93363723"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545053"
 ---
 # <a name="download-azure-stack-hub-tools-from-github"></a>Stažení nástrojů centra Azure Stack z GitHubu
 
@@ -74,7 +74,7 @@ Další informace o použití modulu AzureRM pro centrum Azure Stack najdete v t
 
 
 
-Další informace o použití modulu AZ Module for Azure Stack hub najdete v tématu [install PowerShell AZ Preview Module for Azure Stack hub](powershell-install-az-module.md).
+---
 
 ---
 
@@ -88,7 +88,7 @@ Další informace o použití modulu AZ Module for Azure Stack hub najdete v té
 | [Zásady Správce prostředků pro centrum Azure Stack](../user/azure-stack-policy-module.md) | Pomocí tohoto modulu můžete nakonfigurovat předplatné Azure nebo skupinu prostředků Azure se stejnou dostupností verzí a služeb jako centrum Azure Stack. | Operátoři cloudu a uživatelé |
 | [Registrace v Azure](azure-stack-registration.md ) | Tento modul použijte k registraci instance ASDK v Azure. Po registraci můžete stáhnout Azure Marketplace položky, které se budou používat v centru Azure Stack. | Operátory cloudu |
 | [Nasazení centra Azure Stack](../asdk/asdk-install.md) | Tento modul slouží k přípravě hostitelského počítače centra Azure Stack k nasazení a opětovnému nasazení pomocí image virtuálního pevného disku (VHD) Azure Stack hub. | Operátory cloudu|
-| [Připojování k centru Azure Stack](azure-stack-powershell-install.md) | Pomocí tohoto modulu můžete nakonfigurovat připojení VPN k rozbočovači Azure Stack. | Operátoři cloudu a uživatelé |
+| [Připojování k centru Azure Stack](azure-stack-powershell-configure-admin.md) | Pomocí tohoto modulu můžete nakonfigurovat připojení VPN k rozbočovači Azure Stack. | Operátoři cloudu a uživatelé |
 | [Validátor šablon](../user/azure-stack-validate-templates.md) | Pomocí tohoto modulu můžete ověřit, jestli se dá nasadit existující nebo novou šablonu do centra Azure Stack. | Operátoři cloudu a uživatelé|
 
 ## <a name="next-steps"></a>Další kroky

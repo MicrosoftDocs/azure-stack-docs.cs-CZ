@@ -3,16 +3,16 @@ title: Nastavení vývojového prostředí v centru Azure Stack
 description: Začněte vyvíjet aplikace pro centrum Azure Stack.
 author: mattbriggs
 ms.topic: overview
-ms.date: 7/23/2020
+ms.date: 10/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: f54c8a442b9df31ff112f1e385b15c441c7c0ffd
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: aaf6e48a728659ee6e756cee674edb423362db67
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920674"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546119"
 ---
 # <a name="set-up-a-development-environment-in-azure-stack-hub"></a>Nastavení vývojového prostředí v centru Azure Stack 
 
@@ -76,7 +76,7 @@ Pokud používáte počítač s Windows 10, můžete pracovat s PowerShellem 5,0
 
 ### <a name="set-up-your-tools"></a>Nastavení nástrojů 
 
-1. Nastavte si prostředí PowerShell. Pokyny najdete v tématu [Install Azure Stack hub PowerShell](../operator/azure-stack-powershell-install.md). 
+1. Nastavte si prostředí PowerShell. Pokyny najdete v tématu [Install Azure Stack hub PowerShell](../operator/powershell-install-az-module.md). 
 
 2. Stáhněte si nástroje Azure Stack hub. Pokyny najdete v tématu [Stažení nástrojů centra Azure Stack z GitHubu](../operator/azure-stack-powershell-download.md). 
 

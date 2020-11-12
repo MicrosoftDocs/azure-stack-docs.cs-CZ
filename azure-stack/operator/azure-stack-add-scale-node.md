@@ -7,12 +7,12 @@ ms.date: 11/05/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 11/05/2020
-ms.openlocfilehash: d6e8d9a6df51ec71b144ca5ae145acd3ae10a12c
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: 86672961ee2a02f858cfce73a895154c6eb1bcbe
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415217"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544033"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>Přidání dalších uzlů jednotek škálování do centra Azure Stack
 
@@ -60,6 +60,21 @@ K přidání nových uzlů můžete použít portál pro správu nebo PowerShell
    ![Přidat podrobnosti uzlu](media/azure-stack-add-scale-node/select-node2.png)
  
 
+### <a name="powershell-az"></a>[Modul Az PowerShellu](#tab/Az)
+
+K přidání uzlu použijte rutinu **Add-AzsScaleUnitNode** .  
+
+Před použitím některého z následujících ukázkových skriptů PowerShellu nahraďte hodnoty *name_of_new_node* ,  *name_of_scale_unit_cluster* *BMCIP_address_of_new_node* hodnotami z vašeho prostředí Azure Stack hub.
+
+  > [!Note]  
+  > Při pojmenovávání uzlu musíte zachovat název kratší než 15 znaků. Nemůžete také použít název, který obsahuje mezery nebo obsahuje některý z následujících znaků: `\` , `/` , `:` , `*` , `?` , `"` , `<` , `>` , `|` ,,,,, `\` ,, `~` `!` `@` `#` `$` `%` `^` `&` `(` `)` `{` `}` `_` ,,,,,,,,,,,,,,,,,,,.
+
+**Přidat uzel:**
+  ```powershell
+  ## Add a single Node 
+    Add-AzsScaleUnitNode -BMCIPv4Address "<BMCIP_address_of_new_node>" -computername "<name_of_new_node>" -ScaleUnit "<name_of_scale_unit_cluster>" 
+  ```  
+
 ### <a name="powershell-azurerm"></a>[Modul AzureRM PowerShellu](#tab/AzureRM)
 
 K přidání uzlu použijte rutinu **New-AzsScaleUnitNodeObject** .  
@@ -75,21 +90,6 @@ Před použitím některého z následujících ukázkových skriptů PowerShell
   $NewNode=New-AzsScaleUnitNodeObject -computername "<name_of_new_node>" -BMCIPv4Address "<BMCIP_address_of_new_node>" 
  
   Add-AzsScaleUnitNode -NodeList $NewNode -ScaleUnit "<name_of_scale_unit_cluster>" 
-  ```  
-
-### <a name="powershell-az"></a>[Modul Az PowerShellu](#tab/Az)
-
-K přidání uzlu použijte rutinu **Add-AzsScaleUnitNode** .  
-
-Před použitím některého z následujících ukázkových skriptů PowerShellu nahraďte hodnoty *name_of_new_node* ,  *name_of_scale_unit_cluster* *BMCIP_address_of_new_node* hodnotami z vašeho prostředí Azure Stack hub.
-
-  > [!Note]  
-  > Při pojmenovávání uzlu musíte zachovat název kratší než 15 znaků. Nemůžete také použít název, který obsahuje mezery nebo obsahuje některý z následujících znaků: `\` , `/` , `:` , `*` , `?` , `"` , `<` , `>` , `|` ,,,,, `\` ,, `~` `!` `@` `#` `$` `%` `^` `&` `(` `)` `{` `}` `_` ,,,,,,,,,,,,,,,,,,,.
-
-**Přidat uzel:**
-  ```powershell
-  ## Add a single Node 
-    Add-AzsScaleUnitNode -BMCIPv4Address "<BMCIP_address_of_new_node>" -computername "<name_of_new_node>" -ScaleUnit "<name_of_scale_unit_cluster>" 
   ```  
 
 ---

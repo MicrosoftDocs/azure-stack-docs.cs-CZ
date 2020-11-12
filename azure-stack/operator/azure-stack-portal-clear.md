@@ -7,12 +7,12 @@ ms.date: 05/06/2020
 ms.author: sethm
 ms.reviewer: troettinger
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: e419ebd632fabac6985b1a763b4661d75307e4ba
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: 3821eced3f37902b20f13ee4d918b2ff2ea8aca9
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83375087"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545087"
 ---
 # <a name="clear-portal-user-data-from-azure-stack-hub"></a>Vymaže data uživatelů portálu z centra Azure Stack.
 
@@ -27,7 +27,7 @@ Odebrání uživatelských nastavení portálu by se mělo provádět jenom po o
 
 ## <a name="requirements"></a>Požadavky
 
-- [Nainstalujte PowerShell pro centrum Azure Stack](azure-stack-powershell-install.md).
+- [Nainstalujte PowerShell pro centrum Azure Stack](powershell-install-az-module.md).
 - [Stáhněte si nejnovější nástroje Azure Stack hub](azure-stack-powershell-download.md) z GitHubu.
 - Uživatelský účet musí stále existovat v adresáři.
 - Azure Stack přihlašovací údaje správce centra pro přístup ke koncovému bodu Správce prostředků správce.
@@ -43,7 +43,7 @@ Než budete pokračovat, nezapomeňte [si stáhnout nejnovější verzi nástroj
 
 Pro účely tohoto postupu použijte počítač, který může komunikovat s Správce prostředků koncovým bodem Azure Stack centra pro správu.
 
-1. Otevřete relaci Windows PowerShellu se zvýšenými oprávněními (Spustit jako správce), do kořenové složky v adresáři **AzureStack-Tools-Master** a naimportujte požadovaný modul prostředí PowerShell:
+1. Otevřete relaci Windows PowerShellu se zvýšenými oprávněními (Spustit jako správce), do kořenové složky v adresáři **AzureStack-Tools-AZ** Directory a importujte požadovaný modul prostředí PowerShell:
 
    ```powershell
    Import-Module .\DatacenterIntegration\Portal\PortalUserDataUtilities.psm1
@@ -84,7 +84,7 @@ Uživatel musí zadat dotaz na ID objektu a poskytnout mu operátor centra Azure
 
 ### <a name="user-retrieves-the-user-object-id"></a>Uživatel načte ID objektu uživatele.
 
-1. Otevřete relaci Windows PowerShellu se zvýšenými oprávněními (Spustit jako správce), vyhledejte kořenovou složku v adresáři **AzureStack-Tools-Master** a pak importujte potřebný modul PowerShellu.
+1. Otevřete relaci Windows PowerShellu se zvýšenými oprávněními (Spustit jako správce), vyhledejte kořenovou složku v adresáři **AzureStack-Tools-AZ** Directory a pak importujte potřebný modul PowerShellu.
 
    ```powershell
    Import-Module .\DatacenterIntegration\Portal\PortalUserDataUtilities.psm1
@@ -114,7 +114,7 @@ Uživatel musí zadat dotaz na ID objektu a poskytnout mu operátor centra Azure
 
 Po přijetí ID objektu uživatele jako operátoru centra Azure Stack spusťte následující příkazy pro odebrání uživatelských dat portálu:
 
-1. Otevřete relaci Windows PowerShellu se zvýšenými oprávněními (Spustit jako správce), vyhledejte kořenovou složku v adresáři **AzureStack-Tools-Master** a pak importujte potřebný modul PowerShellu.
+1. Otevřete relaci Windows PowerShellu se zvýšenými oprávněními (Spustit jako správce), vyhledejte kořenovou složku v adresáři **AzureStack-Tools-AZ** Directory a pak importujte potřebný modul PowerShellu.
 
    ```powershell
    Import-Module .\DatacenterIntegration\Portal\PortalUserDataUtilities.psm1

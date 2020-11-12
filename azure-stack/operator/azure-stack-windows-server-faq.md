@@ -8,12 +8,12 @@ ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: cb3f1fe4bb0e8eb1181445479dd44d781a34bf28
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.openlocfilehash: 0801f9530bc3f462e1ddfd0fbce15d193ea6343e
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414125"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545708"
 ---
 # <a name="azure-stack-hub-marketplace-faq"></a>Nejčastější dotazy k webu Azure Stack hub Marketplace
 
@@ -53,9 +53,9 @@ Pokud stáhnete obě verze image, budou koncovým zákazníkům v tržišti cent
 Atribut licenčního modelu můžete změnit tak, aby se přepnul z BYOL na model PAYG spuštěním následujícího skriptu:
 
 ```powershell
-$vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm= Get-Azvm -ResourceGroup "<your RG>" -Name "<your VM>"
 $vm.LicenseType = "None"
-Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
+Update-AzVM -ResourceGroupName "<your RG>" -VM $vm
 ```
 
 Typ licence vašeho virtuálního počítače můžete ověřit spuštěním následujícího příkazu. Pokud licenční model uvádí **Windows_Server** , bude se vám účtovat cena za BYOL. V opačném případě se vám bude účtovat měřič Windows podle modelu PAYG:
@@ -69,9 +69,9 @@ $vm | ft Name, VmId,LicenseType,ProvisioningState
 Atribut licenčního modelu můžete změnit na model BYOL spuštěním následujících příkazů:
 
 ```powershell
-$vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm= Get-Azvm -ResourceGroup "<your RG>" -Name "<your VM>"
 $vm.LicenseType = "Windows_Server"
-Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
+Update-AzVM -ResourceGroupName "<your RG>" -VM $vm
 ```
 
 ### <a name="what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server"></a>Jaké jsou další virtuální počítače, které používají Windows Server, jako je SQL nebo Machine Learning Server?

@@ -8,12 +8,12 @@ ms.date: 08/05/2020
 ms.author: bryanla
 ms.reviewer: rtiberiu
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: cb2da0dc57069647ecefd8ccc278526f7f35f57d
-ms.sourcegitcommit: b69c8334571094721b26e6bdebd639f4fd294dd0
+ms.openlocfilehash: 9348930a09a57ab25be867616c604e11603a82c0
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87839228"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545410"
 ---
 # <a name="create-a-custom-role-for-azure-stack-hub-registration"></a>Vytvoření vlastní role pro registraci centra Azure Stack
 
@@ -24,7 +24,7 @@ Během registrace centra Azure Stack se musíte přihlásit pomocí účtu služ
 
 * **Oprávnění k registraci aplikace ve vašem Tenantovi Azure AD:** Správci mají oprávnění k registraci aplikace. Oprávnění pro uživatele je globální nastavení pro všechny uživatele v tenantovi. Pokud chcete zobrazit nebo změnit nastavení, přečtěte si téma [Vytvoření aplikace a instančního objektu služby Azure AD, který má přístup k prostředkům](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
-    Nastavení *uživatel může registrovat aplikace* musí být nastavené na **Ano** , aby se povolil uživatelský účet k registraci centra Azure Stack. Pokud je nastavení registrace aplikací nastaveno na **ne**, nemůžete použít uživatelský účet k registraci centra Azure Stack – musíte použít účet globálního správce.
+    Nastavení *uživatel může registrovat aplikace* musí být nastavené na **Ano** , aby se povolil uživatelský účet k registraci centra Azure Stack. Pokud je nastavení registrace aplikací nastaveno na **ne** , nemůžete použít uživatelský účet k registraci centra Azure Stack – musíte použít účet globálního správce.
 
 * **Sada dostatečných oprávnění k předplatnému Azure:** Uživatelé patřící do role vlastníka mají dostatečná oprávnění. U ostatních účtů můžete sadu oprávnění přiřadit tak, že přiřadíte vlastní roli, jak je uvedeno v následujících oddílech.
 
@@ -66,13 +66,13 @@ Pokud chcete vytvořit vlastní roli, musíte mít `Microsoft.Authorization/role
 3. V PowerShellu se připojte k Azure a použijte Azure Resource Manager. Po zobrazení výzvy proveďte ověření pomocí účtu s dostatečnými oprávněními, jako je [vlastník](/azure/role-based-access-control/built-in-roles#owner) nebo [Správce přístupu uživatele](/azure/role-based-access-control/built-in-roles#user-access-administrator).
 
     ```azurepowershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
-4. Chcete-li vytvořit vlastní roli, použijte **příkaz New-AzureRmRoleDefinition** určující soubor šablony JSON.
+4. Chcete-li vytvořit vlastní roli, použijte **příkaz New-AzRoleDefinition** určující soubor šablony JSON.
 
     ``` azurepowershell
-    New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\registrationrole.json"
+    New-AzRoleDefinition -InputFile "C:\CustomRoles\registrationrole.json"
     ```
 
 ## <a name="assign-a-user-to-registration-role"></a>Přiřazení uživatele k registrační roli
@@ -80,8 +80,8 @@ Pokud chcete vytvořit vlastní roli, musíte mít `Microsoft.Authorization/role
 Po vytvoření vlastní role registrace přiřaďte roli uživatelskému účtu, který se použije k registraci centra Azure Stack.
 
 1. Přihlaste se pomocí účtu s dostatečným oprávněním k předplatnému Azure, abyste mohli delegovat práva, jako je například [vlastník](/azure/role-based-access-control/built-in-roles#owner) nebo [Správce přístupu uživatelů](/azure/role-based-access-control/built-in-roles#user-access-administrator).
-2. V **předplatných**vyberte **řízení přístupu (IAM) > přidat přiřazení role**.
-3. V části **role**vyberte vlastní vytvořenou roli: *role registrace centra Azure Stack*.
+2. V **předplatných** vyberte **řízení přístupu (IAM) > přidat přiřazení role**.
+3. V části **role** vyberte vlastní vytvořenou roli: *role registrace centra Azure Stack*.
 4. Vyberte uživatele, které chcete přiřadit roli.
 5. Vyberte **Save (Uložit** ) a přiřaďte vybrané uživatele k roli.
 

@@ -1,20 +1,20 @@
 ---
-title: Připojení dvou Azure Stackových Center prostřednictvím partnerského vztahu virtuální sítě
-description: Přečtěte si, jak propojit dvě centra Azure Stack prostřednictvím partnerského vztahu virtuální sítě.
+title: Připojení dvou Azure Stack centra virtuální sítě
+description: Přečtěte si, jak propojit dvě centra Azure Stack.
 author: mattbriggs
 ms.topic: how-to
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 6ce27df08aeb885c6a04f97bb2b16292a6ffca96
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: b6488b98317decf6b592339bfa66d15834f1f55d
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572523"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543387"
 ---
-# <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>VNET Peering v centru Azure Stack s virtuálními počítači
+# <a name="vnet-to-vnet-connectivity-with-rras"></a>Připojení VNet-to-VNet ke službě RRAS
 
 Můžete propojit dvě Azure Stack centra virtuální sítě mezi sebou v rámci stejného Azure Stack centra. V současné době není možné připojit Azure Stack centra virtuální sítě pomocí integrované [Virtual Network brány](./azure-stack-network-differences.md). K vytvoření tunelu VPN mezi dvěma Azure Stack centra virtuální sítě musíte použít zařízení síťové virtuální zařízení. V odkazech na šablony v tomto článku se nasadí dva virtuální počítače s Windows serverem 2016 s nainstalovaným serverem RRAS. Dva servery RRAS jsou nakonfigurovány k implementaci tunelu S2SVPN IKEv2 mezi dvěma virtuální sítě. Vytvoří se odpovídající pravidla NSG a UDR umožňující směrování mezi podsítěmi v každé virtuální síti, která je označena jako **interní**. 
 

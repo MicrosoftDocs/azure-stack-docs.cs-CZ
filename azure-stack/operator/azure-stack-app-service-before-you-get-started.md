@@ -3,17 +3,17 @@ title: Předpoklady nasazení Azure App Service v centru Azure Stack
 description: Před nasazením Azure App Service v centru Azure Stack se naučíte splnění požadovaných kroků.
 author: BryanLa
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 10/28/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 04/13/2019
+ms.lastreviewed: 10/28/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: d750c52eb60ecea29e4b850dce23e25705cd1383
-ms.sourcegitcommit: 81e2d627c9dc4cc365deb4a0e0674b5ab3a7efbf
+ms.openlocfilehash: b9281e6d29dc83ba7d26df2135ca70e725bed690
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92297901"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543986"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>Požadavky na nasazení služby App Service ve službě Azure Stack Hub
 
@@ -46,7 +46,7 @@ V této části jsou uvedeny předpoklady pro nasazení integrovaných systémů
 <!-- MultiNode Only --->
 ## <a name="certificates-and-server-configuration-integrated-systems"></a>Certifikáty a konfigurace serveru (integrované systémy)
 
-V této části jsou uvedené požadavky na nasazení integrovaných systémů. 
+V této části jsou uvedené požadavky na nasazení integrovaných systémů.
 
 ### <a name="certificate-requirements"></a>Požadavky na certifikáty
 
@@ -137,7 +137,7 @@ K dispozici je teď [Šablona pro rychlý Start referenční architektury](https
 
    Z hlediska zabezpečení by měl být uživatel pro tyto účty (a pro všechny webové role) jedinečný a musí mít silné uživatelské jméno a hesla. Nastavte hesla pomocí následujících podmínek:
 
-   - Povolení **hesla je platné**stále.
+   - Povolení **hesla je platné** stále.
    - Možnost povolit **uživateli nemůže měnit heslo**.
    - **Při dalším přihlášení musí uživatel zakázat změnu hesla**.
 
@@ -149,7 +149,7 @@ K dispozici je teď [Šablona pro rychlý Start referenční architektury](https
 ##### <a name="provision-groups-and-accounts-in-a-workgroup"></a>Zřizování skupin a účtů v pracovní skupině
 
 >[!NOTE]
-> Při konfiguraci souborového serveru spusťte z **příkazového řádku správce**všechny následující příkazy. <br>***Nepoužívejte PowerShell.***
+> Při konfiguraci souborového serveru spusťte z **příkazového řádku správce** všechny následující příkazy. <br>**_Nepoužívejte PowerShell._* _
 
 Při použití šablony Azure Resource Manager jsou uživatelé již vytvořeni.
 
@@ -206,7 +206,7 @@ icacls %WEBSITES_FOLDER% /grant Administrators:(OI)(CI)(F)
 icacls %WEBSITES_FOLDER% /grant %DOMAIN%\FileShareOwners:(OI)(CI)(M)
 icacls %WEBSITES_FOLDER% /inheritance:r
 icacls %WEBSITES_FOLDER% /grant %DOMAIN%\FileShareUsers:(CI)(S,X,RA)
-icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
+icacls %WEBSITES_FOLDER% /grant _S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 ```
 
 #### <a name="workgroup"></a>Pracovní skupina
@@ -273,8 +273,8 @@ K vytvoření certifikátů použijte následující postup:
 
 | Parametr | Požadované nebo volitelné | Výchozí hodnota | Popis |
 | --- | --- | --- | --- |
-| pfxPassword | Povinné | Null | Heslo, které pomáhá chránit privátní klíč certifikátu |
-| DomainName | Povinné | Local. azurestack. external | Oblast centra Azure Stack a přípona domény |
+| pfxPassword | Vyžadováno | Null | Heslo, které pomáhá chránit privátní klíč certifikátu |
+| DomainName | Vyžadováno | Local. azurestack. external | Oblast centra Azure Stack a přípona domény |
 
 ### <a name="quickstart-template-for-file-server-for-deployments-of-azure-app-service-on-asdk"></a>Šablona pro rychlý Start pro souborový server pro nasazení Azure App Service v ASDK.
 
@@ -335,8 +335,8 @@ Když spustíte následující příkaz PowerShellu, musíte zadat privilegovan�
 
 | Parametr | Požadované nebo volitelné | Výchozí hodnota | Popis |
 | --- | --- | --- | --- |
-| PrivilegedEndpoint | Povinné | AzS-ERCS01 | Privilegovaný koncový bod |
-| CloudAdminCredential | Povinné | AzureStack\CloudAdmin | Přihlašovací údaje účtu domény pro správce cloudu Azure Stack hub |
+| PrivilegedEndpoint | Vyžadováno | AzS-ERCS01 | Privilegovaný koncový bod |
+| CloudAdminCredential | Vyžadováno | AzureStack\CloudAdmin | Přihlašovací údaje účtu domény pro správce cloudu Azure Stack hub |
 
 ## <a name="network-and-identity-configuration"></a>Konfigurace sítě a identity
 
@@ -377,7 +377,7 @@ Pomocí těchto kroků vytvořte instanční objekt v tenantovi služby Azure AD
 
 1. Otevření instance prostředí PowerShell jako azurestack\AzureStackAdmin.
 1. Přejít do umístění skriptů, které jste stáhli a extrahovali v [kroku požadavků](azure-stack-app-service-before-you-get-started.md).
-1. [Nainstalujte PowerShell pro centrum Azure Stack](azure-stack-powershell-install.md).
+1. [Nainstalujte PowerShell pro centrum Azure Stack](powershell-install-az-module.md).
 1. Spusťte skript **Create-AADIdentityApp.ps1** . Po zobrazení výzvy zadejte ID tenanta Azure AD, které používáte pro nasazení centra Azure Stack. Zadejte například **myazurestack.onmicrosoft.com**.
 1. V okně **pověření** zadejte účet správce služby Azure AD a heslo. Vyberte **OK**.
 1. Zadejte cestu k souboru certifikátu a heslo certifikátu pro certifikát, který jste [vytvořili dříve](azure-stack-app-service-before-you-get-started.md). Certifikát vytvořený pro tento krok ve výchozím nastavení je **SSO. AppService. Local. azurestack. external. pfx**.
@@ -388,7 +388,7 @@ Pomocí těchto kroků vytvořte instanční objekt v tenantovi služby Azure AD
 1. Vyhledejte ID aplikace, které jste si poznamenali v kroku 7. 
 1. V seznamu vyberte App Service registraci aplikace.
 1. V levém podokně vyberte **oprávnění rozhraní API** .
-1. Vyberte **udělit souhlas správce pro \<tenant\> **, kde \<tenant\> je název vašeho tenanta Azure AD. Kliknutím na **Ano**potvrďte udělení souhlasu.
+1. Vyberte **udělit souhlas správce pro \<tenant\>** , kde \<tenant\> je název vašeho tenanta Azure AD. Kliknutím na **Ano** potvrďte udělení souhlasu.
 
 ```powershell
     Create-AADIdentityApp.ps1
@@ -396,20 +396,20 @@ Pomocí těchto kroků vytvořte instanční objekt v tenantovi služby Azure AD
 
 | Parametr | Požadované nebo volitelné | Výchozí hodnota | Popis |
 | --- | --- | --- | --- |
-| DirectoryTenantName | Povinné | Null | ID tenanta Azure AD. Zadejte GUID nebo řetězec. Příkladem je myazureaaddirectory.onmicrosoft.com. |
-| AdminArmEndpoint | Povinné | Null | Správce Azure Resource Manager koncový bod. Příkladem je adminmanagement. Local. azurestack. external. |
-| TenantARMEndpoint | Povinné | Null | Koncový bod klienta Azure Resource Manager. Příkladem může být Management. Local. azurestack. external. |
-| AzureStackAdminCredential | Povinné | Null | Přihlašovací údaje správce služby Azure AD. |
-| CertificateFilePath | Povinné | Null | **Úplná cesta** k souboru certifikátu aplikace identity vygenerovaného dříve. |
-| CertificatePassword | Povinné | Null | Heslo, které pomáhá chránit privátní klíč certifikátu. |
-| Prostředí | Nepovinné | AzureCloud | Název podporovaného cloudového prostředí, ve kterém je dostupná cílová služba Azure Active Directory Graph.  Povolené hodnoty: "AzureCloud", "AzureChinaCloud", "AzureUSGovernment", "AzureGermanCloud".|
+| DirectoryTenantName | Vyžadováno | Null | ID tenanta Azure AD. Zadejte GUID nebo řetězec. Příkladem je myazureaaddirectory.onmicrosoft.com. |
+| AdminArmEndpoint | Vyžadováno | Null | Správce Azure Resource Manager koncový bod. Příkladem je adminmanagement. Local. azurestack. external. |
+| TenantARMEndpoint | Vyžadováno | Null | Koncový bod klienta Azure Resource Manager. Příkladem může být Management. Local. azurestack. external. |
+| AzureStackAdminCredential | Vyžadováno | Null | Přihlašovací údaje správce služby Azure AD. |
+| CertificateFilePath | Vyžadováno | Null | **Úplná cesta** k souboru certifikátu aplikace identity vygenerovaného dříve. |
+| CertificatePassword | Vyžadováno | Null | Heslo, které pomáhá chránit privátní klíč certifikátu. |
+| Prostředí | Volitelné | AzureCloud | Název podporovaného cloudového prostředí, ve kterém je dostupná cílová služba Azure Active Directory Graph.  Povolené hodnoty: "AzureCloud", "AzureChinaCloud", "AzureUSGovernment", "AzureGermanCloud".|
 ::: zone-end
 
 #### <a name="create-an-adfs-app"></a>Vytvoření aplikace ADFS
 
 1. Otevření instance prostředí PowerShell jako azurestack\AzureStackAdmin.
 1. Přejít do umístění skriptů, které jste stáhli a extrahovali v [kroku požadavků](azure-stack-app-service-before-you-get-started.md).
-1. [Nainstalujte PowerShell pro centrum Azure Stack](azure-stack-powershell-install.md).
+1. [Nainstalujte PowerShell pro centrum Azure Stack](powershell-install-az-module.md).
 1. Spusťte skript **Create-ADFSIdentityApp.ps1** .
 1. V okně **přihlašovací údaje** zadejte AD FS účet správce cloudu a heslo. Vyberte **OK**.
 1. Zadejte cestu k souboru certifikátu a heslo certifikátu pro certifikát, který jste [vytvořili dříve](azure-stack-app-service-before-you-get-started.md). Certifikát vytvořený pro tento krok ve výchozím nastavení je **SSO. AppService. Local. azurestack. external. pfx**.
@@ -420,11 +420,11 @@ Pomocí těchto kroků vytvořte instanční objekt v tenantovi služby Azure AD
 
 | Parametr | Požadované nebo volitelné | Výchozí hodnota | Popis |
 | --- | --- | --- | --- |
-| AdminArmEndpoint | Povinné | Null | Správce Azure Resource Manager koncový bod. Příkladem je adminmanagement. Local. azurestack. external. |
-| PrivilegedEndpoint | Povinné | Null | Privilegovaný koncový bod. Příkladem je AzS-ERCS01. |
-| CloudAdminCredential | Povinné | Null | Přihlašovací údaje účtu domény pro cloudové správce Azure Stack hub Příkladem je Azurestack\CloudAdmin. |
-| CertificateFilePath | Povinné | Null | **Úplná cesta** k souboru PFX pro certifikát aplikace identity |
-| CertificatePassword | Povinné | Null | Heslo, které pomáhá chránit privátní klíč certifikátu. |
+| AdminArmEndpoint | Vyžadováno | Null | Správce Azure Resource Manager koncový bod. Příkladem je adminmanagement. Local. azurestack. external. |
+| PrivilegedEndpoint | Vyžadováno | Null | Privilegovaný koncový bod. Příkladem je AzS-ERCS01. |
+| CloudAdminCredential | Vyžadováno | Null | Přihlašovací údaje účtu domény pro cloudové správce Azure Stack hub Příkladem je Azurestack\CloudAdmin. |
+| CertificateFilePath | Vyžadováno | Null | **Úplná cesta** k souboru PFX pro certifikát aplikace identity |
+| CertificatePassword | Vyžadováno | Null | Heslo, které pomáhá chránit privátní klíč certifikátu. |
 
 <!--Connected/Disconnected-->
 

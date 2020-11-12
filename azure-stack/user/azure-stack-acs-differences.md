@@ -8,12 +8,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviwer: jiahan
 ms.lastreviewed: 08/12/2020
-ms.openlocfilehash: 3f4ed6bd83414d158ef80996cadf024653956d38
-ms.sourcegitcommit: 7d518629bd55f24e7459404bb19b7db8a54f4b94
+ms.openlocfilehash: 797dad8de86ba80b8605ff16d356a879211c5a0f
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88145382"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546289"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Úložiště centra Azure Stack: rozdíly a požadavky
 
@@ -105,7 +105,7 @@ V případě modulu úložiště PowerShell si uvědomte verzi, která je kompat
 | Modul | Podporovaná verze | Využití |
 |---|---|---|
 | Azure.Storage | [4.5.0](https://www.powershellgallery.com/packages/Azure.Storage/4.5.0) | Spravuje objekty blob, fronty a tabulky v Azure Stack účty úložiště centra. |
-| AzureRM.Storage | [5.0.4](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.4) | Vytvoří a spravuje účty úložiště v centru Azure Stack. |
+| Az.Storage | [5.0.4](https://www.powershellgallery.com/packages/Az.Storage/5.0.4) | Vytvoří a spravuje účty úložiště v centru Azure Stack. |
 
 Další informace o podporovaných klientských knihovnách úložiště služby Azure Stack hub najdete v tématu [Začínáme s Azure Stack centrum pro vývoj úložiště](azure-stack-storage-dev.md).
 

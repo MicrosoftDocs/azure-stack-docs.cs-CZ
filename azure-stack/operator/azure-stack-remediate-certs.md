@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 11/10/2020
 ms.author: bryanla
 ms.reviewer: unknown
-ms.lastreviewed: 11/19/2019
-ms.openlocfilehash: 070430d438334417f7c6acbd6e8f70798ba3c576
-ms.sourcegitcommit: 7b189e5317b8fe5f8ad825565da3607a39a1b899
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: 81215c7b3fb25f0e9b9877dae401b776517cf143
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94493626"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545339"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>Řešení běžných problémů s certifikáty PKI Azure Stack hub
 
@@ -94,7 +94,7 @@ Nástroj **AzsReadinessChecker** obsahuje pomocnou rutinu nazvanou **Repair-AzsP
 
 **Oprava – AzsPfxCertificate** nemůže pomáhat, pokud potřebujete vygenerovat nového CSR a znovu vystavit certifikát.
 
-### <a name="prerequisites"></a>Předpoklady
+### <a name="prerequisites"></a>Požadavky
 
 Na počítači, na kterém je nástroj spuštěný, musí být nahlášené tyto požadavky:
 
@@ -105,7 +105,7 @@ Na počítači, na kterém je nástroj spuštěný, musí být nahlášené tyto
    $PSVersionTable.PSVersion
    ```
 
-- Nakonfigurujte [PowerShell pro centrum Azure Stack](azure-stack-powershell-install.md).
+- Nakonfigurujte [PowerShell pro centrum Azure Stack](powershell-install-az-module.md).
 - Stáhněte si nejnovější verzi nástroje pro [kontrolu připravenosti centra Azure Stack](https://aka.ms/AzsReadinessChecker) .
 
 ### <a name="import-and-export-an-existing-pfx-file"></a>Importovat a exportovat existující soubor PFX
@@ -113,7 +113,7 @@ Na počítači, na kterém je nástroj spuštěný, musí být nahlášené tyto
 1. V počítači, který splňuje požadavky, otevřete příkazový řádek PowerShellu se zvýšenými oprávněními a spusťte následující příkaz pro instalaci nástroje pro kontrolu připravenosti centra Azure Stack:
 
    ```powershell
-   Install-Module Microsoft.AzureStack.ReadinessChecker -Force
+   Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
    ```
 
 2. Z příkazového řádku PowerShellu spusťte následující rutinu a nastavte heslo PFX. Po zobrazení výzvy zadejte heslo:

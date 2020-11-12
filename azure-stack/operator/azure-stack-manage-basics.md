@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/16/2020
 ms.author: justinha
 ms.lastreviewed: 06/16/2020
-ms.openlocfilehash: bacaccd664996af7dafa7fd6b7b3518b7dcaa851
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: b277eb9dcb1ac66af870db68c919e711aadc1ac7
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488548"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543506"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Základy správy centra Azure Stack
 
@@ -25,7 +25,7 @@ Pokud používáte integrovaný systém Azure Stack hub, balíčky aktualizací 
  
 ### <a name="development-kit"></a>Vývojová sada
 
-Pokud používáte Azure Stack Development Kit (ASDK), přečtěte si téma [co je Azure Stack centrum?](../asdk/asdk-what-is.md) , kde se dozvíte o účelu a omezeních ASDK. ASDK můžete použít jako *izolovaný prostor (sandbox)*, kde můžete vyhodnotit Azure Stack hub a vyvíjet a testovat aplikace v neprodukčním prostředí. Informace o nasazení najdete v tématu [nasazení Azure Stack Development Kit](../asdk/asdk-install.md).
+Pokud používáte Azure Stack Development Kit (ASDK), přečtěte si téma [co je Azure Stack centrum?](../asdk/asdk-what-is.md) , kde se dozvíte o účelu a omezeních ASDK. ASDK můžete použít jako *izolovaný prostor (sandbox)* , kde můžete vyhodnotit Azure Stack hub a vyvíjet a testovat aplikace v neprodukčním prostředí. Informace o nasazení najdete v tématu [nasazení Azure Stack Development Kit](../asdk/asdk-install.md).
 
 Podobně jako u Azure provedeme rychlé inovace. Pravidelně vydáváme nová sestavení. Pokud používáte ASDK a chcete přejít na nejnovější sestavení, je nutné [znovu nasadit centrum Azure Stack](../asdk/asdk-redeploy.md). Nemůžete použít balíčky aktualizací. Tento proces trvá čas, ale výhodou je, že můžete vyzkoušet nejnovější funkce. Dokumentace ASDK na našem webu odráží nejnovější sestavení pro vydání.
 
@@ -114,7 +114,7 @@ Pokud se v prostředí ASDK uživatel nepoužívá ke připojení k hostiteli AS
 
 Uživatelé budou chtít, abyste věděli, jak [získat přístup k portálu User Portal](../user/azure-stack-use-portal.md) nebo jak se připojit prostřednictvím PowerShellu. V prostředí integrovaných systémů se adresa uživatelského portálu liší podle nasazení. Musíte uživatelům poskytnout správnou adresu URL.
 
-Pokud používáte PowerShell, uživatelé budou muset registrovat poskytovatele prostředků předtím, než budou moci používat služby. Poskytovatel prostředků spravuje službu. Poskytovatel síťových prostředků například spravuje prostředky, jako jsou virtuální sítě, síťová rozhraní a nástroje pro vyrovnávání zatížení. Musí si [nainstalovat](azure-stack-powershell-install.md) PowerShell, [Stáhnout](azure-stack-powershell-download.md) další moduly a [nakonfigurovat](../user/azure-stack-powershell-configure-user.md) PowerShell (který zahrnuje registraci poskytovatele prostředků).
+Pokud používáte PowerShell, uživatelé budou muset registrovat poskytovatele prostředků předtím, než budou moci používat služby. Poskytovatel prostředků spravuje službu. Poskytovatel síťových prostředků například spravuje prostředky, jako jsou virtuální sítě, síťová rozhraní a nástroje pro vyrovnávání zatížení. Musí si [nainstalovat](powershell-install-az-module.md) PowerShell, [Stáhnout](azure-stack-powershell-download.md) další moduly a [nakonfigurovat](../user/azure-stack-powershell-configure-user.md) PowerShell (který zahrnuje registraci poskytovatele prostředků).
 
 **Přihlášení k odběru nabídky**
 
@@ -137,7 +137,7 @@ U cokoli jiného kontaktujte podpora Microsoftu.
 
 ### <a name="azure-stack-development-kit-asdk"></a>Azure Stack Development Kit (ASDK)
 
-Pro ASDK se můžete zeptat na dotazy související s podporou na [fórech Microsoftu](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). Pokud se chcete dostat do fóra, v pravém horním rohu portálu pro správu vyberte ikonu Nápověda a podpora (otazník), pak vyberte **Nápověda a podpora**a potom v části **Podpora** vyberte **fóra MSDN** . Tato fóra se pravidelně monitorují. Vzhledem k tomu, že ASDK je zkušební prostředí, není oficiální podpora nabídnuta prostřednictvím šablon stylů CSS společnosti Microsoft.
+Pro ASDK se můžete zeptat na dotazy související s podporou na [fórech Microsoftu](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). Pokud se chcete dostat do fóra, v pravém horním rohu portálu pro správu vyberte ikonu Nápověda a podpora (otazník), pak vyberte **Nápověda a podpora** a potom v části **Podpora** vyberte **fóra MSDN** . Tato fóra se pravidelně monitorují. Vzhledem k tomu, že ASDK je zkušební prostředí, není k dispozici žádná oficiální podpora prostřednictvím podpora Microsoftu.
 
 ## <a name="next-steps"></a>Další kroky
 

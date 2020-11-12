@@ -3,16 +3,16 @@ title: Správa kapacity úložiště v centru Azure Stack
 description: Naučte se monitorovat a spravovat kapacitu a dostupnost úložiště v Azure Stack hub.
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 10/16/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
-ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 5c43988ff39e0e87c1faeda43245df2a3130e008
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: bbced92ca9eb275ed1599ff7422bde1601be11c0
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415330"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545495"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Správa kapacity úložiště pro centrum Azure Stack
 
@@ -20,7 +20,7 @@ Tento článek pomáhá Azure Stack operátory cloudového cloudu monitorovat a 
 
 Jako operátor cloudu máte k dispozici omezené množství úložiště, se kterým pracujete. Velikost úložiště je definována řešením, které implementujete. Řešení zajišťuje dodavatel OEM při použití řešení s více uzly, nebo je poskytováno hardwarem, na kterém instalujete Azure Stack Development Kit (ASDK).
 
-Rozbočovač Azure Stack podporuje jenom rozšíření úložné kapacity přidáním dalších uzlů jednotek škálování. Další informace najdete v tématu [Přidání dalších uzlů jednotky škálování v centru Azure Stack](azure-stack-add-scale-node.md). Přidání disků physcial do uzlů nerozšíří kapacitu úložiště.
+Rozbočovač Azure Stack podporuje jenom rozšíření úložné kapacity přidáním dalších uzlů jednotek škálování. Další informace najdete v tématu [Přidání dalších uzlů jednotky škálování v centru Azure Stack](azure-stack-add-scale-node.md). Přidáním fyzických disků do uzlů se rozšíření kapacity úložiště nerozšíří.
 
 Je důležité [monitorovat](#monitor-shares) dostupné úložiště, aby se zajistilo zachování efektivních operací. Když se zbývající volná kapacita svazku omezí, naplánujte [správu dostupného místa](#manage-available-space) , aby sdílené složky nedocházelo k nedostatku kapacity.
 
@@ -69,7 +69,7 @@ Centrum Azure Stack podporuje na virtuálních počítačích použití spravova
 
 Pro snazší správu a rovnováhu kapacity se doporučuje použít Managed Disks pro virtuální počítač. Před použitím Managed Disks nemusíte připravovat účet úložiště a kontejnery. Při vytváření více spravovaných disků jsou disky distribuovány do více svazků, což pomáhá vyrovnávat kapacitu svazků.  
 
-**Nespravované disky** jsou soubory VHD, které se ukládají jako objekty blob stránky v účtech úložiště Azure. Objekty blob stránky vytvořené klienty se označují jako disky virtuálních počítačů a ukládají se do kontejnerů v účtech úložiště. Nespravované disky doporučujeme používat jenom pro virtuální počítače, které potřebují kompatibilní s nástroji třetích stran. podporují jenom nespravované disky Azure.
+**Nespravované disky** jsou soubory VHD, které se ukládají jako objekty blob stránky v účtech úložiště Azure. Objekty blob stránky vytvořené klienty se označují jako disky virtuálních počítačů a ukládají se do kontejnerů v účtech úložiště. Nespravované disky doporučujeme používat jenom pro virtuální počítače, které potřebují kompatibilní s nástroji třetích stran. podporují jenom Azure-Unmanaged disky.
 
 Pro zvýšení výkonu virtuálního počítače je potřeba umístit jednotlivé disky do samostatného kontejneru a zajistit tak jejich pomoc.
 

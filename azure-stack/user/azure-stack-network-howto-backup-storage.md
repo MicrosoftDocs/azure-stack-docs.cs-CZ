@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: 3a14c50413ddd431f6a8db8815d0147ef9d173e7
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: e77c05c6f13a3ee3cb23a13a466bb7e0e80394f7
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107225"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546187"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>Zálohování účtů úložiště v centru Azure Stack
 
@@ -54,7 +54,7 @@ Jako zprostředkující server můžete vytvořit Linux nebo Windows Server. Ser
 - Pokyny k nastavení serveru pro Linux najdete v tématu [Vytvoření virtuálního počítače s Linux serverem pomocí portálu Azure Stack hub](azure-stack-quick-linux-portal.md).  
 - Pokyny k nastavení Windows serveru najdete v tématu [Vytvoření virtuálního počítače s Windows serverem pomocí portálu Azure Stack hub](azure-stack-quick-windows-portal.md).  
 
-Po nastavení Windows serveru budete muset nainstalovat [Azure Stack centrum PowerShell](../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json) a [nástroje Azure Stack hub](../operator/azure-stack-powershell-download.md?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json).
+Po nastavení Windows serveru budete muset nainstalovat [Azure Stack centrum PowerShell](../operator/powershell-install-az-module.md?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json) a [nástroje Azure Stack hub](../operator/azure-stack-powershell-download.md?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json).
 
 ## <a name="set-up-backup-for-storage-accounts"></a>Nastavení zálohování pro účty úložiště
 
@@ -80,13 +80,13 @@ Po nastavení Windows serveru budete muset nainstalovat [Azure Stack centrum Pow
     export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09
     ```
 
-4. Na zprostředkujícím serveru vytvořte skript. Aktualizujte tento příkaz s vaším **účtem úložiště**, **klíčem SAS**a **cestou k místnímu adresáři**. Spouštíte skript pro přírůstkové kopírování dat ze **zdrojového** účtu úložiště.
+4. Na zprostředkujícím serveru vytvořte skript. Aktualizujte tento příkaz s vaším **účtem úložiště** , **klíčem SAS** a **cestou k místnímu adresáři**. Spouštíte skript pro přírůstkové kopírování dat ze **zdrojového** účtu úložiště.
 
     ```
     azcopy sync "https:/<storagaccount>/<container>?<SAS Key>" "C:\\myFolder" --recursive=true --delete-destination=true
     ```
 
-5.  Zadejte **účet úložiště**, * * klíč SAS * * a * * cesta k místnímu adresáři.  Použijete to pro přírůstkové kopírování dat do **cílového** účtu úložiště.
+5.  Zadejte **účet úložiště** , * * klíč SAS * * a * * cesta k místnímu adresáři.  Použijete to pro přírůstkové kopírování dat do **cílového** účtu úložiště.
     
     ```
     azcopy sync "C:\\myFolder" "https:// <storagaccount>/<container>?<SAS Key>" --recursive=true --delete-destination=true
@@ -102,7 +102,7 @@ Po nastavení Windows serveru budete muset nainstalovat [Azure Stack centrum Pow
     schtasks /CREATE /SC minute /MO 5 /TN "AzCopy Script" /TR C:\\&lt;script name>.bat
     ```
 
-    | parametr | Poznámka | 
+    | Parametr | Poznámka | 
     | ---- | ---- |
     | /SC | Použijte minutový plán. |
     | /MO | Interval v *XX* minutách. |

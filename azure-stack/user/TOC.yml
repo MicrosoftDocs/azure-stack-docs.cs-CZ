@@ -6,7 +6,7 @@
       href: user-overview.md
     - name: Klíčové aspekty
       href: azure-stack-considerations.md
-- name: Rychlé starty
+- name: Rychlý start
   expanded: true
   items:
     - name: Vytvoření virtuálního počítače s Windows – portál
@@ -48,7 +48,7 @@
                 - name: Azure Stack centra PowerShell – přehled
                   href: azure-stack-powershell-overview.md
                 - name: Nainstalovat Azure Stack centra PowerShell
-                  href: ../operator/azure-stack-powershell-install.md?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/powershell-install-az-module.md?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
                   maintainContext: true
                 - name: Připojení přes PowerShell
                   href: azure-stack-powershell-configure-user.md
@@ -157,7 +157,7 @@
                       href: vm-move-specialized.md
                     - name: Zobecněný virtuální počítač v-Prem
                       href: vm-move-generalized.md
-            - name: Storage
+            - name: Úložiště
               items:
                 - name: Přehled
                   href: azure-stack-storage-overview.md
@@ -189,6 +189,8 @@
                       href: network-virtual-appliance.md
                     - name: Řešení potíží s připojením site-to-site
                       href: site-to-site.md
+                - name: Virtual Network partnerský vztah
+                  href: virtual-network-peering.md
                 - name: IDN pro centrum Azure Stack
                   href: azure-stack-understanding-dns.md
                 - name: DNS v centru Azure Stack
@@ -301,19 +303,19 @@
       items:
         - name: Modely sítě
           items:
-            - name: Partnerský vztah virtuální sítě s virtuálními počítači
-              href: azure-stack-network-howto-vnet-peering.md
             - name: Použití síťová virtuální zařízení třetích stran (Fortinet FortiGate síťové virtuální zařízení)
               items:
-                - name: VNet peering s FortiGate
+                - name: Připojení VNet-to-VNet s Fortigate
                   href: azure-stack-network-howto-vnet-to-vnet.md
                 - name: Nastavení sítě VPN na Prem
                   href: azure-stack-network-howto-vnet-to-onprem.md
-                - name: Připojení virtuální sítě k virtuální síti
+                - name: Připojení virtuální sítě k virtuální síti mezi Azure Stackmi instancemi centra
                   href: azure-stack-network-howto-vnet-to-vnet-stacks.md
             - name: Použití služby RRAS
               items:
-                - name: Nastavení více sítí VPN typu Site-to-site
+                - name: Připojení VNet-to-VNet ke službě RRAS
+                  href: azure-stack-network-howto-vnet-peering.md
+                - name: Nastavení více tunelů VPN typu Site-to-site
                   href: network-howto-vpn-tunnel.md
                 - name: Vytvoření tunelu VPN (GRE)
                   href: network-howto-vpn-tunnel-gre.md
@@ -349,7 +351,7 @@
           href: iaas-architecture-sql-n-tier-multi-region.md
         - name: Síťová virtuální zařízení
           href: iaas-architecture-nva-architecture.md
-- name: Referenční informace
+- name: Odkaz
   items:
     - name: Prostředí PowerShell centra Azure Stack
       href: /powershell/azure/azure-stack/overview
@@ -365,7 +367,7 @@
       href: ../asdk/index.yml
     - name: Dokumentace k hybridnímu cloudu Azure
       href: /hybrid
-- name: Zdroje a prostředky
+- name: Zdroje informací
   items:
     - name: Mapa cest centra Azure Stack
       href: 'https://azure.microsoft.com/updates/?query=azure%20stack%20hub'

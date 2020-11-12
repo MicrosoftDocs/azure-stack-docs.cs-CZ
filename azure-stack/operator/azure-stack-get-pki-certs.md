@@ -3,16 +3,16 @@ title: Vygenerovat žádosti o podepsání certifikátu pro centrum Azure Stack
 description: Naučte se generovat žádosti o podepsání certifikátu pro Azure Stack centrálních certifikátů PKI v integrovaných systémech centra Azure Stack.
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 10/19/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
-ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: e72d00d7a0a5f1a9299d3d279e3b7ee8dd779b30
-ms.sourcegitcommit: 1c5e7d8419037c0f3ef6fe9d8e6bfb6a59659c84
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: 1b7737f387ea1ea3afc913116642605fa54818a6
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89428562"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543711"
 ---
 # <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>Vygenerovat žádosti o podepsání certifikátu pro centrum Azure Stack
 
@@ -22,7 +22,7 @@ K vyžádání následujících certifikátů můžete použít nástroj pro kon
 
 - **Standardní požadavky na certifikáty** podle [vygenerování žádosti o podepsání certifikátu pro nová nasazení](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-new-deployments).
 - **Požadavky na obnovení certifikátu** podle [vygenerování žádosti o podepsání certifikátu pro obnovení certifikátu](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-certificate-renewal).
-- **Platforma jako služba**: pro certifikáty můžete požádat o názvy PaaS (platforma jako služba), které jsou uvedené v [požadavcích na certifikát infrastruktury veřejných klíčů služby Azure Stack hub – volitelné certifikáty PaaS](azure-stack-pki-certs.md#optional-paas-certificates).
+- **Platforma jako služba** : pro certifikáty můžete požádat o názvy PaaS (platforma jako služba), které jsou uvedené v [požadavcích na certifikát infrastruktury veřejných klíčů služby Azure Stack hub – volitelné certifikáty PaaS](azure-stack-pki-certs.md#optional-paas-certificates).
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -48,7 +48,7 @@ Pomocí těchto kroků Připravte žádosti o podepsání certifikátu pro nové
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
 
-2. Deklarovat **Předmět** Příklad:
+2. Deklarovat **Předmět** Například:
 
     ```powershell  
     $subject = "C=US,ST=Washington,L=Redmond,O=Microsoft,OU=Azure Stack Hub"
@@ -57,7 +57,7 @@ Pomocí těchto kroků Připravte žádosti o podepsání certifikátu pro nové
     > [!NOTE]  
     > Pokud je zadán běžný název (CN), bude nakonfigurován na každou žádost o certifikát. Pokud je parametr CN vynechán, bude na žádost o certifikát nakonfigurován první název DNS služby Azure Stack hub.
 
-3. Deklarujete výstupní adresář, který již existuje. Příklad:
+3. Deklarujete výstupní adresář, který již existuje. Například:
 
     ```powershell  
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
@@ -95,7 +95,7 @@ Pomocí těchto kroků Připravte žádosti o podepsání certifikátu pro nové
     New-AzsHubDeploymentCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ```
 
-    Chcete-li generovat žádosti o certifikát pro jiné služby Azure Stack centra, změňte hodnotu pro `-CertificateType` . Příklad:
+    Chcete-li generovat žádosti o certifikát pro jiné služby Azure Stack centra, změňte hodnotu pro `-CertificateType` . Například:
 
     ```powershell  
     # App Services
@@ -111,7 +111,7 @@ Pomocí těchto kroků Připravte žádosti o podepsání certifikátu pro nové
     New-AzsHubIoTHubCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory
     ```
 
-7. Případně pro vývojová/testovací prostředí vygenerujte jednu žádost o certifikát s více alternativními názvy subjektu Add **-RequestType SingleCSR** parametr a Value (nedoporučuje**se** pro produkční prostředí):
+7. Případně pro vývojová/testovací prostředí vygenerujte jednu žádost o certifikát s více alternativními názvy subjektu Add **-RequestType SingleCSR** parametr a Value (nedoporučuje **se** pro produkční prostředí):
 
     ```powershell  
     New-AzsHubDeploymentCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -RequestType SingleCSR -subject $subject -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
@@ -135,7 +135,7 @@ Pomocí těchto kroků Připravte žádosti o podepsání certifikátů na obnov
 1. Nainstalujte AzsReadinessChecker z příkazového řádku PowerShellu (5,1 nebo vyšší) spuštěním následující rutiny:
 
     ```powershell  
-        Install-Module Microsoft.AzureStack.ReadinessChecker
+        Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
     ```
 
 2. Deklarujte **stampEndpoint** ve formě regionname.domain.com systému Azure Stack hub. Například (Pokud je adresa portálu klienta centra Azure Stack <code> https://</code> <code>portal.east.azurestack.contoso.com</code> ):
@@ -148,7 +148,7 @@ Pomocí těchto kroků Připravte žádosti o podepsání certifikátů na obnov
     > Pro výše uvedený systém centra Azure Stack se vyžaduje připojení HTTPS.
     > Nástroj pro kontrolu připravenosti bude používat stampendpoint (oblast a doména) k vytvoření ukazatele na existující certifikáty, které jsou vyžadovány typem certifikátu, např. k předvedení portálu pro certifikáty nasazení, takže portal.east.azurestack.contoso.com se používá při klonování certifikátů, a to pro aplikační služby sso.appservices.east.azurestack.contoso.com atd. Certifikát vázaný k vypočítanému koncovému bodu se použije ke klonování atributů, jako je například předmět, délka klíče, algoritmus podpisu.  Pokud chcete změnit některý z těchto atributů, použijte místo toho postup pro [vygenerování žádosti o podepsání certifikátu pro nová nasazení](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-new-deployments) .
 
-3. Deklarujete výstupní adresář, který již existuje. Příklad:
+3. Deklarujete výstupní adresář, který již existuje. Například:
 
     ```powershell  
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
@@ -176,7 +176,7 @@ Pomocí těchto kroků Připravte žádosti o podepsání certifikátů na obnov
     New-AzsHubIotHubCertificateSigningRequest -StampEndpoint $stampEndpoint -OutputRequestPath $OutputDirectory
     ```
 
-5. Případně pro vývojová/testovací prostředí vygenerujte jednu žádost o certifikát s více alternativními názvy subjektu Add **-RequestType SingleCSR** parametr a Value (nedoporučuje**se** pro produkční prostředí):
+5. Případně pro vývojová/testovací prostředí vygenerujte jednu žádost o certifikát s více alternativními názvy subjektu Add **-RequestType SingleCSR** parametr a Value (nedoporučuje **se** pro produkční prostředí):
 
     ```powershell  
     New-AzsHubDeploymentCertificateSigningRequest -StampEndpoint $stampendpoint -OutputRequestPath $OutputDirectory -RequestType SingleCSR

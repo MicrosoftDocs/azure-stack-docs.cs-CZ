@@ -14,7 +14,7 @@
           href: release-notes.md
         - name: Známé problémy
           href: known-issues.md
-- name: Rychlé starty
+- name: Rychlý start
   expanded: true
   items:
     - name: Použití portálu pro správu
@@ -43,7 +43,7 @@
           href: azure-stack-capacity-planner.md
     - name: Integrace datových center
       items:
-        - name: Názorný postup
+        - name: Návod
           href: azure-stack-customer-journey.md
         - name: Obecné aspekty
           href: azure-stack-datacenter-integration.md
@@ -137,10 +137,10 @@
           href: azure-stack-cli-admin.md
         - name: Nastavení prostředí pro správu
           items:
-            - name: Instalace prostředí PowerShell AzureRM
-              href: azure-stack-powershell-install.md
             - name: Instalace PowerShellu AZ
               href: powershell-install-az-module.md
+            - name: Instalace prostředí PowerShell AzureRM
+              href: azure-stack-powershell-install.md
             - name: Migrace prostředí PowerShell AzureRM na az
               href: migrate-azurerm-az.md
             - name: Stažení nástrojů
@@ -319,6 +319,8 @@
                   href: app-service-remove.md
             - name: "Poznámky k\_verzi"
               items:
+                - name: '2020. Q3 – zpráva k vydání verze [září 2020]'
+                  href: app-service-release-notes-2020-Q3.md
                 - name: 'zpráva k vydání verze 2020 Q2 [May2020]'
                   href: app-service-release-notes-2020-Q2.md
                 - name: 'Zpráva k vydání verze s aktualizací 8 [Jan2020]'
@@ -517,7 +519,7 @@
       href: ../asdk/index.yml
     - name: Dokumentace k hybridnímu cloudu Azure
       href: /hybrid
-- name: Zdroje a prostředky
+- name: Zdroje informací
   items:
     - name: Školení a certifikace
       href: azure-stack-train-and-cert.md

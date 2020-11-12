@@ -3,20 +3,25 @@ title: Nainstalovat modul PowerShellu AzureRM pro centrum Azure Stack
 description: Přečtěte si, jak nainstalovat PowerShell pro centrum Azure Stack. Přečtěte si téma Jak nainstalovat modul PowerShell AzureRM a požadované profily rozhraní API.
 author: mattbriggs
 ms.topic: article
-ms.date: 08/04/2020
+ms.date: 10/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 08/04/2020
-ms.openlocfilehash: bbf1a5d296ddbef554a4401e66eab4226ae38dd3
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.lastreviewed: 10/22/2020
+ms.openlocfilehash: d01f2c8864f587ed69c76f0edd0ee9aa950d3b9f
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623162"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544985"
 ---
 # <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>Nainstalovat modul PowerShellu AzureRM pro centrum Azure Stack
 
-Azure PowerShell AzureRM poskytuje sadu rutin, které používají model Azure Resource Manager ke správě prostředků služby Azure Stack hub.
+Azure PowerShell Azure Resource Manager (AzureRM) poskytuje sadu rutin, které používají model Azure Resource Manager pro správu prostředků služby Azure Stack hub.
+
+::: moniker range=">=azs-2002"
+> [!IMPORTANT]  
+> Dostali jste se na webovou stránku pro zastaralou verzi Azure PowerShellu. Všechny verze modulu Azure Resource Manager (AzureRM) PowerShell jsou zastaralé, ale nejsou podporovány. Aktuálně je doporučeným modulem PowerShell pro interakci s Azure modul Az PowerShell. Pokud chcete začít pracovat s modulem AZ PowerShell, přečtěte si téma [instalace PowerShellu AZ Preview Module for Azure Stack hub](powershell-install-az-module.md). Zjistěte, jak migrovat do modulu AZ PowerShell. [Azure PowerShell AZ in Azure Stack hub](migrate-azurerm-az.md), najdete v tématu Migrace z AzureRM.
+::: moniker-end
 
 K určení kompatibilních koncových bodů pro poskytovatele prostředků Azure Stack hub je také potřeba použít *profily rozhraní API* .
 
@@ -24,11 +29,11 @@ Profily rozhraní API poskytují způsob, jak spravovat rozdíly mezi verzemi Az
 
 Můžete nainstalovat moduly prostředí PowerShell kompatibilní s centrem Azure Stack ve scénářích připojených k Internetu, částečně propojených nebo odpojených. Tento článek vás provede podrobnými pokyny pro tyto scénáře.
 
-V kontejneru Docker můžete také spustit moduly AzureRM pro Azure Stack hub. Pokyny najdete v tématu [použití Docker ke spuštění PowerShellu pro Azure Stack hub](../user/azure-stack-powershell-user-docker.md).
+Můžete také spustit moduly Azure Resource Manager pro Azure Stack centrum v kontejneru Docker. Pokyny najdete v tématu [použití Docker ke spuštění PowerShellu pro Azure Stack hub](../user/azure-stack-powershell-user-docker.md).
 
 ## <a name="1-verify-your-prerequisites"></a>1. ověřte požadavky.
 
-Než začnete s Azure Stack hub a modulem PowerShell AzureRM, musíte mít následující požadavky:
+Než začnete s Azure Stack hub a modulem Azure Resource Manager PowerShellu, musíte mít následující požadavky:
 
 - **PowerShell verze 5,1** <br>
 Pokud chcete zjistit verzi, spusťte **$PSVersionTable. PSVersion** a porovnejte **hlavní** verzi. Pokud nemáte PowerShell 5,1, postupujte podle pokynů pro [instalaci Windows PowerShellu](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell).
@@ -65,9 +70,9 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 ## <a name="3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules"></a>3. odinstalujte existující verze modulů prostředí PowerShell centra Azure Stack.
 
-Před instalací požadované verze se ujistěte, že jste odinstalovali všechny dříve nainstalované moduly AzureRM prostředí PowerShell pro Azure Stack hub. Moduly odinstalujte pomocí jedné z následujících dvou metod:
+Před instalací požadované verze se ujistěte, že jste odinstalovali všechny dříve nainstalované Azure Stack centra Azure Resource Manager PowerShellu. Moduly odinstalujte pomocí jedné z následujících dvou metod:
 
-1. Pokud chcete odinstalovat stávající moduly AzureRM a AZ PowerShell, zavřete všechny aktivní relace PowerShellu a spusťte následující rutiny:
+1. Pokud chcete odinstalovat existující Azure Resource Manager a AZ PowerShell modules, zavřete všechny aktivní relace PowerShellu a spusťte následující rutiny:
 
     ```powershell
     Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose -ErrorAction Continue
@@ -167,7 +172,7 @@ Instalace má pět kroků:
 ::: moniker range=">=azs-2002"
 Azure Stack hub 2002 nebo novější.
 
-Můžete buď použít AzureRM nebo AZ Preview Module. Informace o AZ modules najdete v tématu pokyny v tématu [install PowerShell AZ Module](powershell-install-az-module.md).
+Můžete buď použít Azure Resource Manager nebo AZ Preview Module. Informace o AZ modules najdete v tématu pokyny v tématu [install PowerShell AZ Module](powershell-install-az-module.md).
 
 ```powershell
 
@@ -227,7 +232,7 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
 
 3. Ručně nabootstrap zprostředkovatele NuGet na odpojené pracovní stanici. Pokyny najdete v tématu [Ruční zavedení zprostředkovatele NuGet na počítači, který není připojený k Internetu](/powershell/scripting/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet).
 
-4. Zaregistrujte toto umístění jako výchozí úložiště a nainstalujte AzureRM a `AzureStack` moduly z tohoto úložiště:
+4. Zaregistrujte toto umístění jako výchozí úložiště a nainstalujte Azure Resource Manager a `AzureStack` moduly z tohoto úložiště:
 
    ```powershell
    # requires -Version 5
@@ -273,9 +278,9 @@ Ve scénářích, které vyžadují proxy server pro přístup k Internetu, mus�
 
 ###  <a name="method-get_serializationsettings-error"></a>Chyba get_SerializationSettings metody 
 
-- Příčina: moduly PowerShell AZ Module a PowerShell AzureRM nejsou kompatibilní.
+- Příčina: prostředí PowerShell AZ Module a PowerShell Azure Resource Manager moduly nejsou kompatibilní.
 
-    Následující chyba znamená, že moduly AzureRM a AZ modules jsou načteny do stejné relace: 
+    Následující chyba znamená, že moduly Azure Resource Manager a AZ modules jsou načteny do stejné relace: 
 
     ```powershell  
     >  Method 'get_SerializationSettings' in type 'Microsoft.Azure.Management.Internal.Resources.ResourceManagementClient' from assembly 'Microsoft.Azure.Commands.ResourceManager.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' does 
@@ -284,7 +289,7 @@ Ve scénářích, které vyžadují proxy server pro přístup k Internetu, mus�
 
 - Náprava: odinstalujte konfliktní moduly. 
 
-  Chcete-li použít moduly AzureRM, odinstalujte moduly AZ Modules. Nebo odinstalujte AzureRM, chcete-li použít moduly AZ. Zavřete relaci prostředí PowerShell a odinstalujte moduly AZ nebo AzureRM. 
+  Chcete-li použít moduly Azure Resource Manager, odinstalujte modul AZ Modules. Nebo odinstalujte Azure Resource Manager, chcete-li použít moduly AZ. Zavřete relaci prostředí PowerShell a odinstalujte moduly AZ nebo Azure Resource Manager. 
   
   Pokyny najdete v tématu [odinstalace existujících verzí modulů prostředí PowerShell centra Azure Stack](#3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules).
 

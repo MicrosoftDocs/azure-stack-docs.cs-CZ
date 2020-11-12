@@ -7,12 +7,12 @@ ms.date: 10/30/2020
 ms.author: v-myoung
 ms.reviewer: shisab
 ms.lastreviewed: 10/30/2020
-ms.openlocfilehash: 80756669b32459d066d80b50546df9d1c23b9317
-ms.sourcegitcommit: 1e3a182d82cf01b64118647d6ab418651f83ad1e
+ms.openlocfilehash: b5f182fcf76fe28855240931e3515d3c9a467ee1
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233342"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543302"
 ---
 # <a name="diagnostic-log-collection"></a>Shromažďování protokolů diagnostiky
 
@@ -28,7 +28,7 @@ Centrum Azure Stack má několik způsobů, jak shromažďovat, ukládat a odes�
 * [Poslat protokoly hned](#send-logs-now)
 * [Místní uložení protokolů](#save-logs-locally)
 
-Vývojový diagram níže ukazuje, kterou možnost použít k odesílání diagnostických protokolů v každém případě. Pokud se centrum Azure Stack může připojit k Azure, doporučujeme povolit **proaktivní shromažďování protokolů** , které při vyvolání kritické výstrahy automaticky nahraje diagnostické protokoly do objektu BLOB úložiště se spravovaným Microsoftem v Azure. Můžete také shromažďovat protokoly na vyžádání pomocí příkazu **Odeslat protokoly nyní** . Pokud je rozbočovač Azure Stack od Azure odpojený, můžete **ukládat protokoly místně** . 
+Vývojový diagram níže ukazuje, kterou možnost použít k odesílání diagnostických protokolů v každém případě. Pokud se centrum Azure Stack může připojit k Azure, doporučujeme povolit **proaktivní shromažďování protokolů** , které při vyvolání kritické výstrahy automaticky nahraje diagnostické protokoly do objektu BLOB úložiště se spravovaným Microsoftem v Azure. Můžete také shromažďovat protokoly na vyžádání pomocí příkazu **Odeslat protokoly nyní**. Pokud je rozbočovač Azure Stack od Azure odpojený, můžete **ukládat protokoly místně**. 
 
 ![Vývojový diagram ukazuje, jak teď odesílat protokoly do Microsoftu.](media/azure-stack-help-and-support/send-logs-now-flowchart.png)
 
@@ -41,8 +41,8 @@ Proaktivní shromažďování protokolů automaticky shromažďuje a odesílá d
 Proaktivní shromažďování protokolů lze kdykoli zakázat a znovu povolit. Pomocí těchto kroků nastavíte proaktivní shromažďování protokolů.
 
 1. Přihlaste se k portálu pro správu služby Azure Stack Hub.
-1. Otevřete okno **help + podpora – přehled** .
-1. Pokud se zobrazí nápis, vyberte **Povolit proaktivní shromažďování protokolů** . Nebo můžete vybrat **Nastavení** a nastavit **proaktivní shromažďování protokolů** tak, aby se **povolilo** , a pak vybrat **Uložit** .
+1. Otevřete okno **help + podpora – přehled**.
+1. Pokud se zobrazí nápis, vyberte **Povolit proaktivní shromažďování protokolů**. Nebo můžete vybrat **Nastavení** a nastavit **proaktivní shromažďování protokolů** tak, aby se **povolilo** , a pak vybrat **Uložit**.
 
 > [!NOTE]
 > Pokud jsou nastavení umístění protokolu nakonfigurovaná pro místní sdílenou složku, ujistěte se, že zásady správy životního cyklu zabrání v dosažení kvóty úložiště sdílené složky. Centrum Azure Stack nesleduje místní sdílenou složku ani nevynutila žádné zásady uchovávání informací.   
@@ -74,10 +74,10 @@ Pokud je centrum Azure Stack připojené k Azure, doporučujeme používat port�
 
 Pokud chcete odesílat protokoly hned pomocí portálu pro správu:
 
-1. Otevřete okno **help + support > Collection > zasílejte protokoly nyní** . 
+1. Otevřete okno **help + support > Collection > zasílejte protokoly nyní**. 
 1. Zadejte čas spuštění a čas ukončení pro shromažďování protokolů. 
 1. Vyberte místní časové pásmo.
-1. Vyberte **shromáždit a nahrát** .
+1. Vyberte **shromáždit a nahrát**.
 
 Pokud jste odpojeni z Internetu nebo chcete ukládat pouze protokoly místně, použijte k odeslání protokolů metodu [Get-AzureStackLog](azure-stack-get-azurestacklog.md) .
 

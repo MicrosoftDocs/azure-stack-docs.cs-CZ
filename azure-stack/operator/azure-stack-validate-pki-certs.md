@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 10/19/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
-ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: c0a077d8278361370a1781260c3f9c2bb2b11f55
-ms.sourcegitcommit: c1f48c19c8a9c438fd22298bc570c12a9b19bb45
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: 201acbad11011731a8e7017d14b39be120e460d3
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86410602"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545755"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>Ověření certifikátů PKI Azure Stack hub
 
@@ -63,7 +63,7 @@ Pomocí těchto kroků ověříte certifikáty PKI centra Azure Stack pro nasaze
 1. Spuštěním následující rutiny nainstalujte **AzsReadinessChecker** z příkazového řádku PowerShellu (5,1 nebo vyšší):
 
     ```powershell  
-        Install-Module Microsoft.AzureStack.ReadinessChecker -force 
+        Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
     ```
 
 2. Vytvořte strukturu adresářů certifikátů. V následujícím příkladu se můžete změnit `<C:\Certificates\Deployment>` na cestu k novému adresáři podle vašeho výběru.
@@ -78,13 +78,13 @@ Pomocí těchto kroků ověříte certifikáty PKI centra Azure Stack pro nasaze
     ```
     
     > [!Note]  
-    > AD FS a Graph jsou požadovány, pokud používáte AD FS jako systém identity. Příklad:
+    > AD FS a Graph jsou požadovány, pokud používáte AD FS jako systém identity. Například:
     >
     > ```powershell  
     > $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'ADFS', 'Admin Extension Host', 'Admin Portal', 'ARM Admin', 'ARM Public', 'Graph', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal'
     > ```
     
-     - Své certifikáty umístěte do příslušných adresářů, které jste vytvořili v předchozím kroku. Příklad:  
+     - Své certifikáty umístěte do příslušných adresářů, které jste vytvořili v předchozím kroku. Například:  
         - `C:\Certificates\Deployment\ACSBlob\CustomerCertificate.pfx`
         - `C:\Certificates\Deployment\Admin Portal\CustomerCertificate.pfx`
         - `C:\Certificates\Deployment\ARM Admin\CustomerCertificate.pfx`
@@ -96,7 +96,7 @@ Pomocí těchto kroků ověříte certifikáty PKI centra Azure Stack pro nasaze
     Invoke-AzsHubDeploymentCertificateValidation -CertificatePath C:\Certificates\Deployment -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
     ```
 
-4. Zkontrolujte výstup a zajistěte, aby všechny certifikáty vyhověly všem testům. Příklad:
+4. Zkontrolujte výstup a zajistěte, aby všechny certifikáty vyhověly všem testům. Například:
 
     ```powershell
     Invoke-AzsHubDeploymentCertificateValidation v1.2005.1286.272 started.
@@ -148,7 +148,7 @@ Pomocí těchto kroků ověříte certifikáty PKI centra Azure Stack pro nasaze
 
     ```
 
-    Pokud chcete ověřit certifikáty pro jiné služby Azure Stack centra, změňte hodnotu pro ```-CertificateType``` . Příklad:
+    Pokud chcete ověřit certifikáty pro jiné služby Azure Stack centra, změňte hodnotu pro ```-CertificateType``` . Například:
 
     ```powershell  
     # App Services
@@ -211,9 +211,9 @@ Pomocí těchto kroků ověříte certifikáty PKI centra Azure Stack pro nasaze
 
 ### <a name="known-issues"></a>Známé problémy
 
-**Příznak**: testy se přeskočí.
+**Příznak** : testy se přeskočí.
 
-**Příčina**: AzsReadinessChecker přeskočí některé testy, pokud není splněna závislost:
+**Příčina** : AzsReadinessChecker přeskočí některé testy, pokud není splněna závislost:
 
  - Další certifikáty se přeskočí, pokud řetěz certifikátů selhává.
 
@@ -237,7 +237,7 @@ Pomocí těchto kroků ověříte certifikáty PKI centra Azure Stack pro nasaze
     Invoke-AzsCertificateValidation Completed
     ```
 
-**Řešení**: postupujte podle pokynů k nástroji v části Podrobnosti v každé sadě testů pro každý certifikát.
+**Řešení** : postupujte podle pokynů k nástroji v části Podrobnosti v každé sadě testů pro každý certifikát.
 
 ## <a name="certificates"></a>Certifikáty
 

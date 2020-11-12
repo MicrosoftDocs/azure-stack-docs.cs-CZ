@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: d94f9130825493ea521441a43a58aa053ff2cc05
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 8661666b4f953d07a96f1a2402782970e32c140b
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631406"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545730"
 ---
 # <a name="connect-to-azure-stack-hub"></a>Připojení k centru Azure Stack
 
@@ -26,7 +26,7 @@ S Připojení ke vzdálené ploše může jeden souběžný uživatel pracovat s
 
 1. Otevřete Připojení ke vzdálené ploše a připojte se k vývojové sadě. Jako uživatelské jméno zadejte **AzureStack\AzureStackAdmin** a heslo správce, které jste zadali během Azure Stack nastavení centra.  
 
-2. V počítači vývojové sady otevřete Správce serveru, klikněte na **místní server**, vypněte rozšířené zabezpečení aplikace Internet Explorer a potom zavřete Správce serveru.
+2. V počítači vývojové sady otevřete Správce serveru, klikněte na **místní server** , vypněte rozšířené zabezpečení aplikace Internet Explorer a potom zavřete Správce serveru.
 
 3. Pokud chcete portál otevřít, použijte `https://portal.local.azurestack.external/` přihlašovací údaje uživatele a přihlaste se.
 
@@ -40,7 +40,7 @@ K Azure Stack Development Kit můžete vytvořit připojení VPN typu dělené t
 
 ### <a name="prerequisites"></a>Požadavky
 
-* Nainstalujte [Azure PowerShell centra Azure Stack kompatibilní](../operator/azure-stack-powershell-install.md) na místním počítači.  
+* Nainstalujte [Azure PowerShell centra Azure Stack kompatibilní](../operator/powershell-install-az-module.md) na místním počítači.  
 * Stáhněte si [nástroje, které jsou potřeba pro práci s rozbočovačem Azure Stack](../operator/azure-stack-powershell-download.md). 
 
 ### <a name="configure-vpn-connectivity"></a>Konfigurace připojení k síti VPN

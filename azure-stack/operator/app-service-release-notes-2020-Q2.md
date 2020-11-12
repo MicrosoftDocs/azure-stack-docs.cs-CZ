@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/30/2020
-ms.openlocfilehash: 9a04f99df8093f0f37d68137dfbe9ff18664d385
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: c5e6ac0a2a500cf43cf94cbc40b2a95c58784d28
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489738"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544713"
 ---
 # <a name="app-service-on-azure-stack-hub-2020-q2-release-notes"></a>App Service zpráva k vydání verze centra Azure Stack 2020 Q2
 
@@ -59,7 +59,7 @@ Azure App Service na Azure Stack Update Q2 obsahuje následující vylepšení a
 
 - Aktualizace služby Core pro zlepšení spolehlivosti a chybového zasílání zpráv umožňují snazší diagnostiku běžných problémů.
 
-- **Aktualizace následujících aplikačních architektur a nástrojů**:
+- **Aktualizace následujících aplikačních architektur a nástrojů** :
   - ASP.NET Framework 4.7.2
   - ASP.NET Core 3.1.3
   - ASP.NET Core modul v2 13.1.19331.0
@@ -76,13 +76,13 @@ Azure App Service na Azure Stack Update Q2 obsahuje následující vylepšení a
     - 6.12.0
     - 6.13.4
   
-- **Aktualizace základního operačního systému všech rolí**:
+- **Aktualizace základního operačního systému všech rolí** :
   - [2020-04 kumulativní aktualizace pro Windows Server 2016 pro systémy založené na platformě x64 (KB4550929)](https://support.microsoft.com/help/4550929)
   - [2020-04 aktualizace servisního zásobníku pro Windows Server 2016 pro systémy na platformě x64 (KB4550994)](https://support.microsoft.com/help/4550994)
 
 - **Kumulativní aktualizace pro Windows Server se teď v rámci nasazení a upgradu aplikují na role kontroleru.**
 
-- **Aktualizované výchozí hodnoty SKU virtuálního počítače a sady škálování pro nová nasazení**: aby byla zajištěna konzistence s naší veřejnou cloudovou službou, nové nasazení Azure App Service v centru Azure Stack budou používat následující SKU pro základní počítače a sady škálování používané pro provozování poskytovatele prostředků.
+- **Aktualizované výchozí hodnoty SKU virtuálního počítače a sady škálování pro nová nasazení** : aby byla zajištěna konzistence s naší veřejnou cloudovou službou, nové nasazení Azure App Service v centru Azure Stack budou používat následující SKU pro základní počítače a sady škálování používané pro provozování poskytovatele prostředků.
   
   | Role | Minimální SKU |
   | --- | --- |
@@ -131,8 +131,9 @@ Před upgradem Azure App Service na Azure Stack instalaci centra na 2020 Q2 mus�
 
 Tento skript musí být spuštěný za následujících podmínek.
 
-1. Uživatel, který má oprávnění správce systému, například účet SQL SA;
-1. Pokud používáte SQL Always On, ujistěte se, že se skript spouští z instance SQL, která obsahuje všechna App Service přihlašovacích údajů ve formuláři:
+- Uživatel, který má oprávnění správce systému, například účet SQL SA;
+- Pokud používáte SQL Always On, ujistěte se, že se skript spouští z instance SQL, která obsahuje všechna App Service přihlašovacích údajů ve formuláři:
+
     - appservice_hosting_FileServer
     - appservice_hosting_HostingAdmin
     - appservice_hosting_LoadBalancer

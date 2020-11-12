@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 5f99d816470649366703da5de4bf68ebdbe26a61
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 245658359db8b55a455fa653f4b97bbf6d1737d8
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90571826"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546238"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>Nasazení virtuálního počítače s zabezpečeným uloženým certifikátem v centru Azure Stack
 
@@ -39,7 +39,7 @@ Následující kroky popisují proces vyžadovaný k odeslání certifikátu do 
 ## <a name="prerequisites"></a>Požadavky
 
 * Musíte se přihlásit k odběru nabídky, která zahrnuje službu Key Vault.
-* [Nainstalujte PowerShell pro centrum Azure Stack](../operator/azure-stack-powershell-install.md).
+* [Nainstalujte PowerShell pro centrum Azure Stack](../operator/powershell-install-az-module.md).
 * [Nakonfigurujte prostředí PowerShell uživatele centra Azure Stack](azure-stack-powershell-configure-user.md).
 
 ## <a name="create-a-key-vault-secret"></a>Vytvoření tajného klíče trezoru klíčů
@@ -87,11 +87,11 @@ $jsonObject = @"
 $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
 $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
 
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
   -Name $resourceGroup `
   -Location $location
 
-New-AzureRmKeyVault `
+New-AzKeyVault `
   -VaultName $vaultName `
   -ResourceGroupName $resourceGroup `
   -Location $location `
@@ -155,7 +155,7 @@ Nasaďte šablonu pomocí následujícího skriptu prostředí PowerShell:
 
 ```powershell
 # Deploy a Resource Manager template to create a VM and push the secret to it
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -Name KVDeployment `
   -ResourceGroupName $resourceGroup `
   -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `

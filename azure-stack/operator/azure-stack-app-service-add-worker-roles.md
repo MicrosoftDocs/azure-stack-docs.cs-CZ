@@ -7,14 +7,14 @@ ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
-ms.openlocfilehash: b468ed4c41c259a0017969615681abcd007d96c7
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9f4fac881a4b8e946edd527590dc95ca32aa1c84
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77695321"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544730"
 ---
-# <a name="add-workers-and-infrastructure-in-azure-app-service-on-azure-stack-hub"></a>Přidání pracovníků a infrastruktury v Azure App Service v centru Azure Stack
+# <a name="add-workers-and-infrastructure-in-azure-app-service-on-azure-stack-hub"></a>Přidání pracovních procesů a infrastruktury do služby Azure App Service ve službě Azure Stack Hub
 
 Tento dokument poskytuje pokyny, jak škálovat infrastrukturu a role pracovních procesů v Azure App Service v centru Azure Stack. Pokryjeme všechny kroky potřebné k vytvoření dalších rolí pracovního procesu pro podporu aplikací libovolné velikosti.
 
@@ -37,7 +37,7 @@ Azure App Service v centru Azure Stack nasadí všechny role pomocí Virtual Mac
     ##### Scale out the AppService Role instances ######
    
     # Set context to AzureStack admin.
-    Login-AzureRmAccount -EnvironmentName AzureStackAdmin
+    Login-AzAccount -EnvironmentName AzureStackAdmin
                                                  
     ## Name of the Resource group where AppService is deployed.
     $AppServiceResourceGroupName = "AppService.local"
@@ -50,11 +50,11 @@ Azure App Service v centru Azure Stack nasadí všechny role pomocí Virtual Mac
     $TotalCapacity = 2  
 
     # Get current scale set
-    $vmss = Get-AzureRmVmss -ResourceGroupName $AppServiceResourceGroupName -VMScaleSetName $ScaleSetName
+    $vmss = Get-AzVmss -ResourceGroupName $AppServiceResourceGroupName -VMScaleSetName $ScaleSetName
 
     # Set and update the capacity
     $vmss.sku.capacity = $TotalCapacity
-    Update-AzureRmVmss -ResourceGroupName $AppServiceResourceGroupName -Name $ScaleSetName -VirtualMachineScaleSet $vmss 
+    Update-AzVmss -ResourceGroupName $AppServiceResourceGroupName -Name $ScaleSetName -VirtualMachineScaleSet $vmss 
    ```    
 
    > [!NOTE]
@@ -78,7 +78,7 @@ Azure App Service v centru Azure Stack nasadí všechny role pomocí Virtual Mac
 
     ![Role App Service škálovací sady na portálu Azure Stack správce centra](media/azure-stack-app-service-add-worker-roles/image02.png)
 
-5. Klikněte na **škálování**, vyberte počet instancí, na které chcete škálovat, a pak klikněte na **Uložit**.
+5. Klikněte na **škálování** , vyberte počet instancí, na které chcete škálovat, a pak klikněte na **Uložit**.
 
     ![Nastavení instancí, které se mají škálovat v App Service rolích v portálu Azure Stack správce centra](media/azure-stack-app-service-add-worker-roles/image03.png)
 
@@ -93,7 +93,7 @@ Po dokončení nasazení a připravení budou pracovní procesy uživatelům k d
 ![Cenové úrovně pro nový plán App Service ve Azure Stack portálu pro správu centra](media/azure-stack-app-service-add-worker-roles/image04.png)
 
 >[!NOTE]
-> Pro horizontální navýšení kapacity správy, front-endu nebo rolí vydavatele použijte stejný postup, který vybere vhodný typ role. Řadiče nejsou nasazené jako sady škálování a proto by se měly v době instalace pro všechna produkční nasazení nasadit dvě.
+> Pokud chcete škálovat role správy, front-endu nebo vydavatele na více instancí, vyberte odpovídající typ role a postupujte podle stejných kroků. Kontrolery se nenasazují jako škálovací sady a proto by se pro všechna produkční nasazení měly při instalaci nasazovat dva kontrolery.
 
 ### <a name="next-steps"></a>Další kroky
 

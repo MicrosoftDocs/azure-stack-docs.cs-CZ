@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/05/2020
 ms.reviewer: sijuman
 ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: ea3ec5389aa00d0b606d86e483a8ca5a2607aa1a
-ms.sourcegitcommit: af21e3097e833bcb0670733a5e92d6fc3deaa53b
+ms.openlocfilehash: bfb385e29a89ad8d47ace3b15776bd368e0cf521
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91729232"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546167"
 ---
 # <a name="migrate-from-azurerm-to-azure-powershell-az-in-azure-stack-hub"></a>Migrace z AzureRM na Azure PowerShell AZ in Azure Stack hub
 
@@ -33,7 +33,7 @@ Get-InstalledModule -Name AzureRM -AllVersions
 
 ## <a name="check-current-scripts-work-with-azurerm"></a>Kontrolovat aktuální skripty fungují s AzureRM
 
-To je nejdůležitější krok! Spusťte stávající skripty a ujistěte se, že fungují s _nejnovější_ verzí AzureRM (__2.5.0__). Pokud skripty nefungují, nezapomeňte si přečíst [průvodce migrací AzureRM](/powershell/azure/azurerm/migration-guide.6.0.0).
+To je nejdůležitější krok! Spusťte stávající skripty a ujistěte se, že fungují s _nejnovější_ verzí AzureRM ( __2.5.0__ ). Pokud skripty nefungují, nezapomeňte si přečíst [průvodce migrací AzureRM](/powershell/azure/azurerm/migration-guide.6.0.0).
 
 ## <a name="install-the-azure-powershell-az-module"></a>Instalace modulu Az Azure PowerShellu
 
@@ -41,7 +41,7 @@ Prvním krokem je instalace modulu Az na vaší platformě. Pokud instalujete Az
 
 Při instalaci modulu Az Azure PowerShellu postupujte takto:
 
-* __Doporučené__: [odinstalujte modul AzureRM](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module).
+* __Doporučené__ : [odinstalujte modul AzureRM](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module).
   Ujistěte se, že jste odebrali _všechny_ nainstalované verze AzureRM, ne jenom nejnovější verzi.
 * [Instalace modulu Az](/powershell/azure/install-az-ps)
 
@@ -74,8 +74,8 @@ Pro tuto změnu pojmenování existují výjimky, o kterých byste měli vědět
 
 | Modul AzureRM | Modul Az | Změnila se přípona rutiny? |
 |----------------|-----------|------------------------|
-| AzureRM.Profile | Az.Accounts | Ano |
-| AzureRM.Insights | Az.Monitor | Ano |
+| AzureRM.Profile | Az.Accounts | Yes |
+| AzureRM.Insights | Az.Monitor | Yes |
 | AzureRM.Tags | Az.Resources | Ne |
 | AzureRM.UsageAggregates | Az.Billing | Ne |
 | AzureRM.Consumption | Az.Billing | Ne |
@@ -208,7 +208,7 @@ RequiredModules = @(@{ModuleName="AzureRM.Profile"; ModuleVersion="5.8.2"})
 je potřeba změnit na:
 
 ```powershell
-RequiredModules = @(@{ModuleName="Az.Profile"; ModuleVersion="1.0.0"})
+RequiredModules = @(@{ModuleName="Az.Accounts"; ModuleVersion="1.0.0"})
 ```
 
 ### <a name="removed-modules"></a>Odebrané moduly

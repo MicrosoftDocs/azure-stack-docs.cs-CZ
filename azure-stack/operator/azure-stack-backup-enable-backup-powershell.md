@@ -7,12 +7,12 @@ ms.date: 04/25/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: 01f02fcf624db0a8ce47084ec5aa331e0831014b
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: bc6ce6c36e3aca05015e6acbef3de0d5fd841eb6
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489279"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543914"
 ---
 # <a name="enable-backup-for-azure-stack-hub-with-powershell"></a>Povolení zálohování centra Azure Stack pomocí PowerShellu
 
@@ -28,7 +28,7 @@ K rutinám PowerShellu máte přístup, abyste mohli povolit zálohování, spus
 
 ## <a name="prepare-powershell-environment"></a>Příprava prostředí PowerShell
 
-Pokyny týkající se konfigurace prostředí PowerShellu najdete v tématu [instalace PowerShellu pro Azure Stack hub](azure-stack-powershell-install.md). Pokud se chcete přihlásit do centra Azure Stack, přečtěte si téma [Konfigurace prostředí operátorů a přihlášení do centra Azure Stack](azure-stack-powershell-configure-admin.md).
+Pokyny týkající se konfigurace prostředí PowerShellu najdete v tématu [instalace PowerShellu pro Azure Stack hub](powershell-install-az-module.md). Pokud se chcete přihlásit do centra Azure Stack, přečtěte si téma [Konfigurace prostředí operátorů a přihlášení do centra Azure Stack](azure-stack-powershell-configure-admin.md).
 
 ## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>Zadání záložní sdílené složky, přihlašovacích údajů a šifrovacího klíče pro povolení zálohování
 
@@ -134,7 +134,7 @@ Výsledek by měl vypadat jako v následujícím příkladu výstupu:
 Rutina prostředí PowerShell pro konfiguraci zálohování infrastruktury je nastavená na AzsBackupConfiguration. V předchozích verzích byla rutina nastavená na AzsBackupShare. Tato rutina vyžaduje poskytnutí certifikátu. Pokud je zálohování infrastruktury nakonfigurované pomocí šifrovacího klíče, nemůžete aktualizovat šifrovací klíč ani zobrazit jeho vlastnost. Musíte použít verzi 1,6 prostředí PowerShell pro správu.
 
 Pokud byla před aktualizací na 1901 nakonfigurovaná záloha infrastruktury, můžete k nastavení a zobrazení šifrovacího klíče použít verzi 1,6 prostředí PowerShell pro správu. Verze 1,6 vám neumožní aktualizovat ze šifrovacího klíče na soubor certifikátu.
-Další informace o instalaci správné verze modulu najdete v tématu věnovaném [instalaci centra Azure Stack PowerShellu](azure-stack-powershell-install.md) .
+Další informace o instalaci správné verze modulu najdete v tématu věnovaném [instalaci centra Azure Stack PowerShellu](powershell-install-az-module.md) .
 
 
 ## <a name="next-steps"></a>Další kroky

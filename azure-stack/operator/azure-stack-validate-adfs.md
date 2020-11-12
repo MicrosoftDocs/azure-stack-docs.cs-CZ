@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: BryanLa
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 10/19/2020
 ms.author: bryanla
 ms.reviewer: jerskine
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: a8809c9f3a041d6bb4812c58d614693ce2d5431a
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: 0b032929496646de763336a630f22782bd03091c
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173994"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545677"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack-hub"></a>Ověřit integraci AD FS pro centrum Azure Stack
 
@@ -50,15 +50,15 @@ Je nutné, aby byly splněny následující požadavky.
 
 Potřebujete alespoň jednu z následujících forem metadat:
 
-- Adresa URL AD FS federačních metadat. Například: `https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`.
-* Soubor XML s federačními metadaty. Příklad: FederationMetadata. XML.
+- Adresa URL AD FS federačních metadat. Příklad: `https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`.
+* Soubor XML s federačními metadaty. Například: FederationMetadata.xml.
 
 ## <a name="validate-ad-fs-integration"></a>Ověřit integraci AD FS
 
 1. V počítači, který splňuje požadavky, otevřete příkazový řádek PowerShell pro správu a spusťte následující příkaz pro instalaci AzsReadinessChecker:
 
     ```powershell
-    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
+    Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
     ```
 
 1. Z příkazového řádku PowerShellu spusťte následující příkaz, který spustí ověřování. Jako identifikátor URI pro federační metadata zadejte hodnotu **CustomADFSFederationMetadataEndpointUri** .
@@ -94,16 +94,16 @@ V produkčních prostředích není testování řetězů certifikátů důvěry
 
 ## <a name="report-and-log-file"></a>Soubor sestavy a protokolu
 
-Pokaždé, když se ověřování spustí, protokoluje výsledky do **AzsReadinessChecker. log** a **AzsReadinessCheckerReport. JSON**. Umístění těchto souborů se zobrazí s výsledky ověřování v prostředí PowerShell.
+Pokaždé, když se ověřování spustí, protokoluje výsledky do **AzsReadinessChecker. log** a **AzsReadinessCheckerReport.js**. Umístění těchto souborů se zobrazí s výsledky ověřování v prostředí PowerShell.
 
 Soubory ověření vám můžou přispět ke sdílení stavu před nasazením centra Azure Stack nebo prozkoumání problémů s ověřováním. Oba soubory uchovávají výsledky každé následné kontroly ověření. Tato sestava poskytne vašemu týmu nasazení potvrzení konfigurace identity. Soubor protokolu může pomoci týmu nasazení nebo podpory prozkoumat problémy s ověřením.
 
-Ve výchozím nastavení jsou oba soubory zapisovány `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\`do.
+Ve výchozím nastavení jsou oba soubory zapisovány do `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\` .
 
 Použije
 
 * `-OutputPath`: Parametr *path* na konci příkazu Run pro určení jiného umístění sestavy.
-* `-CleanReport`: Parametr na konci příkazu Run vymaže AzsReadinessCheckerReport. JSON předchozí informace sestavy. Další informace najdete v tématu [Sestava ověřování centra Azure Stack](azure-stack-validation-report.md).
+* `-CleanReport`: Parametr na konci příkazu Run pro vymazání AzsReadinessCheckerReport.jsz předchozí informace sestavy. Další informace najdete v tématu [Sestava ověřování centra Azure Stack](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Selhání ověřování
 
@@ -117,9 +117,9 @@ V následujících příkladech jsou uvedeny pokyny k běžným chybám ověřen
 Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
 ```
 
-**Příčina**: prostředí PowerShell AUTOLOAD se nepodařilo správně načíst modul pro kontrolu připravenosti.
+**Příčina** : prostředí PowerShell AUTOLOAD se nepodařilo správně načíst modul pro kontrolu připravenosti.
 
-**Řešení**: explicitně importujte modul pro kontrolu připravenosti. Zkopírujte a vložte následující kód do PowerShellu a aktualizujte `<version>` ho číslem aktuálně nainstalované verze.
+**Řešení** : explicitně importujte modul pro kontrolu připravenosti. Zkopírujte a vložte následující kód do PowerShellu a aktualizujte ho `<version>` číslem aktuálně nainstalované verze.
 
 ```powershell
 Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force

@@ -3,17 +3,17 @@ title: Stažení položek z webu Marketplace z Azure a publikování do centra A
 description: Přečtěte si, jak stáhnout položky z webu Marketplace z Azure a publikovat do centra Azure Stack.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 10/16/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 12/23/2019
+ms.lastreviewed: 10/16/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 2be02c831b4e96e88e6bf8c108373d9ab2fc11cd
-ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
+ms.openlocfilehash: 41279ef90060d4b6dae156c96c03bd01e1006a94
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93364026"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543948"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Stažení položek z Marketplace do centra Azure Stack
 
@@ -85,14 +85,14 @@ Tento scénář obsahuje dvě části:
 
   - Vaše nasazení centra Azure Stack musí být zaregistrované v Azure.
 
-  - Počítač, který má připojení k Internetu, musí mít **modul prostředí PowerShell pro Azure Stack verze 1.2.11** nebo novější. Pokud ještě neexistuje, [nainstalujte Azure Stack moduly PowerShellu specifické pro centrum](azure-stack-powershell-install.md).
+  - Počítač, který má připojení k Internetu, musí mít **modul prostředí PowerShell pro Azure Stack verze 1.2.11** nebo novější. Pokud ještě neexistuje, [nainstalujte Azure Stack moduly PowerShellu specifické pro centrum](powershell-install-az-module.md).
 
   - Pokud chcete povolit import stažené položky Marketplace, musí se nakonfigurovat [prostředí PowerShell pro operátor centra Azure Stack](azure-stack-powershell-configure-admin.md) .
 
 - Stáhněte modul **AZS. Syndication. admin** z Galerie prostředí PowerShell pomocí následujícího příkazu:
 
   ```powershell
-  Install-Module -Name Azs.Syndication.Admin
+  Install-Module -Name Azs.Syndication.Admin -AllowPrerelease -PassThru
   ```
   
 - .NET Framework 4,7 nebo novější.
@@ -111,7 +111,7 @@ Po registraci Azure Stack můžete ignorovat následující zprávu, která se z
 2. Přihlaste se ke příslušnému klientovi Azure Cloud a AzureAD Directory pomocí účtu Azure, který jste použili k registraci centra Azure Stack. Pokud chcete účet přidat, v PowerShellovém běhu `Add-AzureRmAccount` :
 
    ```powershell  
-   Login-AzureRmAccount -Environment AzureCloud -Tenant '<mydirectory>.onmicrosoft.com'
+   Login-AzAccount -Environment AzureCloud -Tenant '<mydirectory>.onmicrosoft.com'
    ```
 
    Zobrazí se výzva k zadání přihlašovacích údajů k účtu Azure a možná budete muset použít dvojúrovňové ověřování v závislosti na konfiguraci vašeho účtu.
@@ -122,13 +122,13 @@ Po registraci Azure Stack můžete ignorovat následující zprávu, která se z
 3. Pokud máte více předplatných, spusťte následující příkaz a vyberte ten, který jste použili pro registraci:
 
    ```powershell  
-   Get-AzureRmSubscription -SubscriptionID 'Your Azure Subscription GUID' | Select-AzureRmSubscription
+   Get-AzSubscription -SubscriptionID 'Your Azure Subscription GUID' | Select-AzSubscription
    ```
 
 4. Pokud jste to ještě neudělali v kroku požadavky, Stáhněte si nejnovější verzi nástroje syndikace webu Marketplace:
 
    ```powershell
-   Install-Module -Name Azs.Syndication.Admin
+   Install-Module -Name Azs.Syndication.Admin -AllowPrerelease -PassThru
    ```
 
 5. Pokud chcete vybrat položky Marketplace, například image virtuálních počítačů, rozšíření nebo šablony řešení ke stažení, spusťte následující příkaz:

@@ -7,12 +7,12 @@ ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 2d8b1eddb295a07a120858e1fa5845b51858ab9a
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.openlocfilehash: b327d7e194de672787c3a7e120857d6c2775a1a1
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414023"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544934"
 ---
 # <a name="provider-resource-usage-api"></a>Rozhraní API využití prostředků poskytovatele
 
@@ -98,7 +98,7 @@ meterID1",
 
 Pokud chcete vygenerovat data o využití, měli byste mít prostředky, na kterých běží a aktivně používají systém. Například aktivní virtuální počítač (VM) nebo účet úložiště obsahující data. Pokud si nejste jistí, jestli máte nějaké prostředky spuštěné v tržišti centra Azure Stack, nasaďte virtuální počítač a ověřte okno monitorování virtuálního počítače, abyste se ujistili, že je spuštěný. K zobrazení dat o využití použijte následující rutiny PowerShellu:
 
-1. [Nainstalujte PowerShell pro centrum Azure Stack](azure-stack-powershell-install.md).
+1. [Nainstalujte PowerShell pro centrum Azure Stack](powershell-install-az-module.md).
 2. [Nakonfigurujte Azure Stackho uživatele centra](../user/azure-stack-powershell-configure-user.md) nebo prostředí PowerShell pro [operátor centra Azure Stack](azure-stack-powershell-configure-admin.md) .
 3. Pokud chcete načíst data o využití, zavolejte rutinu PowerShellu [Get-AzsSubscriberUsage](/powershell/module/azs.commerce.admin/get-azssubscriberusage) :
 

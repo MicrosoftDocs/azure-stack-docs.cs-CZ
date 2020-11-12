@@ -6,18 +6,18 @@ ms.topic: article
 ms.date: 04/29/2020
 ms.author: sethm
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 5ca8221d9a85a6dad874969525006f789e6b7084
-ms.sourcegitcommit: 3fd4a38dc8446e0cdb97d51a0abce96280e2f7b7
+ms.openlocfilehash: f1cdb082accdef3590bd737a39add61b1ebbc8bb
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580160"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546306"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-powershell"></a>Správa Key Vault v centru Azure Stack pomocí PowerShellu
 
 Tento článek popisuje, jak vytvořit a spravovat Trezor klíčů v Azure Stackovém centru pomocí PowerShellu. Naučíte se, jak používat rutiny Key Vault PowerShellu k těmto akcím:
 
-* Vytvoření trezoru klíčů
+* Vytvořte trezor klíčů.
 * Ukládejte a spravujte kryptografické klíče a tajné kódy.
 * Autorizovat uživatele nebo aplikace k vyvolání operací v trezoru.
 
@@ -27,7 +27,7 @@ Tento článek popisuje, jak vytvořit a spravovat Trezor klíčů v Azure Stack
 ## <a name="prerequisites"></a>Požadavky
 
 * Musíte se přihlásit k odběru nabídky, která zahrnuje službu Azure Key Vault.
-* [Nainstalujte PowerShell pro centrum Azure Stack](../operator/azure-stack-powershell-install.md).
+* [Nainstalujte PowerShell pro centrum Azure Stack](../operator/powershell-install-az-module.md).
 * [Nakonfigurujte prostředí PowerShell centra Azure Stack](azure-stack-powershell-configure-user.md).
 
 ## <a name="enable-your-tenant-subscription-for-key-vault-operations"></a>Povolení předplatného tenanta pro Key Vault operací
@@ -35,7 +35,7 @@ Tento článek popisuje, jak vytvořit a spravovat Trezor klíčů v Azure Stack
 Než budete moct na Trezor klíčů vydávat nějaké operace, musíte zajistit, aby bylo u vašeho předplatného pro operace trezoru povolené. Chcete-li ověřit, zda jsou povoleny operace trezoru klíčů, spusťte následující příkaz:
 
 ```powershell  
-Get-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
+Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
 ```
 
 Pokud je u vašeho předplatného povolené operace trezoru, **zobrazí se ve** výstupu **RegistrationState** pro všechny typy prostředků trezoru klíčů.
@@ -45,7 +45,7 @@ Pokud je u vašeho předplatného povolené operace trezoru, **zobrazí se ve** 
 Pokud nejsou povolené operace trezoru, vydejte následující příkaz k registraci služby Key Vault ve vašem předplatném:
 
 ```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
+Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 ```
 
 Pokud je registrace úspěšná, vrátí se následující výstup:
@@ -54,22 +54,22 @@ Pokud je registrace úspěšná, vrátí se následující výstup:
 
 Když vyvoláte příkazy trezoru klíčů, může se zobrazit chyba, například "předplatné není zaregistrované pro používání oboru názvů" Microsoft. klíčů trezor ". Pokud se zobrazí chyba, potvrďte, že jste povolili poskytovatele prostředků Key Vault podle předchozích pokynů.
 
-## <a name="create-a-key-vault"></a>Vytvořte trezor klíčů
+## <a name="create-a-key-vault"></a>Vytvořte trezor klíčů.
 
 Před vytvořením trezoru klíčů vytvořte skupinu prostředků, aby všechny prostředky týkající se trezoru klíčů existovaly ve skupině prostředků. Pomocí následujícího příkazu vytvořte novou skupinu prostředků:
 
 ```powershell
-New-AzureRmResourceGroup -Name "VaultRG" -Location local -verbose -Force
+New-AzResourceGroup -Name "VaultRG" -Location local -verbose -Force
 ```
 
 ![Nová skupina prostředků vygenerovaná v PowerShellu](media/azure-stack-key-vault-manage-powershell/image3.png)
 
-Nyní pomocí rutiny **New-AzureRMKeyVault** vytvořte Trezor klíčů ve skupině prostředků, kterou jste vytvořili dříve. Tento příkaz přečte tři povinné parametry: název skupiny prostředků, název trezoru klíčů a geografické umístění.
+Nyní pomocí rutiny **New-AzKeyVault** vytvořte Trezor klíčů ve skupině prostředků, kterou jste vytvořili dříve. Tento příkaz přečte tři povinné parametry: název skupiny prostředků, název trezoru klíčů a geografické umístění.
 
 Spuštěním následujícího příkazu vytvořte Trezor klíčů:
 
 ```powershell
-New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location local -verbose
+New-AzKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location local -verbose
 ```
 
 ![Nový trezor klíčů vygenerovaný v PowerShellu](media/azure-stack-key-vault-manage-powershell/image4.png)
@@ -78,7 +78,7 @@ Výstup tohoto příkazu zobrazuje vlastnosti trezoru klíčů, který jste vytv
 
 ### <a name="active-directory-federation-services-ad-fs-deployment"></a>Nasazení Active Directory Federation Services (AD FS) (AD FS)
 
-V nasazení AD FS se může zobrazit toto upozornění: zásada přístupu není nastavená. Žádný uživatel nebo aplikace nemá přístupová oprávnění k používání tohoto trezoru. Pokud chcete tento problém vyřešit, nastavte pro trezor zásady přístupu pomocí příkazu [**set-AzureRmKeyVaultAccessPolicy**](#authorize-an-app-to-use-a-key-or-secret) :
+V nasazení AD FS se může zobrazit toto upozornění: zásada přístupu není nastavená. Žádný uživatel nebo aplikace nemá přístupová oprávnění k používání tohoto trezoru. Pokud chcete tento problém vyřešit, nastavte pro trezor zásady přístupu pomocí příkazu [**set-AzKeyVaultAccessPolicy**](#authorize-an-app-to-use-a-key-or-secret) :
 
 ```powershell
 # Obtain the security identifier(SID) of the active directory user
@@ -86,7 +86,7 @@ $adUser = Get-ADUser -Filter "Name -eq '{Active directory user name}'"
 $objectSID = $adUser.SID.Value
 
 # Set the key vault access policy
-Set-AzureRmKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName "{resource group name}" -ObjectId "{object SID}" -PermissionsToKeys {permissionsToKeys} -PermissionsToSecrets {permissionsToSecrets} -BypassObjectIdValidation
+Set-AzKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName "{resource group name}" -ObjectId "{object SID}" -PermissionsToKeys {permissionsToKeys} -PermissionsToSecrets {permissionsToSecrets} -BypassObjectIdValidation
 ```
 
 ## <a name="manage-keys-and-secrets"></a>Správa klíčů a tajných kódů
@@ -101,13 +101,13 @@ Pomocí rutiny **Add-AzureKeyVaultKey** vytvořte nebo importujte klíč chrán�
 Add-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01" -verbose -Destination Software
 ```
 
-`-Destination` Parametr se používá k určení, zda je klíč chráněný softwarem. Po úspěšném vytvoření klíče vypíše příkaz Podrobnosti vytvořeného klíče.
+`-Destination`Parametr se používá k určení, zda je klíč chráněný softwarem. Po úspěšném vytvoření klíče vypíše příkaz Podrobnosti vytvořeného klíče.
 
 ![Nový klíč trezoru klíčů vygenerovaný v PowerShellu](media/azure-stack-key-vault-manage-powershell/image5.png)
 
-Nyní můžete odkazovat na vytvořený klíč pomocí jeho identifikátoru URI. Pokud vytvoříte nebo importujete klíč, který má stejný název jako existující klíč, původní klíč se aktualizuje s hodnotami zadanými v novém klíči. K předchozí verzi můžete přistupovat pomocí identifikátoru URI, který je specifický pro danou verzi klíče. Příklad:
+Nyní můžete odkazovat na vytvořený klíč pomocí jeho identifikátoru URI. Pokud vytvoříte nebo importujete klíč, který má stejný název jako existující klíč, původní klíč se aktualizuje s hodnotami zadanými v novém klíči. K předchozí verzi můžete přistupovat pomocí identifikátoru URI, který je specifický pro danou verzi klíče. Například:
 
-* K `https://vault10.vault.local.azurestack.external:443/keys/key01` získání aktuální verze vždycky použijte.
+* `https://vault10.vault.local.azurestack.external:443/keys/key01`K získání aktuální verze vždycky použijte.
 * Použijte `https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a` k získání této konkrétní verze.
 
 ### <a name="get-a-key"></a>Získat klíč
@@ -141,20 +141,20 @@ Po vytvoření klíčů a tajných kódů můžete pro jejich používání povo
 
 ## <a name="authorize-an-app-to-use-a-key-or-secret"></a>Autorizace aplikace pro použití klíče nebo tajného klíče
 
-Použijte rutinu **set-AzureRmKeyVaultAccessPolicy** k autorizaci aplikace pro přístup ke klíči nebo tajnému klíči v trezoru klíčů.
+Použijte rutinu **set-AzKeyVaultAccessPolicy** k autorizaci aplikace pro přístup ke klíči nebo tajnému klíči v trezoru klíčů.
 
-V následujícím příkladu je název trezoru **ContosoKeyVault**a aplikace, kterou chcete autorizovat, má ID klienta **8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed**. K autorizaci aplikace spusťte následující příkaz. Můžete také zadat parametr **PermissionsToKeys** pro nastavení oprávnění pro uživatele, aplikaci nebo skupinu zabezpečení.
+V následujícím příkladu je název trezoru **ContosoKeyVault** a aplikace, kterou chcete autorizovat, má ID klienta **8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed**. K autorizaci aplikace spusťte následující příkaz. Můžete také zadat parametr **PermissionsToKeys** pro nastavení oprávnění pro uživatele, aplikaci nebo skupinu zabezpečení.
 
-Při použití set-AzureRmKeyvaultAccessPolicy proti službě ADFS nakonfigurované Azure Stack centrálního prostředí by se měl zadat parametr BypassObjectIdValidation.
+Pokud používáte Set-AzKeyvaultAccessPolicy pro službu ADFS nakonfigurovanou Azure Stack centrální prostředí, měl by se zadat parametr BypassObjectIdValidation.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign -BypassObjectIdValidation
+Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign -BypassObjectIdValidation
 ```
 
 Pokud chcete, aby stejná aplikace při čtení tajných klíčů v trezoru, spusťte následující rutinu:
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get -BypassObjectIdValidation
+Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get -BypassObjectIdValidation
 ```
 
 ## <a name="next-steps"></a>Další kroky

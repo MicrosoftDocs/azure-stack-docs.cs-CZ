@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Naučte se, jak připravit certifikáty PKI pro nasazení Azure Stackho centra nebo pro otáčení tajných klíčů.
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 10/19/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
-ms.lastreviewed: 09/16/2019
-ms.openlocfilehash: 3d129c3ed588fbaaa2ca234d19890c88b2dad364
-ms.sourcegitcommit: e72145ebb5eac17a47ba1c9119fd31de545fdace
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: 86e3a87bf869d6bd9980746742a7ba03d142d5fe
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88724893"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545019"
 ---
 # <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>Příprava certifikátů PKI Azure Stack hub pro nasazení nebo otočení
 
@@ -38,26 +38,26 @@ Pomocí těchto kroků můžete balíčky certifikátů pomocí rutin PowerShell
 1. Spuštěním následující rutiny nainstalujte modul pro kontrolu připravenosti na Azure Stack z příkazového řádku PowerShellu (5,1 nebo vyšší):
 
     ```powershell  
-        Install-Module Microsoft.AzureStack.ReadinessChecker
+        Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
     ```
-2. Zadejte **cestu** k souborům certifikátu. Příklad:
+2. Zadejte **cestu** k souborům certifikátu. Například:
 
     ```powershell  
         $Path = "$env:USERPROFILE\Documents\AzureStack"
     ```
 
-3. Deklarujte třídu **pfxPassword**. Příklad:
+3. Deklarujte třídu **pfxPassword**. Například:
 
     ```powershell  
         $pfxPassword = Read-Host -AsSecureString -Prompt "PFX Password"
     ```
-4. Deklarujete **ExportPath** , do kterého bude výsledný PFXs exportován. Příklad:
+4. Deklarujete **ExportPath** , do kterého bude výsledný PFXs exportován. Například:
 
     ```powershell  
         $ExportPath = "$env:USERPROFILE\Documents\AzureStack"
     ```
 
-5. Převod certifikátů na certifikáty centra Azure Stack. Příklad:
+5. Převod certifikátů na certifikáty centra Azure Stack. Například:
 
     ```powershell  
         ConvertTo-AzsPFX -Path $Path -pfxPassword $pfxPassword -ExportPath $ExportPath
@@ -119,7 +119,7 @@ Pomocí těchto kroků můžete balíčky certifikátů pomocí rutin PowerShell
     ConvertTo-AzsPFX Completed
     ```
     > [!NOTE]
-    > Pro další použití použijte příkaz Get-Help ConvertTo-AzsPFX-Full pro další použití, například zakázání ověřování nebo filtrování pro různé formáty certifikátů.
+    > Pro další využití použijte příkaz Get-Help ConvertTo-AzsPFX-Full pro další použití, například zakázání ověřování nebo filtrování pro různé formáty certifikátů.
 
     Po úspěšném ověření je možné provést nasazení nebo otočení bez jakýchkoli dalších kroků.
 
@@ -133,9 +133,9 @@ Pomocí těchto kroků můžete balíčky certifikátů pro nové Azure Stack ce
    > [!WARNING]
    > Nekopírujte soubory, které již byly naimportovány, exportovány nebo změněny jakýmkoli způsobem ze souborů poskytnutých přímo certifikační autoritou.
 
-1. Pravým tlačítkem myši klikněte na certifikát a vyberte **instalovat certifikát** nebo **nainstalovat PFX**v závislosti na tom, jak byl certifikát dodán z vaší certifikační autority.
+1. Pravým tlačítkem myši klikněte na certifikát a vyberte **instalovat certifikát** nebo **nainstalovat PFX** v závislosti na tom, jak byl certifikát dodán z vaší certifikační autority.
 
-1. V **Průvodci importem certifikátu**vyberte jako umístění importu možnost **místní počítač** . Vyberte **Další**. Na následující obrazovce znovu vyberte Další.
+1. V **Průvodci importem certifikátu** vyberte jako umístění importu možnost **místní počítač** . Vyberte **Další**. Na následující obrazovce znovu vyberte Další.
 
     ![Umístění importu místního počítače pro certifikát](./media/prepare-pki-certs/1.png)
 
@@ -156,24 +156,24 @@ Pomocí těchto kroků můžete balíčky certifikátů pro nové Azure Stack ce
 
 Otevřete konzolu MMC Správce certifikátů a připojte se k úložišti certifikátů místního počítače.
 
-1. Otevřete konzolu Microsoft Management Console. Chcete-li otevřít konzolu nástroje ve Windows 10, klikněte pravým tlačítkem myši na **nabídku Start**, vyberte příkaz **Spustit**a zadejte příkaz **MMC** a stiskněte klávesu ENTER.
+1. Otevřete konzolu Microsoft Management Console. Chcete-li otevřít konzolu nástroje ve Windows 10, klikněte pravým tlačítkem myši na **nabídku Start** , vyberte příkaz **Spustit** a zadejte příkaz **MMC** a stiskněte klávesu ENTER.
 
-2. Vyberte **soubor**  >  **Přidat/odebrat modul snap-in**, pak vyberte **certifikáty** a vyberte **Přidat**.
+2. Vyberte **soubor**  >  **Přidat/odebrat modul snap-in** , pak vyberte **certifikáty** a vyberte **Přidat**.
 
     ![Přidat modul snap-in Certifikáty v konzole Microsoft Management Console](./media/prepare-pki-certs/mmc-2.png)
 
-3. Vyberte položku **účet počítače**a pak vyberte **Další**. Vyberte **místní počítač** a pak **Dokončit**. Výběrem **OK** zavřete stránku přidat nebo odebrat modul snap-in.
+3. Vyberte položku **účet počítače** a pak vyberte **Další**. Vyberte **místní počítač** a pak **Dokončit**. Výběrem **OK** zavřete stránku přidat nebo odebrat Snap-In.
 
     ![Vybrat účet pro modul snap-in Certifikáty v konzole Microsoft Management Console](./media/prepare-pki-certs/mmc-3.png)
 
-4. Přejděte na **certifikáty**  >  **důvěřovat**  >  **umístění certifikátu**organizace. Ověřte, že na pravé straně vidíte svůj certifikát.
+4. Přejděte na **certifikáty**  >  **důvěřovat**  >  **umístění certifikátu** organizace. Ověřte, že na pravé straně vidíte svůj certifikát.
 
 5. Z hlavního panelu konzoly Správce certifikátů vyberte **Akce**  >  **všechny úkoly**  >  **exportovat**. Vyberte **Další**.
 
    > [!NOTE]
    > V závislosti na tom, kolik certifikátů centra Azure Stack máte, možná budete muset tento proces dokončit více než jednou.
 
-6. Vyberte **Ano, exportovat privátní klíč**a pak vyberte **Další**.
+6. Vyberte **Ano, exportovat privátní klíč** a pak vyberte **Další**.
 
 7. V části formát souboru pro export:
     
