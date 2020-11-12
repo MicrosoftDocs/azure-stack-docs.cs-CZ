@@ -3,16 +3,16 @@ title: Správa profilů verzí rozhraní API v centru Azure Stack
 description: Přečtěte si o profilech verzí rozhraní API v centru Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 10/16/2020
 ms.author: sethm
 ms.reviewer: sijuman
-ms.lastreviewed: 07/24/2019
-ms.openlocfilehash: 44638ca39dc5604ee436af5c0fa09c58fadf59eb
-ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: c4596ac24aa8b1ed4e0e0618263fc1f947fdf671
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/29/2020
-ms.locfileid: "89089639"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94547020"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack-hub"></a>Správa profilů verzí rozhraní API v centru Azure Stack
 
@@ -43,14 +43,14 @@ Toto téma vám pomůže s těmito aktivitami:
 
 Nejnovější profily rozhraní Azure API nejsou kompatibilní s Azure Stack hub. Pomocí následujících zásad vytváření názvů Identifikujte profily, které se mají použít pro vaše řešení Azure Stack hub:
 
-**Latest (Nejnovější)**  
+**Nejnovější**  
 Tento profil obsahuje nejaktuálnější verze rozhraní API, které najdete v globálním Azure, které nefungují v Azure Stack hub. **Nejnovější** má největší počet přerušujících změn. Tento profil přináší nestabilitu a kompatibilitu s jinými cloudy. Pokud se snažíte použít nejaktuálnější verze rozhraní API, **nejnovější** je profil, který byste měli použít.
 
 **RRRR-MM-DD – Hybrid**  
 Tento profil je vydaný v březnu a v září každý rok. Má optimální stabilitu a kompatibilitu s různými cloudy a je navržená pro cílení na globální Azure a centrum Azure Stack. Verze rozhraní API Azure uvedené v tomto profilu budou stejné jako ty, které jsou uvedené v Azure Stack hub. Tento profil slouží k vývoji kódu pro hybridní cloudová řešení.
 
 **RRRR-MM-DD – profil**  
-Tento profil je vydaný pro globální Azure v červnu a prosinci. Nefunguje s rozbočovačem Azure Stack a obvykle se jedná o mnoho konců změn. I když vyvažuje optimální stabilitu a nejnovější funkce, rozdíl mezi **nejnovějším** a tímto profilem je, že **nejnovější** verze rozhraní API se vždycky skládají z nejnovějších verzí rozhraní API bez ohledu na to, kdy rozhraní API uvolníte. Pokud je například pro výpočetní rozhraní API vytvořena nová verze rozhraní API, verze rozhraní API je uvedena v **nejnovějším**, ale ne v profilu **RRRR-MM-DD-profil** , protože tento profil již existuje. **RRRR-MM-DD – profil** pokrývá nejaktuálnější verze vydané před červenou nebo před prosinec.
+Tento profil je vydaný pro globální Azure v červnu a prosinci. Nefunguje s rozbočovačem Azure Stack a obvykle se jedná o mnoho konců změn. I když vyvažuje optimální stabilitu a nejnovější funkce, rozdíl mezi **nejnovějším** a tímto profilem je, že **nejnovější** verze rozhraní API se vždycky skládají z nejnovějších verzí rozhraní API bez ohledu na to, kdy rozhraní API uvolníte. Pokud je například pro výpočetní rozhraní API vytvořena nová verze rozhraní API, verze rozhraní API je uvedena v **nejnovějším** , ale ne v profilu **RRRR-MM-DD-profil** , protože tento profil již existuje. **RRRR-MM-DD – profil** pokrývá nejaktuálnější verze vydané před červenou nebo před prosinec.
 
 ## <a name="azure-resource-manager-api-profiles"></a>Azure Resource Manager profily rozhraní API
 
@@ -73,7 +73,8 @@ Můžete najít ukázky kódu, které vám pomohou integrovat vaše řešení s 
 - **.NET** <br>
 Použijte profil rozhraní .NET API k získání nejnovější a nejspolehlivější verze každého typu prostředku v balíčku poskytovatele prostředků. Další informace najdete v tématu [použití profilů verzí rozhraní API s rozhraním .NET v centru Azure Stack](azure-stack-version-profiles-net.md).
 - **PowerShell**  
-Pomocí modulu  **AzureRM. zaváděcího nástroje** , který je k dispozici prostřednictvím Galerie prostředí PowerShell, získáte rutiny prostředí PowerShell vyžadované pro práci s profily verze rozhraní API. Informace najdete v tématu [použití profilů verzí rozhraní API pro PowerShell](../operator/azure-stack-powershell-install.md?view=azs-2002).
+Pomocí modulu  **AZ. zaváděcího nástroje** , který je k dispozici prostřednictvím Galerie prostředí PowerShell, získáte rutiny prostředí PowerShell vyžadované pro práci s profily verze rozhraní API. Informace najdete v tématu [použití profilů verzí rozhraní API pro PowerShell](azure-stack-version-profiles-powershell.md).
+Pomocí modulu  **AzureRM. zaváděcího nástroje** , který je k dispozici prostřednictvím Galerie prostředí PowerShell, získáte rutiny prostředí PowerShell vyžadované pro práci s profily verze rozhraní API. Informace najdete v tématu [použití profilů verzí rozhraní API pro PowerShell](../operator/powershell-install-az-module.md?view=azs-2002).
 - **Azure CLI**  
 Aktualizujte konfiguraci prostředí tak, aby používala profil konkrétní verze rozhraní API centra Azure Stack. Informace najdete v tématu [použití profilů verzí rozhraní API pro Azure CLI](azure-stack-version-profiles-azurecli2.md).
 - **Přejít**  
@@ -87,6 +88,6 @@ Sada Node.js SDK pro Azure Stack centra Správce prostředků poskytuje nástroj
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Instalace PowerShellu pro centrum Azure Stack](../operator/azure-stack-powershell-install.md)
+- [Instalace PowerShellu pro centrum Azure Stack](../operator/powershell-install-az-module.md)
 - [Konfigurace prostředí PowerShell uživatele centra Azure Stack](azure-stack-powershell-configure-user.md)
 - [Zkontrolujte podrobnosti o verzích rozhraní API poskytovatele prostředků podporovaných profily](azure-stack-profiles-azure-resource-manager-versions.md).

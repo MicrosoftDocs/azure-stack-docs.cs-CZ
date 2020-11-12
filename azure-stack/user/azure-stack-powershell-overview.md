@@ -3,16 +3,16 @@ title: PowerShell v centru Azure Stack
 description: Prostředí PowerShell v centru Azure Stack má několik modulů a kontextů.
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 10/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 9731586043f42358bef0e8e37f9de7e23feebbff
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: 7103a2a8268ffb4c8cbbc84f35e6e1a6a90992c3
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567038"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546578"
 ---
 # <a name="get-started-with-powershell-in-azure-stack-hub"></a>Začínáme s PowerShellem v centru Azure Stack
 
@@ -20,7 +20,7 @@ PowerShell je určený pro správu a správu prostředků z příkazového řád
 
 Tento článek vám pomůže orientovat v různých modulech PowerShellu, které se používají v Azure Stack hub. Když v Azure Stackovém centru použijete PowerShell, můžete pracovat s kteroukoli ze čtyř sad rozhraní API, jak je znázorněno v následující tabulce:
 
-| Rozhraní API | PowerShell – reference | Referenční materiály k rozhraní REST |
+| Rozhraní API | Referenční informace prostředí | Referenční materiály k rozhraní REST |
 | --- | --- | --- |
 | Globální Azure Resource Manager | [Moduly Azure PowerShellu](https://github.com/Azure/azure-powershell/blob/master/documentation/azure-powershell-modules.md) | [Prohlížeč REST API](/rest/api/) |
 | Správce prostředků centra Azure Stack | [Správa profilů verzí rozhraní API v centru Azure Stack](azure-stack-version-profiles.md) | [Správa profilů verzí rozhraní API v centru Azure Stack](azure-stack-version-profiles.md) |
@@ -35,7 +35,7 @@ Poskytovatelé prostředků poskytují funkce i ovládací prvky pro správu a k
 
 Následující blokový diagram znázorňuje vztahy mezi sadami modulů PowerShellu. Z počítače můžete načíst moduly PowerShellu a spravovat globální centrum Azure i Azure Stack.
 
-![Prostředí PowerShell centra Azure Stack](media/azure-stack-powershell-overview/azure-stack-powerShell.svg)
+![Prostředí PowerShell centra Azure Stack](media/azure-stack-powershell-overview/azure-stack-powershell.svg)
 
 ### <a name="global-azure"></a>Globální Azure
 
@@ -43,11 +43,11 @@ Azure PowerShell obsahuje sadu rutin, které používají aktuální verzi Azure
 
 ### <a name="azure-stack-hub-resource-manager"></a>Správce prostředků centra Azure Stack
 
-Centrum Azure Stack PowerShell poskytuje sadu rutin, které používají předchozí verze Azure Resource Manager. Tyto rutiny jsou kompatibilní s poskytovateli prostředků v Azure Stack hub. Každý poskytovatel prostředků v centru Azure Stack používá starší verzi poskytovatele, kterou najdete v globálním Azure. K usnadnění koordinace verze každého zprostředkovatele podporovaného Azure Stack Hub můžete použít profily rozhraní API. Azure Stack centrum PowerShell používá PowerShell 5,1 a je k dispozici pouze ve Windows. Další informace najdete v tématu [Správa profilů verzí rozhraní API v centru Azure Stack](azure-stack-version-profiles.md).
+Centrum Azure Stack PowerShell poskytuje sadu rutin, které používají předchozí verze Azure Resource Manager. Tyto rutiny jsou kompatibilní s poskytovateli prostředků v Azure Stack hub. Každý poskytovatel prostředků v centru Azure Stack používá starší verzi poskytovatele, kterou najdete v globálním Azure. K usnadnění koordinace verze každého zprostředkovatele podporovaného Azure Stack Hub můžete použít profily rozhraní API. Další informace najdete v tématu [Správa profilů verzí rozhraní API v centru Azure Stack](azure-stack-version-profiles.md).
 
 ### <a name="azure-stack-hub-administrator"></a>Správce centra Azure Stack
 
-Centrum Azure Stack zpřístupňuje sadu poskytovatelů prostředků pro operátor cloudu, aby mohl operátor instalovat a spravovat centrum Azure Stack. V globálním prostředí Azure je tato interakce od uživatele abstraktní a na pozadí se zpracovává jako součást Azure. U Azure Stack hub ale podniky můžou podporovat privátní cloud. K provedení těchto úloh operátor komunikuje s rozhraními API Správce centra Azure Stack. Další informace najdete v tématu [instalace PowerShellu pro centrum Azure Stack](../operator/azure-stack-powershell-install.md).
+Centrum Azure Stack zpřístupňuje sadu poskytovatelů prostředků pro operátor cloudu, aby mohl operátor instalovat a spravovat centrum Azure Stack. V globálním prostředí Azure je tato interakce od uživatele abstraktní a na pozadí se zpracovává jako součást Azure. Pomocí centra Azure Stack; podniky ale můžou podporovat privátní cloud. K provedení těchto úloh operátor komunikuje s rozhraními API Správce centra Azure Stack. Další informace najdete v tématu [instalace PowerShellu pro centrum Azure Stack](../operator/powershell-install-az-module.md).
 
 ### <a name="azure-stack-hub-privileged-endpoint"></a>Privilegovaný koncový bod centra Azure Stack
 
@@ -55,13 +55,13 @@ Pro aktivity operátora v centru Azure Stack, jako je testování instalace a p�
 
 ### <a name="azure-stack-hub-tools"></a>Nástroje centra Azure Stack
 
-Centrum Azure Stack zpřístupňuje skripty a další rutiny, které jsou dostupné v úložišti GitHubu, *AzureStack-Tools*. AzureStack – nástroje hostují moduly PowerShellu pro správu a nasazování prostředků do centra Azure Stack. Pokud plánujete navázat připojení k síti VPN, můžete tyto moduly PowerShell stáhnout do Azure Stack Development Kit nebo do externího klienta založeného na systému Windows. Další informace najdete na stránce [AzureStack-Tools](https://github.com/Azure/AzureStack-Tools) .
+Centrum Azure Stack zpřístupňuje skripty a další rutiny, které jsou dostupné v úložišti GitHubu, *AzureStack-Tools*. AzureStack-Tools hostuje moduly PowerShellu pro správu a nasazování prostředků do centra Azure Stack. Pokud plánujete navázat připojení k síti VPN, můžete tyto moduly PowerShell stáhnout do Azure Stack Development Kit nebo do externího klienta založeného na systému Windows. Další informace najdete na stránce [AzureStack-Tools](https://github.com/Azure/AzureStack-Tools) .
 
 ## <a name="work-with-powershell-in-azure-stack-hub"></a>Práce s PowerShellem v centru Azure Stack
 
 Prostředí PowerShell poskytuje programový způsob, jak pracovat s Azure Resource Manager. Můžete pracovat s interaktivním příkazovým řádkem nebo, pokud automatizujete úlohy, můžete psát skripty.
 
-Pokud strávíte spoustu času při práci s centrem Azure Stack PowerShellu, najdete instalace a přeinstalace modulů sami. Pokud pracujete s globálním prostředím Azure současně, může být tato rutina náročná, protože budete muset moduly odinstalovat a přeinstalovat v závislosti na vašem cíli. 
+Pokud strávíte spoustu času při práci s centrem Azure Stack PowerShellu, najdete instalace a přeinstalace modulů sami. Pokud pracujete s globálním prostředím Azure současně, může být tato rutina náročná, protože budete muset moduly odinstalovat a přeinstalovat v závislosti na vašem cíli.
 
 Kontejnery Docker můžete použít k izolaci každé verze PowerShellu na místním počítači. Pokud chcete použít kontejnery Docker, abyste se mohli přepínat z modulu PowerShellu nastaveného na sada modulů PowerShellu, přečtěte si téma [použití Docker ke spuštění PowerShellu](azure-stack-powershell-user-docker.md).
 
@@ -69,5 +69,5 @@ Kontejnery Docker můžete použít k izolaci každé verze PowerShellu na míst
 ## <a name="next-steps"></a>Další kroky
 
 - Přečtěte si o [profilech rozhraní API pro PowerShell](azure-stack-version-profiles.md) v centru Azure Stack.
-- Nainstalujte [PowerShell Azure Stack hub](../operator/azure-stack-powershell-install.md).
+- Nainstalujte [PowerShell Azure Stack hub](../operator/powershell-install-az-module.md).
 - Přečtěte si o vytváření [šablon Azure Resource Manager](azure-stack-develop-templates.md) pro cloudovou konzistenci.

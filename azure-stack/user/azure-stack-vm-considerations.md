@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 993fb7a054cd350f0231eeb2108cc5a43ddb3f9e
-ms.sourcegitcommit: 7d518629bd55f24e7459404bb19b7db8a54f4b94
+ms.openlocfilehash: 2fbdc058781b4aefbcf4a289e907bcbb4b63f301
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88145433"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546986"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Funkce virtuálního počítače centra Azure Stack
 
@@ -75,9 +75,9 @@ Centrum Azure Stack zahrnuje malou sadu rozšíření. Aktualizace a další roz
 Pomocí následujícího skriptu PowerShellu Získejte seznam rozšíření virtuálních počítačů, které jsou k dispozici v prostředí Azure Stack hub:
 
 ```powershell
-Get-AzureRmVmImagePublisher -Location local | `
-  Get-AzureRmVMExtensionImageType | `
-  Get-AzureRmVMExtensionImage | `
+Get-AzVmImagePublisher -Location local | `
+  Get-AzVMExtensionImageType | `
+  Get-AzVMExtensionImage | `
   Select Type, Version | `
   Format-Table -Property * -AutoSize
 ```
@@ -93,7 +93,7 @@ Funkce virtuálních počítačů v centru Azure Stack podporují následující
 Pomocí následujícího skriptu PowerShellu získáte verze rozhraní API pro funkce virtuálních počítačů, které jsou k dispozici ve vašem prostředí Azure Stack hub:
 
 ```powershell
-Get-AzureRmResourceProvider | `
+Get-AzResourceProvider | `
   Select ProviderNamespace -Expand ResourceTypes | `
   Select * -Expand ApiVersions | `
   Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `

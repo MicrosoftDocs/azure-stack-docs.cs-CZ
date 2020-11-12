@@ -7,12 +7,12 @@ ms.date: 06/11/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2020
-ms.openlocfilehash: 686a2b1a976df23e91cd38df61267b95008f993a
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 89a6b4da29796cd29d988ea5869330a1486ce420
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107106"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546510"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack-hub"></a>Instalace sady Visual Studio a připojení k centru Azure Stack
 
@@ -24,13 +24,13 @@ Pomocí sady Visual Studio můžete zapisovat a nasazovat [šablony](azure-stack
 
 2. Otevřete **Instalace webové platformy Microsoft**.
 
-3. Vyhledejte **sadu Visual Studio Community 2015 s Microsoft Azure SDK – 2.9.6**. Klikněte na **Přidat**a potom na **nainstalovat**.
+3. Vyhledejte **sadu Visual Studio Community 2015 s Microsoft Azure SDK – 2.9.6**. Klikněte na **Přidat** a potom na **nainstalovat**.
 
 4. Odinstalujte **Microsoft Azure PowerShell** , která je nainstalovaná jako součást sady Azure SDK.
 
     ![Snímek obrazovky s postupem instalace WebPI](./media/azure-stack-install-visual-studio/image1.png)
 
-5. [Nainstalujte PowerShell pro centrum Azure Stack](../operator/azure-stack-powershell-install.md).
+5. [Nainstalujte PowerShell pro centrum Azure Stack](../operator/powershell-install-az-module.md).
 
 6. Po dokončení instalace restartujte počítač.
 
@@ -40,7 +40,7 @@ Pomocí sady Visual Studio můžete zapisovat a nasazovat [šablony](azure-stack
 
 2. V nabídce **zobrazení** vyberte **Průzkumník cloudu**.
 
-3. Vyberte **Spravovat účty**a potom v podokně nový se přihlaste pomocí přihlašovacích údajů pro Azure Active Directory (Azure AD).  
+3. Vyberte **Spravovat účty** a potom v podokně nový se přihlaste pomocí přihlašovacích údajů pro Azure Active Directory (Azure AD).  
 
     ![Snímek obrazovky thas zobrazuje Průzkumníka cloudu po přihlášení a připojení k rozbočovači Azure Stack.](./media/azure-stack-install-visual-studio/image2.png)
 
@@ -50,11 +50,11 @@ Po přihlášení můžete [nasadit šablony](azure-stack-deploy-template-visual
 
 1. Spusťte Visual Studio.
 
-2. V **nabídce nástroje**vyberte **možnost možnosti**.
+2. V **nabídce nástroje** vyberte **možnost možnosti**.
 
 3. V navigačním podokně rozbalte **prostředí** a vyberte **účty**.
 
-4. Vyberte **Přidat**a zadejte koncový bod uživatele Azure Resource Manageru. Pro Azure Stack Development Kit (ASDK) je adresa URL: `https://management.local.azurestack/external` .  V případě integrovaných systémů centra Azure Stack je adresa URL: `https://management.[Region}.[External FQDN]` .
+4. Vyberte **Přidat** a zadejte koncový bod uživatele Azure Resource Manageru. Pro Azure Stack Development Kit (ASDK) je adresa URL: `https://management.local.azurestack/external` .  V případě integrovaných systémů centra Azure Stack je adresa URL: `https://management.[Region}.[External FQDN]` .
 
     ![Přidat nový koncový bod Azure Cloud Discovery](./media/azure-stack-install-visual-studio/image5.png)
 

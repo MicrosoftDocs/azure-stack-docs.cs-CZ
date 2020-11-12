@@ -7,12 +7,12 @@ ms.date: 8/4/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 8/4/2020
-ms.openlocfilehash: 0539bd452db54b298f681fc47ba7b9183ba75202
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 717eb2cf7ea9ee15c528059462a6f7553bba53e2
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574019"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94547037"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell-as-a-user"></a>Připojení k Azure Stack centra pomocí PowerShellu jako uživatel
 
@@ -28,7 +28,7 @@ Postup získání instalačního programu:
 
 Pokud jste [připojení prostřednictvím sítě VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn), nakonfigurujte tyto požadavky z [vývojové sady](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp)nebo z externího klienta se systémem Windows:
 
-* Nainstalujte [Azure PowerShell moduly, které jsou kompatibilní s rozbočovačem Azure Stack](../operator/azure-stack-powershell-install.md).
+* Nainstalujte [Azure PowerShell moduly, které jsou kompatibilní s rozbočovačem Azure Stack](../operator/powershell-install-az-module.md).
 * Stáhněte si [nástroje, které jsou potřeba pro práci s rozbočovačem Azure Stack](../operator/azure-stack-powershell-download.md).
 
 Ujistěte se, že jste nahradili následující proměnné skriptu hodnotami z vaší konfigurace centra Azure Stack:
@@ -41,25 +41,25 @@ Ujistěte se, že jste nahradili následující proměnné skriptu hodnotami z v
 ## <a name="connect-to-azure-stack-hub-with-azure-ad"></a>Připojení k centru Azure Stack pomocí Azure AD
 
 ```powershell  
-    Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
+    Add-AzEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
     # Set your tenant name
-    $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
+    $AuthEndpoint = (Get-AzEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
     $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com"
     $TenantId = (invoke-restmethod "$($AuthEndpoint)/$($AADTenantName)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
 
     # After signing in to your environment, Azure Stack Hub cmdlets
     # can be easily targeted at your Azure Stack Hub instance.
-    Add-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId $TenantId
+    Add-AzAccount -EnvironmentName "AzureStackUser" -TenantId $TenantId
 ```
 
 ## <a name="connect-to-azure-stack-hub-with-ad-fs"></a>Připojení k centru Azure Stack pomocí AD FS
 
   ```powershell  
   # Register an Azure Resource Manager environment that targets your Azure Stack Hub instance
-  Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
+  Add-AzEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
 
   # Sign in to your environment
-  Login-AzureRmAccount -EnvironmentName "AzureStackUser"
+  Login-AzAccount -EnvironmentName "AzureStackUser"
   ```
 
 ## <a name="register-resource-providers"></a>Registrovat poskytovatele prostředků
@@ -67,10 +67,10 @@ Ujistěte se, že jste nahradili následující proměnné skriptu hodnotami z v
 Poskytovatelé prostředků nejsou automaticky registrováni pro nové odběry uživatelů, kteří nemají žádné prostředky nasazené prostřednictvím portálu. Poskytovatele prostředků můžete explicitně zaregistrovat spuštěním následujícího skriptu:
 
 ```powershell  
-foreach($s in (Get-AzureRmSubscription)) {
-        Select-AzureRmSubscription -SubscriptionId $s.SubscriptionId | Out-Null
+foreach($s in (Get-AzSubscription)) {
+        Select-AzSubscription -SubscriptionId $s.SubscriptionId | Out-Null
         Write-Progress $($s.SubscriptionId + " : " + $s.SubscriptionName)
-Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider
+Get-AzResourceProvider -ListAvailable | Register-AzResourceProvider
     }
 ```
 
@@ -81,7 +81,7 @@ Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider
 Když máte všechno, co máte nastavené, otestujte připojení pomocí PowerShellu k vytváření prostředků v Azure Stack hub. Jako test vytvořte skupinu prostředků pro aplikaci a přidejte virtuální počítač. Spuštěním následujícího příkazu vytvořte skupinu prostředků s názvem "MyResourceGroup":
 
 ```powershell  
-New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
+New-AzResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 
 ## <a name="next-steps"></a>Další kroky

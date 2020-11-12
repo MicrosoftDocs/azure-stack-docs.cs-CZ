@@ -3,16 +3,16 @@ title: Pracovní stanice pro přístup k operátorovi centra Azure Stack
 description: Přečtěte si, jak stáhnout a nakonfigurovat pracovní stanici pro přístup k operátorovi centra Azure Stack.
 author: ashika789
 ms.topic: article
-ms.date: 09/24/2020
+ms.date: 11/04/2020
 ms.author: justinha
 ms.reviewer: asganesh
-ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: c636f0d44648e4682bb19a64d66cad43d2add64b
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.lastreviewed: 11/04/2020
+ms.openlocfilehash: c2e5e474555a9fb3a04c09fde495e4fe80c4378b
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415347"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546969"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Pracovní stanice pro přístup k operátorovi centra Azure Stack 
 
@@ -128,6 +128,16 @@ New-OAW.ps1 -LocalAdministratorPassword $securePassword `
    -DNS '192.168.0.10'
 ```
 
+Chcete-li načíst IP adresu virtuálního počítače ERCS z AzureStackStampInformation.jsv souboru:
+
+```powershell
+$securePassword = Read-Host -Prompt "Enter password for Azure Stack OAW's local administrator" -AsSecureString
+New-OAW.ps1 -LocalAdministratorPassword $securePassword `
+   -AzureStackCertificatePath 'F:\certroot.cer' `
+   -DeploymentDataFilePath 'F:\DeploymentData.json' `
+   -AzSStampInfoFilePath 'F:\AzureStackStampInformation.json'
+```
+
 Vytvoření virtuálního počítače s OAW na HLH s DeploymentData.js:
 
 ```powershell
@@ -144,6 +154,7 @@ Pro New-OAW jsou k dispozici dvě sady parametrů. Volitelné parametry jsou uve
 New-OAW 
 -LocalAdministratorPassword <Security.SecureString> `
 [-AzureStackCertificatePath <String>] `
+[-AzSStampInfoFilePath <String>] `
 [-CertificatePassword <Security.SecureString>] `
 [-ERCSVMIP <String[]>] `
 [-DNS <String[]>] `
@@ -172,6 +183,7 @@ New-OAW
 -DefaultGateway <String> `
 -DNS <String[]> `
 [-AzureStackCertificatePath <String>] `
+[-AzSStampInfoFilePath <String>] `
 [-CertificatePassword <Security.SecureString>] `
 [-ERCSVMIP <String[]>] `
 [-ImageFilePath <String>] `
@@ -204,6 +216,7 @@ V následující tabulce je uveden seznam definic pro každý parametr.
 | VirtualProcessorCount      | Volitelné | Počet virtuálních procesorů, které mají být přiřazeny k virtuálnímu počítači. Výchozí hodnota je **8**.        |
 | VirtualMachineDiffDiskPath | Volitelné | Cesta pro uložení dočasných souborů rozdílového disku, zatímco byl virtuální počítač pro správu aktivní. Výchozí hodnota je **DiffDisks** podadresář ve stejné nadřazené složce tohoto skriptu. |
 | AzureStackCertificatePath  | Volitelné | Cesta k certifikátům, které se mají importovat do virtuálního počítače pro přístup ke službě Azure Stack hub |
+| AzSStampInfoFilePath       | Volitelné | Cesta AzureStackStampInformation.jsv souboru, kde skript může načíst IP adresy virtuálního počítače ERCS. |
 | CertificatePassword        | Volitelné | Heslo certifikátu, který se má importovat do virtuálního počítače pro přístup ke službě Azure Stack hub |
 | ERCSVMIP                   | Volitelné | IP Azure Stack adresa ERCS hub virtuálních počítačů, které se mají přidat do seznamu důvěryhodných hostitelů virtuálního počítače. Neprojeví se při nastavení **-SkipNetworkConfiguration** . |
 SkipNetworkConfiguration     | Volitelné | Přeskočí konfiguraci sítě pro virtuální počítač, aby se uživatel mohl později nakonfigurovat. |

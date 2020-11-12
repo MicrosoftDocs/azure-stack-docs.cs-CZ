@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/11/2019
 ms.custom: conteperfq4
-ms.openlocfilehash: 189f0b9472ed8f29b4cd3ee287d6c6630c850503
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 2691e5aaf222f782f1b70735e8d4992d4e7d29b5
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573866"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546714"
 ---
 # <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack-hub"></a>Rychlý Start: Vytvoření virtuálního počítače s Windows serverem pomocí PowerShellu v Azure Stackovém centru
 
@@ -30,7 +30,7 @@ Virtuální počítač s Windows serverem 2016 můžete vytvořit pomocí centra
 
 * Ujistěte se, že váš operátor centra Azure Stack přidal do tržiště centra Azure Stack image **Windows serveru 2016** .
 
-* Azure Stack centrum vyžaduje pro vytváření a správu prostředků specifickou verzi Azure PowerShell. Pokud nemáte PowerShell nakonfigurovaný pro centrum Azure Stack, postupujte podle pokynů k [instalaci](../operator/azure-stack-powershell-install.md) PowerShellu.
+* Azure Stack centrum vyžaduje pro vytváření a správu prostředků specifickou verzi Azure PowerShell. Pokud nemáte PowerShell nakonfigurovaný pro centrum Azure Stack, postupujte podle pokynů k [instalaci](../operator/powershell-install-az-module.md) PowerShellu.
 
 * S nastavením prostředí PowerShell centra Azure Stack se budete muset připojit k prostředí centra Azure Stack. Pokyny najdete v tématu [připojení k Azure Stack hub pomocí PowerShellu jako uživatel](azure-stack-powershell-configure-user.md).
 
@@ -46,7 +46,7 @@ Skupina prostředků je logický kontejner, ve kterém se nasazují a spravují 
 $location = "local"
 $ResourceGroupName = "myResourceGroup"
 
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
   -Name $ResourceGroupName `
   -Location $location
 ```
@@ -61,13 +61,13 @@ $StorageAccountName = "mystorageaccount"
 $SkuName = "Standard_LRS"
 
 # Create a new storage account
-$StorageAccount = New-AzureRMStorageAccount `
+$StorageAccount = New-AzStorageAccount `
   -Location $location `
   -ResourceGroupName $ResourceGroupName `
   -Type $SkuName `
   -Name $StorageAccountName
 
-Set-AzureRmCurrentStorageAccount `
+Set-AzCurrentStorageAccount `
   -StorageAccountName $storageAccountName `
   -ResourceGroupName $resourceGroupName
 
@@ -79,12 +79,12 @@ Vytvořte virtuální síť, podsíť a veřejnou IP adresu. Tyto prostředky sl
 
 ```powershell
 # Create a subnet configuration
-$subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+$subnetConfig = New-AzVirtualNetworkSubnetConfig `
   -Name mySubnet `
   -AddressPrefix 192.168.1.0/24
 
 # Create a virtual network
-$vnet = New-AzureRmVirtualNetwork `
+$vnet = New-AzVirtualNetwork `
   -ResourceGroupName $ResourceGroupName `
   -Location $location `
   -Name MyVnet `
@@ -92,7 +92,7 @@ $vnet = New-AzureRmVirtualNetwork `
   -Subnet $subnetConfig
 
 # Create a public IP address and specify a DNS name
-$pip = New-AzureRmPublicIpAddress `
+$pip = New-AzPublicIpAddress `
   -ResourceGroupName $ResourceGroupName `
   -Location $location `
   -AllocationMethod Static `
@@ -106,7 +106,7 @@ Skupina zabezpečení sítě zabezpečuje virtuální počítač pomocí přích
 
 ```powershell
 # Create an inbound network security group rule for port 3389
-$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
+$nsgRuleRDP = New-AzNetworkSecurityRuleConfig `
   -Name myNetworkSecurityGroupRuleRDP `
   -Protocol Tcp `
   -Direction Inbound `
@@ -118,7 +118,7 @@ $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
   -Access Allow
 
 # Create an inbound network security group rule for port 80
-$nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig `
+$nsgRuleWeb = New-AzNetworkSecurityRuleConfig `
   -Name myNetworkSecurityGroupRuleWWW `
   -Protocol Tcp `
   -Direction Inbound `
@@ -130,7 +130,7 @@ $nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig `
   -Access Allow
 
 # Create a network security group
-$nsg = New-AzureRmNetworkSecurityGroup `
+$nsg = New-AzNetworkSecurityGroup `
   -ResourceGroupName $ResourceGroupName `
   -Location $location `
   -Name myNetworkSecurityGroup `
@@ -143,7 +143,7 @@ Síťová karta připojuje virtuální počítač k podsíti, skupině zabezpeč
 
 ```powershell
 # Create a virtual network card and associate it with public IP address and NSG
-$nic = New-AzureRmNetworkInterface `
+$nic = New-AzNetworkInterface `
   -Name myNic `
   -ResourceGroupName $ResourceGroupName `
   -Location $location `
@@ -165,17 +165,17 @@ $Credential=New-Object PSCredential($UserName,$Password)
 # Create the VM configuration object
 $VmName = "VirtualMachinelatest"
 $VmSize = "Standard_A1"
-$VirtualMachine = New-AzureRmVMConfig `
+$VirtualMachine = New-AzVMConfig `
   -VMName $VmName `
   -VMSize $VmSize
 
-$VirtualMachine = Set-AzureRmVMOperatingSystem `
+$VirtualMachine = Set-AzVMOperatingSystem `
   -VM $VirtualMachine `
   -Windows `
   -ComputerName "MainComputer" `
   -Credential $Credential -ProvisionVMAgent
 
-$VirtualMachine = Set-AzureRmVMSourceImage `
+$VirtualMachine = Set-AzVMSourceImage `
   -VM $VirtualMachine `
   -PublisherName "MicrosoftWindowsServer" `
   -Offer "WindowsServer" `
@@ -183,16 +183,16 @@ $VirtualMachine = Set-AzureRmVMSourceImage `
   -Version "latest"
 
 # Sets the operating system disk properties on a VM.
-$VirtualMachine = Set-AzureRmVMOSDisk `
+$VirtualMachine = Set-AzVMOSDisk `
   -VM $VirtualMachine `
   -CreateOption FromImage | `
-  Set-AzureRmVMBootDiagnostics -ResourceGroupName $ResourceGroupName `
+  Set-AzVMBootDiagnostics -ResourceGroupName $ResourceGroupName `
   -StorageAccountName $StorageAccountName -Enable |`
-  Add-AzureRmVMNetworkInterface -Id $nic.Id
+  Add-AzVMNetworkInterface -Id $nic.Id
 
 
 # Create the VM.
-New-AzureRmVM `
+New-AzVM `
   -ResourceGroupName $ResourceGroupName `
   -Location $location `
   -VM $VirtualMachine
@@ -203,11 +203,11 @@ New-AzureRmVM `
 Abyste se vzdáleně přihlásili k virtuálnímu počítači, který jste vytvořili v předchozím kroku, budete potřebovat jeho veřejnou IP adresu. Spuštěním následujícího příkazu Získejte veřejnou IP adresu virtuálního počítače:
 
 ```powershell
-Get-AzureRmPublicIpAddress `
+Get-AzPublicIpAddress `
   -ResourceGroupName $ResourceGroupName | Select IpAddress
 ```
 
-Pomocí následujícího příkazu vytvořte relaci vzdálené plochy s VIRTUÁLNÍm počítačem. Nahraďte IP adresu veřejnou IP adresou (*publicIPAddress*) vašeho virtuálního počítače. Po zobrazení výzvy zadejte uživatelské jméno a heslo, které jste použili při vytváření virtuálního počítače.
+Pomocí následujícího příkazu vytvořte relaci vzdálené plochy s VIRTUÁLNÍm počítačem. Nahraďte IP adresu veřejnou IP adresou ( *publicIPAddress* ) vašeho virtuálního počítače. Po zobrazení výzvy zadejte uživatelské jméno a heslo, které jste použili při vytváření virtuálního počítače.
 
 ```powershell
 mstsc /v <publicIpAddress>
@@ -232,7 +232,7 @@ Když je služba IIS nainstalovaná a na vašem VIRTUÁLNÍm počítači je otev
 Pokud už je nepotřebujete, odeberte skupinu prostředků, která obsahuje virtuální počítač a související prostředky, pomocí následujícího příkazu:
 
 ```powershell
-Remove-AzureRmResourceGroup `
+Remove-AzResourceGroup `
   -Name $ResourceGroupName
 ```
 

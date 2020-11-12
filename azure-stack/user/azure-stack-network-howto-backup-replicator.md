@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 14f86b63e8089069d53e7b849d4bfea55007f34e
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 80200b283ba6ef0266513eefaa1fdcb8faf9faa8
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90571690"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546731"
 ---
 # <a name="replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Replikace prostředků pomocí replikátoru předplatného centra Azure Stack
 
@@ -54,7 +54,7 @@ Přizpůsobený procesor určuje, jak se má prostředek replikovat, určením i
 
 Ve struktuře souborů replikátoru je složka s názvem **Standardized_ARM_Templates**. V závislosti na zdrojovém prostředí budou nasazení používat jednu z těchto standardizovaných šablon Azure Resource Manager, jinak bude nutné vygenerovat vlastní šablonu Azure Resource Manager. V takovém případě musí přizpůsobený procesor volat generátor šablon Azure Resource Manager. V předchozím příkladu byl název generátoru šablon Azure Resource Manager pro virtuální počítače pojmenovaný **virtualMachines_ARM_Template_Generator.ps1**. Generátor šablon Azure Resource Manager zodpovídá za vytvoření vlastní šablony Azure Resource Manager na základě toho, jaké informace jsou v metadatech prostředku. Pokud má například prostředek virtuálního počítače metadata, která určují, že je členem skupiny dostupnosti, vytvoří generátor šablon Azure Resource Manager Azure Resource Manager šablonu s kódem, který určuje ID skupiny dostupnosti, do které je virtuální počítač součástí. Tímto způsobem, když se virtuální počítač nasadí do nového předplatného, automaticky se přidá do skupiny dostupnosti při nasazení. Tyto přizpůsobené šablony Azure Resource Manager se ukládají do složky **Custom_ARM_Templates** nacházející se ve složce **Standardized_ARM_Templates** . post_processor.ps1 zodpovídá za rozhodnutí, zda nasazení má používat standardizovanou Azure Resource Manager šablonu nebo přizpůsobenou šablonu a generuje odpovídající kód nasazení.
 
-Skript **post-process.ps1** zodpovídá za mazání souborů parametrů a vytváření skriptů, které bude uživatel používat k nasazení nových prostředků. Ve fázi čištění nahradí skript všechny odkazy na ID zdrojového předplatného, ID tenanta a umístění s odpovídajícími cílovými hodnotami. Pak výstup souboru parametrů do složky **Parameter_Files** . Pak určí, zda zpracovávaný prostředek používá vlastní šablonu Azure Resource Manager nebo ne, a vygeneruje odpovídající kód nasazení, který využívá rutinu **New-AzureRmResourceGroupDeployment** . Kód nasazení se pak přidá do souboru s názvem **DeployResources.ps1** uložený ve **Deployment_Files** složce. Nakonec skript určí skupinu prostředků, do které prostředek patří, a zkontroluje skript **DeployResourceGroups.ps1** , aby zjistil, zda již existuje kód nasazení pro nasazení této skupiny prostředků. Pokud tomu tak není, přidá do tohoto skriptu kód pro nasazení skupiny prostředků, pokud pak neprovede žádnou akci.
+Skript **post-process.ps1** zodpovídá za mazání souborů parametrů a vytváření skriptů, které bude uživatel používat k nasazení nových prostředků. Ve fázi čištění nahradí skript všechny odkazy na ID zdrojového předplatného, ID tenanta a umístění s odpovídajícími cílovými hodnotami. Pak výstup souboru parametrů do složky **Parameter_Files** . Pak určí, zda zpracovávaný prostředek používá vlastní šablonu Azure Resource Manager nebo ne, a vygeneruje odpovídající kód nasazení, který využívá rutinu **New-AzResourceGroupDeployment** . Kód nasazení se pak přidá do souboru s názvem **DeployResources.ps1** uložený ve **Deployment_Files** složce. Nakonec skript určí skupinu prostředků, do které prostředek patří, a zkontroluje skript **DeployResourceGroups.ps1** , aby zjistil, zda již existuje kód nasazení pro nasazení této skupiny prostředků. Pokud tomu tak není, přidá do tohoto skriptu kód pro nasazení skupiny prostředků, pokud pak neprovede žádnou akci.
 
 ### <a name="dynamic-api-retrieval"></a>Dynamické načtení rozhraní API
 
@@ -68,7 +68,7 @@ Existuje však možnost, že verze rozhraní API poskytovatele prostředků cíl
 
 ### <a name="parallel-deployments"></a>Paralelní nasazení
 
-Nástroj vyžaduje parametr pojmenovaný **Parallel**. Tento parametr přebírá logickou hodnotu určující, zda mají být načteny prostředky paralelně nasazeny. Pokud je hodnota nastavená na **true,** pak každé volání **New-AzureRmResourceGroupDeployment** bude mít příznak **-asJob** a bloky kódu, které se budou čekat na dokončení paralelních úloh, se přidají do mezi sadami nasazení prostředků na základě typů prostředků. Zajišťuje, aby všechny prostředky jednoho typu byly nasazeny před nasazením dalšího typu prostředku. Pokud je hodnota **paralelního** parametru nastavena na **false**, všechny prostředky budou nasazeny v sériovém tvaru.
+Nástroj vyžaduje parametr pojmenovaný **Parallel**. Tento parametr přebírá logickou hodnotu určující, zda mají být načteny prostředky paralelně nasazeny. Pokud je hodnota nastavená na **true,** pak každé volání **New-AzResourceGroupDeployment** bude mít příznak **-asJob** a bloky kódu, které se budou čekat na dokončení paralelních úloh, se přidají do mezi sadami nasazení prostředků na základě typů prostředků. Zajišťuje, aby všechny prostředky jednoho typu byly nasazeny před nasazením dalšího typu prostředku. Pokud je hodnota **paralelního** parametru nastavena na **false** , všechny prostředky budou nasazeny v sériovém tvaru.
 
 ## <a name="add-additional-resource-types"></a>Přidat další typy prostředků
 
@@ -78,7 +78,7 @@ Přidávání nových typů prostředků je jednoduché. Vývojář musí vytvo�
 
 Pokud chcete spustit nástroj replikátoru předplatného Azure (V3), musíte aktivovat resource_retriever.ps1 a zadáte všechny parametry. Parametr **ResourceType** má možnost zvolit **vše** , nikoli jeden typ prostředku. Pokud je vybrána možnost **vše** , resource_retriever.ps1 zpracuje všechny prostředky v pořadí tak, aby po spuštění nasazení byly nejprve nasazeny závislé prostředky. Například virtuální sítě se nasazují před virtuálními počítači, protože virtuální počítače vyžadují, aby byla virtuální síť v místě, aby se mohla správně nasadit.
 
-Po dokončení spuštění skriptu budou k dispozici tři nové složky, **Deployment_Files**, **Parameter_Files**a **Custom_ARM_Templates**.
+Po dokončení spuštění skriptu budou k dispozici tři nové složky, **Deployment_Files** , **Parameter_Files** a **Custom_ARM_Templates**.
 
  > [!NOTE]  
  > Před spuštěním některého z generovaných skriptů musíte nastavit správné prostředí a přihlásit se k cílovému předplatnému (v novém centru Azure Stack pro ex) a nastavit pracovní adresář na složku **Deployment_Files** .
@@ -98,15 +98,15 @@ Deployment_Files budou obsahovat dva soubory **DeployResourceGroups.ps1** a **De
 
     ![Kontrola složek](./media/azure-stack-network-howto-backup-replicator/image4.png)
 
-3.  Nastavte kontext na cílové předplatné, změňte složku na **Deployment_Files**, nasaďte skupiny prostředků (spusťte skript DeployResourceGroups.ps1) a potom spusťte nasazení prostředků (spusťte skript DeployResources.ps1).
+3.  Nastavte kontext na cílové předplatné, změňte složku na **Deployment_Files** , nasaďte skupiny prostředků (spusťte skript DeployResourceGroups.ps1) a potom spusťte nasazení prostředků (spusťte skript DeployResources.ps1).
 
     ![Konfigurace a spuštění nasazení](./media/azure-stack-network-howto-backup-replicator/image6.png)
 
-4.  Spusťte `Get-Job` pro kontrolu stavu. Get-Job | Receive – úloha vrátí výsledky.
+4.  Spusťte `Get-Job` pro kontrolu stavu. Get-Job | Receive-Job vrátí výsledky.
 
 ## <a name="clean-up"></a>Vyčištění
 
-Ve složce replicatorV3 se nachází soubor s názvem **cleanup_generated_items.ps1** – odstraní složky **Deployment_Files**, **Parameter_Files**a **Custom_ARM_Templates** a veškerý jejich obsah.
+Ve složce replicatorV3 se nachází soubor s názvem **cleanup_generated_items.ps1** – odstraní složky **Deployment_Files** , **Parameter_Files** a **Custom_ARM_Templates** a veškerý jejich obsah.
 
 ## <a name="subscription-replicator-operations"></a>Operace replikátoru předplatného
 

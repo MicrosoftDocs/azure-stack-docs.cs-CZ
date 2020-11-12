@@ -7,12 +7,12 @@ ms.date: 09/08/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 293e445343acfe13a0be2cabab6cb1577c3941a2
-ms.sourcegitcommit: b147d617c32cea138b5bd4bab568109282e44317
+ms.openlocfilehash: 0facc0cc06ad3ff672531f1eeb7e31eee2f56ee0
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90010879"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546884"
 ---
 # <a name="troubleshoot-network-virtual-appliance-problems"></a>Řešení potíží se síťovými virtuálními zařízení
 
@@ -57,7 +57,7 @@ Každý síťové virtuální zařízení musí splňovat základní požadavky 
 
 #### <a name="use-the-azure-stack-hub-portal"></a>Použití portálu centra Azure Stack
 
-1. Na portálu centra Azure Stack vyhledejte prostředek síťové virtuální zařízení, vyberte **sítě**a pak vyberte síťové rozhraní.
+1. Na portálu centra Azure Stack vyhledejte prostředek síťové virtuální zařízení, vyberte **sítě** a pak vyberte síťové rozhraní.
 2. Na stránce **síťové rozhraní** vyberte **Konfigurace protokolu IP**.
 3. Ujistěte se, že je povoleno předávání IP.
 
@@ -66,7 +66,7 @@ Každý síťové virtuální zařízení musí splňovat základní požadavky 
 1. Spusťte následující příkaz. Hodnoty v lomených závorkách nahraďte vašimi informacemi.
 
    ```powershell
-   Get-AzureRMNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
+   Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
    ```
 
 2. Ověřte vlastnost **EnableIPForwarding** .
@@ -74,9 +74,9 @@ Každý síťové virtuální zařízení musí splňovat základní požadavky 
 3. Pokud nepovolíte předávání IP, spusťte následující příkazy:
 
    ```powershell
-   $nic2 = Get-AzureRMNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
+   $nic2 = Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
    $nic2.EnableIPForwarding = 1
-   Set-AzureRMNetworkInterface -NetworkInterface $nic2
+   Set-AzNetworkInterface -NetworkInterface $nic2
    Execute: $nic2 #and check for an expected output:
    EnableIPForwarding   : True
    NetworkSecurityGroup : null

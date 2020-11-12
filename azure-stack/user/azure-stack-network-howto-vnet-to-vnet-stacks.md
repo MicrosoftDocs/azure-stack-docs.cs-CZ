@@ -7,20 +7,20 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: d9d76b848ed30521fb5a7ba983ef930e19b93866
-ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
+ms.openlocfilehash: d8c20d3fe7b80a7ace90422a622c4f067f631954
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92354987"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94547105"
 ---
-# <a name="establish-a-vnet-to-vnet-connection-in-azure-stack-hub-with-fortinet-fortigate-nva"></a>Navázání připojení VNET-to-VNET v Azure Stack hub pomocí Fortinet FortiGate síťové virtuální zařízení
+# <a name="vnet-to-vnet-connectivity-between-azure-stack-hub-instances-with-fortinet-fortigate-nva"></a>Připojení virtuální sítě k virtuální síti mezi Azure Stackmi instancemi centra pomocí Fortinet FortiGate síťové virtuální zařízení
 
 V tomto článku připojíte virtuální síť v jednom Azure Stackovém centru k virtuální síti v jiném centru Azure Stack pomocí Fortinet FortiGate síťové virtuální zařízení, síťového virtuálního zařízení.
 
 Tento článek se zabývá aktuálním omezením Azure Stack centra, které umožňuje klientům nastavit jenom jedno připojení k síti VPN napříč dvěma prostředími. Uživatelé se dozvíte, jak nastavit vlastní bránu na virtuálním počítači se systémem Linux, který umožní více připojení VPN v různých Azure Stack hub. Postup v tomto článku nasadí dvě virtuální sítěy s FortiGate síťové virtuální zařízení v každé virtuální síti: jedno nasazení na Azure Stack hub prostředí. Také podrobně popisuje změny potřebné k nastavení sítě VPN IPSec mezi dvěma virtuální sítě. Kroky v tomto článku by se měly opakovat pro každou virtuální síť v každém centru Azure Stack. 
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 -  Přístup k integrovaným systémům Azure Stack hub s dostupnou kapacitou pro nasazení požadovaných požadavků na výpočetní výkon, síť a prostředky, které jsou potřebné pro toto řešení. 
 
@@ -122,7 +122,7 @@ Proveďte tyto kroky pro obě nasazení, forti1-RG1 a forti2-RG1.
 
 2. Vyberte v prostředku forti1-forti1-InsideSubnet-Routes-xxxx.
 
-3. V části **Nastavení**vyberte **trasy** .
+3. V části **Nastavení** vyberte **trasy** .
 
     ![Snímek obrazovky ukazuje zvýrazněnou položku trasy nastavení.](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image10.png)
 
@@ -186,7 +186,7 @@ Následující kroky proveďte jak pro forti1 síťové virtuální zařízení,
 
 1. SÍŤOVÉ virtuální zařízení aktualizuje svůj firmware na nejnovější sestavení a restartování. Tento proces trvá přibližně pět minut. Přihlaste se zpátky do webové konzoly FortiGate.
 
-1. Klikněte **VPN**na  >  **Průvodce protokolem IPSec**sítě VPN.
+1. Klikněte **VPN** na  >  **Průvodce protokolem IPSec** sítě VPN.
 
 1. Zadejte název sítě VPN, například `conn1` v **Průvodci vytvořením sítě VPN**.
 
@@ -198,18 +198,18 @@ Následující kroky proveďte jak pro forti1 síťové virtuální zařízení,
 
 1. Zadejte vzdálenou IP adresu místního zařízení VPN, ke kterému se budete připojovat.
 
-1. Jako **odchozí rozhraní**vyberte **PORT1** .
+1. Jako **odchozí rozhraní** vyberte **PORT1** .
 
 1. Vyberte **předsdílený klíč** a zadejte (a zaznamenejte) předsdílený klíč. 
 
     > [!NOTE]  
-    > Tento klíč budete potřebovat k nastavení připojení na místním zařízení VPN, to znamená, že se musí *přesně*shodovat.
+    > Tento klíč budete potřebovat k nastavení připojení na místním zařízení VPN, to znamená, že se musí *přesně* shodovat.
 
     ![Snímek obrazovky Průvodce vytvořením sítě VPN se zobrazí v druhém kroku, ověřování a vybrané hodnoty budou zvýrazněny.](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image17.png)
 
 1. Vyberte **Další**.
 
-1. Jako **místní rozhraní**vyberte **PORT2** .
+1. Jako **místní rozhraní** vyberte **PORT2** .
 
 1. Zadejte rozsah místní podsítě:
     - forti1:172.16.0.0/16

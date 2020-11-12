@@ -7,20 +7,20 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: 7c8c27374b7ba114dc09297c2f0112d3f0f9579d
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: a5bd582cd93a95f662a8acc2094e6a62a7ecdf50
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112158"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546901"
 ---
 # <a name="deploy-a-template-using-powershell-in-azure-stack-hub"></a>Nasazení šablony pomocí PowerShellu v Azure Stackovém centru
 
 K nasazení Azure Resource Manager šablon do centra Azure Stack můžete použít PowerShell. Tento článek popisuje, jak pomocí PowerShellu nasadit šablonu.
 
-## <a name="run-azurerm-powershell-cmdlets"></a>Spuštění rutin prostředí PowerShell pro AzureRM
+## <a name="run-az-powershell-cmdlets"></a>Spuštění AZ PowerShell rutins
 
-Tento příklad používá rutiny prostředí PowerShell **AzureRM** a šablonu uloženou na GitHubu. Šablona vytvoří virtuální počítač s Windows Serverem 2012 R2 Datacenter.
+Tento příklad využívá **AZ** PowerShell rutiny a šablonu uloženou na GitHubu. Šablona vytvoří virtuální počítač s Windows Serverem 2012 R2 Datacenter.
 
 >[!NOTE]
 > Než tento příklad vyzkoušíte, ujistěte se, že jste [nakonfigurovali PowerShell](azure-stack-powershell-configure-user.md) pro uživatele centra Azure Stack.
@@ -36,10 +36,10 @@ Tento příklad používá rutiny prostředí PowerShell **AzureRM** a šablonu 
     $myLocation = "yourregion" # local for the ASDK
 
     # Create resource group for template deployment
-    New-AzureRmResourceGroup -Name $RGName -Location $myLocation
+    New-AzResourceGroup -Name $RGName -Location $myLocation
 
     # Deploy simple IaaS template
-    New-AzureRmResourceGroupDeployment `
+    New-AzResourceGroupDeployment `
         -Name myDeployment$myNum `
         -ResourceGroupName $RGName `
         -TemplateUri <path>\AzureStack-QuickStart-Templates\101-vm-windows-create\azuredeploy.json `
@@ -50,11 +50,11 @@ Tento příklad používá rutiny prostředí PowerShell **AzureRM** a šablonu 
     >[!IMPORTANT]
     > Pokaždé, když tento skript spustíte, zvyšte hodnotu `$myNum` parametru, aby nedošlo k přepsání nasazení.
 
-4. Otevřete portál centra Azure Stack, vyberte **Procházet**a pak vyberte **virtuální počítače** , abyste našli nový virtuální počítač (**myDeployment001**).
+4. Otevřete portál centra Azure Stack, vyberte **Procházet** a pak vyberte  **virtuální počítače** , abyste našli nový virtuální počítač ( **myDeployment001** ).
 
 ## <a name="cancel-a-running-template-deployment"></a>Zrušení běžícího nasazení šablony
 
-Pokud chcete zrušit nasazení spuštěné šablony, použijte `Stop-AzureRmResourceGroupDeployment` rutinu PowerShellu.
+Pokud chcete zrušit nasazení spuštěné šablony, použijte `Stop-AzResourceGroupDeployment` rutinu PowerShellu.
 
 ## <a name="next-steps"></a>Další kroky
 

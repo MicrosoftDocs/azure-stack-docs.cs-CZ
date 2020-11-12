@@ -7,12 +7,12 @@ ms.date: 09/02/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 3b8df9de2975c7ba0e6eefdb10a2731cd5d47ca6
-ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
+ms.openlocfilehash: 3d263759763d1c845365fd5d8d89e7006cedbddc
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89448669"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546493"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s nástrojem přejít v Azure Stack hub
 
@@ -46,9 +46,9 @@ Další informace o sadě Azure cestách SDK najdete na následujících odkazec
 - Sada Azure SDK pro [instalaci Azure SDK pro go](/go/azure/azure-sdk-go-install).
 - Azure přejít SDK je veřejně dostupný na GitHubu v úložišti [Azure-SDK-for-na cestách](https://github.com/Azure/azure-sdk-for-go) .
 
-### <a name="go-autorest-dependencies"></a>Přejít – autov závislosti na REST
+### <a name="go-autorest-dependencies"></a>Go-AutoRest závislosti
 
-Sada SDK sady SDK závisí na modulech Azure **Přejít – AutoRest** k posílání žádostí REST na Azure Resource Manager koncových bodů. Musíte importovat závislosti modulu Azure **Přejít-AutoRest** z Azure do [Azure – AutoRest na GitHubu](https://github.com/Azure/go-autorest). Příkazy install bash najdete v části **install** .
+Sada SDK sady SDK závisí na modulech Azure **Přejít – AutoRest** k posílání žádostí REST na Azure Resource Manager koncových bodů. Z [azure Go-AutoRest na GitHubu](https://github.com/Azure/go-autorest)musíte importovat závislosti modulu Azure přejít do služby Azure **REST** . Příkazy install bash najdete v části **install** .
 
 ## <a name="how-to-use-go-sdk-profiles-on-azure-stack-hub"></a>Jak používat profily sady SDK pro cestách v centru Azure Stack
 
@@ -117,7 +117,7 @@ Chcete-li spustit ukázku kódu jazyka přejít v Azure Stackovém centru, postu
 
 Úplný příklad vytvoření virtuální sítě v centru Azure Stack s využitím profilu sady SDK na cestách najdete v [příkladu](#example).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Ověřování
 
 Chcete-li získat vlastnost **autorizovat** z Azure Active Directory pomocí sady SDK, nainstalujte moduly automatického **REST** . Tyto moduly by měly být již nainstalovány s instalací sady SDK "Přejít na sadu SDK". Pokud ne, nainstalujte [ověřovací balíček z GitHubu](https://github.com/Azure/go-autorest/tree/master/autorest/adal).
 
@@ -299,5 +299,5 @@ K dispozici jsou některé ukázky kódu pro centra Azure Stack s využitím sad
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Instalace PowerShellu pro centrum Azure Stack](../operator/azure-stack-powershell-install.md)
+- [Instalace PowerShellu pro centrum Azure Stack](../operator/powershell-install-az-module.md)
 - [Konfigurace prostředí PowerShell uživatele centra Azure Stack](azure-stack-powershell-configure-user.md)

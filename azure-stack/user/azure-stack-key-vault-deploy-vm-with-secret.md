@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 46b76402695131a6bb099a9dc55c15d1066d4c84
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 1232a3ea585cbab53daf905ad0f4707f6df156c8
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573815"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546442"
 ---
 # <a name="deploy-an-azure-stack-hub-vm-using-a-password-stored-in-key-vault"></a>Nasazení virtuálního počítače centra Azure Stack pomocí hesla uloženého v Key Vault
 
@@ -28,7 +28,7 @@ Do trezoru klíčů centra Azure Stack můžete ukládat hodnoty, jako je např�
 ## <a name="prerequisites"></a>Požadavky
 
 * Musíte se přihlásit k odběru nabídky, která zahrnuje službu Key Vault.
-* [Nainstalujte PowerShell pro centrum Azure Stack.](../operator/azure-stack-powershell-install.md)
+* [Nainstalujte PowerShell pro centrum Azure Stack.](../operator/powershell-install-az-module.md)
 * [Nakonfigurujte prostředí PowerShell.](azure-stack-powershell-configure-user.md)
 
 Následující kroky popisují proces potřebný k vytvoření virtuálního počítače načtením hesla uloženého v Key Vault:
@@ -51,11 +51,11 @@ $resourceGroup = "contosovaultrg"
 $location = "local"
 $secretName = "MySecret"
 
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
   -Name $resourceGroup `
   -Location $location
 
-New-AzureRmKeyVault `
+New-AzKeyVault `
   -VaultName $vaultName `
   -ResourceGroupName $resourceGroup `
   -Location $location
@@ -110,7 +110,7 @@ Aktualizujte `azuredeploy.parameters.json` soubor pomocí identifikátoru URI tr
 Nyní šablonu nasaďte pomocí následujícího skriptu prostředí PowerShell:
 
 ```powershell  
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -Name KVPwdDeployment `
   -ResourceGroupName $resourceGroup `
   -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `

@@ -8,12 +8,12 @@ ms.date: 08/28/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 16e34ffaeb32e4652c83a3ee668235e79190b74d
-ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
+ms.openlocfilehash: 56c35d1107f0c31c00c33f23dd1d8ba639fb9f46
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/29/2020
-ms.locfileid: "89089656"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546765"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack-hub"></a>Verze rozhraní API poskytovatele prostředků podporované profily v centru Azure Stack
 
@@ -105,7 +105,7 @@ Rozhraní API Azure Compute poskytují programový přístup k virtuálním poč
 | Položky Galerie | 2015-04-01 |
 | Operace | 2015-04-01 |
 | Portál | 2015-04-01 |
-| Search | 2015-04-01 |
+| Hledat | 2015-04-01 |
 | Návrh | 2015-04-01 |
 
 ### <a name="microsoftinsights"></a>Microsoft. Insights
@@ -166,7 +166,7 @@ Azure Resource Manager vám umožní nasadit a spravovat infrastrukturu pro vaš
 | Operace | 2018-05-01 |
 | Zprostředkovatelé | 2018-05-01 |
 | SkupinyProstředků| 2018-05-01 |
-| Zdroje a prostředky | 2018-05-01 |
+| Zdroje informací | 2018-05-01 |
 | Předplatná | 2018-05-01 |
 | Předplatná/umístění | 2016-06-01 |
 | Předplatná/operationresults | 2018-05-01 |
@@ -193,5 +193,5 @@ Zprostředkovatel prostředků úložiště (SRP) umožňuje programově spravov
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Instalace PowerShellu pro centrum Azure Stack](../operator/azure-stack-powershell-install.md)
+- [Instalace PowerShellu pro centrum Azure Stack](../operator/powershell-install-az-module.md)
 - [Konfigurace prostředí PowerShell centra Azure Stack](azure-stack-powershell-configure-user.md)  

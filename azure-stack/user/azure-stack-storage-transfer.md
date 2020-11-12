@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 3f3f39a03220150a71fddc090cc6aeb84525bab9
-ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
+ms.openlocfilehash: 55041cb4072fc0156a4b3769eede40a21b1aed3c
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88818976"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546544"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-hub-storage"></a>Použití nástrojů pro přenos dat v Azure Stack centrum úložiště
 
@@ -111,15 +111,15 @@ Azure PowerShell je modul, který poskytuje rutiny pro správu služeb v centru 
 
 ### <a name="install-and-configure-powershell-for-azure-stack-hub"></a>Instalace a konfigurace PowerShellu pro Azure Stack hub
 
-Pro práci s centrem Azure Stack se vyžadují Azure PowerShell moduly Azure Stack kompatibilního centra. Další informace najdete v tématu [instalace PowerShellu pro centrum Azure Stack](../operator/azure-stack-powershell-install.md) a [Konfigurace prostředí powershellu pro Azure Stack uživatele centra](azure-stack-powershell-configure-user.md).
+Pro práci s centrem Azure Stack se vyžadují Azure PowerShell moduly Azure Stack kompatibilního centra. Další informace najdete v tématu [instalace PowerShellu pro centrum Azure Stack](../operator/powershell-install-az-module.md) a [Konfigurace prostředí powershellu pro Azure Stack uživatele centra](azure-stack-powershell-configure-user.md).
 
 ### <a name="powershell-sample-script-for-azure-stack-hub"></a>Ukázkový skript PowerShellu pro Azure Stack hub 
 
-Tato ukázka předpokládá, že jste úspěšně [nainstalovali PowerShell pro Azure Stack hub](../operator/azure-stack-powershell-install.md). Tento skript vám pomůže dokončit konfiguraci a požádat svého přihlašovací údaje tenanta Azure Stack, aby přidal váš účet do místního prostředí PowerShell. Skript pak nastaví výchozí předplatné Azure, vytvoří v Azure nový účet úložiště, vytvoří nový kontejner v tomto novém účtu úložiště a nahraje do tohoto kontejneru existující soubor obrázku (BLOB). Jakmile skript vypíše všechny objekty BLOB v tomto kontejneru, vytvoří nový cílový adresář v místním počítači a stáhne soubor bitové kopie.
+Tato ukázka předpokládá, že jste úspěšně [nainstalovali PowerShell pro Azure Stack hub](../operator/powershell-install-az-module.md). Tento skript vám pomůže dokončit konfiguraci a požádat svého přihlašovací údaje tenanta Azure Stack, aby přidal váš účet do místního prostředí PowerShell. Skript pak nastaví výchozí předplatné Azure, vytvoří v Azure nový účet úložiště, vytvoří nový kontejner v tomto novém účtu úložiště a nahraje do tohoto kontejneru existující soubor obrázku (BLOB). Jakmile skript vypíše všechny objekty BLOB v tomto kontejneru, vytvoří nový cílový adresář v místním počítači a stáhne soubor bitové kopie.
 
-1. Nainstalujte [Azure PowerShell moduly, které jsou kompatibilní s rozbočovačem Azure Stack](../operator/azure-stack-powershell-install.md).
+1. Nainstalujte [Azure PowerShell moduly, které jsou kompatibilní s rozbočovačem Azure Stack](../operator/powershell-install-az-module.md).
 2. Stáhněte si [nástroje, které jsou potřeba pro práci s rozbočovačem Azure Stack](../operator/azure-stack-powershell-download.md).
-3. Otevřete **Integrované skriptovací prostředí (ISE) v prostředí Windows PowerShell** a **Spusťte jako správce**a pak kliknutím na **soubor**  >  **Nový** vytvořte nový soubor skriptu.
+3. Otevřete **Integrované skriptovací prostředí (ISE) v prostředí Windows PowerShell** a **Spusťte jako správce** a pak kliknutím na **soubor**  >  **Nový** vytvořte nový soubor skriptu.
 4. Zkopírujte skript níže a vložte ho do nového souboru skriptu.
 5. Aktualizujte proměnné skriptu na základě nastavení konfigurace.
    > [!NOTE]
@@ -146,24 +146,24 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 Import-Module .\Connect\AzureStack.Connect.psm1
 
 # Configure the PowerShell environment
-# Register an AzureRM environment that targets your Azure Stack Hub instance
-Add-AzureRmEnvironment -Name $ARMEvnName -ARMEndpoint $ARMEndPoint 
+# Register an Az environment that targets your Azure Stack Hub instance
+Add-AzEnvironment -Name $ARMEvnName -ARMEndpoint $ARMEndPoint 
 
 # Login
 $TenantID = Get-AzsDirectoryTenantId -AADTenantName $AADTenantName -EnvironmentName $ARMEvnName
-Add-AzureRmAccount -EnvironmentName $ARMEvnName -TenantId $TenantID 
+Add-AzAccount -EnvironmentName $ARMEvnName -TenantId $TenantID 
 
 # Set a default Azure subscription.
-Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+Select-AzSubscription -SubscriptionName $SubscriptionName
 
 # Create a new Resource Group 
-New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
+New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 
 # Create a new storage account.
-New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -Location $Location -Type Standard_LRS
+New-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -Location $Location -Type Standard_LRS
 
 # Set a default storage account.
-Set-AzureRmCurrentStorageAccount -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName 
+Set-AzCurrentStorageAccount -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName 
 
 # Create a new container.
 New-AzureStorageContainer -Name $ContainerName -Permission Off
@@ -191,21 +191,21 @@ $blobs | Get-AzureStorageBlobContent -Destination $DestinationFolder
 
 Aktuální kompatibilní verze modulu Azure PowerShell pro centrum Azure Stack je 1.2.11 pro operace uživatele. Liší se od nejnovější verze Azure PowerShell. Tento rozdíl ovlivňuje operaci služby Storage následujícím způsobem:
 
-Formát návratové hodnoty `Get-AzureRmStorageAccountKey` ve verzi 1.2.11 má dvě vlastnosti: `Key1` a `Key2` , zatímco aktuální verze Azure vrací pole obsahující všechny klíče účtu.
+Formát návratové hodnoty `Get-AzStorageAccountKey` ve verzi 1.2.11 má dvě vlastnosti: `Key1` a `Key2` , zatímco aktuální verze Azure vrací pole obsahující všechny klíče účtu.
 
 ```powershell
 # This command gets a specific key for a storage account, 
 # and works for Azure PowerShell version 1.4, and later versions.
-(Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
+(Get-AzStorageAccountKey -ResourceGroupName "RG01" `
 -AccountName "MyStorageAccount").Value[0]
 
 # This command gets a specific key for a storage account, 
 # and works for Azure PowerShell version 1.3.2, and previous versions.
-(Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
+(Get-AzStorageAccountKey -ResourceGroupName "RG01" `
 -AccountName "MyStorageAccount").Key1
 ```
 
-Další informace najdete v tématu [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey).
+Další informace najdete v tématu [Get-AzureRmStorageAccountKey](/powershell/module/Az.storage/Get-AzStorageAccountKey).
 
 ## <a name="azure-cli"></a>Azure CLI
 

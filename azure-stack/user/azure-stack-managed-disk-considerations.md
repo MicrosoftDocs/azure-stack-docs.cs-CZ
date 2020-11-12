@@ -7,12 +7,12 @@ ms.date: 08/27/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: d8ddebe5fccf03a47db3d6ab190b77296b34734b
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 077ff172b1a8c1d68f823f521a17729d47a03eac
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574257"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546612"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Azure Stack spravované disky centra: rozdíly a požadavky
 
@@ -59,7 +59,7 @@ Spravované disky centra Azure Stack podporují následující verze rozhraní A
 ## <a name="convert-to-managed-disks"></a>Převést na spravované disky
 
 > [!NOTE]  
-> Rutinu Azure PowerShell **ConvertTo-AzureRmVMManagedDisk** nelze použít k převedení nespravovaného disku na spravovaný disk v centru Azure Stack. Centrum Azure Stack v tuto chvíli tuto rutinu nepodporuje.
+> Rutinu Azure PowerShell **ConvertTo-AzVMManagedDisk** nelze použít k převedení nespravovaného disku na spravovaný disk v centru Azure Stack. Centrum Azure Stack v tuto chvíli tuto rutinu nepodporuje.
 
 Pomocí následujícího skriptu můžete převést aktuálně zřízený virtuální počítač z nespravovaného na spravované disky. Zástupné symboly nahraďte vlastními hodnotami:
 
@@ -93,41 +93,41 @@ $VirtualNetworkName = "unmngdrg-vnet"
 $NicName = "unmngdvm"
 
 # Set the context to the subscription ID in which the managed disk will be created.
-Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+Select-AzSubscription -SubscriptionId $SubscriptionId
 
 # Delete old VM, but keep the OS disk.
-Remove-AzureRmVm -Name $VirtualMachineName -ResourceGroupName $ResourceGroupName
+Remove-AzVm -Name $VirtualMachineName -ResourceGroupName $ResourceGroupName
 
 # Create the managed disk configuration.
-$DiskConfig = New-AzureRmDiskConfig -AccountType $AccountType -Location $Location -DiskSizeGB $DiskSize -SourceUri $VhdUri -CreateOption Import
+$DiskConfig = New-AzDiskConfig -AccountType $AccountType -Location $Location -DiskSizeGB $DiskSize -SourceUri $VhdUri -CreateOption Import
 
 # Create managed disk.
-New-AzureRmDisk -DiskName $DiskName -Disk $DiskConfig -ResourceGroupName $resourceGroupName
-$Disk = Get-AzureRmDisk -DiskName $DiskName -ResourceGroupName $ResourceGroupName
-$VirtualMachine = New-AzureRmVMConfig -VMName $VirtualMachineName -VMSize $VirtualMachineSize
+New-AzDisk -DiskName $DiskName -Disk $DiskConfig -ResourceGroupName $resourceGroupName
+$Disk = Get-AzDisk -DiskName $DiskName -ResourceGroupName $ResourceGroupName
+$VirtualMachine = New-AzVMConfig -VMName $VirtualMachineName -VMSize $VirtualMachineSize
 
 # Use the managed disk resource ID to attach it to the virtual machine.
 # Change the OS type to "-Windows" if the OS disk has the Windows OS.
-$VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -ManagedDiskId $Disk.Id -CreateOption Attach -Linux
+$VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -ManagedDiskId $Disk.Id -CreateOption Attach -Linux
 
 # Create a public IP for the VM.
-$PublicIp = Get-AzureRmPublicIpAddress -Name $PIpName -ResourceGroupName $ResourceGroupName
+$PublicIp = Get-AzPublicIpAddress -Name $PIpName -ResourceGroupName $ResourceGroupName
 
 # Get the virtual network where the virtual machine will be hosted.
-$VNet = Get-AzureRmVirtualNetwork -Name $VirtualNetworkName -ResourceGroupName $ResourceGroupName
+$VNet = Get-AzVirtualNetwork -Name $VirtualNetworkName -ResourceGroupName $ResourceGroupName
 
 # Create NIC in the first subnet of the virtual network.
-$Nic = Get-AzureRmNetworkInterface -Name $NicName -ResourceGroupName $ResourceGroupName
+$Nic = Get-AzNetworkInterface -Name $NicName -ResourceGroupName $ResourceGroupName
 
-$VirtualMachine = Add-AzureRmVMNetworkInterface -VM $VirtualMachine -Id $Nic.Id
+$VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $Nic.Id
 
 # Create the virtual machine with managed disk.
-New-AzureRmVM -VM $VirtualMachine -ResourceGroupName $ResourceGroupName -Location $Location
+New-AzVM -VM $VirtualMachine -ResourceGroupName $ResourceGroupName -Location $Location
 ```
 
 ## <a name="managed-images"></a>Spravované image
 
-Centrum Azure Stack podporuje *spravované image*, které vám umožní vytvořit objekt spravované image na ZOBECNĚNém virtuálním počítači (nespravované a spravované), který umožňuje vytvářet virtuální počítače se spravovanými disky jenom dál. Spravované image umožňují následující dva scénáře:
+Centrum Azure Stack podporuje *spravované image* , které vám umožní vytvořit objekt spravované image na ZOBECNĚNém virtuálním počítači (nespravované a spravované), který umožňuje vytvářet virtuální počítače se spravovanými disky jenom dál. Spravované image umožňují následující dva scénáře:
 
 - Máte zobecněné nespravované virtuální počítače a chcete používat spravované disky dál.
 - Máte zobecněný spravovaný virtuální počítač a chcete vytvořit několik podobných spravovaných virtuálních počítačů.
@@ -171,33 +171,33 @@ $ImageName = "simplelinuxvmm-image-2019122"
 $Cred = Get-Credential -Message "Enter a username and password for the virtual machine."
 
 # Create a resource group
-New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
+New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 
 # Create a subnet configuration
-$SubnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name "MySubnet" -AddressPrefix "192.168.1.0/24"
+$SubnetConfig = New-AzVirtualNetworkSubnetConfig -Name "MySubnet" -AddressPrefix "192.168.1.0/24"
 
 # Create a virtual network
-$VNet = New-AzureRmVirtualNetwork -ResourceGroupName $ResourceGroupName -Location $Location `
+$VNet = New-AzVirtualNetwork -ResourceGroupName $ResourceGroupName -Location $Location `
   -Name "MyVNet" -AddressPrefix "192.168.0.0/16" -Subnet $SubnetConfig
 
 # Create a public IP address and specify a DNS name
-$PIp = New-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroupName -Location $Location `
+$PIp = New-AzPublicIpAddress -ResourceGroupName $ResourceGroupName -Location $Location `
   -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
 
 # Create an inbound network security group rule for port 3389
-$NsgRuleSSH = New-AzureRmNetworkSecurityRuleConfig -Name "MyNetworkSecurityGroupRuleSSH"  -Protocol Tcp `
+$NsgRuleSSH = New-AzNetworkSecurityRuleConfig -Name "MyNetworkSecurityGroupRuleSSH"  -Protocol Tcp `
   -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
   -DestinationPortRange 22 -Access Allow
 
 # Create a network security group
-$Nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $ResourceGroupName -Location $Location `
+$Nsg = New-AzNetworkSecurityGroup -ResourceGroupName $ResourceGroupName -Location $Location `
   -Name "MyNetworkSecurityGroup" -SecurityRules $NsgRuleSSH
 
 # Create a virtual network card and associate with public IP address and NSG
-$Nic = New-AzureRmNetworkInterface -Name "MyNic" -ResourceGroupName $ResourceGroupName -Location $Location `
+$Nic = New-AzNetworkInterface -Name "MyNic" -ResourceGroupName $ResourceGroupName -Location $Location `
   -SubnetId $VNet.Subnets[0].Id -PublicIpAddressId $PIp.Id -NetworkSecurityGroupId $Nsg.Id
 
-$Image = Get-AzureRmImage -ResourceGroupName $ImageRG -ImageName $ImageName
+$Image = Get-AzImage -ResourceGroupName $ImageRG -ImageName $ImageName
 
 # Create a virtual machine configuration
 $VmConfig = New-AzureRmVMConfig -VMName $VirtualMachineName -VMSize "Standard_D1" | `
@@ -207,7 +207,7 @@ Set-AzureRmVMOSDisk -VM $VmConfig -CreateOption FromImage -Linux | `
 Add-AzureRmVMNetworkInterface -Id $Nic.Id
 
 # Create a virtual machine
-New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VmConfig
+New-AzVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VmConfig
 ```
 
 Portál můžete použít také k vytvoření virtuálního počítače ze spravované image. Další informace najdete v článcích o spravovaných bitových kopiích Azure [Vytvoření spravované image zobecněného virtuálního počítače v Azure](/azure/virtual-machines/windows/capture-image-resource) a [Vytvoření virtuálního počítače ze spravované image](/azure/virtual-machines/windows/create-vm-generalized-managed).
@@ -217,7 +217,7 @@ Portál můžete použít také k vytvoření virtuálního počítače ze sprav
 Po použití aktualizace 1808 nebo novější je nutné před použitím spravovaných disků provést následující změnu konfigurace:
 
 - Pokud bylo předplatné vytvořeno před aktualizací 1808, postupujte podle následujících kroků a aktualizujte předplatné. V opačném případě může nasazení virtuálních počítačů v tomto předplatném selhat s chybovou zprávou "vnitřní chyba ve Správci disků".
-   1. V uživatelském portálu centra Azure Stack klikněte na **předplatná** a vyhledejte předplatné. Klikněte na **poskytovatelé prostředků**, potom klikněte na **Microsoft. COMPUTE**a pak klikněte na **znovu registrovat**.
+   1. V uživatelském portálu centra Azure Stack klikněte na **předplatná** a vyhledejte předplatné. Klikněte na **poskytovatelé prostředků** , potom klikněte na **Microsoft. COMPUTE** a pak klikněte na **znovu registrovat**.
    2. V rámci stejného předplatného, přejít na **Access Control (IAM)** a ověřte, že je v seznamu uveden **Azure Stack disk spravovaný** centrem.
 - Pokud používáte víceklientské prostředí, požádejte svého operátora cloudu (který může být ve vaší organizaci nebo od poskytovatele služeb) a překonfigurujte každý adresář hosta podle kroků v [tomto článku](../operator/azure-stack-enable-multitenancy.md#register-azure-stack-hub-with-the-guest-directory). V opačném případě může dojít k selhání nasazení virtuálních počítačů v rámci předplatného přidružených k tomuto adresáři hosta s chybovou zprávou "vnitřní chyba ve Správci disků".
 

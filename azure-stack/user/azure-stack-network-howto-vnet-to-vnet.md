@@ -7,18 +7,18 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: d4589e4ed9bc7850ce095456a27d3a9a642a1664
-ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
+ms.openlocfilehash: 32ecdbc52c678f884eac10c83f1749ba4a96a86f
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92354512"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94547122"
 ---
-# <a name="vnet-peering-with-fortigate"></a>VNET peering s FortiGate
+# <a name="vnet-to-vnet-connectivity-with-fortigate"></a>Připojení VNet-to-VNet s Fortigate
 
 Tento článek popisuje, jak vytvořit připojení mezi dvěma virtuálními sítěmi ve stejném prostředí. Při nastavování připojení se dozvíte, jak fungují brány VPN ve službě Azure Stack hub. Připojení dvou virtuální sítě ve stejném prostředí centra Azure Stack pomocí Fortinet FortiGate. Tento postup nasadí dvě virtuální sítě pomocí FortiGate síťové virtuální zařízení, síťového virtuálního zařízení v každé virtuální síti v rámci samostatné skupiny prostředků. Také podrobně popisuje změny potřebné k nastavení sítě VPN IPSec mezi dvěma virtuální sítě. Opakujte kroky v tomto článku pro každé nasazení virtuální sítě.
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 -   Přístup k systému s dostupnou kapacitou k nasazení požadovaných výpočetních, síťových a prostředků potřebných pro toto řešení.
 
@@ -110,13 +110,13 @@ Proveďte tyto kroky pro obě nasazení, forti1-RG1 a forti2-RG1.
 
 1. Otevřete portál Azure Stack hub User Portal.
 
-1. Vyberte skupiny prostředků. Zadejte `forti1-rg1` Filtr a dvakrát klikněte na skupinu prostředků forti1-RG1.
+1. Vyberte Skupiny prostředků. Zadejte `forti1-rg1` Filtr a dvakrát klikněte na skupinu prostředků forti1-RG1.
 
     ![Pro skupinu prostředků forti1-RG1 se zobrazí deset prostředků.](./media/azure-stack-network-howto-vnet-to-onprem/image9a.png)
 
 1. Vyberte prostředek **forti1-forti1-InsideSubnet-Routes-xxxx** .
 
-1. V části **Nastavení**vyberte **trasy** .
+1. V části **Nastavení** vyberte **trasy** .
 
     ![Tlačítko trasy je vybráno v dialogovém okně nastavení.](./media/azure-stack-network-howto-vnet-to-onprem/image10a.png)
 
@@ -164,11 +164,11 @@ Následující kroky proveďte jak pro forti1 síťové virtuální zařízení,
 
     ![V dialogovém okně firmware je identifikátor firmwaru "FortiOS v 6.2.0 build0866", odkaz na poznámky k verzi a dvě tlačítka: "Konfigurace zálohování a upgrade" a upgrade.](./media/azure-stack-network-howto-vnet-to-vnet/image15a.png)
 
-1. Vyberte možnost **Konfigurace zálohování a**  >  **pokračovat**v upgradu.
+1. Vyberte možnost **Konfigurace zálohování a**  >  **pokračovat** v upgradu.
 
 1. SÍŤOVÉ virtuální zařízení aktualizuje svůj firmware na nejnovější sestavení a restartování. Tento proces trvá přibližně pět minut. Přihlaste se zpátky do webové konzoly FortiGate.
 
-1. Klikněte **VPN**na  >  **Průvodce protokolem IPSec**sítě VPN.
+1. Klikněte **VPN** na  >  **Průvodce protokolem IPSec** sítě VPN.
 
 1. Zadejte název sítě VPN, například `conn1` v **Průvodci vytvořením sítě VPN**.
 
@@ -180,18 +180,18 @@ Následující kroky proveďte jak pro forti1 síťové virtuální zařízení,
 
 1. Zadejte vzdálenou IP adresu místního zařízení VPN, ke kterému se budete připojovat.
 
-1. Jako **odchozí rozhraní**vyberte **PORT1** .
+1. Jako **odchozí rozhraní** vyberte **PORT1** .
 
 1. Vyberte **předsdílený klíč** a zadejte (a zaznamenejte) předsdílený klíč. 
 
     > [!NOTE]  
-    > Tento klíč budete potřebovat k nastavení připojení na místním zařízení VPN, to znamená, že se musí *přesně*shodovat.
+    > Tento klíč budete potřebovat k nastavení připojení na místním zařízení VPN, to znamená, že se musí *přesně* shodovat.
 
     ![Snímek obrazovky Průvodce vytvořením sítě VPN se zobrazí v druhém kroku, ověřování a vybrané hodnoty budou zvýrazněny.](./media/azure-stack-network-howto-vnet-to-vnet/image17a.png)
 
 1. Vyberte **Další**.
 
-1. Jako **místní rozhraní**vyberte **PORT2** .
+1. Jako **místní rozhraní** vyberte **PORT2** .
 
 1. Zadejte rozsah místní podsítě:
     - forti1:172.16.0.0/16

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 6ff4822e3093dd636bdd5b83fb3150eb9036d9ec
-ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
+ms.openlocfilehash: 55f62550521e6b57d08852eb6d3f0c14da735fec
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82967773"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546799"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>Konfigurace nastavení služby VPN Gateway pro centrum Azure Stack
 
@@ -25,15 +25,15 @@ Připojení brány VPN se spoléhá na konfiguraci více prostředků, z nichž 
 
 Každá virtuální síť centra Azure Stack podporuje jedinou bránu virtuální sítě, která musí být typu **VPN**. Tato podpora se liší od Azure, která podporuje další typy.
 
-Když vytvoříte bránu virtuální sítě, musíte se ujistit, že je typ brány správný pro vaši konfiguraci. Brána sítě VPN vyžaduje `-GatewayType Vpn` příznak. například:
+Když vytvoříte bránu virtuální sítě, musíte se ujistit, že je typ brány správný pro vaši konfiguraci. Brána sítě VPN vyžaduje `-GatewayType Vpn` příznak, například:
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
 -VpnType RouteBased
 ```
 
-### <a name="gateway-skus"></a>Skladové jednotky (SKU) brány
+### <a name="gateway-skus"></a>Skladové položky brány
 
 Při vytváření brány virtuální sítě je nutné zadat SKU brány, které chcete použít. Vyberte SKU, které splňují vaše požadavky na základě typů úloh, propustnosti, funkcí a SLA.
 
@@ -49,7 +49,7 @@ Centrum Azure Stack nabízí SKU brány VPN uvedené v následující tabulce:
 
 Centrum Azure Stack nepodporuje změnu velikosti SKU mezi podporovanými staršími SKU.
 
-Podobně Azure Stack centrum nepodporuje změnu velikosti z podporované starší verze SKU (**Basic**, **Standard**a **HighPerformance**) na novější SKU podporovanou Azure (**VpnGw1**, **VpnGw2**a **VpnGw3**).
+Podobně Azure Stack centrum nepodporuje změnu velikosti z podporované starší verze SKU ( **Basic** , **Standard** a **HighPerformance** ) na novější SKU podporovanou Azure ( **VpnGw1** , **VpnGw2** a **VpnGw3** ).
 
 ### <a name="configure-the-gateway-sku"></a>Konfigurace SKU brány
 
@@ -59,10 +59,10 @@ Pokud k vytvoření Správce prostředků brány virtuální sítě používáte
 
 #### <a name="powershell"></a>PowerShell
 
-Následující příklad prostředí PowerShell Určuje `-GatewaySku` parametr jako **Standard**:
+Následující příklad prostředí PowerShell Určuje `-GatewaySku` parametr jako **Standard** :
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard `
 -GatewayType Vpn -VpnType RouteBased
 ```
@@ -74,7 +74,7 @@ V modelu nasazení Správce prostředků Každá konfigurace vyžaduje konkrétn
 V následujícím příkladu PowerShellu se vytvoří připojení S2S, které vyžaduje typ připojení IPsec:
 
 ```powershell
-New-AzureRmVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
+New-AzVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
 -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
 -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 ```
@@ -88,17 +88,17 @@ Když vytvoříte bránu virtuální sítě pro konfiguraci brány sítě VPN, m
 >
 > Kromě toho centrum Azure Stack v tuto chvíli nepodporuje používání selektorů přenosu na základě zásad pro brány založené na trasách, protože vlastní konfigurace zásad IPSec/IKE se nepodporuje.
 
-* **PolicyBased**: sítě VPN založené na zásadách šifrují a směrují pakety prostřednictvím tunelů IPsec na základě zásad IPSec nakonfigurovaných s kombinacemi předpon adres mezi vaší místní sítí a virtuální sítí centra Azure Stack. Zásada nebo selektor provozu je obvykle seznam přístupu v konfiguraci zařízení VPN.
+* **PolicyBased** : sítě VPN založené na zásadách šifrují a směrují pakety prostřednictvím tunelů IPsec na základě zásad IPSec nakonfigurovaných s kombinacemi předpon adres mezi vaší místní sítí a virtuální sítí centra Azure Stack. Zásada nebo selektor provozu je obvykle seznam přístupu v konfiguraci zařízení VPN.
 
   >[!NOTE]
   >**PolicyBased** se podporuje v Azure, ale ne v centru Azure Stack.
 
-* **RouteBased**: sítě VPN založené na směrování používají trasy, které jsou nakonfigurované v tabulce předávání IP nebo směrovací tabulky, k přímému směrování paketů na odpovídající rozhraní tunelového propojení. Rozhraní tunelového propojení potom šifrují nebo dešifrují pakety směřující do tunelových propojení nebo z nich. Zásady nebo selektor provozu pro sítě VPN **RouteBased** jsou nakonfigurovány jako libovolné (nebo používají zástupné karty). Ve výchozím nastavení se nedají změnit. Hodnota pro typ VPN **RouteBased** je **RouteBased**.
+* **RouteBased** : sítě VPN založené na směrování používají trasy, které jsou nakonfigurované v tabulce předávání IP nebo směrovací tabulky, k přímému směrování paketů na odpovídající rozhraní tunelového propojení. Rozhraní tunelového propojení potom šifrují nebo dešifrují pakety směřující do tunelových propojení nebo z nich. Zásady nebo selektor provozu pro sítě VPN **RouteBased** jsou nakonfigurovány jako libovolné (nebo používají zástupné karty). Ve výchozím nastavení se nedají změnit. Hodnota pro typ VPN **RouteBased** je **RouteBased**.
 
 Následující příklad prostředí PowerShell Určuje `-VpnType` jako **RouteBased**. Když vytvoříte bránu, musíte se ujistit, že `-VpnType` je správná pro vaši konfiguraci.
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
+New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 -Location 'West US' -IpConfigurations $gwipconfig `
 -GatewayType Vpn -VpnType RouteBased
 ```
@@ -112,7 +112,7 @@ V následující tabulce jsou uvedeny požadavky na brány VPN.
 | **Připojení Site-to-Site (připojení S2S)** | Nepodporuje se | Konfigurace sítě VPN založené na trasách | Konfigurace sítě VPN založené na trasách | Konfigurace sítě VPN založené na trasách |
 | **Metoda ověřování**  | Nepodporuje se | Předsdílený klíč pro připojení S2S  | Předsdílený klíč pro připojení S2S  | Předsdílený klíč pro připojení S2S  |
 | **Maximální počet připojení S2S**  | Nepodporuje se | 20 | 20| 10|
-|**Podpora aktivního směrování (BGP)** | Nepodporuje se | Nepodporuje se | Podporuje se | Podporuje se |
+|**Podpora aktivního směrování (BGP)** | Nepodporováno | Nepodporováno | Podporováno | Podporováno |
 
 ### <a name="gateway-subnet"></a>Podsíť brány
 
@@ -128,7 +128,7 @@ Měli byste se také ujistit, že má podsíť brány dostatek IP adres pro zpra
 Následující příklad Správce prostředků PowerShell ukazuje podsíť brány s názvem **GatewaySubnet**. Můžete vidět, že zápis CIDR určuje/27, což umožňuje dostatek IP adres pro většinu konfigurací, které aktuálně existují.
 
 ```powershell
-Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
+Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 ```
 
 > [!IMPORTANT]
@@ -143,7 +143,7 @@ Bráně místní sítě dáte název, veřejnou IP adresu zařízení VPN a urč
 Tento příklad PowerShellu vytvoří novou bránu místní sítě:
 
 ```powershell
-New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
+New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 
@@ -156,7 +156,7 @@ Když nastavíte připojení k síti VPN v Azure Stackovém centru, musíte nako
 Na rozdíl od Azure, který podporuje více nabídek jako iniciátor i respondér, služba Azure Stack hub podporuje ve výchozím nastavení jenom jednu nabídku. Pokud pro práci se zařízením VPN potřebujete použít jiné nastavení protokolu IPSec/IKE, máte k dispozici více nastavení pro ruční konfiguraci připojení. Další informace najdete v tématu [Konfigurace zásad IPSec/IKE pro připojení VPN typu Site-to-site](azure-stack-vpn-s2s.md).
 
 > [!IMPORTANT] 
-> Při použití tunelového propojení S2S jsou pakety dále zapouzdřeny s dalšími hlavičkami, které zvyšují celkovou velikost paketu. V těchto scénářích je potřeba, abyste v **1350**zasvorki TCP **MSS** . Nebo pokud vaše zařízení VPN nepodporují svorky MSS, můžete místo toho nastavit **jednotku MTU** v rozhraní tunelu na **1400** bajtů. Další informace najdete v tématu [ladění výkonu protokolu virtuální sítě TCP](/azure/virtual-network/virtual-network-tcpip-performance-tuning).
+> Při použití tunelového propojení S2S jsou pakety dále zapouzdřeny s dalšími hlavičkami, které zvyšují celkovou velikost paketu. V těchto scénářích je potřeba, abyste v **1350** zasvorki TCP **MSS** . Nebo pokud vaše zařízení VPN nepodporují svorky MSS, můžete místo toho nastavit **jednotku MTU** v rozhraní tunelu na **1400** bajtů. Další informace najdete v tématu [ladění výkonu protokolu virtuální sítě TCP](/azure/virtual-network/virtual-network-tcpip-performance-tuning).
 >
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>Parametry protokolu IKE fáze 1 (hlavní režim)
@@ -179,10 +179,10 @@ Na rozdíl od Azure, který podporuje více nabídek jako iniciátor i respondé
 |Životnost SA (čas)  | 27 000 sekund  |
 |Životnost SA (kilobajty) | 33 553 408     |
 |PFS (Perfect Forward Secrecy) * | ECP384 |
-|Detekce mrtvých partnerských zařízení | Podporuje se| 
+|Detekce mrtvých partnerských zařízení | Podporováno| 
 
 >[!NOTE]
->Pro sestavení 1910 a vyšší se změnily výchozí hodnoty pro skupinu Diffie-Hellman, algoritmus hash a Perfect Forward Secrecy. Pokud je vaše centrum Azure Stack na verzi buildu nižší než 1910, použijte následující hodnoty pro výše uvedené parametry:
+>Výchozí hodnoty pro Diffie-Hellman skupinu, algoritmus hash a Perfect Forward Secrecy byly pro sestavení 1910 a vyšší změněny. Pokud je vaše centrum Azure Stack na verzi buildu nižší než 1910, použijte následující hodnoty pro výše uvedené parametry:
 
 >| Vlastnost| Hodnota|
 >|-|-|
@@ -190,7 +190,7 @@ Na rozdíl od Azure, který podporuje více nabídek jako iniciátor i respondé
 >|Algoritmy hash | SHA256 |
 >|Metoda Perfect Forward Secrecy (PFS) | Žádné |
 
-\*Nový nebo změněný parametr
+\* Nový nebo změněný parametr
 
 ## <a name="next-steps"></a>Další kroky
 

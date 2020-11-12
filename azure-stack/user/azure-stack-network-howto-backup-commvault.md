@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: 5e46d9ee2f23aa58ec3be3735c29f1dfb104c9ee
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 9308e8b017201119a7179c78dbeb99006f4ebfff
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90571877"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94547088"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>Zálohování virtuálního počítače v Azure Stack hub pomocí CommVault
 
@@ -51,7 +51,7 @@ Topologie tohoto přístupu bude vypadat jako v následujícím diagramu:
 
     ![Vytvoření virtuálního počítače](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-01.png)
 
-3. Konfigurace základního nastavení v části **vytvořit virtuální počítač, 1 základní informace**:
+3. Konfigurace základního nastavení v části **vytvořit virtuální počítač, 1 základní informace** :
 
     a. Zadejte **název**.
 
@@ -95,7 +95,7 @@ Topologie tohoto přístupu bude vypadat jako v následujícím diagramu:
     
     h. Vyberte **žádná rozšíření**.
     
-    i. Pro **diagnostiku spouštění**vyberte **povoleno** .
+    i. Pro **diagnostiku spouštění** vyberte **povoleno** .
     
     j. Nechte **diagnostiku hostovaného operačního systému** nastavenou na **zakázáno**.
     
@@ -124,7 +124,7 @@ Budete potřebovat zjistit, jestli je váš správce identit Azure AD nebo AD FS
 
 2. Nainstalujte Azure Stack centra PowerShell a nástroje centra Azure Stack na virtuálním počítači s CommVault.
 
-    a. Pokyny k instalaci prostředí PowerShell centra Azure Stack najdete v tématu [instalace PowerShellu pro centrum Azure Stack](../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json).  
+    a. Pokyny k instalaci prostředí PowerShell centra Azure Stack najdete v tématu [instalace PowerShellu pro centrum Azure Stack](../operator/powershell-install-az-module.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json).  
     b. Pokyny k instalaci nástrojů centra Azure Stack najdete v tématu [Stažení nástrojů centra Azure Stack z GitHubu](../operator/azure-stack-powershell-download.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json%3Fview%3Dazs-1908&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json%3Fview%3Dazs-1908&view=azs-1908).
 
 3. Po instalaci nástroje CommVault na VIRTUÁLNÍm počítači s CommVault otevřete konzolu Commcell. V nabídce Start vyberte **CommVault**  >  **CommVault Commcell Console**.
@@ -145,15 +145,15 @@ Budete potřebovat zjistit, jestli je váš správce identit Azure AD nebo AD FS
 
 9. Zadejte informace o přístupu pro svůj účet úložiště. Pokyny k nastavení Azure Storage účtu najdete tady. Přístup k informacím:
 
-    -  **Hostitel služby**: Získá název adresy URL z vlastností kontejneru objektů BLOB ve vašem prostředku. Například moje adresa URL byla https: \/ /backuptest.blob.westus.stackpoc.com/mybackups a používá se BLOB.westus.stackpoc.com v hostiteli služby.
+    -  **Hostitel služby** : Získá název adresy URL z vlastností kontejneru objektů BLOB ve vašem prostředku. Například moje adresa URL byla https: \/ /backuptest.blob.westus.stackpoc.com/mybackups a používá se BLOB.westus.stackpoc.com v hostiteli služby.
     
-    -   **Název účtu**: použijte název účtu úložiště. Najdete ho v okně přístupové klíče v prostředku úložiště.
+    -   **Název účtu** : použijte název účtu úložiště. Najdete ho v okně přístupové klíče v prostředku úložiště.
     
-    -   **Přístupový klíč**: Získejte přístupový klíč z okna přístupové klíče v prostředku úložiště.
+    -   **Přístupový klíč** : Získejte přístupový klíč z okna přístupové klíče v prostředku úložiště.
     
-    -   **Container**: název kontejneru. V tomto případě mybackups.
+    -   **Container** : název kontejneru. V tomto případě mybackups.
     
-    -   **Třída úložiště**: ponechte jako výchozí třídu úložiště kontejneru uživatele.
+    -   **Třída úložiště** : ponechte jako výchozí třídu úložiště kontejneru uživatele.
 
 10. Vytvořte klienta Microsoft Azure Stack Hub podle pokynů v [tématu Vytvoření klienta Microsoft Azure Stack hub](https://documentation.commvault.com/commvault/v11_sp13/article?p=86495.htm) .
 

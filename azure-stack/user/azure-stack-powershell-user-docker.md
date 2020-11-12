@@ -3,16 +3,16 @@ title: Použití Docker ke spuštění PowerShellu v centru Azure Stack
 description: Použití Docker ke spuštění PowerShellu v centru Azure Stack
 author: mattbriggs
 ms.topic: how-to
-ms.date: 8/17/2020
+ms.date: 10/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 8/17/2020
-ms.openlocfilehash: c05f35a9ef5ad059bdf50d721acd2811fa908370
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: 54e0c53c666ae6d936ed34baea43f708f4a262da
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573730"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546782"
 ---
 # <a name="use-docker-to-run-powershell-for-azure-stack-hub"></a>Použití Docker ke spuštění PowerShellu pro Azure Stack hub
 
@@ -40,6 +40,63 @@ Pokud chcete k přístupu k prostředkům v centru Azure Stack použít PowerShe
 
 ## <a name="run-powershell-in-docker"></a>Spustit PowerShell v Docker
 
+### <a name="az-modules"></a>[AZ modules](#tab/az)
+
+V těchto pokynech spustíte image kontejneru se systémem Linux, která obsahuje PowerShell a požadované moduly pro Azure Stack hub.
+
+1. Je potřeba spustit Docker pomocí kontejneru Linux. Když spustíte Docker, přepněte na kontejnery Linux.
+
+1. Spusťte Docker z počítače, který je připojený ke stejné doméně jako centrum Azure Stack. Pokud používáte Azure Stack Development Kit (ASDK), musíte nainstalovat [síť VPN na svém vzdáleném počítači](azure-stack-connect-azure-stack.md#connect-to-azure-stack-hub-with-vpn).
+
+
+## <a name="install-azure-stack-hub-az-module-on-a-linux-container"></a>Instalace centra Azure Stack AZ Module v kontejneru Linux
+
+1. Z příkazového řádku spusťte následující příkaz Docker, který spustí PowerShell v kontejneru Ubuntu:
+
+    ```bash
+    docker run -it mcr.microsoft.com/azurestack/powershell
+    ```
+
+    Můžete spustit Ubuntu, Debian nebo CentOS. V úložišti GitHubu můžete najít následující soubory Docker, [azurestack-PowerShell](https://github.com/Azure/azurestack-powershell). Nejnovější změny souborů Docker najdete v úložišti GitHubu. Jednotlivé operační systémy jsou označeny. Nahraďte tag, oddíl za dvojtečkou, značkou pro požadovaný operační systém.
+
+    | Linux | Image Dockeru |
+    | --- | --- |
+    | Ubuntu | `docker run -it mcr.microsoft.com/azurestack/powershell:ubuntu-18.04` |
+    | Debian | `docker run -it mcr.microsoft.com/azurestack/powershell:debian-9` |
+    | Centos | `docker run -it mcr.microsoft.com/azurestack/powershell:centos-7` |
+
+2. Prostředí je připravené na vaše rutiny. Otestujte připojení k prostředí tím, že se přihlásíte a pak spustíte `Test-AzureStack.ps1` .
+
+    Nejdřív vytvořte svoje přihlašovací údaje instančního objektu. Budete potřebovat **tajný** kód a **ID aplikace**. Také budete potřebovat **ID objektu** při spuštění `Test-AzureStack.ps1` služby ke kontrole kontejneru. Možná budete muset požádat o instanční objekt od operátora cloudu.
+
+    Zadejte následující rutiny pro vytvoření objektu zásad služby:
+
+    ```powershell  
+    $passwd = ConvertTo-SecureString <Secret> -AsPlainText -Force
+    $pscredential = New-Object System.Management.Automation.PSCredential('<ApplicationID>', $passwd)
+    ```
+
+5. Připojte se k prostředí spuštěním následujícího skriptu s následujícími hodnotami z vaší instance centra Azure Stack.
+
+    | Hodnota | Popis |
+    | --- | --- |
+    | Název prostředí. | Název prostředí centra Azure Stack. |
+    | Správce prostředků koncový bod | Adresa URL pro Správce prostředků. Pokud ho neznáte, obraťte se na svého operátora cloudu. Bude vypadat přibližně takto: `https://management.region.domain.com`. | 
+    | ID tenanta adresáře | ID adresáře tenanta centra Azure Stack. | 
+    | Přihlašovací údaj | Objekt, který obsahuje objekt služby. V tomto případě `$pscredential` .  |
+
+    ```powershell
+    ./Login-Environment.ps1 -Name <String> -ResourceManagerEndpoint <resource manager endpoint> -DirectoryTenantId <String> -Credential $pscredential
+    ```
+
+   PowerShell vrátí váš objekt účtu.
+
+7. Otestujte prostředí spuštěním `Test-AzureStack.ps1` skriptu v kontejneru. Zadejte ID instančního **objektu** služby. Pokud neurčíte ID objektu, skript bude stále spuštěn, ale bude pouze Testovat moduly klienta (uživatel) a selže v modulech, které vyžadují oprávnění správce.
+
+    ```powershell  
+    ./Test-AzureStack.ps1 <Object ID>
+    ```
+
 ### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/rm)
 
 V těchto pokynech spustíte image kontejneru se systémem Windows a nainstalujete PowerShell a požadované moduly pro Azure Stack hub.
@@ -50,7 +107,7 @@ V těchto pokynech spustíte image kontejneru se systémem Windows a nainstaluje
 
 ### <a name="install-azure-stack-hub-azurerm-module-on-a-windows-container"></a>Azure Stack instalace modulu AzureRM hub na kontejner Windows
 
-Souboru Dockerfile otevře Microsoft Image *Microsoft/windowsservercore*, ve které je nainstalovaný Windows PowerShell 5,1. Soubor potom načte NuGet a moduly PowerShellu centra Azure Stack a stáhne nástroje z nástroje Azure Stack hub.
+Souboru Dockerfile otevře Microsoft Image *Microsoft/windowsservercore* , ve které je nainstalovaný Windows PowerShell 5,1. Soubor potom načte NuGet a moduly PowerShellu centra Azure Stack a stáhne nástroje z nástroje Azure Stack hub.
 
 1. [Stáhněte úložiště Azure-Stack-PowerShell](https://github.com/Azure-Samples/azure-stack-hub-powershell-in-docker.git) jako soubor ZIP nebo naklonujte úložiště.
 
@@ -104,63 +161,6 @@ Souboru Dockerfile otevře Microsoft Image *Microsoft/windowsservercore*, ve kte
 
     ```powershell  
     New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
-    ```
-
-### <a name="az-modules"></a>[AZ modules](#tab/az)
-
-V těchto pokynech spustíte image kontejneru se systémem Linux, která obsahuje PowerShell a požadované moduly pro Azure Stack hub.
-
-1. Je potřeba spustit Docker pomocí kontejneru Linux. Když spustíte Docker, přepněte na kontejnery Linux.
-
-1. Spusťte Docker z počítače, který je připojený ke stejné doméně jako centrum Azure Stack. Pokud používáte Azure Stack Development Kit (ASDK), musíte nainstalovat [síť VPN na svém vzdáleném počítači](azure-stack-connect-azure-stack.md#connect-to-azure-stack-hub-with-vpn).
-
-
-## <a name="install-azure-stack-hub-az-module-on-a-linux-container"></a>Instalace centra Azure Stack AZ Module v kontejneru Linux
-
-1. Z příkazového řádku spusťte následující příkaz Docker, který spustí PowerShell v kontejneru Ubuntu:
-
-    ```bash
-    docker run -it mcr.microsoft.com/azurestack/powershell
-    ```
-
-    Můžete spustit Ubuntu, Debian nebo CentOS. V úložišti GitHubu můžete najít následující soubory Docker, [azurestack-PowerShell](https://github.com/Azure/azurestack-powershell). Nejnovější změny souborů Docker najdete v úložišti GitHubu. Jednotlivé operační systémy jsou označeny. Nahraďte tag, oddíl za dvojtečkou, značkou pro požadovaný operační systém.
-
-    | Linux | Image Dockeru |
-    | --- | --- |
-    | Ubuntu | `docker run -it mcr.microsoft.com/azurestack/powershell:ubuntu-18.04` |
-    | Debian | `docker run -it mcr.microsoft.com/azurestack/powershell:debian-9` |
-    | Centos | `docker run -it mcr.microsoft.com/azurestack/powershell:centos-7` |
-
-2. Prostředí je připravené na vaše rutiny. Otestujte připojení k prostředí tím, že se přihlásíte a pak spustíte `Test-AzureStack.ps1` .
-
-    Nejdřív vytvořte svoje přihlašovací údaje instančního objektu. Budete potřebovat **tajný** kód a **ID aplikace**. Také budete potřebovat **ID objektu** při spuštění `Test-AzureStack.ps1` služby ke kontrole kontejneru. Možná budete muset požádat o instanční objekt od operátora cloudu.
-
-    Zadejte následující rutiny pro vytvoření objektu zásad služby:
-
-    ```powershell  
-    $passwd = ConvertTo-SecureString <Secret> -AsPlainText -Force
-    $pscredential = New-Object System.Management.Automation.PSCredential('<ApplicationID>', $passwd)
-    ```
-
-5. Připojte se k prostředí spuštěním následujícího skriptu s následujícími hodnotami z vaší instance centra Azure Stack.
-
-    | Hodnota | Popis |
-    | --- | --- |
-    | Název prostředí. | Název prostředí centra Azure Stack. |
-    | Správce prostředků koncový bod | Adresa URL pro Správce prostředků. Pokud ho neznáte, obraťte se na svého operátora cloudu. Bude vypadat přibližně takto: `https://management.region.domain.com`. | 
-    | ID tenanta adresáře | ID adresáře tenanta centra Azure Stack. | 
-    | Přihlašovací údaj | Objekt, který obsahuje objekt služby. V tomto případě `$pscredential` .  |
-
-    ```powershell
-    ./Login-Environment.ps1 -Name <String> -ResourceManagerEndpoint <resource manager endpoint> -DirectoryTenantId <String> -Credential $pscredential
-    ```
-
-   PowerShell vrátí váš objekt účtu.
-
-7. Otestujte prostředí spuštěním `Test-AzureStack.ps1` skriptu v kontejneru. Zadejte ID instančního **objektu**služby. Pokud neurčíte ID objektu, skript bude stále spuštěn, ale bude pouze Testovat moduly klienta (uživatel) a selže v modulech, které vyžadují oprávnění správce.
-
-    ```powershell  
-    ./Test-AzureStack.ps1 <Object ID>
     ```
 
 ---

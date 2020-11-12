@@ -7,14 +7,14 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: dc74c40611dd680b8b0d893e06b6935beae7a5f6
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: e401e1897af63ede0a3f7dcdd924dc00df39f941
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573900"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94547071"
 ---
-# <a name="how-to-set-up-a-multiple-site-to-site-vpn-tunnel-in-azure-stack-hub"></a>Jak nastavit několik tunelových propojení VPN typu Site-to-site v centru Azure Stack
+# <a name="how-to-set-up-multiple-site-to-site-vpn-tunnels-in-azure-stack-hub"></a>Jak nastavit několik tunelových propojení VPN typu Site-to-site v centru Azure Stack
 
 V tomto článku se dozvíte, jak použít šablonu Správce prostředků centra Azure Stack k nasazení řešení. Řešení vytvoří několik skupin prostředků s přidruženými virtuálními sítěmi a Postup připojení těchto systémů.
 
@@ -177,7 +177,7 @@ Pokud zobrazíte výstup z rozšíření vlastních skriptů, uvidíte, že se v
 
 2. Přejít na virtuální počítač RRAS (AppTier).
 
-3. Vyberte **rozšíření** a**rozšíření pro vlastní skript**v jazyce R.
+3. Vyberte **rozšíření** a **rozšíření pro vlastní skript** v jazyce R.
 
 4. Přejděte do adresáře Scripts v úložišti **Azure-Intelligent-Edge-Patterns/RRAS-VNet-vpntunnel** . Vyberte **Get-VPNS2SInterfaceStatus.ps1**.
 

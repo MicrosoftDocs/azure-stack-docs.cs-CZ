@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/27/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: 117fd4cd1d688b9ace109f6c2038cd3ffe0d9e6f
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: adb00ebbe3f5ea3cf233ebaa485913d48ea63e23
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623145"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546952"
 ---
 # <a name="overview-of-event-hubs-on-azure-stack-hub"></a>Přehled Event Hubs v centru Azure Stack
 
@@ -53,7 +53,7 @@ Edice Event Hubs (v centru Azure Stack a v Azure) nabízejí vysoký stupeň par
 | Azure Monitor | ✔ | ✔ |
 | Funkce Automatické deflace | ✘ | ✔ |
 
-Operace správy prostředků Azure je možné provádět taky pomocí Azure Resource Manager šablon, [PowerShellu](/powershell/module/azurerm.eventhub/)a rozhraní příkazového [řádku Azure CLI](/cli/azure/eventhubs/eventhub/). V současné době není v PowerShellu a v Azure CLI dostupná podpora pro operace správy operátorů.
+Operace správy prostředků Azure je možné provádět taky pomocí Azure Resource Manager šablon, [PowerShellu](/powershell/module/Az.eventhub/)a rozhraní příkazového [řádku Azure CLI](/cli/azure/eventhubs/eventhub/). V současné době není v PowerShellu a v Azure CLI dostupná podpora pro operace správy operátorů.
 
 ## <a name="feature-documentation"></a>Dokumentace k funkcím
 
