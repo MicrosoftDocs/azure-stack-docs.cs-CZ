@@ -7,12 +7,12 @@ ms.date: 10/06/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/06/2020
-ms.openlocfilehash: 4d41519e7ac3b99705c066919b88b7e4bb5d3934
-ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
+ms.openlocfilehash: 2addd1c2e6c486afcdf3f5c6307653d65a9f545e
+ms.sourcegitcommit: 8187658b1d45dceed727aca3ae1b9b57aca04392
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92354216"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630800"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-hub-portal"></a>Rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí portálu Azure Stack hub
 
@@ -43,11 +43,11 @@ K dokončení všech kroků v tomto článku potřebujete pár klíčů SSH. Pok
 
 Vytvoření páru klíčů SSH:
 
-1. Přejít do instalační složky pro výstupy (výchozí umístění je *C:\Program Files\PuTTY*) a spustit:
+1. Přejít do instalační složky pro výstupy (výchozí umístění je *C:\Program Files\PuTTY* ) a spustit:
 
     `puttygen.exe`
 
-1. V okně **generátoru klíčů** pro výstupy nastavte **typ klíče, který se má generovat** na **RSA**, a nastavte **počet bitů ve vygenerovaném klíči** na **2048**.
+1. V okně **generátoru klíčů** pro výstupy nastavte **typ klíče, který se má generovat** na **RSA** , a nastavte **počet bitů ve vygenerovaném klíči** na **2048**.
 
    ![Konfigurace generátoru klíčů pro výstupu](media/azure-stack-quick-linux-portal/Putty01aa.png)
 
@@ -55,7 +55,7 @@ Vytvoření páru klíčů SSH:
 
 1. Pokud chcete vygenerovat klíč, v poli **klíč** přesuňte ukazatel náhodně.
 
-1. Po dokončení generování klíče vyberte možnost **Uložit veřejný klíč**a potom vyberte **Uložit privátní klíč** a uložte klíče do souborů.
+1. Po dokončení generování klíče vyberte možnost **Uložit veřejný klíč** a potom vyberte **Uložit privátní klíč** a uložte klíče do souborů.
 
    ![Výsledky generátoru klíčů výstupu](media/azure-stack-quick-linux-portal/Putty02aa.png)
 
@@ -82,9 +82,12 @@ Adresa portálu centra Azure Stack závisí na tom, k jakému produktu Azure Sta
     > [!NOTE]  
     > Ujistěte se, že jste pro tento klíč odebrali všechny úvodní a koncové prázdné znaky.
 
-   ![Authentication](media/azure-stack-quick-linux-portal/image3a.png)
+   ![Ověřování](media/azure-stack-quick-linux-portal/image3a.png)
 
 1. Jako velikost virtuálního počítače vyberte **D1_v2** .
+
+> [!Note]  
+> Pokud vytváříte virtuální počítač s podporou GPU, vyberte virtuální počítač GPU **NC_v3** nebo **NC4as_T4_v3** pro velikost virtuálního počítače.
 
    ![Vytvořit server pro Linux – velikost](media/azure-stack-quick-linux-portal/image4a.png)
 
@@ -100,11 +103,11 @@ Adresa portálu centra Azure Stack závisí na tom, k jakému produktu Azure Sta
 
 1. Na stránce virtuální počítač vyberte **připojit** . Můžete najít připojovací řetězec SSH, který potřebujete připojit k virtuálnímu počítači. 
 
-1. Na stránce **Konfigurace** pro výstupy přejděte v podokně **kategorie** dolů na a rozbalte položku **SSH**a pak vyberte **auth**. 
+1. Na stránce **Konfigurace** pro výstupy přejděte v podokně **kategorie** dolů na a rozbalte položku **SSH** a pak vyberte **auth**. 
 
    ![Připojit virtuální počítač](media/azure-stack-quick-linux-portal/putty03aa.png)
 
-1. Vyberte **Procházet**a pak vyberte soubor privátního klíče, který jste uložili.
+1. Vyberte **Procházet** a pak vyberte soubor privátního klíče, který jste uložili.
 
 1. V podokně **kategorie** se posuňte nahoru a vyberte možnost **relace**.
 
@@ -138,7 +141,7 @@ Skupina zabezpečení sítě (NSG) zabezpečuje příchozí a odchozí provoz. K
 
 1. Vyberte **skupinu zabezpečení sítě** pro virtuální počítač. NSG můžete identifikovat pomocí sloupce **typ** .
 
-1. V levém podokně v části **Nastavení**vyberte **příchozí pravidla zabezpečení**.
+1. V levém podokně v části **Nastavení** vyberte **příchozí pravidla zabezpečení**.
 
 1. Vyberte **Přidat**.
 
@@ -152,7 +155,7 @@ Skupina zabezpečení sítě (NSG) zabezpečuje příchozí a odchozí provoz. K
 
 Když jste nainstalovali NGINX a na VIRTUÁLNÍm počítači jste otevřeli port 80, můžete k webovému serveru přistupovat pomocí veřejné IP adresy virtuálního počítače. (Veřejná IP adresa se zobrazí na stránce **Přehled** virtuálního počítače.)
 
-Otevřete webový prohlížeč a pak navštivte *http:// \<public IP address> *.
+Otevřete webový prohlížeč a pak navštivte *http:// \<public IP address>*.
 
 ![Úvodní stránka webového serveru NGINX](media/azure-stack-quick-linux-portal/linux-05aa.png)
 

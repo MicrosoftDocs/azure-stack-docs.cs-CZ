@@ -6,7 +6,7 @@
       href: user-overview.md
     - name: Klíčové aspekty
       href: azure-stack-considerations.md
-- name: Rychlý start
+- name: Rychlé starty
   expanded: true
   items:
     - name: Vytvoření virtuálního počítače s Windows – portál
@@ -121,7 +121,7 @@
               href: ../operator/azure-stack-create-service-principals.md?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Použití služeb
           items:
-            - name: Compute
+            - name: Výpočetní prostředky
               items:
                 - name: Přehled
                   href: azure-stack-compute-overview.md
@@ -157,7 +157,7 @@
                       href: vm-move-specialized.md
                     - name: Zobecněný virtuální počítač v-Prem
                       href: vm-move-generalized.md
-            - name: Úložiště
+            - name: Storage
               items:
                 - name: Přehled
                   href: azure-stack-storage-overview.md
@@ -298,6 +298,8 @@
               href: azure-stack-dev-start-howto-vm-python.md
             - name: Nasazení webové aplikace v NodeJS
               href: azure-stack-dev-start-howto-vm-nodejs.md
+        - name: Nasazení modulu IoT pro GPU
+          href: gpu-deploy-sample-module.md
     - name: Nasazení základních vzorů
       href: deploy-foundational-patterns.md
       items:
@@ -351,7 +353,7 @@
           href: iaas-architecture-sql-n-tier-multi-region.md
         - name: Síťová virtuální zařízení
           href: iaas-architecture-nva-architecture.md
-- name: Odkaz
+- name: Reference
   items:
     - name: Prostředí PowerShell centra Azure Stack
       href: /powershell/azure/azure-stack/overview

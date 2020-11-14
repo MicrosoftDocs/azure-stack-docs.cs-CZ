@@ -3,16 +3,16 @@ title: Poznámky k verzi centra Azure Stack
 description: Poznámky k verzi pro integrované systémy Azure Stack hub, včetně aktualizací a oprav chyb.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 11/12/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 74b1be3736d21d968fa45135034637d4ca3cd5eb
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 9e23dc45f4dbb1221c3a8979f0d03fd5c24997ad
+ms.sourcegitcommit: 990e9cbfc3ce2edd2bd3dccc10db465bf8ac518f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546051"
+ms.locfileid: "94567254"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -70,11 +70,17 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 - Úložiště objektů BLOB centra Azure Stack teď umožňuje uživatelům používat neměnné objekty blob. Nastavením neměnných zásad na kontejneru můžete ukládat datové objekty kritické pro podnikání do ČERVa (napsat jednou, číst mnoho). V této verzi se neměnné zásady dají nastavit jenom prostřednictvím REST API nebo klientských sad SDK. V této verzi nejsou taky možné připojovat zápisy objektů BLOB. Další informace o neměnných objektech blob najdete v tématu [ukládání důležitých podnikových dat objektů BLOB s neměnném úložištěm](/azure/storage/blobs/storage-blob-immutable-storage).
 - Úložiště centra Azure Stack nyní podporuje rozhraní API služby Azure Storage Services verze 2019-07-07. Pro klientské knihovny Azure, které jsou kompatibilní s novou verzí REST API, přečtěte si téma [vývojové nástroje pro úložiště Azure Stack hub](../user/azure-stack-storage-dev.md#azure-client-libraries).
 - Azure Stack Center COMPUTE teď podporuje Azure COMPUTE API verze 2020-06-01 s podmnožinou celkových dostupných funkcí.
+- Spravované disky centra Azure Stack nyní podporují rozhraní API disku Azure verze **2019-03-01** s podmnožinou dostupných funkcí.
 - Verze Preview centra pro správu Windows, která se teď může připojit k Azure Stackmu centru, aby poskytovala podrobné přehledy o infrastruktuře během operací podpory (vyžaduje se rozbití).
 - Možnost přidání přihlašovacího nápisu do privilegovaného koncového bodu (PEP) v době nasazení.
 - Vydávalo více **exkluzivních provozních** proužků, což vylepší viditelnost operací, které se v systému v současné době děje, a zakažte uživatelům spouštění (a následně neúspěšných) všech dalších exkluzivních operací.
 - Zavedli jsme dvě nové nápisy na stránce produktu Azure Stack centra na webu Marketplace. Pokud dojde k chybě při stahování Marketplace, můžou operátoři zobrazit podrobnosti o chybě a zkusit problém vyřešit pomocí doporučených kroků.
 - Vydali jste nástroj pro hodnocení, který zákazníkům poskytuje zpětnou vazbu. To umožní centru Azure Stack měřit a optimalizovat prostředí pro zákazníky.
+- Tato verze centra Azure Stack obsahuje soukromou verzi Preview služby Azure Kubernetes (AKS) a Azure Container Registry (ACR). Účelem privátní verze Preview je shromažďování názorů o kvalitě, funkcích a činnostech uživatelů AKS a ACR v centru Azure Stack.
+- Tato verze zahrnuje veřejnou verzi Preview kontejnerů Azure CNI a Windows pomocí [AKS Engine v 0.55.4](../user/kubernetes-aks-engine-release-notes.md). Příklad jejich použití ve vašem modelu rozhraní API [najdete v tomto příkladu na GitHubu](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-windows.json).
+- Nyní podporuje [nasazení Istio 1,3](https://github.com/Azure/aks-engine/tree/master/examples/service-mesh) v clusterech nasazených pomocí [AKS Engine v 0.55.4](../user/kubernetes-aks-engine-release-notes.md). Další informace najdete v [těchto pokynech](../user/kubernetes-aks-engine-service-account.md).
+- Nyní podporuje nasazení [privátních clusterů](https://github.com/Azure/aks-engine/blob/master/docs/topics/features.md#private-cluster) pomocí nástroje [AKS Engine v 0.55.4](../user/kubernetes-aks-engine-release-notes.md).
+- Tato verze zahrnuje podporu pro [Kubernetes konfiguračních tajných](https://github.com/Azure/aks-engine/blob/master/docs/topics/keyvault-secrets.md#use-key-vault-as-the-source-of-cluster-configuration-secrets) kódů z Azure a Key Vaultch instancí centra Azure Stack.
 
 ### <a name="improvements"></a>Vylepšen
 
@@ -84,6 +90,8 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 - Změny v procesu spuštění a vypnutí u instancí rolí infrastruktury a jejich závislosti na uzlech jednotek škálování. Tím se zvyšuje spolehlivost při spuštění a vypnutí centra Azure Stack.
 - Sada **AzSScenarios** nástroje **test-AzureStack** Validation Tool se aktualizovala tak, aby poskytovatelé cloudových služeb mohli úspěšně spouštět tuto sadu s ověřováním službou Multi-Factor Authentication u všech zákaznických účtů.
 - Vylepšená spolehlivost výstrah přidáním logiky potlačení za 29 zákaznických výstrah během operací životního cyklu.
+- Teď si můžete zobrazit podrobnou sestavu protokolu HTML pro shromažďování protokolů, která poskytuje podrobné informace o rolích, trvání a stavu shromažďování protokolů. Účelem této sestavy je pomáhat uživatelům poskytnout Shrnutí shromážděných protokolů. Služba zákaznické podpory Microsoftu pak může sestavu rychle posoudit, aby vyhodnotila data protokolu, a pomohl vyřešit problémy se systémem a zmírnit je.
+- Pokrytí detekce chyb infrastruktury bylo rozšířeno o přidání dalších 7 nových monitorování napříč uživatelskými scénáři, jako je využití procesoru a spotřeba paměti, což pomáhá zvýšit spolehlivost detekce chyb.
 
 ### <a name="changes"></a>Změny
 
@@ -226,7 +234,7 @@ Od verze 2005 se při aktualizaci na novou hlavní verzi (například 1.2002. x 
 
 Pokud se následně uvolní nějaké opravy hotfix 2005, měli byste po instalaci 2005 nainstalovat tyto opravy:
 
-- [1.2005.20.82 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4592228)
+- [1.2005.21.84 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4592779)
 ::: moniker-end
 
 ::: moniker range="azs-2002"

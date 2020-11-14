@@ -9,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6f51b4720655159cc1b191c28b640daa74f71a6e
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 780c6a2e0f3235e2681ba4cf6cc01ce2f13eb3dc
+ms.sourcegitcommit: 75a2e1a52d7582e26ce8eaf37a470c62f99b4da0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764626"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94580806"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Poznámky k verzi pro ověřování jako službu
 
@@ -30,6 +30,38 @@ V tomto článku najdete poznámky k verzi pro ověřování centra Azure Stack 
 
 - Opravy chyb
   - Pevné testy Test101LinuxEmptyAttachedDiskManagedDisk, Test101WindowsEmptyAttachedDiskManagedDisk.
+
+## <a name="version-4442"></a>4.4.4.2 verze
+
+2020. listopadu 11
+
+- Pracovní postup ověřování pomocí rozšíření je teď aktualizovaný, aby se mohl nainstalovat test podepsaného balíčku OEM, který automaticky vystaví úplnou aktualizaci AzureStack.
+  - Před touto opravou se VaaS nepodaří nainstalovat balíček rozšíření OEM Test-Signed na razítko AzureStack plnou aktualizaci. VaaS by použila aktualizaci AzureStack Update a pak ukončila běh.
+  - To bylo opraveno a měli byste vidět pracovní postup ověřování na základě bitů, který instaluje poskytnutý balíček rozšíření OEM AzureStack Update a test-signed.
+- Přidání rozšíření pro ověření balíčku OEM do pracovního postupu pro ověření výrobce OEM
+  - Toto rozšíření se spustí před spuštěním jakékoli aktualizace razítka.
+  - Rozšíření ověří obsah balíčku rozšíření OEM a prvky oemMetadata.xml
+  - V případě, že došlo k chybám nebo problémům s balíčkem rozšíření OEM, před zahájením testů VaaS je bude zachytit.
+  - Tato ověření proběhla v době, kdy jste balíček podepsali, a potom VaaS testovací běh.  
+- VaaS předem reqs pro instalaci novější verze modulů AzureStack a AzureRM prostředí PowerShell
+  - AzureStack PS – modul verze 1.8.2
+  - AzureRM PS – modul verze 2.5.0
+- Dílčí aktualizace služby.
+
+## <a name="version-443112"></a>4.4.3.112 verze
+
+2020. srpna
+
+- Aktualizace služby.
+  - Aktualizace pro nasazení služby.
+  - Metody ověřování služby byly aktualizované.
+
+## <a name="version-44368"></a>4.4.3.68 verze
+
+30. června 2020
+
+- Aktualizace služby.
+  - Služba byla přesunuta, aby běžela v Service Fabric.
 
 ## <a name="version-4421"></a>4.4.2.1 verze
 
@@ -55,7 +87,6 @@ V tomto článku najdete poznámky k verzi pro ověřování centra Azure Stack 
   - Kontaktujte vaashelp@microsoft.com , pokud se následující testovací případy nepodaří spustit během ověřovacího pracovního postupu výrobce OEM:
     - Test101LinuxEmptyAttachedDiskManagedDisk
     - Test101WindowsEmptyAttachedDiskManagedDisk
-
 
 ## <a name="version-4353"></a>4.3.5.3 verze
 
@@ -124,7 +155,7 @@ V tomto článku najdete poznámky k verzi pro ověřování centra Azure Stack 
 Pokud používáte pracovní postup měsíčního ověření aktualizace centra Azure Stack a verze balíčku OEM pro aktualizace není 1810 nebo vyšší, zobrazí se při obdržení kroku aktualizace OEM chyba. Tato chyba je chybou. Vyvíjí se oprava. Postup zmírnění je následující:
 
 1. Spusťte aktualizaci OEM jako normální.
-2. Po úspěšném použití balíčku spusťte test-AzureStack a uložte výstup.
+2. Po úspěšném použití balíčku spusťte Test-AzureStack a výstup uložte.
 3. Zrušte test.
 4. Odešlete uložený výstup do VaaSHelp@microsoft.com pro příjem výsledků pro spuštění.
 

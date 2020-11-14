@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/20/2020
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: 9289b1c2ae3119a03898e2d9c361bde4976a16f7
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 0379b435a1f8b71766540865f358ca5da71d63e6
+ms.sourcegitcommit: 8187658b1d45dceed727aca3ae1b9b57aca04392
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546918"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630749"
 ---
 # <a name="graphics-processing-unit-gpu-virtual-machine-vm-on-azure-stack-hub"></a>Virtuální počítač GPU (Graphics Processing Unit) na rozbočovači Azure Stack
 
@@ -87,5 +87,5 @@ Na virtuálním počítači bude potřeba ručně nainstalovat CUDA sušičky a 
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Instalace ovladačů NVIDIA GPU pro virtuální počítače řady N-Series se systémem Linux](/azure/virtual-machines/linux/n-series-driver-setup)
-- [Funkce Azure Stack virtuálního počítače](azure-stack-vm-considerations.md)
+- [Funkce Azure Stack virtuálního počítače](azure-stack-vm-considerations.md)  
+- [Nasazení modulu IoT s povoleným grafickým procesorem do centra Azure Stack](gpu-deploy-sample-module.md)

@@ -7,12 +7,12 @@ ms.date: 08/27/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 077ff172b1a8c1d68f823f521a17729d47a03eac
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 3f5a53ce1bfb219db05e92d361f8d4018f755dad
+ms.sourcegitcommit: 990e9cbfc3ce2edd2bd3dccc10db465bf8ac518f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546612"
+ms.locfileid: "94567237"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Azure Stack spravované disky centra: rozdíly a požadavky
 
@@ -53,8 +53,19 @@ Existují také rozdíly v metrikách úložiště:
 
 Spravované disky centra Azure Stack podporují následující verze rozhraní API:
 
+::: moniker range=">=azs-2008"
+- 2019-03-01
+- 2018-09-30
+- 2018-06-01
+- 2018-04-01
+- 2017-03-30
+::: moniker-end
+
+::: moniker range="<=azs-2005"
+
 - 2017-03-30
 - 2017-12-01 (pouze spravované image, žádné disky, žádné snímky)
+::: moniker-end
 
 ## <a name="convert-to-managed-disks"></a>Převést na spravované disky
 
