@@ -3,16 +3,16 @@ title: Poznámky k verzi centra Azure Stack
 description: Poznámky k verzi pro integrované systémy Azure Stack hub, včetně aktualizací a oprav chyb.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/12/2020
+ms.date: 11/13/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 9e23dc45f4dbb1221c3a8979f0d03fd5c24997ad
-ms.sourcegitcommit: 990e9cbfc3ce2edd2bd3dccc10db465bf8ac518f
+ms.openlocfilehash: 8a541ca76dabab766c6adc237e811f1646022fab
+ms.sourcegitcommit: 8187658b1d45dceed727aca3ae1b9b57aca04392
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94567254"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630817"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -33,9 +33,10 @@ Pokud chcete získat přístup k poznámkám k verzi pro jinou verzi, použijte 
 
 Před použitím této aktualizace se ujistěte, že si provedete následující informace:
 
-- [Známé problémy](known-issues.md)
-- [Aktualizace zabezpečení](release-notes-security-updates.md)
 - [Kontrolní seznam aktivit před a po instalaci aktualizace](release-notes-checklist.md)
+- [Známé problémy](known-issues.md)
+- [Opravy hotfix](#hotfixes)
+- [Aktualizace zabezpečení](release-notes-security-updates.md)
 
 Nápovědu k řešení potíží s aktualizacemi a procesu aktualizace najdete v tématu řešení potíží se [opravami a aktualizacemi pro centrum Azure Stack](azure-stack-troubleshooting.md).
 
@@ -63,7 +64,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Co je nového
+### <a name="whats-new"></a>Novinky
 
 <!-- What's new, also net new experiences and features. -->
 - Azure Stack hub teď podporuje partnerský vztah VNET, který umožňuje připojení virtuální sítě bez síťového virtuálního zařízení (síťové virtuální zařízení). Další informace najdete v [dokumentaci nové sítě VNet peering](../user/virtual-network-peering.md).
@@ -117,7 +118,7 @@ Informace o aktualizacích zabezpečení v této aktualizaci centra Azure Stack 
 
 ## <a name="hotfixes"></a>Opravy hotfix
 
-Azure Stack centrum pravidelně vydává opravy hotfix. Od verze 2005 se při aktualizaci na novou hlavní verzi (například 1.2002. x na 1.2005. x) automaticky nainstalují nejnovější opravy hotfix (pokud nějaké jsou) v nové hlavní verzi. Od tohoto okamžiku předem, pokud byla vydána oprava hotfix pro sestavení, měli byste ji nainstalovat.
+Azure Stack centrum pravidelně vydává opravy hotfix. Od verze 2005 se při aktualizaci na novou hlavní verzi (například 1.2005. x na 1.2008. x) automaticky nainstalují nejnovější opravy hotfix (pokud nějaké jsou) v nové hlavní verzi. Od tohoto okamžiku předem, pokud byla vydána oprava hotfix pro sestavení, měli byste ji nainstalovat.
 
 > [!NOTE]
 > Verze oprav hotfix centra Azure Stack jsou kumulativní; potřebujete jenom nainstalovat nejnovější opravu hotfix, abyste získali všechny opravy, které jsou součástí všech předchozích verzí oprav hotfix pro danou verzi.
@@ -126,7 +127,7 @@ Další informace najdete v našich [zásadách obsluhy](azure-stack-servicing-p
 
 Opravy hotfix centra Azure Stack se vztahují pouze na integrované systémy Azure Stack hub. Nepokoušejte se instalovat opravy hotfix na ASDK.
 
-### <a name="prerequisites-before-applying-the-2008-update"></a>Požadavky: před instalací aktualizace 2008
+### <a name="hotfix-prerequisites-before-applying-the-2008-update"></a>Požadavky na opravu hotfix: před instalací aktualizace 2008
 
 Při aktualizaci na novou hlavní verzi (například 1.2005. x na 1.2008. x) se automaticky nainstalují nejnovější opravy hotfix (pokud nějaké jsou) v nové hlavní verzi. Od tohoto okamžiku předem, pokud byla vydána oprava hotfix pro sestavení, měli byste ji nainstalovat.
 
@@ -154,7 +155,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Co je nového
+### <a name="whats-new"></a>Novinky
 
 <!-- What's new, also net new experiences and features. -->
 - Toto sestavení nabízí podporu 3 nových typů virtuálních počítačů GPU: NCv3 (NVIDIA V100), NVv4 (AMD MI25) a NCas_v4 (NVIDIA T4) velikosti virtuálních počítačů. Nasazení virtuálních počítačů bude úspěšné pro uživatele, kteří mají správný hardware a jsou připojeni do programu Azure Stack hub GPU ve verzi Preview. Pokud vás zajímá, zaregistrujte se do programu pro zobrazení GPU v https://aka.ms/azurestackhubgpupreview . Další informace [najdete v tématu](../user/gpu-vms-about.md).
@@ -257,7 +258,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Co je nového
+### <a name="whats-new"></a>Novinky
 
 <!-- What's new, also net new experiences and features. -->
 

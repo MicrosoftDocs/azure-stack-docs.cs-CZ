@@ -7,12 +7,12 @@ ms.date: 11/11/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 8fd2bf37b959670923586234f361d7370ebe2508
-ms.sourcegitcommit: 990e9cbfc3ce2edd2bd3dccc10db465bf8ac518f
+ms.openlocfilehash: fd5e3fbe721e565202ebd4c755cd15b33fa835c8
+ms.sourcegitcommit: f4a0f1be40e910e710e8dbd03dc230cc542298d3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94567220"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616973"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Známé problémy centra Azure Stack
 
@@ -86,7 +86,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: při povolování **spřažení relace** na nástroji pro vyrovnávání zatížení se 2 řazená kolekce členů použije místo privátních IP adres přiřazených k virtuálním počítačům IP adresa PA (IP adresa fyzické adresy). Ve scénářích, kdy se provoz směrovaného na nástroj pro vyrovnávání zatížení dorazí přes síť VPN, nebo pokud je povolené, aby se všechny virtuální počítače klienta (zdrojové IP adresy) nacházely na stejném uzlu a spřažení relace, veškerý provoz se směruje na jeden back-end virtuální počítač.
 - Výskyt: běžné
 
-## <a name="compute"></a>Compute
+<!-- ## Compute -->
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
@@ -204,7 +204,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: vytváření virtuálních počítačů ve skupině dostupnosti 3 domén selhání a vytvoření instance sady škálování virtuálního počítače selže s chybou **FabricVmPlacementErrorUnsupportedFaultDomainSize** během procesu aktualizace v prostředí centra Azure Stack se 4 uzly.
 - Náprava: můžete vytvořit jeden virtuální počítač ve skupině dostupnosti se dvěma doménami selhání úspěšně. Vytvoření instance sady škálování však není během procesu aktualizace ve 4 Azure Stackovém nasazení centra stále k dispozici.
 
-## <a name="storage"></a>Úložiště
+## <a name="storage"></a>Storage
 
 ### <a name="retention-period-reverts-to-0"></a>Doba uchování se vrátí na 0.
 
@@ -409,7 +409,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: při konfiguraci automatizované zálohy virtuálních počítačů SQL s existujícím účtem úložiště dojde k selhání s chybou **SQL Server agenta IaaS: základní připojení bylo ukončeno: došlo k neočekávané chybě při odeslání.**
 - Výskyt: běžné
 
-## <a name="storage"></a>Úložiště
+## <a name="storage"></a>Storage
 
 ### <a name="retention-period-revert-to-0"></a>Doba uchování se vrátí na 0.
 
