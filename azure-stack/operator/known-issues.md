@@ -3,16 +3,16 @@ title: Známé problémy centra Azure Stack
 description: Přečtěte si o známých problémech v Azure Stackch vydáních centra.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: fd5e3fbe721e565202ebd4c755cd15b33fa835c8
-ms.sourcegitcommit: f4a0f1be40e910e710e8dbd03dc230cc542298d3
+ms.openlocfilehash: 8207975a5763b9ee6edc8842bd27369c4fb355eb
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616973"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674417"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Známé problémy centra Azure Stack
 
@@ -61,7 +61,8 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 #### <a name="denyalloutbound-rule-cannot-be-created"></a>Pravidlo DenyAllOutbound nejde vytvořit.
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: explicitní pravidlo **DenyAllOutbound** na Internet nejde během vytváření virtuálního počítače vytvořit v NSG, protože to zabrání dokončení komunikace vyžadované pro nasazení virtuálního počítače.
+- Příčina: explicitní pravidlo **DenyAllOutbound** na Internet nejde během vytváření virtuálního počítače vytvořit v NSG, protože to zabrání dokončení komunikace vyžadované pro nasazení virtuálního počítače. Tím se taky odmítne dvě základní IP adresy, které jsou potřeba k nasazení virtuálních počítačů: DHCP IP: 169.254.169.254 a DNS IP: 168.63.129.16.
+
 - Náprava: během vytváření virtuálního počítače povolte odchozí přenosy na Internet a po dokončení vytváření virtuálního počítače změňte NSG tak, aby zablokovala požadovaný provoz.
 - Výskyt: běžné
 
@@ -163,7 +164,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Náprava: Pokud chcete veřejnou IP adresu vrátit do úspěšného stavu, změňte hodnotu **IdleTimeoutInMinutes** u pravidla vyrovnávání zatížení, které odkazuje na veřejnou IP adresu zpátky na původní hodnotu (výchozí hodnota je 4 minuty).
 - Výskyt: běžné
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Výpočetní prostředky
 
 ### <a name="issues-deploying-virtual-machine-scale-set-with-standard_ds2_v2-size-using-the-portal"></a>Problémy s nasazením sady škálování virtuálních počítačů s Standard_DS2_v2 velikostí pomocí portálu
 
@@ -267,7 +268,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="storage-account-options"></a>Možnosti účtu úložiště
 
 - Platí: Tento problém se vztahuje na všechny podporované verze.
-- Příčina: na portálu User Portal se názvy účtů úložiště zobrazují jako **účet úložiště – objekt blob, soubor, tabulka, fronta** ; v Azure Stackovém centru se ale nepodporuje **soubor** .
+- Příčina: na portálu User Portal se názvy účtů úložiště zobrazují jako **účet úložiště – objekt blob, soubor, tabulka, fronta**; v Azure Stackovém centru se ale nepodporuje **soubor** .
 - Výskyt: běžné
 
 ### <a name="create-managed-disk-snapshot"></a>Vytvořit snímek spravovaného disku
@@ -346,7 +347,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
   - [Okruhy ExpressRoute](azure-stack-connect-expressroute.md)
   - [Zadat vlastní zásady IPsec/IKE](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Výpočetní prostředky
 
 ### <a name="cannot-create-a-virtual-machine-scale-set-with-standard_ds2_v2-vm-size-on-portal"></a>Nejde vytvořit sadu škálování virtuálního počítače s Standard_DS2_v2 velikostí virtuálního počítače na portálu.
 

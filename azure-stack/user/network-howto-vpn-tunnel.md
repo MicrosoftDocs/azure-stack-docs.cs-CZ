@@ -3,16 +3,16 @@ title: Nastavení vícenásobného tunelu VPN typu Site-to-site v centru Azure S
 description: Přečtěte si, jak nastavit několik tunelových propojení VPN typu Site-to-site v centru Azure Stack.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 11/13/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: e401e1897af63ede0a3f7dcdd924dc00df39f941
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/13/2020
+ms.openlocfilehash: ba0cf59417dfae96bd9c0ed137843eb69a08cc22
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94547071"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674630"
 ---
 # <a name="how-to-set-up-multiple-site-to-site-vpn-tunnels-in-azure-stack-hub"></a>Jak nastavit několik tunelových propojení VPN typu Site-to-site v centru Azure Stack
 
@@ -22,11 +22,11 @@ V tomto článku se dozvíte, jak použít šablonu Správce prostředků centra
 
 ## <a name="scenarios"></a>Scénáře
 
-![V diagramech je pět scénářů sítě VPN: mezi dvěma skupinami prostředků v rámci jednoho předplatného; mezi dvěma skupinami každý ve svém vlastním předplatném; mezi dvěma skupinami v samostatných instancích zásobníku; mezi skupinou a místními místními prostředky; a několik tunelových propojení VPN.](./media/azure-stack-network-howto-vpn-tunnel/scenarios.png)
+![V diagramech je pět scénářů sítě VPN: mezi dvěma skupinami prostředků v rámci jednoho předplatného; mezi dvěma skupinami každý ve svém vlastním předplatném; mezi dvěma skupinami v samostatných instancích zásobníku; mezi skupinou a místními místními prostředky; a několik tunelových propojení VPN.](./media/azure-stack-network-howto-vpn-tunnel/scenarios.svg)
 
 ## <a name="create-multiple-vpn-tunnels"></a>Vytvoření více tunelů sítě VPN
 
-![Diagram zobrazuje dvě skupiny prostředků, každý ve svém vlastním předplatném a instanci zásobníku připojeným přes síť VPN. a jednu z těchto dvou skupin, které se připojují k místním prostředkům pomocí sítě VPN.](./media/azure-stack-network-howto-vpn-tunnel/image1.png)
+![Diagram zobrazuje dvě skupiny prostředků, každý ve svém vlastním předplatném a instanci zásobníku připojeným přes síť VPN. a jednu z těchto dvou skupin, které se připojují k místním prostředkům pomocí sítě VPN.](./media/azure-stack-network-howto-vpn-tunnel/azure-stack-network-vpn-tunnel1.svg)
 
 -  Nasazení tří aplikačních vrstev, webu, aplikace a DB.
 
@@ -42,9 +42,9 @@ V tomto článku se dozvíte, jak použít šablonu Správce prostředků centra
 
 Toto je proces více kroků. V případě tohoto řešení budete používat portál Azure Stack hub. Můžete ale použít PowerShell, rozhraní příkazového řádku Azure nebo jiné řetězy nástrojů infrastruktury jako kódu k zachycení výstupů a použít je jako vstupy.
 
-![Diagram znázorňuje pět kroků k nasazení tunelů VPN mezi dvěma infrastrukturami. První dva kroky vytvoří ze šablony dvě infrastruktury. Následující dva kroky vytvoří dva tunely VPN ze šablony a poslední krok připojí tunely.](./media/azure-stack-network-howto-vpn-tunnel/image2.png)
+![Diagram znázorňuje pět kroků k nasazení tunelů VPN mezi dvěma infrastrukturami. První dva kroky vytvoří ze šablony dvě infrastruktury. Následující dva kroky vytvoří dva tunely VPN ze šablony a poslední krok připojí tunely.](./media/azure-stack-network-howto-vpn-tunnel/azure-stack-network-vpn-tunnel2.svg)
 
-## <a name="walkthrough"></a>Návod
+## <a name="walkthrough"></a>Názorný postup
 
 ### <a name="deploy-web-tier-to-azure-stack-hub-instances-ppe1"></a>Nasazení webové vrstvy do instancí centra Azure Stack PPE1
 

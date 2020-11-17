@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 8a541ca76dabab766c6adc237e811f1646022fab
-ms.sourcegitcommit: 8187658b1d45dceed727aca3ae1b9b57aca04392
+ms.openlocfilehash: 762a41b52506e4f5ff4a57a5eab95daba489d98f
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94630817"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674451"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -64,7 +64,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Novinky
+### <a name="whats-new"></a>Co je nového
 
 <!-- What's new, also net new experiences and features. -->
 - Azure Stack hub teď podporuje partnerský vztah VNET, který umožňuje připojení virtuální sítě bez síťového virtuálního zařízení (síťové virtuální zařízení). Další informace najdete v [dokumentaci nové sítě VNet peering](../user/virtual-network-peering.md).
@@ -129,9 +129,12 @@ Opravy hotfix centra Azure Stack se vztahují pouze na integrované systémy Azu
 
 ### <a name="hotfix-prerequisites-before-applying-the-2008-update"></a>Požadavky na opravu hotfix: před instalací aktualizace 2008
 
-Při aktualizaci na novou hlavní verzi (například 1.2005. x na 1.2008. x) se automaticky nainstalují nejnovější opravy hotfix (pokud nějaké jsou) v nové hlavní verzi. Od tohoto okamžiku předem, pokud byla vydána oprava hotfix pro sestavení, měli byste ji nainstalovat.
+Verze 2008 centra Azure Stack se musí použít ve verzi 2005 s následujícími opravami hotfix:
+- [1.2005.21.84 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4592779)
 
 ### <a name="after-successfully-applying-the-2008-update"></a>Po úspěšné instalaci aktualizace 2008
+
+Při aktualizaci na novou hlavní verzi (například 1.2005. x na 1.2008. x) se automaticky nainstalují nejnovější opravy hotfix (pokud nějaké jsou) v nové hlavní verzi. Od tohoto okamžiku předem, pokud byla vydána oprava hotfix pro sestavení, měli byste ji nainstalovat.
 
 Pokud se následně uvolní nějaké opravy hotfix 2008, měli byste po instalaci 2008 nainstalovat tyto opravy:
 
@@ -155,7 +158,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Novinky
+### <a name="whats-new"></a>Co je nového
 
 <!-- What's new, also net new experiences and features. -->
 - Toto sestavení nabízí podporu 3 nových typů virtuálních počítačů GPU: NCv3 (NVIDIA V100), NVv4 (AMD MI25) a NCas_v4 (NVIDIA T4) velikosti virtuálních počítačů. Nasazení virtuálních počítačů bude úspěšné pro uživatele, kteří mají správný hardware a jsou připojeni do programu Azure Stack hub GPU ve verzi Preview. Pokud vás zajímá, zaregistrujte se do programu pro zobrazení GPU v https://aka.ms/azurestackhubgpupreview . Další informace [najdete v tématu](../user/gpu-vms-about.md).
@@ -186,7 +189,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 ### <a name="changes"></a>Změny
 
-- Odeberou se akce, které se mají zastavit, vypnout a restartovat instanci role infrastruktury na portálu pro správu. V poskytovateli prostředků infrastruktury se odebraly taky odpovídající rozhraní API. Následující rutiny PowerShellu v modulu Správce RM a AZ Preview pro Azure Stack hub už nefungují: **stop-AzsInfrastructureRoleInstance** , **Disable-InfrastructureRoleInstance** a **restart-InfrastructureRoleInstance**. Tyto rutiny se odeberou z dalšího správce AZ Module Release for Azure Stack hub.
+- Odeberou se akce, které se mají zastavit, vypnout a restartovat instanci role infrastruktury na portálu pro správu. V poskytovateli prostředků infrastruktury se odebraly taky odpovídající rozhraní API. Následující rutiny PowerShellu v modulu Správce RM a AZ Preview pro Azure Stack hub už nefungují: **stop-AzsInfrastructureRoleInstance**, **Disable-InfrastructureRoleInstance** a **restart-InfrastructureRoleInstance**. Tyto rutiny se odeberou z dalšího správce AZ Module Release for Azure Stack hub.
 - Centrum Azure Stack 2005 teď podporuje [App Service na Azure Stack hub 2020 (verze 87. x)](app-service-release-notes-2020-Q2.md).
 - Nastavení šifrování uživatele vyžadované pro monitorování hardwaru bylo změněno z DES na AES, aby se zvýšilo zabezpečení. Obraťte se na svého hardwarového partnera, kde se dozvíte, jak změnit nastavení v řadiči pro správu základní desky (BMC). Po provedení změny v řadiči pro správu základní desky může být potřeba znovu spustit rutinu **set-BmcCredential** pomocí koncového bodu privilegovaná. Další informace najdete v tématu [otočení tajných kódů v centru Azure Stack](azure-stack-rotate-secrets.md) .
 
@@ -258,7 +261,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Novinky
+### <a name="whats-new"></a>Co je nového
 
 <!-- What's new, also net new experiences and features. -->
 

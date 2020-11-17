@@ -8,12 +8,12 @@ ms.date: 07/10/2020
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: 96730a5afb143d8a5198c07bdc5b5df14c6483bd
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.openlocfilehash: 4b6fe9434d7fbc0f62de4c22241300ad20170af2
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86866152"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674488"
 ---
 # <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hci"></a>Rozdíly mezi globálním Azure, Azure Stack hub a Azure Stack HCI
 
@@ -21,7 +21,7 @@ Microsoft poskytuje Azure a Azure Stackovou rodinu centra pro služby v jednom e
 
 Tento článek popisuje rozdíly mezi globálními funkcemi Azure, Azure Stack hub a Azure Stack HCI. Poskytuje běžná doporučení pro scénáře, která vám pomůžou vydávat nejlepší možnosti pro doručování cloudových služeb Microsoftu pro vaši organizaci.
 
-![Přehled ekosystému Azure](./media/compare-azure-azure-stack/azure-family.svg)
+![Přehled ekosystému Azure](./media/compare-azure-azure-stack/azure-family-updated.png)
 
 ## <a name="global-azure"></a>Globální Azure
 
@@ -40,7 +40,7 @@ Centrum Azure Stack je rozšířením Azure, které přináší flexibilitu a in
 - Azure Key Vault
 - Azure Resource Manager
 - Azure Marketplace
-- Containers
+- Kontejnery
 - Nástroje pro správu (plány, nabídky, RBAC atd.)
 
 Možnosti PaaSy centra Azure Stack jsou volitelné, protože Azure Stack hub neprovozuje Microsoft, je provozuje naši zákazníci. To znamená, že pokud jste připraveni k abstrakci základní infrastruktury a procesů od koncového uživatele, můžete nabízet libovolné služby PaaS, které chcete koncovým uživatelům nabídnout. Azure Stack centrum ale obsahuje několik volitelných poskytovatelů služeb PaaS, včetně databází App Service, SQL Database a MySQL. Ty se doručují jako poskytovatelé prostředků, takže jsou připravené pro více tenantů, které se aktualizují v čase se standardními aktualizacemi centra Azure Stack, viditelné na portálu Azure Stack hub a dobře integrované do centra Azure Stack.

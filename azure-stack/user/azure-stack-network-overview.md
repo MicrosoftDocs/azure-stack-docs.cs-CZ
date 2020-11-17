@@ -3,16 +3,16 @@ title: Úvod do sítě Azure Stack hub
 description: Další informace o sítích centra Azure Stack
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 5/27/2020
+ms.date: 11/16/2020
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 1e850e766300ff4d1b24328ba47c8458a903732a
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 2cb8ede31a91ba05102c55591a4942f512bce0c8
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111944"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674468"
 ---
 # <a name="introduction-to-azure-stack-hub-networking"></a>Úvod do sítě Azure Stack hub
 
@@ -23,7 +23,9 @@ Centrum Azure Stack nabízí různé druhy síťových schopností, které se da
 - **Připojení k internetu**  
     Komunikace s prostředky centra Azure Stack a jejich využití přes Internet.
 - **Místní připojení**  
-    Připojte místní síť, abyste mohli Azure Stack prostředky centra prostřednictvím virtuální privátní sítě (VPN) přes Internet nebo prostřednictvím vyhrazeného připojení k Azure Stackmu centru.
+    Připojte místní síť, abyste mohli Azure Stack prostředky centra prostřednictvím virtuální privátní sítě (VPN) přes Internet nebo prostřednictvím vyhrazeného připojení k Azure Stackmu centru. 
+    > [!IMPORTANT]
+    > Aby bylo možné získat přístup k místním prostředkům, je nutné vytvořit připojení VPN nebo veřejné IP adresy.
 - **Vyrovnávání zatížení a směr provozu**  
     Vyrovnávání zatížení provozu na servery ve stejném umístění a přímý provoz na servery v různých umístěních.
 - **Zabezpečení**  

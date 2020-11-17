@@ -3,22 +3,22 @@ title: Poznámky k verzi ASDK
 description: Vylepšení, opravy a známé problémy pro Azure Stack Development Kit (ASDK).
 author: sethmanheim
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2020
-ms.openlocfilehash: f4e97cfaba4e3cde832a318647b72d96cbca8965
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: ea7c991a1d9b16580cb4fbd7f812ec776da6e084
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543404"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674298"
 ---
 # <a name="asdk-release-notes"></a>Poznámky k verzi ASDK
 
 Tento článek obsahuje informace o změnách, opravách a známých problémech v Azure Stack Development Kit (ASDK). Pokud si nejste jisti, jakou verzi používáte, [použijte portál ke kontrole](../operator/azure-stack-updates.md).
 
-Přihlaste se k odběru informačního ![ ](./media/asdk-release-notes/feed-icon-14x14.png) [kanálu RSS](https://docs.microsoft.com/api/search/rss?search=ASDK+release+notes&locale=en-us#)RSS a sledujte, co je nového v ASDK.
+Přihlaste se k odběru informačního ![ ](./media/asdk-release-notes/feed-icon-14x14.png) [kanálu RSS](https://aka.ms/asdkrss)RSS a sledujte, co je nového v ASDK.
 
 ::: moniker range="azs-2008"
 ## <a name="build-120081388"></a>1.2008.13.88 sestavení
@@ -47,7 +47,7 @@ Přihlaste se k odběru informačního ![ ](./media/asdk-release-notes/feed-icon
 
 #### <a name="initial-configuration-fails-in-asdk"></a>Počáteční konfigurace se v ASDK nezdařila.
 
-- Při nasazování ASDK se může zobrazit stav chybové zprávy **' Deployment-Phase0-DeployBareMetal ' error '** a **stav ' Deployment-InitialSteps ' je ' error** '.
+- Při nasazování ASDK se může zobrazit stav chybové zprávy **' Deployment-Phase0-DeployBareMetal ' error '** a **stav ' Deployment-InitialSteps ' je ' error**'.
 
 - Jako alternativní řešení:
 

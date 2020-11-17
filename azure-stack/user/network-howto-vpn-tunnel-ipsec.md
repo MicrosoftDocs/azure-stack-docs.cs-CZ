@@ -3,16 +3,16 @@ title: Vytvoření tunelu VPN pomocí protokolu IPSEC v centru Azure Stack
 description: Naučte se vytvořit tunel VPN pomocí protokolu IPSEC v centru Azure Stack.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 5/27/2020
+ms.date: 11/13/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 50594cd976fc502d25f3e54c980fd2cf3702d046
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 11/13/2020
+ms.openlocfilehash: 3ceab07ebb6743e0ece9e6cb3d33ee08588d8992
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574070"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674591"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-ipsec--in-azure-stack-hub"></a>Postup vytvoření tunelu VPN pomocí protokolu IPSEC v centru Azure Stack
 
@@ -50,7 +50,7 @@ Toto řešení je základem, který umožní vytvořit tunelové propojení VPN 
 
 Tato šablona poskytuje výchozí hodnoty pro pojmenování virtuální sítě a IP adresování.  Vyžaduje heslo pro správce (rrasadmin) a také nabízí možnost používat vlastní objekt BLOB úložiště s tokenem SAS.  Buďte opatrní, abyste tyto hodnoty zachovali v rámci platných rozsahů, protože nasazení může selhat.  Balíček PowerShell DSC se spustí na každém virtuálním počítači RRAS a nainstaluje směrování a všechny požadované závislé služby a funkce.  V případě potřeby můžete tento DSC přizpůsobit dál.  Rozšíření vlastních skriptů spustí následující skript a Add-Site2SiteIKE.ps1 nakonfiguruje tunel VPNS2S mezi dvěma servery RRAS se sdíleným klíčem.  Pokud chcete zobrazit výsledky konfigurace tunelu VPN, můžete zobrazit podrobný výstup z rozšíření vlastních skriptů.
 
-![Diagram s názvem S2SVPNTunnel zobrazuje dva virtuální sítěy připojené tunelem VPN typu Site-to-site.](./media/azure-stack-network-howto-vpn-tunnel-ipsec/s2svpntunnel.png)
+![Diagram s názvem S2SVPNTunnel zobrazuje dva virtuální sítěy připojené tunelem VPN typu Site-to-site.](./media/azure-stack-network-howto-vpn-tunnel-ipsec/s2svpntunnel.svg)
 
 ## <a name="next-steps"></a>Další kroky
 
