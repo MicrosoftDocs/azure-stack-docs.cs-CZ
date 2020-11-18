@@ -7,12 +7,12 @@ ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 8207975a5763b9ee6edc8842bd27369c4fb355eb
-ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
+ms.openlocfilehash: da21b724e914527ef2a4d5065d1d83a30ad3bb85
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94674417"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94785765"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Známé problémy centra Azure Stack
 
@@ -20,11 +20,11 @@ V tomto článku jsou uvedené známé problémy v Azure Stack vydáních centra
 
 Chcete-li získat přístup ke známým problémům pro jinou verzi, použijte rozevírací nabídku selektor verzí nad obsahem vlevo.
 
-::: moniker range=">=azs-1910"
+::: moniker range=">=azs-2002"
 > [!IMPORTANT]  
 > Před použitím této aktualizace si přečtěte tento oddíl.
 ::: moniker-end
-::: moniker range="<azs-1910"
+::: moniker range="<azs-2002"
 > [!IMPORTANT]  
 > Pokud je vaše instance centra Azure Stack za více než dvěma aktualizacemi, je považována za nedodržující předpisy. Aby bylo možné [získat podporu, musíte aktualizovat aspoň minimální podporovanou verzi](azure-stack-servicing-policy.md#keep-your-system-under-support). 
 ::: moniker-end
@@ -164,7 +164,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Náprava: Pokud chcete veřejnou IP adresu vrátit do úspěšného stavu, změňte hodnotu **IdleTimeoutInMinutes** u pravidla vyrovnávání zatížení, které odkazuje na veřejnou IP adresu zpátky na původní hodnotu (výchozí hodnota je 4 minuty).
 - Výskyt: běžné
 
-## <a name="compute"></a>Výpočetní prostředky
+## <a name="compute"></a>Compute
 
 ### <a name="issues-deploying-virtual-machine-scale-set-with-standard_ds2_v2-size-using-the-portal"></a>Problémy s nasazením sady škálování virtuálních počítačů s Standard_DS2_v2 velikostí pomocí portálu
 
@@ -347,7 +347,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
   - [Okruhy ExpressRoute](azure-stack-connect-expressroute.md)
   - [Zadat vlastní zásady IPsec/IKE](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-## <a name="compute"></a>Výpočetní prostředky
+## <a name="compute"></a>Compute
 
 ### <a name="cannot-create-a-virtual-machine-scale-set-with-standard_ds2_v2-vm-size-on-portal"></a>Nejde vytvořit sadu škálování virtuálního počítače s Standard_DS2_v2 velikostí virtuálního počítače na portálu.
 

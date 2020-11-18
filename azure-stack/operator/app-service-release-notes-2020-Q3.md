@@ -1,19 +1,19 @@
 ---
-title: Zpráva k vydání verze 2002. App Service v centru Azure Stack
-description: Přečtěte si informace o tom, co je ve vydání 2002. čtvrtletí pro App Service v centru Azure Stack, známých problémech a kde stáhnout aktualizaci.
+title: Zpráva k vydání verze 2020. App Service v centru Azure Stack
+description: Přečtěte si informace o tom, co je ve vydání 2020. čtvrtletí pro App Service v centru Azure Stack, známých problémech a kde stáhnout aktualizaci.
 author: apwestgarth
 manager: stefsch
 ms.topic: article
-ms.date: 10/28/2020
+ms.date: 11/17/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/23/2020
-ms.openlocfilehash: 55c8e18f3bbd36a0fef4cfb745ab9d40651e7533
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: f9d575a91c55379326beaac2d76b3400172c8dd0
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94548657"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94785868"
 ---
 # <a name="app-service-on-azure-stack-hub-2020-q3-release-notes"></a>Zpráva k vydání verze 2020. App Service v centru Azure Stack
 
@@ -25,7 +25,7 @@ Tyto poznámky k verzi popisují vylepšení a opravy v Azure App Service v cent
 
 App Service číslo buildu v centru Azure Stack 2020 Q3 je **89.0.2.15**
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 Než začnete s nasazením, přečtěte si [dokumentaci před](azure-stack-app-service-before-you-get-started.md) začátkem.
 
@@ -61,7 +61,7 @@ Azure App Service na Azure Stack Update Q3 obsahuje následující vylepšení a
 
 - Aktualizace služby Core pro zlepšení spolehlivosti a chybového zasílání zpráv umožňují snazší diagnostiku běžných problémů.
 
-- **Aktualizace následujících aplikačních architektur a nástrojů** :
+- **Aktualizace následujících aplikačních architektur a nástrojů**:
   - ASP.NET Core 2.1.22
   - ASP.NET Core 2.2.14
   - ASP.NET Core 3.1.8
@@ -86,7 +86,7 @@ Azure App Service na Azure Stack Update Q3 obsahuje následující vylepšení a
     - 9.0.31
   - Aktualizace Kudu na 90.21005.4823
 
-- **Aktualizace základního operačního systému všech rolí** :
+- **Aktualizace základního operačního systému všech rolí**:
   - [2020-10 kumulativní aktualizace pro Windows Server 2016 pro systémy založené na platformě x64 (KB4580346)](https://support.microsoft.com/help/4580346)
   - [2020-09 aktualizace servisního zásobníku pro Windows Server 2016 pro systémy na platformě x64 (KB4576750)](https://support.microsoft.com/help/4576750)
   - 1.325.755.0 definice Defenderu
@@ -102,6 +102,8 @@ Azure App Service na Azure Stack Update Q3 obsahuje následující vylepšení a
 - Monitorování funkcí teď může načítat data z koncových bodů úložiště vynucujících TLS 1,2.
 
 - Při instalaci se přesunul krok čekání na servery pro správu mimo krok nasazení cloudu, aby se zlepšila spolehlivost nasazení a upgradu.
+
+- Problém s tím, že se pracovníkům nepodaří dokončit kontrolu stavu, protože velikost složky souborů protokolu modulu runtime pracovního procesu porušila limit kvóty po chybě v logice pro vyčištění.  V této aktualizaci byla opravena logika vyčištění.
 
 ## <a name="pre-update-steps"></a>Kroky před aktualizací
 

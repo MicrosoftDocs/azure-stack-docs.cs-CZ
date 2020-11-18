@@ -4,16 +4,16 @@ description: Aktualizace 8 poznámky k verzi pro App Service v centru Azure Stac
 author: apwestgarth
 manager: stefsch
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 11/17/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: f19d64331e7ef64095bc91a04eb817e2f056d3a9
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 4c89f139c2fc0f80a80fc70ab6d5842a7ffffd4f
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489704"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94785798"
 ---
 # <a name="app-service-on-azure-stack-hub-update-8-release-notes"></a>Zpráva k vydání verze pro Azure Stack centra aktualizace 8 App Service
 
@@ -26,7 +26,7 @@ Tyto poznámky k verzi popisují nové funkce, opravy a známé problémy v Azur
 
 App Service číslo buildu Azure Stack centra aktualizace 8 je **86.0.2.13**.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 Než začnete s nasazením, přečtěte si téma [předpoklady pro nasazení App Service v centru Azure Stack](azure-stack-app-service-before-you-get-started.md) .
 
@@ -298,7 +298,26 @@ Proveďte jednu z následujících akcí a v instalačním programu vyberte opak
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Známé problémy pro Cloud Admins, které pracují Azure App Service v centru Azure Stack
 
-Informace najdete v [poznámkách k verzi centra Azure Stack 1907](./release-notes.md?view=azs-2002).
+Informace najdete v [poznámkách k verzi centra Azure Stack 1907](./release-notes.md?view=azs-1907&preserve-view=true).
+
+- Klienti nemůžou vytvořit plán App Service pomocí nového App Serviceho zobrazení plánu na portálu tenanta.
+
+Při vytváření nové aplikace můžou klienti vytvářet App Service plány během pracovního postupu vytvoření aplikace nebo při změně plánu App Service pro aktuální aplikaci nebo prostřednictvím položky na webu Marketplace pro naplánování App Service.
+
+- Vlastní domény nejsou v odpojených prostředích podporované.
+
+App Service provádí ověření vlastnictví domény proti veřejným koncovým bodům DNS, protože ve scénářích odpojení nejsou podporované vlastní domény.
+
+- V některých případech se zaměstnanci nedaří vyhovět kontrolám stavu (nedostatek místa na disku)
+
+V některých případech, kdy se k pracovnímu procesu přiděluje velký počet webů nebo když lokalita zpracovává velký počet požadavků, pracovní proces vygeneruje v C:\DWAS\LogFiles. velký počet souborů protokolu za běhu.  Důvodem je chyba v logice vyčištění pro tyto soubory protokolů.  
+
+Chcete-li tento problém zmírnit u jednotlivých pracovních procesů a vymazat obsah složky.
+
+Tento problém byl opraven v [App Service v Azure Stackm centru 2020](app-service-release-notes-2020-Q3.md), doporučujeme zákazníkům, aby co nejdříve upgradovali na vydání 2020 Q3.
+
+> [!IMPORTANT]
+> Aby bylo možné aktualizovat Azure App Service v Azure Stack centra 2020, je **nutné** upgradovat na Azure Stack hub 2008.
 
 ## <a name="next-steps"></a>Další kroky
 

@@ -1,21 +1,21 @@
 ---
 title: Použití trvalého úložiště v kontejneru Windows
 description: Použití trvalého úložiště v kontejneru Windows a příprava uzlů Windows pro skupinové účty spravované služby
-author: abha
+author: abhilashaagarwala
 ms.topic: how-to
 ms.date: 09/21/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 91f7249beb34e5afee808d299df48611a5ce26bb
-ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
+ms.openlocfilehash: 19b934e4bdec9e0ab6f4e7808dfea6e6fb648245
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91778118"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94784848"
 ---
 # <a name="use-persistent-storage-in-a-windows-container-and-prepare-windows-nodes-for-group-managed-service-accounts"></a>Použití trvalého úložiště v kontejneru Windows a příprava uzlů Windows pro skupinové účty spravované služby
 
-Trvalý svazek představuje část úložiště, která byla zřízena pro použití s Kubernetes lusky. Trvalý svazek lze použít v jednom nebo více luskech a je určen pro dlouhodobé uložení. Je také nezávislá na životním cyklu pod nebo Node.V této části se dozvíte, jak vytvořit trvalý svazek a jak používat tento svazek v aplikaci pro Windows.
+Trvalý svazek představuje část úložiště, která byla zřízena pro použití s Kubernetes lusky. Trvalý svazek lze použít v jednom nebo více luskech a je určen pro dlouhodobé uložení. Je také nezávislá na životním cyklu pod nebo Node.  V této části se dozvíte, jak vytvořit trvalý svazek a jak používat tento svazek v aplikaci pro Windows.
 
 ## <a name="before-you-begin"></a>Než začnete
 
@@ -27,7 +27,7 @@ Tady je přehled toho, co potřebujete, abyste mohli začít:
 
 ## <a name="create-a-persistent-volume-claim"></a>Vytvoření deklarace identity trvalého svazku
 
-Deklarace identity trvalého svazku se používá k automatickému zřízení úložiště na základě třídy úložiště.Chcete-li vytvořit deklaraci identity svazku, nejprve vytvořte soubor s názvem `pvc-akshci-csi.yaml` a zkopírujte následující definici YAML. Deklarace identity vyžaduje disk o velikosti 10 GB s přístupem *ReadWriteOnce*   .  *Výchozí*   třída úložiště je zadána jako třída úložiště (VHDX).  
+Deklarace identity trvalého svazku se používá k automatickému zřízení úložiště na základě třídy úložiště. Chcete-li vytvořit deklaraci identity svazku, nejprve vytvořte soubor s názvem `pvc-akshci-csi.yaml` a zkopírujte následující definici YAML. Deklarace identity vyžaduje disk o velikosti 10 GB s přístupem *ReadWriteOnce*   .  *Výchozí*   třída úložiště je zadána jako třída úložiště (VHDX).  
 
 ```yaml
 apiVersion: v1
@@ -41,11 +41,11 @@ spec:
   requests:
    storage: 10Gi
 ```
-Vytvořte svazek spuštěním následujících příkazů v relaci PowerShellu pro správu na jednom ze serverů v clusteru Azure Stack HCI (pomocí metody, jako je například [Enter-PSSession](/powershell/module/microsoft.powershell.core/enter-pssession) nebo Vzdálená plocha pro připojení k serveru): 
+Vytvořte svazek spuštěním následujících příkazů v relaci PowerShellu pro správu na jednom ze serverů v clusteru Azure Stack HCI (pomocí metody, jako je například [Enter-PSSession](/powershell/module/microsoft.powershell.core/enter-pssession) nebo Vzdálená plocha pro připojení k serveru): 
 
 
 ```PowerShell
-kubectl create -f pvc-akshci-csi.yaml 
+kubectl create -f pvc-akshci-csi.yaml 
 ```
 Následující výstup zobrazí, že se úspěšně vytvořila deklarace identity trvalého svazku:
 
@@ -56,7 +56,7 @@ persistentvolumeclaim/pvc-akshci-csi created
 
 ## <a name="use-persistent-volume"></a>Použít trvalý svazek
 
-Chcete-li použít trvalý svazek, vytvořte soubor s názvem winwebserver. yaml a zkopírujte následující definici YAML.Pak vytvoříte pod tím, že budete mít přístup k deklaraci identity trvalého svazku a VHDX. 
+Chcete-li použít trvalý svazek, vytvořte soubor s názvem winwebserver. yaml a zkopírujte následující definici YAML. Pak vytvoříte pod tím, že budete mít přístup k deklaraci identity trvalého svazku a VHDX. 
 
 V níže uvedené definici YAML je *mountPath* cesta k připojení svazku uvnitř kontejneru. Po úspěšném vytvoření pod se zobrazí podadresář *mnt* vytvořený v *C \\ :* a podadresář *akshciscsi* vytvořený v *mnt*.
 
@@ -98,24 +98,24 @@ spec:
 Pokud chcete vytvořit pod výše uvedenou definicí YAML, spusťte:
 
 ```PowerShell
-Kubectl create -f winwebserver.yaml 
+Kubectl create -f winwebserver.yaml 
 ```
 
 Chcete-li se ujistit, že je pod ním spuštěný, spusťte následující příkaz. Počkejte několik minut, než je v běžícím stavu, protože načítání image trvá déle.
 
 ```PowerShell
-kubectl get pods -o wide 
+kubectl get pods -o wide 
 ```
-Jakmile je spuštěno, zobrazte stav pod spuštěním následujícího příkazu: 
+Jakmile je spuštěno, zobrazte stav pod spuštěním následujícího příkazu: 
 
 ```PowerShell
-kubectl.exe describe pod %podName% 
+kubectl.exe describe pod %podName% 
 ```
 
 Chcete-li ověřit, zda byl svazek připojen v části pod, spusťte následující příkaz:
 
 ```PowerShell
-kubectl exec -it %podname% cmd.exe 
+kubectl exec -it %podname% cmd.exe 
 ```
 
 ## <a name="delete-a-persistent-volume-claim"></a>Odstranění deklarace identity trvalého svazku
@@ -154,7 +154,7 @@ add-computer --domainame "YourDomainName" -restart
 
 Jakmile budou všechny uzly pracovních procesů Windows připojené k doméně, postupujte podle kroků popsaných v části [Konfigurace gMSA](https://kubernetes.io/docs/tasks/configure-pod-container/configure-gmsa) a použijte vlastní definice prostředků Kubernetes gMSA a Webhooky v clusteru Kubernetes.
 
-Další informace o kontejnerech Windows s gMSA najdete v tématu [kontejnery Windows a gMSA](/virtualization/windowscontainers/manage-containers/manage-serviceaccounts). 
+Další informace o kontejnerech Windows s gMSA najdete v tématu [kontejnery Windows a gMSA](/virtualization/windowscontainers/manage-containers/manage-serviceaccounts). 
 
 ## <a name="next-steps"></a>Další kroky
 - [Nasaďte aplikaci pro Windows do clusteru Kubernetes](./deploy-windows-application.md).

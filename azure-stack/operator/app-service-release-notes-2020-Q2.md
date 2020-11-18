@@ -1,19 +1,19 @@
 ---
-title: App Service zpráva k vydání verze centra Azure Stack 2002 Q2
-description: Přečtěte si informace o tom, co je ve vydání 2002. Q2 pro App Service v centru Azure Stack, známých problémech a kde stáhnout aktualizaci.
+title: App Service zpráva k vydání verze centra Azure Stack 2020 Q2
+description: Přečtěte si informace o tom, co je ve vydání 2020. Q2 pro App Service v centru Azure Stack, známých problémech a kde stáhnout aktualizaci.
 author: apwestgarth
 manager: stefsch
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 11/17/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/30/2020
-ms.openlocfilehash: c5e6ac0a2a500cf43cf94cbc40b2a95c58784d28
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 6534a4539fc4e0fd699b21e84490f1d25be1dfe1
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544713"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94785851"
 ---
 # <a name="app-service-on-azure-stack-hub-2020-q2-release-notes"></a>App Service zpráva k vydání verze centra Azure Stack 2020 Q2
 
@@ -25,7 +25,7 @@ Tyto poznámky k verzi popisují vylepšení a opravy v Azure App Service v Azur
 
 App Service číslo buildu v centru Azure Stack 2020.2 – 2. **87.0.2.10**
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 Než začnete s nasazením, přečtěte si [dokumentaci před](azure-stack-app-service-before-you-get-started.md) začátkem.
 
@@ -59,7 +59,7 @@ Azure App Service na Azure Stack Update Q2 obsahuje následující vylepšení a
 
 - Aktualizace služby Core pro zlepšení spolehlivosti a chybového zasílání zpráv umožňují snazší diagnostiku běžných problémů.
 
-- **Aktualizace následujících aplikačních architektur a nástrojů** :
+- **Aktualizace následujících aplikačních architektur a nástrojů**:
   - ASP.NET Framework 4.7.2
   - ASP.NET Core 3.1.3
   - ASP.NET Core modul v2 13.1.19331.0
@@ -76,13 +76,13 @@ Azure App Service na Azure Stack Update Q2 obsahuje následující vylepšení a
     - 6.12.0
     - 6.13.4
   
-- **Aktualizace základního operačního systému všech rolí** :
+- **Aktualizace základního operačního systému všech rolí**:
   - [2020-04 kumulativní aktualizace pro Windows Server 2016 pro systémy založené na platformě x64 (KB4550929)](https://support.microsoft.com/help/4550929)
   - [2020-04 aktualizace servisního zásobníku pro Windows Server 2016 pro systémy na platformě x64 (KB4550994)](https://support.microsoft.com/help/4550994)
 
 - **Kumulativní aktualizace pro Windows Server se teď v rámci nasazení a upgradu aplikují na role kontroleru.**
 
-- **Aktualizované výchozí hodnoty SKU virtuálního počítače a sady škálování pro nová nasazení** : aby byla zajištěna konzistence s naší veřejnou cloudovou službou, nové nasazení Azure App Service v centru Azure Stack budou používat následující SKU pro základní počítače a sady škálování používané pro provozování poskytovatele prostředků.
+- **Aktualizované výchozí hodnoty SKU virtuálního počítače a sady škálování pro nová nasazení**: aby byla zajištěna konzistence s naší veřejnou cloudovou službou, nové nasazení Azure App Service v centru Azure Stack budou používat následující SKU pro základní počítače a sady škálování používané pro provozování poskytovatele prostředků.
   
   | Role | Minimální SKU |
   | --- | --- |
@@ -223,6 +223,17 @@ Při vytváření nové aplikace můžou klienti vytvářet App Service plány b
 - Vlastní domény nejsou v odpojených prostředích podporované.
 
 App Service provádí ověření vlastnictví domény proti veřejným koncovým bodům DNS, protože ve scénářích odpojení nejsou podporované vlastní domény.
+
+- V některých případech se zaměstnanci nedaří vyhovět kontrolám stavu (nedostatek místa na disku)
+
+V některých případech, kdy se k pracovnímu procesu přiděluje velký počet webů nebo když lokalita zpracovává velký počet požadavků, pracovní proces vygeneruje v C:\DWAS\LogFiles. velký počet souborů protokolu za běhu.  Důvodem je chyba v logice vyčištění pro tyto soubory protokolů.  
+
+Chcete-li tento problém zmírnit u jednotlivých pracovních procesů a vymazat obsah složky.
+
+Tento problém byl opraven v [App Service v Azure Stackm centru 2020](app-service-release-notes-2020-Q3.md), doporučujeme zákazníkům, aby co nejdříve upgradovali na vydání 2020 Q3.
+
+> [!IMPORTANT]
+> Aby bylo možné aktualizovat Azure App Service v Azure Stack centra 2020, je **nutné** upgradovat na Azure Stack hub 2008.
 
 ## <a name="next-steps"></a>Další kroky
 

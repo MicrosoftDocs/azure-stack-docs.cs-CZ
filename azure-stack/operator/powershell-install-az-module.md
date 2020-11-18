@@ -3,16 +3,16 @@ title: Instalace prostředí PowerShell AZ Module pro Azure Stack hub
 description: Přečtěte si, jak nainstalovat PowerShell pro centrum Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 11/17/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/11/2020
-ms.openlocfilehash: de226383fc5109cd702c4883754766664ea9ab73
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/27/2020
+ms.openlocfilehash: 3666965dd3cfe7827fc9ea4c12b06d40ad210ac6
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546935"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94785834"
 ---
 # <a name="install-powershell-az-module-for-azure-stack-hub"></a>Instalace prostředí PowerShell AZ Module pro Azure Stack hub
 
@@ -33,9 +33,9 @@ Prostředí PowerShellu kompatibilní s centrem Azure Stack AZ moduls můžete n
 
 ## <a name="1-verify-your-prerequisites"></a>1. ověřte požadavky.
 
-AZ modules se podporuje jenom v [Azure Stackovém centru s aktualizací Update 2002](./release-notes.md?view=azs-2002#2002-build-reference) a nejnovější [opravou hotfix](./release-notes.md?view=azs-2002#hotfixes).
+AZ modules se podporuje v Azure Stackovém centru s aktualizací Update 2002 nebo novějším a s nainstalovanými aktuálními opravami hotfix. Další informace najdete v [poznámkách k verzi centra Azure Stack](release-notes.md) .
 
-Azure PowerShell funguje s PowerShellem 5.1 nebo novějším ve Windows nebo PowerShellem Core 6.x nebo novějším na všech platformách. Měli byste nainstalovat [nejnovější verzi prostředí PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core) , která je k dispozici pro váš operační systém. Azure PowerShell nemá žádné další požadavky při spuštění v prostředí PowerShell Core.
+Azure PowerShell AZ modules Work s prostředím PowerShell 5,1 nebo vyšším ve Windows nebo PowerShell Core 6. x a novějším na všech platformách. Měli byste nainstalovat [nejnovější verzi prostředí PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core) , která je k dispozici pro váš operační systém. Azure PowerShell nemá žádné další požadavky při spuštění v prostředí PowerShell Core.
 
 Pokud chcete zkontrolovat verzi PowerShellu, spusťte následující příkaz:
 
