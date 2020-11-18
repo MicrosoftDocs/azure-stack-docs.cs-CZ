@@ -74,6 +74,8 @@
           href: manage/update-cluster.md
         - name: Monitorování clusteru
           href: manage/monitor-cluster.md
+        - name: Použití brány firewall Datacenter
+          href: manage/use-datacenter-firewall.md
         - name: Použití DISKSPD k testování úloh
           href: manage/diskspd-overview.md
         - name: Přidat nebo odebrat servery

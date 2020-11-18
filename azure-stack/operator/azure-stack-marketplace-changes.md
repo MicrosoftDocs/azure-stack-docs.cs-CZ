@@ -3,16 +3,16 @@ title: Co je nového v tržišti Azure Stack hub
 description: Podívejte se, co je nového v tržišti Azure Stack hub, včetně nových, zastaralých a aktualizovaných položek Marketplace.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 11/18/2020
 ms.author: sethm
-ms.reviewer: ihcherie
+ms.reviewer: gara
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 50c5bb306585709c9fdd8aeadc126709e4967e72
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.openlocfilehash: 5c6475a4bf3e330f982627d158f0e6f75f0477bc
+ms.sourcegitcommit: 40d3f3f0ac088d1590d1fb64ca05ac1dabf4e00c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414142"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94875072"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Změny v tržišti centra Azure Stack
 
@@ -166,6 +166,10 @@ V tomto článku najdete seznam nedávných přidání, aktualizací, změn a od
 
 ## <a name="updated-marketplace-items"></a>Aktualizované položky Marketplace
 
+- 11/17/2020: Azure Monitor, aktualizace a Správa konfigurace – verze 1.13.27
+- 11/17/2020: Azure Monitor Dependency Agent – verze 9.10.6.11730
+- 11/17/2020: Azure Monitor Dependency Agent pro virtuální počítače se systémem Linux – verze 9.10.6.11730
+- 11/17/2020: Azure Monitor, aktualizace a Správa konfigurace – verze 1.0.18053.0
 - 11/05/2020: SQL Server 2017 standard v systému Windows Server 2016 – zajistěte si vlastní licenci verze 14.0.20201015
 - 11/05/2020: SQL Server 2017 Standard na Windows serveru 2016 – průběžné platby – 14.0.20201015 verze
 - 11/05/2020: SQL Server 2017 Enterprise Windows Server 2016 – zajistěte si vlastní 14.0.20201015 verze licence.
