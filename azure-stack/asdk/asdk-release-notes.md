@@ -7,12 +7,12 @@ ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2020
-ms.openlocfilehash: ea7c991a1d9b16580cb4fbd7f812ec776da6e084
-ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
+ms.openlocfilehash: 6eb124193f477eb4418909f6b8e79781e948d135
+ms.sourcegitcommit: 6db48bd8e6ccfaaa897713ad7eb2846a8d506358
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94674298"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94885746"
 ---
 # <a name="asdk-release-notes"></a>Poznámky k verzi ASDK
 
@@ -21,7 +21,7 @@ Tento článek obsahuje informace o změnách, opravách a známých problémech
 Přihlaste se k odběru informačního ![ ](./media/asdk-release-notes/feed-icon-14x14.png) [kanálu RSS](https://aka.ms/asdkrss)RSS a sledujte, co je nového v ASDK.
 
 ::: moniker range="azs-2008"
-## <a name="build-120081388"></a>1.2008.13.88 sestavení
+## <a name="build-12008059"></a>1.2008.0.59 sestavení
 
 ### <a name="new-features"></a>Nové funkce
 

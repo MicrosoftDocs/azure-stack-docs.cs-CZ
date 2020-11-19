@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/26/2020
 ms.author: mabrigg
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 4212aa524baf60b65eaca46e6750c7af78197135
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: 4a14700a081e8c85f29a7edc69c471ba9bd3d249
+ms.sourcegitcommit: 6db48bd8e6ccfaaa897713ad7eb2846a8d506358
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329249"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94885780"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Monitorování stavu a upozornění ve službě Azure Stack
 
@@ -53,7 +53,7 @@ Chcete-li zobrazit stav na portálu, klikněte na oblast, kterou chcete zobrazit
 Kliknutím na poskytovatel prostředků nebo na roli infrastruktury zobrazíte podrobnější informace.
 
 > [!WARNING]  
-> Pokud kliknete na roli infrastruktury a pak na instanci role, existují možnosti **spuštění** , **restartování** nebo **vypnutí**. Tyto akce nepoužívejte při použití aktualizací pro integrovaný systém. <!-- TZLASDKFIXAlso, do **not** use these options in an Azure Stack Development Kit (ASDK) environment. These options are only designed for an integrated systems environment, where there's more than one role instance per infrastructure role. Restarting a role instance (especially AzS-Xrp01) in the ASDK causes system instability.--> Pokud potřebujete pomoc s řešením potíží, vystavte svůj problém do [fóra Azure Stack](https://aka.ms/azurestackforum).
+> Pokud kliknete na roli infrastruktury a pak na instanci role, existují možnosti **spuštění**, **restartování** nebo **vypnutí**. Tyto akce nepoužívejte při použití aktualizací pro integrovaný systém. <!-- TZLASDKFIXAlso, do **not** use these options in an Azure Stack Development Kit (ASDK) environment. These options are only designed for an integrated systems environment, where there's more than one role instance per infrastructure role. Restarting a role instance (especially AzS-Xrp01) in the ASDK causes system instability.--> Pokud potřebujete pomoc s řešením potíží, vystavte svůj problém do [fóra Azure Stack](https://aka.ms/azurestackforum).
 >
 
 ## <a name="view-alerts"></a>Zobrazení upozornění
@@ -73,7 +73,7 @@ Okno **výstrahy** podporuje možnost filtrovat stav (aktivní nebo Uzavřeno) a
 
 Akce **Zobrazit rozhraní API** zobrazuje REST API, která byla použita k vygenerování zobrazení seznamu. Tato akce poskytuje rychlý způsob, jak se seznámit se syntaxí REST API, kterou můžete použít k dotazování výstrah. Toto rozhraní API můžete použít ve službě Automation nebo pro integraci s vaším stávajícím řešením pro monitorování, generování sestav a vytváření lístků Datacenter.
 
-Kliknutím na konkrétní výstrahu můžete zobrazit podrobnosti výstrahy. V podrobnostech výstrahy se zobrazují všechna pole, která jsou spojená s výstrahou, a umožňují rychlou navigaci na ovlivněnou součást a zdroj výstrahy. Například následující výstraha nastane, pokud jedna z instancí role infrastruktury přejde do režimu offline nebo není přístupná. Ukazatele na odkazy na aka.ms můžete vyhledat v části náprava v podrobnostech výstrahy [aka.MS odkazu](aks-refer-table-tzl.md).
+Kliknutím na konkrétní výstrahu můžete zobrazit podrobnosti výstrahy. V podrobnostech výstrahy se zobrazují všechna pole, která jsou spojená s výstrahou, a umožňují rychlou navigaci na ovlivněnou součást a zdroj výstrahy. Například následující výstraha nastane, pokud jedna z instancí role infrastruktury přejde do režimu offline nebo není přístupná. [Odkaz na křížové odkazy](aks-refer-table-tzl.md) můžete vyhledat v části **náprava** v podrobnostech výstrahy a zobrazit tak článek.
 
 ![Okno Podrobnosti výstrahy na portálu Azure Stack správce](media/azure-stack-monitor-health/alert-detail.png)
 
