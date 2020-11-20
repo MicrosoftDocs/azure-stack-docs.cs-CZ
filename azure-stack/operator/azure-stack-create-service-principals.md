@@ -8,12 +8,12 @@ ms.date: 05/07/2020
 ms.lastreviewed: 05/07/2020
 ms.custom: contperfq4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 44d13890efa7b5150216569ec2ab0f45bac8e7fa
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 896898acb8c6d98c77a32d0710b5f9c44b3ab65d
+ms.sourcegitcommit: 616e65051a94290eb6ff7aa63ee0b33d45fe7ac5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544373"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94970227"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Použití identity aplikace pro přístup k prostředkům Azure Stack hub
 
@@ -25,7 +25,7 @@ Můžete mít například aplikaci pro správu konfigurace, která používá Az
 
 Podobně jako uživatel musí aplikace při ověřování prezentovat přihlašovací údaje. Toto ověření se skládá ze dvou prvků:
 
-- **ID aplikace** , někdy označované jako ID klienta. Identifikátor GUID, který jedinečně identifikuje registraci aplikace v tenantovi služby Active Directory.
+- **ID aplikace**, někdy označované jako ID klienta. Identifikátor GUID, který jedinečně identifikuje registraci aplikace v tenantovi služby Active Directory.
 - **Tajný kód** PŘIDRUŽENÝ k ID aplikace Můžete buď vygenerovat řetězec tajného klíče klienta (podobně jako heslo), nebo zadat certifikát x509 (který používá jeho veřejný klíč).
 
 Spuštění aplikace v rámci vlastní identity je vhodnější, když ji spustíte v rámci identity uživatele z následujících důvodů:
@@ -42,6 +42,10 @@ Tento článek začíná procesem vytvoření a správy instančního objektu v 
 - **Active Directory Federation Services (AD FS) (AD FS)**. AD FS poskytuje zjednodušenou, zabezpečenou federaci identit a možnosti jednotného přihlašování k webu (SSO). AD FS můžete použít s připojenými i odpojenými Azure Stack instancemi hub.
 
 Pak se dozvíte, jak přiřadit instanční objekt roli a omezit jeho přístup k prostředkům.
+
+::: zone pivot="state-disconnected"
+<!-- this is intentionally a noop -->
+::: zone-end
 
 ::: zone pivot="state-connected"
 ## <a name="manage-an-azure-ad-app-identity"></a>Správa identity aplikace Azure AD
