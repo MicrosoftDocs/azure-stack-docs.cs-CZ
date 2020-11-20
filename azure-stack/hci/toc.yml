@@ -14,7 +14,7 @@
   items:
     - name: Použití Azure Stack HCL s centrem pro správu Windows
       href: get-started.md
-- name: Nasadit
+- name: Nasazení
   items:
     - name: Přehled nasazení
       href: deploy/deployment-overview.md
@@ -154,12 +154,18 @@
           href: concepts/updates.md
         - name: Důležité informace o zabezpečení
           href: concepts/security.md
-- name: Reference
+- name: Referenční informace
   items:
     - name: Příkazy Azure CLI pro registraci Azure
       href: 'https://docs.microsoft.com/cli/azure/ext/stack-hci/stack-hci'
     - name: Příkazy PowerShellu pro registraci Azure
       href: 'https://docs.microsoft.com/powershell/module/az.stackhci'
+    - name: Přejít na balíček pro ARM Azure Stack rozhraní API služby HCI
+      href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/azurestackhci/mgmt/2020-10-01/azurestackhci'
+    - name: Azure Stack třídy a rozhraní služby HCI Java
+      href: /java/api/com.microsoft.azure.management.azurestackhci.v2020_10_01
+    - name: Balíček python služby pro správu Azure Stack HCI
+      href: /python/api/azure-mgmt-azurestackhci/azure.mgmt.azurestackhci?view=azure-python
     - name: Příkazy prostředí PowerShell technologie Hyper-V
       href: /powershell/module/hyper-v
     - name: Příkazy prostředí PowerShell pro úložiště
@@ -192,7 +198,7 @@
       href: /windows-server/networking/sdn
     - name: System Center
       href: /system-center/
-- name: Zdroje informací
+- name: Zdroje a prostředky
   items:
     - name: Stránka produktu Azure Stack HCL
       href: 'https://azure.com/hci'
