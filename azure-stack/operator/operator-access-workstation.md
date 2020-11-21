@@ -7,12 +7,12 @@ ms.date: 11/04/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 11/04/2020
-ms.openlocfilehash: c2e5e474555a9fb3a04c09fde495e4fe80c4378b
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 3c01f6f4e51adb9d91ee1b3098c11814a618ac1c
+ms.sourcegitcommit: ec00358a8780086dda217f93f2ef813a8b24dd3b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546969"
+ms.lasthandoff: 11/21/2020
+ms.locfileid: "95006816"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Pracovní stanice pro přístup k operátorovi centra Azure Stack 
 
@@ -48,7 +48,7 @@ param(
     $DownloadedOAWZipFilePath
 )
 
-$expectedHash = 'CADAD42A1316C3E19819B8E197CEC279964805677D528F4CCFE2FC16D3119136'
+$expectedHash = '459D8BA232E4315372FCE7CDD705057D051C1BD60772FC36E0136C741C27A273'
 $actualHash = (Get-FileHash -Path $DownloadedOAWZipFilePath).Hash
 
 Write-Host "Expected hash: $expectedHash"
@@ -82,7 +82,7 @@ V následující tabulce je uveden předinstalovaný software na virtuálním po
 | [Microsoft Edge pro firmy](https://www.microsoft.com/edge/business/)                                            | \[Systémová_jednotka \] \Program Files (x86) \Microsoft\Edge\Application                                                                                        |
 | [AZ modules](./powershell-install-az-module.md)                         | \[Systémová_jednotka \] \ProgramFiles\WindowsPowerShell\Modules                                         |  
 | [PowerShell 7](https://devblogs.microsoft.com/powershell/announcing-PowerShell-7-0/)| \[Systémová_jednotka \] \Program Files\PowerShell\7                                                                       |
-| [Rozhraní příkazového řádku Azure (CLI)](/cli/azure/?view=azure-cli-latest) | \[Systémová_jednotka \] \Program Files (x86) \Microsoft SDKs\Azure\CLI2 |
+| [Rozhraní příkazového řádku Azure Command-Line (CLI)](/cli/azure/?view=azure-cli-latest) | \[Systémová_jednotka \] \Program Files (x86) \Microsoft SDKs\Azure\CLI2 |
 | [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)   | \[Systémová_jednotka \] \Program Files (x86) \microsoft Průzkumník služby Azure Storage                                                                       |
 | [AzCopy](/azure/storage/common/storage-use-azcopy-v10)                             | \[Systémová_jednotka \] \vmsoftware\ azcopy_windows_amd64_10.3.4                                         |
 | [AzureStack – nástroje](https://github.com/Azure/AzureStack-Tools/tree/az)                  | \[Systémová_jednotka \] \VMSoftware\AzureStack-Tools                                                    |

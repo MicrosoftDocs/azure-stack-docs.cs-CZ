@@ -166,6 +166,8 @@
       href: /java/api/com.microsoft.azure.management.azurestackhci.v2020_10_01
     - name: Balíček python služby pro správu Azure Stack HCI
       href: /python/api/azure-mgmt-azurestackhci/azure.mgmt.azurestackhci?view=azure-python
+    - name: Azure Stack balíček HCI JavaScriptu
+      href: /javascript/api/overview/azure/azurestack/stackhci?view=azure-node-latest
     - name: Příkazy prostředí PowerShell technologie Hyper-V
       href: /powershell/module/hyper-v
     - name: Příkazy prostředí PowerShell pro úložiště
