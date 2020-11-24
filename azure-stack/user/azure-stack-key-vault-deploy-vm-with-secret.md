@@ -3,16 +3,16 @@ title: Nasazení virtuálního počítače centra Azure Stack pomocí hesla ulo�
 description: Naučte se, jak nasadit virtuální počítač pomocí hesla uloženého v trezoru klíčů centra Azure Stack.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 5/27/2020
+ms.date: 11/20/2020
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 1232a3ea585cbab53daf905ad0f4707f6df156c8
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/20/2020
+ms.openlocfilehash: 963a4d7bc6cd61ae724e4f087861e19d918fea7d
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546442"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518173"
 ---
 # <a name="deploy-an-azure-stack-hub-vm-using-a-password-stored-in-key-vault"></a>Nasazení virtuálního počítače centra Azure Stack pomocí hesla uloženého v Key Vault
 
@@ -25,7 +25,7 @@ Do trezoru klíčů centra Azure Stack můžete ukládat hodnoty, jako je např�
 * Při každém nasazení prostředku není nutné zadávat tajný klíč ručně.
 * Můžete určit, kteří uživatelé nebo instanční objekty budou mít přístup ke tajnému kódu.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 * Musíte se přihlásit k odběru nabídky, která zahrnuje službu Key Vault.
 * [Nainstalujte PowerShell pro centrum Azure Stack.](../operator/powershell-install-az-module.md)
@@ -35,7 +35,7 @@ Následující kroky popisují proces potřebný k vytvoření virtuálního po�
 
 1. Vytvořte Key Vault tajný klíč.
 2. Aktualizujte `azuredeploy.parameters.json` soubor.
-3. Nasaďte šablonu.
+3. Nasazení šablony
 
 > [!NOTE]  
 > Pomocí těchto kroků můžete z Azure Stack Development Kit (ASDK) nebo z externího klienta, pokud jste připojení prostřednictvím sítě VPN.
@@ -43,6 +43,8 @@ Následující kroky popisují proces potřebný k vytvoření virtuálního po�
 ## <a name="create-a-key-vault-secret"></a>Vytvoření tajného klíče Key Vault
 
 Následující skript vytvoří Trezor klíčů a uloží heslo do trezoru klíčů jako tajný kód. `-EnabledForDeployment`Při vytváření trezoru klíčů použijte parametr. Tento parametr zajišťuje, že se Trezor klíčů může odkazovat z Azure Resource Manager šablon.
+
+### <a name="az-modules"></a>[AZ modules](#tab/az1)
 
 ```powershell
 
@@ -69,6 +71,35 @@ Set-AzureKeyVaultSecret `
   -SecretValue $secretValue
 
 ```
+
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm1)
+
+```powershell
+
+$vaultName = "contosovault"
+$resourceGroup = "contosovaultrg"
+$location = "local"
+$secretName = "MySecret"
+
+New-AzureRMResourceGroup `
+  -Name $resourceGroup `
+  -Location $location
+
+New-AzureRMKeyVault `
+  -VaultName $vaultName `
+  -ResourceGroupName $resourceGroup `
+  -Location $location
+  -EnabledForTemplateDeployment
+
+$secretValue = ConvertTo-SecureString -String '<Password for your virtual machine>' -AsPlainText -Force
+
+Set-AzureKeyVaultSecret `
+  -VaultName $vaultName `
+  -Name $secretName `
+  -SecretValue $secretValue
+
+```
+---
 
 Po spuštění předchozího skriptu obsahuje výstup identifikátor URI tajného kódu (Uniform Resource Identifier). Poznamenejte si tento identifikátor URI. Je nutné, abyste na něj odkazovali v rámci [nasazení virtuálního počítače s Windows pomocí hesla v šabloně trezoru klíčů](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) . Stáhněte složku [101-VM-Secure-Password](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) do vývojového počítače. Tato složka obsahuje `azuredeploy.json` soubory a `azuredeploy.parameters.json` , které budete potřebovat v dalších krocích.
 
@@ -109,6 +140,8 @@ Aktualizujte `azuredeploy.parameters.json` soubor pomocí identifikátoru URI tr
 
 Nyní šablonu nasaďte pomocí následujícího skriptu prostředí PowerShell:
 
+### <a name="az-modules"></a>[AZ modules](#tab/az2)
+
 ```powershell  
 New-AzResourceGroupDeployment `
   -Name KVPwdDeployment `
@@ -116,6 +149,18 @@ New-AzResourceGroupDeployment `
   -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm2)
+
+```powershell  
+New-AzureRMResourceGroupDeployment `
+  -Name KVPwdDeployment `
+  -ResourceGroupName $resourceGroup `
+  -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
+  -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
+```
+
+---
+
 
 Po úspěšném nasazení šablony dojde k následujícímu výstupu:
 

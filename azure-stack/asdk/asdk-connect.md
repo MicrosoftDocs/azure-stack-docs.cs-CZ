@@ -3,16 +3,16 @@ title: Připojení k ASDK
 description: Přečtěte si, jak se připojit k Azure Stack Development Kit (ASDK).
 author: justinha
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 11/14/2020
 ms.author: justinha
 ms.reviewer: knithinc
-ms.lastreviewed: 10/25/2019
-ms.openlocfilehash: a5250e18ab253a6c1a2b184ba1f261b5837bc879
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/14/2020
+ms.openlocfilehash: 7970bf0f4e90792f9fe28534eab1bfa53ce7f39b
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543473"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517476"
 ---
 # <a name="connect-to-the-asdk"></a>Připojení k ASDK
 
@@ -31,7 +31,7 @@ Jeden souběžný uživatel může spravovat prostředky na portálu pro správu
 
 1. Otevřete Připojení ke vzdálené ploše (mstc.exe) a připojte se k IP adrese hostitelského počítače ASDK. Ujistěte se, že používáte účet autorizovaný pro vzdálené přihlášení k hostitelskému počítači ASDK. Ve výchozím nastavení má **AzureStack\AzureStackAdmin** oprávnění ke vzdálenému přístupu k hostitelskému počítači ASDK.  
 
-2. Na hostitelském počítači ASDK otevřete Správce serveru (ServerManager.exe). Vyberte **místní server** , vypněte **konfiguraci rozšířeného zabezpečení aplikace Internet explorer** a zavřete Správce serveru.
+2. Na hostitelském počítači ASDK otevřete Správce serveru (ServerManager.exe). Vyberte **místní server**, vypněte **konfiguraci rozšířeného zabezpečení aplikace Internet explorer** a zavřete Správce serveru.
 
 3. Přihlaste se k portálu pro správu jako **AzureStack\CloudAdmin** nebo použijte jiné přihlašovací údaje operátora Azure Stack. Adresa portálu správce ASDK je `https://adminportal.local.azurestack.external` .
 
@@ -50,7 +50,7 @@ Připojení VPN se podporuje pro nasazení Azure AD i Active Directory Federatio
 > [!NOTE]
 > *Připojení VPN neposkytuje připojení k* Azure Stack virtuálním počítačům. Při připojení přes VPN nebudete moct do Azure Stack virtuálních počítačů připojit protokol RDP.
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 Před nastavením připojení VPN k ASDK se ujistěte, že jste splnili následující požadavky:
 
 - Instalace [Azure PowerShell kompatibilního s Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) na místním počítači.  
@@ -58,7 +58,9 @@ Před nastavením připojení VPN k ASDK se ujistěte, že jste splnili následu
 
 ### <a name="set-up-vpn-connectivity"></a>Nastavení možností připojení sítě VPN
 
-Pokud chcete vytvořit připojení VPN k ASDK, otevřete PowerShell jako správce na místním počítači se systémem Windows. Pak spusťte následující skript (aktualizujte hodnoty IP adresy a hesla pro vaše prostředí):
+Pokud chcete vytvořit připojení VPN k ASDK, otevřete PowerShell jako správce na místním počítači se systémem Windows. Pak spusťte následující skript (aktualizujte hodnoty IP adresy a hesla pro vaše prostředí).
+
+### <a name="az-modules"></a>[AZ modules](#tab/az)
 
 ```powershell
 # Change directories to the default Azure Stack tools directory
@@ -74,7 +76,7 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 
 # Add the ASDK host computer's IP address as the ASDK certificate authority (CA) to the list of trusted hosts. Make sure you update the IP address and password values for your environment.
 
-$hostIP = "<Azure Stack host IP address>"
+$hostIP = "<Azure Stack Hub host IP address>"
 
 $Password = ConvertTo-SecureString `
   "<operator's password provided when deploying Azure Stack>" `
@@ -92,6 +94,40 @@ Add-AzsVpnConnection `
 
 ```
 
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm)
+
+```powershell
+# Change directories to the default Azure Stack tools directory
+cd C:\AzureStack-Tools-master
+
+# Configure Windows Remote Management (WinRM), if it's not already configured.
+winrm quickconfig  
+
+Set-ExecutionPolicy RemoteSigned
+
+# Import the Connect module.
+Import-Module .\Connect\AzureStack.Connect.psm1
+
+# Add the ASDK host computer's IP address as the ASDK certificate authority (CA) to the list of trusted hosts. Make sure you update the IP address and password values for your environment.
+
+$hostIP = "<Azure Stack Hub host IP address>"
+
+$Password = ConvertTo-SecureString `
+  "<operator's password provided when deploying Azure Stack>" `
+  -AsPlainText `
+  -Force
+
+Set-Item wsman:\localhost\Client\TrustedHosts `
+  -Value $hostIP `
+  -Concatenate
+
+# Create a VPN connection entry for the local user.
+Add-AzsVpnConnection `
+  -ServerAddress $hostIP `
+  -Password $Password
+
+```
+---
 Pokud je instalace úspěšná, **Azure Stack** se zobrazí v seznamu připojení VPN:
 
 ![Síťová připojení](media/asdk-connect/vpn.png)  
@@ -107,7 +143,7 @@ Pokud je instalace úspěšná, **Azure Stack** se zobrazí v seznamu připojen�
       -Password $Password
     ```
 
-  * V místním počítači vyberte **nastavení sítě**  >  **VPN**  >  **Azure Stack**  >  **připojit**. Do příkazového řádku pro přihlášení zadejte uživatelské jméno ( **AzureStack\AzureStackAdmin** ) a heslo.
+  * V místním počítači vyberte **nastavení sítě**  >  **VPN**  >  **Azure Stack**  >  **připojit**. Do příkazového řádku pro přihlášení zadejte uživatelské jméno (**AzureStack\AzureStackAdmin**) a heslo.
 
 Při prvním připojení budete vyzváni k instalaci Azure Stack kořenového certifikátu z **AzureStackCertificateAuthority** do úložiště certifikátů v místním počítači. Tento krok přidá ASDK certifikační autoritu (CA) do seznamu důvěryhodných hostitelů. Certifikát nainstalujete kliknutím na **Ano** .
 

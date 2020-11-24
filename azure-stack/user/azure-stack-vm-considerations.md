@@ -3,16 +3,16 @@ title: Funkce virtuálního počítače centra Azure Stack
 description: Přečtěte si o různých funkcích a ohledech při práci s virtuálními počítači v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 11/22/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 2fbdc058781b4aefbcf4a289e907bcbb4b63f301
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 6006d8f715a9a680301dfe64f7c02075ab9052ab
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546986"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518275"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Funkce virtuálního počítače centra Azure Stack
 
@@ -20,7 +20,7 @@ Virtuální počítače centra Azure Stack poskytují škálovatelné výpočetn
 
 ## <a name="vm-differences"></a>Rozdíly virtuálních počítačů
 
-| Příznak | Azure (Global) | Azure Stack Hub |
+| Funkce | Azure (Global) | Azure Stack Hub |
 | --- | --- | --- |
 | Image virtuálních počítačů | Azure Marketplace obsahuje obrázky, které můžete použít k vytvoření virtuálního počítače. Pokud chcete zobrazit seznam imagí, které jsou k dispozici v Azure Marketplace, zobrazte stránku [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) . | Ve výchozím nastavení nejsou k dispozici žádné image v tržišti Azure Stack hub. Aby ho uživatelé mohli používat, musí správce cloudu Azure Stack publikovat nebo stahovat image na webu Centrum Azure Stack. |
 | Generování VHD | Generace dvou virtuálních počítačů podporuje klíčové funkce, které nejsou podporované v generaci jednoho virtuálního počítače. Mezi tyto funkce patří zvýšené množství paměti, rozšíření Intel software Guard (Intel SGX) a virtualizovaná trvalá paměť (vPMEM). Generace dvou virtuálních počítačů spuštěných v místním prostředí obsahuje některé funkce, které ještě nejsou v Azure podporované. Další informace najdete v tématu [Podpora virtuálních počítačů 2. generace v Azure](/azure/virtual-machines/windows/generation-2) .  | Centrum Azure Stack podporuje jenom jednu generaci virtuálních počítačů. Generaci jednoho virtuálního počítače můžete převést z VHDX na formát souboru VHD a z dynamického rozšiřování na disk s pevnou velikostí. Nemůžete změnit generaci virtuálního počítače. Další informace najdete v tématu [Podpora pro virtuální počítače 2. generace v Azure](/azure/virtual-machines/windows/generation-2). |
@@ -72,7 +72,9 @@ Velikosti virtuálních počítačů a jejich přidružených prostředků jsou 
 
 Centrum Azure Stack zahrnuje malou sadu rozšíření. Aktualizace a další rozšíření jsou k dispozici prostřednictvím syndikace webu Marketplace.
 
-Pomocí následujícího skriptu PowerShellu Získejte seznam rozšíření virtuálních počítačů, které jsou k dispozici v prostředí Azure Stack hub:
+Pomocí následujícího skriptu PowerShellu Získejte seznam rozšíření virtuálních počítačů, které jsou k dispozici ve vašem prostředí Azure Stack hub.
+
+### <a name="az-modules"></a>[AZ modules](#tab/az1)
 
 ```powershell
 Get-AzVmImagePublisher -Location local | `
@@ -81,6 +83,16 @@ Get-AzVmImagePublisher -Location local | `
   Select Type, Version | `
   Format-Table -Property * -AutoSize
 ```
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm1)
+
+```powershell
+Get-AzureRMVmImagePublisher -Location local | `
+  Get-AzVMExtensionImageType | `
+  Get-AzVMExtensionImage | `
+  Select Type, Version | `
+  Format-Table -Property * -AutoSize
+``` 
+---
 
 Pokud zřízení rozšíření na nasazení virtuálního počítače trvá moc dlouho, nechte časový limit zřizování místo toho, abyste se pokoušeli zastavit proces navrácení nebo odstranění virtuálního počítače.
 
@@ -92,6 +104,8 @@ Funkce virtuálních počítačů v centru Azure Stack podporují následující
 
 Pomocí následujícího skriptu PowerShellu získáte verze rozhraní API pro funkce virtuálních počítačů, které jsou k dispozici ve vašem prostředí Azure Stack hub:
 
+### <a name="az-modules"></a>[AZ modules](#tab/az2)
+
 ```powershell
 Get-AzResourceProvider | `
   Select ProviderNamespace -Expand ResourceTypes | `
@@ -99,6 +113,19 @@ Get-AzResourceProvider | `
   Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `
   where-Object {$_.ProviderNamespace -like "Microsoft.compute"}
 ```
+
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm2)
+
+```powershell
+Get-AzureRMResourceProvider | `
+  Select ProviderNamespace -Expand ResourceTypes | `
+  Select * -Expand ApiVersions | `
+  Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `
+  where-Object {$_.ProviderNamespace -like "Microsoft.compute"}
+```
+
+---
+
 
 Seznam podporovaných typů prostředků a verzí rozhraní API se může lišit, pokud operátor cloudu aktualizuje vaše prostředí Azure Stack hub na novější verzi.
 

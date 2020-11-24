@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 10/10/2020
 ms.reviewer: bryanla
 ms.lastreviewed: 10/20/2020
-ms.openlocfilehash: ff18909ef7586d8099f0e01f29d53f3dbc3677f1
-ms.sourcegitcommit: 81e2d627c9dc4cc365deb4a0e0674b5ab3a7efbf
+ms.openlocfilehash: 0df920ef0c8063332a290ca5e95e1c01d755e548
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "93049761"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517548"
 ---
 Nakonec určete nejnovější vlastnosti nasazení poskytovatele prostředků a použijte je k dokončení procesu rotace tajných kódů.
 
@@ -72,24 +72,24 @@ Otevřete konzolu konzoly PowerShell se zvýšenými oprávněními a proveďte 
 
    V následujícím příkladu kolekce tajných kódů vracená pro Event Hubs RP obsahuje `"Certificate"` tajný kód s názvem `aseh-ssl-gateway-pfx` . 
 
-   ```powershell
-   PS C:\WINDOWS\system32> Get-AzsProductSecret -PackageId 'microsoft.eventhub.1.2003.0.0' -AsJson
-   VERBOSE: GET
-   https://adminmanagement.myregion.mycompany.com/subscriptions/ze22ca96-z546-zbc6-z566-z35f68799816/providers/Microsoft.Deployment.Admin/locations/global/productPackages/microsoft.eventhub.1.2003.0.0/secrets?api-version=2019-01-01 with 0-char payload
-   VERBOSE: Received 617-char response, StatusCode = OK
-   {
-       "value":  [
-                     {
-                         "id":  "/subscriptions/ze22ca96-z546-zbc6-z566-z35f68799816/providers/Microsoft.Deployment.Admin/locations/global/productPackages/microsoft.eventhub.1.2003.0.0/secrets/aseh-ssl-gateway-pfx",
-                         "name":  "global/microsoft.eventhub.1.2003.0.0/aseh-ssl-gateway-pfx",
-                         "type":  "Microsoft.Deployment.Admin/locations/productPackages/secrets",
-                         "properties":  {
+    ```powershell
+    PS C:\WINDOWS\system32> Get-AzsProductSecret -PackageId 'microsoft.eventhub.1.2003.0.0' -AsJson
+    VERBOSE: GET
+    https://adminmanagement.myregion.mycompany.com/subscriptions/ze22ca96-z546-zbc6-z566-z35f68799816/providers/Microsoft.Deployment.Admin/locations/global/productPackages/microsoft.eventhub.1.2003.0.0/secrets?api-version=2019-01-01 with 0-char payload
+    VERBOSE: Received 617-char response, StatusCode = OK
+    {
+        "value":  [
+                        {
+                            "id":  "/subscriptions/ze22ca96-z546-zbc6-z566-z35f68799816/providers/Microsoft.Deployment.Admin/locations/global/productPackages/microsoft.eventhub.1.2003.0.0/secrets/aseh-ssl-gateway-pfx",
+                            "name":  "global/microsoft.eventhub.1.2003.0.0/aseh-ssl-gateway-pfx",
+                            "type":  "Microsoft.Deployment.Admin/locations/productPackages/secrets",
+                            "properties":  {
                                             "secretKind":  "Certificate",
                                             "description":  "Event Hubs gateway SSL certificate.",
                                             "expiresAfter":  "P730D",
                                             "secretDescriptor":  {
-   
-                                                                 },
+    
+                                                                    },
                                             "secretState":  {
                                                                 "status":  "Deployed",
                                                                 "rotationStatus":  "None",
@@ -97,17 +97,17 @@ Otevřete konzolu konzoly PowerShell se zvýšenými oprávněními a proveďte 
                                                             },
                                             "provisioningState":  "Succeeded"
                                         }
-                     },
-                     ...
-                 ]
-   }
-   ```
+                        },
+                        ...
+                    ]
+    }
+    ```
 
 ### <a name="rotate-the-secrets"></a>Otočení tajných kódů
 
 1. Pomocí `Set-AzsProductSecret` rutiny importujte nový certifikát do Key Vault, který bude používán procesem rotace. Nahraďte zástupné hodnoty proměnných odpovídajícím způsobem před spuštěním skriptu:
 
-   | Zástupný symbol | Description | Příklad hodnoty |
+   | Zástupný symbol | Popis | Příklad hodnoty |
    | ----------- | ----------- | --------------|
    | `<product-id>` | ID produktu nejnovějšího nasazení poskytovatele prostředků. | `microsoft.eventhub` |
    | `<installed-version>` | Verze nejnovějšího nasazení poskytovatele prostředků. | `1.2003.0.0` |

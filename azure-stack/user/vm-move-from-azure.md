@@ -7,12 +7,12 @@ ms.date: 9/8/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: c8c68a64f7a05e03c70e138cb4d8c95da7417ec9
-ms.sourcegitcommit: 3e225b30a54159b6b8dbeb2f843a2e5a721b746e
+ms.openlocfilehash: cefc127efcdac2d1610803ef90b54c50e7280e97
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91519407"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95516932"
 ---
 # <a name="move-a-vm-from-azure-to-azure-stack-hub"></a>Přesunutí virtuálního počítače z Azure do centra Azure Stack
 
@@ -33,7 +33,15 @@ Najděte si část, která je specifická pro vaše potřeby při přípravě vi
 ::: moniker range="<=azs-1910"
 - Postupujte podle pokynů v části [stažení virtuálního pevného disku s Windows z Azure](/azure/virtual-machines/windows/download-vhd) pro správnou generalizaci a stažení virtuálního pevného disku před jeho přesunutím do centra Azure Stack.
 - Při zřizování virtuálního počítače v Azure použijte PowerShell. Připravte ho bez `-ProvisionVMAgent` příznaku.
-- Před zobecněním virtuálního počítače v Azure odeberte všechna rozšíření virtuálních počítačů pomocí rutiny **Remove-AzureRmVMExtension** z virtuálního počítače. Rozšíření virtuálních počítačů, která se instalují, můžete zjistit tak, že na `Windows (C:) > WindowsAzure > Logs > Plugins` .
+- Před zobecněním virtuálního počítače v Azure odeberte všechna rozšíření virtuálních počítačů pomocí rutiny z virtuálního počítače. Rozšíření virtuálních počítačů, která se instalují, můžete zjistit tak, že na `Windows (C:) > WindowsAzure > Logs > Plugins` .
+
+Použijte modul AZ PowerShell:
+
+```powershell  
+Remove-AzVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "CustomScriptExtension"
+```
+
+Použijte modul prostředí PowerShell pro AzureRM:
 
 ```powershell  
 Remove-AzureRmVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "CustomScriptExtension"

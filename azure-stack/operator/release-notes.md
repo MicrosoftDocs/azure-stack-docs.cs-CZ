@@ -3,16 +3,16 @@ title: Poznámky k verzi centra Azure Stack
 description: Poznámky k verzi pro integrované systémy Azure Stack hub, včetně aktualizací a oprav chyb.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/18/2020
+ms.date: 11/20/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 945dd42d0ed4b78f5572abbd679eb8fda7b12d96
-ms.sourcegitcommit: 6db48bd8e6ccfaaa897713ad7eb2846a8d506358
+ms.openlocfilehash: 861dbb6a665664619bd06cd15d1e1b7fe86a9e8e
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94885797"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518360"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -130,7 +130,8 @@ Opravy hotfix centra Azure Stack se vztahují pouze na integrované systémy Azu
 ### <a name="hotfix-prerequisites-before-applying-the-2008-update"></a>Požadavky na opravu hotfix: před instalací aktualizace 2008
 
 Verze 2008 centra Azure Stack se musí použít ve verzi 2005 s následujícími opravami hotfix:
-- [1.2005.21.84 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4592779)
+
+- [1.2005.23.88 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4595068)
 
 ### <a name="after-successfully-applying-the-2008-update"></a>Po úspěšné instalaci aktualizace 2008
 
@@ -138,7 +139,7 @@ Při aktualizaci na novou hlavní verzi (například 1.2005. x na 1.2008. x) se 
 
 Pokud se následně uvolní nějaké opravy hotfix 2008, měli byste po instalaci 2008 nainstalovat tyto opravy:
 
-- Není dostupná žádná oprava hotfix centra Azure Stack pro 2008.
+- [1.2008.15.92 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4595069)
 ::: moniker-end
 
 ::: moniker range="azs-2005"
@@ -238,7 +239,7 @@ Od verze 2005 se při aktualizaci na novou hlavní verzi (například 1.2002. x 
 
 Pokud se následně uvolní nějaké opravy hotfix 2005, měli byste po instalaci 2005 nainstalovat tyto opravy:
 
-- [1.2005.21.84 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4592779)
+- [1.2005.23.88 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4595068)
 ::: moniker-end
 
 ::: moniker range="azs-2002"

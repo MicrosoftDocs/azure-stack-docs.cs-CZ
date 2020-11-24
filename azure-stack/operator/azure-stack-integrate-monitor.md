@@ -3,16 +3,16 @@ title: Integrace řešení pro externí monitorování pomocí centra Azure Stac
 description: Naučte se integrovat Azure Stack hub s externím řešením monitorování ve vašem datovém centru.
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 04/10/2020
+ms.date: 11/18/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
-ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 10af23001cd3b7e12aa080a2dbecc136be0acfc8
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/18/2020
+ms.openlocfilehash: 28da3cf886219eab10fff32d24b62cb7db101cb5
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543591"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517697"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>Integrace řešení pro externí monitorování pomocí centra Azure Stack
 
@@ -67,7 +67,7 @@ Modul plug-in Nagios monitoring byl vyvinut společně s partnerskými řešení
 
 Modul plug-in je napsaný v Pythonu a využívá poskytovatele prostředků stavu REST API. Nabízí základní funkce pro načítání a zavírání výstrah v Azure Stackovém centru. Podobně jako v rámci nástroje System Center Management Pack umožňuje přidat více nasazení centra Azure Stack a odesílat oznámení.
 
-S verzí 1,2 Azure Stack hub – modul plug-in Nagios využívá knihovnu Microsoft ADAL Library a podporuje ověřování pomocí instančního objektu s tajným kódem nebo certifikátem. Konfigurace byla také zjednodušená pomocí jednoho konfiguračního souboru s novými parametry. Teď podporuje Azure Stack nasazení centra pomocí Azure AD a AD FS jako systém identit.
+S verzí 1,2 modul plug-in Azure Stack hub-Nagios využívá knihovnu Microsoft ADAL Library a podporuje ověřování pomocí instančního objektu s tajným kódem nebo certifikátem. Konfigurace byla také zjednodušená pomocí jednoho konfiguračního souboru s novými parametry. Teď podporuje Azure Stack nasazení centra pomocí Azure AD a AD FS jako systém identit.
 
 > [!IMPORTANT]
 > AD FS podporuje pouze interaktivní přihlašovací relace. Pokud vyžadujete neinteraktivní přihlášení k automatizovanému scénáři, je nutné použít hlavní název služby (SPN).
@@ -117,7 +117,7 @@ Následující parametry jsou k dispozici pro konfiguraci v souboru azurestack. 
 
 Další informace o tom, jak vytvořit hlavní název služby (SPN), najdete v tématu [použití identity aplikace pro přístup k prostředkům](azure-stack-create-service-principals.md).
 
-| Parametr | Popis | Ověřování |
+| Parametr | Popis | Authentication |
 | --- | --- | --- |
 | **External_domain_fqdn** | Plně kvalifikovaný název domény externí domény |    |
 | **věřitel** | Název oblasti |    |
@@ -151,7 +151,7 @@ Ostatní konfigurační soubory obsahují volitelná nastavení konfigurace, kte
 
 ### <a name="update-nagios-configuration"></a>Aktualizovat konfiguraci Nagios
 
-Konfigurace Nagios se musí aktualizovat, aby se zajistilo, že se načte modul plug-in centra Azure Stack – Nagios.
+Konfigurace Nagios se musí aktualizovat, aby se zajistilo, že se načte modul plug-in centra Azure Stack Nagios.
 
 1. Otevřete následující soubor:
 
@@ -201,6 +201,8 @@ Výstrahu můžete také uzavřít pomocí terminálu s následujícím příkaz
 
 Pokud nepoužíváte Operations Manager, Nagios nebo řešení založené na Nagios, můžete pomocí PowerShellu povolit širokou škálu řešení monitorování pro integraci se službou Azure Stack hub.
 
+### <a name="az-modules"></a>[AZ modules](#tab/az)
+
 1. Pokud chcete používat PowerShell, ujistěte se, že máte [nainstalovaný PowerShell a nakonfigurovat](powershell-install-az-module.md) ho pro prostředí operátora centra Azure Stack. Nainstalujte PowerShell do místního počítače, který se může připojit ke koncovému bodu Správce prostředků (správce) ( https://adminmanagement . [ oblast]. [External_FQDN]).
 
 2. Spusťte následující příkazy, které se připojí k prostředí Azure Stack hub jako operátor centra Azure Stack:
@@ -214,26 +216,66 @@ Pokud nepoužíváte Operations Manager, Nagios nebo řešení založené na Nag
    ```
 
 3. Pro práci s výstrahami použijte příkazy, jako jsou následující příklady:
+
+```powershell
+# Retrieve all alerts
+$Alerts = Get-AzsAlert
+$Alerts
+
+# Filter for active alerts
+$Active = $Alerts | Where-Object { $_.State -eq "active" }
+$Active
+
+# Close alert
+Close-AzsAlert -AlertID "ID"
+
+#Retrieve resource provider health
+$RPHealth = Get-AzsRPHealth
+$RPHealth
+
+# Retrieve infrastructure role instance health
+$FRPID = $RPHealth | Where-Object { $_.DisplayName -eq "Capacity" }
+   Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
+```
+
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm)
+
+1. Pokud chcete používat PowerShell, ujistěte se, že máte [nainstalovaný PowerShell a nakonfigurovat](powershell-install-az-module.md) ho pro prostředí operátora centra Azure Stack. Nainstalujte PowerShell do místního počítače, který se může připojit ke koncovému bodu Správce prostředků (správce) ( https://adminmanagement . [ oblast]. [External_FQDN]).
+
+2. Spusťte následující příkazy, které se připojí k prostředí Azure Stack hub jako operátor centra Azure Stack:
+
    ```powershell
-    # Retrieve all alerts
-    $Alerts = Get-AzsAlert
-    $Alerts
+   Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN] `
+      -AzureKeyVaultDnsSuffix adminvault.[Region].[External_FQDN] `
+      -AzureKeyVaultServiceEndpointResourceId https://adminvault.[Region].[External_FQDN]
 
-    # Filter for active alerts
-    $Active = $Alerts | Where-Object { $_.State -eq "active" }
-    $Active
+   Connect-AzureRMAccount -EnvironmentName "AzureStackAdmin"
+   ```
 
-    # Close alert
-    Close-AzsAlert -AlertID "ID"
+3. Pro práci s výstrahami použijte příkazy, jako jsou následující příklady:
 
-    #Retrieve resource provider health
-    $RPHealth = Get-AzsRPHealth
-    $RPHealth
+```powershell
+# Retrieve all alerts
+$Alerts = Get-AzsAlert
+$Alerts
 
-    # Retrieve infrastructure role instance health
-    $FRPID = $RPHealth | Where-Object { $_.DisplayName -eq "Capacity" }
-    Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
-    ```
+# Filter for active alerts
+$Active = $Alerts | Where-Object { $_.State -eq "active" }
+$Active
+
+# Close alert
+Close-AzsAlert -AlertID "ID"
+
+#Retrieve resource provider health
+$RPHealth = Get-AzsRPHealth
+$RPHealth
+
+# Retrieve infrastructure role instance health
+$FRPID = $RPHealth | Where-Object { $_.DisplayName -eq "Capacity" }
+Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
+```
+
+---
 
 ## <a name="learn-more"></a>Další informace
 

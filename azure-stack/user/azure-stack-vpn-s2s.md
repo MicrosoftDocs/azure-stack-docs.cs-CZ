@@ -4,15 +4,15 @@ description: Přečtěte si další informace o a konfiguraci zásad IPsec/IKE p
 author: sethmanheim
 ms.custom: contperfq4
 ms.topic: article
-ms.date: 05/21/2020
+ms.date: 11/22/2020
 ms.author: sethm
-ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 071f8285d4a9f989f295b4d87e3203250763760f
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: cb835bba8bc35029fa7f0462cb68bb4e961e985c
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546816"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518241"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Konfigurace zásad IPsec/IKE pro připojení site-to-site VPN
 
@@ -27,7 +27,7 @@ Protokol IPsec a IKE standard podporuje široké spektrum kryptografických algo
 
 Tento článek poskytuje pokyny, jak vytvořit a nakonfigurovat zásadu IPsec/IKE a použít ji pro nové nebo existující připojení.
 
-## <a name="considerations"></a>Co je potřeba vzít v úvahu
+## <a name="considerations"></a>Požadavky
 
 Při používání těchto zásad Vezměte v vědomí následující důležité informace:
 
@@ -39,7 +39,7 @@ Při používání těchto zásad Vezměte v vědomí následující důležité
 
 - Pokud chcete zajistit, aby se zásady na místních zařízeních VPN podporovaly, kontaktujte specifikace dodavatele zařízení VPN. Připojení Site-to-site nelze navázat, pokud jsou zásady nekompatibilní.
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 
 Než začnete, ujistěte se, že máte následující požadavky:
 
@@ -162,15 +162,30 @@ Ujistěte se, že jste přešli do režimu prostředí PowerShell, aby bylo mož
 
 Otevřete konzolu PowerShellu a připojte se ke svému účtu. například:
 
+### <a name="az-modules"></a>[AZ modules](#tab/az1)
+
 ```powershell
 Connect-AzAccount
 Select-AzSubscription -SubscriptionName $Sub1
 New-AzResourceGroup -Name $RG1 -Location $Location1
 ```
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm1)
+
+```powershell
+Connect-AzureRMAccount
+Select-AzureRMSubscription -SubscriptionName $Sub1
+New-AzureRMResourceGroup -Name $RG1 -Location $Location1
+```
+
+---
+
+
 
 #### <a name="3-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>3. Vytvořte virtuální síť, bránu VPN a bránu místní sítě.
 
 Následující příklad vytvoří virtuální síť, **virtuální sítě testvnet1** spolu se třemi podsítěmi a bránou VPN. Při nahrazování hodnot je důležité specificky pojmenovat podsíť brány **GatewaySubnet**. Pokud použijete jiný název, vytvoření brány se nezdaří.
+
+### <a name="az-modules"></a>[AZ modules](#tab/az2)
 
 ```powershell
 $fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
@@ -198,6 +213,37 @@ New-AzLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 `
 $LNGPrefix61,$LNGPrefix62
 ```
 
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm2)
+
+```powershell
+$fesub1 = New-AzureRMVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
+$besub1 = New-AzureRMVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
+$gwsub1 = New-AzureRMVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1
+
+New-AzureRMVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1 -Location $Location1 -AddressPrefix $VNetPrefix11,$VNetPrefix12 -Subnet $fesub1,$besub1,$gwsub1
+
+$gw1pip1 = New-AzureRMPublicIpAddress -Name $GW1IPName1 -ResourceGroupName $RG1 -Location $Location1 -AllocationMethod Dynamic
+
+$vnet1 = Get-AzureRMVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
+
+$subnet1 = Get-AzureRMVirtualNetworkSubnetConfig -Name "GatewaySubnet" `
+-VirtualNetwork $vnet1
+
+$gw1ipconf1 = New-AzureRMVirtualNetworkGatewayIpConfig -Name $GW1IPconf1 `
+-Subnet $subnet1 -PublicIpAddress $gw1pip1
+
+New-AzureRMVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
+-Location $Location1 -IpConfigurations $gw1ipconf1 -GatewayType Vpn `
+-VpnType RouteBased -GatewaySku VpnGw1
+
+New-AzureRMLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 `
+-Location $Location1 -GatewayIpAddress $LNGIP6 -AddressPrefix `
+$LNGPrefix61,$LNGPrefix62
+```
+---
+
+
+
 ### <a name="step-2---create-a-site-to-site-vpn-connection-with-an-ipsecike-policy"></a>Krok 2 – Vytvoření připojení VPN typu Site-to-site pomocí zásad IPsec/IKE
 
 #### <a name="1-create-an-ipsecike-policy"></a>1. vytvoření zásady IPsec/IKE
@@ -207,9 +253,19 @@ Tento ukázkový skript vytvoří zásadu IPsec/IKE s následujícími algoritmy
 - IKEv2: AES128, SHA1, DHGroup14
 - IPsec: AES256, SHA256, None, životnost SA 14400 sekund a 102400000KB
 
+### <a name="az-modules"></a>[AZ modules](#tab/az3)
 ```powershell
 $ipsecpolicy6 = New-AzIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup none -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 ```
+
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm3)
+
+```powershell
+$ipsecpolicy6 = New-AzureRMIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup none -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
+```
+---
+
+
 
 Pokud pro protokol IPsec používáte GCMAES, musíte použít stejný algoritmus GCMAES a délku klíče pro šifrování a integritu protokolu IPsec.
 
@@ -217,12 +273,25 @@ Pokud pro protokol IPsec používáte GCMAES, musíte použít stejný algoritmu
 
 Vytvořte připojení VPN typu Site-to-site a použijte zásady IPsec/IKE, které jste vytvořili dříve:
 
+### <a name="az-modules"></a>[AZ modules](#tab/az4)
+
 ```powershell
 $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
 $lng6 = Get-AzLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1
 
 New-AzVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng6 -Location $Location1 -ConnectionType IPsec -IpsecPolicies $ipsecpolicy6 -SharedKey 'Azs123'
 ```
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm4)
+
+```powershell
+$vnet1gw = Get-AzureRMVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
+$lng6 = Get-AzureRMLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1
+
+New-AzureRMVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1 -VirtualNetworkGateway1 $vnet1gw -LocalNetworkGateway2 $lng6 -Location $Location1 -ConnectionType IPsec -IpsecPolicies $ipsecpolicy6 -SharedKey 'Azs123'
+```
+---
+
+
 
 > [!IMPORTANT]
 > Jakmile se v připojení zadá zásada IPsec/IKE, brána Azure VPN Gateway jenom pošle nebo přijme návrh IPsec/IKE se zadanými kryptografickými algoritmy a silnými klíči v tomto konkrétním připojení. Ujistěte se, že vaše místní zařízení VPN pro připojení používá nebo přijímá přesnou kombinaci zásad, jinak nelze vytvořit tunel VPN typu Site-to-site.
@@ -240,7 +309,9 @@ Předchozí část ukázala, jak spravovat zásady protokolu IPsec/IKE pro exist
 
 ### <a name="1-show-the-ipsecike-policy-of-a-connection"></a>1. zobrazení zásad IPsec/IKE připojení
 
-Následující příklad ukazuje, jak získat zásadu IPsec/IKE nakonfigurovanou pro připojení. Skripty také pokračují v předchozích cvičeních:
+Následující příklad ukazuje, jak získat zásadu IPsec/IKE nakonfigurovanou pro připojení. Skripty také pokračují v předchozích cvičeních.
+
+### <a name="az-modules"></a>[AZ modules](#tab/az5)
 
 ```powershell
 $RG1 = "TestPolicyRG1"
@@ -261,12 +332,39 @@ IkeIntegrity : SHA1
 DhGroup : DHGroup14
 PfsGroup : None
 ```
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm5)
+
+```powershell
+$RG1 = "TestPolicyRG1"
+$Connection16 = "VNet1toSite6"
+$connection6 = Get-AzureRMVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
+$connection6.IpsecPolicies
+```
+
+Poslední příkaz vypíše aktuální zásadu IPsec/IKE nakonfigurovanou v připojení, pokud existuje. V následujícím příkladu je ukázkový výstup pro připojení:
+
+```shell
+SALifeTimeSeconds : 14400
+SADataSizeKilobytes : 102400000
+IpsecEncryption : AES256
+IpsecIntegrity : SHA256
+IkeEncryption : AES128
+IkeIntegrity : SHA1
+DhGroup : DHGroup14
+PfsGroup : None
+```
+
+---
+
+
 
 Pokud nejsou nakonfigurované žádné zásady IPsec/IKE, příkaz vrátí `$connection6.policy` prázdnou hodnotu Return. Neznamená to, že protokol IPsec/IKE není pro připojení nakonfigurovaný. znamená to, že nejsou k dispozici žádné vlastní zásady IPsec/IKE. Skutečné připojení používá výchozí zásady sjednané mezi místním zařízením VPN a službou Azure VPN Gateway.
 
 ### <a name="2-add-or-update-an-ipsecike-policy-for-a-connection"></a>2. Přidání nebo aktualizace zásad IPsec/IKE pro připojení
 
 Postup přidání nové zásady nebo aktualizace existující zásady u připojení je stejný: Vytvořte novou zásadu a pak použijte novou zásadu pro připojení:
+
+### <a name="az-modules"></a>[AZ modules](#tab/az8)
 
 ```powershell
 $RG1 = "TestPolicyRG1"
@@ -279,8 +377,26 @@ $connection6.SharedKey = "AzS123"
 
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -IpsecPolicies $newpolicy6
 ```
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm8)
+
+```powershell
+$RG1 = "TestPolicyRG1"
+$Connection16 = "VNet1toSite6"
+$connection6 = Get-AzureRMVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
+
+$newpolicy6 = New-AzureRMIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
+
+$connection6.SharedKey = "AzS123"
+
+Set-AzureRMVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6 -IpsecPolicies $newpolicy6
+```
+---
+
+
 
 Připojení můžete znovu získat a ověřit, jestli se zásada aktualizovala:
+
+### <a name="az-modules"></a>[AZ modules](#tab/az6)
 
 ```powershell
 $connection6 = Get-AzVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
@@ -299,10 +415,34 @@ IkeIntegrity : SHA1
 DhGroup : DHGroup14
 PfsGroup : None
 ```
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm6)
+
+```powershell
+$connection6 = Get-AzureRMVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
+$connection6.IpsecPolicies
+```
+
+Měl by se zobrazit výstup z posledního řádku, jak je znázorněno v následujícím příkladu:
+
+```shell
+SALifeTimeSeconds : 14400
+SADataSizeKilobytes : 102400000
+IpsecEncryption : AES256
+IpsecIntegrity : SHA256
+IkeEncryption : AES128
+IkeIntegrity : SHA1
+DhGroup : DHGroup14
+PfsGroup : None
+```
+---
+
+
 
 ### <a name="3-remove-an-ipsecike-policy-from-a-connection"></a>3. odebrání zásad IPsec/IKE z připojení
 
 Když z připojení odeberete vlastní zásady, brána Azure VPN Gateway se vrátí k [výchozímu návrhu protokolu IPSec/IKE](azure-stack-vpn-gateway-settings.md#ipsecike-parameters)a znovu vyjedná s vaším místním zařízením VPN.
+
+### <a name="az-modules"></a>[AZ modules](#tab/az7)
 
 ```powershell
 $RG1 = "TestPolicyRG1"
@@ -314,6 +454,21 @@ $connection6.IpsecPolicies.Remove($currentpolicy)
 
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6
 ```
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm7)
+
+```powershell
+$RG1 = "TestPolicyRG1"
+$Connection16 = "VNet1toSite6"
+$connection6 = Get-AzureRMVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
+$connection6.SharedKey = "AzS123"
+$currentpolicy = $connection6.IpsecPolicies[0]
+$connection6.IpsecPolicies.Remove($currentpolicy)
+
+Set-AzureRMVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6
+```
+---
+
+
 
 Stejný skript můžete použít ke kontrole, zda byla zásada odebrána z připojení.
 

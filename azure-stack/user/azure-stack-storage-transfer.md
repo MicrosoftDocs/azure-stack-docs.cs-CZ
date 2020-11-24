@@ -3,16 +3,16 @@ title: Použití nástrojů pro přenos dat v Azure Stack centrum úložiště
 description: Přečtěte si o nástrojích pro přenos dat úložiště Azure Stack hub.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 11/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 55041cb4072fc0156a4b3769eede40a21b1aed3c
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: d35ee0999dfa25e5cee12ff3df3c91b945733430
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546544"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518020"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-hub-storage"></a>Použití nástrojů pro přenos dat v Azure Stack centrum úložiště
 
@@ -69,7 +69,7 @@ Pokud chcete nakonfigurovat verzi rozhraní API pro AzCopy tak, aby podporovala 
 
 V AzCopy 10,1 jsou podporovány následující funkce centra Azure Stack:
 
-| Příznak | Podporované akce |
+| Funkce | Podporované akce |
 | --- | --- |
 |Spravovat kontejner|Vytvoření kontejneru<br>Vypsat obsah kontejnerů
 |Spravovat úlohu|Zobrazit úlohy<br>Pokračování úlohy
@@ -114,6 +114,7 @@ Azure PowerShell je modul, který poskytuje rutiny pro správu služeb v centru 
 Pro práci s centrem Azure Stack se vyžadují Azure PowerShell moduly Azure Stack kompatibilního centra. Další informace najdete v tématu [instalace PowerShellu pro centrum Azure Stack](../operator/powershell-install-az-module.md) a [Konfigurace prostředí powershellu pro Azure Stack uživatele centra](azure-stack-powershell-configure-user.md).
 
 ### <a name="powershell-sample-script-for-azure-stack-hub"></a>Ukázkový skript PowerShellu pro Azure Stack hub 
+### <a name="az-modules"></a>[AZ modules](#tab/az1)
 
 Tato ukázka předpokládá, že jste úspěšně [nainstalovali PowerShell pro Azure Stack hub](../operator/powershell-install-az-module.md). Tento skript vám pomůže dokončit konfiguraci a požádat svého přihlašovací údaje tenanta Azure Stack, aby přidal váš účet do místního prostředí PowerShell. Skript pak nastaví výchozí předplatné Azure, vytvoří v Azure nový účet úložiště, vytvoří nový kontejner v tomto novém účtu úložiště a nahraje do tohoto kontejneru existující soubor obrázku (BLOB). Jakmile skript vypíše všechny objekty BLOB v tomto kontejneru, vytvoří nový cílový adresář v místním počítači a stáhne soubor bitové kopie.
 
@@ -186,6 +187,83 @@ $blobs | Get-AzureStorageBlobContent -Destination $DestinationFolder
 
 # end
 ```
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm1)
+
+Tato ukázka předpokládá, že jste úspěšně [nainstalovali PowerShell pro Azure Stack hub](../operator/azure-stack-powershell-install.md). Tento skript vám pomůže dokončit konfiguraci a požádat svého přihlašovací údaje tenanta Azure Stack, aby přidal váš účet do místního prostředí PowerShell. Skript pak nastaví výchozí předplatné Azure, vytvoří v Azure nový účet úložiště, vytvoří nový kontejner v tomto novém účtu úložiště a nahraje do tohoto kontejneru existující soubor obrázku (BLOB). Jakmile skript vypíše všechny objekty BLOB v tomto kontejneru, vytvoří nový cílový adresář v místním počítači a stáhne soubor bitové kopie.
+
+1. Nainstalujte [Azure PowerShell moduly, které jsou kompatibilní s rozbočovačem Azure Stack](../operator/azure-stack-powershell-install.md).
+2. Stáhněte si [nástroje, které jsou potřeba pro práci s rozbočovačem Azure Stack](../operator/azure-stack-powershell-download.md).
+3. Otevřete **Integrované skriptovací prostředí (ISE) v prostředí Windows PowerShell** a **Spusťte jako správce** a pak kliknutím na **soubor**  >  **Nový** vytvořte nový soubor skriptu.
+4. Zkopírujte skript níže a vložte ho do nového souboru skriptu.
+5. Aktualizujte proměnné skriptu na základě nastavení konfigurace.
+   > [!NOTE]
+   > Tento skript musí být spuštěn v kořenovém adresáři pro **AzureStack_Tools**.
+
+```powershell  
+# begin
+
+$ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack Hub environment name
+$ARMEndPoint = "https://management.local.azurestack.external" 
+$GraphAudience = "https://graph.windows.net/" 
+$AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com" 
+
+$SubscriptionName = "basic" # Update with the name of your subscription.
+$ResourceGroupName = "myTestRG" # Give a name to your new resource group.
+$StorageAccountName = "azsblobcontainer" # Give a name to your new storage account. It must be lowercase.
+$Location = "Local" # Choose "Local" as an example.
+$ContainerName = "photo" # Give a name to your new container.
+$ImageToUpload = "C:\temp\Hello.jpg" # Prepare an image file and a source directory in your local computer.
+$DestinationFolder = "C:\temp\download" # A destination directory in your local computer.
+
+# Import the Connect PowerShell module"
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+Import-Module .\Connect\AzureStack.Connect.psm1
+
+# Configure the PowerShell environment
+# Register an AzureRM environment that targets your Azure Stack Hub instance
+Add-AzureRMEnvironment -Name $ARMEvnName -ARMEndpoint $ARMEndPoint 
+
+# Login
+$TenantID = Get-AzsDirectoryTenantId -AADTenantName $AADTenantName -EnvironmentName $ARMEvnName
+Add-AzureRMAccount -EnvironmentName $ARMEvnName -TenantId $TenantID 
+
+# Set a default Azure subscription.
+Select-AzureRMSubscription -SubscriptionName $SubscriptionName
+
+# Create a new Resource Group 
+New-AzureRMResourceGroup -Name $ResourceGroupName -Location $Location
+
+# Create a new storage account.
+New-AzureRMStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -Location $Location -Type Standard_LRS
+
+# Set a default storage account.
+Set-AzureRMCurrentStorageAccount -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName 
+
+# Create a new container.
+New-AzureRMureStorageContainer -Name $ContainerName -Permission Off
+
+# Upload a blob into a container.
+Set-AzureRMureStorageBlobContent -Container $ContainerName -File $ImageToUpload
+
+# List all blobs in a container.
+Get-AzureRMureStorageBlob -Container $ContainerName
+
+# Download blobs from the container:
+# Get a reference to a list of all blobs in a container.
+$blobs = Get-AzureStorageBlob -Container $ContainerName
+
+# Create the destination directory.
+New-Item -Path $DestinationFolder -ItemType Directory -Force  
+
+# Download blobs into the local destination directory.
+$blobs | Get-AzureStorageBlobContent -Destination $DestinationFolder
+
+# end
+```
+
+---
+
+
 
 ### <a name="powershell-known-issues"></a>Známé problémy v PowerShellu
 
@@ -205,7 +283,7 @@ Formát návratové hodnoty `Get-AzStorageAccountKey` ve verzi 1.2.11 má dvě v
 -AccountName "MyStorageAccount").Key1
 ```
 
-Další informace najdete v tématu [Get-AzureRmStorageAccountKey](/powershell/module/Az.storage/Get-AzStorageAccountKey).
+Další informace najdete v tématu [Get-AzureRMStorageAccountKey](/powershell/module/Az.storage/Get-AzStorageAccountKey).
 
 ## <a name="azure-cli"></a>Azure CLI
 

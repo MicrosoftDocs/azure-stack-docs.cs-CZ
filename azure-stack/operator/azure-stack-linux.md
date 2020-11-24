@@ -3,16 +3,16 @@ title: Přidání imagí pro Linux do webu centra Azure Stack Marketplace
 description: Naučte se přidávat image Linux do Marketplace centra Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/24/2020
+ms.date: 11/18/2020
 ms.author: sethm
-ms.reviewer: ''
-ms.lastreviewed: 11/16/2019
-ms.openlocfilehash: fb0584b79c3e3555ec59cd225db37847b02a41d2
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.reviewer: thoroet
+ms.lastreviewed: 11/18/2020
+ms.openlocfilehash: 5fc9d8ba2cc12ddbb46156e091227ab2f47e0bd4
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544169"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517629"
 ---
 # <a name="add-linux-images-to-the-azure-stack-hub-marketplace"></a>Přidání imagí pro Linux do webu centra Azure Stack Marketplace
 
@@ -30,7 +30,7 @@ Pokud je to možné, Stáhněte si image dostupné prostřednictvím správy Mar
 
 ### <a name="azure-linux-agent"></a>Agent Azure Linux
 
-Je vyžadován agent Azure Linux (obvykle označovaný jako **WALinuxAgent** nebo **WALinuxAgent** ) a ne všechny verze agenta fungují v centru Azure Stack. Verze mezi 2.2.21 a 2.2.34 (včetně) se v Azure Stackovém centru nepodporují. Pokud chcete použít nejnovější verze agenta výše než 2.2.35, použijte opravu hotfix 1901 hotfix/1902 nebo aktualizujte centrum Azure Stack na verzi 1903 (nebo novější). Všimněte si, že [Cloud-init](https://cloud-init.io/) se podporuje v Azure Stack vydáních centra později než 1910.
+Je vyžadován agent Azure Linux (obvykle označovaný jako **WALinuxAgent** nebo **WALinuxAgent**) a ne všechny verze agenta fungují v centru Azure Stack. Verze mezi 2.2.21 a 2.2.34 (včetně) se v Azure Stackovém centru nepodporují. Pokud chcete použít nejnovější verze agenta výše než 2.2.35, použijte opravu hotfix 1901 hotfix/1902 nebo aktualizujte centrum Azure Stack na verzi 1903 (nebo novější). Všimněte si, že [Cloud-init](https://cloud-init.io/) se podporuje v Azure Stack vydáních centra později než 1910.
 
 | Sestavování centra Azure Stack | Sestavení agenta Azure Linux |
 | ------------- | ------------- |
@@ -108,12 +108,23 @@ V současné době se použití Cloud-init pro nasazení virtuálního počíta�
 
 Podle [těchto pokynů](../user/azure-stack-quick-create-vm-linux-powershell.md) můžete vytvořit virtuální počítač Linux pomocí prostředí PowerShell, ale nezapomeňte na cloud-init.txt odkazovat jako na součást `-CustomData` příznaku:
 
+### <a name="az-modules"></a>[AZ modules](#tab/az)
+
 ```powershell
 $VirtualMachine =Set-AzVMOperatingSystem -VM $VirtualMachine `
   -Linux `
   -ComputerName "MainComputer" `
   -Credential $cred -CustomData "#include https://cloudinitstrg.blob.core.windows.net/strg/cloud-init.txt"
 ```
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm)
+
+```powershell
+$VirtualMachine =Set-AzureRMVMOperatingSystem -VM $VirtualMachine `
+  -Linux `
+  -ComputerName "MainComputer" `
+  -Credential $cred -CustomData "#include https://cloudinitstrg.blob.core.windows.net/strg/cloud-init.txt"
+```
+---
 
 ## <a name="add-your-image-to-marketplace"></a>Přidání image do Marketplace
 

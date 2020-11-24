@@ -3,16 +3,16 @@ title: Řešení problémů se síťovým virtuálním zařízením v centru Azu
 description: Řešení potíží s připojením k virtuálnímu počítači nebo VPN při použití síťového virtuálního zařízení (síťové virtuální zařízení) v centru Microsoft Azure Stack.
 author: sethmanheim
 ms.author: sethm
-ms.date: 09/08/2020
+ms.date: 11/22/2020
 ms.topic: article
 ms.reviewer: sranthar
-ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 0facc0cc06ad3ff672531f1eeb7e31eee2f56ee0
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 271587baa3890a7dbb02d7ac935ceb51e2e405b7
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546884"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517144"
 ---
 # <a name="troubleshoot-network-virtual-appliance-problems"></a>Řešení potíží se síťovými virtuálními zařízení
 
@@ -55,13 +55,13 @@ Každý síťové virtuální zařízení musí splňovat základní požadavky 
 
 ### <a name="check-whether-ip-forwarding-is-enabled-on-the-nva"></a>Ověřte, jestli je na síťové virtuální zařízení povolené předávání IP.
 
-#### <a name="use-the-azure-stack-hub-portal"></a>Použití portálu centra Azure Stack
+### <a name="portal"></a>[Azure Portal](#tab/portal)
 
 1. Na portálu centra Azure Stack vyhledejte prostředek síťové virtuální zařízení, vyberte **sítě** a pak vyberte síťové rozhraní.
 2. Na stránce **síťové rozhraní** vyberte **Konfigurace protokolu IP**.
 3. Ujistěte se, že je povoleno předávání IP.
 
-#### <a name="use-powershell"></a>Použití prostředí PowerShell
+### <a name="powershell-az"></a>[Modul Az PowerShellu](#tab/az)
 
 1. Spusťte následující příkaz. Hodnoty v lomených závorkách nahraďte vašimi informacemi.
 
@@ -81,6 +81,29 @@ Každý síťové virtuální zařízení musí splňovat základní požadavky 
    EnableIPForwarding   : True
    NetworkSecurityGroup : null
    ```
+
+### <a name="powershell-azurerm"></a>[Modul AzureRM PowerShellu](#tab/azurerm)
+
+1. Spusťte následující příkaz. Hodnoty v lomených závorkách nahraďte vašimi informacemi.
+
+   ```powershell
+   Get-AzureRMNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
+   ```
+
+2. Ověřte vlastnost **EnableIPForwarding** .
+
+3. Pokud nepovolíte předávání IP, spusťte následující příkazy:
+
+   ```powershell
+   $nic2 = Get-AzureRMNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
+   $nic2.EnableIPForwarding = 1
+   Set-AzureRMNetworkInterface -NetworkInterface $nic2
+   Execute: $nic2 #and check for an expected output:
+   EnableIPForwarding   : True
+   NetworkSecurityGroup : null
+   ```
+
+---
 
 ### <a name="check-whether-traffic-can-be-routed-to-the-nva"></a>Ověřte, jestli je možné směrovat provoz do síťové virtuální zařízení.
 

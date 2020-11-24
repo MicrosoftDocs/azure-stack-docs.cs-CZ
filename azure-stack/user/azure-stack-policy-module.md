@@ -3,15 +3,15 @@ title: Použití modulu zásad centra Azure Stack
 description: Zjistěte, jak omezit předplatné Azure tak, aby se chovalo jako předplatné centra Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 06/09/2020
+ms.date: 11/22/2020
 ms.author: sethm
-ms.lastreviewed: 03/26/2019
-ms.openlocfilehash: ca96de45f50f48b91dbb2e6e8679df5dedab8d8f
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 13d3e006d676e7e24f94741c59cb8837d5200d1d
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94547054"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518122"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-hub-policy-module"></a>Správa zásad Azure pomocí modulu zásad služby Azure Stack hub
 
@@ -30,7 +30,9 @@ Modul zásad centra Azure Stack umožňuje nakonfigurovat předplatné Azure se 
 
 ## <a name="apply-policy-to-azure-subscription"></a>Použití zásad u předplatného Azure
 
-Pomocí následujících příkazů můžete pro své předplatné Azure použít výchozí zásadu centra Azure Stack. Než tyto příkazy spustíte, nahraďte `Azure subscription name` názvem vašeho předplatného Azure:
+Pomocí následujících příkazů můžete pro své předplatné Azure použít výchozí zásadu centra Azure Stack. Než tyto příkazy spustíte, nahraďte `Azure subscription name` název vašeho předplatného Azure.
+
+### <a name="az-modules"></a>[AZ modules](#tab/az1)
 
 ```powershell
 Add-AzAccount
@@ -39,10 +41,23 @@ $policy = New-AzPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-A
 $subscriptionID = $s.Subscription.SubscriptionId
 New-AzPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID
 ```
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm1)
+
+```powershell
+Add-AzureRMAccount
+$s = Select-AzureRMSubscription -SubscriptionName "Azure subscription name"
+$policy = New-AzureRMPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
+$subscriptionID = $s.Subscription.SubscriptionId
+New-AzureRMPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID
+```
+
+---
 
 ## <a name="apply-policy-to-a-resource-group"></a>Použití zásad pro skupinu prostředků
 
 Můžete chtít použít podrobnější zásady. Můžete mít například další prostředky spuštěné ve stejném předplatném. Můžete nastavit obor aplikace zásad na konkrétní skupinu prostředků, která vám umožní testovat aplikace pro Azure Stack centrum pomocí prostředků Azure. Před spuštěním následujících příkazů nahraďte `Azure subscription name` názvem vašeho předplatného Azure:
+
+### <a name="az-modules"></a>[AZ modules](#tab/az2)
 
 ```powershell
 Add-AzAccount
@@ -52,6 +67,18 @@ $policy = New-AzPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-A
 $subscriptionID = $s.Subscription.SubscriptionId
 New-AzPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID/resourceGroups/$rgName
 ```
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm2)
+ 
+```powershell
+Add-AzureRMAccount
+$rgName = 'myRG01'
+$s = Select-AzureRMSubscription -SubscriptionName "Azure subscription name"
+$policy = New-AzureRMPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
+$subscriptionID = $s.Subscription.SubscriptionId
+New-AzureRMPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID/resourceGroups/$rgName
+```
+
+---
 
 ## <a name="policy-in-action"></a>Zásada v akci
 

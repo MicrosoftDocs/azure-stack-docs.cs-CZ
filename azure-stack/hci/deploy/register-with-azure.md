@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 11/17/2020
-ms.openlocfilehash: 7a98692fb29b1a539bf9f9fd26e0a3e226cb8669
-ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
+ms.openlocfilehash: 7406379931f2735304536d45aa6e413df6461127
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94785774"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517120"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Připojení Azure Stack HCl k Azure
 
@@ -62,10 +62,16 @@ Pomocí následujícího postupu zaregistrujete Azure Stack clusteru HCI do Azur
    Install-WindowsFeature RSAT-Azure-Stack-HCI
    ```
 
-3. Nainstalujte požadované rutiny:
+3. Nainstalujte požadované rutiny. Pokud nasazujete Azure Stack HCI z bitové kopie Public Preview, budete muset použít 0.3.1 verze modulu PowerShellu AZ. StackHCI:
 
    ```PowerShell
    Install-Module -Name Az.StackHCI -RequiredVersion 0.3.1
+   ```
+
+   Pokud jste už nainstalovali 23. [listopadu 2020 Preview (KB4586852)](../release-notes.md) a teď jenom zaregistrujete cluster pomocí Azure, můžete bezpečně použít nejnovější verzi AZ. StackHCI:
+
+   ```PowerShell
+   Install-Module -Name Az.StackHCI
    ```
 
    > [!NOTE]

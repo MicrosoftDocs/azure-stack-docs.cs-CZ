@@ -3,16 +3,16 @@ title: Znovu nasadit ASDK
 description: Přečtěte si, jak Azure Stack Development Kit (ASDK) znovu nasadit.
 author: myoungerman
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 11/14/2020
 ms.author: v-myoung
 ms.reviewer: misainat
-ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 7408bcb7317550d7093f97a4cfe10bbc17119467
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/14/2020
+ms.openlocfilehash: 8b09386c748fe8263973b8812a049ab426585c42
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543625"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517102"
 ---
 # <a name="redeploy-the-asdk"></a>Znovu nasadit ASDK
 V tomto článku se dozvíte, jak znovu nasadit Azure Stack Development Kit (ASDK) v neprodukčním prostředí. Vzhledem k tomu, že upgrade ASDK se nepodporuje, je potřeba ho kompletně znovu nasadit a přejít na novější verzi. ASDK můžete také znovu nasadit, kdykoli budete chtít začít od začátku.
@@ -23,7 +23,9 @@ V tomto článku se dozvíte, jak znovu nasadit Azure Stack Development Kit (ASD
 ## <a name="remove-azure-registration"></a>Odebrat registraci Azure 
 Pokud jste instalaci ASDK zaregistrovali v Azure, měli byste před opětovným nasazením ASDK odebrat registrační prostředek. Znovu zaregistrujte ASDK a povolte dostupnost položek na webu Marketplace při opětovném nasazení ASDK. Pokud jste dosud nezaregistrovali ASDK s vaším předplatným Azure, můžete tuto část přeskočit.
 
-K odebrání registračního prostředku použijte rutinu **Remove-AzsRegistration** pro zrušení registrace Azure Stack. Pak pomocí rutiny **Remove-AzResourceGroup** odstraňte skupinu prostředků Azure Stack z předplatného Azure:
+K odebrání registračního prostředku použijte rutinu **Remove-AzsRegistration** pro zrušení registrace Azure Stack. Pak pomocí rutiny **Remove-AzResourceGroup** odstraňte skupinu prostředků Azure Stack z předplatného Azure.
+
+### <a name="az-modules"></a>[AZ modules](#tab/az)
 
 1. Otevřete konzolu PowerShellu jako správce v počítači, který má přístup k privilegovanému koncovému bodu. Pro ASDK se jedná o hostitelský počítač ASDK.
 
@@ -57,7 +59,40 @@ K odebrání registračního prostředku použijte rutinu **Remove-AzsRegistrati
     `"Deleting the resource..." on target "/subscriptions/<subscription information>"`
     `********** End Log: Remove-AzsRegistration *********`
 
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm)
 
+1. Otevřete konzolu PowerShellu jako správce v počítači, který má přístup k privilegovanému koncovému bodu. Pro ASDK se jedná o hostitelský počítač ASDK.
+
+2. Spusťte následující příkazy PowerShellu, abyste zrušili registraci instalace ASDK a odstranili skupinu prostředků **azurestack** z předplatného Azure:
+
+   ```powershell    
+   #Import the registration module that was downloaded with the GitHub tools
+   Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+
+   # Provide Azure subscription admin credentials
+   Add-AzureRmAccount
+
+   # Provide ASDK admin credentials
+   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
+
+   # Unregister Azure Stack
+   Remove-AzsRegistration `
+      -PrivilegedEndpointCredential $CloudAdminCred `
+      -PrivilegedEndpoint AzS-ERCS01
+
+   # Remove the Azure Stack resource group
+   Remove-AzureRmResourceGroup -Name azurestack -Force
+   ```
+
+3. Po spuštění skriptu se zobrazí výzva, abyste se přihlásili ke svému předplatnému Azure i k místní instalaci ASDK.
+4. Po dokončení skriptu byste měli vidět zprávy podobné následujícím příkladům:
+
+    `De-Activating Azure Stack (this may take up to 10 minutes to complete).` `Your environment is now unable to syndicate items and is no longer reporting usage data.`
+    `Remove registration resource from Azure...`
+    `"Deleting the resource..." on target "/subscriptions/<subscription information>"`
+    `********** End Log: Remove-AzsRegistration *********`
+
+---
 
 Z vašeho předplatného Azure by se teď mělo úspěšně odregistrovat Azure Stack. Je taky potřeba odstranit skupinu prostředků azurestack. Tato skupina prostředků je ta vytvořená při první registraci ASDK s Azure.
 
@@ -69,7 +104,7 @@ Pokud chcete Azure Stack znovu nasadit, musíte začít od začátku, jak je pop
 
    ![Spuštění skriptu asdk-installer.ps1](media/asdk-redeploy/1.png)
 
-2. Vyberte základní operační systém (ne **Azure Stack** ) a klikněte na **Další**.
+2. Vyberte základní operační systém (ne **Azure Stack**) a klikněte na **Další**.
 
    ![Restartovat operační systém hostitele](media/asdk-redeploy/2.png)
 

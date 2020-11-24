@@ -3,16 +3,16 @@ title: Uživatelská příručka k nástroji Azure Site Recovery navrácení slu
 description: Naučte se používat nástroj Azure Site Recovery navrácení služeb po obnovení k ochraně virtuálních počítačů (VM).
 author: sethmanheim
 ms.author: sethm
-ms.date: 9/18/2020
+ms.date: 11/19/2020
 ms.topic: how-to
 ms.reviewer: rtiberiu
-ms.lastreviewed: 9/18/2020
-ms.openlocfilehash: 2b57527f3a65e97f5b83ada115faa63ace563ea4
-ms.sourcegitcommit: 0f2852c3302c6723e7afad637f55b80359182ae3
+ms.lastreviewed: 11/19/2020
+ms.openlocfilehash: 0cb3bccab11d337a8a8804578233edb95ac02dc6
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91366243"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517221"
 ---
 # <a name="azure-site-recovery-failback-tool"></a>Nástroj pro navrácení služeb po obnovení Azure Site Recovery
 
@@ -20,13 +20,16 @@ V připojeném prostředí můžete použít Azure Site Recovery k ochraně virt
 
 V případě výpadku se operátor centra Azure Stack projde postupem *převzetí služeb při selhání* . Jakmile se centrum Azure Stack znovu spustí a znovu spustí, projde se procesem *navrácení služeb po obnovení* . Tento postup převzetí služeb při selhání je popsaný v [tomto Site Recovery článku](/azure/site-recovery/azure-stack-site-recovery), ale proces navrácení služeb po obnovení zahrnuje několik ručních kroků:
 
-- Zastavte virtuální počítač běžící v Azure.
-- Stáhněte si virtuální pevné disky.
-- Nahrajte virtuální pevné disky do centra Azure Stack.
-- Vytvořte znovu virtuální počítače.
-- Nakonec spusťte tento virtuální počítač běžící v Azure Stackovém centru. 
+1. Zastavte virtuální počítač běžící v Azure.
+2. Stáhněte si virtuální pevné disky.
+3. Nahrajte virtuální pevné disky do centra Azure Stack.
+4. Vytvořte znovu virtuální počítače.
+5. Nakonec spusťte tento virtuální počítač běžící v Azure Stackovém centru. 
 
 Vzhledem k tomu, že tento proces může být náchylný k chybám a časově náročný, jsme vytvořili skripty, které vám pomůžou tento proces urychlit a automatizovat.
+
+> [!Note]  
+> Nástroj Azure Site Recovery vyžaduje centrum Azure Stack AZ Modules. Pokud používáte moduly AzureRM centra Azure Stack, budete muset upgradovat pracovní stanici nebo použít nástroj Azure Site Recovery navrácení služeb po obnovení v izolovaném prostředí pomocí modulů AZ Modules. Další informace najdete v tématu [instalace prostředí PowerShell AZ Module for Azure Stack hub](powershell-install-az-module.md).
 
 ## <a name="failback-procedure"></a>Procedura navrácení služeb po obnovení
 
@@ -46,7 +49,7 @@ Automatizovaný proces navrácení služeb po obnovení obsahuje tři hlavní č
 
 - Skutečné nasazení Azure Resource Manager šablony pomocí souboru parametrů a nasazení/vytvoření virtuálního počítače v centru Azure Stack.
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 
 K provedení tohoto postupu navrácení služeb po obnovení se vyžadují tyto požadavky:
 
@@ -65,7 +68,7 @@ K provedení tohoto postupu navrácení služeb po obnovení se vyžadují tyto 
 
 ## <a name="step-1-copy-blob-from-azure-to-azure-stack-hub"></a>Krok 1: zkopírování objektu BLOB z Azure do centra Azure Stack
 
-Voláním rutiny prostředí PowerShell **copy-AzSiteRecoveryVmVHD** zastavte virtuální počítač Azure, Stáhněte si virtuální pevné disky z Azure a nahrajte je do centra Azure Stack. Příklad:
+Voláním rutiny prostředí PowerShell **copy-AzSiteRecoveryVmVHD** zastavte virtuální počítač Azure, Stáhněte si virtuální pevné disky z Azure a nahrajte je do centra Azure Stack. Například:
 
 ```powershell
 $uris = Copy-AzSiteRecoveryVmVHD `
@@ -134,7 +137,7 @@ V tomto okamžiku se VHD nahraje do centra Azure Stack a vytvoří se šablona S
 
 V některých scénářích můžete chtít upravit tuto šablonu a přidat, odebrat nebo změnit některé názvy nebo prostředky. Tato možnost je povolená, protože šablonu můžete podle potřeby upravovat a upravovat.
 
-Po dokončení a po potvrzení prostředků v šabloně Správce prostředků podle očekávání můžete zavolat rutinu **New-AzResourceGroupDeployment** k nasazení prostředků. Příklad:
+Po dokončení a po potvrzení prostředků v šabloně Správce prostředků podle očekávání můžete zavolat rutinu **New-AzResourceGroupDeployment** k nasazení prostředků. Například:
 
 ```powershell
 New-AzResourceGroupDeployment `

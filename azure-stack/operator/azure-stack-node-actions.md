@@ -3,16 +3,16 @@ title: Akce uzlů jednotek škálování ve službě Azure Stack Hub
 description: Seznamte se s akcemi uzlu jednotky škálování, včetně zapnutí, vypnutí, zakázání, obnovení a zobrazení stavu uzlu v integrovaných systémech Azure Stack hub.
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 11/19/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: ddfc8ad0ab6eccd10488f70873c7cefc0cf6668e
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/19/2020
+ms.openlocfilehash: ecca245124ce30597a535d8c2ca014821d471d67
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545189"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517680"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Akce uzlů jednotek škálování ve službě Azure Stack Hub
 
@@ -62,12 +62,16 @@ K tomu může dojít, když se mezipaměť role poskytovatele prostředků infra
 
 Před použitím následujících kroků zajistěte, aby aktuálně neprobíhala žádná operace. Aktualizujte koncový bod tak, aby odpovídal vašemu prostředí.
 
+
+
+### <a name="az-modules"></a>[AZ modules](#tab/az1)
+
 1. Otevřete PowerShell a přidejte prostředí Azure Stack hub. To vyžaduje, [aby byl do počítače nainstalován Azure Stack hub PowerShell](./powershell-install-az-module.md) .
 
-   ```powershell
-   Add-AzEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
-   Add-AzAccount -Environment AzureStack
-   ```
+    ```powershell
+    Add-AzEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
+    Add-AzAccount -Environment AzureStack
+    ```
 
 2. Spuštěním následujícího příkazu restartujte roli poskytovatele prostředků infrastruktury.
 
@@ -82,6 +86,32 @@ Před použitím následujících kroků zajistěte, aby aktuálně neprobíhala
    ```
 
 4. Pokud je provozní stav uzlu stále zobrazený, protože je **Přidání** pokračovat, otevřete incident podpory.
+
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm1)
+
+1. Otevřete PowerShell a přidejte prostředí Azure Stack hub. To vyžaduje, [aby byl do počítače nainstalován Azure Stack hub PowerShell](./powershell-install-az-module.md) .
+
+    ```powershell
+    Add-AzureRMEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
+    Add-AzureRMAccount -Environment AzureStack
+    ```
+
+2. Spuštěním následujícího příkazu restartujte roli poskytovatele prostředků infrastruktury.
+
+   ```powershell
+   Restart-AzsInfrastructureRole -Name FabricResourceProvider
+   ```
+
+3. Ověří provozní stav uzlu jednotky škálování, který má vliv na **běhu**. Můžete použít portál pro správu nebo následující příkaz prostředí PowerShell:
+
+   ```powershell
+   Get-AzsScaleUnitNode |ft name,scaleunitnodestatus,powerstate
+   ```
+
+4. Pokud je provozní stav uzlu stále zobrazený, protože je **Přidání** pokračovat, otevřete incident podpory.
+
+---
+
 
 
 ## <a name="scale-unit-node-actions"></a>Akce uzlu škálování jednotky
@@ -113,7 +143,7 @@ V nepravděpodobném případě, že akce zastavení nefunguje, zkuste operaci z
 
 Další informace najdete v tématu [stop-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/stop-azsscaleunitnode).
 
-## <a name="start"></a>Spustit
+## <a name="start"></a>Start
 
 Akce **Spustit** zapne uzel. Je to stejné jako při stisknutí tlačítka napájení.
 
@@ -162,7 +192,7 @@ Další informace najdete v tématu [Enable-AzsScaleUnitNode](/powershell/module
 > Úroveň firmwaru je zásadní pro úspěch operace popsané v tomto článku. Chybějící tento krok může vést k nestabilitě systému, snížení výkonu, bezpečnostním hrozbám nebo selhání při nasazení služby Azure Stack hub Automation. Při nahrazování hardwaru vždy projděte dokumentaci k vašemu hardwarovému partnerovi, aby se zajistilo, že aplikovaný firmware odpovídá verzi OEM zobrazené na [portálu pro správu centra Azure Stack](azure-stack-updates.md).<br><br>
 Další informace a odkazy na dokumentaci k partnerům najdete v tématu [Výměna hardwarové komponenty](azure-stack-replace-component.md).
 
-| Hardwarový partner | Oblast | URL |
+| Hardwarový partner | Region | URL |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Cisco | Vše | [Příručka k provoznímu systému Cisco Integrated System for Microsoft Azure Stack hub](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[Poznámky k verzi integrovaného systému Cisco pro Centrum Microsoft Azure Stack](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
 | Dell EMC | Vše | [Cloud pro Microsoft Azure Stack hub 14G (účet a přihlášení je povinné)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud pro Microsoft Azure Stack hub 13G (účet a přihlášení je povinné)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
@@ -205,5 +235,5 @@ Pokud chcete spustit akci vypnutí, otevřete příkazový řádek prostředí P
 ## <a name="next-steps"></a>Další kroky
 
 - [Instalace Azure Stack PowerShellu](./powershell-install-az-module.md)
-- [Seznamte se s modulem operátoru prostředků infrastruktury Azure Stack hub.](/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)
+- [Seznamte se s modulem operátoru prostředků infrastruktury Azure Stack hub.](/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0&preserve-view=true)
 - [Monitorování operací přidání uzlu](./azure-stack-add-scale-node.md#monitor-add-node-operations)

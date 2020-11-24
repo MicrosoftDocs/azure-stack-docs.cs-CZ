@@ -3,16 +3,16 @@ title: Vytvoření a publikování položky Marketplace v centru Azure Stack
 description: Naučte se vytvářet a publikovat položku na webu Marketplace centra Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/18/2020
+ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 6887e29cca09b6ff0e774bc5898d00f14684e76b
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/16/2020
+ms.openlocfilehash: db85757fd898d0b75ace50c8fe78ecaa31722bc2
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543931"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518037"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Vytvoření a publikování položky Marketplace pro vlastní Azure Stack centra
 
@@ -22,7 +22,7 @@ Každá položka publikovaná na tržišti centra Azure Stack používá formát
 
 Příklady v tomto článku ukazují, jak vytvořit jednu nabídku tržiště virtuálního počítače typu Windows nebo Linux.
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 
 Než vytvoříte položku Marketplace pro virtuální počítače, udělejte toto:
 
@@ -108,7 +108,7 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
     - (3) – verze šablony bez mezer.
     - (4) – název, který se zákazníkům zobrazí.
     - (5) – název vydavatele, který se zobrazí zákazníkům.
-    - (6) – právní jméno vydavatele.
+    - (6) – platný název vydavatele.
     - (7) – cesta a název pro každou ikonu.
 
 5. U všech polí odkazujících na **MS-Resource** je nutné změnit příslušné hodnoty uvnitř **řetězců nebo resources.jsv** souboru:
@@ -130,7 +130,7 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
 
 8. Uložte šablonu Azure Resource Manager do složky **/contoso.TodoList/DeploymentTemplates/** .
 
-9. Vyberte ikony a text pro položku Marketplace. Přidejte ikony do složky **ikony** a přidejte text do souboru **Resources** ve složce **řetězce** . Použijte pro ikony **malé** , **střední** , **velké** a **široké** konvence pojmenování. Podrobný popis těchto velikostí najdete v [referenčních informacích k uživatelskému rozhraní položky Marketplace](#reference-marketplace-item-ui) .
+9. Vyberte ikony a text pro položku Marketplace. Přidejte ikony do složky **ikony** a přidejte text do souboru **Resources** ve složce **řetězce** . Použijte pro ikony **malé**, **střední**, **velké** a **široké** konvence pojmenování. Podrobný popis těchto velikostí najdete v [referenčních informacích k uživatelskému rozhraní položky Marketplace](#reference-marketplace-item-ui) .
 
     > [!NOTE]
     > Pro správné vytvoření položky Marketplace se vyžadují všechny čtyři velikosti ikon (malá, střední, Velká, rozsáhlá).
@@ -149,6 +149,8 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
     >
 
 ## <a name="publish-a-marketplace-item"></a>Publikování položky Marketplace
+
+### <a name="az-modules"></a>[AZ modules](#tab/az)
 
 1. Pomocí PowerShellu nebo Průzkumník služby Azure Storage nahrajte položku Marketplace (. azpkg) do úložiště objektů BLOB v Azure. Můžete nahrávat do místního úložiště centra Azure Stack nebo nahrávat do Azure Storage, což je dočasné umístění balíčku. Ujistěte se, že je objekt BLOB veřejně přístupný.
 
@@ -188,16 +190,59 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
    ```
 
-   > [!NOTE]
-   > Po odebrání položky může uživatelské rozhraní Marketplace zobrazit chybu. Chybu opravíte tak, že na portálu kliknete na **Nastavení** . Pak v části **vlastní nastavení portálu** vyberte **zrušit změny** .
-   >
-   >
+> [!Note]  
+> Po odebrání položky může uživatelské rozhraní Marketplace zobrazit chybu. Chybu opravíte tak, že na portálu kliknete na **Nastavení** . Pak v části **vlastní nastavení portálu** vyberte **zrušit změny** .
+
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm)
+
+1. Pomocí PowerShellu nebo Průzkumník služby Azure Storage nahrajte položku Marketplace (. azpkg) do úložiště objektů BLOB v Azure. Můžete nahrávat do místního úložiště centra Azure Stack nebo nahrávat do Azure Storage, což je dočasné umístění balíčku. Ujistěte se, že je objekt BLOB veřejně přístupný.
+
+2. Pokud chcete importovat balíček galerie do centra Azure Stack, prvním krokem je vzdálené připojení (RDP) k virtuálnímu počítači klienta, aby bylo možné zkopírovat soubor, který jste právě vytvořili, do centra Azure Stack.
+
+3. Přidejte kontext:
+
+    ```powershell
+    $ArmEndpoint = "https://adminmanagement.local.azurestack.external"
+    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
+    Add-AzureRMAccount -EnvironmentName "AzureStackAdmin"
+    ```
+
+4. Spusťte následující skript pro import prostředku do Galerie:
+
+    ```powershell
+    Add-AzsGalleryItem -GalleryItemUri `
+    https://sample.blob.core.windows.net/<temporary blob name>/<offerName.publisherName.version>.azpkg -Verbose
+    ```
+
+5. Ověřte, že máte platný účet úložiště, který je k dispozici pro uložení vaší položky. Tuto hodnotu můžete získat `GalleryItemURI` z portálu pro správu centra Azure Stack. Vyberte **účet úložiště-> vlastnosti objektu BLOB – > URL** s příponou. azpkg. Účet úložiště se používá jenom pro dočasné použití, aby se daly publikovat na webu Marketplace.
+
+   Po dokončení balíčku galerie a jeho nahrání pomocí **Add-AzsGalleryItem** by se teď měl váš vlastní virtuální počítač zobrazit na webu Marketplace i v zobrazení **vytvořit prostředek** . Všimněte si, že ve **správě Marketplace** není balíček vlastní Galerie viditelný.
+
+   [![Odeslala se vlastní položka Marketplace](media/azure-stack-create-and-publish-marketplace-item/pkg6sm.png "Odeslala se vlastní položka Marketplace")](media/azure-stack-create-and-publish-marketplace-item/pkg6.png#lightbox)
+
+6. Po úspěšném publikování položky na webu Marketplace můžete obsah odstranit z účtu úložiště.
+
+   Všechny výchozí artefakty galerie a vaše vlastní artefakty galerie jsou teď dostupné bez ověřování v těchto adresách URL:
+
+   - `https://galleryartifacts.adminhosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
+   - `https://galleryartifacts.hosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
+
+6. Položku Marketplace můžete odebrat pomocí rutiny **Remove-AzGalleryItem** . Například:
+
+   ```powershell
+   Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
+   ```
+
+> [!Note]  
+> Po odebrání položky může uživatelské rozhraní Marketplace zobrazit chybu. Chybu opravíte tak, že na portálu kliknete na **Nastavení** . Pak v části **vlastní nastavení portálu** vyberte **zrušit změny** .
+
+---
 
 ## <a name="reference-marketplace-item-manifestjson"></a>Referenční dokumentace: manifest.jspoložky Marketplace na
 
 ### <a name="identity-information"></a>Informace o identitě
 
-| Název | Požaduje se | Typ | Omezení | Popis |
+| Name | Požaduje se | Typ | Omezení | Popis |
 | --- | --- | --- | --- | --- |
 | Název |X |Řetězec |[A-za-Z0-9] + | |
 | Publisher |X |Řetězec |[A-za-Z0-9] + | |
@@ -205,7 +250,7 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
 
 ### <a name="metadata"></a>Metadata
 
-| Název | Požaduje se | Typ | Omezení | Popis |
+| Name | Požaduje se | Typ | Omezení | Popis |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Řetězec |Doporučení 80 znaků |Portál nemusí správně zobrazit název položky, pokud je delší než 80 znaků. |
 | PublisherDisplayName |X |Řetězec |Doporučení 30 znaků |Portál nemusí správně zobrazit název vašeho vydavatele, pokud je delší než 30 znaků. |
@@ -218,7 +263,7 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
 
 Tržiště používá následující ikony:
 
-| Název | Width (Šířka) | Height (Výška) | Poznámky |
+| Name | Width (Šířka) | Height (Výška) | Poznámky |
 | --- | --- | --- | --- |
 | Rozlehlý |255 px |115 px |Vždy vyžadováno |
 | Velká |115 px |115 px |Vždy vyžadováno |
@@ -228,13 +273,13 @@ Tržiště používá následující ikony:
 
 ### <a name="categories"></a>Kategorie
 
-Každá položka Marketplace by měla být označena kategorií, která identifikuje, kde se položka zobrazí v uživatelském rozhraní portálu. Můžete zvolit jednu z existujících kategorií v Azure Stackovém centru ( **COMPUTE** , **data + úložiště** atd.) nebo zvolit novou.
+Každá položka Marketplace by měla být označena kategorií, která identifikuje, kde se položka zobrazí v uživatelském rozhraní portálu. Můžete zvolit jednu z existujících kategorií v Azure Stackovém centru (**COMPUTE**, **data + úložiště** atd.) nebo zvolit novou.
 
 ### <a name="links"></a>Odkazy
 
 Každá položka na webu Marketplace může obsahovat různé odkazy na další obsah. Odkazy jsou zadány jako seznam názvů a identifikátorů URI:
 
-| Název | Požaduje se | Typ | Omezení | Popis |
+| Name | Požaduje se | Typ | Omezení | Popis |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Řetězec |Maximálně 64 znaků. | |
 | Identifikátor URI |X |Identifikátor URI | | |
@@ -243,7 +288,7 @@ Každá položka na webu Marketplace může obsahovat různé odkazy na další 
 
 Kromě předchozích metadat mohou autoři na webu Marketplace poskytovat vlastní data párů klíč/hodnota v následujícím tvaru:
 
-| Název | Požaduje se | Typ | Omezení | Popis |
+| Name | Požaduje se | Typ | Omezení | Popis |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Řetězec |Maximálně 25 znaků. | |
 | Hodnota |X |Řetězec |Maximálně 30 znaků. | |

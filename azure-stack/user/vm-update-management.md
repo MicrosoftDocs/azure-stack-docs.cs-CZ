@@ -3,32 +3,32 @@ title: Automatizace aktualizací a správy virtuálních počítačů v centru A
 description: Pomocí řešení Azure Monitor pro virtuální počítače, Update Management, Change Tracking a inventáře v Azure Automation můžete spravovat virtuální počítače s Windows a Linux nasazené v centru pro Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 10/08/2020
+ms.date: 11/22/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
-ms.lastreviewed: 10/08/2020
-ms.openlocfilehash: 7b3c69b26ef1fee21e652c70f0ca9a9ddc156460
-ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: c30d254e3b9e17fa817d778e8f43b9611cb390cf
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94383662"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517357"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Automatizace aktualizací a správy virtuálních počítačů v centru Azure Stack
 Ke správě virtuálních počítačů s Windows a Linux, které se nasazují pomocí centra Azure Stack, použijte následující Azure Automation řešení:
 
-- **[Update Management](/azure/automation/update-management/overview)** : pomocí řešení Update Management můžete rychle posoudit stav dostupných aktualizací na všech počítačích agenta a spravovat proces instalace požadovaných aktualizací pro virtuální počítače s Windows a Linux.
+- **[Update Management](/azure/automation/update-management/overview)**: pomocí řešení Update Management můžete rychle posoudit stav dostupných aktualizací na všech počítačích agenta a spravovat proces instalace požadovaných aktualizací pro virtuální počítače s Windows a Linux.
 
-- **[Change Tracking](/azure/automation/automation-change-tracking)** : do služby Azure monitor v cloudu se odesílají změny nainstalovaného softwaru, služeb systému Windows, registru a souborů Windows a démony Linux na monitorovaných serverech. Na přijatá data se aplikuje logika a cloudová služba data zaznamená. Pomocí informací na řídicím panelu Change Tracking můžete snadno zobrazit změny provedené v serverové infrastruktuře.
+- **[Change Tracking](/azure/automation/automation-change-tracking)**: do služby Azure monitor v cloudu se odesílají změny nainstalovaného softwaru, služeb systému Windows, registru a souborů Windows a démony Linux na monitorovaných serverech. Na přijatá data se aplikuje logika a cloudová služba data zaznamená. Pomocí informací na řídicím panelu Change Tracking můžete snadno zobrazit změny provedené v serverové infrastruktuře.
 
 - **[Inventář](/azure/automation/automation-vm-inventory)**. Sledování inventáře pro virtuální počítač centra Azure Stack poskytuje uživatelské rozhraní založené na prohlížeči pro nastavení a konfiguraci shromažďování inventáře.
 
-- **[Azure monitor pro virtuální počítače](/azure/azure-monitor/insights/vminsights-overview)** : Azure monitor pro virtuální počítače monitoruje vaše virtuální počítače Azure a služby Azure Stack hub a škálování virtuálních počítačů. Analyzuje výkon a stav virtuálních počítačů s Windows a Linux a také monitoruje jejich procesy a závislosti na jiných prostředcích a externích procesech.
+- **[Azure monitor pro virtuální počítače](/azure/azure-monitor/insights/vminsights-overview)**: Azure monitor pro virtuální počítače monitoruje vaše virtuální počítače Azure a služby Azure Stack hub a škálování virtuálních počítačů. Analyzuje výkon a stav virtuálních počítačů s Windows a Linux a také monitoruje jejich procesy a závislosti na jiných prostředcích a externích procesech.
 
 > [!IMPORTANT]
 > Tato řešení jsou stejná jako ta, která slouží ke správě virtuálních počítačů Azure. Virtuální počítače s rozbočovačem Azure i Azure Stack se spravují stejným způsobem, ze stejného rozhraní, pomocí stejných nástrojů. Virtuální počítače centra Azure Stack se také účtují stejně jako virtuální počítače Azure při použití řešení Update Management, Change Tracking, inventarizace a Azure Monitor pro virtuální počítače s centrem Azure Stack.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 Před použitím těchto funkcí k aktualizaci a správě virtuálních počítačů centra Azure Stack musí být splněno několik požadavků. Patří sem kroky, které je třeba provést v Azure Portal a také na portálu pro správu centra Azure Stack.
 
 ### <a name="in-the-azure-portal"></a>Na webu Azure Portal
@@ -43,7 +43,7 @@ Dále musíte [vytvořit účet Automation](/azure/automation/automation-create-
 
 1. V Azure Portal přejít na účet Automation, který chcete použít.
 
-2. Vyberte řešení, které chcete povolit ( **inventarizace** , **sledování změn** nebo **Správa aktualizací** ).
+2. Vyberte řešení, které chcete povolit ( **inventarizace**, **sledování změn** nebo **Správa aktualizací**).
 
 3. Pomocí rozevíracího seznamu **vybrat pracovní prostor...** vyberte Log Analytics pracovní prostor, který chcete použít.
 
@@ -72,7 +72,7 @@ Po povolení Azure Automation řešení v Azure Portal se budete muset přihlás
 
    ![Dialogová okna > > přidat ze správy Azure > Azure Monitor, aktualizace a Správa konfigurace, popisuje rozšíření a poskytuje tlačítko pro stažení.](media//vm-update-management/2.PNG) 
 
-Pokud chcete povolit řešení Azure Monitor pro virtuální počítače map a získat přehled o závislostech sítě, Stáhněte si **Azure Monitor Dependency agent** :
+Pokud chcete povolit řešení Azure Monitor pro virtuální počítače map a získat přehled o závislostech sítě, Stáhněte si **Azure Monitor Dependency agent**:
 
    ![Dialogová okna > > přidat ze služby Azure Dependency Agent Azure Monitor > pro správu Marketplace popisuje rozšíření a poskytuje tlačítko pro stažení.](media//vm-update-management/2-dependency.PNG) 
 
@@ -81,7 +81,7 @@ Pomocí těchto kroků můžete povolit správu aktualizací pro virtuální po�
 
 1. Přihlaste se k portálu pro uživatele centra Azure Stack.
 
-2. Na portálu Azure Stack User Portal přejděte do okna rozšíření virtuálních počítačů, pro které chcete tato řešení povolit, klikněte na **+ Přidat** , vyberte rozšíření **pro správu služby Azure Update a konfigurace** a pak klikněte na **vytvořit** :
+2. Na portálu Azure Stack User Portal přejděte do okna rozšíření virtuálních počítačů, pro které chcete tato řešení povolit, klikněte na **+ Přidat**, vyberte rozšíření **pro správu služby Azure Update a konfigurace** a pak klikněte na **vytvořit**:
 
     ![Dialogové okno "Správa aktualizací a konfigurace Azure" obsahuje vysvětlující informace, tlačítko vytvořit (zvýrazněno) pro přidání rozšíření a odkaz na Další informace.](media//vm-update-management/3-sm.PNG "Okno rozšíření virtuálního počítače")
 
@@ -89,7 +89,7 @@ Pomocí těchto kroků můžete povolit správu aktualizací pro virtuální po�
 
    [![V dialogovém okně nainstalovat rozšíření jsou textová pole pro Azure ID pracovního prostoru a WorkspaceKey.](media//vm-update-management/4-sm.PNG "Zadání ID pracovního prostoru a klíče")](media//vm-update-management/4-lg.PNG) 
 
-4. Jak je popsáno v [dokumentaci k Update Management](/azure/automation/update-management/overview), je nutné povolit řešení Update Management pro každý virtuální počítač, který chcete spravovat. Chcete-li povolit řešení pro všechny virtuální počítače, které jsou podřízeny k pracovnímu prostoru, vyberte možnost **Správa aktualizací** , klikněte na položku **spravovat počítače** a potom vyberte možnost **Povolit u všech dostupných a budoucích počítačů** .
+4. Jak je popsáno v [dokumentaci k Update Management](/azure/automation/update-management/overview), je nutné povolit řešení Update Management pro každý virtuální počítač, který chcete spravovat. Chcete-li povolit řešení pro všechny virtuální počítače, které jsou podřízeny k pracovnímu prostoru, vyberte možnost **Správa aktualizací**, klikněte na položku **spravovat počítače** a potom vyberte možnost **Povolit u všech dostupných a budoucích počítačů** .
 
    [![V dialogovém okně spravovat počítače – Update Management se zobrazí počítače, které nemají Update Management povoleny. Jsou k dispozici tři možnosti povolení a výběr možnosti Povolit u všech dostupných a budoucích počítačů je zaškrtnuté a zvýrazněné. Existuje tlačítko Povolit.](media//vm-update-management/5-sm.PNG "Povolit Update Management řešení na všech počítačích")](media//vm-update-management/5-lg.PNG) 
 
@@ -113,6 +113,8 @@ Pokud chcete vytvořit plán nasazení aktualizace, musíte k předání počít
 
 Následující příklad ukazuje, jak to provést:
 
+### <a name="az-modules"></a>[AZ modules](#tab/az)
+
 ```Powershell  
 $nonAzurecomputers = @("server-01", "server-02")
 
@@ -122,6 +124,21 @@ $s = New-AzAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName 
 
 New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm)
+
+```Powershell  
+$nonAzurecomputers = @("server-01", "server-02")
+
+$startTime = ([DateTime]::Now).AddMinutes(10)
+
+$s = New-AzureRMAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdateConfiguration
+
+New-AzureRMAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
+```
+
+---
+
+
 
 ## <a name="enable-azure-monitor-for-vms-running-on-azure-stack-hub"></a>Povolit Azure Monitor pro virtuální počítače běžící v centru Azure Stack
 Jakmile má virtuální počítač **Azure monitor, správu aktualizací a konfigurací** a nainstalují se rozšíření **Azure monitor Dependency agent** , začnou v řešení [Azure monitor pro virtuální počítače](/azure/azure-monitor/insights/vminsights-overview) začít vytvářet data. 
@@ -131,12 +148,12 @@ Jakmile má virtuální počítač **Azure monitor, správu aktualizací a konfi
 
 Azure Monitor pro virtuální počítače obsahuje sadu grafů výkonu, které cílí na několik klíčových ukazatelů výkonu (KPI), které vám pomůžou určit, jak dobře funguje virtuální počítač. Grafy ukazují použití prostředků v časovém intervalu, takže můžete identifikovat slabá místa a anomálie. Můžete také přepnout na seznam perspektiv v každém počítači a zobrazit tak použití prostředků na základě vybrané metriky. I když existuje mnoho prvků, které je potřeba vzít v úvahu při práci s výkonem, Azure Monitor pro virtuální počítače sleduje klíčové ukazatele výkonu operačního systému týkající se procesoru, paměti, síťového adaptéru a využití disku. Grafy výkonu doplňují funkci monitorování stavu a umožňují vystavovat problémy, které indikují chybu při selhání součásti systému. Azure Monitor pro virtuální počítače podporuje taky plánování kapacity a optimalizaci a optimalizaci, abyste dosáhli efektivity.
 
-   ![Karta výkon virtuálních počítačů s Azure Monitor](/azure/azure-monitor/insights/media/vminsights-performance/vminsights-performance-aggview-01.png)
+   ![Karta výkon virtuálních počítačů s Azure Monitor](http:/docs.microsoft.com/azure/azure-monitor/insights/media/vminsights-performance/vminsights-performance-aggview-01.png)
 
 Zobrazení zjištěných součástí aplikace na virtuálních počítačích s Windows a Linux spuštěných v centru Azure Stack se může vymezit dvěma způsoby pomocí Azure Monitor pro virtuální počítače. První z nich je přímo z virtuálního počítače a druhý je mezi skupinami virtuálních počítačů z Azure Monitor.
 Článek [použití Azure monitor pro virtuální počítače mapy k porozumění součástem aplikací](/azure/azure-monitor/insights/vminsights-maps) vám pomůže pochopit možnosti těchto dvou perspektiv a využít funkci map.
 
-   ![Karta mapa Azure Monitor virtuálních počítačů](/azure/azure-monitor/insights/media/vminsights-maps/map-multivm-azure-monitor-01.png)
+   ! [Karta mapy virtuálních počítačů s Azure Monitor] ((http:/docs. Microsoft. com/Azure/Azure-monitor/Insights/Media/vminsights-Maps/map-multivm-azure-monitor-01.png)
 
 V případě, že vám [Azure monitor pro virtuální počítače](/azure/azure-monitor/insights/vminsights-overview) nezobrazuje žádná data o výkonu, musíte povolit shromažďování údajů o výkonu pro Windows a Linux v rozšířeném nastavení [LogAnalytics pracovního prostoru](/azure/azure-monitor/platform/data-sources-performance-counters) .
 

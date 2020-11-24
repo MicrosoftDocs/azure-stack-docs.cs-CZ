@@ -3,16 +3,16 @@ title: Přidání tenantů pro použití a fakturaci do centra Azure Stack
 description: Naučte se, jak přidat tenanta pro využití a fakturace do centra Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 9/02/2020
+ms.date: 11/17/2020
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 5/28/2020
-ms.openlocfilehash: 43ceccf55807367606bae5f3aa8fcdebf6f9aace
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/17/2020
+ms.openlocfilehash: 81cefb08d6fd0d1fc773221d52393c8a3ae6fddf
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543812"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517884"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Přidat tenanta pro využití a fakturace do centra Azure Stack
 
@@ -49,6 +49,8 @@ Ve výchozím nastavení jste jako CSP nemuseli mít přístup k předplatnému 
 
 Aktualizujte svou registraci pomocí nového zákaznického předplatného. Azure oznamuje využívání zákazníků pomocí zákaznické identity z partnerského centra. Tento krok zajistí, že se využití každého zákazníka hlásí v rámci příslušného předplatného zprostředkovatele CSP daného zákazníka. Díky tomu je sledování využití a fakturace jednodušší. Chcete-li provést tento krok, je třeba nejprve [zaregistrovat Azure Stack hub](azure-stack-registration.md).
 
+### <a name="az-modules"></a>[AZ modules](#tab/az)
+
 1. Otevřete prostředí Windows PowerShell v příkazovém řádku se zvýšenými oprávněními a spusťte příkaz:  
 
    ```powershell
@@ -56,7 +58,7 @@ Aktualizujte svou registraci pomocí nového zákaznického předplatného. Azur
    ```
 
    >[!NOTE]
-   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo pokud chcete jednoduše přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí rutiny **Add-AzAccount** : `Remove-AzAccount-Scope Process` .
+   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo pokud chcete jednoduše přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí rutiny **Add-AzAccount**: `Remove-AzAccount-Scope Process` .
 
 2. Zadejte svoje přihlašovací údaje Azure.
 3. V relaci PowerShellu spusťte příkaz:
@@ -65,7 +67,7 @@ Aktualizujte svou registraci pomocí nového zákaznického předplatného. Azur
    New-AzResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
    ```
 
-### <a name="new-azresource-powershell-parameters"></a>Parametry New-AzResource PowerShellu
+**Parametry prostředí PowerShell pro New-AzResource**
 
 V následující části jsou popsány parametry pro rutinu **New-AzResource** :
 
@@ -75,6 +77,38 @@ V následující části jsou popsány parametry pro rutinu **New-AzResource** :
 | customerSubscriptionID | Předplatné Azure (ne Azure Stack centrum) patřící zákazníkovi, který se má zaregistrovat Musí být vytvořen v nabídce CSP. V praxi to znamená prostřednictvím partnerského centra. Pokud má zákazník více než jednoho klienta Azure Active Directory, musí být toto předplatné vytvořeno v tenantovi, které se bude používat k přihlášení do centra Azure Stack. ID předplatného zákazníka rozlišuje velká a malá písmena. |
 | resourceGroup | Skupina prostředků v Azure, ve které je uložená vaše registrace. |
 | registrace | Název registrace centra Azure Stack. Je to objekt uložený v Azure.
+
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm)
+
+1. Otevřete prostředí Windows PowerShell v příkazovém řádku se zvýšenými oprávněními a spusťte příkaz:  
+
+   ```powershell
+   Add-AzureRMAccount
+   ```
+
+   >[!NOTE]
+   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo pokud chcete jednoduše přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí rutiny **Add-AzAccount**: `Remove-AzAccount-Scope Process` .
+
+2. Zadejte svoje přihlašovací údaje Azure.
+3. V relaci PowerShellu spusťte příkaz:
+
+   ```powershell
+   New-AzureRMResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
+   ```
+
+**Parametry prostředí PowerShell pro New-AzureRMResource**
+
+V následující části jsou popsány parametry pro rutinu **New-AzureRMResource** :
+
+| Parametr | Popis |
+| --- | --- |
+|registrationSubscriptionID | Předplatné Azure, které se použilo při prvotní registraci centra Azure Stack.|
+| customerSubscriptionID | Předplatné Azure (ne Azure Stack centrum) patřící zákazníkovi, který se má zaregistrovat Musí být vytvořen v nabídce CSP. V praxi to znamená prostřednictvím partnerského centra. Pokud má zákazník více než jednoho klienta Azure Active Directory, musí být toto předplatné vytvořeno v tenantovi, které se bude používat k přihlášení do centra Azure Stack. ID předplatného zákazníka rozlišuje velká a malá písmena. |
+| resourceGroup | Skupina prostředků v Azure, ve které je uložená vaše registrace. |
+| registrace | Název registrace centra Azure Stack. Je to objekt uložený v Azure.
+
+---
+
 
 > [!NOTE]  
 > Klienti musí být zaregistrované u každého Azure Stackho centra, které používají. Pokud máte dvě nasazení centra Azure Stack a klient používá oba z nich, je nutné aktualizovat počáteční registraci každého nasazení u předplatného tenanta.

@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/10/2020
-ms.openlocfilehash: eaa9417abd41828495d3cd685ecc1f56c42c92e1
-ms.sourcegitcommit: 96bc36a203954622be411fdb038d601e49f97d4e
+ms.date: 11/23/2020
+ms.openlocfilehash: 6116710b6fe1fa9ee909e29ee337d7000caf06ac
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441170"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517171"
 ---
 # <a name="release-notes-for-azure-stack-hci-public-preview"></a>Poznámky k verzi pro Azure Stack HCI Public Preview
 
@@ -20,12 +20,53 @@ ms.locfileid: "94441170"
 
 Tento článek popisuje obsah rozhraní Azure Stack HCI Public Preview aktualizace balíčků.
 
+## <a name="november-23-2020-preview-update-kb4586852"></a>23. listopadu 2020 aktualizace Preview (KB4586852)
+
+Tato aktualizace zahrnuje vylepšení a opravy pro nejnovější verzi Azure Stack HCI. 
+
+   > [!IMPORTANT]
+   > Pokud Azure Stack jste nakonfigurovali a zaregistrovali clustery HCI pomocí Public Preview Image, musíte po instalaci aktualizace KB4586852 opravit registraci Azure, aby bylo možné používat nové funkce, které aktualizace nabízí. Po instalaci aktualizace postupujte podle těchto kroků u každého clusteru:
+   >
+   > 1. Zajistěte, aby byly všechny servery v clusteru aktualizované na KB4586852. Pokud ne, oprava se nezdaří a označí uzly, které je třeba aktualizovat.
+   >
+   > 2. Připojte se k jednomu z uzlů clusteru místně nebo pomocí `Enter-PSSession <server-name>`
+   >
+   > 3. Stáhněte registrační modul AzStackHCI v 0.4.0 z Galerie prostředí PowerShell. Spusťte, `Install-Module Az.StackHCI` abyste získali nejnovější modul.
+   >
+   > 4. Spusťte následující příkaz, který opraví registraci. Použijte ID předplatného, které se použilo k registraci clusteru původně. `Get-AzureStackHCI` zobrazuje aktuální identifikátor URI ARM, který obsahuje informace o předplatném.
+   >
+   >   ```PowerShell
+   >   Register-AzStackHCI -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" -RepairRegistration
+   >   ```
+   > 
+
+### <a name="improvements-and-fixes"></a>Vylepšení a opravy
+Tato aktualizace bez zabezpečení zahrnuje vylepšení kvality. Mezi klíčové změny patří: 
+
+- V této aktualizaci Azure Stack zákazníci se systémem HCI, kteří uchovávají platné licence na Windows Server 2019 Datacenter Edition, je můžou používat k pohodlné aktivaci virtuálních počítačů hostovaných na Azure Stack HCI, aniž by museli spravovat kódy Product Key pro každý jednotlivý virtuální počítač. Konkrétně můžete použít Centrum pro správu Windows nebo PowerShell k zadání nepoužívaného aktivačního klíče Windows serveru 2019 Datacenter Edition přímo do Azure Stack hostitele HCI, který umožní automatickou aktivaci virtuálního počítače (AVMA). Virtuální počítače se systémem Windows Server 2019 nebo starším pak mohou dědit aktivaci z hostitele. Vydaný klíč může být pomocí klíče k vícenásobné aktivaci, který se získal z multilicenčního střediska, a klíč vytištěný na nálepce certifikátu pravosti (COA), který se použije pro server výrobce OEM, nebo klíč z maloobchodních krabicových kopií Windows serveru 2019 Datacenter Edition. V této verzi nejsou podporované GVLK (Generic Volume License Key).
+
+- Azure Stack HCL nyní shromažďuje požadovaná diagnostická data, což jsou minimální data potřebná k zajištění zabezpečení zařízení, aktuální aktuálnost a provádění podle očekávání. Požadovaná diagnostická data shromažďují omezené množství dat, která jsou kritická pro porozumění zařízení a jeho konfiguraci. Tato data pomáhají identifikovat problémy, ke kterým může dojít při konkrétní konfiguraci hardwaru nebo softwaru.  
+
+### <a name="known-issues-in-this-update"></a>Známé problémy v této aktualizaci
+Společnost Microsoft v současné době neví o problémech s touto aktualizací.
+
+### <a name="how-to-get-this-update"></a>Jak získat tuto aktualizaci 
+23. listopadu 2020 se aktualizace zabezpečení (KB4586852) pro [Azure Stack HCI Preview](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) doručuje prostřednictvím web Windows Update. Pokud ho chcete nainstalovat do clusteru Azure Stack HCI, přečtěte si téma [aktualizace Azure Stackch clusterů HCI](manage/update-cluster.md).
+
+### <a name="file-information"></a>Informace o souboru
+Seznam souborů, které jsou k dispozici v této aktualizaci (OS Build 17784,1381), si můžete stáhnout z [informací o souboru kumulativní aktualizace 4586852](https://download.microsoft.com/download/5/c/6/5c6f8c37-3e0b-4239-a6d9-9c709e18e869/4586852.csv).
+
+   > [!NOTE]
+   > Některé soubory mají ve sloupci "verze souboru CSV" hodnotu "nelze použít". To může vést k falešně pozitivním nebo falešně negativním hodnotám při použití nástrojů pro detekci kontroly třetích stran k ověření sestavení.
+
 ## <a name="november-10-2020-security-update-kb4586811"></a>10. listopadu 2020 aktualizace zabezpečení (KB4586811)
 
 Tato aktualizace zahrnuje vylepšení a opravy pro nejnovější verzi Azure Stack HCI.
 
 ### <a name="improvements-and-fixes"></a>Vylepšení a opravy
-Tato aktualizace obsahuje různá vylepšení zabezpečení vnitřních funkcí operačního systému. Pro tuto verzi nebyly zdokumentovány žádné další problémy.
+Tato aktualizace obsahuje různá vylepšení zabezpečení vnitřních funkcí operačního systému. Řeší chybu zabezpečení tím, že brání aplikacím, které běží jako systémový účet, z tisku na místní porty, které odkazují na soubor. Selhání protokolu tiskových úloh – chyba 50, "požadavek není podporován" v ID události 372 v protokolu událostí PrintService\Admin. Aby bylo možné tento problém vyřešit v budoucnu, ujistěte se, že vaše aplikace nebo služby běží jako konkrétní účet uživatele nebo služby.
+
+Pro tuto verzi nebyly zdokumentovány žádné další problémy.
 
 Další informace o vyřešených chybách zabezpečení najdete v [příručce k aktualizaci zabezpečení](https://portal.msrc.microsoft.com/security-guidance).
 
@@ -60,7 +101,7 @@ Aktualizace zásobníku pro obsluhu (SSUs) provádějí změny, jak jsou aktuali
 ### <a name="file-information"></a>Informace o souboru
 Seznam souborů, které jsou k dispozici v této aktualizaci (OS Build 17784,1342), si můžete stáhnout z [informací o souboru kumulativní aktualizace 4590242](https://download.microsoft.com/download/b/b/4/bb4fb4f5-c0ba-4e55-bada-d72310857982/4590242.csv).
 
-### <a name="references"></a>Reference
+### <a name="references"></a>Odkazy
 
 Informace o SSUs najdete v následujících článcích:
 
@@ -150,7 +191,7 @@ Aktualizace zásobníku pro obsluhu (SSUs) provádějí změny, jak jsou aktuali
 ### <a name="file-information"></a>Informace o souboru
 Seznam souborů, které jsou k dispozici v této aktualizaci (OS Build 17784,1287), si můžete stáhnout z [informací o souboru kumulativní aktualizace 4583287](https://download.microsoft.com/download/b/8/5/b85160fb-85d9-49f9-b9d5-7dbc0158a944/4583287.csv).
 
-### <a name="references"></a>Reference
+### <a name="references"></a>Odkazy
 
 Informace o SSUs najdete v následujících článcích:
 
@@ -219,7 +260,7 @@ Aktualizace zásobníku pro obsluhu (SSUs) provádějí změny, jak jsou aktuali
 ### <a name="file-information"></a>Informace o souboru
 Seznam souborů, které jsou k dispozici v této aktualizaci (OS Build 17784,1220), si můžete stáhnout z [informací o souboru kumulativní aktualizace 4577558](https://download.microsoft.com/download/8/f/6/8f612a9b-cb4e-4832-9397-156760848592/4577558.csv).
 
-### <a name="references"></a>Reference
+### <a name="references"></a>Odkazy
 
 Informace o SSUs najdete v následujících článcích:
 

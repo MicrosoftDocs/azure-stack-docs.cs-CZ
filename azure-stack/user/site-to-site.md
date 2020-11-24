@@ -3,16 +3,16 @@ title: Řešení potíží s připojením VPN typu Site-to-site v centru Azure S
 description: Postup řešení potíží, který můžete provést po konfiguraci připojení VPN typu Site-to-site mezi místní sítí a virtuální sítí centra Azure Stack.
 author: sethmanheim
 ms.author: sethm
-ms.date: 10/01/2020
+ms.date: 11/22/2020
 ms.topic: article
 ms.reviewer: sranthar
-ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 6d677d4b192cef17d44896ba5ef41387b1c95765
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 88f258f4700cd091f50dc3732fb7167be84d3954
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546867"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518190"
 ---
 # <a name="troubleshoot-site-to-site-vpn-connections"></a>Řešení potíží s připojeními site-to-site VPN
 
@@ -46,19 +46,37 @@ Výchozí parametry centra Azure Stack pro protokol IPsec/IKEV2 se [od verze 191
 
 ## <a name="status-not-connected---intermittent-disconnects"></a>Stav "Nepřipojeno" – přerušované odpojení
 
+### <a name="az-modules"></a>[AZ modules](#tab/az)
+
 - Porovnejte sdílený klíč pro místní zařízení VPN s virtuální sítí VPN AzSH a ujistěte se, že se klíče shodují. Pokud chcete zobrazit sdílený klíč pro připojení k síti VPN AzSH, použijte jednu z následujících metod:
 
-  - **Portál tenanta centra Azure Stack** : Přejít na připojení typu Site-to-site brány VPN, které jste vytvořili. V části **Nastavení** vyberte možnost **sdílený klíč**.
+  - **Portál tenanta centra Azure Stack**: Přejít na připojení typu Site-to-site brány VPN, které jste vytvořili. V části **Nastavení** vyberte možnost **sdílený klíč**.
 
       :::image type="content" source="media/site-to-site/vpn-connection.png" alt-text="Připojení VPN":::
 
-  - **Azure PowerShell** : použijte následující příkaz prostředí PowerShell:
+  - **Azure PowerShell**: použijte následující příkaz prostředí PowerShell:
 
-      ```powershell
-      Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group>
-      ```
+```powershell
+Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group>
+```
 
-## <a name="status-connected--traffic-not-flowing"></a>Stav "připojeno" – přenos bez toku dat
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm)
+
+- Porovnejte sdílený klíč pro místní zařízení VPN s virtuální sítí VPN AzSH a ujistěte se, že se klíče shodují. Pokud chcete zobrazit sdílený klíč pro připojení k síti VPN AzSH, použijte jednu z následujících metod:
+
+  - **Portál tenanta centra Azure Stack**: Přejít na připojení typu Site-to-site brány VPN, které jste vytvořili. V části **Nastavení** vyberte možnost **sdílený klíč**.
+
+      :::image type="content" source="media/site-to-site/vpn-connection.png" alt-text="Připojení VPN":::
+
+  - **Azure PowerShell**: použijte následující příkaz prostředí PowerShell:
+
+```powershell
+Get-AzurerRMVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group>
+```
+
+---
+
+## <a name="status-connected---traffic-not-flowing"></a>Stav "připojeno" – přenos bez toku dat
 
 - Vyhledejte a odstraňte UDR (User-Defined Routing) a skupiny zabezpečení sítě (skupin zabezpečení sítě) v podsíti brány a pak otestujte výsledek. Pokud je problém vyřešen, ověřte nastavení, které UDR nebo NSG použili.
 

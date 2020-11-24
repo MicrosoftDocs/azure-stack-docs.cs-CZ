@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Seznam nejčastějších dotazů k webu centra Azure Stack pro Windows Server.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 11/19/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: 0801f9530bc3f462e1ddfd0fbce15d193ea6343e
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/19/2020
+ms.openlocfilehash: 3c0022c49d7af3df7da6b3551bf1e51848e5506a
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545708"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517442"
 ---
 # <a name="azure-stack-hub-marketplace-faq"></a>Nejčastější dotazy k webu Azure Stack hub Marketplace
 
@@ -35,9 +35,9 @@ Pokud navíc některé sady škálování virtuálních počítačů odkazují n
 
 Microsoft nabízí dvě verze imagí Windows serveru prostřednictvím tržiště centra Azure Stack. V prostředí Azure Stack hub se dá použít jenom jedna verze této image.  
 
-- **Průběžné platby (PAYG)** : tyto image spouštějí měřiče Windows s plnou cenou.
-   Kdo má použít tuto možnost: zákazníci smlouva Enterprise (EA), kteří používají *Model fakturace spotřeby* ; CSP, kteří nechtějí používat licencování SPLA
-- **Přineste si vlastní licenci (BYOL)** : tyto image spouštějí základní měřiče.
+- **Průběžné platby (PAYG)**: tyto image spouštějí měřiče Windows s plnou cenou.
+   Kdo má použít tuto možnost: zákazníci smlouva Enterprise (EA), kteří používají *Model fakturace spotřeby*; CSP, kteří nechtějí používat licencování SPLA
+- **Přineste si vlastní licenci (BYOL)**: tyto image spouštějí základní měřiče.
    Kdo má použít tuto možnost: zákazníci se smlouvou EA s licencí k Windows serveru; CSP, kteří používají licencování SPLA.
 
 Zvýhodněné hybridní využití Azure (AHUB) se v centru Azure Stack nepodporuje. Zákazníci, kteří mají licenci prostřednictvím modelu "Capacity", musí používat Image BYOL. Pokud testujete pomocí Azure Stack Development Kit (ASDK), můžete použít kteroukoli z těchto možností.
@@ -51,28 +51,44 @@ Pokud stáhnete obě verze image, budou koncovým zákazníkům v tržišti cent
 ### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>Co když můj uživatel nesprávně zaškrtne políčko mám licenci v předchozích sestaveních Windows a nemá licenci?
 
 Atribut licenčního modelu můžete změnit tak, aby se přepnul z BYOL na model PAYG spuštěním následujícího skriptu:
+### <a name="az-modules"></a>[AZ modules](#tab/az1)
 
 ```powershell
 $vm= Get-Azvm -ResourceGroup "<your RG>" -Name "<your VM>"
 $vm.LicenseType = "None"
 Update-AzVM -ResourceGroupName "<your RG>" -VM $vm
 ```
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm1)
+ ```powershell
+$vm= Get-AzureRMvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm.LicenseType = "None"
+Update-AzureRMVM -ResourceGroupName "<your RG>" -VM $vm
+```
+---
 
-Typ licence vašeho virtuálního počítače můžete ověřit spuštěním následujícího příkazu. Pokud licenční model uvádí **Windows_Server** , bude se vám účtovat cena za BYOL. V opačném případě se vám bude účtovat měřič Windows podle modelu PAYG:
+Typ licence vašeho virtuálního počítače můžete ověřit spuštěním následujícího příkazu. Pokud licenční model uvádí **Windows_Server**, bude se vám účtovat cena za BYOL. V opačném případě se vám bude účtovat měřič Windows podle modelu PAYG:
 
 ```powershell
 $vm | ft Name, VmId,LicenseType,ProvisioningState
 ```
-
 ### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-enterprise-agreement-entitlement"></a>Co když mám starší image a uživatel zapomněl, aby zkontroloval, že mám licenci, nebo používáme vlastní image a máme smlouva Enterprise nárok?
 
 Atribut licenčního modelu můžete změnit na model BYOL spuštěním následujících příkazů:
+### <a name="az-modules"></a>[AZ modules](#tab/az2)
 
 ```powershell
 $vm= Get-Azvm -ResourceGroup "<your RG>" -Name "<your VM>"
 $vm.LicenseType = "Windows_Server"
 Update-AzVM -ResourceGroupName "<your RG>" -VM $vm
 ```
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm2)
+
+ ```powershell
+$vm= Get-AzureRMvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm.LicenseType = "Windows_Server"
+Update-AzureRMVM -ResourceGroupName "<your RG>" -VM $vm
+```
+---
 
 ### <a name="what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server"></a>Jaké jsou další virtuální počítače, které používají Windows Server, jako je SQL nebo Machine Learning Server?
 

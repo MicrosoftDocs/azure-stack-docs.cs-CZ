@@ -3,15 +3,15 @@ title: Nasazení virtuálního počítače s zabezpečeným uloženým certifik�
 description: Přečtěte si, jak nasadit virtuální počítač a vložit do něj certifikát pomocí trezoru klíčů v centru Azure Stack.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 11/20/2020
 ms.author: sethm
-ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 245658359db8b55a455fa653f4b97bbf6d1737d8
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/20/2020
+ms.openlocfilehash: a326004b5ed100b0fc7eeb841dd0fbc4ded9ee5a
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546238"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518156"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>Nasazení virtuálního počítače s zabezpečeným uloženým certifikátem v centru Azure Stack
 
@@ -31,12 +31,12 @@ Následující kroky popisují proces vyžadovaný k odeslání certifikátu do 
 
 1. Vytvoření tajného klíče trezoru klíčů
 2. Aktualizuje **azuredeploy.parameters.jsv** souboru.
-3. Nasaďte šablonu.
+3. Nasazení šablony
 
 > [!NOTE]
 > Pomocí těchto kroků můžete z Azure Stack Development Kit (ASDK) nebo z externího klienta, pokud jste připojení prostřednictvím sítě VPN.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 * Musíte se přihlásit k odběru nabídky, která zahrnuje službu Key Vault.
 * [Nainstalujte PowerShell pro centrum Azure Stack](../operator/powershell-install-az-module.md).
@@ -48,6 +48,8 @@ Následující skript vytvoří certifikát ve formátu. pfx, vytvoří Trezor k
 
 > [!IMPORTANT]
 > `-EnabledForDeployment`Při vytváření trezoru klíčů musíte použít parametr. Tento parametr zajišťuje, aby se Trezor klíčů mohl odkazovat z Azure Resource Manager šablon.
+
+### <a name="az-modules"></a>[AZ modules](#tab/az)
 
 ```powershell
 # Create a certificate in the .pfx format
@@ -107,6 +109,70 @@ Set-AzureKeyVaultSecret `
   -Name $secretName `
    -SecretValue $secret
 ```
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm)
+
+```powershell
+# Create a certificate in the .pfx format
+New-SelfSignedCertificate `
+  -certstorelocation cert:\LocalMachine\My `
+  -dnsname contoso.microsoft.com
+
+$pwd = ConvertTo-SecureString `
+  -String "<Password used to export the certificate>" `
+  -Force `
+  -AsPlainText
+
+Export-PfxCertificate `
+  -cert "cert:\localMachine\my\<certificate thumbprint that was created in the previous step>" `
+  -FilePath "<Fully qualified path to where the exported certificate can be stored>" `
+  -Password $pwd
+
+# Create a key vault and upload the certificate into the key vault as a secret
+$vaultName = "contosovault"
+$resourceGroup = "contosovaultrg"
+$location = "local"
+$secretName = "servicecert"
+$fileName = "<Fully qualified path to where the exported certificate can be stored>"
+$certPassword = "<Password used to export the certificate>"
+
+$fileContentBytes = get-content $fileName `
+  -Encoding Byte
+
+$fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
+$jsonObject = @"
+{
+"data": "$filecontentencoded",
+"dataType" :"pfx",
+"password": "$certPassword"
+}
+"@
+$jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
+$jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
+
+New-AzureRMResourceGroup `
+  -Name $resourceGroup `
+  -Location $location
+
+New-AzureRMKeyVault `
+  -VaultName $vaultName `
+  -ResourceGroupName $resourceGroup `
+  -Location $location `
+  -sku standard `
+  -EnabledForDeployment
+
+$secret = ConvertTo-SecureString `
+  -String $jsonEncoded `
+  -AsPlainText -Force
+
+Set-AzureKeyVaultSecret `
+  -VaultName $vaultName `
+  -Name $secretName `
+   -SecretValue $secret
+```
+
+---
+
+
 
 Při spuštění tohoto skriptu obsahuje výstup identifikátor URI tajného kódu. Poznamenejte si tento identifikátor URI, protože ho musíte odkázat do [šablony push Certificate pro Windows Správce prostředků](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Stáhněte si do vývojového počítače složku [VM-push-Certificate-Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) Template. Tato složka obsahuje **azuredeploy.js** a **azuredeploy.parameters.js** se soubory, které potřebujete v následujících krocích.
 
@@ -153,6 +219,8 @@ Aktualizujte **azuredeploy.parameters.jsv** souboru pomocí `vaultName` identifi
 
 Nasaďte šablonu pomocí následujícího skriptu prostředí PowerShell:
 
+### <a name="az-modules"></a>[AZ modules](#tab/az2)
+
 ```powershell
 # Deploy a Resource Manager template to create a VM and push the secret to it
 New-AzResourceGroupDeployment `
@@ -161,6 +229,19 @@ New-AzResourceGroupDeployment `
   -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm2)
+
+```powershell
+# Deploy a Resource Manager template to create a VM and push the secret to it
+New-AzureRMResourceGroupDeployment `
+  -Name KVDeployment `
+  -ResourceGroupName $resourceGroup `
+  -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
+  -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
+```
+---
+
+
 
 Po úspěšném nasazení šablony se zobrazí následující výstup:
 
