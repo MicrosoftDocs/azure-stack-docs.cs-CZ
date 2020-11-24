@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: 804c70ab3785e3932f2d2df01f43ccbd520d51a5
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.openlocfilehash: 5759c0f43401fd27080b8872810e47af920da984
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572802"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95812667"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Nasazení poskytovatele prostředků SQL Server v centru Azure Stack
 
@@ -30,21 +30,21 @@ Aby bylo možné nasadit poskytovatele prostředků SQL centra Azure Stack, je n
 
 - Přidejte požadovaný virtuální počítač s Windows serverem do centra Azure Stack Marketplace.
   * Pro SQL RP verze <= 1.1.47.0 stáhněte bitovou kopii **systému Windows server 2016 Datacenter-Server** .
-  * Pro SQL RP verze >= 1.1.93.0 stáhněte **pouze interní image Windows serveru pro doplněk Microsoft AZURESTACK RP** . Tato verze Windows serveru je specializovaná pro Azure Stack infrastrukturu RP pro doplňky a není viditelná pro tržiště tenanta.
+  * Pro SQL RP verze >= 1.1.93.0 stáhněte **jenom interní image Microsoft AzureStack Add-On RP Windows serveru** . Tato verze Windows serveru je specializovaná pro Azure Stack infrastrukturu Add-On RP a není viditelná pro tržiště tenanta.
 
 
 - Stáhněte si podporovanou verzi binárního souboru poskytovatele prostředků SQL podle níže uvedené tabulky mapování verzí. Spusťte samočinného extrahování pro extrakci staženého obsahu do dočasného adresáře. 
 
   |Podporovaná verze centra Azure Stack|Verze SQL RP|Windows Server, na kterém běží služba RP
   |-----|-----|-----|
-  |2005|[SQL RP verze 1.1.93.0](https://aka.ms/azshsqlrp11930)|POUZE interní doplněk Microsoft AzureStack RP – Windows Server
+  |2008, 2005|[SQL RP verze 1.1.93.0](https://aka.ms/azshsqlrp11930)|POUZE interní doplněk Microsoft AzureStack RP – Windows Server
   |2005, 2002, 1910|[SQL RP verze 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|Windows Server 2016 Datacenter – jádro serveru|
   |1908|[SQL RP verze 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|Windows Server 2016 Datacenter – jádro serveru|
   |     |     |     |
 
 - Ujistěte se, že jsou splněné předpoklady pro integraci Datacenter:
 
-    |Požadavek|Reference|
+    |Požadavek|Referenční informace|
     |-----|-----|
     |Podmíněné předávání DNS je nastaveno správně.|[Integrace centrálního centra Azure Stack – DNS](azure-stack-integrate-dns.md)|
     |Příchozí porty pro poskytovatele prostředků jsou otevřené.|[Integrace Datacenter centra Azure Stack – příchozí porty a protokoly](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
@@ -110,7 +110,7 @@ Po instalaci všech požadovaných součástí spusťte skript **DeploySqlProvid
 Pokud chcete nasadit poskytovatele prostředků SQL, otevřete **nové** okno prostředí PowerShell se zvýšenými oprávněními (ne PowerShell ISE) a přejděte do adresáře, do kterého jste extrahovali binární soubory poskytovatele prostředků SQL. 
 
 > [!IMPORTANT]
-> Doporučujeme použít nové okno prostředí PowerShell, aby nedocházelo k potenciálním problémům způsobeným moduly prostředí PowerShell, které jsou již načteny. Nebo můžete před spuštěním skriptu aktualizace vymazat mezipaměť pomocí azurermcontext Clear-.
+> Důrazně doporučujeme, abyste před spuštěním aktualizačního skriptu vymazali mezipaměť **clear-AzureRmContext-Scope CurrentUser** a **clear-AzureRmContext-Scope** .
 
 Spusťte skript DeploySqlProvider.ps1, který dokončí následující úkoly:
 
@@ -130,17 +130,17 @@ Z příkazového řádku můžete zadat následující parametry. Pokud ne, nebo
 
 | Název parametru | Description | Komentář nebo výchozí hodnota |
 | --- | --- | --- |
-| **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu. | _Požadováno_ |
-| **AzCredential** | Přihlašovací údaje pro účet správce služby Azure Stack hub. Použijte stejné přihlašovací údaje, které jste použili k nasazení centra Azure Stack. Pokud účet, který používáte se službou AzCredential, vyžaduje vícefaktorové ověřování (MFA), skript se nezdaří.| _Požadováno_ |
-| **VMLocalCredential** | Přihlašovací údaje pro účet místního správce virtuálního počítače poskytovatele prostředků SQL. | _Požadováno_ |
-| **PrivilegedEndpoint** | IP adresa nebo název DNS privilegovaného koncového bodu. |  _Požadováno_ |
-| **AzureEnvironment** | Prostředí Azure účtu správce služby používaného pro nasazení centra Azure Stack. Vyžaduje se jenom pro nasazení Azure AD. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment**nebo, pokud používáte Čína Azure Active Directory **AzureChinaCloud**. | AzureCloud |
+| **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu. | _Povinné_ |
+| **AzCredential** | Přihlašovací údaje pro účet správce služby Azure Stack hub. Použijte stejné přihlašovací údaje, které jste použili k nasazení centra Azure Stack. Pokud účet, který používáte se službou AzCredential, vyžaduje vícefaktorové ověřování (MFA), skript se nezdaří.| _Povinné_ |
+| **VMLocalCredential** | Přihlašovací údaje pro účet místního správce virtuálního počítače poskytovatele prostředků SQL. | _Povinné_ |
+| **PrivilegedEndpoint** | IP adresa nebo název DNS privilegovaného koncového bodu. |  _Povinné_ |
+| **AzureEnvironment** | Prostředí Azure účtu správce služby používaného pro nasazení centra Azure Stack. Vyžaduje se jenom pro nasazení Azure AD. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment** nebo, pokud používáte Čína Azure Active Directory **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | V případě pouze integrovaných systémů musí být soubor Certificate. pfx umístěn v tomto adresáři. Volitelně můžete zkopírovat jeden web Windows Update balíček MSU zde. | _Volitelné_ (_povinné_ pro integrované systémy) |
-| **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Požadováno_ |
+| **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Povinné_ |
 | **MaxRetryCount** | Počet pokusů o opakování všech operací, pokud dojde k selhání.| 2 |
 | **RetryDuration** | Interval časového limitu mezi opakovanými pokusy (v sekundách). | 120 |
-| **Odinstalace** | Odebere poskytovatele prostředků a všechny přidružené prostředky (viz následující poznámky). | Ne |
-| **DebugMode** | Zabraňuje automatickému vyčištění při selhání. | Ne |
+| **Odinstalace** | Odebere poskytovatele prostředků a všechny přidružené prostředky (viz následující poznámky). | No |
+| **DebugMode** | Zabraňuje automatickému vyčištění při selhání. | No |
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>Nasazení poskytovatele prostředků SQL pomocí vlastního skriptu
 
@@ -211,7 +211,7 @@ Po dokončení instalačního skriptu poskytovatele prostředků aktualizujte pr
 
 1. Přihlaste se k portálu pro správu jako správce služby.
 2. Vyberte **Skupiny prostředků**.
-3. Vyberte **systém. \<location\> . ** skupina prostředků sqladapter
+3. Vyberte **systém. \<location\> .** skupina prostředků sqladapter
 4. Na stránce Souhrn pro skupinu prostředků by se neměla nasazovat žádná neúspěšná nasazení.
 5. Nakonec vyberte **virtuální počítače** na portálu pro správu, abyste ověřili, že se virtuální počítač poskytovatele prostředků SQL úspěšně vytvořil a běží.
 

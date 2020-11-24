@@ -6,13 +6,13 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/04/2020
-ms.openlocfilehash: f54b62a26b9e3c0409493cec26bdb42ac990b35b
-ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
+ms.date: 11/24/2020
+ms.openlocfilehash: 3606c62c562cb7f402aaafae33a55336345b5e62
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93363890"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95812633"
 ---
 # <a name="azure-stack-hci-faq"></a>Nejčastější dotazy k Azure Stack HCI
 Nejčastější dotazy k rozhraní Azure Stack HCI obsahují část Azure Stack připojení HCI a obecné části Nejčastější dotazy.
@@ -68,7 +68,7 @@ To závisí na tom, jaké funkce používáte. Minimální Azure Stack se rozhra
 
 **Kde se synchronizují informace skutečně procházejí?**
 
-Azure Stack HCI se synchronizuje s oblastí Azure, kterou jste si zvolili při počáteční registraci. Výchozí hodnota je Východní USA. Azure Stack HCI je také k dispozici v Západní Evropa a pracujeme na rozšíření do více oblastí. Pokud jste například zaregistrovali Východní USA, jsou vaše informace synchronizovány pouze do této oblasti a uloženy pouze v rámci USA, a to v zabezpečeném datovém centru pro provoz Microsoft. Další informace najdete v tématu [zasídlí dat v Azure](https://azure.microsoft.com/global-infrastructure/data-residency/).
+Azure Stack HCI se synchronizuje s Azure a ukládá data do zabezpečeného datacentra ovládaného Microsoftem. Další informace najdete v tématu [zasídlí dat v Azure](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 ### <a name="disconnected-or-air-gapped"></a>Odpojeno nebo "air-gapped"
 

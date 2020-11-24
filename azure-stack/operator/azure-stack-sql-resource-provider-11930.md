@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.author: caoyang
 ms.reviewer: xiaofmao
 ms.lastreviewed: 09/22/2020
-ms.openlocfilehash: 035e1cc2e78aaebcc0ea653354d00f617d7e95c5
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.openlocfilehash: 5becaf3bca62d4e37bac266649bf3821dc5a652e
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91585900"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95812684"
 ---
 # <a name="sql-resource-provider-11930-release-notes"></a>1.1.93.0 poznámky k verzi poskytovatele prostředků SQL
 
@@ -23,7 +23,7 @@ Stáhněte si binární soubor poskytovatele prostředků SQL a potom spusťte s
 
 > |Podporovaná verze centra Azure Stack|Verze zprostředkovatele prostředků SQL|
 > |-----|-----|
-> |Verze 2005|[SQL RP verze 1.1.93.0](https://aka.ms/azshsqlrp11930)|  
+> |Verze 2008, 2005|[SQL RP verze 1.1.93.0](https://aka.ms/azshsqlrp11930)|  
 > |     |     |
 
 > [!IMPORTANT]
@@ -33,7 +33,7 @@ Stáhněte si binární soubor poskytovatele prostředků SQL a potom spusťte s
 
 Tato verze poskytovatele prostředků SQL centra Azure Stack zahrnuje následující vylepšení a opravy:
 
-- **Aktualizujte základní virtuální počítač na specializovaný Windows Server.** Tato verze Windows serveru je specializovaná pro infrastrukturu Azure Stackho přidaných rozbočovačů a není viditelná pro tržiště tenanta. Před nasazením nebo upgradem na tuto verzi poskytovatele prostředků SQL se ujistěte, že jste si stáhli **jenom interní image Windows serveru pro doplněk Microsoft AZURESTACK RP** .
+- **Aktualizujte základní virtuální počítač na specializovaný Windows Server.** Tato verze Windows serveru je specializovaná pro infrastrukturu centra Azure Stack Add-On RP a není viditelná pro tržiště tenanta. Před nasazením nebo upgradem na tuto verzi poskytovatele prostředků SQL se ujistěte, že jste stáhli **jenom interní image Microsoft AzureStack Add-On RP Windows serveru** .
 - **Podpora odebrání osamocených metadat databáze a metadat hostitelských serverů.** Pokud již nelze hostitelský server připojit, bude mít klient možnost odebrat Osamocená metadata databáze z portálu. Pokud nejsou žádná Osamocená metadata databáze propojená s hostitelským serverem, operátor bude moci odebrat Osamocená metadata hostitelského serveru z portálu pro správu.
 - **Při provádění rotace tajných kódů nastavte KeyVaultPfxPassword nepovinný argument.** Podrobnosti najdete v [tomto dokumentu](azure-stack-sql-resource-provider-maintain.md#secrets-rotation) .
 - **Další opravy chyb.**

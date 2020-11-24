@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/17/2020
-ms.openlocfilehash: 7406379931f2735304536d45aa6e413df6461127
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.date: 11/23/2020
+ms.openlocfilehash: d90788a6f7f267955b1c4837eef74a5980118dea
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517120"
+ms.locfileid: "95812620"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Připojení Azure Stack HCl k Azure
 
@@ -68,7 +68,7 @@ Pomocí následujícího postupu zaregistrujete Azure Stack clusteru HCI do Azur
    Install-Module -Name Az.StackHCI -RequiredVersion 0.3.1
    ```
 
-   Pokud jste už nainstalovali 23. [listopadu 2020 Preview (KB4586852)](../release-notes.md) a teď jenom zaregistrujete cluster pomocí Azure, můžete bezpečně použít nejnovější verzi AZ. StackHCI:
+   Pokud jste už od 23. [listopadu 2020 Preview (KB4586852)](../release-notes.md) na každém serveru v clusteru nainstalovali a jenom teď zaregistrujete cluster v Azure, můžete bezpečně použít nejnovější verzi AZ. StackHCI:
 
    ```PowerShell
    Install-Module -Name Az.StackHCI

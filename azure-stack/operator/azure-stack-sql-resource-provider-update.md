@@ -8,12 +8,12 @@ ms.date: 8/19/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 60d9ce421ce4cdede89dd9f0fa9ff4ee4746d039
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.openlocfilehash: a67b950f91d502378a151031e25a68f861494555
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572853"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95812645"
 ---
 # <a name="update-the-sql-resource-provider"></a>Aktualizace poskytovatele prostředků SQL
 
@@ -24,7 +24,7 @@ Nový poskytovatel prostředků SQL může být vydaný, když se Azure Stack ce
 
 |Podporovaná verze centra Azure Stack|Verze SQL RP|Windows Server, na kterém běží služba RP
   |-----|-----|-----|
-  |2005|[SQL RP verze 1.1.93.0](https://aka.ms/azshsqlrp11930)|POUZE interní doplněk Microsoft AzureStack RP – Windows Server
+  |2008, 2005|[SQL RP verze 1.1.93.0](https://aka.ms/azshsqlrp11930)|POUZE interní doplněk Microsoft AzureStack RP – Windows Server
   |2005, 2002, 1910|[SQL RP verze 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|Windows Server 2016 Datacenter – jádro serveru|
   |1908|[SQL RP verze 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|Windows Server 2016 Datacenter – jádro serveru|
   |     |     |     |
@@ -54,17 +54,17 @@ Při spuštění skriptu **UpdateSQLProvider.ps1** PowerShellu můžete zadat n�
 
 | Název parametru | Description | Komentář nebo výchozí hodnota |
 | --- | --- | --- |
-| **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu. | _Požadováno_ |
-| **AzCredential** | Přihlašovací údaje pro účet správce služby Azure Stack hub. Použijte stejné přihlašovací údaje, které jste použili k nasazení centra Azure Stack. | _Požadováno_ |
-| **VMLocalCredential** | Přihlašovací údaje pro účet místního správce virtuálního počítače poskytovatele prostředků SQL. | _Požadováno_ |
-| **PrivilegedEndpoint** | IP adresa nebo název DNS privilegovaného koncového bodu. |  _Požadováno_ |
-| **AzureEnvironment** | Prostředí Azure účtu správce služby, které jste použili k nasazení centra Azure Stack. Vyžaduje se jenom pro nasazení Azure AD. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment**nebo, pokud používáte Čína Azure AD **AzureChinaCloud**. | AzureCloud |
+| **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu. | _Povinné_ |
+| **AzCredential** | Přihlašovací údaje pro účet správce služby Azure Stack hub. Použijte stejné přihlašovací údaje, které jste použili k nasazení centra Azure Stack. | _Povinné_ |
+| **VMLocalCredential** | Přihlašovací údaje pro účet místního správce virtuálního počítače poskytovatele prostředků SQL. | _Povinné_ |
+| **PrivilegedEndpoint** | IP adresa nebo název DNS privilegovaného koncového bodu. |  _Povinné_ |
+| **AzureEnvironment** | Prostředí Azure účtu správce služby, které jste použili k nasazení centra Azure Stack. Vyžaduje se jenom pro nasazení Azure AD. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment** nebo, pokud používáte Čína Azure AD **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Do tohoto adresáře musíte taky vložit soubor Certificate. pfx. | _Volitelné pro jeden uzel, ale je povinný pro více uzlů_ |
-| **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Požadováno_ |
+| **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Povinné_ |
 | **MaxRetryCount** | Počet pokusů o opakování všech operací, pokud dojde k selhání.| 2 |
 | **RetryDuration** |Interval časového limitu mezi opakovanými pokusy (v sekundách). | 120 |
-| **Odinstalace** | Odebere poskytovatele prostředků a všechny přidružené prostředky. | Ne |
-| **DebugMode** | Zabraňuje automatickému vyčištění při selhání. | Ne |
+| **Odinstalace** | Odebere poskytovatele prostředků a všechny přidružené prostředky. | No |
+| **DebugMode** | Zabraňuje automatickému vyčištění při selhání. | No |
 
 ## <a name="update-script-powershell-example"></a>Příklad aktualizace skriptu PowerShellu
 

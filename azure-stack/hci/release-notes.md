@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/23/2020
-ms.openlocfilehash: 6116710b6fe1fa9ee909e29ee337d7000caf06ac
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.date: 11/24/2020
+ms.openlocfilehash: 56cc4c35ecbb92c30883bd1f2018422cdcac0894
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517171"
+ms.locfileid: "95812724"
 ---
 # <a name="release-notes-for-azure-stack-hci-public-preview"></a>Poznámky k verzi pro Azure Stack HCI Public Preview
 
@@ -31,7 +31,7 @@ Tato aktualizace zahrnuje vylepšení a opravy pro nejnovější verzi Azure Sta
    >
    > 2. Připojte se k jednomu z uzlů clusteru místně nebo pomocí `Enter-PSSession <server-name>`
    >
-   > 3. Stáhněte registrační modul AzStackHCI v 0.4.0 z Galerie prostředí PowerShell. Spusťte, `Install-Module Az.StackHCI` abyste získali nejnovější modul.
+   > 3. Stáhněte registrační modul AzStackHCI v 0.4.1 z Galerie prostředí PowerShell. Spusťte, `Install-Module -Name Az.StackHCI` abyste získali nejnovější modul.
    >
    > 4. Spusťte následující příkaz, který opraví registraci. Použijte ID předplatného, které se použilo k registraci clusteru původně. `Get-AzureStackHCI` zobrazuje aktuální identifikátor URI ARM, který obsahuje informace o předplatném.
    >
@@ -101,7 +101,7 @@ Aktualizace zásobníku pro obsluhu (SSUs) provádějí změny, jak jsou aktuali
 ### <a name="file-information"></a>Informace o souboru
 Seznam souborů, které jsou k dispozici v této aktualizaci (OS Build 17784,1342), si můžete stáhnout z [informací o souboru kumulativní aktualizace 4590242](https://download.microsoft.com/download/b/b/4/bb4fb4f5-c0ba-4e55-bada-d72310857982/4590242.csv).
 
-### <a name="references"></a>Odkazy
+### <a name="references"></a>Reference
 
 Informace o SSUs najdete v následujících článcích:
 
@@ -191,7 +191,7 @@ Aktualizace zásobníku pro obsluhu (SSUs) provádějí změny, jak jsou aktuali
 ### <a name="file-information"></a>Informace o souboru
 Seznam souborů, které jsou k dispozici v této aktualizaci (OS Build 17784,1287), si můžete stáhnout z [informací o souboru kumulativní aktualizace 4583287](https://download.microsoft.com/download/b/8/5/b85160fb-85d9-49f9-b9d5-7dbc0158a944/4583287.csv).
 
-### <a name="references"></a>Odkazy
+### <a name="references"></a>Reference
 
 Informace o SSUs najdete v následujících článcích:
 
@@ -260,7 +260,7 @@ Aktualizace zásobníku pro obsluhu (SSUs) provádějí změny, jak jsou aktuali
 ### <a name="file-information"></a>Informace o souboru
 Seznam souborů, které jsou k dispozici v této aktualizaci (OS Build 17784,1220), si můžete stáhnout z [informací o souboru kumulativní aktualizace 4577558](https://download.microsoft.com/download/8/f/6/8f612a9b-cb4e-4832-9397-156760848592/4577558.csv).
 
-### <a name="references"></a>Odkazy
+### <a name="references"></a>Reference
 
 Informace o SSUs najdete v následujících článcích:
 

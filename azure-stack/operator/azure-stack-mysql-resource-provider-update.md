@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 93fcbd61003164a959a15c8c6108bc81dabe2b8a
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.openlocfilehash: 61149b7eb89908b641fd995b10b22e3d05a5fb8d
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572887"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95812707"
 ---
 # <a name="update-the-mysql-resource-provider-in-azure-stack-hub"></a>Aktualizace poskytovatele prostředků MySQL v Azure Stack hub
 
@@ -23,7 +23,7 @@ Při aktualizaci Azure Stackch sestavení centra se může uvolnit nový adapté
 
   |Podporovaná verze centra Azure Stack|Verze MySQL RP|Windows Server, na kterém běží služba RP
   |-----|-----|-----|
-  |2005|[MySQL RP verze 1.1.93.0](https://aka.ms/azshmysqlrp11930)|POUZE interní doplněk Microsoft AzureStack RP – Windows Server
+  |2008, 2005|[MySQL RP verze 1.1.93.0](https://aka.ms/azshmysqlrp11930)|POUZE interní doplněk Microsoft AzureStack RP – Windows Server
   |2005, 2002, 1910|[MySQL RP verze 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|Windows Server 2016 Datacenter – jádro serveru|
   |1908|[MySQL RP verze 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|Windows Server 2016 Datacenter – jádro serveru|
   |     |     |     |
@@ -50,19 +50,19 @@ Když skript *UpdateMySQLProvider.ps1* vytvoří nový virtuální počítač, s
 ## <a name="update-script-parameters"></a>Aktualizovat parametry skriptu 
 Při spuštění skriptu **UpdateMySQLProvider.ps1** PowerShell zadejte z příkazového řádku následující parametry. Pokud ne, nebo pokud se nějaké ověření parametru nepodaří, budete vyzváni k zadání požadovaných parametrů.
 
-| Název parametru | Description | Komentář nebo výchozí hodnota | 
+| Název parametru | Popis | Komentář nebo výchozí hodnota | 
 | --- | --- | --- | 
-| **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu. | _Požadováno_ | 
-| **AzCredential** | Přihlašovací údaje pro účet správce služby Azure Stack hub. Použijte stejné přihlašovací údaje, které jste použili k nasazení centra Azure Stack. Pokud účet, který používáte se službou AzCredential, vyžaduje vícefaktorové ověřování (MFA), skript se nezdaří. | _Požadováno_ | 
-| **VMLocalCredential** |Přihlašovací údaje pro účet místního správce virtuálního počítače poskytovatele prostředků SQL. | _Požadováno_ | 
-| **PrivilegedEndpoint** | IP adresa nebo název DNS privilegovaného koncového bodu. |  _Požadováno_ | 
-| **AzureEnvironment** | Prostředí Azure účtu správce služby používaného pro nasazení centra Azure Stack. Vyžaduje se jenom pro nasazení Azure AD. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment**nebo, pokud používáte Čína Azure AD **AzureChinaCloud**. | AzureCloud |
+| **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu. | _Povinné_ | 
+| **AzCredential** | Přihlašovací údaje pro účet správce služby Azure Stack hub. Použijte stejné přihlašovací údaje, které jste použili k nasazení centra Azure Stack. Pokud účet, který používáte se službou AzCredential, vyžaduje vícefaktorové ověřování (MFA), skript se nezdaří. | _Povinné_ | 
+| **VMLocalCredential** |Přihlašovací údaje pro účet místního správce virtuálního počítače poskytovatele prostředků SQL. | _Povinné_ | 
+| **PrivilegedEndpoint** | IP adresa nebo název DNS privilegovaného koncového bodu. |  _Povinné_ | 
+| **AzureEnvironment** | Prostředí Azure účtu správce služby používaného pro nasazení centra Azure Stack. Vyžaduje se jenom pro nasazení Azure AD. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment** nebo, pokud používáte Čína Azure AD **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Soubor certifikátu. pfx musí být umístěný i v tomto adresáři. | _Volitelné_ (_povinné_ pro více uzlů) | 
-| **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Požadováno_ | 
+| **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Povinné_ | 
 | **MaxRetryCount** | Počet pokusů o opakování všech operací, pokud dojde k selhání.| 2 | 
 | **RetryDuration** | Interval časového limitu mezi opakovanými pokusy (v sekundách). | 120 | 
-| **Odinstalace** | Odebrání poskytovatele prostředků a všech přidružených prostředků (viz následující poznámky). | Ne | 
-| **DebugMode** | Zabraňuje automatickému vyčištění při selhání. | Ne | 
+| **Odinstalace** | Odebrání poskytovatele prostředků a všech přidružených prostředků (viz následující poznámky). | No | 
+| **DebugMode** | Zabraňuje automatickému vyčištění při selhání. | No | 
 | **AcceptLicense** | Přeskočí výzvu k přijetí licence GPL.  (https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
 
 ## <a name="update-script-example"></a>Příklad aktualizace skriptu
