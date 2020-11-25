@@ -3,22 +3,22 @@ title: Připojení k centru Azure Stack pomocí PowerShellu
 description: Přečtěte si, jak se připojit k centru Azure Stack pomocí PowerShellu.
 author: mattbriggs
 ms.topic: article
-ms.date: 10/19/2020
+ms.date: 11/19/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: d99212c63e33060fbbb8eb483dd32e7c01d54ba1
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/19/2020
+ms.openlocfilehash: 19438a56b487e4c5c167977fbc831bf64dc3695a
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545138"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96035313"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell"></a>Připojení k centru Azure Stack pomocí PowerShellu
 
 Centrum Azure Stack můžete nakonfigurovat tak, aby používalo PowerShell ke správě prostředků, jako je vytváření nabídek, plánů, kvót a výstrah. Toto téma vám pomůže nakonfigurovat prostředí operátorů.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 Pokud jste [připojení k ASDK prostřednictvím sítě VPN](../asdk/asdk-connect.md#connect-with-vpn), spusťte následující předpoklady buď z [Azure Stack Development Kit (ASDK)](../asdk/asdk-connect.md#connect-with-rdp) , nebo z externího klienta založeného na systému Windows.
 
@@ -29,11 +29,32 @@ Pokud jste [připojení k ASDK prostřednictvím sítě VPN](../asdk/asdk-connec
 
 Chcete-li nakonfigurovat prostředí operátora centra Azure Stack pomocí prostředí PowerShell, spusťte jeden z následujících skriptů. Nahraďte Azure Active Directory (Azure AD) tenant a Azure Resource Manager hodnoty koncového bodu vlastní konfigurací prostředí.
 
-[!include[Remove Account](../../includes/remove-account.md)]
+### <a name="az-modules"></a>[AZ modules](#tab/az1)
+
+[!include[Remove Account](../includes/remove-account-az.md)]
 
 ```powershell  
     # Register an Azure Resource Manager environment that targets your Azure Stack Hub instance. Get your Azure Resource Manager endpoint value from your service provider.
     Add-AzEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" `
+      -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external `
+      -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
+
+    # Set your tenant name.
+    $AuthEndpoint = (Get-AzEnvironment -Name "AzureStackAdmin").ActiveDirectoryAuthority.TrimEnd('/')
+    $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com"
+    $TenantId = (invoke-restmethod "$($AuthEndpoint)/$($AADTenantName)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
+
+    # After signing in to your environment, Azure Stack Hub cmdlets
+    # can be easily targeted at your Azure Stack Hub instance.
+    Add-AzAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantId
+```
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm1)
+
+[!include[Remove Account](../includes/remove-account-azurerm.md)]
+
+```powershell  
+    # Register an Azure Resource Manager environment that targets your Azure Stack Hub instance. Get your Azure Resource Manager endpoint value from your service provider.
+    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" `
       -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external `
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
 
@@ -47,9 +68,14 @@ Chcete-li nakonfigurovat prostředí operátora centra Azure Stack pomocí prost
     Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantId
 ```
 
+---
+
+
 ## <a name="connect-with-ad-fs"></a>Připojení pomocí AD FS
 
 Připojte se k prostředí operátora centra Azure Stack pomocí PowerShellu s Azure Active Directory federované služby (Azure AD FS). Pro ASDK je tento koncový bod Azure Resource Manager nastaven na hodnotu `https://adminmanagement.local.azurestack.external` . Pokud chcete získat Azure Resource Manager koncový bod pro integrované systémy centra Azure Stack, obraťte se na svého poskytovatele služeb.
+
+### <a name="az-modules"></a>[AZ modules](#tab/az2)
 
   ```powershell  
   # Register an Azure Resource Manager environment that targets your Azure Stack Hub instance. Get your Azure Resource Manager endpoint value from your service provider.
@@ -58,8 +84,22 @@ Připojte se k prostředí operátora centra Azure Stack pomocí PowerShellu s A
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
 
   # Sign in to your environment.
-  Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+  Login-AzAccount -EnvironmentName "AzureStackAdmin"
   ```
+
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm2)
+
+```powershell  
+# Register an Azure Resource Manager environment that targets your Azure Stack Hub instance. Get your Azure Resource Manager endpoint value from your service provider.
+  Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" `
+    -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external `
+    -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
+
+# Sign in to your environment.
+Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+```
+
+---
 
 [!Include [AD FS only supports interactive authentication with user identities](../includes/note-powershell-adfs.md)]
 
@@ -67,9 +107,19 @@ Připojte se k prostředí operátora centra Azure Stack pomocí PowerShellu s A
 
 Teď, když máte všechno nastavené, můžete pomocí PowerShellu vytvářet prostředky v rámci centra Azure Stack. Můžete například vytvořit skupinu prostředků pro aplikaci a přidat virtuální počítač. Pomocí následujícího příkazu vytvořte skupinu prostředků s názvem **MyResourceGroup**.
 
+### <a name="az-modules"></a>[AZ modules](#tab/az3)
+```powershell  
+New-AzResourceGroup -Name "MyResourceGroup" -Location "Local"
+```
+
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm3)
+
 ```powershell  
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
+
+---
+
 
 ## <a name="next-steps"></a>Další kroky
 
