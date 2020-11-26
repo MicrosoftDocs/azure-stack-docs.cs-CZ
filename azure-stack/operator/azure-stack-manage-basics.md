@@ -7,10 +7,10 @@ ms.date: 06/16/2020
 ms.author: justinha
 ms.lastreviewed: 06/16/2020
 ms.openlocfilehash: b277eb9dcb1ac66af870db68c919e711aadc1ac7
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 11/26/2020
 ms.locfileid: "94543506"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Základy správy centra Azure Stack
@@ -25,7 +25,7 @@ Pokud používáte integrovaný systém Azure Stack hub, balíčky aktualizací 
  
 ### <a name="development-kit"></a>Vývojová sada
 
-Pokud používáte Azure Stack Development Kit (ASDK), přečtěte si téma [co je Azure Stack centrum?](../asdk/asdk-what-is.md) , kde se dozvíte o účelu a omezeních ASDK. ASDK můžete použít jako *izolovaný prostor (sandbox)* , kde můžete vyhodnotit Azure Stack hub a vyvíjet a testovat aplikace v neprodukčním prostředí. Informace o nasazení najdete v tématu [nasazení Azure Stack Development Kit](../asdk/asdk-install.md).
+Pokud používáte Azure Stack Development Kit (ASDK), přečtěte si téma [co je Azure Stack centrum?](../asdk/asdk-what-is.md) , kde se dozvíte o účelu a omezeních ASDK. ASDK můžete použít jako *izolovaný prostor (sandbox)*, kde můžete vyhodnotit Azure Stack hub a vyvíjet a testovat aplikace v neprodukčním prostředí. Informace o nasazení najdete v tématu [nasazení Azure Stack Development Kit](../asdk/asdk-install.md).
 
 Podobně jako u Azure provedeme rychlé inovace. Pravidelně vydáváme nová sestavení. Pokud používáte ASDK a chcete přejít na nejnovější sestavení, je nutné [znovu nasadit centrum Azure Stack](../asdk/asdk-redeploy.md). Nemůžete použít balíčky aktualizací. Tento proces trvá čas, ale výhodou je, že můžete vyzkoušet nejnovější funkce. Dokumentace ASDK na našem webu odráží nejnovější sestavení pro vydání.
 

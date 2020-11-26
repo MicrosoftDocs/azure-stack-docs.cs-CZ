@@ -9,10 +9,10 @@ ms.date: 01/22/2020
 ms.reviewer: bryanla
 ms.lastreviewed: 01/22/2020
 ms.openlocfilehash: 7a2b8504a247048a4f90f7ec70772ff52b5ae9dc
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/23/2020
+ms.lasthandoff: 11/26/2020
 ms.locfileid: "91107243"
 ---
 # <a name="quickstart-create-an-event-hubs-cluster-using-the-azure-stack-hub-portal"></a>Rychlý Start: Vytvoření clusteru Event Hubs pomocí portálu centra Azure Stack
@@ -23,7 +23,7 @@ V tomto rychlém startu se dozvíte, jak vytvořit cluster Event Hubs pomocí u�
 
 Clustery Event Hubs nabízejí nasazení s jedním nájemcem pro nejnáročnější potřeby streamování. Cluster Event Hubs může příchozí miliony událostí za sekundu se zaručenou kapacitou a latencí druhé sekundy. Event Hubs clustery obsahují všechny oblíbené funkce a nabízejí paritu funkcemi, které nabízí edice Azure Event Hubs.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 Než budete moct dokončit tento rychlý Start, musíte zajistit, aby byla ve vašem předplatném dostupná služba Event Hubs. Pokud ne, ve spolupráci s vaším správcem [nainstalujte Event Hubs do poskytovatele prostředků služby Azure Stack hub](../operator/event-hubs-rp-overview.md). Postup instalace také pokryje vytvoření nabídky, která zahrnuje službu Event Hubs. 
 
@@ -44,9 +44,9 @@ V tomto rychlém startu se dozvíte, jak pomocí portálu Azure Stack User Porta
 Cluster Event Hubs poskytuje jedinečný obor kontejneru, ve kterém můžete vytvořit jeden nebo více oborů názvů. Provedením následujících kroků vytvořte cluster Event Hubs: 
 
 1. Přihlaste se k portálu pro uživatele centra Azure Stack.
-2. V levém navigačním podokně vyberte **všechny služby**   , do vyhledávacího panelu zadejte "Event Hubs clustery" a vyberte položku **Event Hubs clustery** ze seznamu výsledků.
+2. V levém navigačním podokně vyberte  **všechny služby**   , do vyhledávacího panelu zadejte "Event Hubs clustery" a vyberte položku **Event Hubs clustery** ze seznamu výsledků.
 3. Jednou na stránce **Event Hubs clustery** vyberte v horní nabídce **+ Přidat** . Otevře se panel **vytvořit Event Hubs cluster** na pravé straně.
-4. Na kartě **základy** stránky **vytvořit Event Hubs clusteru**   :  
+4. Na kartě **základy** stránky  **vytvořit Event Hubs clusteru**   :  
    - **Název clusteru**: zadejte název. Systém okamžitě kontroluje, jestli je název dostupný. Pokud je k dispozici, zobrazí se značka zaškrtnutí na pravé straně pole. 
    - **Předplatné**: vyberte předplatné, ve kterém chcete cluster vytvořit. 
    - **Skupina prostředků**: Vytvořte nebo vyberte skupinu prostředků, ve které chcete cluster vytvořit. 
@@ -76,7 +76,7 @@ Cluster Event Hubs poskytuje jedinečný obor kontejneru, ve kterém můžete vy
 
 Nyní vytvoříte obor názvů v rámci nového clusteru:
 
-1. Na stránce **přehled** **Event Hubs clusteru**v horní nabídce vyberte **+ obor názvů**   . 
+1. Na stránce **přehled** **Event Hubs clusteru** v horní nabídce vyberte  **+ obor názvů**   . 
 
    [![Clustery Event Hubs – výběr clusteru](media/event-hubs-quickstart-cluster-portal/2-view-cluster.png)](media/event-hubs-quickstart-cluster-portal/2-view-cluster.png#lightbox)
 
@@ -99,7 +99,7 @@ Nyní vytvoříte obor názvů v rámci nového clusteru:
 
 ## <a name="create-an-event-hub"></a>Vytvoření centra událostí
 
-1. Na stránce **Přehled** **oboru názvů Event Hubs**v horní nabídce vyberte **+ centrum událostí** .  
+1. Na stránce **Přehled** **oboru názvů Event Hubs** v horní nabídce vyberte **+ centrum událostí** .  
 
    [![Event Hubs – Přehled oboru názvů](media/event-hubs-quickstart-cluster-portal/3-event-hubs-namespace-overview.png)](media/event-hubs-quickstart-cluster-portal/3-event-hubs-namespace-overview.png#lightbox)
 

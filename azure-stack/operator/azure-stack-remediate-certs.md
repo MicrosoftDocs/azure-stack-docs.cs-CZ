@@ -8,16 +8,28 @@ ms.date: 11/10/2020
 ms.author: bryanla
 ms.reviewer: unknown
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: 81215c7b3fb25f0e9b9877dae401b776517cf143
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 824463ccf48d6855fd2851e9c6f9116d61b8b818
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545339"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96152807"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>Řešení běžných problémů s certifikáty PKI Azure Stack hub
 
 Informace v tomto článku vám pomůžou pochopit a vyřešit běžné problémy s Azure Stackmi certifikáty PKI centra. Když použijete nástroj pro kontrolu připravenosti centra Azure Stack k [ověření certifikátů PKI Azure Stack hub](azure-stack-validate-pki-certs.md), můžete zjistit problémy. Nástroj zkontroluje, jestli certifikáty splňují požadavky na infrastrukturu veřejných klíčů pro nasazení centra Azure Stack a rotaci Azure Stack centra, a pak zaprotokolují výsledky do [report.jsv souboru](azure-stack-validation-report.md).  
+
+## <a name="http-crl---warning"></a>Seznam CRL HTTP – upozornění
+
+**Problém** – certifikát neobsahuje seznam CRL protokolu HTTP v rozšíření CDP.
+
+**Oprava** – jedná se o neblokující problém. Azure Stack vyžaduje seznam CRL protokolu HTTP pro kontrolu odvolání podle [požadavků na certifikát infrastruktury veřejných klíčů (PKI)](https://aka.ms/azspki)na základě služby Azure Stack hub.  V certifikátu nebyl zjištěn seznam CRL protokolu HTTP.  Pokud chcete zajistit, aby kontrola odvolání certifikátů fungovala, certifikační autorita by měla vydat certifikát se seznamem CRL protokolu HTTP v rozšíření CDP.
+
+## <a name="http-crl---fail"></a>CRL HTTP – selhání
+
+**Problém** – nelze se připojit k seznamu CRL http v rozšíření CDP.
+
+**Oprava** – jedná se o blokující problém. Azure Stack vyžaduje připojení k seznamu CRL protokolu HTTP pro kontrolu odvolání podle [publikačních portů a adres URL pro publikování Azure Stack rozbočovače (odchozí)](https://docs.microsoft.com/azure-stack/operator/azure-stack-integrate-endpoints#ports-and-urls-outbound).
 
 ## <a name="pfx-encryption"></a>Šifrování PFX
 
@@ -85,7 +97,7 @@ Velikost klíče **problému** je menší než 2048.
 
 ## <a name="fix-common-packaging-issues"></a>Řešení běžných problémů s balíčkem
 
-Nástroj **AzsReadinessChecker** obsahuje pomocnou rutinu nazvanou **Repair-AzsPfxCertificate** , která může importovat a exportovat soubor PFX za účelem opravy běžných problémů s balíčkem, včetně:
+Nástroj **AzsReadinessChecker** obsahuje pomocnou rutinu nazvanou **Repair-AzsPfxCertificate**, která může importovat a exportovat soubor PFX za účelem opravy běžných problémů s balíčkem, včetně:
 
 - **Šifrování PFX** není v TRIPLEDES-SHA1.
 - V **privátním klíči** chybí atribut místního počítače.
@@ -94,7 +106,7 @@ Nástroj **AzsReadinessChecker** obsahuje pomocnou rutinu nazvanou **Repair-AzsP
 
 **Oprava – AzsPfxCertificate** nemůže pomáhat, pokud potřebujete vygenerovat nového CSR a znovu vystavit certifikát.
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 
 Na počítači, na kterém je nástroj spuštěný, musí být nahlášené tyto požadavky:
 

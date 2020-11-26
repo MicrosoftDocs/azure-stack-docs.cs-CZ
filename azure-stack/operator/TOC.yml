@@ -14,7 +14,7 @@
           href: release-notes.md
         - name: Známé problémy
           href: known-issues.md
-- name: Rychlý start
+- name: Rychlé starty
   expanded: true
   items:
     - name: Použití portálu pro správu
@@ -43,7 +43,7 @@
           href: azure-stack-capacity-planner.md
     - name: Integrace datových center
       items:
-        - name: Návod
+        - name: Názorný postup
           href: azure-stack-customer-journey.md
         - name: Obecné aspekty
           href: azure-stack-datacenter-integration.md
@@ -88,7 +88,7 @@
               href: azure-stack-validate-adfs.md
             - name: Ověřit integraci grafu
               href: azure-stack-validate-graph.md
-        - name: Požadavky a procesy PKI
+        - name: Externí certifikáty PKI
           items:
             - name: Požadavky na certifikát PKI
               href: azure-stack-pki-certs.md
@@ -297,7 +297,7 @@
               href: azure-stack-app-service-capacity-planning.md
             - name: Nejčastější dotazy k fakturaci App Service
               href: app-service-billing-faq.md
-            - name: Požadavky
+            - name: Předpoklady
               href: azure-stack-app-service-before-you-get-started.md
             - name: Nasazení App Service
               href: azure-stack-app-service-deploy.md
@@ -331,7 +331,7 @@
               href: event-hubs-rp-overview.md
             - name: Plánování kapacity
               href: event-hubs-rp-capacity-planning.md
-            - name: Požadavky
+            - name: Předpoklady
               href: event-hubs-rp-prerequisites.md
             - name: Instalace
               href: event-hubs-rp-install.md
@@ -499,9 +499,9 @@
               href: azure-stack-get-azurestacklog.md
         - name: Ověřování centra Azure Stack
           href: azure-stack-diagnostic-test.md
-        - name: Řešení potíží
+        - name: Poradce při potížích
           href: azure-stack-troubleshooting.md
-- name: Odkaz
+- name: Referenční informace
   items:
     - name: Prostředí PowerShell centra Azure Stack
       href: /powershell/azure/azure-stack/overview

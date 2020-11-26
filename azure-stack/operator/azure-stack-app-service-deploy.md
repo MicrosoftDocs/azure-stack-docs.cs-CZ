@@ -9,10 +9,10 @@ ms.reviewer: anwestg
 ms.lastreviewed: 10/28/2020
 zone_pivot_groups: state-connected-disconnected
 ms.openlocfilehash: 78457d49b35c49cefc458070dc8c1f41391eb9eb
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 11/26/2020
 ms.locfileid: "94544433"
 ---
 # <a name="deploy-app-service-in-azure-stack-hub"></a>Nasazení služby App Service ve službě Azure Stack Hub
@@ -71,7 +71,7 @@ Pokud chcete nasadit poskytovatele prostředků App Service, postupujte takto:
 
         - **Instanční objekt**
             - Instanční objekt, který použijete, **musí** mít práva **vlastníka** na **předplatném výchozího zprostředkovatele** .
-            - Zadejte **ID objektu služby** , **soubor certifikátu** a **heslo** a pak vyberte **připojit**.
+            - Zadejte **ID objektu služby**, **soubor certifikátu** a **heslo** a pak vyberte **připojit**.
 
     1. V části **předplatná centra Azure Stack** vyberte **výchozí předplatné poskytovatele**.  Azure App Service v centru Azure Stack **musí** být nasazené v **předplatném výchozího poskytovatele**.
 
@@ -81,7 +81,7 @@ Pokud chcete nasadit poskytovatele prostředků App Service, postupujte takto:
 
 7. Nyní můžete nasadit do existující virtuální sítě, kterou jste nakonfigurovali [pomocí těchto kroků](azure-stack-app-service-before-you-get-started.md#virtual-network), nebo nechat instalační program App Service vytvořit novou virtuální síť a podsítě. Virtuální síť vytvoříte pomocí následujících kroků:
 
-   a. Vyberte **vytvořit virtuální síť s výchozím nastavením** , přijměte výchozí hodnoty a pak vyberte **Další**.
+   a. Vyberte **vytvořit virtuální síť s výchozím nastavením**, přijměte výchozí hodnoty a pak vyberte **Další**.
 
    b. Případně vyberte možnost **použít existující virtuální síť a podsítě**. Proveďte následující akce:
 
@@ -136,7 +136,7 @@ Pokud chcete nasadit poskytovatele prostředků App Service, postupujte takto:
 
     | Role | Minimální instance | Minimální SKU | Poznámky |
     | --- | --- | --- | --- |
-    | Kontrolér | 2 | Standard_A4_v2 – (4 jádra, 8192 MB) | Spravuje a udržuje stav cloudu App Service. |
+    | Controller | 2 | Standard_A4_v2 – (4 jádra, 8192 MB) | Spravuje a udržuje stav cloudu App Service. |
     | Správa | 1 | Standard_D3_v2 – (4 jádra, 14336 MB) | Spravuje App Service Azure Resource Manager a koncové body rozhraní API, rozšíření portálu (správce, tenant, funkce portálu) a datovou službu. Pokud chcete převzetí služeb při selhání podporovat, zvyšte Doporučené instance na 2. |
     | Publisher | 1 | Standard_A2_v2 – (2 jádra, 4096 MB) | Publikuje obsah prostřednictvím FTP a nasazení webu. |
     | FrontEnd | 1 | Standard_A4_v2 – (4 jádra, 8192 MB) | Směruje požadavky na aplikace App Service. |
@@ -301,14 +301,14 @@ Pokud chcete nasadit Azure App Service v offline prostředí, nejdřív vytvořt
             - Pokud používáte Active Directory Federation Services (AD FS) (AD FS), zadejte účet správce. Například, cloudadmin@azurestack.local. Zadejte heslo a pak vyberte **připojit**.
         - **Instanční objekt**
             - Instanční objekt, který použijete, **musí** mít práva **vlastníka** na **předplatném výchozího zprostředkovatele** .
-            - Zadejte **ID objektu služby** , **soubor certifikátu** a **heslo** a pak vyberte **připojit**.
+            - Zadejte **ID objektu služby**, **soubor certifikátu** a **heslo** a pak vyberte **připojit**.
 
     1. V části **předplatná centra Azure Stack** vyberte **výchozí předplatné poskytovatele**.  Azure App Service v centru Azure Stack **musí** být nasazené v **předplatném výchozího poskytovatele**.
 
     1. V **umístění centra Azure Stack** vyberte umístění, které odpovídá oblasti, do které nasazujete. Pokud například nasazujete na ASDK, vyberte **místní** .
 
 1. Instalačnímu programu Azure App Service můžete dovolit vytvořit virtuální síť a přidružené podsítě. Nebo můžete nasadit do existující virtuální sítě, jak je nakonfigurované pomocí [těchto kroků](azure-stack-app-service-before-you-get-started.md#virtual-network).
-   - Chcete-li použít metodu instalačního programu Azure App Service, vyberte možnost **vytvořit virtuální síť s výchozím nastavením** , přijměte výchozí hodnoty a pak vyberte možnost **Další**.
+   - Chcete-li použít metodu instalačního programu Azure App Service, vyberte možnost **vytvořit virtuální síť s výchozím nastavením**, přijměte výchozí hodnoty a pak vyberte možnost **Další**.
    - Chcete-li nasadit do existující sítě, vyberte možnost **použít existující virtuální síť a podsítě** a pak:
        1. Vyberte možnost **skupiny prostředků** , která obsahuje vaši virtuální síť.
        2. Vyberte název **Virtual Network** , do kterého chcete nasadit.
@@ -374,7 +374,7 @@ Pokud chcete nasadit Azure App Service v offline prostředí, nejdřív vytvořt
     
     | Role | Minimální instance | Minimální SKU | Poznámky |
     | --- | --- | --- | --- |
-    | Kontrolér | 2 | Standard_A4_v2 – (4 jádra, 8192 MB) | Spravuje a udržuje stav cloudu App Service. |
+    | Controller | 2 | Standard_A4_v2 – (4 jádra, 8192 MB) | Spravuje a udržuje stav cloudu App Service. |
     | Správa | 1 | Standard_D3_v2 – (4 jádra, 14336 MB) | Spravuje App Service Azure Resource Manager a koncové body rozhraní API, rozšíření portálu (správce, tenant, funkce portálu) a datovou službu. Pokud chcete převzetí služeb při selhání podporovat, zvyšte Doporučené instance na 2. |
     | Publisher | 1 | Standard_A2_v2 – (2 jádra, 4096 MB) | Publikuje obsah prostřednictvím FTP a nasazení webu. |
     | FrontEnd | 1 | Standard_A4_v2 – (4 jádra, 8192 MB) | Směruje požadavky na aplikace App Service. |
