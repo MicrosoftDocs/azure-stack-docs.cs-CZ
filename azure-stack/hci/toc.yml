@@ -82,7 +82,7 @@
           href: manage/add-cluster.md
         - name: Převést Server do offline režimu kvůli údržbě
           href: manage/maintain-servers.md
-        - name: Správa registrace Azure
+        - name: Správa registrace v Azure
           href: manage/manage-azure-registration.md
         - name: Změnit jazyky
           href: manage/languages.md
@@ -128,6 +128,8 @@
           href: concepts/quorum.md
     - name: Sítě
       items:
+        - name: Požadavky na fyzickou síť
+          href: concepts/physical-network-requirements.md
         - name: Plánování sítě hostitele
           href: concepts/plan-host-networking.md
         - name: Softwarově definované sítě (SDN)
