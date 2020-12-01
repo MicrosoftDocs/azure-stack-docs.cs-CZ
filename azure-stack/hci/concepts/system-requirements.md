@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 10/29/2020
-ms.openlocfilehash: 68ee5d0635d1ed9dbc62bece417f00430bf61de2
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.openlocfilehash: 2d4aebd0609dff744f4c8f6ae9113fba1b7b0ba9
+ms.sourcegitcommit: 26901a61a44390bc9b7804c22018c213036e680d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93065975"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96354152"
 ---
 # <a name="system-requirements-for-azure-stack-hci"></a>Požadavky na systém pro Azure Stack HCI
 
@@ -76,7 +76,7 @@ V Prostory úložiště s přímým přístupem existuje další síťový provo
 
 V případě roztaženého clusteru je mezi lokalitami předávány i další přenosy repliky úložiště. Provoz vrstvy úložiště (SBL) a sdílený svazek clusteru (CSV) mezi lokalitami nepřekračuje, jenom mezi uzly serveru v každé lokalitě.
 
-Požadavky a požadavky týkající se plánování síťových sítí najdete v tématu [Naplánování sítě hostitele pro Azure Stack HCI](plan-host-networking.md).
+Informace o požadavcích a požadavcích sítě hostitele najdete v tématu [požadavky na síť hostitele](host-network-requirements.md).
 
 ## <a name="software-defined-networking-sdn-requirements"></a>Požadavky na software definované sítě (SDN)
 

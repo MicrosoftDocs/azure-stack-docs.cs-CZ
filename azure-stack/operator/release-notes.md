@@ -3,16 +3,16 @@ title: Poznámky k verzi centra Azure Stack
 description: Poznámky k verzi pro integrované systémy Azure Stack hub, včetně aktualizací a oprav chyb.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/20/2020
+ms.date: 11/30/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 861dbb6a665664619bd06cd15d1e1b7fe86a9e8e
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: b568ee0326da1c59464298640bd777563830f4cb
+ms.sourcegitcommit: 26901a61a44390bc9b7804c22018c213036e680d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518360"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96354186"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -64,7 +64,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Novinky
+### <a name="whats-new"></a>Co je nového
 
 <!-- What's new, also net new experiences and features. -->
 - Azure Stack hub teď podporuje partnerský vztah VNET, který umožňuje připojení virtuální sítě bez síťového virtuálního zařízení (síťové virtuální zařízení). Další informace najdete v [dokumentaci nové sítě VNet peering](../user/virtual-network-peering.md).
@@ -131,7 +131,7 @@ Opravy hotfix centra Azure Stack se vztahují pouze na integrované systémy Azu
 
 Verze 2008 centra Azure Stack se musí použít ve verzi 2005 s následujícími opravami hotfix:
 
-- [1.2005.23.88 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4595068)
+- [1.2005.24.90 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4595070)
 
 ### <a name="after-successfully-applying-the-2008-update"></a>Po úspěšné instalaci aktualizace 2008
 
@@ -139,7 +139,7 @@ Při aktualizaci na novou hlavní verzi (například 1.2005. x na 1.2008. x) se 
 
 Pokud se následně uvolní nějaké opravy hotfix 2008, měli byste po instalaci 2008 nainstalovat tyto opravy:
 
-- [1.2008.15.92 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4595069)
+- [1.2008.16.94 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4595071)
 ::: moniker-end
 
 ::: moniker range="azs-2005"
@@ -159,7 +159,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Novinky
+### <a name="whats-new"></a>Co je nového
 
 <!-- What's new, also net new experiences and features. -->
 - Toto sestavení nabízí podporu 3 nových typů virtuálních počítačů GPU: NCv3 (NVIDIA V100), NVv4 (AMD MI25) a NCas_v4 (NVIDIA T4) velikosti virtuálních počítačů. Nasazení virtuálních počítačů bude úspěšné pro uživatele, kteří mají správný hardware a jsou připojeni do programu Azure Stack hub GPU ve verzi Preview. Pokud vás zajímá, zaregistrujte se do programu pro zobrazení GPU v https://aka.ms/azurestackhubgpupreview . Další informace [najdete v tématu](../user/gpu-vms-about.md).
@@ -239,7 +239,7 @@ Od verze 2005 se při aktualizaci na novou hlavní verzi (například 1.2002. x 
 
 Pokud se následně uvolní nějaké opravy hotfix 2005, měli byste po instalaci 2005 nainstalovat tyto opravy:
 
-- [1.2005.23.88 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4595068)
+- [1.2005.24.90 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4595070)
 ::: moniker-end
 
 ::: moniker range="azs-2002"
@@ -262,7 +262,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Novinky
+### <a name="whats-new"></a>Co je nového
 
 <!-- What's new, also net new experiences and features. -->
 
