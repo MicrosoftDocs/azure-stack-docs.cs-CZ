@@ -34,7 +34,7 @@
           href: deploy/create-cluster-powershell.md
         - name: Nasazení síťového adaptéru pomocí PowerShellu
           href: deploy/network-controller-powershell.md
-- name: Spravovat
+- name: Správa
   items:
     - name: Správa virtuálních počítačů
       items:
@@ -170,6 +170,8 @@
       href: /python/api/azure-mgmt-azurestackhci/azure.mgmt.azurestackhci?view=azure-python
     - name: Azure Stack balíček HCI JavaScriptu
       href: /javascript/api/overview/azure/azurestack/stackhci?view=azure-node-latest
+    - name: Obory názvů .NET pro Azure Stack HCI
+      href: /dotnet/api/overview/azure/stackhci/management
     - name: Příkazy prostředí PowerShell technologie Hyper-V
       href: /powershell/module/hyper-v
     - name: Příkazy prostředí PowerShell pro úložiště
@@ -202,7 +204,7 @@
       href: /windows-server/networking/sdn
     - name: System Center
       href: /system-center/
-- name: Zdroje a prostředky
+- name: Zdroje
   items:
     - name: Stránka produktu Azure Stack HCL
       href: 'https://azure.com/hci'
