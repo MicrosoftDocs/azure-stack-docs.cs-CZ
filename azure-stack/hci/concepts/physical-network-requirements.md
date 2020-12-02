@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: a8eea75c58f597a1026b5075537d415c0694dc3c
-ms.sourcegitcommit: 422c3f19d817037fa6ce73cca253742bbdec147e
+ms.openlocfilehash: 7452437d7f760a688c2403cb4def735b2daaa105
+ms.sourcegitcommit: a7a2ac1b9be926134826dce03e348154fd212bc9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96321997"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96443293"
 ---
 # <a name="physical-network-requirements-for-azure-stack-hci"></a>Požadavky na fyzickou síť pro Azure Stack HCI
 
@@ -48,7 +48,7 @@ Pokud váš přepínač není zahrnutý, obraťte se na dodavatele přepínače,
 V této části jsou uvedené oborové standardy, které jsou povinné pro síťové přepínače používané ve všech Azure Stackch nasazeních HCI. Tyto standardy vám pomůžou zajistit spolehlivou komunikaci mezi uzly v Azure Stack nasazeních clusteru HCI.
 
 > [!NOTE]
-> Síťové adaptéry používané pro výpočetní prostředky, úložiště a provoz pro správu vyžadují Ethernet.
+> Síťové adaptéry používané pro výpočetní prostředky, úložiště a provoz pro správu vyžadují Ethernet. Další informace najdete v tématu [požadavky na síť hostitele](host-network-requirements.md).
 
 Tady jsou povinné standardy IEEE a specifikace IEEE:
 
@@ -118,7 +118,7 @@ North-South provoz vyžaduje použití přepínačů. Kromě použití přepína
 
 Je důležité pochopit "neblokované" šířku pásma prostředků infrastruktury, kterou můžou vaše přepínače sítě Ethernet podporovat a které minimalizujete (nebo pokud možno eliminovat) přeplacení sítě.
 
-Společné body zahlcení a přebytek, jako je například [Skupina agregace více skříní](https://en.wikipedia.org/wiki/Multi-chassis_link_aggregation_group) , která se používá pro redundanci cest, lze odstranit pomocí správného použití podsítí a sítí VLAN.
+Společné body zahlcení a přebytek, jako je například [Skupina agregace více skříní](https://en.wikipedia.org/wiki/Multi-chassis_link_aggregation_group) , která se používá pro redundanci cest, lze odstranit pomocí správného použití podsítí a sítí VLAN. Viz také [požadavky na síť hostitele](host-network-requirements.md).
 
 Spolupracujte s dodavatelem sítě nebo týmem podpory sítě, abyste zajistili správnou velikost síťových přepínačů pro úlohy, které chcete spouštět.
 
@@ -143,7 +143,7 @@ Azure Stack HCI podporuje bezplatných připojení pro East-West provoz u všech
 
 ## <a name="next-steps"></a>Další kroky
 
-- Seznamte se s požadavky na síťový adaptér a hostitele. Viz [požadavky na síť hostitele](physical-network-requirements.md).
+- Seznamte se s požadavky na síťový adaptér a hostitele. Viz [požadavky na síť hostitele](host-network-requirements.md).
 - Vyštětcte se základy clusteringu s podporou převzetí služeb při selhání. Seznamte se se [Základy sítí pro převzetí služeb při selhání](https://techcommunity.microsoft.com/t5/failover-clustering/.failover-clustering-networking-basics-and-fundamentals/ba-p/1706005?s=09).
 - Zapnout štětce při použití SET Podívejte [se na téma přímý přístup do paměti vzdáleného počítače (RDMA) a Switch Embedded Teaming (set)](https://docs.microsoft.com/windows-server/virtualization/.hyper-v-virtual-switch/rdma-and-switch-embedded-teaming).
 - Nasazení najdete v tématu [Vytvoření clusteru pomocí centra pro správu systému Windows](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster).

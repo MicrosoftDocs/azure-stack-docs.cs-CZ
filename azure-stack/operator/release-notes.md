@@ -7,12 +7,12 @@ ms.date: 11/30/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: b568ee0326da1c59464298640bd777563830f4cb
-ms.sourcegitcommit: 26901a61a44390bc9b7804c22018c213036e680d
+ms.openlocfilehash: 3e74f1e77c5c30ec17bf021d95952ce7bb19426b
+ms.sourcegitcommit: a7a2ac1b9be926134826dce03e348154fd212bc9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96354186"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96443323"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -64,7 +64,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Co je nového
+### <a name="whats-new"></a>Novinky
 
 <!-- What's new, also net new experiences and features. -->
 - Azure Stack hub teď podporuje partnerský vztah VNET, který umožňuje připojení virtuální sítě bez síťového virtuálního zařízení (síťové virtuální zařízení). Další informace najdete v [dokumentaci nové sítě VNet peering](../user/virtual-network-peering.md).
@@ -159,7 +159,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Co je nového
+### <a name="whats-new"></a>Novinky
 
 <!-- What's new, also net new experiences and features. -->
 - Toto sestavení nabízí podporu 3 nových typů virtuálních počítačů GPU: NCv3 (NVIDIA V100), NVv4 (AMD MI25) a NCas_v4 (NVIDIA T4) velikosti virtuálních počítačů. Nasazení virtuálních počítačů bude úspěšné pro uživatele, kteří mají správný hardware a jsou připojeni do programu Azure Stack hub GPU ve verzi Preview. Pokud vás zajímá, zaregistrujte se do programu pro zobrazení GPU v https://aka.ms/azurestackhubgpupreview . Další informace [najdete v tématu](../user/gpu-vms-about.md).
@@ -231,7 +231,7 @@ Opravy hotfix centra Azure Stack se vztahují pouze na integrované systémy Azu
 
 Verze 2005 centra Azure Stack se musí použít ve verzi 2002 s následujícími opravami hotfix:
 
-- [1.2002.61.163 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4592241)
+- [1.2002.63.167 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4595072)
 
 ### <a name="after-successfully-applying-the-2005-update"></a>Po úspěšné instalaci aktualizace 2005
 
@@ -262,7 +262,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Co je nového
+### <a name="whats-new"></a>Novinky
 
 <!-- What's new, also net new experiences and features. -->
 
@@ -368,7 +368,7 @@ Verze 2002 centra Azure Stack se musí použít ve verzi 1910 s následujícími
 Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix.
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [1.2002.62.165 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4594758)
+- [1.2002.63.167 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4595072)
 ::: moniker-end
 
 <!------------------------------------------------------------>
