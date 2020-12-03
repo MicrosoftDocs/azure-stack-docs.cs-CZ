@@ -3,17 +3,17 @@ title: Nasazení Java WAR do virtuálního počítače v Azure Stackovém centru
 description: Nasaďte Java WAR do virtuálního počítače v Azure Stackovém centru.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 05/05/2020
+ms.lastreviewed: 12/2/2020
 ms.custom: conteperfq4
-ms.openlocfilehash: a7efe4a1329ba96ab9365c9c17022fc647b868a5
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 12aa4c0e666085b7692a55ff795c07d9b05aa96c
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107201"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525403"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>Nasazení webové aplikace v jazyce Java do virtuálního počítače v Azure Stackovém centru
 
@@ -117,7 +117,7 @@ Můžete vytvořit virtuální počítač, který bude hostovat vaši webovou ap
         sudo nano /etc/systemd/system/tomcat.service
     ```
 
-    c. Do souboru služby vložte následující obsah. V případě potřeby upravte hodnotu *JAVA_HOME*tak, aby odpovídala hodnotě, kterou jste v systému našli. Můžete také změnit nastavení přidělení paměti, která jsou určena v CATALINA_OPTS:
+    c. Do souboru služby vložte následující obsah. V případě potřeby upravte hodnotu *JAVA_HOME* tak, aby odpovídala hodnotě, kterou jste v systému našli. Můžete také změnit nastavení přidělení paměti, která jsou určena v CATALINA_OPTS:
 
     ```Text  
         [Unit]

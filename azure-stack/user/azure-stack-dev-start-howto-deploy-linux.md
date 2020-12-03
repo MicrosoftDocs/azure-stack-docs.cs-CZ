@@ -3,16 +3,16 @@ title: Nasazení virtuálního počítače se systémem Linux do centra Azure St
 description: Nasazení virtuálního počítače se systémem Linux s imagí Ubuntu pro hostování webové aplikace v centru Azure Stack.
 author: mattbriggs
 ms.topic: overview
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 2a3eb313122f5f8798129592f35656bdad443f02
-ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 3847d321c924d06aaacfadc39feac572404ff113
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92353832"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525383"
 ---
 # <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>Nasazení virtuálního počítače se systémem Linux pro hostování webové aplikace v centru Azure Stack
 
@@ -56,7 +56,7 @@ Pokud chcete nasadit virtuální počítač, postupujte podle pokynů v následu
 
     c. Zadejte své **uživatelské jméno**.
 
-    d. Jako **veřejný klíč SSH**vyberte **typ ověřování** .
+    d. Jako **veřejný klíč SSH** vyberte **typ ověřování** .
 
     e. Načtěte veřejný klíč SSH, který jste vytvořili. Otevřete ho v textovém editoru, zkopírujte klíč a vložte ho do pole **veřejný klíč SSH** . Zahrňte text z `---- BEGIN SSH2 PUBLIC KEY ----` do `---- END SSH2 PUBLIC KEY ----` . Vložte celý blok textu do pole klíče:
 
@@ -74,7 +74,7 @@ Pokud chcete nasadit virtuální počítač, postupujte podle pokynů v následu
     h. Vyberte své umístění. Azure Stack Development Kit (ASDK) je obvykle v *místní* oblasti. Umístění závisí na vaší instanci centra Azure Stack.
 1. Pro **2. Velikost**, zadejte:
     - Vyberte velikost dat a paměti RAM pro váš virtuální počítač, který je k dispozici ve vaší instanci centra Azure Stack.
-    - Můžete buď procházet seznam, nebo filtrovat velikost virtuálního počítače podle **typu COMPUTE**, **CPU**a **prostoru úložiště**.
+    - Můžete buď procházet seznam, nebo filtrovat velikost virtuálního počítače podle **typu COMPUTE**, **CPU** a **prostoru úložiště**.
     
     > [!NOTE]
     > - Uvedené ceny jsou odhady ve vaší místní měně. Zahrnují jenom náklady na infrastrukturu Azure a všechny slevy pro předplatné a umístění. Nezahrnují žádné použitelné náklady na software. 
@@ -85,7 +85,7 @@ Pokud chcete nasadit virtuální počítač, postupujte podle pokynů v následu
 
     a. V případě **vysoké dostupnosti** vyberte skupinu dostupnosti. Pokud chcete zajistit redundanci pro vaši aplikaci, seskupte dva nebo více virtuálních počítačů ve skupině dostupnosti. Tato konfigurace zajišťuje, že během plánované nebo neplánované události údržby bude k dispozici alespoň jeden virtuální počítač, který bude splňovat 99,95% Smlouvy o úrovni služeb Azure (SLA). Po vytvoření se skupina dostupnosti virtuálního počítače nedá změnit.
 
-    b. V případě **úložiště**vyberte **disky úrovně Premium (SSD)** nebo **standardní disky (HDD)**. Disky úrovně Premium (SSD) jsou založené na jednotkách Solid-State a nabízejí konzistentní výkon s nízkou latencí. Poskytují nejlepší rovnováhu mezi cenou a výkonem a jsou ideální pro aplikace náročné na vstupně-výstupní operace a produkční úlohy. Standardní disky jsou zajištěny pomocí magnetických jednotek a jsou vhodnější pro aplikace, ve kterých se k datům přistupovalo zřídka. Redundantní disky v zóně jsou založené na zóně redundantního úložiště (ZRS), které replikují vaše data napříč několika zónami a jsou k dispozici i v případě, že je jedna zóna mimo provoz. 
+    b. V případě **úložiště** vyberte **disky úrovně Premium (SSD)** nebo **standardní disky (HDD)**. Disky úrovně Premium (SSD) jsou založené na jednotkách Solid-State a nabízejí konzistentní výkon s nízkou latencí. Poskytují nejlepší rovnováhu mezi cenou a výkonem a jsou ideální pro aplikace náročné na vstupně-výstupní operace a produkční úlohy. Standardní disky jsou zajištěny pomocí magnetických jednotek a jsou vhodnější pro aplikace, ve kterých se k datům přistupovalo zřídka. Redundantní disky v zóně jsou založené na zóně redundantního úložiště (ZRS), které replikují vaše data napříč několika zónami a jsou k dispozici i v případě, že je jedna zóna mimo provoz. 
 
     c. Vyberte **použít spravované disky**. Když tuto funkci povolíte, Azure automaticky spravuje dostupnost disků. Výhodou je redundance dat a odolnost proti chybám, aniž byste museli vytvářet a spravovat účty úložiště sami. Spravované disky nemusí být k dispozici ve všech oblastech. Další informace najdete v tématu [Úvod do služby Azure Managed disks](/azure/virtual-machines/windows/managed-disks-overview).
 
@@ -95,7 +95,7 @@ Pokud chcete nasadit virtuální počítač, postupujte podle pokynů v následu
 
     f. Pokud chcete nakonfigurovat přístup ke svému VIRTUÁLNÍmu počítači nebo ke službám běžícím na vašem VIRTUÁLNÍm počítači, vyberte **Veřejná IP adresa**. Pomocí veřejné IP adresy můžete komunikovat s virtuálním počítačem mimo virtuální síť. 
 
-    například Vyberte **Skupina zabezpečení sítě**, **základní**nebo **Rozšířená**. Nastavte pravidla, která povolují nebo zakazují síťový provoz na virtuálním počítači. 
+    například Vyberte **Skupina zabezpečení sítě**, **základní** nebo **Rozšířená**. Nastavte pravidla, která povolují nebo zakazují síťový provoz na virtuálním počítači. 
 
     h. Pokud chcete pro virtuální počítač nastavit přístup pro běžné nebo vlastní protokoly, vyberte **veřejné příchozí porty**. Služba Určuje cílový protokol a rozsah portů pro toto pravidlo. Můžete zvolit předdefinovanou službu, například protokol RDP (Remote Desktop Protocol) (RDP) nebo SSH, nebo zadat vlastní rozsah portů. 
         Pro webový server použijte protokol HTTP (80), HTTPS (443) a SSH (22) Open. Pokud plánujete spravovat počítač pomocí připojení RDP, otevřete port 3389.
@@ -129,17 +129,17 @@ Můžete upravit cílový protokol a rozsah portů pro předdefinovanou službu,
 
 1. Vyberte **Přidat pravidlo portu pro příchozí spojení** a otevřete port.
 
-1. U položky **zdroj**ponechte výchozí **výběr.**
+1. U položky **zdroj** ponechte výchozí **výběr.**
 
-1. Pro **rozsah zdrojového portu**ponechte zástupný znak (*).
+1. Pro **rozsah zdrojového portu** ponechte zástupný znak (*).
 
-1. V poli **Rozsah cílových portů**zadejte port, který chcete otevřít, například **3000**.
+1. V poli **Rozsah cílových portů** zadejte port, který chcete otevřít, například **3000**.
 
-1. Pro **protokol**ponechte výchozí výběr, **Any**.
+1. Pro **protokol** ponechte výchozí výběr, **Any**.
 
 1. V části **Akce** vyberte **Povolit**.
 
-1. V poli **Priorita**ponechte výchozí výběr.
+1. V poli **Priorita** ponechte výchozí výběr.
 
 1. Zadejte **název** a **Popis** , který vám pomůžete mít na paměti, proč je port otevřený.
 
@@ -155,9 +155,9 @@ Kromě toho můžete vytvořit název DNS pro váš server, aby se uživatelé m
 
 1. Vyberte **Přehled**.
 
-1. V části **virtuální počítač**vyberte **Konfigurovat**.
+1. V části **virtuální počítač** vyberte **Konfigurovat**.
 
-1. Jako **přiřazení**vyberte **Dynamická**.
+1. Jako **přiřazení** vyberte **Dynamická**.
 
 1. Zadejte popisek názvu DNS, například **MyWebApp**, aby se vaše úplná adresa URL stala *MyWebApp. Local. cloudapp. azurestack. external* (pro aplikaci ASDK).
 

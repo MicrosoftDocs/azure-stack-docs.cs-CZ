@@ -3,16 +3,16 @@ title: Použití Docker ke spuštění PowerShellu v centru Azure Stack
 description: Použití Docker ke spuštění PowerShellu v centru Azure Stack
 author: mattbriggs
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: 54e0c53c666ae6d936ed34baea43f708f4a262da
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 802a173239534c6826e90a1d4d4c2095c1abcf9a
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546782"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525604"
 ---
 # <a name="use-docker-to-run-powershell-for-azure-stack-hub"></a>Použití Docker ke spuštění PowerShellu pro Azure Stack hub
 
@@ -107,7 +107,7 @@ V těchto pokynech spustíte image kontejneru se systémem Windows a nainstaluje
 
 ### <a name="install-azure-stack-hub-azurerm-module-on-a-windows-container"></a>Azure Stack instalace modulu AzureRM hub na kontejner Windows
 
-Souboru Dockerfile otevře Microsoft Image *Microsoft/windowsservercore* , ve které je nainstalovaný Windows PowerShell 5,1. Soubor potom načte NuGet a moduly PowerShellu centra Azure Stack a stáhne nástroje z nástroje Azure Stack hub.
+Souboru Dockerfile otevře Microsoft Image *Microsoft/windowsservercore*, ve které je nainstalovaný Windows PowerShell 5,1. Soubor potom načte NuGet a moduly PowerShellu centra Azure Stack a stáhne nástroje z nástroje Azure Stack hub.
 
 1. [Stáhněte úložiště Azure-Stack-PowerShell](https://github.com/Azure-Samples/azure-stack-hub-powershell-in-docker.git) jako soubor ZIP nebo naklonujte úložiště.
 

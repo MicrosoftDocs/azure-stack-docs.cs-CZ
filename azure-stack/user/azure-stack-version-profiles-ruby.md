@@ -3,16 +3,16 @@ title: Použití profilů verzí rozhraní API s Ruby v Azure Stack hub
 description: Naučte se používat profily verzí rozhraní API s Ruby v Azure Stack hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 12/2/2020
 ms.author: sethm
 ms.reviewer: sijuman
-ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 93ede4373a2799551bc3091a6d9b3cd00cb9d578
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 1d4cc0887bac12c535f2ce0fe12a2cb855d5b3a5
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546476"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525587"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s Ruby v Azure Stack hub
 
@@ -70,7 +70,7 @@ Sada Azure Resource Manager Ruby SDK je ve verzi Preview a pravděpodobně bude 
 
 ## <a name="use-the-azure_sdk-gem"></a>Použití azure_sdk Gem
 
-**Azure_sdk** Gem je souhrn všech podporovaných Gems v sadě Ruby SDK. Tento Gem se skládá z **nejnovějšího** profilu, který podporuje nejnovější verzi všech služeb. Zahrnuje profily se správou verzí **V2017_03_09** a **V2019_03_01_Hybrid** , které jsou sestavené pro Azure Stack hub.
+**Azure_sdk** Gem je souhrn všech podporovaných Gems v sadě Ruby SDK. Tento Gem se skládá z **nejnovějšího** profilu, který podporuje nejnovější verzi všech služeb. Zahrnuje profily se správou verzí **V2017_03_09** a **V2019_03_01_Hybrid**, které jsou sestavené pro Azure Stack hub.
 
 Gem kumulativního azure_sdk můžete nainstalovat pomocí následujícího příkazu:  
 
@@ -78,7 +78,7 @@ Gem kumulativního azure_sdk můžete nainstalovat pomocí následujícího př�
 gem install 'azure_sdk'
 ```
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 Pokud chcete použít sadu Ruby Azure SDK s Azure Stack hub, musíte zadat následující hodnoty a pak hodnoty nastavit pomocí proměnných prostředí. Chcete-li nastavit proměnné prostředí, přečtěte si pokyny uvedené v tabulce pro konkrétní operační systém.
 
@@ -136,9 +136,9 @@ export AZURE_TENANT_ID=<YOUR_TENANT_ID>
 
 Gem kumulativního **Azure_sdk** má následující 3 profily:
 
-- **V2019_03_01_Hybrid** : Profil sestavený pro Azure Stack centrum. Tento profil použijte pro všechny nejnovější verze služeb, které jsou k dispozici ve službě Azure Stack hub verze 1904 nebo novější.
-- **V2017_03_09** : Profil sestavený pro Azure Stack centrum. Tento profil použijte pro služby, které jsou nejvíce kompatibilní s Azure Stack centra verze 1808 nebo starším.
-- **Nejnovější** : Profil se skládá z nejnovějších verzí všech služeb. Použijte nejnovější verze všech služeb.
+- **V2019_03_01_Hybrid**: Profil sestavený pro Azure Stack centrum. Tento profil použijte pro všechny nejnovější verze služeb, které jsou k dispozici ve službě Azure Stack hub verze 1904 nebo novější.
+- **V2017_03_09**: Profil sestavený pro Azure Stack centrum. Tento profil použijte pro služby, které jsou nejvíce kompatibilní s Azure Stack centra verze 1808 nebo starším.
+- **Nejnovější**: Profil se skládá z nejnovějších verzí všech služeb. Použijte nejnovější verze všech služeb.
 
 Další informace o centru Azure Stack a profilech rozhraní API najdete v tématu [Přehled profilů rozhraní API](azure-stack-version-profiles.md#summary-of-api-profiles).
 

@@ -3,16 +3,16 @@ title: Použití profilů verzí rozhraní API s Node.js v centru Azure Stack
 description: Přečtěte si o používání profilů verzí rozhraní API s Node.js v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 04/30/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 04/30/2020
-ms.openlocfilehash: 93c37e67af83dd7b6d735916cfacc7dab5c0cdbf
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: c6b781b61a8738bd86379d9fb035680189693565
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574087"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525927"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API se sadou Node.js SDK (Software Development Kit) v centru Azure Stack
 
@@ -30,7 +30,7 @@ Profil rozhraní API je kombinací poskytovatelů prostředků a verzí rozhran�
 
   -   Chcete-li používat nejnovější verze všech služeb, použijte **nejnovější** profil balíčků.
 
-  -   Pokud chcete používat služby kompatibilní s Azure Stack hub, použijte ** \@ Azure/ARM-Resources-Profile-Hybrid-2019-03-01** nebo ** \@ Azure/ARM-Storage-Profile-2019-03 -01-Hybrid**
+  -   Pokud chcete používat služby kompatibilní s Azure Stack hub, použijte **\@ Azure/ARM-Resources-Profile-Hybrid-2019-03-01** nebo **\@ Azure/ARM-Storage-Profile-2019-03 -01-Hybrid**
 
 ### <a name="packages-in-npm"></a>Balíčky v npm
 

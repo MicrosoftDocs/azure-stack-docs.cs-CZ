@@ -3,16 +3,16 @@ title: Nasazení šablony pomocí portálu v Azure Stackovém centru
 description: Naučte se používat portál centra Azure Stack k nasazení šablony.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/05/2020
-ms.openlocfilehash: fa3c25ca3ca46d0ce8533694f8135803b20f87a4
-ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 7b5508f7c4e1bbd9b21f2160aecb6fd27c9a10e3
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92354085"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525434"
 ---
 # <a name="deploy-a-template-using-the-portal-in-azure-stack-hub"></a>Nasazení šablony pomocí portálu v Azure Stackovém centru
 

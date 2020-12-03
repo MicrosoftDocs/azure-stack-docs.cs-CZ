@@ -3,16 +3,16 @@ title: Nastavte bránu VPN pro centrum Azure Stack.
 description: Přečtěte si, jak nastavit bránu VPN pro centrum Azure Stack.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 3363870fe1a2a487883a3fdc59fb90f017237b56
-ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: bcc1b59795c0b2436f8b9556b35bb6f95dc7cf0e
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92355149"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525723"
 ---
 # <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>Nastavení brány sítě VPN pro centrum Azure Stack s využitím FortiGate síťové virtuální zařízení
 
@@ -98,13 +98,13 @@ Následující tabulka shrnuje parametry, které jsou v těchto nasazeních pou�
 
 1. Otevřete portál Azure Stack hub User Portal.
 
-2. Vyberte skupiny prostředků. Zadejte `forti1-rg1` Filtr a dvakrát klikněte na skupinu prostředků forti1-RG1.
+2. Vyberte Skupiny prostředků. Zadejte `forti1-rg1` Filtr a dvakrát klikněte na skupinu prostředků forti1-RG1.
 
     ![Pro skupinu prostředků forti1-RG1 se zobrazí deset prostředků.](./media/azure-stack-network-howto-vnet-to-onprem/image9a.png)
 
 2. Vyberte prostředek forti1-forti1-InsideSubnet-Routes-xxxx.
 
-3. V části **Nastavení**vyberte **trasy** .
+3. V části **Nastavení** vyberte **trasy** .
 
     ![Tlačítko trasy je vybráno v dialogovém okně nastavení.](./media/azure-stack-network-howto-vnet-to-onprem/image10a.png)
 
@@ -136,7 +136,7 @@ Po aktivaci služby síťová virtuální zařízení vytvořte tunel sítě VPN
 
 1. Otevřete portál Azure Stack hub User Portal.
 
-2. Vyberte skupiny prostředků. `forti1`Do filtru zadejte a dvakrát klikněte na skupinu prostředků forti1.
+2. Vyberte Skupiny prostředků. `forti1`Do filtru zadejte a dvakrát klikněte na skupinu prostředků forti1.
 
 3. Dvakrát klikněte na virtuální počítač **forti1** v seznamu typů prostředků v okně Skupina prostředků.
 
@@ -154,11 +154,11 @@ Po aktivaci služby síťová virtuální zařízení vytvořte tunel sítě VPN
 
     ![Dialogové okno firmware má identifikátor firmwaru "FortiOS v 6.2.0 build0866". K dispozici je odkaz na poznámky k verzi a dvě tlačítka: "Konfigurace zálohování a upgrade" a upgrade.](./media/azure-stack-network-howto-vnet-to-onprem/image15a.png)
 
-8. Vyberte možnost **Konfigurace zálohování a**  >  **pokračovat**v upgradu.
+8. Vyberte možnost **Konfigurace zálohování a**  >  **pokračovat** v upgradu.
 
 9. SÍŤOVÉ virtuální zařízení aktualizuje svůj firmware na nejnovější sestavení a restartování. Tento proces trvá přibližně pět minut. Přihlaste se zpátky do webové konzoly FortiGate.
 
-10. Klikněte **VPN**na  >  **Průvodce protokolem IPSec**sítě VPN.
+10. Klikněte **VPN** na  >  **Průvodce protokolem IPSec** sítě VPN.
 
 11. Zadejte název sítě VPN, například `conn1` v **Průvodci vytvořením sítě VPN**.
 
@@ -170,18 +170,18 @@ Po aktivaci služby síťová virtuální zařízení vytvořte tunel sítě VPN
 
 14. Zadejte vzdálenou IP adresu místního zařízení VPN, ke kterému se budete připojovat.
 
-15. Jako **odchozí rozhraní**vyberte **PORT1** .
+15. Jako **odchozí rozhraní** vyberte **PORT1** .
 
 16. Vyberte **předsdílený klíč** a zadejte (a zaznamenejte) předsdílený klíč. 
 
     > [!NOTE]  
-    > Tento klíč budete potřebovat k nastavení připojení na místním zařízení VPN, to znamená, že se musí *přesně*shodovat.
+    > Tento klíč budete potřebovat k nastavení připojení na místním zařízení VPN, to znamená, že se musí *přesně* shodovat.
 
     ![Snímek obrazovky Průvodce vytvořením sítě VPN se zobrazí v druhém kroku, ověřování a vybrané hodnoty budou zvýrazněny.](./media/azure-stack-network-howto-vnet-to-onprem/image17a.png)
 
 17. Vyberte **Další**.
 
-18. Jako **místní rozhraní**vyberte **PORT2** .
+18. Jako **místní rozhraní** vyberte **PORT2** .
 
 19. Zadejte rozsah místní podsítě:
     - forti1:172.16.0.0/16

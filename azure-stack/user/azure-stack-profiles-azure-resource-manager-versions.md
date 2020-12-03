@@ -4,16 +4,16 @@ description: Přečtěte si o verzích rozhraní API Azure Resource Manager podp
 author: sethmanheim
 ms.custom: contperfq4
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 12/2/2020
 ms.author: sethm
 ms.reviewer: sijuman
-ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 56c35d1107f0c31c00c33f23dd1d8ba639fb9f46
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 5b558eb0abb0494cb75f2509e51f291b08bd29ef
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546765"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525536"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack-hub"></a>Verze rozhraní API poskytovatele prostředků podporované profily v centru Azure Stack
 
@@ -166,7 +166,7 @@ Azure Resource Manager vám umožní nasadit a spravovat infrastrukturu pro vaš
 | Operace | 2018-05-01 |
 | Zprostředkovatelé | 2018-05-01 |
 | SkupinyProstředků| 2018-05-01 |
-| Zdroje informací | 2018-05-01 |
+| Zdroje | 2018-05-01 |
 | Předplatná | 2018-05-01 |
 | Předplatná/umístění | 2016-06-01 |
 | Předplatná/operationresults | 2018-05-01 |

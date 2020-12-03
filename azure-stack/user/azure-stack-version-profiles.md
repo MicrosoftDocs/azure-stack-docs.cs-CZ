@@ -3,16 +3,16 @@ title: Správa profilů verzí rozhraní API v centru Azure Stack
 description: Přečtěte si o profilech verzí rozhraní API v centru Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 10/16/2020
+ms.date: 12/2/2020
 ms.author: sethm
 ms.reviewer: sijuman
-ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: c4596ac24aa8b1ed4e0e0618263fc1f947fdf671
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 2f84233e47a5d86b9a22b76cb0d5a6dd993f4464
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94547020"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96526012"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack-hub"></a>Správa profilů verzí rozhraní API v centru Azure Stack
 
@@ -50,7 +50,7 @@ Tento profil obsahuje nejaktuálnější verze rozhraní API, které najdete v g
 Tento profil je vydaný v březnu a v září každý rok. Má optimální stabilitu a kompatibilitu s různými cloudy a je navržená pro cílení na globální Azure a centrum Azure Stack. Verze rozhraní API Azure uvedené v tomto profilu budou stejné jako ty, které jsou uvedené v Azure Stack hub. Tento profil slouží k vývoji kódu pro hybridní cloudová řešení.
 
 **RRRR-MM-DD – profil**  
-Tento profil je vydaný pro globální Azure v červnu a prosinci. Nefunguje s rozbočovačem Azure Stack a obvykle se jedná o mnoho konců změn. I když vyvažuje optimální stabilitu a nejnovější funkce, rozdíl mezi **nejnovějším** a tímto profilem je, že **nejnovější** verze rozhraní API se vždycky skládají z nejnovějších verzí rozhraní API bez ohledu na to, kdy rozhraní API uvolníte. Pokud je například pro výpočetní rozhraní API vytvořena nová verze rozhraní API, verze rozhraní API je uvedena v **nejnovějším** , ale ne v profilu **RRRR-MM-DD-profil** , protože tento profil již existuje. **RRRR-MM-DD – profil** pokrývá nejaktuálnější verze vydané před červenou nebo před prosinec.
+Tento profil je vydaný pro globální Azure v červnu a prosinci. Nefunguje s rozbočovačem Azure Stack a obvykle se jedná o mnoho konců změn. I když vyvažuje optimální stabilitu a nejnovější funkce, rozdíl mezi **nejnovějším** a tímto profilem je, že **nejnovější** verze rozhraní API se vždycky skládají z nejnovějších verzí rozhraní API bez ohledu na to, kdy rozhraní API uvolníte. Pokud je například pro výpočetní rozhraní API vytvořena nová verze rozhraní API, verze rozhraní API je uvedena v **nejnovějším**, ale ne v profilu **RRRR-MM-DD-profil** , protože tento profil již existuje. **RRRR-MM-DD – profil** pokrývá nejaktuálnější verze vydané před červenou nebo před prosinec.
 
 ## <a name="azure-resource-manager-api-profiles"></a>Azure Resource Manager profily rozhraní API
 

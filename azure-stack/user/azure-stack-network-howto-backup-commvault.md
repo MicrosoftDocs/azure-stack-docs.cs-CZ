@@ -3,16 +3,16 @@ title: Zálohování virtuálního počítače v Azure Stack hub pomocí CommVau
 description: Naučte se, jak zálohovat virtuální počítač v Azure Stack hub pomocí CommVault.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: 9308e8b017201119a7179c78dbeb99006f4ebfff
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: e9f6c41097085a0342b2c0a2fc5b5b995c2d9186
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94547088"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96524788"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>Zálohování virtuálního počítače v Azure Stack hub pomocí CommVault
 
@@ -51,7 +51,7 @@ Topologie tohoto přístupu bude vypadat jako v následujícím diagramu:
 
     ![Vytvoření virtuálního počítače](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-01.png)
 
-3. Konfigurace základního nastavení v části **vytvořit virtuální počítač, 1 základní informace** :
+3. Konfigurace základního nastavení v části **vytvořit virtuální počítač, 1 základní informace**:
 
     a. Zadejte **název**.
 
@@ -145,15 +145,15 @@ Budete potřebovat zjistit, jestli je váš správce identit Azure AD nebo AD FS
 
 9. Zadejte informace o přístupu pro svůj účet úložiště. Pokyny k nastavení Azure Storage účtu najdete tady. Přístup k informacím:
 
-    -  **Hostitel služby** : Získá název adresy URL z vlastností kontejneru objektů BLOB ve vašem prostředku. Například moje adresa URL byla https: \/ /backuptest.blob.westus.stackpoc.com/mybackups a používá se BLOB.westus.stackpoc.com v hostiteli služby.
+    -  **Hostitel služby**: Získá název adresy URL z vlastností kontejneru objektů BLOB ve vašem prostředku. Například moje adresa URL byla https: \/ /backuptest.blob.westus.stackpoc.com/mybackups a používá se BLOB.westus.stackpoc.com v hostiteli služby.
     
-    -   **Název účtu** : použijte název účtu úložiště. Najdete ho v okně přístupové klíče v prostředku úložiště.
+    -   **Název účtu**: použijte název účtu úložiště. Najdete ho v okně přístupové klíče v prostředku úložiště.
     
-    -   **Přístupový klíč** : Získejte přístupový klíč z okna přístupové klíče v prostředku úložiště.
+    -   **Přístupový klíč**: Získejte přístupový klíč z okna přístupové klíče v prostředku úložiště.
     
-    -   **Container** : název kontejneru. V tomto případě mybackups.
+    -   **Container**: název kontejneru. V tomto případě mybackups.
     
-    -   **Třída úložiště** : ponechte jako výchozí třídu úložiště kontejneru uživatele.
+    -   **Třída úložiště**: ponechte jako výchozí třídu úložiště kontejneru uživatele.
 
 10. Vytvořte klienta Microsoft Azure Stack Hub podle pokynů v [tématu Vytvoření klienta Microsoft Azure Stack hub](https://documentation.commvault.com/commvault/v11_sp13/article?p=86495.htm) .
 

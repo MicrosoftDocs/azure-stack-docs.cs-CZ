@@ -3,16 +3,16 @@ title: Nasazení pomocí Visual Studio Code pro Azure Stack centra
 description: Vytvořte šablonu Azure Resource Manager v Visual Studio Code a pomocí schématu nasazení Připravte šablonu kompatibilní s moji verzí centra Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: 72652f1a681ed630bdc67745f24c6e472101915f
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 69acc0caa6e666638311629b8a2a8a957a38fade
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546850"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525553"
 ---
 # <a name="deploy-with-visual-studio-code-to-azure-stack-hub"></a>Nasazení pomocí Visual Studio Code pro Azure Stack centra
 
@@ -33,7 +33,7 @@ Informace o konceptech přidružených k koordinaci poskytovatelů prostředků 
 
 Schéma nasazení centra Azure Stack podporuje hybridní profily prostřednictvím šablon Azure Resource Manager v Visual Studio Code. Můžete změnit jeden řádek v šabloně JSON, aby odkazoval na schéma, a potom můžete pomocí technologie IntelliSense zkontrolovat prostředek kompatibilní s Azure. Pomocí schématu zkontrolujte poskytovatele prostředků, typy a verze rozhraní API podporované ve vaší verzi centra Azure Stack. Schéma závisí na profilu rozhraní API k načtení konkrétních verzí koncových bodů rozhraní API v poskytovatelích prostředků podporovaných ve vaší verzi centra Azure Stack. Můžete použít dokončování slov pro typ a apiVersion a pak budete omezeni na apiVersion a typy prostředků, které jsou k dispozici pro profil rozhraní API.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 - Přístup k centru Azure Stack

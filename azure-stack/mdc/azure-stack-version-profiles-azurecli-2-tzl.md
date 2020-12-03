@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 55a9c4ec924cc12a52199f00e77857b2813207cc
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: b9d40c83c31903a582d8130dcb249fa2fca0a49e
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329066"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525570"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>Správa prostředků a jejich nasazování do služby Azure Stack Hub pomocí Azure CLI
 
@@ -96,7 +96,7 @@ V této části se seznámíte s nastavením rozhraní příkazového řádku, p
  
 1. Přihlaste se k prostředí Azure Stackového centra pomocí `az login` příkazu. Přihlaste se do prostředí Azure Stack hub buď jako uživatel, nebo jako instanční objekt. 
 
-   - Přihlaste se jako *uživatel* : 
+   - Přihlaste se jako *uživatel*: 
 
      Můžete buď zadat uživatelské jméno a heslo přímo v rámci `az login` příkazu, nebo ověřit pomocí prohlížeče. Pokud má váš účet povolené ověřování Multi-Factor Authentication, musíte to udělat:
 
@@ -107,7 +107,7 @@ V této části se seznámíte s nastavením rozhraní příkazového řádku, p
      > [!NOTE]
      > Pokud má váš uživatelský účet povolený službu Multi-Factor Authentication, použijte `az login` příkaz bez zadání `-u` parametru. Spuštěním tohoto příkazu získáte adresu URL a kód, který je nutné použít k ověření.
 
-   - Přihlaste se jako *instanční objekt* : 
+   - Přihlaste se jako *instanční objekt*: 
     
      Než se přihlásíte, [vytvořte instanční objekt pomocí Azure Portal nebo rozhraní](../operator/azure-stack-create-service-principals.md) příkazového řádku a přiřaďte mu roli. Teď se přihlaste pomocí následujícího příkazu:
 
@@ -164,7 +164,7 @@ V této části se dozvíte, jak nastavit rozhraní příkazového řádku, poku
 
 1. Přihlaste se k prostředí Azure Stackového centra pomocí `az login` příkazu. K prostředí služby Azure Stack hub se můžete přihlásit buď jako uživatel, nebo jako instanční objekt. 
 
-   - Přihlaste se jako *uživatel* :
+   - Přihlaste se jako *uživatel*:
 
      Můžete buď zadat uživatelské jméno a heslo přímo v rámci `az login` příkazu, nebo ověřit pomocí prohlížeče. Pokud má váš účet povolené ověřování Multi-Factor Authentication, musíte to udělat:
 
@@ -175,7 +175,7 @@ V této části se dozvíte, jak nastavit rozhraní příkazového řádku, poku
      > [!NOTE]
      > Pokud má váš uživatelský účet povolený službu Multi-Factor Authentication, použijte `az login` příkaz bez zadání `-u` parametru. Spuštěním tohoto příkazu získáte adresu URL a kód, který je nutné použít k ověření.
 
-   - Přihlaste se jako *instanční objekt* : 
+   - Přihlaste se jako *instanční objekt*: 
     
      Připravte soubor. pem, který se má použít pro přihlašovací objekty instančního objektu.
 

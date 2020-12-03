@@ -3,16 +3,16 @@ title: Nasazení základních vzorů do centra Azure Stack
 description: Naučte se nasazovat základní modely pomocí centra Azure Stack.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: df603935dc192894dcb96837dc92fa4bc88f239e
-ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 5609d9195a909a20a54917555a7309fe0901d7fa
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88818398"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525468"
 ---
 # <a name="deploy-foundational-patterns-overview"></a>Přehled nasazení základních vzorů
 
@@ -29,7 +29,7 @@ Každý článek se zabývá běžnými aspekty, jako například:
 - Zabezpečení
 - Kontinuita podnikových procesů
 
-|  Partnerský vztah virtuální sítě  |  Síť VPN  |  Nástroj pro vyrovnávání zatížení  |
+|  Peering virtuálních sítí  |  Síť VPN  |  Nástroj pro vyrovnávání zatížení  |
 | --- | --- | --- |
 | ![Partnerský vztah virtuální sítě s virtuálními počítači](media/deploy-foundational-patterns/icon-networking-61-virtual-networks.svg)<br>[Partnerský vztah virtuální sítě s virtuálními počítači](azure-stack-network-howto-vnet-peering.md) | ![Nastavení sítě VPN na Prem](media/deploy-foundational-patterns/icon-networking-63-virtual-network-gateways.svg)<br>[Nastavit VPN na Prem](azure-stack-network-howto-vnet-to-onprem.md) | ![F5 pro vyrovnávání zatížení](media/deploy-foundational-patterns/icon-networking-62-load-balancers.svg)<br>[F5 pro vyrovnávání zatížení](network-howto-f5.md) |
 | ![Partnerský vztah virtuální sítě s FortiGate](media/deploy-foundational-patterns/icon-networking-61-virtual-networks.svg)<br>[Partnerský vztah virtuální sítě s FortiGate](azure-stack-network-howto-vnet-to-vnet.md) | ![Virtuální privátní síť](media/deploy-foundational-patterns/icon-networking-63-virtual-network-gateways.svg)<br>[Připojení virtuální sítě k virtuální síti](azure-stack-network-howto-vnet-to-vnet-stacks.md) |  |
@@ -38,7 +38,7 @@ Každý článek se zabývá běžnými aspekty, jako například:
 |  | ![Vytvoření tunelu VPN (IPSEC)](media/deploy-foundational-patterns/icon-networking-63-virtual-network-gateways.svg)<br>[Vytvoření tunelu VPN (IPSEC)](network-howto-vpn-tunnel-ipsec.md)| |
 
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Úložiště
 
 Pomocí vzorů úložiště zvyšte možnosti úložiště pomocí centra Azure Stack. V Azure Stack je úložiště centra omezené. Připojte se k prostředkům v existujícím datovém centru. Přečtěte si pokyny k vytvoření virtuálního počítače s Windows v centru Azure Stack pro připojení k externímu cíli iSCSI. Informace o tom, jak povolit klíčové funkce, jako je funkce Multipath I/O (MPIO), vám umožní optimalizovat výkon a možnosti připojení mezi virtuálním počítačem a externím úložištěm.
 

@@ -3,22 +3,22 @@ title: Použití profilů verzí rozhraní API pomocí Java v centru Azure Stack
 description: Naučte se používat profily verzí rozhraní API pomocí Java v centru Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 12/2/2020
 ms.author: sethm
 ms.reviewer: sijuman
-ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 2e37d8f977a89e9a0207ef094273e9838a54d23a
-ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 5e4ce9b035a21d64d741c017ba54477ea7ceb899
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89448652"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525842"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API pomocí Java v centru Azure Stack
 
 Sada Java SDK pro centrum Azure Stack Správce prostředků poskytuje nástroje, které vám pomůžou sestavovat a spravovat infrastrukturu. Poskytovatelé prostředků v sadě SDK zahrnují výpočetní prostředky, sítě, úložiště, App Services a [Key Vault](/azure/key-vault/key-vault-whatis).
 
-Sada Java SDK zahrnuje profily rozhraní API zahrnutím závislostí do souboru **Pom.xml** , který načte správné moduly do souboru **. Java** . Jako profil Azure ale můžete přidat několik profilů jako závislosti, jako je například **2019-03-01 – hybridní**nebo **nejnovější**. Pomocí těchto závislostí načtete správný modul, takže když vytvoříte typ prostředku, můžete si z těchto profilů vybrat verzi rozhraní API, kterou chcete použít. To vám umožní používat v Azure nejnovější verze, ale vyvíjí se s nejaktuálnější verzí rozhraní API pro Azure Stack hub.
+Sada Java SDK zahrnuje profily rozhraní API zahrnutím závislostí do souboru **Pom.xml** , který načte správné moduly do souboru **. Java** . Jako profil Azure ale můžete přidat několik profilů jako závislosti, jako je například **2019-03-01 – hybridní** nebo **nejnovější**. Pomocí těchto závislostí načtete správný modul, takže když vytvoříte typ prostředku, můžete si z těchto profilů vybrat verzi rozhraní API, kterou chcete použít. To vám umožní používat v Azure nejnovější verze, ale vyvíjí se s nejaktuálnější verzí rozhraní API pro Azure Stack hub.
 
 Použití sady Java SDK umožňuje skutečné prostředí pro vývojáře hybridního cloudu. Profily rozhraní API v Java SDK umožňují vývoj hybridního cloudu tím, že vám pomůže přepínat mezi globálním prostředky a prostředky Azure v centru Azure Stack.
 
@@ -30,7 +30,7 @@ Profil rozhraní API je kombinací poskytovatelů prostředků a verzí rozhran�
 
   - Pokud chcete použít nejnovější profil, je tato závislost **com. Microsoft. Azure**.
 
-  - Pokud chcete používat nejnovější podporované služby, které jsou dostupné v Azure Stack hub, použijte **hybridní profil com. Microsoft. Azure. profile \_ 2019 \_ 03 \_ 01 \_ ** .
+  - Pokud chcete používat nejnovější podporované služby, které jsou dostupné v Azure Stack hub, použijte **hybridní profil com. Microsoft. Azure. profile \_ 2019 \_ 03 \_ 01 \_** .
 
     - Profil je zadán v souboru **Pom.xml** jako závislost, která automaticky načítá moduly, pokud zvolíte správnou třídu v rozevíracím seznamu (stejně jako v případě rozhraní .NET).
 
@@ -78,7 +78,7 @@ Pomocí těchto kroků nainstalujete Java SDK:
 
 7. Ujistěte se, že váš instanční objekt má v předplatném roli Přispěvatel/vlastník. Pokyny k přiřazení role k instančnímu objektu najdete v tématu [poskytnutí přístupu aplikací k rozbočovači Azure Stack](../operator/azure-stack-create-service-principals.md).
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 Pokud chcete používat sadu Azure Java SDK s Azure Stack hub, musíte zadat následující hodnoty a potom nastavit hodnoty pomocí proměnných prostředí. Chcete-li nastavit proměnné prostředí, přečtěte si pokyny uvedené v tabulce pro váš operační systém.
 
@@ -284,7 +284,7 @@ Následující ukázky GitHubu použijte jako referenční materiály k vytvář
    - `export ARM_ENDPOINT={your Azure Stack Hub Resource Manager URL}`
    - `export RESOURCE_LOCATION={location of Azure Stack Hub}`
 
-   V systému Windows použijte místo **exportu**příkaz **set** .
+   V systému Windows použijte místo **exportu** příkaz **set** .
 
 5. Použijte `getActiveDirectorySettings` funkci pro načtení Azure Resource Manager koncových bodů metadat.
 

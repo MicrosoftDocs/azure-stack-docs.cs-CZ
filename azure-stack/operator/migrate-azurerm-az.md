@@ -4,15 +4,15 @@ description: Seznamte se s kroky a nástroji pro migraci skriptů z modulu Azure
 author: mattbriggs
 ms.author: mabrigg
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 12/2/2020
 ms.reviewer: sijuman
-ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: bfb385e29a89ad8d47ace3b15776bd368e0cf521
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: a4196228856b776bb3712e26f237a1cb32f20e50
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546167"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525757"
 ---
 # <a name="migrate-from-azurerm-to-azure-powershell-az-in-azure-stack-hub"></a>Migrace z AzureRM na Azure PowerShell AZ in Azure Stack hub
 
@@ -33,7 +33,7 @@ Get-InstalledModule -Name AzureRM -AllVersions
 
 ## <a name="check-current-scripts-work-with-azurerm"></a>Kontrolovat aktuální skripty fungují s AzureRM
 
-To je nejdůležitější krok! Spusťte stávající skripty a ujistěte se, že fungují s _nejnovější_ verzí AzureRM ( __2.5.0__ ). Pokud skripty nefungují, nezapomeňte si přečíst [průvodce migrací AzureRM](/powershell/azure/azurerm/migration-guide.6.0.0).
+To je nejdůležitější krok! Spusťte stávající skripty a ujistěte se, že fungují s _nejnovější_ verzí AzureRM (__2.5.0__). Pokud skripty nefungují, nezapomeňte si přečíst [průvodce migrací AzureRM](/powershell/azure/azurerm/migration-guide.6.0.0).
 
 ## <a name="install-the-azure-powershell-az-module"></a>Instalace modulu Az Azure PowerShellu
 
@@ -41,7 +41,7 @@ Prvním krokem je instalace modulu Az na vaší platformě. Pokud instalujete Az
 
 Při instalaci modulu Az Azure PowerShellu postupujte takto:
 
-* __Doporučené__ : [odinstalujte modul AzureRM](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module).
+* __Doporučené__: [odinstalujte modul AzureRM](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module).
   Ujistěte se, že jste odebrali _všechny_ nainstalované verze AzureRM, ne jenom nejnovější verzi.
 * [Instalace modulu Az](/powershell/azure/install-az-ps)
 
@@ -74,8 +74,8 @@ Pro tuto změnu pojmenování existují výjimky, o kterých byste měli vědět
 
 | Modul AzureRM | Modul Az | Změnila se přípona rutiny? |
 |----------------|-----------|------------------------|
-| AzureRM.Profile | Az.Accounts | Yes |
-| AzureRM.Insights | Az.Monitor | Yes |
+| AzureRM.Profile | Az.Accounts | Ano |
+| AzureRM.Insights | Az.Monitor | Ano |
 | AzureRM.Tags | Az.Resources | Ne |
 | AzureRM.UsageAggregates | Az.Billing | Ne |
 | AzureRM.Consumption | Az.Billing | Ne |

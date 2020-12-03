@@ -3,16 +3,16 @@ title: Zálohování účtů úložiště v centru Azure Stack
 description: Přečtěte si, jak zálohovat účty úložiště v centru Azure Stack.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: e77c05c6f13a3ee3cb23a13a466bb7e0e80394f7
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 40ec516f2f10f02716257077a4676c5724acf4ec
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546187"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525689"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>Zálohování účtů úložiště v centru Azure Stack
 
@@ -80,13 +80,13 @@ Po nastavení Windows serveru budete muset nainstalovat [Azure Stack centrum Pow
     export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09
     ```
 
-4. Na zprostředkujícím serveru vytvořte skript. Aktualizujte tento příkaz s vaším **účtem úložiště** , **klíčem SAS** a **cestou k místnímu adresáři**. Spouštíte skript pro přírůstkové kopírování dat ze **zdrojového** účtu úložiště.
+4. Na zprostředkujícím serveru vytvořte skript. Aktualizujte tento příkaz s vaším **účtem úložiště**, **klíčem SAS** a **cestou k místnímu adresáři**. Spouštíte skript pro přírůstkové kopírování dat ze **zdrojového** účtu úložiště.
 
     ```
     azcopy sync "https:/<storagaccount>/<container>?<SAS Key>" "C:\\myFolder" --recursive=true --delete-destination=true
     ```
 
-5.  Zadejte **účet úložiště** , * * klíč SAS * * a * * cesta k místnímu adresáři.  Použijete to pro přírůstkové kopírování dat do **cílového** účtu úložiště.
+5.  Zadejte **účet úložiště**, * * klíč SAS * * a * * cesta k místnímu adresáři.  Použijete to pro přírůstkové kopírování dat do **cílového** účtu úložiště.
     
     ```
     azcopy sync "C:\\myFolder" "https:// <storagaccount>/<container>?<SAS Key>" --recursive=true --delete-destination=true

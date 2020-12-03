@@ -3,16 +3,16 @@ title: Postup rozšiřování datacentra v centru Azure Stack
 description: Naučte se, jak centrálně roztáhnout datacentrum do centra Azure Stack.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: 1c5ecd53aab4b6116b044585a1a46497cb46f827
-ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 0d8425fa11f6de0e909a697527074c779acd27da
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88965262"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525791"
 ---
 # <a name="extending-storage-to-azure-stack-hub"></a>Rozšíření úložiště do centra Azure Stack
 
@@ -22,7 +22,7 @@ Tento článek poskytuje Azure Stack informace o infrastruktuře úložiště ce
 
 Existují situace, kdy vaše data uložená ve veřejném cloudu nejsou dostatečná. Možná máte úlohu virtualizované databáze náročné na výpočetní výkon, která je citlivá na latenci a dobu odezvy na veřejný cloud může ovlivnit výkon databázového zatížení. Možná existují data v místním prostředí, která jsou držená na souborovém serveru, na serveru NAS nebo v poli úložiště iSCSI, ke kterému se musí přicházet v místních úlohách a musí se nacházet v místním prostředí, aby se splnily zákonné předpisy nebo cíle dodržování předpisů. Jedná se jenom o dva scénáře, ve kterých jsou data uložená místně, ale jsou důležitá pro mnoho organizací.
 
-Proto nestačí hostovat tato data v účtech úložiště v Azure Stackovém centru nebo uvnitř virtualizovaného souborového serveru, který běží v systému Azure Stack hub? Na rozdíl od Azure je úložiště centra Azure Stack omezené. Kapacita, kterou máte k dispozici pro vaše využití, závisí výhradně na kapacitě jednotlivých uzlů, kterou jste si zvolili k nákupu, a navíc k počtu uzlů, které máte. A vzhledem k tomu, že Azure Stack hub je řešení sblížené pomocí technologie Hyper-v, měli byste chtít rozšířit kapacitu úložiště tak, aby splňovala požadavky na využití, a také je potřeba rozšířit výpočetní nároky prostřednictvím přidávání uzlů. To může být potenciálně nenáročné, zejména pokud je potřeba dodatečnou kapacitu pro studené, archivní úložiště, které by bylo možné přidat za nízké náklady mimo Azure Stack centrálního systému.
+Proto nestačí hostovat tato data v účtech úložiště v Azure Stackovém centru nebo uvnitř virtualizovaného souborového serveru, který běží v systému Azure Stack hub? Na rozdíl od Azure je úložiště centra Azure Stack omezené. Kapacita, kterou máte k dispozici pro vaše využití, závisí výhradně na kapacitě jednotlivých uzlů, kterou jste si zvolili k nákupu, a navíc k počtu uzlů, které máte. A vzhledem k tomu, že Azure Stack hub je Hyper-Converged řešení, měli byste chtít rozšířit kapacitu úložiště tak, aby splňovala požadavky na využití, a také je potřeba rozšířit výpočetní nároky prostřednictvím přidání uzlů. To může být potenciálně nenáročné, zejména pokud je potřeba dodatečnou kapacitu pro studené, archivní úložiště, které by bylo možné přidat za nízké náklady mimo Azure Stack centrálního systému.
 
 Díky tomu se zobrazí scénář, který se vám bude týkat. Jak můžete připojit Azure Stack systémy centra, virtualizované úlohy běžící v centru Azure Stack, a to jednoduše a efektivně, až do úložných systémů mimo centrum Azure Stack, přístupné prostřednictvím sítě.
 
@@ -42,7 +42,7 @@ V tomto scénáři nasadíme a nakonfigurujeme virtuální počítač s Windows 
 
 ### <a name="deploy-the-windows-server-2019-vm-on-azure-stack-hub"></a>Nasazení virtuálního počítače s Windows serverem 2019 do centra Azure Stack
 
-1.  Z **portálu pro správu centra Azure Stack**za předpokladu, že je tento systém správně zaregistrován a je připojený k webu Marketplace, vyberte **Správa Marketplace** a pak za předpokladu, že ještě nemáte bitovou kopii Windows serveru 2019, vyberte **Přidat z Azure** a pak vyhledejte **Windows server 2019**a přidejte image **Windows serveru 2019 Datacenter** .
+1.  Z **portálu pro správu centra Azure Stack** za předpokladu, že je tento systém správně zaregistrován a je připojený k webu Marketplace, vyberte **Správa Marketplace** a pak za předpokladu, že ještě nemáte bitovou kopii Windows serveru 2019, vyberte **Přidat z Azure** a pak vyhledejte **Windows server 2019** a přidejte image **Windows serveru 2019 Datacenter** .
 
     ![Dialogové okno "řídicí panel > Marketplace – položky > přidat z Azure" v poli hledání zobrazí "Windows Server 2019" a seznam položek, jejichž název obsahuje tento řetězec.](./media/azure-stack-network-howto-extend-datacenter/image2.png)
 
@@ -66,13 +66,13 @@ V tomto scénáři nasadíme a nakonfigurujeme virtuální počítač s Windows 
 
     e.  **Skupina prostředků**: storagetesting (vytvořit nový)
 
-    f.  Vybrat **OK**
+    f.  Vyberte **OK**.
 
 6.  V okně **Zvolte velikost** vyberte **Standard_F8s_v2** a vyberte **Vybrat**.
 
 7.  V okně **Nastavení** vyberte **virtuální síť** a v okně **vytvořit virtuální síť** upravte adresní prostor, který má být **10.10.10.0/23** , a aktualizujte rozsah adres podsítě na **10.10.10.0/24** a pak vyberte **OK**.
 
-8.  Vyberte **veřejnou IP adresu**a v okně **vytvořit veřejnou IP adresu** vyberte **statický** přepínač.
+8.  Vyberte **veřejnou IP adresu** a v okně **vytvořit veřejnou IP adresu** vyberte **statický** přepínač.
 
 9.  V rozevíracím seznamu **Vybrat veřejné příchozí porty** vyberte **RDP (3389)**.
 
@@ -86,7 +86,7 @@ V tomto scénáři nasadíme a nakonfigurujeme virtuální počítač s Windows 
 
     ![Na obrazovce Přehled se zobrazují informace o VM001.](./media/azure-stack-network-howto-extend-datacenter/image4.png)
 
-13. V části název DNS vyberte **Konfigurovat** a zadejte popisek názvu DNS, **Vm001** a vyberte **Uložit**a pak vyberte **vm001**.
+13. V části název DNS vyberte **Konfigurovat** a zadejte popisek názvu DNS, **Vm001** a vyberte **Uložit** a pak vyberte **vm001**.
 
 14. Na pravé straně okna Přehled vyberte **storagetesting-VNet/default** v textu virtuální sítě nebo podsítě.
 
@@ -118,11 +118,11 @@ V tomto scénáři nasadíme a nakonfigurujeme virtuální počítač s Windows 
 
 20. Po úspěšném připojení vyberte **VM001**  a vyberte **zastavit** , aby se virtuální počítač vypnul.
 
-21. Jakmile je virtuální počítač zastavený (přidělení zrušeno), na levé straně okna Přehled vyberte **síť**, vyberte **připojit síťové rozhraní** a pak vyberte **vm001nic2**a pak vyberte **OK**. Další síťové rozhraní se za chvíli přidá do virtuálního počítače.
+21. Jakmile je virtuální počítač zastavený (přidělení zrušeno), na levé straně okna Přehled vyberte **síť**, vyberte **připojit síťové rozhraní** a pak vyberte **vm001nic2** a pak vyberte **OK**. Další síťové rozhraní se za chvíli přidá do virtuálního počítače.
 
 22. Pořád v okně **sítě** vyberte kartu **vm001nic2** a pak vyberte **síťové rozhraní: vm001nic2**.
 
-23. V okně rozhraní vm001nic vyberte **Konfigurace protokolu IP**a ve středu okna vyberte **ipconfig1**.
+23. V okně rozhraní vm001nic vyberte **Konfigurace protokolu IP** a ve středu okna vyberte **ipconfig1**.
 
 24. V okně nastavení ipconfig1 vyberte možnost **povoleno** pro veřejnou IP adresu a vyberte **konfigurovat požadovaná nastavení**, **vytvořit nové** a jako název zadejte vm001nic2pip. Vyberte možnost **static** a pak klikněte na **tlačítko OK** a pak na **Uložit**.
 
@@ -178,9 +178,9 @@ Doporučuje se aktualizovat cíl iSCSI Windows serveru 2019 s nejnovějšími ku
 
 Po aktualizaci a restartu teď můžete tento server nakonfigurovat jako cíl iSCSI.
 
-1.  Otevřete **Správce serveru** a vyberte **Spravovat**a **přidejte role a funkce**.
+1.  Otevřete **Správce serveru** a vyberte **Spravovat** a **přidejte role a funkce**.
 
-2.  Po otevření vyberte **Další**, vyberte **instalace na základě rolí nebo na základě funkcí**a Projděte si výběry, dokud se nedostanete na stránku **Vybrat role serveru** .
+2.  Po otevření vyberte **Další**, vyberte **instalace na základě rolí nebo na základě funkcí** a Projděte si výběry, dokud se nedostanete na stránku **Vybrat role serveru** .
 
 3.  Rozbalte **Souborová služba a služba úložiště**, rozbalte **soubor & služby iSCSI Services** a zaškrtnete políčko **cílový server iSCSI** a přijměte všechny místní výzvy, které přidají nové funkce a pak dokončí doplňování.
 
@@ -188,11 +188,11 @@ Po aktualizaci a restartu teď můžete tento server nakonfigurovat jako cíl iS
 
     Po dokončení zavřete **Správce serveru.**
 
-4.  Otevřete **Průzkumníka souborů,** přejděte na C: \\ a **vytvořte novou složku**s názvem **iSCSI**.
+4.  Otevřete **Průzkumníka souborů,** přejděte na C: \\ a **vytvořte novou složku** s názvem **iSCSI**.
 
 5.  Znovu otevřete **Správce serveru** a v nabídce na levé straně vyberte **Souborová služba a služba úložiště** .
 
-6.  Vyberte **iSCSI** a vyberte "Pokud**chcete vytvořit virtuální disk iSCSI, spusťte**v pravém podokně odkaz Průvodce vytvořením virtuálního disku iSCSI. vyberte ji. Průvodce se zobrazí v průvodci.
+6.  Vyberte **iSCSI** a vyberte "Pokud **chcete vytvořit virtuální disk iSCSI, spusťte** v pravém podokně odkaz Průvodce vytvořením virtuálního disku iSCSI. vyberte ji. Průvodce se zobrazí v průvodci.
 
 7.  Na stránce **Vybrat umístění virtuálního disku iSCSI** vyberte přepínač pro **zadání vlastní cesty** a přejděte k **jednotce C: \\ iSCSI** a vyberte **Další**.
 
@@ -208,13 +208,13 @@ Po aktualizaci a restartu teď můžete tento server nakonfigurovat jako cíl iS
 
 12) Na stránce **zadat přístupové servery** vyberte **Přidat**. Tím se otevře dialogové okno, kde můžete zadat konkrétní **iniciátory** , které budou mít autorizaci připojit se k cíli iSCSI.
 
-13) V **okně Přidat ID iniciátoru**vyberte **zadat hodnotu pro vybraný typ** a v části **typ** ověřte, že je v rozevírací nabídce vybraná možnost IQN. Zadejte hodnotu **IQN. 1991-05. com. Microsoft \<computername> :** kde \<computername> je **název počítače** **VM001** a pak vyberte **Další**.
+13) V **okně Přidat ID iniciátoru** vyberte **zadat hodnotu pro vybraný typ** a v části **typ** ověřte, že je v rozevírací nabídce vybraná možnost IQN. Zadejte hodnotu **IQN. 1991-05. com. Microsoft \<computername> :** kde \<computername> je **název počítače** **VM001** a pak vyberte **Další**.
 
     ![Okno Přidat ID iniciátoru zobrazuje hodnoty pro určení ID iniciátoru.](./media/azure-stack-network-howto-extend-datacenter/image12.png)
 
 14) Na stránce **Povolit ověřování** ponechte pole prázdné a pak vyberte **Další**.
 
-15) Potvrďte svoje výběry a vyberte **vytvořit**a pak zavřít. Měl by se zobrazit virtuální disk iSCSI vytvořený v Správce serveru.
+15) Potvrďte svoje výběry a vyberte **vytvořit** a pak zavřít. Měl by se zobrazit virtuální disk iSCSI vytvořený v Správce serveru.
 
     ![Na stránce výsledky v Průvodci vytvořením virtuálního disku iSCSI se zobrazí, že vytvoření virtuálního disku ISCSI bylo úspěšné.](./media/azure-stack-network-howto-extend-datacenter/image13.png)
 
@@ -224,17 +224,17 @@ Chcete-li nastavit iniciátor iSCSI, nejprve se přihlaste k **portálu pro uži
 
 1.  Navažte připojení RDP k VM001. Po připojení otevřete **Správce serveru**.
 
-2.  Vyberte možnost **Přidat role a funkce**a přijměte výchozí hodnoty, dokud se nedostanete na stránku **funkce** .
+2.  Vyberte možnost **Přidat role a funkce** a přijměte výchozí hodnoty, dokud se nedostanete na stránku **funkce** .
 
 3.  Na stránce **funkce přidejte funkci** **Multipath i/O** a vyberte **Další**.
 
     ![Stránka funkce v Průvodci přidáním rolí a funkcí zobrazuje jednu funkci, možnost Multipath I/O.](./media/azure-stack-network-howto-extend-datacenter/image14.png)
 
-4.  V **případě potřeby automaticky restartovat cílový server** a vybrat **nainstalovat**a pak vybrat **Zavřít.** Po dokončení bude restart pravděpodobně požadován, takže po dokončení se znovu připojí k VM001.
+4.  V **případě potřeby automaticky restartovat cílový server** a vybrat **nainstalovat** a pak vybrat **Zavřít.** Po dokončení bude restart pravděpodobně požadován, takže po dokončení se znovu připojí k VM001.
 
-5.  Zpět v **Správce serveru**počkejte, než se **Instalace funkce MPIO dokončí**, vyberte **Zavřít**a pak vyberte **nástroje** a vyberte **MPIO**.
+5.  Zpět v **Správce serveru** počkejte, než se **Instalace funkce MPIO dokončí**, vyberte **Zavřít** a pak vyberte **nástroje** a vyberte **MPIO**.
 
-6.  Vyberte kartu **zjistit více cest** a zaškrtnete políčko **Přidat podporu pro zařízení iSCSI** a vyberte **Přidat**a pak vyberte **Ano** , aby se VM001 **restart** . Pokud okno neobdržíte, vyberte **OK a** pak ručně restartujte.
+6.  Vyberte kartu **zjistit více cest** a zaškrtnete políčko **Přidat podporu pro zařízení iSCSI** a vyberte **Přidat** a pak vyberte **Ano** , aby se VM001 **restart** . Pokud okno neobdržíte, vyberte **OK a** pak ručně restartujte.
 
     ![Na stránce vyhledat více cest v dialogovém okně MPIO se zobrazí zaškrtnuté políčko Přidat podporu pro zařízení iSCSI. Existuje tlačítko Přidat.](./media/azure-stack-network-howto-extend-datacenter/image15.png)
 
@@ -280,7 +280,7 @@ Chcete-li nastavit iniciátor iSCSI, nejprve se přihlaste k **portálu pro uži
 
     ![V dialogovém okně připojit k cíli se zobrazí zadané hodnoty. K dispozici je tlačítko Upřesnit a tlačítko OK.](./media/azure-stack-network-howto-extend-datacenter/image19.png)
 
-19. Zadejte následující informace a vyberte **OK**a potom v okně **připojit k cílovému** systému vyberte **OK**.
+19. Zadejte následující informace a vyberte **OK** a potom v okně **připojit k cílovému** systému vyberte **OK**.
 
     a.  **Místní adaptér**: iniciátor iSCSI společnosti Microsoft.
 

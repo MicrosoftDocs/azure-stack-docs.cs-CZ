@@ -3,16 +3,16 @@ title: Nastavují se certifikáty pro Azure CLI na Azure Stack Development Kit (
 description: Přečtěte si informace o nastavení certifikátů pro rozhraní příkazového řádku Azure v Azure Stack Development Kit Azure Stack Development Kit.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 8b55fea8ed9692da34234e2633bdb43e92de46eb
-ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 7b408e28ff70e66c0460473f54304cbf50fa2c92
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93294403"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96524676"
 ---
 # <a name="setting-up-certificates-for-azure-cli-on-azure-stack-development-kit"></a>Nastavení certifikátů pro Azure CLI v Azure Stack Development Kit
 

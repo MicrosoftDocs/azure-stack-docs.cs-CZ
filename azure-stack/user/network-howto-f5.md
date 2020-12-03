@@ -3,16 +3,16 @@ title: Nasazení F5 ve dvou instancích centra Azure Stack
 description: Naučte se nasazovat F5 v rámci dvou Azure Stackch instancí centra.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 3512584e4109d86a9ee6a0d71924d560b9ecba92
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: b00d2a482faf2921e8823c705d8c8e861a763a78
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574206"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525621"
 ---
 # <a name="how-to-deploy-f5-across-two-azure-stack-hub-instances"></a>Postup nasazení F5 v rámci dvou instancí centra Azure Stack
 
@@ -178,7 +178,7 @@ Po instalaci budete muset nakonfigurovat skupin zabezpečení sítě centra pro 
 
 16. Teď zkontrolujte statistiku svého virtuálního serveru a ověřte tok přenosů, a to tak, že přejdete na **statistika > statistiku modulu > místní provoz**.
 
-17. V části **typ statistiky**vyberte **virtuální servery**.
+17. V části **typ statistiky** vyberte **virtuální servery**.
 
     ![V levém podokně se přešlo do pravého podokna "Statistika >> modulu Statistika: místní provoz >> virtuální servery" a v seznamu se zobrazuje virtuální server NGINX a další. NGINX je zvýrazněný.](./media/network-howto-f5/image17.png)
 

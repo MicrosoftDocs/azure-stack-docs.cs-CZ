@@ -3,16 +3,16 @@ title: Nasazení webové aplikace v C# ASP.NET do virtuálního počítače v ce
 description: Nasaďte webovou aplikaci v C# ASP.NET do virtuálního počítače v Azure Stackovém centru.
 author: mattbriggs
 ms.topic: overview
-ms.date: 08/24/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: c28a5bbb50b4694358eec4375db6c20a00ba9e99
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 1ff00f354f9ab451bbf9557c1d63b01980d78875
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574189"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525404"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack-hub"></a>Nasazení webové aplikace v C# ASP.NET do virtuálního počítače v centru Azure Stack
 
@@ -63,19 +63,19 @@ Tento článek používá aplikaci C# 6,0, která používá ASP.NET Core 2,2 sp
 
     Pro každý port:
 
-    a. Jako **zdroj**vyberte **libovolný**.
+    a. Jako **zdroj** vyberte **libovolný**.
 
-    b. Jako **rozsah zdrojového portu**zadejte hvězdičku ( **\*** ).
+    b. Jako **rozsah zdrojového portu** zadejte hvězdičku (* *\** _).
 
-    c. Jako **cíl**vyberte **libovolný**.
+    c. Pro _ * cíl * * vyberte **libovolný**.
 
-    d. Pro **Rozsah cílových portů**přidejte port, který chcete otevřít.
+    d. Pro **Rozsah cílových portů** přidejte port, který chcete otevřít.
 
-    e. V případě **protokolu**vyberte možnost **libovolný**.
+    e. V případě **protokolu** vyberte možnost **libovolný**.
 
     f. V části **Akce** vyberte **Povolit**.
 
-    například V poli **Priorita**ponechte výchozí výběr.
+    například V poli **Priorita** ponechte výchozí výběr.
 
     h. Zadejte **název** a **Popis** , který vám pomůžete mít na paměti, proč je port otevřený.
 
@@ -89,9 +89,9 @@ Tento článek používá aplikaci C# 6,0, která používá ASP.NET Core 2,2 sp
 
     c. Vyberte **Přehled**.
 
-    d. V části **virtuální počítač**vyberte **Konfigurovat**.
+    d. V části **virtuální počítač** vyberte **Konfigurovat**.
 
-    e. Jako **přiřazení**vyberte **Dynamická**.
+    e. Jako **přiřazení** vyberte **Dynamická**.
 
     f. Zadejte popisek názvu DNS, například **MyWebApp**, aby se vaše úplná adresa URL stala *MyWebApp. Local. cloudapp. azurestack. external*.
 
@@ -103,23 +103,23 @@ V aplikaci Visual Studio můžete použít vlastní webovou aplikaci nebo přík
 
 Vytvořte cíl publikování na VIRTUÁLNÍm počítači v centru Azure Stack.
 
-1. V **Průzkumník řešení**klikněte pravým tlačítkem myši na projekt a pak vyberte **publikovat**.
+1. V **Průzkumník řešení** klikněte pravým tlačítkem myši na projekt a pak vyberte **publikovat**.
 
     ![Nasazení webové aplikace v ASP.NET do publikování centra Azure Stack](media/azure-stack-dev-start-howto-vm-dotnet/deploy-app-to-azure-stack.png)
 
 1. V okně **publikovat** vyberte **Nový profil**.
 1. Vyberte **IIS, FTP atd**.
 1. Vyberte **Publikovat**.
-1. V případě **metody publikování**vyberte **nasazení webu**.
+1. V případě **metody publikování** vyberte **nasazení webu**.
 1. Jako **Server** zadejte název DNS, který jste definovali dříve, například *w21902. Local. cloudapp. azurestack. external*.
-1. Jako **název webového serveru**zadejte **výchozí web**.
-1. Do pole **uživatelské jméno**zadejte uživatelské jméno počítače.
-1. Jako **heslo**zadejte heslo pro tento počítač.
-1. V poli **cílová adresa URL**zadejte adresu URL pro web, například *MyWebApp. Local. cloudapp. azurestack. external*.
+1. Jako **název webového serveru** zadejte **výchozí web**.
+1. Do pole **uživatelské jméno** zadejte uživatelské jméno počítače.
+1. Jako **heslo** zadejte heslo pro tento počítač.
+1. V poli **cílová adresa URL** zadejte adresu URL pro web, například *MyWebApp. Local. cloudapp. azurestack. external*.
 
     ![Nasazení webové aplikace v ASP.NET – konfigurace Nasazení webu](media/azure-stack-dev-start-howto-vm-dotnet/configure-web-deploy.png)
 
-1. Pokud chcete ověřit konfiguraci webového nasazení, vyberte **ověřit připojení**a pak vyberte **Další**.
+1. Pokud chcete ověřit konfiguraci webového nasazení, vyberte **ověřit připojení** a pak vyberte **Další**.
 1. Nastavte **konfiguraci** jako **verzi**.
 1. Nastavte **cílové rozhraní .NET Framework** jako **netcoreapp 2.2**.
 1. Nastavte **cílový modul runtime** jako **přenosný**.

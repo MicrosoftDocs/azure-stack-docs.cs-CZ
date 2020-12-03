@@ -3,16 +3,16 @@ title: Správa centra Azure Stack pomocí Azure CLI
 description: Naučte se používat rozhraní příkazového řádku (CLI) pro různé platformy ke správě a nasazení prostředků v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 10/26/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 35378da825d9b2d9c7446148101f1d205a22b2c4
-ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 5cd1c1b7dac9e05925488b3543461f3fbd8dd9e5
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93291256"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525876"
 ---
 # <a name="install-azure-cli-on-azure-stack-hub"></a>Instalace rozhraní příkazového řádku Azure CLI do centra Azure Stack
 
@@ -79,7 +79,7 @@ V této části se dozvíte, jak nastavit rozhraní příkazového řádku, poku
  
 6. Přihlaste se k prostředí Azure Stackového centra pomocí `az login` příkazu. Přihlaste se do prostředí Azure Stack hub buď jako uživatel, nebo jako [instanční objekt](/azure/active-directory/develop/app-objects-and-service-principals). 
 
-   - Přihlaste se jako *uživatel* : 
+   - Přihlaste se jako *uživatel*: 
 
      Můžete buď zadat uživatelské jméno a heslo přímo v rámci `az login` příkazu, nebo ověřit pomocí prohlížeče. Pokud má váš účet povolené ověřování Multi-Factor Authentication, musíte to udělat:
 
@@ -90,7 +90,7 @@ V této části se dozvíte, jak nastavit rozhraní příkazového řádku, poku
      > [!NOTE]
      > Pokud má váš uživatelský účet povolený službu Multi-Factor Authentication, použijte `az login` příkaz bez zadání `-u` parametru. Spuštěním tohoto příkazu získáte adresu URL a kód, který je nutné použít k ověření.
 
-   - Přihlaste se jako *instanční objekt* : 
+   - Přihlaste se jako *instanční objekt*: 
     
      Než se přihlásíte, [vytvořte instanční objekt pomocí Azure Portal nebo rozhraní](../operator/azure-stack-create-service-principals.md?view=azs-2002) příkazového řádku a přiřaďte mu roli. Teď se přihlaste pomocí následujícího příkazu:
 
@@ -152,7 +152,7 @@ V této části se dozvíte, jak nastavit rozhraní příkazového řádku, poku
 
 6. Přihlaste se k prostředí Azure Stackového centra pomocí `az login` příkazu. K prostředí služby Azure Stack hub se můžete přihlásit buď jako uživatel, nebo jako [instanční objekt](/azure/active-directory/develop/app-objects-and-service-principals). 
 
-   - Přihlaste se jako *uživatel* :
+   - Přihlaste se jako *uživatel*:
 
      Můžete buď zadat uživatelské jméno a heslo přímo v rámci `az login` příkazu, nebo ověřit pomocí prohlížeče. Pokud má váš účet povolené ověřování Multi-Factor Authentication, musíte to udělat:
 
@@ -163,7 +163,7 @@ V této části se dozvíte, jak nastavit rozhraní příkazového řádku, poku
      > [!NOTE]
      > Pokud má váš uživatelský účet povolený službu Multi-Factor Authentication, použijte `az login` příkaz bez zadání `-u` parametru. Spuštěním tohoto příkazu získáte adresu URL a kód, který je nutné použít k ověření.
 
-   - Přihlaste se jako *instanční objekt* : 
+   - Přihlaste se jako *instanční objekt*: 
     
      Připravte soubor. pem, který se má použít pro přihlašovací objekty instančního objektu.
 
@@ -237,7 +237,7 @@ Pomocí následujících kroků se připojte k centru Azure Stack:
 
 6. Přihlaste se k prostředí Azure Stackového centra pomocí `az login` příkazu. K prostředí služby Azure Stack hub se můžete přihlásit buď jako uživatel, nebo jako [instanční objekt](/azure/active-directory/develop/app-objects-and-service-principals). 
 
-   * Přihlaste se jako *uživatel* :
+   * Přihlaste se jako *uživatel*:
 
      Můžete buď zadat uživatelské jméno a heslo přímo v rámci `az login` příkazu, nebo ověřit pomocí prohlížeče. Pokud má váš účet povolené ověřování Multi-Factor Authentication, musíte to udělat:
 

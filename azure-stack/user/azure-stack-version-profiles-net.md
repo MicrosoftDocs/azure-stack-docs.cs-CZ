@@ -3,16 +3,16 @@ title: Použití profilů verzí rozhraní API s .NET v Azure Stackovém centru
 description: Naučte se používat profily verzí rozhraní API s .NET SDK v Azure Stack hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 12/2/2020
 ms.author: sethm
 ms.reviewer: sijuman
-ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: cd3251e560cc7caa158cc3ea6f3bbd33b662bc3e
-ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 629c50225bc7544512b0ccb1333e56ef1e7cf07a
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/29/2020
-ms.locfileid: "89089622"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525808"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s .NET v Azure Stackovém centru
 
@@ -56,7 +56,7 @@ Můžete zkombinovat všechny možnosti ve stejné aplikaci.
 
 - Ujistěte se, že váš instanční objekt má v předplatném roli Přispěvatel/vlastník. Informace o tom, jak přiřadit roli k instančnímu objektu, najdete v tématu [poskytnutí přístupu aplikací k rozbočovači služby Azure Stack][].
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 Pokud chcete použít sadu .NET Azure SDK s Azure Stack hub, musíte zadat následující hodnoty a pak hodnoty nastavit pomocí proměnných prostředí. Chcete-li nastavit proměnné prostředí, přečtěte si pokyny uvedené v tabulce pro konkrétní operační systém.
 
