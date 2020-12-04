@@ -5,14 +5,17 @@ author: daschott
 ms.author: daschott
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: 49ecf74033b2b6c68de1fa5fdfba84136c845397
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: e17e75631a6daac8c7523a2340dd69d5914a82de
+ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948911"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557068"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-on-azure-stack-hci"></a>Základní koncepty Kubernetes pro Azure Kubernetes Service v Azure Stack HCI
+
+> Platí pro: AKS on Azure Stack HCI, AKS runtime na Windows serveru 2019 Datacenter
+
 Služba Azure Kubernetes na Azure Stack HCI je platforma kontejneru Kubernetes na podnikové úrovni, která využívá Azure Stack HCI. Zahrnuje podporu pro základní Kubernetes, doplňky, účelově sestaveného hostitele kontejnerů Windows a hostitele kontejnerů Linux s podporou Microsoftu s cílem mít **jednoduché prostředí pro správu nasazení a životního cyklu**.
 
 V tomto článku se seznámíte se základními komponentami infrastruktury Kubernetes, jako je například řídicí plocha, uzly a fondy uzlů. Společně s postupem seskupení prostředků do oborů názvů se zavádějí i prostředky úlohy, jako jsou lusky, nasazení a sady.
@@ -53,7 +56,7 @@ Nástroj pro vyrovnávání zatížení je virtuální počítač se systémem L
 
 Pro každý cílový cluster služba Azure Kubernetes v Azure Stack HCI přidá aspoň jeden virtuální počítač pro vyrovnávání zatížení (bez virtuální sítě). Kromě toho je možné vytvořit jiný nástroj pro vyrovnávání zatížení pro vysokou dostupnost serveru rozhraní API v cílovém clusteru. Jakákoli služba Kubernetes typu `LoadBalancer` , která je vytvořena v cílovém clusteru, ukončí vytvoření pravidla vyrovnávání zatížení v virtuálním počítači s jednou.
 
-### <a name="add-on-components"></a>Komponenty doplňku
+### <a name="add-on-components"></a>Add-On komponenty
 V libovolném clusteru je několik volitelných doplňkových komponent, které je možné nasadit v jakémkoli clusteru, zejména: Arc Azure, Prometheus, Grafana nebo řídicí panel Kubernetes.
 
 ## <a name="kubernetes-components"></a>Součásti Kubernetes

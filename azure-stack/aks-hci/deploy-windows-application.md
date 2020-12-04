@@ -1,21 +1,24 @@
 ---
-title: Kurz – nasazení aplikace pro Windows v AKS na Azure Stack HCI
-description: V tomto kurzu nasadíte aplikaci pro Windows do clusteru s použitím vlastní image uložené v Azure Container Registry.
+title: Nasazení aplikace Windows .NET v AKS na Azure Stack HCI
+description: Naučte se, jak nasadit aplikaci Windows .NET do clusteru s použitím vlastní image uložené v Azure Container Registry.
 author: abha
 ms.topic: tutorial
 ms.date: 09/22/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: f6bc0132dd7ce3ee9972b0aaff6d0718cab86843
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: e77cda56b3a707cbd117976af9e1871712dbc6cc
+ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948893"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557051"
 ---
-# <a name="tutorial-deploy-windows-applications-in-azure-kubernetes-service-on-azure-stack-hci"></a>Kurz: nasazení aplikací pro Windows ve službě Azure Kubernetes v Azure Stack HCL
+# <a name="deploy-windows-applications-in-azure-kubernetes-service-on-azure-stack-hci"></a>Nasazení aplikací pro Windows ve službě Azure Kubernetes v Azure Stack HCI
 
-V tomto kurzu nasadíte ukázkovou aplikaci ASP.NET v kontejneru Windows serveru do clusteru Kubernetes. Pak uvidíte, jak testovat a škálovat aplikaci. V tomto kurzu se předpokládá základní znalost konceptů Kubernetes. Další informace najdete v tématu [základní koncepty Kubernetes pro Azure Kubernetes Service v Azure Stack HCI](kubernetes-concepts.md).
+> Platí pro: AKS on Azure Stack HCI, AKS runtime na Windows serveru 2019 Datacenter
+
+V tomto kurzu nasadíte ukázkovou aplikaci ASP.NET v kontejneru Windows serveru do clusteru Kubernetes a naučíte se, jak zjistit, jak aplikaci testovat a škálovat. Naučíte se také, jak připojit uzly Windows k doméně služby Active Directory.
+V tomto kurzu se předpokládá základní znalost konceptů Kubernetes. Další informace najdete v tématu [základní koncepty Kubernetes pro Azure Kubernetes Service v Azure Stack HCI](kubernetes-concepts.md).
 
 ## <a name="before-you-begin"></a>Než začnete
 
@@ -149,4 +152,4 @@ kubectl get pods -n default
 ## <a name="next-steps"></a>Další kroky
 
 * [K monitorování clusteru a aplikace použijte Azure monitor](/azure/azure-monitor/insights/container-insights-enable-arc-enabled-clusters).
-* [Používejte trvalé úložiště a nakonfigurujte podporu gMSA v kontejneru Windows](persistent-storage-windows-nodes.md).
+* [Používejte trvalý svazek v clusteru Kubernetes](persistent-volume.md).

@@ -6,14 +6,16 @@ ms.topic: tutorial
 ms.date: 09/22/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 6fd907a44cdaad5f5dfe7ccb3a29f5fc6a0152b6
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: e94b1b3cd5097baba655eedd72669af060f90e2d
+ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948899"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557034"
 ---
 # <a name="tutorial-deploy-linux-applications-in-azure-kubernetes-service-on-azure-stack-hci"></a>Kurz: nasazení aplikací pro Linux ve službě Azure Kubernetes v Azure Stack HCL
+
+> Platí pro: AKS on Azure Stack HCI, AKS runtime na Windows serveru 2019 Datacenter
 
 V tomto kurzu nasadíte aplikaci s více kontejnery, která zahrnuje webový front-end a instanci databáze Redis ve službě Azure Kubernetes v clusteru Azure Stack HCI. Pak uvidíte, jak testovat a škálovat aplikaci. 
 
@@ -27,7 +29,7 @@ Ověřte, že máte připravené tyto požadavky:
 * Soubor kubeconfig pro přístup ke clusteru.
 * Musí být nainstalovaná služba Azure Kubernetes v Azure Stack modul prostředí HCL pro rozhraní HCI.
 * Spusťte příkazy v tomto dokumentu v okně pro správu prostředí PowerShell.
-* Zajistěte, aby se na příslušném hostiteli kontejneru naklády úlohy specifické pro operační systém. Pokud máte smíšený cluster uzlů pro Linux a Windows Worker Kubernetes, můžete použít selektory uzlů nebo příchuti a tolerování. Další informace najdete v tématu [použití selektorů uzlů a příchuti a jejich tolerovánosti](adapt-apps-mixed-os-clusters.md).
+* Zajistěte, aby se úlohy specifické pro operační systém nakládat na příslušném hostiteli kontejneru. Pokud máte smíšený cluster uzlů pro Linux a Windows Worker Kubernetes, můžete použít selektory uzlů nebo příchuti a tolerování. Další informace najdete v tématu [použití selektorů uzlů a příchuti a jejich tolerovánosti](adapt-apps-mixed-os-clusters.md).
 
 ## <a name="deploy-the-application"></a>Nasazení aplikace
 
@@ -165,13 +167,13 @@ Pokud chcete zobrazit hlasovou aplikaci Azure v akci, otevřete webový prohlí�
 
 ## <a name="scale-application-pods"></a>Škálování aplikací v luskech
 
-Vytvořili jsme jednu repliku instance webend a Redis pro hlasování Azure. Chcete-li zobrazit počet a stav lusků ve vašem clusteru, použijte `kubectl get` příkaz následujícím způsobem:
+Vytvořili jsme jednu repliku instance Azure Hlasujte front end a instanci Redis. Chcete-li zobrazit počet a stav lusků ve vašem clusteru, použijte `kubectl get` příkaz následujícím způsobem:
 
 ```console
 kubectl get pods -n default
 ```
 
-Následující příklad výstupu ukazuje jeden pod front-endu a jeden pod back-endu:
+Následující příklad výstupu ukazuje jeden front-end pod a jeden back-end pod:
 
 ```
 NAME                                READY     STATUS    RESTARTS   AGE
@@ -179,7 +181,7 @@ azure-vote-back-6bdcb87f89-g2pqg    1/1       Running   0          25m
 azure-vote-front-84c8bf64fc-cdq86   1/1       Running   0          25m
 ```
 
-Pokud chcete změnit počet lusků v nasazení *Azure – hlasování* , použijte `kubectl scale` příkaz. Následující příklad zvýší počet podů front-endu na *5*:
+Pokud chcete změnit počet lusků v nasazení *Azure – hlasování* , použijte `kubectl scale` příkaz. V následujícím příkladu se zvyšuje počet front-endu v luskech na *5*:
 
 ```console
 kubectl scale --replicas=5 deployment/azure-vote-front

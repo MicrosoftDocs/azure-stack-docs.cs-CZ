@@ -21,8 +21,6 @@
           href: create-kubernetes-cluster-powershell.md
 - name: Kurzy
   items:
-    - name: Použití kontejnerů s Windows Serverem
-      href: deploy-windows-application.md
     - name: Použití kontejnerů Linux
       href: deploy-linux-application.md
 - name: Koncepty
@@ -37,9 +35,15 @@
       href: connect-to-arc.md
     - name: Přizpůsobení aplikací pro clustery Kubernetes se smíšeným operačním systémem
       href: adapt-apps-mixed-os-clusters.md
-    - name: Použití trvalého úložiště v kontejneru Windows a příprava na gMSA
-      href: persistent-storage-windows-nodes.md
-    - name: Řešení potíží
+    - name: Použití kontejnerů s Windows Serverem
+      items:
+        - name: Nasazení aplikací .NET v AKS na Azure Stack HCL
+          href: deploy-windows-application.md
+        - name: Příprava uzlů Windows pro skupinový účet spravované služby
+          href: prepare-windows-nodes-gmsa.md
+        - name: Použití trvalého svazku v AKS ve Azure Stack clusteru HCI
+          href: persistent-volume.md
+    - name: Odstranit potíže
       href: troubleshoot.md
 - name: Související
   items:

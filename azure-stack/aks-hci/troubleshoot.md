@@ -5,12 +5,12 @@ author: davannaw-msft
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: dawhite
-ms.openlocfilehash: 4f13aff85c1444197fce5a01c62319026f844fe6
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: 26edd1f52b5a3d695fa70493606c1e2438feda78
+ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415041"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557085"
 ---
 # <a name="troubleshooting-azure-kubernetes-service-on-azure-stack-hci"></a>Řešení potíží se službou Azure Kubernetes v Azure Stack HCI
 
@@ -79,20 +79,45 @@ GetHelp .\Get-SMEUILogs.ps1 -Examples
 ```
 
 ## <a name="troubleshooting-windows-worker-nodes"></a>Řešení potíží s pracovními uzly Windows 
-Chcete-li se přihlásit k pracovnímu uzlu systému Windows, nejprve získejte IP adresu vašeho uzlu spuštěním `kubectl get` . Poznamenejte si `EXTERNAL-IP` hodnotu.
+Pokud se chcete přihlásit k pracovnímu uzlu Windows pomocí SSH, nejdřív Získejte IP adresu vašeho uzlu spuštěním `kubectl get` a zachyťte `EXTERNAL-IP` hodnotu.
 
-```PowerShell
-kubectl get nodes -o wide
-``` 
-Připojte se přes SSH k uzlu pomocí `ssh Administrator@ip` . Po přihlášení k uzlu přes SSH můžete spustit `net user administrator *` aktualizaci hesla správce. 
+[!NOTE] 
+Musíte předat správné umístění k privátnímu klíči SSH. Následující příklad používá výchozí umístění%systemdrive%\akshci \. SSH \ akshci_rsa, ale pokud jste si vyžádali jinou cestu zadáním `-sshPublicKey` parametru pro, může být nutné toto umístění změnit `Set-AksHciConfig` .
+
+Chcete-li získat IP adresu uzlu Windows Worker:  
+
+```
+kubectl --kubeconfig=yourkubeconfig get nodes -o wide
+```  
+
+Použijte `ssh Administrator@ip` pro SSH v systému Windows:  
+
+```
+ssh -i $env:SYSTEMDRIVE\AksHci\.ssh\akshci_rsa administrator@<IP Address of the Node>
+```
+  
+Po přihlášení k uzlu přes SSH můžete spustit `net user administrator *` , aby se aktualizovalo heslo správce. 
+
 
 ## <a name="troubleshooting-linux-worker-nodes"></a>Řešení potíží s pracovními uzly Linux 
-Pokud se chcete přihlásit k pracovnímu uzlu Linux, nejprve získejte IP adresu vašeho uzlu spuštěním `kubectl get` . Poznamenejte si `EXTERNAL-IP` hodnotu.
+Pokud se chcete přihlásit k pracovnímu uzlu Linux pomocí protokolu SSH, nejprve získejte IP adresu vašeho uzlu spuštěním `kubectl get` a zachyťte `EXTERNAL-IP` hodnotu.
 
-```PowerShell
-kubectl get nodes -o wide
-``` 
-Připojte se přes SSH k uzlu pomocí `ssh clouduser@ip` . 
+[!NOTE]
+Musíte předat správné umístění k privátnímu klíči SSH. Následující příklad používá výchozí umístění%systemdrive%\akshci \. SSH \ akshci_rsa, ale pokud jste si vyžádali jinou cestu zadáním `-sshPublicKey` parametru pro, může být nutné toto umístění změnit `Set-AksHciConfig` .
+
+Získání IP adresy uzlu Linux Worker:  
+
+```
+kubectl --kubeconfig=yourkubeconfig get nodes -o wide
+```  
+
+Použijte `ssh clouduser@ip` k SSH v systému pro uzel Linux: 
+
+```
+ssh -i $env:SYSTEMDRIVE\AksHci\.ssh\akshci_rsa clouduser@<IP Address of the Node>
+```  
+
+Po přihlášení k uzlu přes SSH můžete spustit `net user administrator *` , aby se aktualizovalo heslo správce. 
 
 ## <a name="troubleshooting-azure-arc-kubernetes"></a>Řešení potíží s Kubernetes ARC Azure
 Další informace o řešení běžných scénářů týkajících se připojení, oprávnění a agentů ARC najdete v tématu [věnovaném řešení potíží s Kubernetes ARC Azure](/azure/azure-arc/kubernetes/troubleshooting).

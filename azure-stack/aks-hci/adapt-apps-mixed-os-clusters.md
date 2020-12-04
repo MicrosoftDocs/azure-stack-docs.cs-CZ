@@ -6,14 +6,16 @@ ms.topic: how-to
 ms.date: 10/20/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 04b103fee921cf8bdab82a4004c6c80afd54d687
-ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
+ms.openlocfilehash: 09d63b58fcbba2b5272ea153a1a022ccdc63e2bc
+ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92253940"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557102"
 ---
 # <a name="adapt-apps-for-mixed-os-kubernetes-clusters-using-node-selectors-or-taints-and-tolerations"></a>Přizpůsobení aplikací pro clustery Kubernetes se smíšenými operačními systémy pomocí selektorů uzlů nebo příchuti a tolerovánosti
+
+> Platí pro: AKS on Azure Stack HCI, AKS runtime na Windows serveru 2019 Datacenter
 
 Služba Azure Kubernetes ve službě Azure Stack HCI umožňuje spouštět clustery Kubernetes s uzly Linux i Windows, ale vyžaduje, abyste v těchto clusterech se smíšeným operačním systémem provedli malé úpravy, aby je bylo možné použít. V tomto průvodci se dozvíte, jak zajistit, aby se aplikace naplánovala na správném hostitelském operačním systému pomocí selektorů uzlů nebo chuti a příjímání.
 
@@ -45,7 +47,7 @@ node.kubernetes.io/os=Windows:NoSchedule
 ```
 Spusťte `kubectl get` a Identifikujte pracovní uzly systému Windows, které chcete použít pro obchuti.
 
-```PowerShell
+```
 kubectl get nodes --all-namespaces -o=custom-columns=NAME:.metadata.name,OS:.status.nodeInfo.operatingSystem
 ```
 Výstup:
@@ -58,7 +60,7 @@ my-aks-hci-cluster-md-md-1-5xlwz         windows
 
 Pracovní uzly Windows serveru s příchuti pomocí `kubectl taint node` .
 
-```PowerShell
+```
 kubectl taint node my-aks-hci-cluster-md-md-1-5h4bl node.kubernetes.io/os=Windows:NoSchedule
 kubectl taint node my-aks-hci-cluster-md-md-1-5xlwz node.kubernetes.io/os=Windows:NoSchedule
 ```

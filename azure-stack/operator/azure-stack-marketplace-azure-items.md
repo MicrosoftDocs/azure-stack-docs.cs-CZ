@@ -7,12 +7,12 @@ ms.date: 09/09/2020
 ms.author: sethm
 ms.reviewer: gara
 ms.lastreviewed: 01/21/2019
-ms.openlocfilehash: 0d5fe9bfc324cbf3a52cbd3a9a38508344bda5e0
-ms.sourcegitcommit: 40d3f3f0ac088d1590d1fb64ca05ac1dabf4e00c
+ms.openlocfilehash: afb69e3060137cece30004ccf59c1c3a88833b91
+ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94875089"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557425"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>Dostupné položky Azure Marketplace pro službu Azure Stack Hub
 
@@ -55,11 +55,11 @@ Centrum Microsoft Azure Stack podporuje následující Azure Marketplace virtuá
 | Image | Název položky | Popis | Publisher |
 | --- | --- | --- | --- |
 | ![Vymazat operační systém Linux](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Vymazat operační systém Linux](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | Referenční distribuce systému Linux optimalizovaná pro architekturu Intel. | Vymazat projekt pro Linux |
-| ![CoreOS Linux (stabilní)](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS Linux (stabilní)](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | CoreOS je moderní a minimální distribuce systému Linux, která poskytuje snadný způsob, jak spouštět kontejnery, spravovat clustery a plynule aktualizovat servery – všechny komponenty, které umožňují výpočetní prostředky ve skladu. | CoreOS |
+| ![CoreOS Linux (stabilní)](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS Linux (stabilní)](https://coreos.com/os/docs/latest/booting-on-azure.html) | CoreOS je moderní a minimální distribuce systému Linux, která poskytuje snadný způsob, jak spouštět kontejnery, spravovat clustery a plynule aktualizovat servery – všechny komponenty, které umožňují výpočetní prostředky ve skladu. | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server je nejoblíbenější Linux pro cloudová prostředí na světě. | Canonical |
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux je jednou z nejoblíbenějších distribucí systému Linux. | credativ |
 | ![Oracle Linux](media/azure-stack-marketplace-azure-items/oracle.png) | [Oracle Linux](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oracle-linux) | Oracle Linux operační systém je navržený pro otevřenou infrastrukturu cloudu. Nabízí špičkový výkon, škálovatelnost a spolehlivost pro úlohy podnikových SaaS a PaaS a také tradiční podnikové aplikace. | Oracle |
-| ![CentOS-based 7,6](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 7,6](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/RogueWave.CentOS76?tab=Overview) | Tato distribuce systému Linux je založena na CentOS a je poskytována neautorizovaným softwarem Wave. | Podvodný software Wave (dříve OpenLogic) |
+| ![CentOS-based 7,6](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 7,6](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/openlogic.centos?tab=Overview) | Tato distribuce systému Linux je založena na CentOS a je poskytována neautorizovaným softwarem Wave. | Podvodný software Wave (dříve OpenLogic) |
 | ![CentOS-based 7,5 – LVM](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 7,5 – LVM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/openlogic.centos-lvm) | Tato distribuce systému Linux je založena na CentOS a je poskytována neautorizovaným softwarem Wave. | Podvodný software Wave (dříve OpenLogic) |
 | ![HPC založené na CentOS](media/azure-stack-marketplace-azure-items/roguewave.png) | [HPC založené na CentOS](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/openlogic.centos-hpc) | Tato distribuce systému Linux je založena na CentOS a je poskytována neautorizovaným softwarem Wave. | Podvodný software Wave (dříve OpenLogic)  |
 | ![SLES 11 SP4 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 11 SP4 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.sles-byos) | SUSE Linux Enterprise Server 11 SP4. | SUSE |

@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 09/22/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: f5451a9d30f87c2f4b985e4ae82541b12de52461
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 36c2d735f3652f4f195b4b9e1dda30fe8bce858c
+ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899699"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557000"
 ---
 # <a name="known-issues-for-azure-kubernetes-service-on-azure-stack-hci-public-preview"></a>Známé problémy služby Azure Kubernetes v Azure Stack HCI Public Preview
 Tento článek popisuje známé problémy s verzí Public Preview služby Azure Kubernetes v Azure Stack HCL.
@@ -82,3 +82,6 @@ Centrum pro správu Windows v současné době nemá proces, který by odpojení
 ```PowerShell
 az connectedk8s delete
 ```
+
+## <a name="when-setting-up-an-azure-kubernetes-service-host-using-windows-admin-center-setup-may-fail-if-file-explorer-is-open"></a>Při nastavování hostitele služby Azure Kubernetes pomocí centra pro správu Windows může selhat instalace, pokud je Průzkumník souborů otevřený.
+Pokud je v adresáři **C:\Program Files\AksHci** otevřený Průzkumník souborů a když se přihlásíte ke kroku "zkontrolovat + vytvořit", může se při vytváření selhat chyba "proces nezískal přístup k souboru" C:\Program Files\AksHci\wssdcloudagent.exe ". Důvodem je to, že je používán jiným procesem. Chcete-li se této chybě vyhnout, ukončete Průzkumníka souborů nebo přejděte do jiného adresáře a teprve potom se vraťte do tohoto kroku. 

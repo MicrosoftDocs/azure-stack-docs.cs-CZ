@@ -5,44 +5,62 @@ author: davannaw-msft
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: dawhite
-ms.openlocfilehash: 7ef2f0e0532ee342e8821b362b16433f755bc072
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: 73cb3a7d0ba7677948a7e96cf30872c3c6ac7582
+ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623264"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557162"
 ---
 # <a name="quickstart-create-a-kubernetes-cluster-on-azure-stack-hci-using-windows-admin-center"></a>Rychlý Start: Vytvoření clusteru Kubernetes na Azure Stack HCI pomocí centra pro správu Windows
 
-> Platí pro: Azure Stack HCI
+> Platí pro: Azure Stack HCI, Windows Server 2019 Datacenter
 
 Po nastavení hostitele služby Azure Kubernetes můžete vytvořit cluster Kubernetes pomocí centra pro správu systému Windows. Pokud chcete místo toho použít PowerShell, přečtěte si téma [Vytvoření clusteru s Kubernetes pomocí PowerShellu](create-kubernetes-cluster-powershell.md).
 
-Můžeme začít:
+Než budete pokračovat v Průvodci vytvořením clusteru Kubernetes, ujistěte se, že jste [nastavili službu Azure Kubernetes](setup.md) , a zkontrolujte [požadavky na systém](system-requirements.md) , pokud jste to ještě neudělali. Průvodce vytvořením clusteru Kubernetes můžete kontaktovat prostřednictvím stránky [všechna připojení](#creating-a-kubernetes-cluster-from-the-all-connections-page) nebo pomocí [řídicího panelu hostitele služby Azure Kubernetes](#creating-a-kubernetes-cluster-from-the-azure-kubernetes-service-host-dashboard).
 
-1. [Nastavte službu Azure Kubernetes](setup.md) a ověřte požadavky na [systém](system-requirements.md) , pokud jste to ještě neudělali.
-1. Pokud chcete začít vytvářet cluster Kubernetes v centru pro správu Windows, stiskněte na obrazovce brána tlačítko **Přidat** .
+## <a name="creating-a-kubernetes-cluster-from-the-all-connections-page"></a>Vytvoření clusteru Kubernetes ze stránky všechna připojení 
+
+Existují dva způsoby, jak vytvořit cluster Kubernetes v centru pro správu systému Windows. Jednu z těchto možností je udělat na stránce **všechna připojení** . Postupujte podle těchto kroků a potom přejděte do části [Průvodce vytvořením clusteru Kubernetes](#the-kubernetes-cluster-create-wizard) : 
+
+1. Pokud chcete začít vytvářet cluster Kubernetes v centru pro správu Windows, stiskněte na obrazovce brána tlačítko **Přidat** . 
 2. Na panelu **Přidat nebo vytvořit prostředky** v části **cluster Kubernetes (Preview)** vyberte **vytvořit novou** a spusťte průvodce clusterem Kubernetes. V rámci verze Public Preview je tlačítko Přidat v části clustery Kubernetes nefunkční. Kdykoli během procesu vytváření clusteru Kubernetes můžete průvodce ukončit, ale Všimněte si, že se váš průběh neuloží. 
 
-    ![Popisuje okno Přidat nebo vytvořit prostředky v centru pro správu systému Windows, které teď zahrnuje novou dlaždici pro clustery Kubernetes.](.\media\create-kubernetes-cluster\add-connection.png)
 
-3. Projděte si požadavky na systém, který bude hostovat cluster Kubernetes, a v centru pro správu systému Windows. Po dokončení vyberte **Další**. 
-4. Na stránce **základy** nakonfigurujte informace o clusteru, jako je integrace ARC Azure, informace o hostiteli služby Azure Kubernetes a velikost fondu primárních uzlů.  Informace o hostiteli služby Azure Kubernetes a velikost fondu primárních uzlů. Pole Hostitel služby Azure Kubernetes vyžaduje plně kvalifikovaný název domény Azure Stackého clusteru HCI, do kterého chcete nasadit cluster Kubernetes. Je nutné, abyste dokončili instalaci hostitele pro tento systém prostřednictvím nástroje Azure Kubernetes Service. Ve verzi Public Preview není počet uzlů upravitelný a výchozí hodnota je 2, ale velikost uzlu se dá nakonfigurovat pro větší zatížení. Po dokončení vyberte **Další**.
+    ![Znázorňuje okno Přidat nebo vytvořit prostředky v centru pro správu systému Windows, které teď obsahuje novou dlaždici pro clustery Kubernetes.](.\media\create-kubernetes-cluster\add-connection.png)
+  
+## <a name="creating-a-kubernetes-cluster-from-the-azure-kubernetes-service-host-dashboard"></a>Vytvoření clusteru Kubernetes z řídicího panelu hostitele služby Azure Kubernetes  
 
-    ![Popisuje stránku základy průvodce clusterem Kubernetes.](.\media\create-kubernetes-cluster\basics.png)
+Cluster Kubernetes můžete vytvořit také prostřednictvím řídicího panelu hostitele služby Azure Kubernetes. Tento řídicí panel najdete v nástroji Azure Kubernetes Service, když jste připojeni k systému, který používá hostitele služby Azure Kubernetes. Postupujte podle těchto kroků a potom přejděte do části [Průvodce vytvořením clusteru Kubernetes](#the-kubernetes-cluster-create-wizard) : 
 
-5. Další fondy uzlů můžete nakonfigurovat tak, aby se spouštěly vaše úlohy na stránce **fondy uzlů** . Během veřejné verze Preview můžete přidat až jeden fond uzlů systému Windows a jeden fond uzlů pro Linux (kromě fondu uzlů systému). Pokud chcete povolit integraci ARC Azure později v tomto průvodci, budete potřebovat alespoň jeden fond uzlů pro Linux, který není ve fondu primárních uzlů. Až budete hotovi, vyberte **Další**.
-6. Na stránce **síť** zadejte konfiguraci sítě. Pokud vyberete Upřesnit, můžete přizpůsobit rozsah adres, který se používá při vytváření virtuální sítě pro uzly v clusteru. Pokud vyberete "základní", vytvoří se virtuální sítě pro uzly v clusteru s výchozím rozsahem adres. Nastavení sítě (Nástroj pro vyrovnávání zatížení, síťové zásady a směrování aplikace HTTP) nelze změnit ve verzi Public Preview. Po dokončení vyberte **Další**.
+1. Připojte se k systému, ve kterém chcete vytvořit cluster Kubernetes, a přejděte k nástroji **Azure Kubernetes Service** . Tento systém by už měl mít nastavený hostitel služby Azure Kubernetes.
+2. V záhlaví **clusteru Kubernetes** vyberte tlačítko **Přidat cluster** .
 
-    ![Znázorňuje stránku síť průvodce clusterem Kubernetes.](.\media\create-kubernetes-cluster\networking.png)
+![Ukazuje řídicí panel nástroje Azure Kubernetes, který se zobrazí po nastavení hostitele služby Azure Kubernetes.](.\media\setup\dashboard.png)
+  
+## <a name="the-kubernetes-cluster-create-wizard"></a>Průvodce vytvořením clusteru Kubernetes
+Dosáhli jste Průvodce vytvořením clusteru Kubernetes prostřednictvím stránky **všechna připojení** nebo pomocí nástroje Azure Kubernetes Service. Můžeme začít:  
 
-7. Na stránce **integrace** Připojte svůj cluster s dalšími službami, jako je řídicí panel Kubernetes, trvalé úložiště a Azure monitor. Trvalé úložiště je jediná služba, která je vyžadována ke konfiguraci na této stránce. Ve verzi Public Preview bude trvalé umístění úložiště ve výchozím nastavení výchozím umístěním úložiště, které je vybrané během nastavování hostitele. Toto pole je v tuto chvíli neupravitelné. Až budete hotovi, vyberte **Další**.
-8. Zkontrolujte svůj výběr na stránce **Kontrola a vytvoření** . Až budete spokojeni, vyberte **vytvořit** a zahajte nasazení. Průběh nasazení se zobrazí v horní části této stránky. 
-9. Po dokončení nasazení se na stránce **Další kroky** zobrazí podrobnosti o tom, jak spravovat cluster. Tato stránka obsahuje taky svůj klíč SSH a token řídicího panelu Kubernetes. Pokud jste se rozhodli zakázat řídicí panel Kubernetes nebo integraci Azure ARC v předchozím kroku, některé informace a pokyny na této stránce nemusí být k dispozici nebo funkční.
+1. Projděte si požadavky na systém, který bude hostovat cluster Kubernetes, a v centru pro správu systému Windows. Po dokončení vyberte **Další**. 
+2. Na stránce **základy** nakonfigurujte informace o clusteru, jako je integrace ARC Azure, informace o hostiteli služby Azure Kubernetes a velikost fondu primárních uzlů. Pole Hostitel služby Azure Kubernetes vyžaduje plně kvalifikovaný název domény Azure Stack HCI nebo Windows Server 2019 Datacenter, který jste použili při procházení stránky [instalace](setup.md) . Je nutné, abyste dokončili instalaci hostitele pro tento systém prostřednictvím nástroje Azure Kubernetes Service. Ve verzi Public Preview není počet uzlů upravitelný a výchozí hodnota je 2, ale velikost uzlu se dá nakonfigurovat pro větší zatížení. Po dokončení vyberte **Další**.
+
+ [![Popisuje stránku základy průvodce clusterem Kubernetes. ](.\media\create-kubernetes-cluster\basics.png)](.\media\create-kubernetes-cluster\basics.png#lightbox)
+ 
+3. Další fondy uzlů můžete nakonfigurovat tak, aby se spouštěly vaše úlohy na stránce **fondy uzlů** . Během veřejné verze Preview můžete přidat až jeden fond uzlů systému Windows a jeden fond uzlů pro Linux (kromě fondu uzlů systému). Pokud chcete povolit integraci ARC Azure později v tomto průvodci, budete potřebovat alespoň jeden fond uzlů pro Linux, který není ve fondu primárních uzlů. Až budete hotovi, vyberte **Další**.
+4. Na stránce **síť** zadejte konfiguraci sítě. Pokud vyberete Upřesnit, můžete přizpůsobit rozsah adres, který se používá při vytváření virtuální sítě pro uzly v clusteru. Pokud vyberete základy, vytvoří se virtuální sítě pro uzly v clusteru s výchozím rozsahem adres. Nastavení sítě (Nástroj pro vyrovnávání zatížení, síťové zásady a směrování aplikace HTTP) nelze změnit ve verzi Public Preview. Po dokončení vyberte **Další**.
+
+    [![Znázorňuje stránku síť průvodce clusterem Kubernetes. ](.\media\create-kubernetes-cluster\networking.png)](\media\create-kubernetes-cluster\networking.png#lightbox)
+
+5. Na stránce **integrace** Připojte svůj cluster s dalšími službami, jako je trvalé úložiště. Na této stránce je nutné nakonfigurovat trvalé úložiště. Ve verzi Public Preview bude trvalé umístění úložiště ve výchozím nastavení výchozím umístěním úložiště, které je vybrané během instalace hostitele. Toto pole není momentálně editovatelné. Až budete hotovi, vyberte **Další**.
+6. Zkontrolujte svůj výběr na stránce **Kontrola a vytvoření** . Až budete spokojeni, vyberte **vytvořit** a zahajte nasazení. Průběh nasazení se zobrazí v horní části této stránky. 
+7. Po dokončení nasazení se na stránce **Další kroky** zobrazí podrobnosti o tom, jak spravovat cluster. Tato stránka obsahuje také klíč SSH. Pokud jste se rozhodli zakázat integraci Azure ARC v předchozím kroku, některé informace a pokyny na této stránce nemusí být k dispozici nebo funkční.
 
 > [!IMPORTANT] 
-> Doporučujeme uložit klíč SSH a token řídicího panelu Kubernetes do zabezpečeného dostupného umístění.
+> Klíč SSH doporučujeme uložit do zabezpečeného a přístupného umístění.
 
-V tomto rychlém startu nastavíte hostitele služby Azure Kubernetes a nasadíte cluster Kubernetes. 
+## <a name="next-steps"></a>Další kroky
 
-Pokud chcete získat další informace o službě Azure Kubernetes na Azure Stack HCI a Projděte si, jak nasadit a spravovat aplikace pro Linux v Azure Kubernetes Service v Azure Stack HCI, pokračujte v tomto kurzu.
+V tomto rychlém startu jste nasadili cluster Kubernetes. Pokud se chcete dozvědět víc o službě Azure Kubernetes na Azure Stack HCI a Projděte si, jak nasadit a spravovat aplikace pro Linux v AKS v systému Azure Stack HCI, pokračujte na následující kurz:
+
+- [Kurz: nasazení aplikací pro Linux ve službě Azure Kubernetes v Azure Stack HCL](deploy-linux-application.md)

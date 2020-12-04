@@ -5,22 +5,23 @@ ms.topic: overview
 author: jasongerend
 ms.author: jgerend
 ms.date: 09/22/2020
-ms.openlocfilehash: ef2cc07ca9c228b9d427d11f8065e2d943e1626b
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.openlocfilehash: 6f4712049e2336373d977acc71164bfb932eaf86
+ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064612"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557374"
 ---
 # <a name="what-is-azure-kubernetes-service-on-azure-stack-hci"></a>Co je služba Azure Kubernetes v Azure Stack HCI?
+> Platí pro: AKS on Azure Stack HCI, AKS runtime na Windows serveru 2019 Datacenter
 
-Služba Azure Kubernetes v Azure Stack HCI je místní implementace služby Azure Kubernetes (AKS), která automatizuje spouštění kontejnerových aplikací ve velkém měřítku. Služba Azure Kubernetes je teď ve verzi Preview na Azure Stack HCI. díky tomu je rychlejší začít s hostováním kontejnerů pro Linux a Windows ve vašem datovém centru.
+Služba Azure Kubernetes v Azure Stack HCI je místní implementace služby Azure Kubernetes (AKS), která automatizuje spouštění kontejnerových aplikací ve velkém měřítku. Služba Azure Kubernetes je teď ve verzi Preview na Azure Stack HCI a Windows Server 2019 Datacenter. díky tomu je rychlejší začít s hostováním kontejnerů Linux a Windows ve vašem datovém centru.
 
-Pokud chcete začít používat službu Azure Kubernetes v místním prostředí, [Zaregistrujte si verzi Preview](https://aka.ms/AKS-HCI-Evaluate) (ve verzi Preview se neúčtují žádné náklady) a pak si přečtěte téma [nastavení služby Azure KUBERNETES v Azure Stack HCL](setup.md). Pokud chcete místo toho použít službu Azure Kubernetes k orchestraci cloudových kontejnerů, přečtěte si téma [Azure Kubernetes Service v Azure](/azure/aks/intro-kubernetes).
+Pokud chcete začít používat službu Azure Kubernetes v místním prostředí, [Zaregistrujte si verzi Preview](https://aka.ms/AKS-HCI-Evaluate) (ve verzi Preview se neúčtují žádné náklady) a pak [nastavte službu Azure Kubernetes Service na Azure Stack HCI](setup.md). Pokud chcete místo toho použít službu Azure Kubernetes k orchestraci cloudových kontejnerů, přečtěte si téma [Azure Kubernetes Service v Azure](/azure/aks/intro-kubernetes).
 
-V následujících částech jsou některé důvody, proč použít službu Azure Kubernetes na Azure Stack HCI, a pak zodpovědět některé běžné dotazy týkající se služby a jak začít. Základní informace o kontejnerech najdete v tématu [Windows a kontejnery](/virtualization/windowscontainers/about/).
+V následujících částech jsou některé důvody, proč použít službu Azure Kubernetes na Azure Stack HCI, a pak zodpovědět některé běžné dotazy týkající se služby a jak začít. Pro pozadí na kontejnerech, přečtěte si téma [Windows a kontejnery](/virtualization/windowscontainers/about/) a na pozadí v Kubernetes najdete v tématu [Kubernetes core koncepty](kubernetes-concepts.md) nebo [Kubernetes.IO](https://kubernetes.io).
 
-## <a name="automate-management-of-containerized-applications"></a>Automatizovaná správa kontejnerových aplikací
+## <a name="use-aks-to-automate-management-of-containerized-applications"></a>Použití AKS k automatizaci správy kontejnerových aplikací
 
 I když můžete spravovat několik kontejnerů ručně pomocí Docker a Windows, aplikace často využívají pět, deset nebo dokonce stovky kontejnerů, kde Kubernetes Orchestrator přichází.
 
@@ -28,22 +29,18 @@ Kubernetes je open source Orchestrator pro automatizaci správy kontejnerů ve v
 
 Tady je několik funkcí poskytovaných službou Azure Kubernetes ve verzi Preview na Azure Stack HCL:
 
-- Nasaďte škálovatelné aplikace do clusteru virtuálních počítačů (nazývaných cluster Kubernetes), které běží v clusteru Azure Stack HCI.
-- Převzetí služeb při selhání v případě selhání uzlu v clusteru Kubernetes
+- Nasaďte škálovatelné aplikace ve velkém měřítku, aby se Kubernetes clustery se systémem v Azure Stackém clusteru HCI.
 - Nasazení a Správa kontejnerových aplikací založených na systému Linux i Windows
-- Plánování úloh
-- Monitorování stavu
+- Nasazení AKS na Azure Stack HCI pomocí centra pro správu Windows nebo PowerShellu
 - Horizontální navýšení a snížení kapacity přidáním nebo odebráním uzlů do clusteru Kubernetes
-- Správa sítí
-- Vyhledat služby
-- Koordinace upgradů aplikací
-- Přiřazení lusků uzlům clusteru s spřažením uzlu clusteru
-
-Další informace o Kubernetes najdete v tématu [Kubernetes.IO](https://kubernetes.io).
+- Správa úložiště a sítě v clusteru Kubernetes
+- Poskytování automatických aktualizací pro nasazení Kubernetes
+- Upgradovat na nejnovější dostupnou verzi Kubernetes
+- Používání oblíbených služeb Azure prostřednictvím ARC Azure pro Kubernetes
 
 ## <a name="simplify-setting-up-kubernetes"></a>Zjednodušení nastavení Kubernetes
 
-Služba Azure Kubernetes zjednodušuje proces nastavení Kubernetes na Azure Stack HCI a obsahuje následující funkce:
+Služba Azure Kubernetes zjednodušuje proces nastavení Kubernetes na Azure Stack HCI a Windows Server 2019 Datacenter a obsahuje následující funkce:
 
 - Průvodce centrem pro správu systému Windows pro nastavení Kubernetes a jeho závislostí (například kubeadm, kubelet, kubectl a v případě síťového doplňku)
 - Průvodce centrem pro správu systému Windows pro vytváření clusterů Kubernetes pro spouštění vašich kontejnerových aplikací
@@ -51,10 +48,10 @@ Služba Azure Kubernetes zjednodušuje proces nastavení Kubernetes na Azure Sta
 
 ## <a name="view-and-manage-kubernetes-using-on-premises-tools-or-azure-arc"></a>Umožňuje zobrazit a spravovat Kubernetes pomocí místních nástrojů nebo ARC Azure.
 
-Jakmile nastavíte službu Azure Kubernetes v clusteru Azure Stack HCI a vytvoříte cluster Kubernetes, nabídneme několik způsobů, jak spravovat a monitorovat infrastrukturu Kubernetes:
+Jakmile nastavíte službu Azure Kubernetes v místním prostředí a vytvoříte cluster Kubernetes, poskytujeme několik způsobů, jak spravovat a monitorovat infrastrukturu Kubernetes:
 
-- **Místně pomocí oblíbených nástrojů, jako je Kubectl a Kubernetes** , můžete pomocí Open source webového rozhraní nasadit aplikace do clusteru Kubernetes, spravovat prostředky clusteru, řešit problémy a zobrazovat běžící aplikace.
-- **V Azure Portal pomocí ARC Azure** – pomocí služby Azure Spravujte službu Azure Kubernetes a clustery Kubernetes nasazené v cloudu i v místním prostředí. Pomocí ARC Azure můžete přidávat a odebírat clustery Kubernetes a také uzly do clusteru Kubernetes, měnit nastavení sítě a instalovat doplňky.
+- **Místně pomocí oblíbených nástrojů, jako je Kubectl a Kubernetes** , můžete pomocí Open Source rozhraní nasadit aplikace do clusteru Kubernetes, spravovat prostředky clusteru, řešit problémy a zobrazovat běžící aplikace.
+- **V Azure Portal pomocí ARC Azure** – pomocí ARC Azure můžete spravovat aplikace nasazené na clusterech Kubernetes napříč vaším cloudovým a místním prostředím. 
 <br>Azure ARC také umožňuje spravovat clustery Kubernetes s dalšími službami Azure, včetně těchto:
 
   - Azure Monitor
@@ -63,9 +60,9 @@ Jakmile nastavíte službu Azure Kubernetes v clusteru Azure Stack HCI a vytvoř
 
 ## <a name="run-linux-and-windows-containers"></a>Spuštění kontejnerů Linux a Windows
 
-Služba Azure Kubernetes plně podporuje kontejnery na platformě Linux i pro systém Windows. Když vytvoříte cluster Kubernetes v Azure Stack HCI, můžete zvolit, jestli se mají vytvořit fondy uzlů (skupiny identických virtuálních počítačů) pro spouštění kontejnerů Linux, kontejnerů Windows nebo obojího. 
+Služba Azure Kubernetes plně podporuje kontejnery na platformě Linux i pro systém Windows. Když vytvoříte cluster Kubernetes v Azure Stack HCI, můžete zvolit, jestli se mají vytvořit fondy uzlů (skupiny stejných uzlů clusteru Kubernetes), aby se spouštěly kontejnery Linux, kontejnery Windows nebo obojí. 
 
-Služba Azure Kubernetes vytváří virtuální počítače Linux a Windows, takže nemusíte spravovat přímo operační systémy Linux a Windows.
+Služba Azure Kubernetes vytváří uzly Linux a Windows, takže nemusíte spravovat přímo operační systémy Linux a Windows.
 
 ## <a name="secure-your-container-infrastructure"></a>Zabezpečení infrastruktury kontejneru
 
@@ -82,6 +79,7 @@ Služba Azure Kubernetes je dostupná na následujících platformách:
 
 - V cloudu Azure prostřednictvím [služby Azure Kubernetes v Azure](/azure/aks/intro-kubernetes)
 - V místním prostředí prostřednictvím služby Azure Kubernetes na Azure Stack HCI (k čemu je tento článek vše)
+- Místní na Windows serveru prostřednictvím modulu runtime služby Azure Kubernetes (Tento článek platí taky pro AKSr na Windows serveru).
 - Místní v prostředí Azure Stack hub pomocí [modulu AKS v centru Azure Stack](../user/azure-stack-kubernetes-aks-engine-overview.md).
 
 ## <a name="how-does-kubernetes-work-on-azure-stack-hci"></a>Jak Kubernetes pracuje na Azure Stack HCI?
@@ -97,7 +95,7 @@ Tady je několik zjednodušených diagramů, které ukazují, jak architektura s
 
 :::image type="content" source="media\overview\aks-azure-architecture.png" alt-text="Architektura služby Azure Kubernetes hostované v Azure, která ukazuje, jak jsou služby platformy a většina řídicí plochy spravované v Azure, zatímco clustery Kubernetes, které spouštějí vaše aplikace s vašimi aplikacemi, jsou spravované zákazníkem." lightbox="media\overview\aks-azure-architecture.png":::
 
-:::image type="content" source="media\overview\aks-hci-architecture.png" alt-text="Architektura služby Azure Kubernetes hostované v Azure, která ukazuje, jak jsou služby platformy a většina řídicí plochy spravované v Azure, zatímco clustery Kubernetes, které spouštějí vaše aplikace s vašimi aplikacemi, jsou spravované zákazníkem." lightbox="media\overview\aks-hci-architecture.png":::
+:::image type="content" source="media\overview\aks-hci-architecture.png" alt-text="Architektura služby Azure Kubernetes na Azure Stack HCI, která ukazuje, jak všechno běží na Azure Stack clusteru HCI, včetně platformy Azure Kubernetes Service, roviny ovládacího prvku a Kubernetes clusterů, které spouštějí vaše aplikace s kontejnerem." lightbox="media\overview\aks-hci-architecture.png":::
 
 ## <a name="what-you-need-to-get-started"></a>Co potřebujete, než začnete
 
@@ -105,16 +103,16 @@ V následujících částech najdete souhrn toho, co potřebujete ke spuštění
 
 ### <a name="on-your-windows-admin-center-system"></a>V systému centra pro správu systému Windows
 
-Systém správy centra pro správu systému Windows má následující požadavky:
+Váš počítač, na kterém je spuštěná brána centra pro správu Windows, má následující požadavky:
 
-- Windows 10 (v současnosti nepodporujeme servery centra pro správu systému Windows.)
+- Počítač s Windows 10 (v současné době nepodporujeme používání centra pro správu Windows na Azure Stackm HCI nebo Windows serveru 2019 Datacenter.)
 - 60 GB volného místa
 - Registrováno v Azure
-- Ve stejné doméně jako cluster s Azure Stack HCI
+- Ve stejné doméně jako cluster Azure Stack HCI nebo Windows Server 2019 Datacenter
 
-### <a name="on-the-azure-stack-hci-cluster-that-hosts-azure-kubernetes-service"></a>V Azure Stack clusteru HCI, který hostuje službu Azure Kubernetes
+### <a name="on-the-azure-stack-hci-cluster-or-windows-server-2019-datacenter-failover-cluster-that-hosts-azure-kubernetes-service"></a>V clusteru Azure Stack HCI nebo v clusteru s podporou převzetí služeb při selhání datacenter Windows serveru 2019, který hostuje službu Azure Kubernetes
 
-Cluster se systémem Azure Stack HCI, verze 20H2 nebo novější má následující požadavky:
+Cluster Azure Stack HCI nebo cluster s podporou převzetí služeb při selhání datacenter Windows serveru 2019 má následující požadavky:
 
 - Maximálně čtyři servery v clusteru pro tuto verzi Preview
 - 1 TB dostupné kapacity ve fondu úložiště pro službu Azure Kubernetes
@@ -125,9 +123,7 @@ Obecné požadavky na systém Azure Stack HCI najdete v článku o [požadavcíc
 
 ### <a name="the-network-configuration-for-azure-stack-hci"></a>Konfigurace sítě pro Azure Stack HCI
 
-Síť připojená k virtuálním počítačům v clusteru Azure Stack HCI vyžaduje vyhrazený obor adres IPv4 DHCP, který je dostupný pro službu Azure Kubernetes a který je přístupný pro virtuální počítače v clusteru Azure Stack HCI.
-
-V síti nemůžete používat značky VLAN pro službu Azure Kubernetes v Azure Stack HCI. Použijte přístupové (netagované) porty v síťových přepínačích pro síť, kterou používá Azure Stack HCI a virtuální počítače služby Azure Kubernetes.
+Síť připojená k virtuálním počítačům v clusteru Azure Stack HCI nebo Windows Server 2019 Datacenter vyžaduje vyhrazený rozsah adres IPv4 DHCP dostupných pro službu Azure Kubernetes a dostupné pro virtuální počítače v clusteru Azure Stack HCI nebo Windows Server 2019 Datacenter.
 
 ## <a name="next-steps"></a>Další kroky
 

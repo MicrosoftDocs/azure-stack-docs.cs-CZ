@@ -6,14 +6,16 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 24dc2efdc591404db1bbfc30cf9c1bc83e2ed356
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 9c398e95228748faae6bd7f191b9c0319b03dfa8
+ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948888"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557119"
 ---
 # <a name="connect-an-azure-kubernetes-service-on-azure-stack-hci-cluster-to-azure-arc-for-kubernetes"></a>Připojení služby Azure Kubernetes na Azure Stack clusteru HCI do Azure ARC pro Kubernetes
+
+> Platí pro: AKS on Azure Stack HCI, AKS runtime na Windows serveru 2019 Datacenter
 
 Když je služba Azure Kubernetes v Azure Stack clusteru HCI připojená ke službě Azure ARC, zobrazí se v Azure Portal. Bude mít ID Azure Resource Manager a spravovanou identitu. Clustery jsou připojené ke standardním předplatným Azure, jsou umístěné ve skupině prostředků a můžou přijímat značky stejně jako všechny ostatní prostředky Azure.
 
@@ -31,7 +33,7 @@ Ověřte, že máte připravené tyto požadavky:
 
 * Pro nasazení agentů Kubernetes s podporou ARC budete potřebovat soubor kubeconfig pro přístup ke clusteru a roli Správce clusteru v clusteru.
 * Musí být nainstalovaná služba Azure Kubernetes v Azure Stack modul prostředí HCL pro rozhraní HCI.
-* Pro instalaci rozšíření CLI s povoleným Kubernetes rozhraním Azure se vyžaduje Azure CLI verze 2.3 + +. [Nainstalovat rozhraní příkazového řádku Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Můžete také aktualizovat na nejnovější verzi, abyste měli jistotu, že máte Azure CLI verze 2.3 +.
+* Pro instalaci rozšíření CLI s povoleným Kubernetes rozhraním Azure se vyžaduje Azure CLI verze 2.3 + +. Nainstalujte rozhraní příkazového [řádku Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). Můžete také aktualizovat na nejnovější verzi, abyste měli jistotu, že máte Azure CLI verze 2.3 +.
 * Předplatné Azure, na kterém jste vlastníkem nebo přispěvatelem. 
 * Spusťte příkazy v tomto dokumentu v okně pro správu prostředí PowerShell.
 
@@ -109,7 +111,7 @@ az ad sp create-for-RBAC --name "azure-arc-for-k8s" --scope /subscriptions/{Subs
 }
 ```
 ## <a name="step-5-save-service-principal-details"></a>Krok 5: uložení podrobností objektu služby
-Uložte vytvořené hodnoty appId, Password a tenant objektu služby a název clusteru, ID předplatného Azure, název skupiny prostředků a umístění v proměnných PowerShellu. Tím se zajistí, že budete moci znovu použít podrobnosti v dalších kurzech. V případě, že chcete ukončit relaci powerShellu, nezapomeňte tyto hodnoty uložit i v poznámkovém bloku.
+Uložte vytvořené hodnoty appId, hesla a tenanta instančního objektu a název clusteru, ID předplatného Azure, název skupiny prostředků a umístění v proměnných PowerShellu. Tím se zajistí, že budete moci znovu použít podrobnosti v dalších kurzech. V případě, že chcete ukončit relaci PowerShellu, nezapomeňte tyto hodnoty uložit i v poznámkovém bloku.
 
 ```PowerShell
 $clusterName = #<name of your Kubernetes cluster>
@@ -132,18 +134,18 @@ echo $password
 echo $tenant 
 ```
 
-## <a name="step-6-connect-to-azure-arc-using-service-principal-and-the-aks-hci-powershell-module"></a>Krok 6: připojení ke službě Azure ARC pomocí instančního objektu a modulu PowerShellu pro AKS-HCI
+## <a name="step-6-connect-to-azure-arc-using-service-principal-and-the-aks-hci-powershell-module"></a>Krok 6: připojení ke službě Azure ARC pomocí instančního objektu a modulu Aks-Hci PowerShellu
 
-Dále připojíme náš cluster Kubernetes k Azure pomocí instančního objektu a modulu PowerShellu AKS-HCI. V tomto kroku nasadíte agenty Azure ARC pro Kubernetes do `azure-arc` oboru názvů.
+Dále připojíme náš cluster Kubernetes k Azure s použitím instančního objektu a modulu Aks-Hci PowerShellu. V tomto kroku nasadíte agenty Azure ARC pro Kubernetes do `azure-arc` oboru názvů.
 
-Odkažte na nově vytvořený instanční objekt a spusťte příkaz, který je `Install-AksHciArcOnboarding` k dispozici v modulu PowerShell AKS-HCI.
+Odkažte na nově vytvořený instanční objekt a spusťte příkaz, který je `Install-AksHciArcOnboarding` k dispozici v modulu Aks-Hci PowerShellu.
 
 ```PowerShell
 Install-AksHciArcOnboarding -clusterName $clusterName -resourcegroup $resourceGroup -location $location -subscriptionid $subscriptionId -clientid $appId -clientsecret $password -tenantid $tenant
 ```
 ## <a name="verify-connected-cluster"></a>Ověřit připojený cluster
 
-Prostředek clusteru Kubernetes můžete zobrazit na [Azure Portal](https://portal.azure.com/). Jakmile budete mít portál otevřený v prohlížeči, přejděte do skupiny prostředků a na Kubernetes prostředku Azure ARC s povoleným zadáním názvu prostředku a názvu skupiny prostředků, které se použily dříve v `Install-AksHciArcOnboarding` příkazu PowerShellu.
+Prostředek clusteru Kubernetes můžete zobrazit na [Azure Portal](https://portal.azure.com/). Jakmile otevřete portál v prohlížeči, přejděte do skupiny prostředků a prostředku Kubernetes s podporou ARC Azure, který je založený na názvech prostředků a názvech skupin prostředků používaných dříve v `Install-AksHciArcOnboarding` příkazu PowerShellu.
 
 > [!NOTE]
 > Po připojení clusteru trvá přibližně 5 až 10 minut, než se na stránce Přehled v prostředku Kubernetes s povoleným Azure Portal prostředkem Azure ARC na ploše zobrazí stránka s přehledem.
