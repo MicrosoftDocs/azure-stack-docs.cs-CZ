@@ -32,9 +32,7 @@
       items:
         - name: Vytvoření clusteru pomocí prostředí PowerShell
           href: deploy/create-cluster-powershell.md
-        - name: Nasazení síťového adaptéru pomocí PowerShellu
-          href: deploy/network-controller-powershell.md
-- name: Správa
+- name: Spravovat
   items:
     - name: Správa virtuálních počítačů
       items:
@@ -204,7 +202,7 @@
       href: /windows-server/networking/sdn
     - name: System Center
       href: /system-center/
-- name: Zdroje
+- name: Zdroje a prostředky
   items:
     - name: Stránka produktu Azure Stack HCL
       href: 'https://azure.com/hci'
