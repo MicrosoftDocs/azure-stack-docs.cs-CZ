@@ -3,14 +3,14 @@ title: Řešení potíží s AKS
 description: Tento článek poskytuje informace o řešení potíží s Azure Kubernetes Service (AKS) na Azure Stack HCI.
 author: davannaw-msft
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 12/02/2020
 ms.author: dawhite
-ms.openlocfilehash: 26edd1f52b5a3d695fa70493606c1e2438feda78
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: 53ee79628f63d4925cdf7c725d1c0ec4231b4ef3
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557085"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612450"
 ---
 # <a name="troubleshooting-azure-kubernetes-service-on-azure-stack-hci"></a>Řešení potíží se službou Azure Kubernetes v Azure Stack HCI
 
@@ -79,10 +79,10 @@ GetHelp .\Get-SMEUILogs.ps1 -Examples
 ```
 
 ## <a name="troubleshooting-windows-worker-nodes"></a>Řešení potíží s pracovními uzly Windows 
-Pokud se chcete přihlásit k pracovnímu uzlu Windows pomocí SSH, nejdřív Získejte IP adresu vašeho uzlu spuštěním `kubectl get` a zachyťte `EXTERNAL-IP` hodnotu.
+Pokud se chcete přihlásit k pracovnímu uzlu Windows pomocí SSH, nejprve získejte IP adresu vašeho uzlu spuštěním `kubectl get` a zachytáváním `EXTERNAL-IP` hodnoty.
 
-[!NOTE] 
-Musíte předat správné umístění k privátnímu klíči SSH. Následující příklad používá výchozí umístění%systemdrive%\akshci \. SSH \ akshci_rsa, ale pokud jste si vyžádali jinou cestu zadáním `-sshPublicKey` parametru pro, může být nutné toto umístění změnit `Set-AksHciConfig` .
+   > [!NOTE]
+   > Musíte předat správné umístění k privátnímu klíči SSH. Následující příklad používá výchozí umístění%systemdrive%\akshci \. SSH \ akshci_rsa, ale pokud jste si vyžádali jinou cestu zadáním `-sshPublicKey` parametru pro, může být nutné toto umístění změnit `Set-AksHciConfig` .
 
 Chcete-li získat IP adresu uzlu Windows Worker:  
 
@@ -102,8 +102,9 @@ Po přihlášení k uzlu přes SSH můžete spustit `net user administrator *` ,
 ## <a name="troubleshooting-linux-worker-nodes"></a>Řešení potíží s pracovními uzly Linux 
 Pokud se chcete přihlásit k pracovnímu uzlu Linux pomocí protokolu SSH, nejprve získejte IP adresu vašeho uzlu spuštěním `kubectl get` a zachyťte `EXTERNAL-IP` hodnotu.
 
-[!NOTE]
-Musíte předat správné umístění k privátnímu klíči SSH. Následující příklad používá výchozí umístění%systemdrive%\akshci \. SSH \ akshci_rsa, ale pokud jste si vyžádali jinou cestu zadáním `-sshPublicKey` parametru pro, může být nutné toto umístění změnit `Set-AksHciConfig` .
+
+   > [!NOTE]
+   > Musíte předat správné umístění k privátnímu klíči SSH. Následující příklad používá výchozí umístění%systemdrive%\akshci \. SSH \ akshci_rsa, ale pokud jste si vyžádali jinou cestu zadáním `-sshPublicKey` parametru pro, může být nutné toto umístění změnit `Set-AksHciConfig` .
 
 Získání IP adresy uzlu Linux Worker:  
 

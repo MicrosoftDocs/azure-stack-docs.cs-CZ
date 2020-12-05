@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Dokumentace ke službě Azure Kubernetes v Azure Stack HCL
-summary: Služba Azure Kubernetes v Azure Stack HCI je místní implementace oblíbeného nástroje Azure Kubernetes Service (AKS) Orchestrator, který automatizuje spouštění kontejnerových aplikací ve velkém měřítku. Služba Azure Kubernetes je teď ve verzi Preview na Azure Stack HCI. díky tomu je rychlejší začít s hostováním kontejnerů pro Linux a Windows ve vašem datovém centru.
+summary: Služba Azure Kubernetes v Azure Stack HCI je místní implementace oblíbeného nástroje Azure Kubernetes Service (AKS) Orchestrator, který automatizuje spouštění kontejnerových aplikací ve velkém měřítku. Služba Azure Kubernetes je teď ve verzi Preview Azure Stack HCL a v systému Windows Server 2019 Datacenter. díky tomu je rychlejší začít s hostováním kontejnerů Linux a Windows ve vašem datovém centru.
 metadata:
   title: Dokumentace ke službě Azure Kubernetes v Azure Stack HCL
   description: Služba Azure Kubernetes v Azure Stack HCI je místní implementace oblíbeného nástroje Azure Kubernetes Service (AKS) Orchestrator, který automatizuje spouštění kontejnerových aplikací ve velkém měřítku. Služba Azure Kubernetes je teď ve verzi Preview na Azure Stack HCI. díky tomu je rychlejší začít s hostováním kontejnerů pro Linux a Windows ve vašem datovém centru.
@@ -8,12 +8,12 @@ metadata:
   author: jasongerend
   ms.author: jgerend
   ms.date: 09/22/2020
-  ms.openlocfilehash: 649e77bd470f723dbcf9c373f0bedebcf0a0786b
-  ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+  ms.openlocfilehash: 808debaa0953bc19939bc1ffbf02c96688496bca
+  ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
   ms.translationtype: MT
   ms.contentlocale: cs-CZ
-  ms.lasthandoff: 12/03/2020
-  ms.locfileid: "96557017"
+  ms.lasthandoff: 12/04/2020
+  ms.locfileid: "96612280"
 landingContent:
 - title: O službě Azure Kubernetes
   linkLists:
@@ -45,17 +45,17 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Nasazení aplikací pro Windows .NET
-      url: deploy-windows-application.md
     - text: Použití kontejnerů Linux
       url: deploy-linux-application.md
   - linkListType: how-to-guide
     links:
     - text: Přizpůsobení aplikací pro clustery Kubernetes se smíšeným operačním systémem
       url: adapt-apps-mixed-os-clusters.md
-    - text: Příprava uzlů Windows pro skupinový účet spravované služby
+    - text: Nasazení aplikací pro Windows
+      url: deploy-windows-application.md
+    - text: Příprava uzlů Windows pro podporu gMSA
       url: prepare-windows-nodes-gmsa.md
-    - text: Použití trvalého svazku v AKS ve Azure Stack clusteru HCI
+    - text: Použít trvalé svazky
       url: persistent-volume.md
 - title: Integrace s Azure
   linkLists:

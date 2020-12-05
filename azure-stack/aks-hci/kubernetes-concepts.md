@@ -4,13 +4,13 @@ description: Naučte se základní součásti clusteru a úloh Kubernetes a jeji
 author: daschott
 ms.author: daschott
 ms.topic: conceptual
-ms.date: 09/14/2020
-ms.openlocfilehash: e17e75631a6daac8c7523a2340dd69d5914a82de
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.date: 12/02/2020
+ms.openlocfilehash: 9870f2921be561a8fef66f1bfc530b5c18f494b4
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557068"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612637"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-on-azure-stack-hci"></a>Základní koncepty Kubernetes pro Azure Kubernetes Service v Azure Stack HCI
 

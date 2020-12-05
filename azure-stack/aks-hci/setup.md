@@ -3,14 +3,14 @@ title: Rychlý Start k nastavení služby Azure Kubernetes v Azure Stack HCI pom
 description: Přečtěte si, jak nastavit službu Azure Kubernetes v Azure Stack HCI pomocí centra pro správu Windows.
 author: davannaw-msft
 ms.topic: quickstart
-ms.date: 09/22/2020
+ms.date: 12/02/2020
 ms.author: dawhite
-ms.openlocfilehash: 155aa9948ceae350bed8ee8c7389b939e9099c18
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: 99f3e98ff24044c74c9065bb98965dcf640c4032
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557394"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612535"
 ---
 # <a name="quickstart-set-up-azure-kubernetes-service-on-azure-stack-hci-using-windows-admin-center"></a>Rychlý Start: nastavení služby Azure Kubernetes v Azure Stack HCI pomocí centra pro správu Windows
 
@@ -47,7 +47,7 @@ Teď, když jsme přidali informační kanál, bude rozšíření služby Azure 
 
 ## <a name="setting-up-an-azure-kubernetes-service-host"></a>Nastavení hostitele služby Azure Kubernetes
 
-Před vytvořením clusteru Kubernetes je třeba provést jeden finální krok. V systému, do kterého chcete nasadit cluster Kubernetes, musíte nastavit hostitele služby Azure Kubernetes. Tento systém může být cluster datacenter Windows serveru 2019, jeden uzel Windows Server 2019 Datacenter cluster nebo uzel 2-4 Azure Stack HCL. 
+Před vytvořením clusteru Kubernetes je třeba provést jeden finální krok. V systému, do kterého chcete nasadit cluster Kubernetes, musíte nastavit hostitele služby Azure Kubernetes. Tímto systémem může být cluster datacenter Windows serveru 2019, jeden uzel Windows Server 2019 Datacenter nebo uzel 2-4 Azure Stack HCL. 
 
 > [!NOTE] 
 > Nastavení hostitelů služby Azure Kubernetes na dva nezávislé systémy a jejich záměr sloučení během vytváření clusteru Kubernetes není podporovaným scénářem. 
@@ -68,7 +68,7 @@ Teď, když jsme ověřili naše nastavení systému, můžeme začít:
 
     ![Ukazuje krok konfigurace hostitele Průvodce hostitelem služby Azure Kubernetes.](.\media\setup\host-configuration.png)
 
-5. Projděte si všechny vaše výběry v kroku **Revize + vytvořit** . Pokud jste s vybranými možnostmi spokojeni, vyberte **nastavit** pro zahájení instalace hostitele. 
+5. Projděte si všechny vaše výběry v kroku **Revize + vytvořit** . Pokud jste s vybranými možnostmi spokojeni, vyberte **Další** a spusťte instalaci hostitele. 
 6. Na stránce **průběh instalace** můžete sledovat průběh instalace hostitele. V tuto chvíli jste připraveni otevřít Centrum pro správu Windows na nové kartě a pokračovat v úlohách správy. 
 7. Pokud je nasazení úspěšné, zobrazí se řídicí panel pro správu, kde můžete vytvářet a spravovat clustery Kubernetes. Tento řídicí panel, podobně jako zbytek služeb Azure Kubernetes ve Azure Stack HCI, je ve verzi Preview a bude v budoucích verzích aktualizovat s dalšími funkcemi. 
  

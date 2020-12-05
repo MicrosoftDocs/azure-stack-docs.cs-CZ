@@ -4,13 +4,13 @@ description: Než začnete službu Azure Kubernetes Service na Azure Stack HCL
 ms.topic: conceptual
 author: abhilashaagarwala
 ms.author: abha
-ms.date: 09/22/2020
-ms.openlocfilehash: 0d89f0a96befbedcb51151f2ccef9a7f88e0368f
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.date: 12/02/2020
+ms.openlocfilehash: 2bbd32a8117955a18c525a4a0483d152c5a3ed0c
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557323"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612467"
 ---
 # <a name="system-requirements-for-azure-kubernetes-service-on-azure-stack-hci"></a>Požadavky na systém pro službu Azure Kubernetes ve Azure Stack HCL
 

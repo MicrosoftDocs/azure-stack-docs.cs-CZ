@@ -3,14 +3,14 @@ title: Rychlý Start pro nastavení hostitele služby Azure Kubernetes na Azure 
 description: Přečtěte si, jak nastavit hostitele služby Azure Kubernetes na Azure Stack HCL pomocí Windows PowerShellu.
 author: jessicaguan
 ms.topic: quickstart
-ms.date: 09/23/2020
+ms.date: 12/02/2020
 ms.author: jeguan
-ms.openlocfilehash: 4e74ab1dd5f31b9d263ad41b716c974ce2e1b411
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: 4211ec50ef0ea24ffb55f14791101c5d266ede2e
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557357"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612552"
 ---
 # <a name="quickstart-set-up-an-azure-kubernetes-service-host-on-azure-stack-hci-using-powershell"></a>Rychlý Start: nastavení hostitele služby Azure Kubernetes na Azure Stack HCI pomocí prostředí PowerShell
 
@@ -26,15 +26,18 @@ Ujistěte se, že máte jednu z následujících možností:
  - Windows Server 2019 Datacenter s jedním uzlem 
  
 Než začnete, ujistěte se, že jste splnili všechny požadavky na stránce [požadavky na systém](.\system-requirements.md) . 
-**Doporučujeme, abyste měli Azure Stack clusteru HCI v uzlu 2-4.** Pokud nemáte žádnou z výše uvedených informací, postupujte podle pokynů na [stránce registrace rozhraní HCI Azure Stack](https://azure.microsoft.com/products/azure-stack/hci/hci-download/).
+**Doporučujeme, abyste měli Azure Stack clusteru HCI v uzlu 2-4.** Pokud nemáte žádnou z výše uvedených informací, postupujte podle pokynů na [stránce registrace rozhraní HCI Azure Stack](https://azure.microsoft.com/products/azure-stack/hci/hci-download/).    
+
+   > [!IMPORTANT]
+   > Při odebírání služby Azure Kubernetes na Azure Stack HCI si přečtěte téma [Odebrání služby Azure Kubernetes na Azure Stack HCL](#remove-azure-kubernetes-service-on-azure-stack-hci) a pečlivě postupujte podle pokynů. 
 
 ## <a name="step-1-download-and-install-the-akshci-powershell-module"></a>Krok 1: stažení a instalace modulu AksHci PowerShellu
 
 Stáhněte si `AKS-HCI-Public-Preview-Dec-2020` ze [služby Azure Kubernetes na stránce registrace HCL Azure Stack](https://aka.ms/AKS-HCI-Evaluate). Soubor zip `AksHci.Powershell.zip` obsahuje modul PowerShellu.
 
 Pokud jste dříve nainstalovali službu Azure Kubernetes Service na Azure Stack HCI pomocí prostředí PowerShell nebo centra pro správu Windows, existují dva toky instalace pro nový modul prostředí PowerShell:
- - Proveďte čistou instalaci modulu PowerShell, takže začnete s čistým systémem a odebrali jste dříve nasazené úlohy. Provedete to tak, že přejdete na krok 1,1.
- - Pokud chcete zajistit, aby systém a úlohy byly na místě, upgradujte modul prostředí PowerShell. Provedete to tak, že přejdete na krok 1,2.
+ - Proveďte čistou instalaci modulu PowerShell, takže začnete s čistým systémem a odebrali jste dříve nasazené úlohy. Chcete-li provést čistou instalaci, použijte krok 1,1.
+ - Pokud chcete zajistit, aby systém a úlohy byly na místě, upgradujte modul prostředí PowerShell. Pokud chcete upgradovat modul PowerShellu, navštivte krok 1,2.
 
 ### <a name="step-11-clean-install-of-the-akshci-powershell-module"></a>Krok 1,1: čistá instalace modulu PowerShellu pro AksHci
 
@@ -43,7 +46,7 @@ Než budete pokračovat, spusťte následující příkaz.
    Uninstall-AksHci
    ```
 
-**Zavřete všechna okna PowerShellu.** Odstraňte všechny existující adresáře pro AksHci, AksHci. UI, Course a MSK8sDownloadAgent nacházející se v cestě `%systemdrive%\program files\windowspowershell\modules` . Až to uděláte, můžete extrahovat obsah nového souboru ZIP. Přesvědčte se, zda je soubor zip extrahován ve správném umístění ( `%systemdrive%\program files\windowspowershell\modules` ). Pak spusťte následující příkazy.
+**Zavřete všechna okna PowerShellu.** Odstraňte všechny existující adresáře pro AksHci, AksHci. UI, Course a MSK8sDownloadAgent nacházející se v cestě `%systemdrive%\program files\windowspowershell\modules` . Po odstranění existujících adresářů můžete extrahovat obsah nového souboru ZIP. Přesvědčte se, zda je soubor zip extrahován ve správném umístění ( `%systemdrive%\program files\windowspowershell\modules` ). Pak spusťte následující příkazy.
 
    ```powershell
    Import-Module AksHci
@@ -215,11 +218,11 @@ Při použití fondů VIP pro vaše nasazení tento parametr určuje síťový k
 
 `-macPoolStart` 
 
-Tato možnost slouží k určení začátku adresy MAC pro fond adres MAC, který chcete použít pro virtuální počítač hostitele služby Azure Kubernetes. Syntaxe adresy MAC vyžaduje, aby nejméně významný bit prvního bajtu měl vždy hodnotu 0 a první bajt by měl být vždy sudým číslem (tj. 00, 02, 04, 06...). Typická adresa MAC může vypadat takto: 02:1E: 2B: 78:00:00. Fondy adres MAC byste měli používat pro dlouhotrvající nasazení, aby se přiřazené adresy MAC shodovaly. To je užitečné v případě, že máte požadavek, aby virtuální počítače měly konkrétní adresy MAC. Výchozí hodnota je none.
+Tato možnost slouží k určení začátku adresy MAC pro fond adres MAC, který chcete použít pro virtuální počítač hostitele služby Azure Kubernetes. Syntaxe adresy MAC vyžaduje, aby nejméně významný bit prvního bajtu měl vždy hodnotu 0 a první bajt by měl být vždy sudým číslem (tj. 00, 02, 04, 06...). Typická adresa MAC může vypadat takto: 02:1E: 2B: 78:00:00. Používejte fondy adres MAC pro dlouhodobá nasazení, aby se přiřazené adresy MAC shodovaly. To je užitečné v případě, že máte požadavek, aby virtuální počítače měly konkrétní adresy MAC. Výchozí hodnota je none.
 
 `-macPoolEnd`
 
-Tato možnost slouží k určení konce adresy MAC pro fond adres MAC, který chcete použít pro virtuální počítač hostitele služby Azure Kubernetes. Syntaxe adresy MAC vyžaduje, aby nejméně významný bit prvního bajtu měl vždy hodnotu 0 a první bajt by měl být vždy sudým číslem (tj. 00, 02, 04, 06...). První bajt předané adresy jako `-macPoolEnd` by měl být stejný jako první bajt adresy předané jako `-macPoolStart` . Fondy adres MAC byste měli používat pro dlouhotrvající nasazení, aby se přiřazené adresy MAC shodovaly. To je užitečné v případě, že máte požadavek, aby virtuální počítače měly konkrétní adresy MAC. Výchozí hodnota je none.
+Tato možnost slouží k určení konce adresy MAC pro fond adres MAC, který chcete použít pro virtuální počítač hostitele služby Azure Kubernetes. Syntaxe adresy MAC vyžaduje, aby nejméně významný bit prvního bajtu měl vždy hodnotu 0 a první bajt by měl být vždy sudým číslem (tj. 00, 02, 04, 06...). První bajt předané adresy jako `-macPoolEnd` by měl být stejný jako první bajt adresy předané jako `-macPoolStart` . Používejte fondy adres MAC pro dlouhodobá nasazení, aby se přiřazené adresy MAC shodovaly. To je užitečné v případě, že máte požadavek, aby virtuální počítače měly konkrétní adresy MAC. Výchozí hodnota je none.
 
 `-vlandID`
 
@@ -237,11 +240,11 @@ Tato možnost určuje statickou IP adresu, která se použije jako adresa server
 
 `-proxyServerHTTP`
 
-To poskytuje proxy server identifikátor URI, který by měl být používán všemi součástmi, které vyžadují přístup ke koncovým bodům HTTP. Formát identifikátoru URI zahrnuje schéma identifikátoru URI, adresu serveru a port (tj.) https://server.com:8888) . Výchozí hodnota je none.
+To poskytuje proxy server identifikátor URI, který by měl být používán všemi součástmi, které vyžadují přístup ke koncovým bodům HTTP. Formát identifikátoru URI zahrnuje schéma identifikátoru URI, adresu serveru a port (tj https://server.com:8888) .. Výchozí hodnota je none.
 
 `-proxyServerHTTPS`
 
-To poskytuje proxy server identifikátor URI, který by měl být používán všemi součástmi, které vyžadují přístup k koncovým bodům HTTPS. Formát identifikátoru URI zahrnuje schéma identifikátoru URI, adresu serveru a port (tj.) https://server.com:8888) . Výchozí hodnota je none.
+To poskytuje proxy server identifikátor URI, který by měl být používán všemi součástmi, které vyžadují přístup k koncovým bodům HTTPS. Formát identifikátoru URI zahrnuje schéma identifikátoru URI, adresu serveru a port (tj https://server.com:8888) .. Výchozí hodnota je none.
 
 `-proxyServerNoProxy`
 
@@ -250,7 +253,7 @@ Jedná se o řetězec adres oddělených čárkami, který bude z proxy serveru 
 
 `-proxyServerCredential`
 
-Tím se zobrazí uživatelské jméno a heslo pro ověření na proxy serverech HTTP/HTTPS. Můžete použít `Get-Credential` k vygenerování objektu PSCredential, který se předává tomuto parametru. Výchozí hodnota je none.
+Tím se zobrazí uživatelské jméno a heslo pro ověření na proxy serverech HTTP/HTTPS. Můžete použít `Get-Credential` k vygenerování `PSCredential` objektu, který se předává tomuto parametru. Výchozí hodnota je none.
 
 `-cloudServiceCidr`
 
@@ -415,7 +418,7 @@ Install-AksHci
 
 ## <a name="remove-azure-kubernetes-service-on-azure-stack-hci"></a>Odebrat službu Azure Kubernetes v Azure Stack HCI
 
-Pokud chcete odebrat službu Azure Kubernetes v Azure Stack HCI, spusťte následující příkaz.
+Pokud chcete odebrat službu Azure Kubernetes v Azure Stack HCI, spusťte následující příkaz. **Pokud odinstalujete nasazení centra pro správu Windows pomocí PowerShellu, musíte příkaz Spustit s `-Force` příznakem.**
 
 ```powershell
 Uninstall-AksHci
@@ -429,7 +432,7 @@ Pokud nechcete zachovat starou konfiguraci, spusťte následující příkaz.
 Uninstall-AksHci -Force
 ```
 
-Pokud se příkazy PowerShellu spouštějí v clusteru, kde se dřív používalo centrum pro správu Windows k nasazení, modul PowerShell zkontroluje existenci konfiguračního souboru centra pro správu systému Windows. Centrum pro správu systému Windows umístí konfigurační soubor centra pro správu systému Windows ve všech uzlech. Pokud použijete příkaz uninstall a vrátíte se zpátky do centra pro správu systému Windows, spusťte výše uvedený příkaz uninstall s `-Force` příznakem. Pokud tomu tak není, PowerShell a centrum pro správu Windows nebudou synchronizovány.
+Pokud se příkazy PowerShellu spouštějí v clusteru, kde se dřív používalo centrum pro správu Windows k nasazení, modul PowerShell zkontroluje existenci konfiguračního souboru centra pro správu systému Windows. Centrum pro správu systému Windows umístí konfigurační soubor centra pro správu systému Windows ve všech uzlech. **Pokud použijete příkaz uninstall a vrátíte se zpátky do centra pro správu systému Windows, spusťte výše uvedený příkaz uninstall s `-Force` příznakem. Pokud tomu tak není, PowerShell a centrum pro správu Windows nebudou synchronizovány.**
 
 ## <a name="next-steps"></a>Další kroky
 

@@ -16,12 +16,12 @@ ms.date: 10/20/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 10/20/2020
-ms.openlocfilehash: 339927d28c2778a5c2953d8acf90e04931e3c815
-ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
+ms.openlocfilehash: d0bf712be8924cce59aa441161dfb39c090d1a2d
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94383628"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612620"
 ---
 # <a name="mdc-requirements-overview"></a>Přehled požadavků na MDC
 
@@ -60,30 +60,33 @@ V následující tabulce jsou uvedeny některé z podmínek, které jsou použit
 
 ## <a name="deployment-workflow"></a>Pracovní postup nasazení
 
-Proces nasazení MDC se na vysoké úrovni skládá z následujících kroků:
+Proces nasazení MDC se na vysoké úrovni skládá z těchto fází:
 
-1. Plánovací fáze:
-   1. Plánování výkonu datového centra.
-   1. Plánování konfigurace logické sítě Azure Stackho centra
-   1. Plánování integrace sítě Datacenter.
-   1. Plánování pro integraci identity a zabezpečení
-   1. Plánování certifikátů PKI.
-1. Přípravná fáze:
-   1. Shromažďování inventáře.
-   1. Připojení k napájení a zapnutí řešení.
-   1. Ověřuje se stav systému TVK.
-   1. Ověřování monitorování požáru a výstrahy stavu systému.
-   1. Ověřuje se stav fyzického hardwaru.
-1. Fáze provádění – samostatně pro každé tři lusky:
-   1. Konfiguruje se hostitel životního cyklu hardwaru.
-   1. Konfigurace síťových přepínačů.
-   1. Integrace sítě Datacenter.
-   1. Konfigurace nastavení fyzického hardwaru.
-   1. Konfigurace úložiště Isilon
-   1. Nasazuje se infrastruktura prostředků infrastruktury Azure Stack hub.
-   1. Integrace identit datacentra
-   1. Instalace doplňků pro rozšířené funkce.
-1. Fáze ověření – samostatně pro každé tři lusky:
-   1. Ověření stavu po nasazení.
-   1. Probíhá registrace centra Azure Stack s Microsoftem.
-   1. Azure Stack zákazníka centra.
+### <a name="planning-phase"></a>Plánovací fáze
+1. Plánování výkonu datového centra.
+1. Plánování konfigurace logické sítě Azure Stackho centra
+1. Plánování [integrace sítě Datacenter](https://docs.microsoft.com/azure-stack/operator/azure-stack-network).
+1. Plánování pro [integraci identity a zabezpečení](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
+1. Plánování [certifikátů PKI](https://docs.microsoft.com/azure-stack/operator/azure-stack-pki-certs).
+
+### <a name="preparation-phase"></a>Přípravná fáze
+1. Shromažďování inventáře.
+1. Připojení k napájení a zapnutí řešení.
+1. Ověřuje se stav systému TVK.
+1. Ověřování monitorování požáru a výstrahy stavu systému.
+1. Ověřuje se stav fyzického hardwaru.
+
+### <a name="execution-phase--separately-for-each-of-the-three-pods"></a>Fáze provádění – samostatně pro každé tři lusky
+1. Konfiguruje se hostitel životního cyklu hardwaru.
+1. Konfigurace síťových přepínačů.
+1. Integrace sítě Datacenter.
+1. Konfigurace nastavení fyzického hardwaru.
+1. Konfigurace úložiště Isilon
+1. Nasazuje se infrastruktura prostředků infrastruktury Azure Stack hub.
+1. Integrace identit datacentra
+1. Instalace doplňků pro rozšířené funkce.
+
+### <a name="validation-phase--separately-for-each-of-the-three-pods"></a>Fáze ověření – samostatně pro každé tři lusky
+1. Ověření stavu po nasazení.
+1. Probíhá registrace centra Azure Stack s Microsoftem.
+1. Azure Stack zákazníka centra.

@@ -3,14 +3,14 @@ title: Rychlý Start k vytváření clusterů Kubernetes v Azure Stack HCI pomoc
 description: Naučte se vytvářet Kubernetes clustery na Azure Stack HCL pomocí Windows PowerShellu.
 author: jessicaguan
 ms.topic: quickstart
-ms.date: 09/22/2020
+ms.date: 12/02/2020
 ms.author: jeguan
-ms.openlocfilehash: 38d65798d2f30377f3160484c9a618730cda80ea
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: 6a215308e5eab1fa7991f912f1cd4aaff2391f5e
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557136"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612433"
 ---
 # <a name="quickstart-create-kubernetes-clusters-on-azure-stack-hci-using-windows-powershell"></a>Rychlý Start: vytvoření clusterů Kubernetes ve Azure Stack HCI pomocí prostředí Windows PowerShell
 

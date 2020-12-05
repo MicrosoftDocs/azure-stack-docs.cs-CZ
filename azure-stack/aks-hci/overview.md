@@ -2,15 +2,15 @@
 title: Co je služba Azure Kubernetes v Azure Stack HCI?
 description: Služba Azure Kubernetes v Azure Stack HCI je místní implementace služby Azure Kubernetes (AKS), která automatizuje spouštění kontejnerových aplikací ve velkém měřítku.
 ms.topic: overview
-author: jasongerend
-ms.author: jgerend
-ms.date: 09/22/2020
-ms.openlocfilehash: 6f4712049e2336373d977acc71164bfb932eaf86
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+author: v-susbo
+ms.author: v-susbo
+ms.date: 12/02/2020
+ms.openlocfilehash: a7d97d2454e9d77c1760180b46be9ce219d6af68
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557374"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612654"
 ---
 # <a name="what-is-azure-kubernetes-service-on-azure-stack-hci"></a>Co je služba Azure Kubernetes v Azure Stack HCI?
 > Platí pro: AKS on Azure Stack HCI, AKS runtime na Windows serveru 2019 Datacenter

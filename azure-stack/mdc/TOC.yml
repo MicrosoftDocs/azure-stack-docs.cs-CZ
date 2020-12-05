@@ -31,7 +31,7 @@
             - name: Nástroj Capacity Planner
               href: azure-stack-capacity-planner.md
         - name: Přehled integrace
-          href: customer-journey.md
+          href: integration-overview.md
         - name: Modely připojení
           href: ../operator/azure-stack-connection-models.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Připojené nasazení
@@ -124,7 +124,7 @@
                   items:
                     - name: Plánování kapacity
                       href: ../operator/event-hubs-rp-capacity-planning.md?toc=/azure-stack/tca/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                    - name: Požadavky
+                    - name: Předpoklady
                       href: ../operator/event-hubs-rp-prerequisites.md?toc=/azure-stack/tca/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Instalace
                       href: ../operator/event-hubs-rp-install.md?toc=/azure-stack/tca/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -356,7 +356,7 @@
                   href: ../operator/event-hubs-rp-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Plánování kapacity
                   href: ../operator/event-hubs-rp-capacity-planning.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                - name: Požadavky
+                - name: Předpoklady
                   href: ../operator/event-hubs-rp-prerequisites.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Instalace
                   href: ../operator/event-hubs-rp-install.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -460,7 +460,7 @@
               href: ../operator/azure-stack-troubleshooting.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Odkaz na odkaz na podporu
               href: operator/aks-refer-table-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-    - name: Referenční informace
+    - name: Reference
       items:
         - name: Azure Stack PowerShell
           href: /powershell/azure/azure-stack/overview
@@ -587,7 +587,7 @@
                   href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Použití služeb
               items:
-                - name: Výpočetní prostředky
+                - name: Compute
                   items:
                     - name: Přehled
                       href: ../user/azure-stack-compute-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -780,7 +780,7 @@
               href: ../user/iaas-architecture-sql-n-tier-multi-region.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Síťová virtuální zařízení
               href: ../user/iaas-architecture-nva-architecture.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-    - name: Referenční informace
+    - name: Reference
       items:
         - name: Azure Stack PowerShell
           href: /powershell/azure/azure-stack/overview?view=azurestackps-1.3.0
