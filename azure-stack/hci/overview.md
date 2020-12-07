@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/23/2020
-ms.openlocfilehash: d5e544f339d029eab693d48327abc8596d2f61fa
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.date: 12/7/2020
+ms.openlocfilehash: c6fe98d9f597f40d0a5cefde151eb36736b81d7a
+ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517068"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96761690"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Přehled řešení Azure Stack HCI
 
@@ -94,7 +94,7 @@ Azure Stack HCI je špičková integrovaná sada virtualizace postavená na prov
 
 Začněte tím, že budete potřebovat:
 
-- Cluster dvou nebo více serverů z [katalogu Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/catalog/), zakoupený od preferovaného poskytovatele hardwaru Microsoftu
+- Cluster dvou nebo více serverů z [katalogu Azure Stack HCI](https://aka.ms/azurestackhcicatalog), zakoupený od preferovaného poskytovatele hardwaru Microsoftu
 - [Předplatné Azure](https://azure.microsoft.com/)
 - Připojení k Internetu pro každý server v clusteru, který se může připojit prostřednictvím odchozího provozu HTTPS do následujícího koncového bodu nejméně každých 30 dnů: *-azurestackhci-usage.azurewebsites.net
 - Pro roztažené clustery mezi lokalitami potřebujete minimálně 1 1 GB připojení mezi lokalitami (upřednostňuje se 25 GB připojení RDMA), s průměrnou latencí 5 MS na konci přenosu, pokud chcete provést synchronní replikaci, kde se v obou lokalitách vyskytují zápisy současně.
@@ -106,7 +106,7 @@ Další informace najdete v tématu [požadavky na systém](concepts/system-requ
 
 Ověřená řešení Azure Stack HCI si můžete koupit od preferovaného partnera Microsoftu, abyste mohli začít pracovat bez zdlouhavého návrhu a času sestavování. Partneři Microsoftu nabízejí také jeden kontaktní bod pro implementaci a služby podpory. Můžete si buď koupit ověřené uzly, nebo integrovaný systém, který zahrnuje předinstalované operační systémy Azure Stack HCI a také rozšíření partnerů pro aktualizace ovladačů a firmwaru.
 
-Navštivte stránku [Azure Stack řešení HCI](https://azure.microsoft.com/overview/azure-stack/hci) nebo si projděte [Azure Stack v katalogu HCI](https://azure.microsoft.com/products/azure-stack/hci/catalog/) , kde můžete zobrazit 70 + Azure Stack řešení HCI, která jsou aktuálně k dispozici od partnerů Microsoftu, jako je ASUS, Axellio, Blue čip, DataON, Dell EMC, Fujitsu, HPE, Hitachi, Huawei, Lenovo, NEC, primeLine Solutions, QCT, SecureGUARD a Micro.
+Navštivte stránku [Azure Stack řešení HCI](https://azure.microsoft.com/overview/azure-stack/hci) nebo si projděte [Azure Stack v katalogu HCI](https://aka.ms/azurestackhcicatalog) , kde můžete zobrazit 70 + Azure Stack řešení HCI, která jsou aktuálně k dispozici od partnerů Microsoftu, jako je ASUS, Axellio, Blue čip, DataON, Dell EMC, Fujitsu, HPE, Hitachi, Huawei, Lenovo, NEC, primeLine Solutions, QCT, SecureGUARD a Micro.
 
 ## <a name="software-partners"></a>Partneři softwaru
 

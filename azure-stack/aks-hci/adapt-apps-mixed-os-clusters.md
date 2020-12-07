@@ -3,15 +3,15 @@ title: Přizpůsobení aplikací pro použití v clusterech Kubernetes se smíš
 description: Jak používat selektory uzlů nebo chuti a funkce pro službu Azure Kubernetes, abyste zajistili, že se aplikace v kombinovaných clusterech Kubernetes s operačním systémem běžícím na Azure Stack HCI naplánovaly na správném operačním systému pracovního uzlu
 author: abha
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 12/02/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 09d63b58fcbba2b5272ea153a1a022ccdc63e2bc
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: 0d4fd0e62e10e4afc4a76c9cac2deaed97e23549
+ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557102"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96761554"
 ---
 # <a name="adapt-apps-for-mixed-os-kubernetes-clusters-using-node-selectors-or-taints-and-tolerations"></a>Přizpůsobení aplikací pro clustery Kubernetes se smíšenými operačními systémy pomocí selektorů uzlů nebo příchuti a tolerovánosti
 

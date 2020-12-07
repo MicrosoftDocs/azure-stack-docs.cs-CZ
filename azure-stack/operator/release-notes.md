@@ -7,12 +7,12 @@ ms.date: 11/30/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 3e74f1e77c5c30ec17bf021d95952ce7bb19426b
-ms.sourcegitcommit: a7a2ac1b9be926134826dce03e348154fd212bc9
+ms.openlocfilehash: c774da9af89f882fe4488117629ff37a67e4190d
+ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96443323"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96761724"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -64,7 +64,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Novinky
+### <a name="whats-new"></a>Co je nového
 
 <!-- What's new, also net new experiences and features. -->
 - Azure Stack hub teď podporuje partnerský vztah VNET, který umožňuje připojení virtuální sítě bez síťového virtuálního zařízení (síťové virtuální zařízení). Další informace najdete v [dokumentaci nové sítě VNet peering](../user/virtual-network-peering.md).
@@ -103,7 +103,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
   Všimněte si, že tyto změny jsou přidány na úrovni hostitele systému Azure Stack hub. Obraťte se na výrobce OEM, aby bylo možné provést požadované změny v přepínačích sítě v horní části racku. Tato změna mandátu se dá provést buď před aktualizací verze 2008, nebo po aktualizaci na 2008. Další informace najdete v [dokumentaci k integraci sítě](azure-stack-network.md).
 
-  - Velikosti virtuálních počítačů podporující GPU **NCas_v4 (NVIDIA T4)** se v tomto sestavení nahradily **NCasT4_v3** velikosti virtuálních počítačů, aby byly konzistentní s Azure. Všimněte si, že tyto prvky ještě nejsou zobrazené na portálu a dají se použít jenom prostřednictvím šablon Azure datamanageru.
+- Velikosti virtuálních počítačů podporující GPU **NCas_v4 (NVIDIA T4)** se v tomto sestavení nahradily **NCasT4_v3** velikosti virtuálních počítačů, aby byly konzistentní s Azure. Všimněte si, že tyto prvky ještě nejsou zobrazené na portálu a dají se použít jenom prostřednictvím šablon Azure datamanageru.
 
 ### <a name="fixes"></a>Opravy
 
@@ -159,7 +159,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Novinky
+### <a name="whats-new"></a>Co je nového
 
 <!-- What's new, also net new experiences and features. -->
 - Toto sestavení nabízí podporu 3 nových typů virtuálních počítačů GPU: NCv3 (NVIDIA V100), NVv4 (AMD MI25) a NCas_v4 (NVIDIA T4) velikosti virtuálních počítačů. Nasazení virtuálních počítačů bude úspěšné pro uživatele, kteří mají správný hardware a jsou připojeni do programu Azure Stack hub GPU ve verzi Preview. Pokud vás zajímá, zaregistrujte se do programu pro zobrazení GPU v https://aka.ms/azurestackhubgpupreview . Další informace [najdete v tématu](../user/gpu-vms-about.md).
@@ -262,7 +262,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Novinky
+### <a name="whats-new"></a>Co je nového
 
 <!-- What's new, also net new experiences and features. -->
 

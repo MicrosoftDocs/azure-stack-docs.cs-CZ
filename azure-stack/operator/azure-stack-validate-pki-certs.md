@@ -1,5 +1,5 @@
 ---
-title: Ověření certifikátů PKI Azure Stack hub
+title: Ověřování certifikátů PKI služby Azure Stack Hub
 titleSuffix: Azure Stack Hub
 description: Zjistěte, jak ověřit certifikáty PKI pro integrované systémy Azure Stack centra pomocí nástroje pro kontrolu připravenosti centra Azure Stack.
 services: azure-stack
@@ -10,14 +10,14 @@ ms.date: 10/19/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: 201acbad11011731a8e7017d14b39be120e460d3
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: d260c8486090dbe94931c2527102c06cf4b98314
+ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545755"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96761647"
 ---
-# <a name="validate-azure-stack-hub-pki-certificates"></a>Ověření certifikátů PKI Azure Stack hub
+# <a name="validate-azure-stack-hub-pki-certificates"></a>Ověřování certifikátů PKI služby Azure Stack Hub
 
 Nástroj pro kontrolu připravenosti centra Azure Stack popsaný v tomto článku je k dispozici v [Galerie prostředí PowerShell](https://aka.ms/AzsReadinessChecker). Pomocí tohoto nástroje ověřte, jestli jsou [vygenerované certifikáty infrastruktury veřejných klíčů (PKI)](azure-stack-get-pki-certs.md) vhodné k předběžnému nasazení. Ověřte certifikáty tím, že necháte dostatek času na testování a vystavování certifikátů v případě potřeby.
 
@@ -47,7 +47,7 @@ Nástroj pro kontrolu připravenosti provádí následující ověření certifi
 > [!IMPORTANT]  
 > Certifikát PKI je soubor PFX a heslo by mělo být považováno za citlivé informace.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 Před ověřením certifikátů PKI pro nasazení centra Azure Stack musí systém splňovat následující požadavky:
 
@@ -211,9 +211,9 @@ Pomocí těchto kroků ověříte certifikáty PKI centra Azure Stack pro nasaze
 
 ### <a name="known-issues"></a>Známé problémy
 
-**Příznak** : testy se přeskočí.
+**Příznak**: testy se přeskočí.
 
-**Příčina** : AzsReadinessChecker přeskočí některé testy, pokud není splněna závislost:
+**Příčina**: AzsReadinessChecker přeskočí některé testy, pokud není splněna závislost:
 
  - Další certifikáty se přeskočí, pokud řetěz certifikátů selhává.
 
@@ -237,7 +237,13 @@ Pomocí těchto kroků ověříte certifikáty PKI centra Azure Stack pro nasaze
     Invoke-AzsCertificateValidation Completed
     ```
 
-**Řešení** : postupujte podle pokynů k nástroji v části Podrobnosti v každé sadě testů pro každý certifikát.
+**Řešení**: postupujte podle pokynů k nástroji v části Podrobnosti v každé sadě testů pro každý certifikát.
+
+**Příznak**: Kontrola CRL protokolu HTTP se nezdařila navzdory tomu, že se do rozšíření x509 ZAPISUJE CDP protokolu HTTP.
+
+**Příčina**: v současné době AzsReadinessChecker nemůže vyhledat CDP protokolu HTTP v některých jazycích.
+
+**Řešení**: Spusťte ověřování pomocí jazyka OS nastaveného na en-US.
 
 ## <a name="certificates"></a>Certifikáty
 

@@ -6,13 +6,13 @@ ms.author: v-johcob
 ms.topic: tutorial
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/28/2020
-ms.openlocfilehash: ba063e4ebff85830ac50c25c2514bda443dce323
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.date: 12/7/2020
+ms.openlocfilehash: 51a4411e95207d2f7b544fdf507fe8bd8fc98f2e
+ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064731"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96761707"
 ---
 # <a name="deploy-the-azure-stack-hci-operating-system"></a>Nasazení operačního systému Azure Stack HCI
 
@@ -21,7 +21,7 @@ ms.locfileid: "93064731"
 Prvním krokem při nasazení Azure Stack HCI je [stažení Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) a instalace operačního systému na každém serveru, který chcete clusterovat. Tento článek popisuje různé způsoby nasazení operačního systému a připojení k serverům pomocí centra pro správu systému Windows.
 
 > [!NOTE]
-> Pokud jste si koupili Azure Stack hardware integrovaného systémového řešení z [katalogu Azure Stack HCI](https://azure.microsoft.com/en-us/products/azure-stack/hci/catalog/) přes preferovaný hardwarový partner společnosti Microsoft, měl by být operační systém Azure Stack HCI předem nainstalován. V takovém případě můžete tento krok přeskočit a přejít na, aby se [vytvořil cluster Azure Stack HCI](create-cluster.md).
+> Pokud jste si koupili Azure Stack hardware integrovaného systémového řešení z [katalogu Azure Stack HCI](https://aka.ms/azurestackhcicatalog) přes preferovaný hardwarový partner společnosti Microsoft, měl by být operační systém Azure Stack HCI předem nainstalován. V takovém případě můžete tento krok přeskočit a přejít na, aby se [vytvořil cluster Azure Stack HCI](create-cluster.md).
 
 ## <a name="prerequisites"></a>Předpoklady
 
@@ -105,41 +105,41 @@ Pokud chcete ručně nasadit Azure Stack operační systém HCI na systémovou j
 
 Ruční instalace Azure Stackho operačního systému HCI:
 1. Spusťte Průvodce instalací Azure Stack HCL na systémové jednotce serveru, na který chcete nainstalovat operační systém.
-1. Zvolte jazyk, který chcete nainstalovat, nebo přijměte výchozí nastavení jazyka, klikněte na tlačítko **Další** a potom na další stránce průvodce vyberte **Instalovat nyní** .
+1. Zvolte jazyk, který chcete nainstalovat, nebo přijměte výchozí nastavení jazyka, klikněte na tlačítko **Další** a potom na další stránce průvodce vyberte **Instalovat nyní**.
 
     :::image type="content" source="../media/operating-system/azure-stack-hci-install-language.png" alt-text="Na stránce jazyk v Průvodci instalací rozhraní HCI pro instalaci Azure Stack.":::
 
-1. Na stránce příslušné oznámení a licenční podmínky si přečtěte licenční podmínky, zaškrtněte políčko **Přijímám licenční podmínky** a potom vyberte **Další** .
-1. Na jakém typu instalace chcete nainstalovat? Vyberte možnost **vlastní: Nainstalujte novější verzi Azure Stack pouze HCI (rozšířené)** .
+1. Na stránce příslušné oznámení a licenční podmínky si přečtěte licenční podmínky, zaškrtněte políčko **Přijímám licenční podmínky** a potom vyberte **Další**.
+1. Na jakém typu instalace chcete nainstalovat? Vyberte možnost **vlastní: Nainstalujte novější verzi Azure Stack pouze HCI (rozšířené)**.
 
     > [!NOTE]
     > Instalace upgradu se v této verzi operačního systému nepodporují.
 
-    :::image type="content" source="../media/operating-system/azure-stack-hci-install-which-type.png" alt-text="Na stránce jazyk v Průvodci instalací rozhraní HCI pro instalaci Azure Stack.":::
+    :::image type="content" source="../media/operating-system/azure-stack-hci-install-which-type.png" alt-text="Stránka možností typu instalace v Průvodci instalací rozhraní HCI pro instalaci Azure Stack.":::
 
-1. Na místě, kam chcete nainstalovat Azure Stack HCI? potvrďte umístění jednotky, kam chcete operační systém nainstalovat, nebo ho aktualizujte a pak vyberte **Další** .
+1. Na místě, kam chcete nainstalovat Azure Stack HCI? potvrďte umístění jednotky, kam chcete operační systém nainstalovat, nebo ho aktualizujte a pak vyberte **Další**.
 
-    :::image type="content" source="../media/operating-system/azure-stack-hci-install-where.png" alt-text="Na stránce jazyk v Průvodci instalací rozhraní HCI pro instalaci Azure Stack.":::
+    :::image type="content" source="../media/operating-system/azure-stack-hci-install-where.png" alt-text="Stránka umístění jednotky v Průvodci instalací rozhraní HCI pro instalaci Azure Stack.":::
 
 1. Na stránce instalace Azure Stack HCL se zobrazí stav pro zobrazení stavu procesu.
 
-    :::image type="content" source="../media/operating-system/azure-stack-hci-installing.png" alt-text="Na stránce jazyk v Průvodci instalací rozhraní HCI pro instalaci Azure Stack.":::
+    :::image type="content" source="../media/operating-system/azure-stack-hci-installing.png" alt-text="Stavová stránka průvodce nainstalovat Azure Stack HCL.":::
 
     > [!NOTE]
     > Proces instalace pro dokončení procesu dvakrát restartuje operační systém a před otevřením příkazového řádku správce zobrazí oznámení o spuštění služeb.
 
 1. Na příkazovém řádku správce vyberte **OK** , abyste změnili heslo uživatele před přihlášením k operačnímu systému a stisknutím klávesy ENTER.
 
-    :::image type="content" source="../media/operating-system/azure-stack-hci-change-admin-password.png" alt-text="Na stránce jazyk v Průvodci instalací rozhraní HCI pro instalaci Azure Stack.":::
+    :::image type="content" source="../media/operating-system/azure-stack-hci-change-admin-password.png" alt-text="Výzva ke změně hesla.":::
 
 1. Do příkazového řádku zadat nové přihlašovací údaje pro správce zadejte nové heslo, zadejte ho znovu a potvrďte ho a potom stiskněte klávesu ENTER.
 1. Na výzvu k potvrzení změny hesla stiskněte klávesu ENTER.
 
-    :::image type="content" source="../media/operating-system/azure-stack-hci-admin-password-changed.png" alt-text="Na stránce jazyk v Průvodci instalací rozhraní HCI pro instalaci Azure Stack.":::
+    :::image type="content" source="../media/operating-system/azure-stack-hci-admin-password-changed.png" alt-text="Výzva k potvrzení změny hesla":::
 
 Teď jste připraveni k provádění důležitých úkolů pomocí nástroje pro konfiguraci serveru (sconfig). Pokud chcete používat sconfig, přihlaste se k serveru, na kterém běží operační systém Azure Stack HCI. To může být lokálně prostřednictvím klávesnice a monitoru nebo pomocí řadiče pro vzdálenou správu (bezobslužné nebo BMC) nebo vzdálené plochy. Nástroj sconfig se automaticky otevře při přihlášení k serveru.
 
-:::image type="content" source="../media/operating-system/azure-stack-hci-sconfig-screen.png" alt-text="Na stránce jazyk v Průvodci instalací rozhraní HCI pro instalaci Azure Stack." lightbox="../media/operating-system/azure-stack-hci-sconfig-screen.png":::
+:::image type="content" source="../media/operating-system/azure-stack-hci-sconfig-screen.png" alt-text="Rozhraní nástroje pro konfiguraci serveru." lightbox="../media/operating-system/azure-stack-hci-sconfig-screen.png":::
 
 Na hlavní stránce nástroje sconfig můžete provádět následující úlohy počáteční konfigurace:
 - Nakonfigurujte sítě nebo ověřte, že se síť nakonfigurovali automaticky pomocí protokolu DHCP (Dynamic Host Configuration Protocol).
