@@ -4,34 +4,39 @@ titleSuffix: Azure Stack Hub
 description: Naučte se, jak nasadit poskytovatele prostředků SQL Server v centru Azure Stack.
 author: bryanla
 ms.topic: article
-ms.date: 10/02/2019
-ms.lastreviewed: 03/18/2019
+ms.date: 12/07/2020
+ms.lastreviewed: 12/07/2020
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: 5759c0f43401fd27080b8872810e47af920da984
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.openlocfilehash: e7565634d026d0d9bca5162ed709d76f760685b1
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95812667"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778168"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Nasazení poskytovatele prostředků SQL Server v centru Azure Stack
 
 Použijte poskytovatele prostředků SQL Server centra Azure Stack k vystavování databází SQL jako služby centra pro Azure Stack. Poskytovatel prostředků SQL se spouští jako služba na virtuálním počítači se systémem Windows Server 2016 Server Core (pro verzi adaptéru <= 1.1.47.0>) nebo speciálním doplňku RP Windows serveru (pro verzi adaptéru >= 1.1.93.0).
 
 > [!IMPORTANT]
-> Pouze poskytovatel prostředků je podporován k vytváření položek na serverech, které jsou hostiteli SQL nebo MySQL. Položky vytvořené na hostitelském serveru, které nejsou vytvořené poskytovatelem prostředků, můžou vést k neshodě stavu.
+> Pouze poskytovatel prostředků by měl vytvořit položky na serverech, které jsou hostiteli SQL nebo MySQL. Položky vytvořené na hostitelském serveru, které nejsou vytvořené poskytovatelem prostředků, nejsou podporované a můžou mít za následek neshodné stavy.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
-Aby bylo možné nasadit poskytovatele prostředků SQL centra Azure Stack, je nutné, aby bylo k dispozici několik požadavků. Pokud chcete tyto požadavky splnit, proveďte v počítači, který má přístup k VIRTUÁLNÍmu počítači privilegovaného koncového bodu, následující kroky:
+Aby bylo možné nasadit poskytovatele prostředků SQL centra Azure Stack, je potřeba provést několik požadavků:
+
+- Budete potřebovat počítač a účet, který má přístup:
+   - [portál pro správu centra Azure Stack](azure-stack-manage-portals.md).
+   - [privilegovaný koncový bod](azure-stack-privileged-endpoint.md).
+   - koncový bod správce Azure Resource Manager, `https://management.region.<fqdn>` kde `<fqdn>` je plně kvalifikovaný název domény (nebo `https://management.local.azurestack.external` Pokud používáte ASDK)
+   - Internet, pokud je váš rozbočovač Azure Stack nasazený tak, aby jako poskytovatele identity používal Azure Active Directory (AD).
 
 - Pokud jste to ještě neudělali, [zaregistrujte Azure Stack centrum](azure-stack-registration.md) s Azure, abyste si mohli stáhnout Azure Marketplace položky.
 
 - Přidejte požadovaný virtuální počítač s Windows serverem do centra Azure Stack Marketplace.
-  * Pro SQL RP verze <= 1.1.47.0 stáhněte bitovou kopii **systému Windows server 2016 Datacenter-Server** .
-  * Pro SQL RP verze >= 1.1.93.0 stáhněte **jenom interní image Microsoft AzureStack Add-On RP Windows serveru** . Tato verze Windows serveru je specializovaná pro Azure Stack infrastrukturu Add-On RP a není viditelná pro tržiště tenanta.
-
+  - Pro SQL RP verze <= 1.1.47.0 stáhněte bitovou kopii **systému Windows server 2016 Datacenter-Server** .
+  - Pro SQL RP verze >= 1.1.93.0 stáhněte **jenom interní image Microsoft AzureStack Add-On RP Windows serveru** . Tato verze Windows serveru je specializovaná pro Azure Stack infrastrukturu Add-On RP a není viditelná pro tržiště tenanta.
 
 - Stáhněte si podporovanou verzi binárního souboru poskytovatele prostředků SQL podle níže uvedené tabulky mapování verzí. Spusťte samočinného extrahování pro extrakci staženého obsahu do dočasného adresáře. 
 
@@ -44,7 +49,7 @@ Aby bylo možné nasadit poskytovatele prostředků SQL centra Azure Stack, je n
 
 - Ujistěte se, že jsou splněné předpoklady pro integraci Datacenter:
 
-    |Požadavek|Referenční informace|
+    |Požadavek|Odkaz|
     |-----|-----|
     |Podmíněné předávání DNS je nastaveno správně.|[Integrace centrálního centra Azure Stack – DNS](azure-stack-integrate-dns.md)|
     |Příchozí porty pro poskytovatele prostředků jsou otevřené.|[Integrace Datacenter centra Azure Stack – příchozí porty a protokoly](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
@@ -102,7 +107,7 @@ _Pouze pro instalace integrovaných systémů_. Musíte zadat certifikát PKI SQ
 
 ## <a name="deploy-the-sql-resource-provider"></a>Nasazení poskytovatele prostředků SQL
 
-Po instalaci všech požadovaných součástí spusťte skript **DeploySqlProvider.ps1** z počítače, který má Azure Stack přístup ke koncovému bodu správy prostředků Azure Resource admin a s privilegovaným koncovým bodem pro nasazení poskytovatele prostředků SQL. Skript DeploySqlProvider.ps1 se extrahuje jako součást binárního souboru poskytovatele prostředků SQL, který jste si stáhli pro vaši verzi centra Azure Stack.
+Po dokončení všech požadovaných součástí spusťte skript **DeploySqlProvider.ps1** z počítače, který má přístup k rozbočovači služby Azure Stack Azure Resource Manager koncovému bodu správce i privilegovanému koncovému bodu pro nasazení poskytovatele prostředků SQL. Skript DeploySqlProvider.ps1 se extrahuje jako součást binárního souboru poskytovatele prostředků SQL, který jste si stáhli pro vaši verzi centra Azure Stack.
 
  > [!IMPORTANT]
  > Před nasazením poskytovatele prostředků si přečtěte poznámky k verzi, kde najdete informace o nových funkcích, opravách a známých problémech, které by mohly mít vliv na nasazení.
@@ -134,7 +139,7 @@ Z příkazového řádku můžete zadat následující parametry. Pokud ne, nebo
 | **AzCredential** | Přihlašovací údaje pro účet správce služby Azure Stack hub. Použijte stejné přihlašovací údaje, které jste použili k nasazení centra Azure Stack. Pokud účet, který používáte se službou AzCredential, vyžaduje vícefaktorové ověřování (MFA), skript se nezdaří.| _Povinné_ |
 | **VMLocalCredential** | Přihlašovací údaje pro účet místního správce virtuálního počítače poskytovatele prostředků SQL. | _Povinné_ |
 | **PrivilegedEndpoint** | IP adresa nebo název DNS privilegovaného koncového bodu. |  _Povinné_ |
-| **AzureEnvironment** | Prostředí Azure účtu správce služby používaného pro nasazení centra Azure Stack. Vyžaduje se jenom pro nasazení Azure AD. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment** nebo, pokud používáte Čína Azure Active Directory **AzureChinaCloud**. | AzureCloud |
+| **AzureEnvironment** | Prostředí Azure účtu správce služby používaného pro nasazení centra Azure Stack. Vyžaduje se jenom pro nasazení Azure AD. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment** nebo, pokud používáte Čína Azure AD **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | V případě pouze integrovaných systémů musí být soubor Certificate. pfx umístěn v tomto adresáři. Volitelně můžete zkopírovat jeden web Windows Update balíček MSU zde. | _Volitelné_ (_povinné_ pro integrované systémy) |
 | **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Povinné_ |
 | **MaxRetryCount** | Počet pokusů o opakování všech operací, pokud dojde k selhání.| 2 |

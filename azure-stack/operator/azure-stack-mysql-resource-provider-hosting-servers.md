@@ -3,16 +3,16 @@ title: Přidání hostitelských serverů MySQL do centra Azure Stack
 description: Naučte se, jak přidat hostitelské servery MySQL pro zřizování prostřednictvím poskytovatele prostředků adaptéru MySQL.
 author: bryanla
 ms.topic: article
-ms.date: 11/06/2019
+ms.date: 12/07/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
-ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: bbf96c0716d6bb9fdfca7ce0b52268281e6169c6
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.lastreviewed: 12/07/2020
+ms.openlocfilehash: a5c965591a6eb7d11540bf63c298ffa2321e0014
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414159"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778423"
 ---
 # <a name="add-mysql-hosting-servers-in-azure-stack-hub"></a>Přidání hostitelských serverů MySQL do centra Azure Stack
 
@@ -29,7 +29,7 @@ Pro hostitelské servery lze použít verze MySQL 5,6, 5,7 a 8,0. MySQL RP nepod
 
 Ve výchozím nastavení není pro MySQL na hostitelském virtuálním počítači nakonfigurován žádný veřejný přístup. Aby mohl poskytovatel prostředků MySQL Azure Stack připojit a spravovat server MySQL, je nutné vytvořit pravidlo skupiny zabezpečení příchozí sítě (NSG).
 
-1. Na portálu pro správu přejdete do skupiny prostředků vytvořené při nasazení serveru MySQL a vyberete skupinu zabezpečení sítě ( **výchozí-Subnet-SG** ):
+1. Na portálu pro správu přejdete do skupiny prostředků vytvořené při nasazení serveru MySQL a vyberete skupinu zabezpečení sítě (**výchozí-Subnet-SG**):
 
    ![Vybrat skupinu zabezpečení sítě na portálu pro správu centra Azure Stack](media/azure-stack-tutorial-mysqlrp/img6.png)
 
@@ -112,10 +112,13 @@ Chcete-li přidat hostitelský server, postupujte podle následujících kroků:
 
    * Pro **název hostitelského serveru MySQL** zadejte plně kvalifikovaný název domény (FQDN) nebo platnou adresu IPv4. Nepoužívejte krátký název virtuálního počítače.
    * Výchozí **uživatelské jméno** správce pro Image Bitnami MySQL dostupné v tržišti služby Azure Stack hub je *root*.
-   * Pokud neznáte kořenové **heslo** , přečtěte si [dokumentaci k Bitnami](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) , kde najdete informace o tom, jak je získat.
+   * Pokud neznáte kořenové **heslo**, přečtěte si [dokumentaci k Bitnami](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials) , kde najdete informace o tom, jak je získat.
    * Není zadaná výchozí instance MySQL, takže musíte zadat **Velikost hostitelského serveru v GB**. Zadejte velikost, která je blízko kapacity databázového serveru.
    * Ponechte výchozí nastavení pro **předplatné**.
-   * Pro **skupinu prostředků** , vytvořte novou nebo použijte existující skupinu.
+   * Pro **skupinu prostředků**, vytvořte novou nebo použijte existující skupinu.
+
+   > [!IMPORTANT]
+   > Nevybírejte **skupinu prostředků** `system.<region>.sqladapter` , která byla vytvořena instalačním programem poskytovatele prostředků MySQL během nasazení. Pro hostitelský server je nutné zadat jinou skupinu prostředků.    
 
    > [!NOTE]
    > Pokud má klient přístup k instanci MySQL a Azure Resource Manager pro správu, můžete ho umístit pod kontrolu poskytovatele prostředků. Instance MySQL se ale **musí** přidělit výhradně poskytovateli prostředků.

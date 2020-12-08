@@ -7,12 +7,12 @@ ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 12/7/2020
-ms.openlocfilehash: cc8a994ac56dd773b34c1eb36295e252a9c9ad51
-ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
+ms.openlocfilehash: 11c82a35d17a61fee474123a658f91ea90790221
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 12/07/2020
-ms.locfileid: "96761673"
+ms.locfileid: "96778015"
 ---
 # <a name="what-is-the-deployment-process-for-azure-stack-hci"></a>Jaký je proces nasazení Azure Stack HCI?
 
@@ -66,7 +66,9 @@ Po vytvoření a registraci clusteru [Spusťte testy pro ověření clusteru](va
 
 ### <a name="7-deploy-workloads"></a>7. nasazení úloh
 
-Nyní jste připraveni [vytvořit virtuální počítače](../manage/vm.md) a nasazovat úlohy do Azure Stack HCI pomocí centra pro správu Windows.
+Nyní jste připraveni nasadit úlohy do Azure Stack HCI pomocí centra pro správu systému Windows.
+
+Podrobnosti o tom, jak začít s nasazením úlohy služby Azure Kubernetes na Azure Stack HCI, najdete v tomto přehledu: [co je Azure Kubernetes Service on Azure Stack HCI?](https://docs.microsoft.com/azure-stack/aks-hci/overview)
 
 ## <a name="next-steps"></a>Další kroky
 

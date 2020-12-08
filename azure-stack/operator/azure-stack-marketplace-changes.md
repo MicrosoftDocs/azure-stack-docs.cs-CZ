@@ -3,16 +3,16 @@ title: Co je nového v tržišti Azure Stack hub
 description: Podívejte se, co je nového v tržišti Azure Stack hub, včetně nových, zastaralých a aktualizovaných položek Marketplace.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/19/2020
+ms.date: 12/07/2020
 ms.author: sethm
 ms.reviewer: gara
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: e4b0be90d1e4815957dced211a7a0648458a6777
-ms.sourcegitcommit: 616e65051a94290eb6ff7aa63ee0b33d45fe7ac5
+ms.openlocfilehash: e8db7987b06270b239c04bdb9596094bb7f06d1c
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94970210"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96777998"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Změny v tržišti centra Azure Stack
 
@@ -166,6 +166,22 @@ V tomto článku najdete seznam nedávných přidání, aktualizací, změn a od
 
 ## <a name="updated-marketplace-items"></a>Aktualizované položky Marketplace
 
+- 12/07/2020: Bitnami Elasticsearch cluster – verze 1.0.2
+- 12/07/2020: Bitnami Cassandra cluster – verze 1.0.21
+- 12/07/2020: Bitnami etcd cluster – verze 1.0.16
+- 12/07/2020: Bitnami Jenkinse cluster – verze 1.0.70
+- 12/07/2020: Bitnami Kafka cluster – verze 1.0.2
+- 12/07/2020: Bitnami MariaDB Galera cluster – verze 1.0.13
+- 12/07/2020: Bitnami MariaDB s replikací – verze 1.0.36
+- 12/07/2020: Bitnami memcached více instancí – verze 1.0.34
+- 12/07/2020: Bitnami Moodle s více vrstvami verze 1.0.46
+- 12/07/2020: cluster Bitnami NAT – verze 1.0.19
+- 12/07/2020: Bitnami PostgreSQL s replikací – verze 1.0.37
+- 12/07/2020: Bitnami MySQL s replikací – verze 1.0.37
+- 12/07/2020: Bitnami ZooKeeper cluster – verze 1.0.18
+- 12/07/2020: Bitnami Redis s vysokou dostupností – verze 1.0.27
+- 12/07/2020: Bitnami WordPress s více vrstvami verze 1.0.56
+- 12/07/2020: Bitnami RabbitMQ cluster – verze 1.0.38
 - 11/18/2020: SQL Server 2019 standard v systému Windows Server 2019 – zajistěte si vlastní licenci verze 15.0.20201015
 - 11/18/2020: SQL Server 2019 Standard na Windows serveru 2019 – průběžné platby – 15.0.20201015 verze
 - 11/18/2020: licence na bezplatnou SQL Server: vývojář SQL 2019 na Windows serveru 2019 – zajistěte si vlastní licenci na verzi 15.0.20201015

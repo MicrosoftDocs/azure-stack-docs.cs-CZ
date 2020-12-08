@@ -3,35 +3,41 @@ title: Nasazení poskytovatele prostředků MySQL v centru Azure Stack
 description: Naučte se nasadit adaptér poskytovatele prostředků MySQL a databáze MySQL jako službu na centra Azure Stack.
 author: bryanla
 ms.topic: article
-ms.date: 9/22/2020
+ms.date: 12/07/2020
 ms.author: bryanla
 ms.reviewer: caoyang
-ms.lastreviewed: 9/22/2020
-ms.openlocfilehash: 22377e80f52b2a8e3a7827ded6400b17cebdce9c
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.lastreviewed: 12/07/2020
+ms.openlocfilehash: b6d345ecfecaa3859420087bc7cff051b39fbb36
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95812737"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778151"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Nasazení poskytovatele prostředků MySQL do centra Azure Stack
 
 Pomocí poskytovatele prostředků serveru MySQL můžete zveřejnit databáze MySQL jako službu Azure Stack hub. Poskytovatel prostředků MySQL se spouští jako služba na virtuálním počítači se systémem Windows Server 2016 Server Core (pro verzi adaptéru <= 1.1.47.0>) nebo speciálním doplňku RP Windows serveru (pro verzi adaptéru >= 1.1.93.0).
 
 > [!IMPORTANT]
-> Pouze poskytovatel prostředků je podporován k vytváření položek na serverech, které jsou hostiteli SQL nebo MySQL. Položky vytvořené na hostitelském serveru, které nejsou vytvořené poskytovatelem prostředků, můžou vést k neshodě stavu.
+> Pouze poskytovatel prostředků by měl vytvořit položky na serverech, které jsou hostiteli SQL nebo MySQL. Položky vytvořené na hostitelském serveru, které nejsou vytvořené poskytovatelem prostředků, nejsou podporované a můžou mít za následek neshodné stavy.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
-Aby bylo možné nasadit poskytovatele prostředků MySQL Azure Stack hub, je nutné, aby bylo provedeno několik požadavků. Abyste splnili tyto požadavky, proveďte kroky v tomto článku v počítači, který má přístup k VIRTUÁLNÍmu počítači s privilegovaným koncovým bodem.
+Aby bylo možné nasadit poskytovatele prostředků MySQL Azure Stack hub, je nutné, aby bylo provedeno několik požadavků:
 
-* Pokud jste to ještě neudělali, [zaregistrujte Azure Stack centrum](./azure-stack-registration.md) s Azure, abyste si mohli stáhnout Azure Marketplace položky.
+- Budete potřebovat počítač a účet, který má přístup:
+   - [portál pro správu centra Azure Stack](azure-stack-manage-portals.md).
+   - [privilegovaný koncový bod](azure-stack-privileged-endpoint.md).
+   - koncový bod správce Azure Resource Manager, `https://management.region.<fqdn>` kde `<fqdn>` je plně kvalifikovaný název domény (nebo `https://management.local.azurestack.external` Pokud používáte ASDK)
+   - Internet, pokud je váš rozbočovač Azure Stack nasazený tak, aby jako poskytovatele identity používal Azure Active Directory (AD).
 
-* Přidejte požadovaný virtuální počítač s Windows serverem do centra Azure Stack Marketplace.
-  * Pro MySQL RP verze <= 1.1.47.0 stáhněte bitovou kopii **systému Windows server 2016 Datacenter-Server** .
-  * Pro MySQL RP verze >= 1.1.93.0 stáhněte **jenom interní image Microsoft AzureStack Add-On RP Windows serveru** . Tato verze Windows serveru je specializovaná pro Azure Stack infrastrukturu Add-On RP a není viditelná pro tržiště tenanta.
+- Pokud jste to ještě neudělali, [zaregistrujte Azure Stack centrum](azure-stack-registration.md) s Azure, abyste si mohli stáhnout Azure Marketplace položky.
 
-* Stáhněte si podporovanou verzi binárního poskytovatele prostředků MySQL podle níže uvedené tabulky mapování verzí. Spusťte samočinného extrahování pro extrakci staženého obsahu do dočasného adresáře. 
+- Přidejte požadovaný virtuální počítač s Windows serverem do centra Azure Stack Marketplace.
+  - Pro MySQL RP verze <= 1.1.47.0 stáhněte bitovou kopii **systému Windows server 2016 Datacenter-Server** .
+  - Pro MySQL RP verze >= 1.1.93.0 stáhněte **jenom interní image Microsoft AzureStack Add-On RP Windows serveru** . Tato verze Windows serveru je specializovaná pro Azure Stack infrastrukturu Add-On RP a není viditelná pro tržiště tenanta.
+
+- Stáhněte si podporovanou verzi binárního poskytovatele prostředků MySQL podle níže uvedené tabulky mapování verzí. Spusťte samočinného extrahování pro extrakci staženého obsahu do dočasného adresáře. 
 
   |Podporovaná verze centra Azure Stack|Verze MySQL RP|Windows Server, na kterém běží služba RP
   |-----|-----|-----|
@@ -44,9 +50,9 @@ Aby bylo možné nasadit poskytovatele prostředků MySQL Azure Stack hub, je nu
 >Chcete-li nasadit poskytovatele MySQL v systému, který nemá přístup k Internetu, zkopírujte soubor [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) do místní cesty. Zadejte název cesty pomocí parametru **DependencyFilesLocalPath** .
 
 
-* Ujistěte se, že jsou splněné předpoklady pro integraci Datacenter:
+- Ujistěte se, že jsou splněné předpoklady pro integraci Datacenter:
 
-    |Požadavek|Referenční informace|
+    |Požadavek|Odkaz|
     |-----|-----|
     |Podmíněné předávání DNS je nastaveno správně.|[Integrace centrálního centra Azure Stack – DNS](azure-stack-integrate-dns.md)|
     |Příchozí porty pro poskytovatele prostředků jsou otevřené.|[Integrace Datacenter centra Azure Stack – publikování koncových bodů](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
@@ -104,7 +110,7 @@ _Pouze pro instalace integrovaných systémů_. Musíte zadat certifikát PKI SQ
 
 ## <a name="deploy-the-resource-provider"></a>Nasazení poskytovatele prostředků
 
-Po dokončení instalace všech požadovaných součástí můžete skript **DeployMySqlProvider.ps1** spustit z počítače, který má Azure Stack přístup ke koncovému bodu správy prostředků Azure Resource admin a s privilegovaným koncovým bodem pro nasazení poskytovatele prostředků MySQL. Skript DeployMySqlProvider.ps1 se extrahuje jako součást instalačních souborů poskytovatele prostředků MySQL, které jste stáhli pro vaši verzi centra Azure Stack.
+Po dokončení všech požadovaných součástí můžete skript **DeployMySqlProvider.ps1** spustit z počítače, který má přístup ke koncovému bodu správce služby Azure Stack Azure Resource Manager hub a k privilegovanému koncovému bodu pro nasazení poskytovatele prostředků MySQL. Skript DeployMySqlProvider.ps1 se extrahuje jako součást instalačních souborů poskytovatele prostředků MySQL, které jste stáhli pro vaši verzi centra Azure Stack.
 
  > [!IMPORTANT]
  > Před nasazením poskytovatele prostředků si přečtěte poznámky k verzi, kde najdete informace o nových funkcích, opravách a známých problémech, které by mohly mít vliv na nasazení.
