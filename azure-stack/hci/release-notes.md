@@ -6,19 +6,42 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/24/2020
-ms.openlocfilehash: 56cc4c35ecbb92c30883bd1f2018422cdcac0894
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.date: 12/8/2020
+ms.openlocfilehash: e28ff46596e2669327a3fa1d3b76fca346658b21
+ms.sourcegitcommit: 85827a2227eb2d1ed1ed44bb9f00e28d96818c84
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95812724"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96868982"
 ---
 # <a name="release-notes-for-azure-stack-hci-public-preview"></a>Poznámky k verzi pro Azure Stack HCI Public Preview
 
 > Platí pro: Azure Stack HCI, verze 20H2
 
 Tento článek popisuje obsah rozhraní Azure Stack HCI Public Preview aktualizace balíčků.
+
+## <a name="december-8-2020-security-update-kb4592441"></a>8. prosince 2020 aktualizace zabezpečení (KB4592441)
+
+Tato aktualizace zahrnuje vylepšení a opravy pro nejnovější verzi Azure Stack HCI. 
+
+### <a name="improvements-and-fixes"></a>Vylepšení a opravy
+Tato aktualizace obsahuje různá vylepšení zabezpečení vnitřních funkcí operačního systému. Řeší chybu zabezpečení tím, že brání aplikacím, které běží jako systémový účet, z tisku na porty "FILE:". Aby bylo možné tento problém vyřešit v budoucnu, ujistěte se, že vaše aplikace nebo služby běží jako konkrétní účet uživatele nebo služby.
+
+Pro tuto verzi nebyly zdokumentovány žádné další problémy.
+
+Další informace o vyřešených chybách zabezpečení najdete v [příručce k aktualizaci zabezpečení](https://portal.msrc.microsoft.com/security-guidance).
+
+### <a name="known-issues-in-this-update"></a>Známé problémy v této aktualizaci
+Společnost Microsoft v současné době neví o problémech s touto aktualizací.
+
+### <a name="how-to-get-this-update"></a>Jak získat tuto aktualizaci
+Aktualizace zabezpečení (KB4592441 [Azure Stack](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) ) 8. prosince 2020 je poskytována prostřednictvím web Windows Update. Pokud ho chcete nainstalovat do clusteru Azure Stack HCI, přečtěte si téma [aktualizace Azure Stackch clusterů HCI](manage/update-cluster.md).
+
+### <a name="file-information"></a>Informace o souboru
+Seznam souborů, které jsou k dispozici v této aktualizaci (OS Build 17784,1408), si můžete stáhnout z [informací o souboru kumulativní aktualizace 4592441](https://download.microsoft.com/download/2/7/2/272ea75f-1657-43ce-a7a4-a17d51463a94/4592441.csv).
+
+   > [!NOTE]
+   > Některé soubory mají ve sloupci "verze souboru CSV" hodnotu "nelze použít". To může vést k falešně pozitivním nebo falešně negativním hodnotám při použití nástrojů pro detekci kontroly třetích stran k ověření sestavení.
 
 ## <a name="november-23-2020-preview-update-kb4586852"></a>23. listopadu 2020 aktualizace Preview (KB4586852)
 
@@ -101,7 +124,7 @@ Aktualizace zásobníku pro obsluhu (SSUs) provádějí změny, jak jsou aktuali
 ### <a name="file-information"></a>Informace o souboru
 Seznam souborů, které jsou k dispozici v této aktualizaci (OS Build 17784,1342), si můžete stáhnout z [informací o souboru kumulativní aktualizace 4590242](https://download.microsoft.com/download/b/b/4/bb4fb4f5-c0ba-4e55-bada-d72310857982/4590242.csv).
 
-### <a name="references"></a>Reference
+### <a name="references"></a>Odkazy
 
 Informace o SSUs najdete v následujících článcích:
 
@@ -191,7 +214,7 @@ Aktualizace zásobníku pro obsluhu (SSUs) provádějí změny, jak jsou aktuali
 ### <a name="file-information"></a>Informace o souboru
 Seznam souborů, které jsou k dispozici v této aktualizaci (OS Build 17784,1287), si můžete stáhnout z [informací o souboru kumulativní aktualizace 4583287](https://download.microsoft.com/download/b/8/5/b85160fb-85d9-49f9-b9d5-7dbc0158a944/4583287.csv).
 
-### <a name="references"></a>Reference
+### <a name="references"></a>Odkazy
 
 Informace o SSUs najdete v následujících článcích:
 
@@ -260,7 +283,7 @@ Aktualizace zásobníku pro obsluhu (SSUs) provádějí změny, jak jsou aktuali
 ### <a name="file-information"></a>Informace o souboru
 Seznam souborů, které jsou k dispozici v této aktualizaci (OS Build 17784,1220), si můžete stáhnout z [informací o souboru kumulativní aktualizace 4577558](https://download.microsoft.com/download/8/f/6/8f612a9b-cb4e-4832-9397-156760848592/4577558.csv).
 
-### <a name="references"></a>Reference
+### <a name="references"></a>Odkazy
 
 Informace o SSUs najdete v následujících článcích:
 

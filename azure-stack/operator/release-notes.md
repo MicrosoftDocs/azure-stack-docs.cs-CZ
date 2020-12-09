@@ -3,16 +3,16 @@ title: Poznámky k verzi centra Azure Stack
 description: Poznámky k verzi pro integrované systémy Azure Stack hub, včetně aktualizací a oprav chyb.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/30/2020
+ms.date: 12/07/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: c774da9af89f882fe4488117629ff37a67e4190d
-ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
+ms.openlocfilehash: aed3b9f5eb59ef440503625d807f8ef7b777f7b1
+ms.sourcegitcommit: 85827a2227eb2d1ed1ed44bb9f00e28d96818c84
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96761724"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96869033"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -69,8 +69,8 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 <!-- What's new, also net new experiences and features. -->
 - Azure Stack hub teď podporuje partnerský vztah VNET, který umožňuje připojení virtuální sítě bez síťového virtuálního zařízení (síťové virtuální zařízení). Další informace najdete v [dokumentaci nové sítě VNet peering](../user/virtual-network-peering.md).
 - Úložiště objektů BLOB centra Azure Stack teď umožňuje uživatelům používat neměnné objekty blob. Nastavením neměnných zásad na kontejneru můžete ukládat datové objekty kritické pro podnikání do ČERVa (napsat jednou, číst mnoho). V této verzi se neměnné zásady dají nastavit jenom prostřednictvím REST API nebo klientských sad SDK. V této verzi nejsou taky možné připojovat zápisy objektů BLOB. Další informace o neměnných objektech blob najdete v tématu [ukládání důležitých podnikových dat objektů BLOB s neměnném úložištěm](/azure/storage/blobs/storage-blob-immutable-storage).
-- Úložiště centra Azure Stack nyní podporuje rozhraní API služby Azure Storage Services verze 2019-07-07. Pro klientské knihovny Azure, které jsou kompatibilní s novou verzí REST API, přečtěte si téma [vývojové nástroje pro úložiště Azure Stack hub](../user/azure-stack-storage-dev.md#azure-client-libraries).
-- Azure Stack Center COMPUTE teď podporuje Azure COMPUTE API verze 2020-06-01 s podmnožinou celkových dostupných funkcí.
+- Úložiště centra Azure Stack nyní podporuje rozhraní API služby Azure Storage Services verze **2019-07-07**. Pro klientské knihovny Azure, které jsou kompatibilní s novou verzí REST API, přečtěte si téma [vývojové nástroje pro úložiště Azure Stack hub](../user/azure-stack-storage-dev.md#azure-client-libraries). Pro rozhraní API pro správu služby Azure Storage Services byla **2018-02-01** přidána podpora s podmnožinou celkových dostupných funkcí.
+- Azure Stack Center COMPUTE teď podporuje Azure COMPUTE API verze **2020-06-01** s podmnožinou celkových dostupných funkcí.
 - Spravované disky centra Azure Stack nyní podporují rozhraní API disku Azure verze **2019-03-01** s podmnožinou dostupných funkcí.
 - Verze Preview centra pro správu Windows, která se teď může připojit k Azure Stackmu centru, aby poskytovala podrobné přehledy o infrastruktuře během operací podpory (vyžaduje se rozbití).
 - Možnost přidání přihlašovacího nápisu do privilegovaného koncového bodu (PEP) v době nasazení.
@@ -139,7 +139,7 @@ Při aktualizaci na novou hlavní verzi (například 1.2005. x na 1.2008. x) se 
 
 Pokud se následně uvolní nějaké opravy hotfix 2008, měli byste po instalaci 2008 nainstalovat tyto opravy:
 
-- [1.2008.16.94 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4595071)
+- [1.2008.19.100 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4595073)
 ::: moniker-end
 
 ::: moniker range="azs-2005"

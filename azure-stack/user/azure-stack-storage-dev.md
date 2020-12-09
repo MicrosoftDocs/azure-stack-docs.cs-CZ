@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.topic: conceptual
 ms.reviewer: jiahan
 ms.lastreviewed: 08/12/2020
-ms.openlocfilehash: 28b1d8ade7b56a767d436b918ad7d386ef4759bd
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: fe3d1187ff51a9fa85aaab66186db294a8b25e42
+ms.sourcegitcommit: 85827a2227eb2d1ed1ed44bb9f00e28d96818c84
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574138"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96869016"
 ---
 # <a name="get-started-with-azure-stack-hub-storage-development-tools"></a>Začínáme s nástroji pro vývoj pro úložiště Azure Stack hub
 
@@ -28,13 +28,44 @@ Tento článek vám pomůže začít používat vývojové nástroje pro úloži
 Pro klientské knihovny pro úložiště si pamatujte na verzi, která je kompatibilní s REST API. Ve svém kódu musíte taky zadat koncový bod centra Azure Stack.
 
 
-::: moniker range=">=azs-2005"
-### <a name="2005-update-or-newer-versions"></a>2005 aktualizace nebo novější verze
+::: moniker range=">=azs-2008"
+### <a name="2008-update"></a>aktualizace 2008
+
+| Klientská knihovna | Verze podporovaného centra Azure Stack | Odkaz | Specifikace koncového bodu |
+|----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
+| .NET | 12.2.0 | Balíček NuGet:<br>Obecný <https://www.nuget.org/packages/Azure.Storage.common/12.2.0><br>Příznaky <https://www.nuget.org/packages/Azure.Storage.Blobs/12.2.0><br>Provedených <https://www.nuget.org/packages/Azure.Storage.queues/12.2.0><br> <br>Verze GitHubu:<br>Obecný <https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Common_12.2.0/sdk/storage><br>Příznaky <https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Blobs_12.2.0/sdk/storage><br>Provedených <https://github.com/Azure/azure-sdk-for-net/tree/Azure.Storage.Queues_12.2.0/sdk/storage>  | Soubor app.config |
+| Java | 12.4.0 | Balíček Maven:<br><https://mvnrepository.com/artifact/com.azure/azure-storage-common/12.4.0><br> <br>Verze GitHubu:<br><https://github.com/Azure/azure-sdk-for-java/tree/azure-storage-common_12.4.0/sdk/storage> | Nastavení připojovacího řetězce |
+| Node.js | 2.8.3 | Odkaz na NPM:<br><https://www.npmjs.com/package/azure-storage><br>(Spustit: `npm install azure-storage@2.8.3` )<br> <br>Verze GitHubu:<br><https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3> | Deklarace instance služby |
+| C++ | 7.2.0 | Verze GitHubu:<br><https://github.com/Azure/azure-storage-cpp/releases/tag/v7.2.0> | Nastavení připojovacího řetězce |
+| PHP | 1.2.0 | Verze GitHubu:<br>Obecný <https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common><br>Příznaky <https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-blob><br>Provedených<br><https://github.com/Azure/azure-storage-php/releases/tag/v1.1.1-queue><br>Stolní <https://github.com/Azure/azure-storage-php/releases/tag/v1.1.0-table><br> <br>Instalovat přes skladatele (Další informace [najdete v podrobnostech níže](#install-php-client-via-composer---current)) | Nastavení připojovacího řetězce |
+| Python | 12.2.0 | Verze GitHubu:<br>Příznaky<br><https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.2.0/sdk/storage/azure-storage-blob><br>Provedených<br><https://github.com/Azure/azure-sdk-for-python/tree/azure-storage-blob_12.2.0/sdk/storage/azure-storage-queue> | Deklarace instance služby |
+| Ruby | 1.0.1 | Balíček RubyGems:<br>Obecný<br><https://rubygems.org/gems/azure-storage-common/versions/1.0.1><br>Příznaky <https://rubygems.org/gems/azure-storage-blob/versions/1.0.1><br>Provedených <https://rubygems.org/gems/azure-storage-queue/versions/1.0.1><br>Stolní <https://rubygems.org/gems/azure-storage-table/versions/1.0.1><br> <br>Verze GitHubu:<br>Obecný <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common><br>Příznaky <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob><br>Provedených <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-queue><br>Stolní <https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-table> | Nastavení připojovacího řetězce |
+
+#### <a name="install-php-client-via-composer---current"></a>Instalovat klienta PHP prostřednictvím skladatele – aktuální
+
+Instalace prostřednictvím skladatele: (jako příklad Vezměte objekt BLOB).
+
+1. V kořenovém adresáři projektu vytvořte soubor s názvem **composer.js** s následujícím kódem:
+
+    ```json
+    {
+      "require": {
+      "Microsoft/azure-storage-blob":"1.2.0"
+      }
+    }
+    ```
+
+2. Stáhněte [skladatele. phar](https://getcomposer.org/composer.phar) do kořenového adresáře projektu.
+3. Spusťte `php composer.phar install`.
+::: moniker-end
+
+::: moniker range=">=azs-2005 <azs-2008"
+### <a name="2005-update"></a>aktualizace 2005
 
 | Klientská knihovna | Verze podporovaného centra Azure Stack | Odkaz | Specifikace koncového bodu |
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | .NET | 11.0.0 | Balíček NuGet:<br>Obecný <https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/11.0.0><br>Příznaky <https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/11.0.0><br>Provedených<br><https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/11.0.0><br> <br>Verze GitHubu:<br><https://github.com/Azure/azure-storage-net/releases/tag/v11.0.0> | Soubor app.config |
-| Java | 12.0.0-Preview. 3 | Balíček Maven:<br><https://mvnrepository.com/artifact/com.azure/azure-storage-file/12.0.0-preview.3><br> <br>Verze GitHubu:<br><https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage> | Nastavení připojovacího řetězce |
+| Java | 12.0.0-Preview. 3 | Balíček Maven:<br><https://mvnrepository.com/artifact/com.azure/azure-storage-blob/12.0.0-preview.3><br> <br>Verze GitHubu:<br><https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage> | Nastavení připojovacího řetězce |
 | Node.js | 2.8.3 | Odkaz na NPM:<br><https://www.npmjs.com/package/azure-storage><br>(Spustit: `npm install azure-storage@2.8.3` )<br> <br>Verze GitHubu:<br><https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3> | Deklarace instance služby |
 | C++ | 7.1.0 | Verze GitHubu:<br><https://github.com/Azure/azure-storage-cpp/releases/tag/v7.1.0> | Nastavení připojovacího řetězce |
 | PHP | 1.2.0 | Verze GitHubu:<br>Obecný <https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common><br>Příznaky <https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-blob><br>Provedených<br><https://github.com/Azure/azure-storage-php/releases/tag/v1.1.1-queue><br>Stolní <https://github.com/Azure/azure-storage-php/releases/tag/v1.1.0-table><br> <br>Instalovat přes skladatele (Další informace [najdete v podrobnostech níže](#install-php-client-via-composer---current)) | Nastavení připojovacího řetězce |
