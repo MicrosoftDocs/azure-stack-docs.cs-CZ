@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 10/30/2020
 ms.author: v-myoung
 ms.reviewer: shisab
-ms.lastreviewed: 10/30/2020
-ms.openlocfilehash: b5f182fcf76fe28855240931e3515d3c9a467ee1
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/08/2020
+ms.openlocfilehash: 6e2b00d80d600a0cdafa21455c9938e9df7af564
+ms.sourcegitcommit: b0a96f98f2871bd6be28d3f2461949e2237ddaf0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543302"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96872640"
 ---
 # <a name="diagnostic-log-collection"></a>Shromažďování protokolů diagnostiky
 
@@ -28,7 +28,7 @@ Centrum Azure Stack má několik způsobů, jak shromažďovat, ukládat a odes�
 * [Poslat protokoly hned](#send-logs-now)
 * [Místní uložení protokolů](#save-logs-locally)
 
-Vývojový diagram níže ukazuje, kterou možnost použít k odesílání diagnostických protokolů v každém případě. Pokud se centrum Azure Stack může připojit k Azure, doporučujeme povolit **proaktivní shromažďování protokolů** , které při vyvolání kritické výstrahy automaticky nahraje diagnostické protokoly do objektu BLOB úložiště se spravovaným Microsoftem v Azure. Můžete také shromažďovat protokoly na vyžádání pomocí příkazu **Odeslat protokoly nyní**. Pokud je rozbočovač Azure Stack od Azure odpojený, můžete **ukládat protokoly místně**. 
+Vývojový diagram níže ukazuje, kterou možnost použít k odesílání diagnostických protokolů v každém případě. Pokud se centrum Azure Stack může připojit k Azure, doporučujeme povolit **proaktivní shromažďování protokolů**, které při vyvolání kritické výstrahy automaticky nahraje diagnostické protokoly do objektu BLOB úložiště se spravovaným Microsoftem v Azure. Můžete také shromažďovat protokoly na vyžádání pomocí příkazu **Odeslat protokoly nyní**. Pokud je rozbočovač Azure Stack od Azure odpojený, můžete **ukládat protokoly místně**. 
 
 ![Vývojový diagram ukazuje, jak teď odesílat protokoly do Microsoftu.](media/azure-stack-help-and-support/send-logs-now-flowchart.png)
 
@@ -38,11 +38,17 @@ Vývojový diagram níže ukazuje, kterou možnost použít k odesílání diagn
 
 Proaktivní shromažďování protokolů automaticky shromažďuje a odesílá diagnostické protokoly z centra Azure Stack do Microsoftu před otevřením případu podpory. Tyto protokoly jsou shromažďovány pouze v případě, že je vyvolána [Výstraha o stavu systému](#proactive-diagnostic-log-collection-alerts) a že k nim přistupovali pouze podpora Microsoftu v kontextu případu podpory.
 
+::: moniker range=">= azs-2008"
+
+Od centra Azure Stack verze 2008 používá aktivní kolekce protokolů Vylepšený algoritmus, který zachycuje protokoly i v případě chybových stavů, které nejsou viditelné pro operátora. Tím se zajistěte, aby byly správné diagnostické informace shromažďovány ve správnou dobu bez nutnosti zásahu operátoru. Podpora Microsoftu může zahájit řešení potíží a vyřešit problémy dřív v některých případech. Počáteční vylepšení algoritmu se soustředí na operace oprav a aktualizace. Doporučuje se povolit proaktivní kolekce protokolů, protože se optimalizují víc operací a zvyšují se výhody.
+
+::: moniker-end
+
 Proaktivní shromažďování protokolů lze kdykoli zakázat a znovu povolit. Pomocí těchto kroků nastavíte proaktivní shromažďování protokolů.
 
 1. Přihlaste se k portálu pro správu služby Azure Stack Hub.
 1. Otevřete okno **help + podpora – přehled**.
-1. Pokud se zobrazí nápis, vyberte **Povolit proaktivní shromažďování protokolů**. Nebo můžete vybrat **Nastavení** a nastavit **proaktivní shromažďování protokolů** tak, aby se **povolilo** , a pak vybrat **Uložit**.
+1. Pokud se zobrazí nápis, vyberte **Povolit proaktivní shromažďování protokolů**. Nebo můžete vybrat **Nastavení** a nastavit **proaktivní shromažďování protokolů** tak, aby se **povolilo**, a pak vybrat **Uložit**.
 
 > [!NOTE]
 > Pokud jsou nastavení umístění protokolu nakonfigurovaná pro místní sdílenou složku, ujistěte se, že zásady správy životního cyklu zabrání v dosažení kvóty úložiště sdílené složky. Centrum Azure Stack nesleduje místní sdílenou složku ani nevynutila žádné zásady uchovávání informací.   
@@ -56,6 +62,38 @@ Data budou použita pouze při odstraňování výstrah stavu systému a nebudou
 Veškerá data, která byla dříve shromážděna s vaším souhlasem, nebudou ovlivněna zrušením oprávnění.
 
 Protokoly shromážděné pomocí **proaktivní kolekce protokolů** se odesílají do účtu úložiště Azure spravovaného a řízeného Microsoftem. K těmto protokolům může společnost Microsoft přihlašovat v rámci případu podpory a zlepšit stav centra Azure Stack.
+
+### <a name="proactive-diagnostic-log-collection-alerts"></a>Výstrahy shromažďování proaktivní diagnostického protokolu
+
+Pokud je povoleno, v případě, že je aktivována jedna z následujících událostí, odešle protokol proaktivní kolekce protokolů.
+
+Například **Chyba aktualizace** je výstraha, která spouští proaktivní shromažďování protokolů diagnostiky. Pokud je tato možnost povolena, diagnostické protokoly budou aktivně zachyceny během chyby aktualizace, což může pomoct podpora Microsoftu řešení problému. Diagnostické protokoly jsou shromažďovány pouze v případě, že se vyvolá výstraha pro **aktualizaci** .
+
+| Název výstrahy | FaultIdType |
+|---|---|
+|Nejde se připojit ke vzdálené službě | UsageBridge.NetworkError|
+|Aktualizace se nezdařila | Urp.UpdateFailure |
+|Infrastruktura nebo závislosti poskytovatele prostředků úložiště nejsou k dispozici. |    StorageResourceProviderDependencyUnavailable |
+|Uzel není připojený k řadiči.| ServerHostNotConnectedToController |  
+|Selhání publikování trasy | SlbMuxRoutePublicationFailure |
+|Interní úložiště dat poskytovatele prostředků úložiště není dostupné. |    StorageResourceProvider. DataStoreConnectionFail |
+|Selhání úložného zařízení | Microsoft. Health. typ FaultType. VirtualDisks. odpojilo se |
+|Kontroler stavu nemůže získat přístup k účtu úložiště. | Microsoft. Health. typ FaultType. StorageError |
+|Připojení k fyzickému disku bylo ztraceno. | Microsoft. Health. typ FaultType. fyzický disk. LostCommunication |
+|Služba BLOB Service není spuštěná na uzlu. | StorageService. blob. Service. is. not. Running. on. Node-Critical |
+|Role infrastruktury není v pořádku. | Microsoft. Health. typ FaultType. GenericExceptionFault |
+|Chyby služby Table service | StorageService. Table. Service. Errors – kritický |
+|Sdílená složka je větší než 80% využití. | Microsoft. Health. typ FaultType. sdílené složky. Capacity. Warning. |
+|Uzel jednotky škálování je offline | FRP. Prezenční signál. PhysicalNode |
+|Instance role infrastruktury není dostupná. | FRP. Prezenční signál. InfraVM |
+|Instance role infrastruktury není dostupná.  | FRP. Prezenční signál. NonHaVm |
+|Role infrastruktury, Správa adresářů, ohlásila chyby synchronizace času. | DirectoryServiceTimeSynchronizationError |
+|Blížící se vypršení platnosti externího certifikátu | CertificateExpiration. ExternalCert. Warning |
+|Blížící se vypršení platnosti externího certifikátu | CertificateExpiration. ExternalCert. Critical |
+|Pro konkrétní třídu a velikost nejde zřídit virtuální počítače kvůli nedostatečné kapacitě paměti | AzureStack. ComputeController. VmCreationFailure. LowMemory |
+|Nedostupný uzel pro umístění virtuálního počítače | AzureStack. ComputeController. HostUnresponsive |
+|Zálohování nebylo úspěšné.  | AzureStack. BackupController. BackupFailedGeneralFault |
+|Naplánované zálohování bylo přeskočeno z důvodu konfliktu s neúspěšnými operacemi.    | AzureStack. BackupController. BackupSkippedWithFailedOperationFault |
 
 ## <a name="send-logs-now"></a>Poslat protokoly hned
 
@@ -158,7 +196,7 @@ Když se Azure Stack rozbočovač odpojí od Azure, můžete protokoly Uložit d
 
 ::: moniker-end
 
-## <a name="bandwidth-considerations"></a>Požadavky na šířku pásma
+## <a name="bandwidth-considerations"></a>Aspekty šířky pásma
 
 Průměrná velikost shromažďování protokolů diagnostiky se liší v závislosti na tom, zda se spouští proaktivně nebo ručně. Průměrná velikost pro **proaktivní shromažďování protokolů** je okolo 2 GB. Velikost kolekce pro funkce **Odeslat protokoly je teď** závislá na počtu hodin, které se shromažďují.
 
@@ -174,46 +212,14 @@ V následující tabulce jsou uvedeny požadavky pro prostředí s omezenými ne
 
 Historie protokolů shromážděných z centra Azure Stack se zobrazí na stránce **shromažďování protokolů** v **nápovědě a podpoře** s následujícími daty a časy:
 
-- **Čas shromažďování** : při zahájení operace shromažďování protokolů.
-- **Stav** : buď probíhá, nebo dokončeno.
-- **Zahajte zápisy** : začátek časového období, které chcete shromáždit.
-- **Konec protokolů** : konec časového období.
-- **Typ** : Pokud se jedná o manuální nebo proaktivní shromažďování protokolů.
+- **Čas shromažďování**: při zahájení operace shromažďování protokolů.
+- **Stav**: buď probíhá, nebo dokončeno.
+- **Zahajte zápisy**: začátek časového období, které chcete shromáždit.
+- **Konec protokolů**: konec časového období.
+- **Typ**: Pokud se jedná o manuální nebo proaktivní shromažďování protokolů.
 
 ![Kolekce protokolů v nápovědě a podpoře](media/azure-stack-help-and-support/azure-stack-log-collection.png)
 
-## <a name="proactive-diagnostic-log-collection-alerts"></a>Výstrahy shromažďování proaktivní diagnostického protokolu
-
-Je-li povoleno, služba proaktivní shromažďování protokolů odesílá protokoly pouze v případě, že je vyvolána jedna z následujících událostí.
-
-Například **Chyba aktualizace** je výstraha, která spouští proaktivní shromažďování protokolů diagnostiky. Pokud je tato možnost povolena, diagnostické protokoly budou aktivně zachyceny během chyby aktualizace, což může pomoct podpora Microsoftu řešení problému. Diagnostické protokoly jsou shromažďovány pouze v případě, že se vyvolá výstraha pro **aktualizaci** .
-
-| Název výstrahy | FaultIdType |
-|---|---|
-|Nejde se připojit ke vzdálené službě | UsageBridge.NetworkError|
-|Aktualizace se nezdařila | Urp.UpdateFailure |
-|Infrastruktura nebo závislosti poskytovatele prostředků úložiště nejsou k dispozici. |    StorageResourceProviderDependencyUnavailable |
-|Uzel není připojený k řadiči.| ServerHostNotConnectedToController |  
-|Selhání publikování trasy | SlbMuxRoutePublicationFailure |
-|Interní úložiště dat poskytovatele prostředků úložiště není dostupné. |    StorageResourceProvider. DataStoreConnectionFail |
-|Selhání úložného zařízení | Microsoft. Health. typ FaultType. VirtualDisks. odpojilo se |
-|Kontroler stavu nemůže získat přístup k účtu úložiště. | Microsoft. Health. typ FaultType. StorageError |
-|Připojení k fyzickému disku bylo ztraceno. | Microsoft. Health. typ FaultType. fyzický disk. LostCommunication |
-|Služba BLOB Service není spuštěná na uzlu. | StorageService. blob. Service. is. not. Running. on. Node-Critical |
-|Role infrastruktury není v pořádku. | Microsoft. Health. typ FaultType. GenericExceptionFault |
-|Chyby služby Table service | StorageService. Table. Service. Errors – kritický |
-|Sdílená složka je větší než 80% využití. | Microsoft. Health. typ FaultType. sdílené složky. Capacity. Warning. |
-|Uzel jednotky škálování je offline | FRP. Prezenční signál. PhysicalNode |
-|Instance role infrastruktury není dostupná. | FRP. Prezenční signál. InfraVM |
-|Instance role infrastruktury není dostupná.  | FRP. Prezenční signál. NonHaVm |
-|Role infrastruktury, Správa adresářů, ohlásila chyby synchronizace času. | DirectoryServiceTimeSynchronizationError |
-|Blížící se vypršení platnosti externího certifikátu | CertificateExpiration. ExternalCert. Warning |
-|Blížící se vypršení platnosti externího certifikátu | CertificateExpiration. ExternalCert. Critical |
-|Pro konkrétní třídu a velikost nejde zřídit virtuální počítače kvůli nedostatečné kapacitě paměti | AzureStack. ComputeController. VmCreationFailure. LowMemory |
-|Nedostupný uzel pro umístění virtuálního počítače | AzureStack. ComputeController. HostUnresponsive |
-|Zálohování nebylo úspěšné.  | AzureStack. BackupController. BackupFailedGeneralFault |
-|Naplánované zálohování bylo přeskočeno z důvodu konfliktu s neúspěšnými operacemi.    | AzureStack. BackupController. BackupSkippedWithFailedOperationFault |
-
-## <a name="see-also"></a>Viz také:
+## <a name="see-also"></a>Viz také
 
 [Azure Stack zpracování dat protokolů a zákazníků centra](./azure-stack-data-collection.md)
