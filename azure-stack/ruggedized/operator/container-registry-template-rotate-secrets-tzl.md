@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2020
+ms.date: 1/8/2020
 ms.author: mabrigg
 ms.reviewer: chasat
-ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: eb835552b8f7142878d03aa1bb3bb062cd2cf3f6
+ms.lastreviewed: 12/17/2019
+ms.openlocfilehash: ed1809d44f54ec65c60c5a1e17ca472ee401b5ba
 ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934978"
+ms.locfileid: "96939531"
 ---
 # <a name="rotate-container-registry-secrets-in-azure-stack-hub"></a>Otočení tajných kódů registru kontejneru v centru Azure Stack
 
@@ -29,7 +29,7 @@ Vaši uživatelé centra Azure Stack můžou pro nasazení šablony registru kon
 
 ## <a name="prerequisites-for-the-user"></a>Předpoklady pro uživatele
 
- - Uživatel bude muset mít nainstalované moduly PowerShellu Azure Stack hub. Další informace najdete v tématu [instalace PowerShellu pro Azure Stack](../../operator/powershell-install-az-module.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure-stack%2Fbreadcrumb%2Ftoc.json).
+ - Uživatel bude muset mít nainstalované moduly PowerShellu Azure Stack hub. Další informace najdete v tématu [instalace PowerShellu pro Azure Stack](../../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure-stack%2Fbreadcrumb%2Ftoc.json).
 
  - Získejte tajná klíčová okna pro šablonu registru kontejneru. Pro přístup k registru Docker můžete použít nový certifikát SSL nebo novou kombinaci uživatelského jména a hesla.
 
@@ -253,19 +253,19 @@ Podle následujících pokynů nastavte nové tajné kódy v Key Vault.
 
 2.  Přejděte do skupiny prostředků, kterou je nasazený virtuální počítač šablony registru kontejneru.
 
-    ![Skupina prostředků](./media/container-registry-template-rotating-secrets-tzl/resource-group.png)
+    ![Šablona registru kontejneru](./media/container-registry-template-rotating-secrets-tzl/image1.png)
 
 3. Vyberte nasazení v části **nasazení**.
 
-    ![Nasazení](./media/container-registry-template-rotating-secrets-tzl/deployments.png)
+    ![Šablona registru kontejneru](./media/container-registry-template-rotating-secrets-tzl/image2.png)
 
 4.  Při prvním střídání tajných klíčů vyberte původní nasazení. Pokud se nejedná o první střídání tajných klíčů, vyberte nejnovější nasazení a pak vyberte znovu **nasadit**.
 
-    ![Opětovné nasazení](./media/container-registry-template-rotating-secrets-tzl/redeploy.png)
+    ![Šablona registru kontejneru](./media/container-registry-template-rotating-secrets-tzl/image3.png)
 
 5.  V části **nasadit šablonu řešení** vyberte **použít existující skupinu prostředků** a vyberte skupinu prostředků, která se použila k původnímu nasazení šablony registru kontejneru. Aby bylo opětovné nasazení úspěšné, musí používat stejnou skupinu prostředků.
 
-    ![Nasadit šablonu řešení](./media/container-registry-template-rotating-secrets-tzl/deploy-solution-template.png)
+    ![Šablona registru kontejneru](./media/container-registry-template-rotating-secrets-tzl/image4.png)
 
 6.  V **parametrech** ověřte, zda parametry odpovídají původnímu nasazení. Bude nutné přidat ID a tajný klíč objektu instančního objektu služby.
 
@@ -273,7 +273,7 @@ Podle následujících pokynů nastavte nové tajné kódy v Key Vault.
 
     - Pokud certifikát přenášíte, budete muset zadat nové hodnoty pro PFXKeyVaultSecretURL a PFXThumbprint, které byly vydány jako výstup z nastavení nových tajných klíčů.
 
-    ![Parametry](./media/container-registry-template-rotating-secrets-tzl/parameters.png)
+    ![Šablona registru kontejneru](./media/container-registry-template-rotating-secrets-tzl/image5.png)
 
 7.  Vyberte **OK** a pak **vytvořit**. Opětovné nasazení bude pokračovat. Funkce registru budou během opětovného nasazení nadále fungovat.
 

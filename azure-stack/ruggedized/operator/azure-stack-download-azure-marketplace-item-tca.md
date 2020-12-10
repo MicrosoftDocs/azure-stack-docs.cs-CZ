@@ -11,16 +11,16 @@ ms.workload: tzl
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 01/02/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 32ba4c16d36622cbe2a9595c58e4ec2e2f46b481
+ms.lastreviewed: 01/02/2020
+ms.openlocfilehash: 734c84c1226a9e1ed4a9f3e34b787f1677ab6902
 ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935028"
+ms.locfileid: "96939523"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Stažení položek z Marketplace do centra Azure Stack 
 
@@ -50,7 +50,7 @@ Vaše nasazení centra Azure Stack musí mít připojení k Internetu a musí b�
 
 2. Před stažením položek z webu Marketplace zkontrolujte dostupný prostor úložiště. Později můžete po výběru položek ke stažení porovnat velikost stahovaných zařízení s dostupnou kapacitou úložiště. Pokud je kapacita omezená, zvažte možnosti [správy dostupného místa](../../operator/azure-stack-manage-storage-shares.md#manage-available-space).
 
-   Chcete-li zkontrolovat dostupné místo: v **oblasti Správa oblastí** vyberte oblast, kterou chcete prozkoumat, a pak klikněte na úložiště **poskytovatelé prostředků**  >  :
+   Chcete-li zkontrolovat dostupné místo: v **oblasti Správa oblastí** vyberte oblast, kterou chcete prozkoumat, a pak klikněte na úložiště **poskytovatelé prostředků**  >  **Storage**:
 
    ![Kontrola místa v úložišti Azure Stack portálu pro správu](media/azure-stack-download-azure-marketplace-item-tzl/storage.png)
 
@@ -60,11 +60,11 @@ Vaše nasazení centra Azure Stack musí mít připojení k Internetu a musí b�
 
 4. V každé položce řádku se zobrazí také aktuálně dostupná verze. Pokud je k dispozici více než jedna verze položky Marketplace, zobrazí se ve sloupci **verze** **více**. Kliknutím na každou položku můžete zobrazit její popis a další informace, včetně její velikosti ke stažení:
 
-   ![Přidat z Azure](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure-1.png)
+   ![Přidat z Azure](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure1.png)
 
 5. Pokud je verze položky zobrazená jako **více**, můžete tuto položku vybrat a pak vybrat konkrétní verzi z rozevíracího seznamu výsledná verze – výběr:
 
-   ![Přidat z Azure](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure-3.png)
+   ![Přidat z Azure](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure3.png)
 
 6. Vyberte položku, kterou chcete, a pak vyberte **Stáhnout**. Doba stahování se liší a závisí na připojení k síti. Po dokončení stahování můžete novou položku Marketplace nasadit buď jako operátor Azure Stack, nebo na uživatele.
 
@@ -90,10 +90,6 @@ V odpojeném prostředí nemůžete stáhnout položky Marketplace z Azure. K st
 
 #### <a name="download-items"></a>Stáhnout položky
 
-
-
-### <a name="az-modules"></a>[AZ modules](#tab/az1)
-
 1. Otevřete PowerShell a pokračujte na extrahovanou složku.
 
 2. Spusťte skript **Invoke-AzSMarketplaceDownload.ps1** PowerShellu:
@@ -104,42 +100,18 @@ V odpojeném prostředí nemůžete stáhnout položky Marketplace z Azure. K st
        -TenantName mytenant.onmicrosoft.com -DownloadFolder 'F:\offlineSyndication'
     ```
 
-    Případně, pokud jste už přihlášení prostřednictvím Azure PowerShell, můžete předat kontext Azure:
-
-    ```powershell
-    Add-AzAccount -Environment AzureCloud -Tenant mytenant.onmicrosoft.com 
-    .\Invoke-AzSMarketplaceDownload.ps1 -RegistrationResourceGroup 'azurestack' -RegistrationName '<registration name>' -DownloadFolder 'F:\offlineSyndication' -AzureContext $(Get-AzureRMContext)
-    ```
-    Pokud nepředáte kontext Azure, budete vyzváni k přihlášení.
-
-3. Zobrazí se okno, ve kterém můžete vybrat produkt, který chcete stáhnout. Můžete vybrat více položek stisknutím Ctrl + kliknutí.
-
-4. Vyberte **OK**. Tím se stáhne položka Marketplace a její závislosti, pokud existují.
-### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm1)
-
-1. Otevřete PowerShell a pokračujte na extrahovanou složku.
-
-2. Spusťte skript **Invoke-AzSMarketplaceDownload.ps1** PowerShellu:
-
-    ```powershell
-    .\Invoke-AzSMarketplaceDownload.ps1 -RegistrationSubscriptionId '<subscription ID>' ` 
-       -RegistrationResourceGroup 'azurestack' -RegistrationName '<registration name>' `
-       -TenantName mytenant.onmicrosoft.com -DownloadFolder 'F:\offlineSyndication'
-    ```
-
-    Případně, pokud jste už přihlášení prostřednictvím Azure PowerShell, můžete předat kontext Azure:
+    Pokud jste už přihlášení prostřednictvím Azure PowerShellu, můžete v kontextu Azure předat:
 
     ```powershell
     Add-AzureRmAccount -Environment AzureCloud -Tenant mytenant.onmicrosoft.com 
     .\Invoke-AzSMarketplaceDownload.ps1 -RegistrationResourceGroup 'azurestack' -RegistrationName '<registration name>' -DownloadFolder 'F:\offlineSyndication' -AzureContext $(Get-AzureRMContext)
     ```
+
     Pokud nepředáte kontext Azure, budete vyzváni k přihlášení.
 
 3. Zobrazí se okno, ve kterém můžete vybrat produkt, který chcete stáhnout. Můžete vybrat více položek stisknutím Ctrl + kliknutí.
 
 4. Vyberte **OK**. Tím se stáhne položka Marketplace a její závislosti, pokud existují.
-
----
 
 ### <a name="upload-marketplace-items-to-azure-stack-hub"></a>Nahrání položek Marketplace do centra Azure Stack
 
@@ -151,8 +123,6 @@ V odpojeném prostředí nemůžete stáhnout položky Marketplace z Azure. K st
 
 #### <a name="upload-items"></a>Nahrání položek
 
-### <a name="az-modules"></a>[AZ modules](#tab/az2)
-
 1. Otevřete PowerShell a pokračujte na extrahovanou složku.
 
 2. Spusťte skript **Invoke-AzSMarketplaceUpload.ps1** PowerShellu:
@@ -161,29 +131,7 @@ V odpojeném prostředí nemůžete stáhnout položky Marketplace z Azure. K st
     .\Invoke-AzsMarketplaceUpload.ps1 -AzureStackCloudName "AzureStack-Admin" -AzureStackAdminARMEndpoint https://adminmanagement.<region>.<fqdn> -TenantName mytenant.onmicrosoft.com -DownloadFolder F:\offlineSyndication
     ```
 
-    Alternativně můžete nastavit Azure Stack prostředí sami v Azure PowerShell, ověřit se na Správce prostředků koncový bod správce a předat kontext skriptu:
-
-    ```powershell
-    Add-AzEnvironment -Name Redmond-Admin -ARMEndpoint https://adminmanagement.redmond.azurestack.corp.microsoft.com
-
-    Add-AzAccount -Environment Redmond-Admin
-
-    .\Invoke-AzsMarketplaceUpload.ps1 -DownloadFolder F:\Downloads\offlining -AzureContext $(GetAzContext)
-    ```
-
-    Tento postup nahraje položky Marketplace do určeného centra Azure Stack.
-
-### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm2)
-
-1. Otevřete PowerShell a pokračujte na extrahovanou složku.
-
-2. Spusťte skript **Invoke-AzSMarketplaceUpload.ps1** PowerShellu:
-
-    ```powershell
-    .\Invoke-AzsMarketplaceUpload.ps1 -AzureStackCloudName "AzureStack-Admin" -AzureStackAdminARMEndpoint https://adminmanagement.<region>.<fqdn> -TenantName mytenant.onmicrosoft.com -DownloadFolder F:\offlineSyndication
-    ```
-
-    Alternativně můžete nastavit Azure Stack prostředí sami v Azure PowerShell, ověřit se na Správce prostředků koncový bod správce a předat kontext skriptu:
+    Alternativně můžete nastavit Azure Stack prostředí sami v prostředí Azure PowerShell, ověřit ho pro správce Správce prostředků koncovým bodem a předat do skriptu kontext:
 
     ```powershell
     Add-AzureRmEnvironment -Name Redmond-Admin -ARMEndpoint https://adminmanagement.redmond.azurestack.corp.microsoft.com
@@ -194,5 +142,3 @@ V odpojeném prostředí nemůžete stáhnout položky Marketplace z Azure. K st
     ```
 
     Tento postup nahraje položky Marketplace do určeného centra Azure Stack.
-
----

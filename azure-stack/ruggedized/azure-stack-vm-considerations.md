@@ -1,6 +1,6 @@
 ---
 title: Funkce Azure Stack virtuálního počítače | Microsoft Docs
-description: Přečtěte si o různých funkcích a ohledech při práci s virtuálními počítači v MDC.
+description: Přečtěte si o různých funkcích a ohledech při práci s virtuálními počítači v centru Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2019
+ms.date: 10/14/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: b8a5d2a0f08ac36b4f4ebc20e0dc3c9eea67218a
+ms.lastreviewed: 10/14/2020
+ms.openlocfilehash: 23e14de3afc3c29d843d7b6442c9b12890a60760
 ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935096"
+ms.locfileid: "96939576"
 ---
 # <a name="azure-stack-vm-features"></a>Funkce Azure Stack virtuálního počítače
 
@@ -31,10 +31,10 @@ Virtuální počítače s Azure Stack poskytují škálovatelné výpočetní pr
 | Funkce | Azure (Global) | Azure Stack |
 | --- | --- | --- |
 | Image virtuálních počítačů | Azure Marketplace obsahuje obrázky, které můžete použít k vytvoření virtuálního počítače. Pokud chcete zobrazit seznam imagí, které jsou k dispozici v Azure Marketplace, zobrazte stránku [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) . | Ve výchozím nastavení nejsou k dispozici žádné obrázky na webu Azure Stack Marketplace. Správce cloudu Azure Stack musí publikovat nebo stahovat image na webu Azure Stack Marketplace, aby je mohli uživatelé používat. |
-| Velikosti virtuálních počítačů | Azure podporuje širokou škálu velikostí virtuálních počítačů. Další informace o dostupných velikostech a možnostech najdete v tématech velikosti virtuálních počítačů s [Windows](/azure/virtual-machines/sizes) a [velikosti virtuálních počítačů Linux](/azure/virtual-machines/linux/sizes) . | Azure Stack podporuje podmnožinu velikostí virtuálních počítačů, které jsou k dispozici v Azure. Pokud chcete zobrazit seznam podporovaných velikostí, přečtěte si část [velikosti virtuálních počítačů](#vm-sizes) v tomto článku. |
+| Velikosti virtuálních počítačů | Azure podporuje širokou škálu velikostí virtuálních počítačů. Další informace o dostupných velikostech a možnostech najdete v tématech velikosti virtuálních počítačů s [Windows](/azure/virtual-machines/virtual-machines-windows-sizes) a [velikosti virtuálních počítačů Linux](/azure/virtual-machines/linux/sizes) . | Azure Stack podporuje podmnožinu velikostí virtuálních počítačů, které jsou k dispozici v Azure. Pokud chcete zobrazit seznam podporovaných velikostí, přečtěte si část [velikosti virtuálních počítačů](#vm-sizes) v tomto článku. |
 | Kvóty virtuálních počítačů | [Omezení kvót](/azure/azure-subscription-service-limits#service-specific-limits) nastavuje Microsoft. | Správce cloudu Azure Stack musí před tím, než nabídne virtuální počítač svým uživatelům, přiřadit kvóty. |
 | Rozšíření virtuálních počítačů |Azure podporuje širokou škálu rozšíření virtuálních počítačů. Další informace o dostupných rozšířeních najdete v článku o [rozšířeních virtuálních počítačů a funkcích](/azure/virtual-machines/windows/extensions-features) .| Azure Stack podporuje podmnožinu rozšíření, která jsou k dispozici v Azure, přičemž každé rozšíření má konkrétní verze. Správce cloudu Azure Stack může zvolit, která rozšíření budou uživatelům k dispozici. Pokud chcete zobrazit seznam podporovaných rozšíření, přečtěte si část [rozšíření virtuálních počítačů](#vm-extensions) v tomto článku. |
-| Síť virtuálního počítače | Veřejné IP adresy přiřazené k virtuálnímu počítači tenanta jsou přístupné přes Internet.<br><br><br>Virtuální počítače Azure mají pevný název DNS. | Veřejné IP adresy přiřazené k virtuálnímu počítači tenanta jsou přístupné jenom v prostředí Azure Stack Development Kit. Uživatel musí mít přístup k Azure Stack Development Kit přes [RDP](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) nebo [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) , aby se mohl připojit k virtuálnímu počítači vytvořenému v Azure Stack.<br><br>Virtuální počítače vytvořené v rámci konkrétní instance Azure Stack mají název DNS na základě hodnoty, která je nakonfigurovaná správcem cloudu. |
+| Síť virtuálního počítače | Veřejné IP adresy přiřazené k virtuálnímu počítači tenanta jsou přístupné přes Internet.<br><br><br>Virtuální počítače Azure mají pevný název DNS. | <!-- TZLASDKFIX Public IP addresses assigned to a tenant VM are accessible within the Azure Stack Development Kit environment only. A user must have access to the Azure Stack Development Kit via [RDP](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) or [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) to connect to a VM that is created in Azure Stack.--><br><br>Virtuální počítače vytvořené v rámci konkrétní instance Azure Stack mají název DNS na základě hodnoty, která je nakonfigurovaná správcem cloudu. |
 | Úložiště virtuálního počítače | Podporuje [spravované disky.](/azure/virtual-machines/windows/managed-disks-overview) | Spravované disky jsou podporované v Azure Stack s verzí 1808 a novější. |
 | Výkon disku virtuálního počítače | Závisí na typu a velikosti disku. | Závisí na velikosti virtuálního počítače, ke kterému jsou disky připojené. Další informace najdete [v článku velikosti virtuálních počítačů podporované v Azure Stack](azure-stack-vm-sizes.md) .
 | Verze rozhraní API | Azure má vždycky nejnovější verze rozhraní API pro všechny funkce virtuálních počítačů. | Azure Stack podporuje pro tyto služby specifické služby Azure a konkrétní verze rozhraní API. Pokud chcete zobrazit seznam podporovaných verzí rozhraní API, přečtěte si část [verze rozhraní API](#api-versions) tohoto článku. |
@@ -70,7 +70,6 @@ V následující tabulce jsou uvedené virtuální počítače, které jsou podp
 |Optimalizované z hlediska výpočetních služeb|F-series       |[F1 – F16 ÚROVNĚ](azure-stack-vm-sizes.md#f-series)    |
 |Optimalizované z hlediska výpočetních služeb|Řada FS      |[F1s úrovně – F16s úrovně](azure-stack-vm-sizes.md#fs-series)    |
 |Optimalizované z hlediska výpočetních služeb|Řada Fsv2    |[F2s_v2 – F64s_v2](azure-stack-vm-sizes.md#fsv2-series)    |
-|GPU zapnuto      |Řada NVv4    |[NVv4](azure-stack-vm-sizes.md#nvv4-series) |
 
 Velikosti virtuálních počítačů a jejich přidružená množství prostředků jsou konzistentní mezi Azure Stack a Azure. Tato konzistence zahrnuje množství paměti, počet jader a počet a velikost datových disků, které lze vytvořit. Výkon virtuálních počítačů se stejnou velikostí ale závisí na základních charakteristikách konkrétního Azure Stackho prostředí.
 
@@ -79,6 +78,8 @@ Velikosti virtuálních počítačů a jejich přidružená množství prostřed
 Azure Stack obsahuje malou sadu rozšíření. Aktualizace a další rozšíření jsou k dispozici prostřednictvím syndikace webu Marketplace.
 
 Pomocí následujícího skriptu PowerShellu Získejte seznam rozšíření virtuálních počítačů, která jsou k dispozici ve vašem prostředí Azure Stack:
+
+Pokud zřízení rozšíření na nasazení virtuálního počítače trvá příliš dlouho, nechte místo toho časový limit pro zrušení přidělení nebo odstranění virtuálního počítače.
 
 ### <a name="az-modules"></a>[AZ modules](#tab/az1)
 
@@ -89,6 +90,7 @@ Get-AzVmImagePublisher -Location local | `
   Select Type, Version | `
   Format-Table -Property * -AutoSize
 ```
+
 ### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm1)
 
 ```powershell
@@ -101,8 +103,6 @@ Get-AzureRmVmImagePublisher -Location local | `
 
 ---
 
-Pokud zřízení rozšíření na nasazení virtuálního počítače trvá moc dlouho, nechte časový limit zřizování místo toho, abyste se pokoušeli zastavit proces navrácení nebo odstranění virtuálního počítače.
-
 ## <a name="api-versions"></a>Verze rozhraní API
 
 Funkce virtuálních počítačů v Azure Stack podporují následující verze rozhraní API:
@@ -111,7 +111,7 @@ Funkce virtuálních počítačů v Azure Stack podporují následující verze 
 
 K získání verzí rozhraní API pro funkce virtuálních počítačů, které jsou k dispozici ve vašem prostředí Azure Stack, můžete použít následující skript prostředí PowerShell:
 
-### <a name="az-modules"></a>[AZ modules](#tab/az)
+### <a name="az-modules"></a>[AZ modules](#tab/az2)
 
 ```powershell
 Get-AzResourceProvider | `
@@ -120,7 +120,7 @@ Get-AzResourceProvider | `
   Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `
   where-Object {$_.ProviderNamespace -like "Microsoft.compute"}
 ```
-### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm)
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm2)
 
 ```powershell
 Get-AzureRmResourceProvider | `
@@ -131,6 +131,7 @@ Get-AzureRmResourceProvider | `
 ```
 
 ---
+
 
 Seznam podporovaných typů prostředků a verzí rozhraní API se může lišit, pokud operátor cloudu aktualizuje vaše Azure Stack prostředí na novější verzi.
 

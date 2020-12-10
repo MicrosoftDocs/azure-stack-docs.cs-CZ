@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2020
+ms.date: 07/29/2020
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 10/27/2020
-ms.openlocfilehash: 9e7bb8b8174423a21c4f08e09cdb10d2a37bf556
+ms.lastreviewed: 07/29/2020
+ms.openlocfilehash: f546c1ad783ded0aa686ebdcb7e08f1427bea91e
 ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935062"
+ms.locfileid: "96939643"
 ---
 # <a name="analyze-azure-stack-usage-with-local-usage-meters"></a>Analýza využití Azure Stack místními měřiči využití
 
@@ -102,28 +102,15 @@ meterID1",
 
 ### <a name="powershell"></a>PowerShell
 
-Pokud chcete vygenerovat data o využití, měli byste mít prostředky, na kterých běží a aktivně používají systém. Například aktivní virtuální počítač (VM) nebo účet úložiště obsahující data. Pokud si nejste jistí, jestli máte nějaké prostředky spuštěné na webu Azure Stack Marketplace, nasaďte virtuální počítač a ověřte okno monitorování virtuálního počítače, abyste se ujistili, že je spuštěný. K zobrazení dat o využití použijte následující rutiny PowerShellu.
+Pokud chcete vygenerovat data o využití, měli byste mít prostředky, na kterých běží a aktivně používají systém. Například aktivní virtuální počítač (VM) nebo účet úložiště obsahující data. Pokud si nejste jistí, jestli máte nějaké prostředky spuštěné na webu Azure Stack Marketplace, nasaďte virtuální počítač a ověřte okno monitorování virtuálního počítače, abyste se ujistili, že je spuštěný. K zobrazení dat o využití použijte následující rutiny PowerShellu:
 
-### <a name="az-modules"></a>[AZ modules](#tab/az1)
-
-1. [Nainstalujte PowerShell pro Azure Stack](../../operator/powershell-install-az-module.md).
+1. [Nainstalujte PowerShell pro Azure Stack](../../operator/azure-stack-powershell-install.md).
 2. [Nakonfigurujte Azure Stackho uživatele](../../user/azure-stack-powershell-configure-user.md) nebo prostředí powershellu [Azure Stack operator](../../operator/azure-stack-powershell-configure-admin.md) .
 3. Pokud chcete načíst data o využití, zavolejte rutinu PowerShellu [Get-AzsSubscriberUsage](/powershell/module/azs.commerce.admin/get-azssubscriberusage) :
 
    ```powershell
    Get-AzsSubscriberUsage -ReportedStartTime "2017-09-06T00:00:00Z" -ReportedEndTime "2017-09-07T00:00:00Z"
    ```
-### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm1)
-
-1. [Nainstalujte PowerShell pro Azure Stack](../../operator/powershell-install-az-module.md).
-2. [Nakonfigurujte Azure Stackho uživatele](../../user/azure-stack-powershell-configure-user.md) nebo prostředí powershellu [Azure Stack operator](../../operator/azure-stack-powershell-configure-admin.md) .
-3. Pokud chcete načíst data o využití, zavolejte rutinu PowerShellu [Get-AzsSubscriberUsage](/powershell/module/azs.commerce.admin/get-azssubscriberusage) :
-
-   ```powershell
-   Get-AzsSubscriberUsage -ReportedStartTime "2017-09-06T00:00:00Z" -ReportedEndTime "2017-09-07T00:00:00Z"
-   ```
-
----
 
 ### <a name="rest-api"></a>REST API
 

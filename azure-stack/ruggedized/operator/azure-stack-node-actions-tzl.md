@@ -1,18 +1,26 @@
 ---
 title: Akce uzlů jednotek škálování ve službě Azure Stack Hub
 description: Seznamte se s akcemi uzlu jednotky škálování, včetně zapnutí, vypnutí, zakázání, obnovení a zobrazení stavu uzlu v integrovaných systémech Azure Stack hub.
-author: IngridAtMicrosoft
+services: azure-stack
+documentationcenter: ''
+author: sethmanheim
+manager: femila
+editor: ''
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2020
-ms.author: justinha
-ms.reviewer: thoroet
-ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: f7bc89e42b315fea585a87d93795a0e1b0f574f3
+ms.date: 12/20/2019
+ms.author: sethm
+ms.reviewer: alfredop
+ms.lastreviewed: 12/20/2020
+ms.openlocfilehash: 768d51257e1d70979c2ee0f43aad4db8430cf8cf
 ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934892"
+ms.locfileid: "96939548"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Akce uzlů jednotek škálování ve službě Azure Stack Hub
 
@@ -35,14 +43,14 @@ Zobrazení stavu jednotky škálování:
    Podívejte se na následující informace:
 
    - Seznam jednotlivých uzlů
-   - Provozní stav (viz seznam níže)
-   - Stav napájení (spuštěno nebo zastaveno)
-   - Model serveru
-   - IP adresa řadiče pro správu základní desky (BMC)
+   - Provozní stav (viz seznam níže).
+   - Stav napájení (spuštěno nebo zastaveno).
+   - Model serveru.//
+   - IP adresa řadiče pro správu základní desky (BMC).
    - Celkový počet jader
-   - Celková velikost paměti
+   - Celková velikost paměti.
 
-     ![stav jednotky škálování](media/azure-stack-node-actions/multinode-actions.png)
+![stav jednotky škálování](media/azure-stack-node-actions/multinodeactions.png)
 
 ### <a name="node-operational-states"></a>Provozní stavy uzlu
 
@@ -66,13 +74,13 @@ Když zobrazíte informace o uzlu jednotky škálování, můžete také provád
 
 Provozní stav uzlu určuje, které možnosti jsou k dispozici.
 
-Je potřeba nainstalovat moduly PowerShellu Azure Stack hub. Tyto rutiny jsou v modulu **AZS. Fabric. admin** . Pokud chcete nainstalovat nebo ověřit instalaci PowerShellu pro centrum Azure Stack, přečtěte si téma [instalace PowerShellu pro centrum Azure Stack](../../operator/powershell-install-az-module.md).
+Je potřeba nainstalovat moduly PowerShellu Azure Stack hub. Tyto rutiny jsou v modulu **AZS. Fabric. admin** . Pokud chcete nainstalovat nebo ověřit instalaci PowerShellu pro centrum Azure Stack, přečtěte si téma [instalace PowerShellu pro centrum Azure Stack](../../operator/azure-stack-powershell-install.md).
 
 ## <a name="stop"></a>Zastavit
 
 Akce **zastavit** vypne uzel. Je stejný jako při stisknutí tlačítka napájení. Neposílá signál vypnutí operačnímu systému. V případě plánovaných operací zastavení vždy zkuste operaci vypnutí provést jako první.
 
-Tato akce se obvykle používá, pokud je uzel v nereagující stavu.
+Tato akce se obvykle používá v případě, že je uzel ve stavu neodpovídá a již nereaguje na požadavky.
 
 Pokud chcete spustit akci zastavení, otevřete příkazový řádek prostředí PowerShell se zvýšenými oprávněními a spusťte následující rutinu:
 
@@ -132,7 +140,7 @@ Další informace najdete v tématu [Enable-AzsScaleUnitNode](https://docs.micro
 Akce **opravy** opraví uzel. Použijte ji pouze v jednom z následujících scénářů:
 
 - Úplné nahrazení uzlů (s novými datovými disky nebo bez nich).
-- Po selhání a nahrazení hardwarových součástí (Pokud je to doporučeno v dokumentaci k poli replacená jednotka (FRU)).
+- Po selhání a nahrazení hardwarových součástí (Pokud je to doporučeno v dokumentaci k umístění jednotky [FRU]).
 
 > [!Important]  
 > Přesný postup, pokud potřebujete nahradit uzel nebo jednotlivé hardwarové součásti, najdete v dokumentaci k prostředí FRU dodavatele hardwaru OEM. V dokumentaci k rozhraní FRU se určí, zda je po nahrazení hardwarové součásti nutné spustit akci opravy.

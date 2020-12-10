@@ -3,17 +3,17 @@ title: Stažení položek z webu Marketplace z Azure a publikování do centra A
 description: Přečtěte si, jak stáhnout položky z webu Marketplace z Azure a publikovat do centra Azure Stack.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 12/9/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 11/18/2020
+ms.lastreviewed: 12/9/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: ce6e3b416731f07989e8a7c1d91e363059e11bbc
-ms.sourcegitcommit: 9bca59a53787a9884b4643eb760ad1b2c1feb57f
+ms.openlocfilehash: e66d49fc20a9cfbc70eeeb11a7817bd5bc75d7c0
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96579766"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96934960"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Stažení položek z Marketplace do centra Azure Stack
 
@@ -88,14 +88,23 @@ Tento scénář obsahuje dvě části:
   - Počítač, který má připojení k Internetu, musí mít **modul prostředí PowerShell pro Azure Stack verze 1.2.11** nebo novější. Pokud ještě neexistuje, [nainstalujte Azure Stack moduly PowerShellu specifické pro centrum](powershell-install-az-module.md).
 
   - Pokud chcete povolit import stažené položky Marketplace, musí se nakonfigurovat [prostředí PowerShell pro operátor centra Azure Stack](azure-stack-powershell-configure-admin.md) .
+  - .NET Framework 4,7 nebo novější.
 
-- Stáhněte modul **AZS. Syndication. admin** z Galerie prostředí PowerShell pomocí následujícího příkazu:
+Stáhněte modul **AZS. Syndication. admin** z Galerie prostředí PowerShell pomocí následujícího příkazu:
+
+### <a name="az-modules"></a>[AZ modules](#tab/az1)
+
+  ```powershell
+  Install-Module -Name Azs.Syndication.Admin -AllowPrerelease -PassThru
+  ```
+
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm1)
 
   ```powershell
   Install-Module -Name Azs.Syndication.Admin -RequiredVersion 0.1.140
   ```
-  
-- .NET Framework 4,7 nebo novější.
+
+---
 
 Po registraci Azure Stack můžete ignorovat následující zprávu, která se zobrazí v okně správy Marketplace, protože není relevantní pro případ odpojeného použití:
 
@@ -106,7 +115,7 @@ Po registraci Azure Stack můžete ignorovat následující zprávu, která se z
 > [!IMPORTANT]
 > Nezapomeňte si stáhnout nástroj syndikace webu Marketplace při každém stažení položek Marketplace v odpojeném scénáři. V tomto nástroji jsou k disopakující se změny a nejaktuálnější verze by se měla použít pro každé stažení.
 
-### <a name="az-modules"></a>[AZ modules](#tab/az)
+### <a name="az-modules"></a>[AZ modules](#tab/az2)
 
 1. V počítači s připojením k Internetu otevřete konzolu PowerShellu jako správce.
 
@@ -130,7 +139,7 @@ Po registraci Azure Stack můžete ignorovat následující zprávu, která se z
 4. Pokud jste to ještě neudělali v kroku požadavky, Stáhněte si nejnovější verzi nástroje syndikace webu Marketplace:
 
    ```powershell
-   Install-Module -Name Azs.Syndication.Admin -RequiredVersion 0.1.140
+   Install-Module -Name Azs.Syndication.Admin -AllowPrerelease -PassThru
    ```
 
 5. Pokud chcete vybrat položky Marketplace, například image virtuálních počítačů, rozšíření nebo šablony řešení ke stažení, spusťte následující příkaz:
@@ -174,7 +183,7 @@ Po registraci Azure Stack můžete ignorovat následující zprávu, která se z
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azs.Syndication.Admin -Path "Destination folder path in quotes" -Force
     ```
 
-### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm)
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm2)
 
 1. V počítači s připojením k Internetu otevřete konzolu PowerShellu jako správce.
 
@@ -198,7 +207,7 @@ Po registraci Azure Stack můžete ignorovat následující zprávu, která se z
 4. Pokud jste to ještě neudělali v kroku požadavky, Stáhněte si nejnovější verzi nástroje syndikace webu Marketplace:
 
    ```powershell
-   Install-Module -Name Azs.Syndication.Admin -PassThru
+   Install-Module -Name Azs.Syndication.Admin -RequiredVersion 0.1.140
    ```
 
 5. Pokud chcete vybrat položky Marketplace, například image virtuálních počítačů, rozšíření nebo šablony řešení ke stažení, spusťte následující příkaz:

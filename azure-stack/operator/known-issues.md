@@ -7,12 +7,12 @@ ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: da21b724e914527ef2a4d5065d1d83a30ad3bb85
-ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
+ms.openlocfilehash: 161869d04e036e5265ebceb5cab9e193091baa37
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94785765"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96935136"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Známé problémy centra Azure Stack
 
@@ -164,7 +164,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Náprava: Pokud chcete veřejnou IP adresu vrátit do úspěšného stavu, změňte hodnotu **IdleTimeoutInMinutes** u pravidla vyrovnávání zatížení, které odkazuje na veřejnou IP adresu zpátky na původní hodnotu (výchozí hodnota je 4 minuty).
 - Výskyt: běžné
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Výpočetní prostředky
 
 ### <a name="issues-deploying-virtual-machine-scale-set-with-standard_ds2_v2-size-using-the-portal"></a>Problémy s nasazením sady škálování virtuálních počítačů s Standard_DS2_v2 velikostí pomocí portálu
 
@@ -226,6 +226,12 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Platí: Tento problém se týká verze 2002.
 - Příčina: Pokud razítko obsahuje App Service Resource Provider (RP) verze 1,7 a starší, po aktualizaci razítka se okna pro App Service nenačte.
 - Náprava: aktualizujte RP na verzi 2002 F2.
+
+## <a name="powershell"></a>PowerShell
+
+[!Include[Known issue for install - one](../includes/known-issue-az-install-1.md)]
+
+[!Include[Known issue for install - two](../includes/known-issue-az-install-2.md)]
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
@@ -347,13 +353,13 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
   - [Okruhy ExpressRoute](azure-stack-connect-expressroute.md)
   - [Zadat vlastní zásady IPsec/IKE](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-## <a name="compute"></a>Compute
+## <a name="compute"></a>Výpočetní prostředky
 
 ### <a name="cannot-create-a-virtual-machine-scale-set-with-standard_ds2_v2-vm-size-on-portal"></a>Nejde vytvořit sadu škálování virtuálního počítače s Standard_DS2_v2 velikostí virtuálního počítače na portálu.
 
 - Platí: Tento problém se týká verze 2002.
-- Příčina: došlo k chybě portálu, která znemožňuje vytvoření sady škálování virtuálního počítače s Standard_DS2_v2 velikostí virtuálního počítače. Při jeho vytváření dojde k chybě: "{" Code ":" DeploymentFailed "," Message ":" nejméně jedna operace nasazení prostředků se nezdařila. Podrobnosti najdete ve výpisu operací nasazení. Podrobnosti o https://aka.ms/arm-debug využití najdete v podrobnostech o použití. "," Details ": [{" Code ":" důvodu chybného požadavku "," Message ":" {\r\n \" Error \" : {\r\n \" Code \" : \" NetworkProfileValidationError \" , \r\n \" zpráva \" : \" Velikost virtuálního počítače Standard_DS2_v2 není v seznamu povolených velikostí virtuálních počítačů pro urychlené síťové služby na virtuálním počítači v indexu 0 pro/Subscriptions/x/resourceGroups/RGVMSS/Providers/Microsoft.COMPUTE/virtualMachineScaleSets/VMSS. VM Scale set. Povolené velikosti:. \" \r\n} \r\n} "}]}"
-- Náprava: Vytvořte sadu škálování virtuálního počítače pomocí PowerShellu nebo šablony Resource Manageru.
+- Příčina: došlo k chybě portálu, která znemožňuje vytvoření sady škálování virtuálního počítače s Standard_DS2_v2 velikostí virtuálního počítače. Při jeho vytváření dojde k chybě: "{" Code ":" DeploymentFailed "," Message ":" nejméně jedna operace nasazení prostředků se nezdařila. Podrobnosti najdete ve výpisu operací nasazení. Podrobnosti o https://aka.ms/arm-debug využití najdete v podrobnostech o použití. "," Details ": [{" Code ":" důvodu chybného požadavku "," Message ":" {\r\n \" Chyba \" : {\r\n \" Code \" : \" NetworkProfileValidationError \" , \r\n \" zpráva \" : \" Velikost virtuálního počítače Standard_DS2_v2 není v seznamu povolených velikostí virtuálních počítačů pro urychlené síťové služby na virtuálním počítači v indexu 0 pro/Subscriptions/x/resourceGroups/RGVMSS/Providers/Microsoft.COMPUTE/virtualMachineScaleSets/VMSS. sadu virtuálních počítačů. Povolené velikosti:. \" \r\n} \r\n} "}]}"
+- Náprava: Vytvořte sadu škálování virtuálního počítače pomocí PowerShellu nebo šablony Správce prostředků.
 
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>Okno s přehledem virtuálních počítačů nezobrazuje správný název počítače
 
@@ -415,7 +421,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 ### <a name="retention-period-revert-to-0"></a>Doba uchování se vrátí na 0.
 
 - Platí: Tento problém se týká verze 2002 a 2005.
-- Příčina: Pokud jste dřív zadali časové období jiné než 0 v nastavení doby uchovávání, vrátí se zpět na 0 (výchozí hodnota tohoto nastavení) během aktualizace 2002 a 2005. A nastavení 0 dnů se projeví immdiately po dokončení aktualizace, což způsobí, že všechny existující odstraněné účty úložiště a všechny nadcházející nově odstraněné účty úložiště budou okamžitě neuchovávány a jsou označené pro periodické uvolňování paměti (které běží každou hodinu). 
+- Příčina: Pokud jste dřív zadali časové období jiné než 0 v nastavení doby uchovávání, vrátí se zpět na 0 (výchozí hodnota tohoto nastavení) během aktualizace 2002 a 2005. A nastavení 0 dnů se projeví hned po dokončení aktualizace, což způsobí, že všechny existující odstraněné účty úložiště a všechny nadcházející nově odstraněné účty úložiště budou okamžitě neuchovávány a jsou označené pro periodické uvolňování paměti (které běží každou hodinu). 
 - Náprava: ručně zadejte dobu uchování do správného období. Nicméně všechny účty úložiště, které už byly shromážděné paměti před tím, než je zadaná nová doba uchování, nejde obnovit.  
 
 ## <a name="resource-providers"></a>Poskytovatelé prostředků
@@ -431,6 +437,12 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Platí: Tento problém se týká verze 2002.
 - Příčina: Pokud razítko obsahuje App Service Resource Provider (RP) verze 1,7 a starší, po aktualizaci razítka se okna pro App Service nenačte.
 - Náprava: aktualizujte RP na verzi [2020 F2](azure-stack-app-service-update.md).
+
+## <a name="powershell"></a>PowerShell
+
+[!Include[Known issue for install - one](../includes/known-issue-az-install-1.md)]
+
+[!Include[Known issue for install - two](../includes/known-issue-az-install-2.md)]
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->

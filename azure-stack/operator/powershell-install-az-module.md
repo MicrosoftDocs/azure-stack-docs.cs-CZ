@@ -7,12 +7,12 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 8fc2990d49d074f56a53fa02983ffd334804ea1d
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 91ddbc5aeb9c10b49b21db331e6e7c71a8a15764
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525672"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96935198"
 ---
 # <a name="install-powershell-az-module-for-azure-stack-hub"></a>Instalace prostředí PowerShell AZ Module pro Azure Stack hub
 
@@ -55,9 +55,9 @@ Je potřeba PowerShell Core 6. x nebo novější verze. Pokyny najdete na tomto 
 
 ## <a name="3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules"></a>3. odinstalujte existující verze modulů prostředí PowerShell centra Azure Stack.
 
-Před instalací požadované verze se ujistěte, že jste odinstalovali všechny dříve nainstalované Azure Stack centra prostředků Azure nebo AZ PowerShell Modules. Moduly odinstalujte pomocí jedné z následujících dvou metod:
+Před instalací požadované verze se ujistěte, že jste odinstalovali všechny dříve nainstalované Azure Stack centra Azure Resource Manager nebo AZ PowerShell Module. Moduly odinstalujte pomocí jedné z následujících dvou metod:
 
-1. Pokud chcete odinstalovat existující moduly prostředků Azure a AZ PowerShell modules, zavřete všechny aktivní relace PowerShellu a spusťte následující rutiny:
+1. Pokud chcete odinstalovat existující Azure Resource Manager a AZ PowerShell modules, zavřete všechny aktivní relace PowerShellu a spusťte následující rutiny:
 
     ```powershell
     Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose -ErrorAction Continue
@@ -86,7 +86,7 @@ Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
 > 2.0.0 pro modul centra Azure Stack je zásadní změna. Podrobnosti najdete [v tématu Migrace z AzureRM na adresu Azure PowerShell AZ in Azure Stack hub](migrate-azurerm-az.md) .
 
 > [!WARNING]
-> Nemůžete mít současně oba moduly prostředků Azure (AzureRM) a AZ Module nainstalované pro PowerShell 5,1 pro Windows. Pokud potřebujete zachovat moduly prostředků Azure, které jsou k dispozici v systému, nainstalujte modul AZ Module pro PowerShell Core 6. x nebo novější. Pokud to chcete provést, [nainstalujte PowerShell Core 6. x nebo novější](/powershell/scripting/install/installing-powershell-core-on-windows) a pak postupujte podle těchto pokynů v terminálu PowerShell Core.
+> V prostředí PowerShell 5,1 pro Windows nemůžete současně nainstalovat současně Azure Resource Manager (AzureRM) a AZ Module. Pokud potřebujete zachovat Azure Resource Manager k dispozici v systému, nainstalujte modul AZ Module pro PowerShell Core 6. x nebo novější. Pokud to chcete provést, [nainstalujte PowerShell Core 6. x nebo novější](/powershell/scripting/install/installing-powershell-core-on-windows) a pak postupujte podle těchto pokynů v terminálu PowerShell Core.
 
 ## <a name="5-disconnected-install-without-internet-connection"></a>5. odpojeno: instalace bez připojení k Internetu
 
@@ -107,7 +107,7 @@ Instalace má pět kroků:
 ::: moniker range=">=azs-2002"
 Azure Stack hub 2002 nebo novější.
 
-Můžete použít buď moduly prostředků Azure, nebo AZ Modules. Moduly prostředků Azure najdete v pokynech v tématu [install PowerShell AzureRM Module](powershell-install-az-module.md). Následující kód ukládá moduly z důvěryhodného online úložiště https://www.powershellgallery.com/ .
+Můžete buď použít Azure Resource Manager, nebo AZ Modules. Azure Resource Manager najdete v pokynech v tématu [install PowerShell AzureRM Module](powershell-install-az-module.md). Následující kód ukládá moduly z důvěryhodného online úložiště https://www.powershellgallery.com/ .
 
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
@@ -181,7 +181,7 @@ Ve scénářích, které vyžadují proxy server pro přístup k Internetu, mus�
 
 ## <a name="7-use-the-az-module"></a>7. použijte modul AZ Module
 
-Můžete použít rutiny a ukázky kódu založené na modulech prostředků Azure. Nicméně budete chtít změnit název modulů a rutin. Názvy modulů se změnily tak, že `AzureRM` a Azure se stanou a `Az` jsou stejné pro rutiny. Například `AzureRM.Compute` modul byl přejmenován na `Az.Compute` .` New-AzureRMVM` se změnilo na ` New-AzVM` a `Get-AzureStorageBlob` je teď `Get-AzStorageBlob`.
+Můžete použít rutiny a ukázky kódu založené na Azure Resource Manager. Nicméně budete chtít změnit název modulů a rutin. Názvy modulů se změnily tak, že `AzureRM` a Azure se stanou a `Az` jsou stejné pro rutiny. Například `AzureRM.Compute` modul byl přejmenován na `Az.Compute` .` New-AzureRMVM` se změnilo na ` New-AzVM` a `Get-AzureStorageBlob` je teď `Get-AzStorageBlob`.
 
 Důkladnější diskuzi a pokyny pro přesunutí skriptu AzurRM k AZ a průlom Changes in the Azure Stack hub 's hub najdete v tématu [migrace z AzureRM na Azure PowerShell AZ](migrate-azurerm-az.md).
 

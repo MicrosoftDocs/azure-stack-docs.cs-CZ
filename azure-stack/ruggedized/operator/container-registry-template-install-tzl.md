@@ -16,16 +16,16 @@ ms.date: 1/10/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: 44cf8fe76ec203fb0a6260a92c4e47641d4f40f8
+ms.openlocfilehash: 5d97f12e6bc933edf7b5b335ebd52a86a1a7f01d
 ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934996"
+ms.locfileid: "96939496"
 ---
 # <a name="add-a-container-registry-to-azure-stack-hub"></a>Přidání registru kontejneru do centra Azure Stack
 
-Registr kontejnerů můžete přidat do svého tržiště centra Azure Stack, aby uživatelé mohli nasadit a udržovat vlastní registr kontejnerů. Tato šablona řešení nainstaluje a nakonfiguruje Open Source Docker Container Registry v předplatném uživatele, které běží na AKS Base Ubuntu 16,04-LTS. Šablona podporuje nasazení připojená i odpojená (air-gapped) a podporuje jak Azure Active Directory (Azure AD), tak i služba Active Directory federované služby (AD FS) nasazené Azure Stack centra.
+Registr kontejnerů můžete přidat do svého tržiště centra Azure Stack, aby uživatelé mohli nasadit a udržovat vlastní registr kontejnerů. Tato šablona řešení nainstaluje a nakonfiguruje Open Source Docker Container Registry v předplatném uživatele, které běží na AKS Base Ubuntu 16,04-LTS. Šablona podporuje nasazení připojená i odpojená (air-gapped) a podporuje jak Azure Active Directory (AAD), tak i služba Active Directory federované služby (AD FS) nasazené Azure Stack rozbočovače.
 
 ## <a name="get-the-marketplace-item"></a>Získat položku Marketplace
 
@@ -39,12 +39,12 @@ Před přidáním položky Container Registry Marketplace do centra Azure Stack 
 
 | Položka | Typ | Podrobnosti |
 | --- | --- | --- |
-| Moduly PowerShellu centra Azure Stack (AZS. Gallery. admin) | Moduly PowerShellu | Vyžaduje se pouze v případě, že se na straně načítá položka galerie šablon registru kontejnerů, moduly PowerShellu Azure Stack centra slouží k přidávání a odebírání položek galerie.<br>[Instalace modulů Azure Stack PowerShellu](../../operator/powershell-install-az-module.md) |
+| Moduly PowerShellu centra Azure Stack (AZS. Gallery. admin) | Moduly PowerShellu | Vyžaduje se pouze v případě, že se na straně načítá položka galerie šablon registru kontejnerů, moduly PowerShellu Azure Stack centra slouží k přidávání a odebírání položek galerie.<br>[Instalace modulů Azure Stack PowerShellu](../../operator/azure-stack-powershell-install.md) |
 | Šablona Container Registry | Položka Marketplace | Aby bylo možné nasadit registr kontejnerů jako uživatele centra Azure Stack, musí být položka Marketplace pro šablonu registru kontejneru k dispozici ve vašem předplatném, nebo ji ručně přidat (načetli) do svého tržiště Azure Stack hub. Při načítání na straně stran podle pokynů načtěte balíček v `readme.md` [úložišti GitHub](https://github.com/msazurestackworkloads/azurestack-gallery/releases/tag/registry-v1.0.1). |
-| AKS Base Ubuntu 16,04 – obrázek LTS, minimální verze vydaná v září 2019 | Položka Marketplace | Aby mohli uživatelé centra Azure Stack nasadit registr kontejnerů, je nutné, aby byla na webu Marketplace dostupná základní bitová kopie AKS. Šablona registru kontejnerů používá bitovou kopii při instalaci virtuálního počítače Ubuntu z předplatného, které hostuje binární soubory registru kontejneru Docker. |
+| AKS Base Ubuntu 16,04 – obrázek LTS, minimální verze vydaná v září 2019 | Položka Marketplace | Aby mohli uživatelé centra Azure Stack nasadit registr kontejnerů, je nutné, aby byla na webu Marketplace dostupná základní bitová kopie AKS. Šablona registru kontejnerů používá bitovou kopii při Ubuntu virtuálním počítači, který hostuje binární soubory registru kontejneru Docker. |
 | Rozšíření vlastních skriptů pro Linux 2,0 | Položka Marketplace | Aby mohli uživatelé centra Azure Stack nasadit registr kontejnerů, musíte na webu Marketplace zpřístupnit rozšíření vlastních skriptů pro Linux. Nasazení šablony registru kontejnerů používá rozšíření ke konfiguraci registru. |
 | Certifikát SSL | Certifikát | Uživatelé, kteří nasazují šablonu registru kontejnerů, musí zadat certifikát PFX, který se používá při konfiguraci šifrování SSL pro službu registru. Pokud používáte skript, budete muset spustit relaci PowerShellu z příkazového řádku se zvýšenými oprávněními. To by nemělo být spuštěno na DVM nebo HLH.<br>Obecné pokyny týkající se požadavků na certifikáty PKI pro Azure Stack centra pomocí veřejných nebo privátních nebo podnikových certifikátů najdete v této dokumentaci v tématu [požadavky na certifikát infrastruktury veřejných klíčů (PKI) Azure Stack hub](../../operator/azure-stack-pki-certs.md) .<br>Plně kvalifikovaný název domény pro certifikát by měl postupovat podle tohoto vzoru, `<vmname>.<location>.cloudapp.<fqdn>` Pokud nepoužíváte vlastní položku domény nebo DNS pro koncový bod. Název by měl začínat písmenem a obsahovat alespoň dvě písmena, používejte jenom malá písmena a musí být dlouhé aspoň tři znaky. |
-| Princip služby (SPN) | Registrace aplikace | Chcete-li nasadit a nakonfigurovat registr kontejnerů, je třeba vytvořit registraci aplikace, označovanou také jako instanční objekt (SPN). Tento hlavní název služby se používá při konfiguraci virtuálního počítače a registru pro přístup k Microsoft Azure prostředkům Key Vault a účtu úložiště vytvořeným před nasazením položky Marketplace.<br>Hlavní název služby (SPN) by se měl vytvořit ve službě Azure AD v rámci tenanta, ke kterému se přihlašujete, na portále pro uživatele centra Azure Stack. Pokud použijete AD FS, vytvoří se v místním adresáři.<br>Podrobnosti o tom, jak vytvořit hlavní název služby (SPN) pro metody ověřování Azure AD a AD FS, najdete [v následujících pokynech](../../operator/azure-stack-create-service-principals.md).<br> **Důležité**: Pokud chcete nasadit aktualizace, budete muset uložit ID a tajný kód aplikace hlavního názvu služby (SPN).<br> |
+| Princip služby (SPN) | Registrace aplikace | Chcete-li nasadit a nakonfigurovat registr kontejnerů, je třeba vytvořit registraci aplikace, označovanou také jako instanční objekt (SPN). Tento hlavní název služby se používá při konfiguraci virtuálního počítače a registru pro přístup k Microsoft Azure prostředkům Key Vault a účtu úložiště vytvořeným před nasazením položky Marketplace.<br>Hlavní název služby (SPN) by se měl vytvořit v AAD v rámci tenanta, ke kterému se přihlašujete, na portálu pro uživatele centra Azure Stack. Pokud použijete AD FS, vytvoří se v místním adresáři.<br>Podrobnosti o tom, jak vytvořit hlavní název služby (SPN) pro metody ověřování AAD i AD FS, najdete [v následujících pokynech](../../operator/azure-stack-create-service-principals.md).<br> **Důležité**: Pokud chcete nasadit aktualizace, budete muset uložit ID a tajný kód aplikace hlavního názvu služby (SPN).<br> |
 | Uživatelské jméno a heslo registru | Přihlašovací údaje | Je nasazený a nakonfigurovaný zdrojový registr kontejneru Docker, který má povolené základní ověřování. Chcete-li získat přístup k registru pomocí příkazů Docker pro odesílání a vyžádání imagí, je nutné zadat uživatelské jméno a heslo. Uživatelské jméno a heslo jsou bezpečně uložené v Key Vaultm úložišti.<br>**Důležité**: Pokud se chcete přihlásit k registru a vkládat a vyžádat image, budete muset uložit uživatelské jméno a heslo registru. |
 | Veřejný a privátní klíč SSH | Přihlašovací údaje | K řešení problémů s nasazením nebo běhovými problémy s virtuálním počítačem je třeba poskytnout veřejný klíč SSH pro nasazení a odpovídající privátní klíč. Doporučuje se použít formát OpenSSH ssh-keygen pro vygenerování dvojice privátního a veřejného klíče, protože diagnostické skripty pro shromažďování protokolů tento formát vyžadují.<br>**Důležité**: abyste měli přístup k NASAZENému virtuálnímu počítači pro řešení potíží, budete muset mít přístup k veřejným a soukromým klíčům. |
 | Přístup k portálům pro správu a uživatelským portálům a koncovým bodům správy | Připojení | Tato příručka předpokládá, že nasazujete a konfigurujete registr ze systému s možností připojení k systému Azure Stack hub. |
@@ -115,17 +115,17 @@ Instalace šablony registru kontejnerů vyžaduje vytvoření několika prostře
 
 1. Otevřete portál Azure Stack hub User Portal.
 
-2. Vyberte **vytvořit**  >    >  **šablonu COMPUTE Container Registry**.
+2. Vyberte **vytvořit**  >  **Compute**  >  **šablonu COMPUTE Container Registry**.
 
-    ![Šablona registru kontejneru](./media/container-registry-template-install-tzl/template.png)
+    ![Šablona registru kontejneru](./media/container-registry-template-install-tzl/image1.png)
 
 3. Vyberte předplatné, skupinu prostředků a umístění pro nasazení šablony registru kontejnerů.
 
-    ![Výběr předplatného](./media/container-registry-template-install-tzl/subscription.png)
+    ![Šablona registru kontejneru](./media/container-registry-template-install-tzl/image2.png)
 
 4. Dokončete podrobnosti konfigurace virtuálního počítače. SKU image má výchozí hodnotu **AKS-Ubuntu-1604-201909**; výstup `Set-ContainerRegistryPrerequisites` funkce ale obsahuje seznam dostupných skladových položek, které se použijí pro nasazení. Pokud existuje více než jedna SKU, vyberte nejnovější SKU pro nasazení.
 
-    ![Podrobnosti o konfiguraci virtuálních počítačů](./media/container-registry-template-install-tzl/details.png)
+    ![Šablona registru kontejneru](./media/container-registry-template-install-tzl/image3.png)
 
     | Parametr | Podrobnosti |
     | --- | --- |
@@ -141,7 +141,7 @@ Instalace šablony registru kontejnerů vyžaduje vytvoření několika prostře
 
 1. Dokončete konfiguraci úložiště a Key Vault.
 
-    ![Konfigurace úložiště a Key Vault](./media/container-registry-template-install-tzl/storage.png)
+    ![Šablona registru kontejneru](./media/container-registry-template-install-tzl/image4.png)
 
     | Parametr | Podrobnosti |
     | --- | --- |
@@ -153,7 +153,7 @@ Instalace šablony registru kontejnerů vyžaduje vytvoření několika prostře
 
 1. Po zadání všech hodnot a nasazení šablony řešení bude trvat 10-15 minut, než se virtuální počítač nasadí a nakonfiguruje služba registru.
 
-    ![Nasazení virtuálního počítače](./media/container-registry-template-install-tzl/deploy.png)
+    ![Šablona registru kontejneru](./media/container-registry-template-install-tzl/image5.png)
 
 2. Pokud chcete otestovat registr, otevřete instanci Docker CLI z počítače nebo virtuálního počítače s přístupem k adrese URL registru.
 

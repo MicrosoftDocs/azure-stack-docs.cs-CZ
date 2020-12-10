@@ -1,28 +1,27 @@
 ### YamlMime:Landing
-title: MDC (modulární datacentrum Azure) a dokumentace pro uživatele
-summary: Naučte se pracovat s modulárním datovým centrem Azure (MDC) a používat je.
+title: Robustní operátor a uživatelská dokumentace centra Azure Stack
+summary: Naučte se, jak provozovat a používat robustní Azure Stack hub, hybridní cloudovou platformu, která vám umožní poskytovat služby Azure z univerzálního a robustního cloudového zařízení.
 metadata:
-  title: MDC (modulární datacentrum pro Azure) a dokumentace pro uživatele – kurzy, koncepty, postupy, články
-  description: Modulární datové centrum Azure (MDC) je modulární datové centrum, které obsahuje Azure Stack řešení a úložiště centra. Můžete poskytovat služby Azure a hostovat rozsáhlou výpočetní kapacitu a úložiště v místním prostředí nebo na hraničních zařízeních, která se odpojí z Azure nebo se k němu připojí. Je optimalizovaná pro případy použití, které vyžadují suverenitu dat a místní řízení.
+  title: Robustní dokumentace ke službě Azure Stack hub – kurzy, Reference k rozhraní API
+  description: Služba Microsoft Azure Stack hub je hybridní cloudová platforma, která vám umožní poskytovat služby Azure z vašeho datového centra. Naučte se spravovat infrastrukturu robustních integrovaných systémů centra Azure Stack a jak nabízet služby prostřednictvím našich šablon rychlý Start a kurzů.
   ms.service: azure-stack
-  ms.subservice: asdk
   ms.topic: landing-page
   author: justinha
   ms.author: justinha
-  ms.date: 07/23/2020
-  ms.openlocfilehash: 567ea184c0b7ff1afe36022600ff61130455c2e4
+  ms.date: 10/14/2020
+  ms.openlocfilehash: 7e131f116ef28620cda1804782d38c14d5700bad
   ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
   ms.translationtype: MT
   ms.contentlocale: cs-CZ
   ms.lasthandoff: 12/09/2020
-  ms.locfileid: "96935078"
+  ms.locfileid: "96939572"
 landingContent:
-- title: Informace o modulárním datovém centru Azure
+- title: O robustním centru Azure Stack
   linkLists:
   - linkListType: overview
     links:
-    - text: Co je modulární datové centrum?
-      url: mdc-overview.md
+    - text: Co je centrum Azure Stack robustní?
+      url: ruggedized-overview.md
     - text: Specifikace modelu
       url: azure-stack-capacity-planning-overview.md
   - linkListType: whats-new
@@ -31,7 +30,7 @@ landingContent:
       url: ../operator/release-notes-security-updates.md
     - text: Poznámky k verzi
       url: ../operator/release-notes.md
-- title: Začínáme s modulárním datovým centrem Azure
+- title: Začínáme s robustností centra Azure Stack
   linkLists:
   - linkListType: learn
     links:
@@ -49,16 +48,6 @@ landingContent:
       url: ../operator/azure-stack-connected-deployment.md
     - text: Odpojené nasazení
       url: ../operator/azure-stack-disconnected-deployment.md
-- title: Správa modulárních datových center Azure
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: Monitorování stavu a výstrah
-      url: operator/azure-stack-monitor-health-tzl.md
-    - text: Instalace aktualizací a monitorování průběhu
-      url: ../operator/azure-stack-apply-updates.md
-    - text: Osvědčené postupy pro zálohování a obnovení
-      url: operator/azure-stack-backup-best-practices-tzl.md
 - title: Nástroje centra Azure Stack
   linkLists:
   - linkListType: download
@@ -71,6 +60,26 @@ landingContent:
       url: ../user/azure-stack-powershell-user-docker.md
     - text: Připojení pomocí Azure Stack PowerShellu
       url: ../operator/azure-stack-powershell-configure-admin.md
+- title: Nabídka Azure Stack služby centra
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Vytvoření nabídky pro virtuální počítač
+      url: ../operator/tutorial-offer-services.md
+    - text: Vytvoření vysoce dostupné databáze MySQL
+      url: ../operator/azure-stack-tutorial-mysql.md
+    - text: Vytváření aplikací pro libovolnou platformu
+      url: ../operator/azure-stack-app-service-overview.md
+- title: Správa robustního centra Azure Stack
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Monitorování stavu a výstrah
+      url: operator/azure-stack-monitor-health-tzl.md
+    - text: Instalace aktualizací a monitorování průběhu
+      url: ../operator/azure-stack-apply-updates.md
+    - text: Osvědčené postupy pro zálohování a obnovení
+      url: operator/azure-stack-backup-best-practices-tzl.md
 - title: Infrastruktura jako služba (IaaS) v centru Azure Stack
   linkLists:
   - linkListType: quickstart
@@ -87,15 +96,3 @@ landingContent:
       url: ../user/deploy-foundational-patterns.md
     - text: Hostování aplikací napsaných ve vašem kódu
       url: ../user/azure-stack-dev-start-deploy-app.md
-- title: Nabídka Azure Stack služby centra
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Vytvoření nabídky pro virtuální počítač
-      url: ../operator/tutorial-offer-services.md
-  - linkListType: how-to-guide
-    links:
-    - text: Vytvoření vysoce dostupné databáze MySQL
-      url: ../operator/azure-stack-tutorial-mysql.md
-    - text: Vytváření aplikací pro libovolnou platformu
-      url: ../operator/azure-stack-app-service-overview.md

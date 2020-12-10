@@ -11,16 +11,16 @@ ms.workload: tzl
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2020
+ms.date: 12/16/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 10/27/2020
-ms.openlocfilehash: 9f50a6096f0fb7881d37a67df34bdcd6f2487eb9
+ms.lastreviewed: 12/16/2019
+ms.openlocfilehash: f0476f3ee331c014436e9ee2f879afcafb3320d7
 ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935045"
+ms.locfileid: "96939539"
 ---
 # <a name="configure-backup-for-azure-stack-with-powershell"></a>Konfigurace zálohování pro Azure Stack s využitím PowerShellu
 
@@ -30,7 +30,7 @@ Službu Infrastructure Backup můžete nakonfigurovat tak, aby exportovali zálo
 
 ## <a name="prepare-powershell-environment"></a>Příprava prostředí PowerShell
 
-Pokyny týkající se konfigurace prostředí PowerShellu najdete v tématu [instalace PowerShellu pro Azure Stack](../../operator/powershell-install-az-module.md). Pokud se chcete přihlásit k Azure Stack, přečtěte si téma [Konfigurace prostředí operátorů a přihlášení k Azure Stack](../../operator/azure-stack-powershell-configure-admin.md).
+Pokyny týkající se konfigurace prostředí PowerShellu najdete v tématu [instalace PowerShellu pro Azure Stack](../../operator/azure-stack-powershell-install.md). Pokud se chcete přihlásit k Azure Stack, přečtěte si téma [Konfigurace prostředí operátorů a přihlášení k Azure Stack](../../operator/azure-stack-powershell-configure-admin.md).
 
 ## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>Zadání záložní sdílené složky, přihlašovacích údajů a šifrovacího klíče pro povolení zálohování
 
