@@ -6,35 +6,37 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/23/2020
-ms.openlocfilehash: d90788a6f7f267955b1c4837eef74a5980118dea
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.date: 12/10/2020
+ms.openlocfilehash: e56718e080638eb6349625f644c837798c001a1d
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95812620"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97010851"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Připojení Azure Stack HCl k Azure
 
 > Platí pro: Azure Stack HCI v20H2
 
-Azure Stack HCI se doručuje jako služba Azure a musí se zaregistrovat do 30 dnů od instalace podle podmínek pro Azure Online Services. Toto téma vysvětluje, jak zaregistrovat Azure Stack cluster HCI pomocí [Azure ARC](https://azure.microsoft.com/services/azure-arc/) pro monitorování, podporu, fakturaci a hybridní služby. Po registraci se vytvoří prostředek Azure Resource Manager, který bude představovat každý místní cluster s Azure Stack HCI, a efektivně rozšiřuje rovinu správy Azure na Azure Stack HCI. Informace se pravidelně synchronizují mezi prostředkem Azure a místním clusterem. 
+Azure Stack HCI se doručuje jako služba Azure a musí se zaregistrovat do 30 dnů od instalace podle podmínek pro Azure Online Services. Toto téma vysvětluje, jak zaregistrovat Azure Stack cluster HCI pomocí [Azure ARC](https://azure.microsoft.com/services/azure-arc/) pro monitorování, podporu, fakturaci a hybridní služby. Po registraci se vytvoří prostředek Azure Resource Manager, který bude představovat každý místní cluster s Azure Stack HCI, a efektivně rozšiřuje rovinu správy Azure na Azure Stack HCI. Informace se pravidelně synchronizují mezi prostředkem Azure a místními clustery.
+
+   > [!IMPORTANT]
+   > Vyžaduje se registrace v Azure. Dokud nebude cluster zaregistrován v Azure, Azure Stack operační systém HCI není platný, není podporován a má omezené funkce (například nebudete moci vytvářet virtuální počítače).
 
 ## <a name="prerequisites-for-registration"></a>Předpoklady pro registraci
 
-Dokud nevytvoříte cluster Azure Stack HCI, nebudete moct s Azure registrovat. Uzly můžou být fyzické nebo virtuální počítače, ale musí mít rozhraní UEFI (Unified Extensible Firmware Interface) (UEFI), což znamená, že nemůžete použít virtuální počítače Hyper-V Generation 1. Registrace ARC Azure je nativní funkcí Azure Stack HCL, takže není nutný žádný agent.
+Dokud nevytvoříte cluster Azure Stack HCI, nebudete moct s Azure registrovat. Aby byl cluster podporovaný, musí být uzly clusteru fyzickými servery. Virtuální počítače se dají použít k testování, ale musí podporovat rozhraní UEFI (Unified Extensible Firmware Interface) (UEFI), což znamená, že nemůžete použít virtuální počítače Hyper-V Generation 1. Registrace ARC Azure je nativní funkcí operačního systému Azure Stack HCI, takže není potřeba registrovat žádného agenta.
 
 ### <a name="internet-access"></a>Přístup k internetu
 
-Uzly Azure Stack HCI potřebují připojení ke cloudu, aby se mohli připojit k Azure. Například odchozí příkazy příkazového testu by měly být úspěšné:
+Azure Stack HCI se musí pravidelně připojovat ke veřejnému cloudu Azure. Pokud je odchozí připojení omezené externí podnikovou bránou firewall nebo proxy server, musí být nakonfigurovaná tak, aby umožňovala odchozí přístup k portu 443 (HTTPS) na omezeném počtu dobře známých IP adres Azure. 
 
-```PowerShell
-C:\> ping bing.com
-```
+   > [!NOTE]
+   > Proces registrace se pokusí kontaktovat Galerie prostředí PowerShell a ověří, zda máte nejnovější verzi nezbytných modulů prostředí PowerShell, například AZ a AzureAD. I když je Galerie prostředí PowerShell hostována v Azure, aktuálně nemá značku služby. Pokud nemůžete spustit výše uvedenou rutinu z počítače pro správu, který má odchozí přístup k Internetu, doporučujeme stáhnout moduly a ručně je přenést do uzlu clusteru, kde budete `Register-AzStackHCI` příkaz spouštět. Případně můžete [moduly nainstalovat v odpojeném scénáři](/powershell/scripting/gallery/how-to/working-with-local-psrepositories?view=powershell-7.1#installing-powershellget-on-a-disconnected-system).
 
-### <a name="azure-subscription"></a>Předplatné Azure
+### <a name="azure-subscription-and-permissions"></a>Předplatné Azure a oprávnění
 
-Pokud ještě nemáte účet Azure, [vytvořte ho](https://azure.microsoft.com/). 
+Pokud ještě nemáte účet Azure, [vytvořte ho](https://azure.microsoft.com/).
 
 Můžete použít existující předplatné libovolného typu:
 - Bezplatný účet s kredity Azure [pro studenty](https://azure.microsoft.com/free/students/) nebo [předplatitele sady Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/)
@@ -42,54 +44,80 @@ Můžete použít existující předplatné libovolného typu:
 - Předplatné získané prostřednictvím smlouva Enterprise (EA)
 - Předplatné získané prostřednictvím programu Cloud Solution Provider (CSP)
 
+Uživatel, který registruje cluster, musí mít oprávnění k předplatnému Azure:
+
+- Registrace poskytovatele prostředků
+- Vytváření, získávání a odstraňování prostředků Azure a skupin prostředků
+
+Pokud je vaše předplatné Azure prostřednictvím programu EA nebo CSP, nejjednodušší způsob je požádat správce předplatného Azure, aby vašemu předplatnému přiřadil předdefinovanou roli Azure Owner (Vlastník) nebo Přispěvatel. Někteří správci však mohou preferovat více omezující možnosti. V takovém případě je možné vytvořit vlastní roli Azure specifickou pro Azure Stack registraci HCI pomocí následujících kroků:
+
+1. Vytvořte soubor JSON s názvem **customHCIRole.js** s následujícím obsahem. Ujistěte se, že jste změnili <subscriptionID> ID vašeho předplatného Azure. Pokud chcete získat ID předplatného, přejděte na [Portal.Azure.com](https://portal.azure.com), přejděte na odběry a zkopírujte nebo vložte své ID ze seznamu.
+
+   ```json
+   {
+     "Name": "Azure Stack HCI registration role”,
+     "Id": null,
+     "IsCustom": true,
+     "Description": "Custom Azure role to allow subscription-level access to register Azure Stack HCI",
+     "Actions": [
+       "Microsoft.Resources/subscriptions/resourceGroups/write",
+       "Microsoft.Resources/subscriptions/resourceGroups/read",
+       "Microsoft.Resources/subscriptions/resourceGroups/delete",
+       "Microsoft.AzureStackHCI/register/action",
+       "Microsoft.AzureStackHCI/Unregister/Action",
+       "Microsoft.AzureStackHCI/clusters/*"
+     ],
+     "NotActions": [
+     ],
+   "AssignableScopes": [
+       "/subscriptions/<subscriptionId>"
+     ]
+   }
+   ```
+
+2. Vytvořte vlastní roli:
+
+   ```powershell
+   New-AzRoleDefinition -InputFile <path to customHCIRole.json>
+   ```
+
+3. Přiřaďte uživateli vlastní roli:
+
+   ```powershell
+   $user = get-AzAdUser -DisplayName <userdisplayname>
+   $role = Get-AzRoleDefinition -Name "Azure Stack HCI registration role"
+   New-AzRoleAssignment -ObjectId $user.Id -RoleDefinitionId $role.Id -Scope /subscriptions/<subscriptionid>
+   ```
+
 ### <a name="azure-active-directory-permissions"></a>Azure Active Directory oprávnění
 
-K dokončení procesu registrace budete potřebovat Azure Active Directory oprávnění. Pokud je ještě nemáte, požádejte správce Azure AD, aby vám udělil oprávnění, nebo je delegovat. Další informace najdete v tématu [Správa registrace Azure](../manage/manage-azure-registration.md#azure-active-directory-permissions) .
+K dokončení procesu registrace budete také potřebovat příslušná Azure Active Directory oprávnění. Pokud je ještě nemáte, požádejte správce Azure AD, aby vám udělil souhlas nebo vám oprávnění delegovat. Další informace najdete v tématu [Správa registrace Azure](../manage/manage-azure-registration.md#azure-active-directory-app-permissions) .
 
 ## <a name="register-using-powershell"></a>Registrace pomocí PowerShellu
 
-Pomocí následujícího postupu zaregistrujete Azure Stack clusteru HCI do Azure:
+Pomocí následujícího postupu můžete zaregistrovat Azure Stack clusteru HCI s Azure pomocí počítače pro správu.
 
-1. Připojte se k jednomu z uzlů clusteru tak, že otevřete relaci PowerShellu a zadáte následující příkaz:
-
-   ```PowerShell
-   Enter-PSSession <server-name>
-   ```
-
-2. Nainstalujte modul PowerShell pro Azure Stack HCL:
-
-   ```PowerShell
-   Install-WindowsFeature RSAT-Azure-Stack-HCI
-   ```
-
-3. Nainstalujte požadované rutiny. Pokud nasazujete Azure Stack HCI z bitové kopie Public Preview, budete muset použít 0.3.1 verze modulu PowerShellu AZ. StackHCI:
-
-   ```PowerShell
-   Install-Module -Name Az.StackHCI -RequiredVersion 0.3.1
-   ```
-
-   Pokud jste už od 23. [listopadu 2020 Preview (KB4586852)](../release-notes.md) na každém serveru v clusteru nainstalovali a jenom teď zaregistrujete cluster v Azure, můžete bezpečně použít nejnovější verzi AZ. StackHCI:
+1. Na počítač pro správu nainstalujte požadované rutiny. Pokud zaregistrujete cluster nasazený z image obecné dostupnosti (GA) Azure Stack HCL, stačí spustit následující příkaz. Pokud byl cluster nasazen z Public Preview Image, před pokusem o registraci se ujistěte, že jste na každý server v clusteru nainstalovali aktualizaci Preview (KB4586852) 23. listopadu 2020.
 
    ```PowerShell
    Install-Module -Name Az.StackHCI
    ```
 
    > [!NOTE]
-   > 1. Může se zobrazit výzva například "Přejete si, aby PowerShellGet instalovat a importovat zprostředkovatele NuGet?" na kterou byste měli odpovědět ano (Y).
-   > 2. Může se vám zobrazit výzva "určitě chcete nainstalovat moduly z" PSGallery "?" na které byste měli odpovědět ano (Y).
-   > 3. Nakonec můžete předpokládat, že instalace celého modulu **AZ** Module by zahrnovala dílčí modul **StackHCI** , ale to není případ. Dílčí moduly ve verzi Preview nejsou automaticky zahrnuty na základě standardní Azure PowerShell konvence, takže potřebujete explicitně požádat o **AZ. StackHCI** , jak je uvedeno výše.
+   > - Může se zobrazit výzva například "Přejete si, aby PowerShellGet instalovat a importovat zprostředkovatele NuGet?" na kterou byste měli odpovědět ano (Y).
+   > - Může se vám zobrazit výzva "určitě chcete nainstalovat moduly z" PSGallery "?" na které byste měli odpovědět ano (Y).
 
-4. Proveďte vlastní registraci:
+2. Proveďte registraci pomocí názvu libovolného serveru v clusteru. Pokud chcete získat ID předplatného Azure, přejděte na [Portal.Azure.com](https://portal.azure.com), přejděte na odběry a zkopírujte nebo vložte své ID ze seznamu.
 
    ```PowerShell
-   Register-AzStackHCI  -SubscriptionId "<subscription_ID>" [-ResourceName] [-ResourceGroupName]
+   Register-AzStackHCI  -SubscriptionId "<subscription_ID>" -ComputerName Server1 [–Credential] [-ResourceName] [-ResourceGroupName]
    ```
 
-   Tato syntaxe registruje místní cluster (z nějž je místní server členem), jako aktuální uživatel, s výchozí oblastí Azure a cloudovým prostředím, a používá inteligentní výchozí názvy pro prostředek Azure a skupinu prostředků, ale pokud chcete, můžete zadat parametry pro zadání těchto hodnot.
+   Tato syntaxe registruje cluster (z kterého je Server1 členem), jako aktuální uživatel, s výchozí oblastí Azure a cloudovým prostředím, a používá inteligentní výchozí názvy pro prostředek Azure a skupinu prostředků, ale pokud chcete, můžete do tohoto příkazu přidat parametry a zadat tyto hodnoty.
 
-   Mějte na paměti, že uživatel, který spouští `Register-AzStackHCI` rutinu, musí mít [oprávnění Azure Active Directory](../manage/manage-azure-registration.md#azure-active-directory-permissions), nebo se proces registrace nedokončí. místo toho se ukončí a ponechá souhlas správce o registraci. Jakmile budou udělena oprávnění, stačí znovu spustit `Register-AzStackHCI` úplnou registraci.
+   Mějte na paměti, že uživatel, který spouští `Register-AzStackHCI` rutinu, musí mít [oprávnění Azure Active Directory](../manage/manage-azure-registration.md#azure-active-directory-app-permissions), nebo se proces registrace nedokončí. místo toho se ukončí a ponechá souhlas správce o registraci. Jakmile budou udělena oprávnění, stačí znovu spustit `Register-AzStackHCI` úplnou registraci.
 
-5. Ověřování pomocí Azure
+3. Ověřování pomocí Azure
 
    K dokončení procesu registrace se musíte ověřit (přihlásit) pomocí účtu Azure. Aby bylo možné pokračovat v registraci, musí mít váš účet přístup k předplatnému Azure, které jste zadali v kroku 4 výše. Zkopírujte kód, který jste zadali, přejděte na microsoft.com/devicelogin na jiném zařízení (třeba na počítač nebo na telefon), zadejte kód a přihlaste se tam. Toto je stejné prostředí, které Microsoft používá pro jiná zařízení s omezenými vstupními postupy, jako je Xbox.
 
@@ -100,4 +128,4 @@ Pracovní postup registrace zjistí, kdy jste se přihlásili, a pokračujte v j
 Nyní jste připraveni:
 
 - [Ověřit cluster](validate.md)
-- [Vytváření svazků](../manage/create-volumes.md)
+

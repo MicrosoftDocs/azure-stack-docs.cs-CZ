@@ -8,12 +8,12 @@ ms.date: 8/19/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: a67b950f91d502378a151031e25a68f861494555
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.openlocfilehash: 37f80bbbc753a988b91987c96bd4c0d765529804
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95812645"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97011157"
 ---
 # <a name="update-the-sql-resource-provider"></a>Aktualizace poskytovatele prostředků SQL
 
@@ -55,7 +55,7 @@ Při spuštění skriptu **UpdateSQLProvider.ps1** PowerShellu můžete zadat n�
 | Název parametru | Description | Komentář nebo výchozí hodnota |
 | --- | --- | --- |
 | **CloudAdminCredential** | Přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu. | _Povinné_ |
-| **AzCredential** | Přihlašovací údaje pro účet správce služby Azure Stack hub. Použijte stejné přihlašovací údaje, které jste použili k nasazení centra Azure Stack. | _Povinné_ |
+| **AzCredential** | Přihlašovací údaje pro účet správce služby Azure Stack hub. Použijte stejné přihlašovací údaje, které jste použili k nasazení centra Azure Stack. Pokud účet, který používáte se službou AzCredential, vyžaduje vícefaktorové ověřování (MFA), skript se nezdaří. | _Povinné_ |
 | **VMLocalCredential** | Přihlašovací údaje pro účet místního správce virtuálního počítače poskytovatele prostředků SQL. | _Povinné_ |
 | **PrivilegedEndpoint** | IP adresa nebo název DNS privilegovaného koncového bodu. |  _Povinné_ |
 | **AzureEnvironment** | Prostředí Azure účtu správce služby, které jste použili k nasazení centra Azure Stack. Vyžaduje se jenom pro nasazení Azure AD. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment** nebo, pokud používáte Čína Azure AD **AzureChinaCloud**. | AzureCloud |
@@ -63,8 +63,8 @@ Při spuštění skriptu **UpdateSQLProvider.ps1** PowerShellu můžete zadat n�
 | **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Povinné_ |
 | **MaxRetryCount** | Počet pokusů o opakování všech operací, pokud dojde k selhání.| 2 |
 | **RetryDuration** |Interval časového limitu mezi opakovanými pokusy (v sekundách). | 120 |
-| **Odinstalace** | Odebere poskytovatele prostředků a všechny přidružené prostředky. | No |
-| **DebugMode** | Zabraňuje automatickému vyčištění při selhání. | No |
+| **Odinstalace** | Odebere poskytovatele prostředků a všechny přidružené prostředky. | Ne |
+| **DebugMode** | Zabraňuje automatickému vyčištění při selhání. | Ne |
 
 ## <a name="update-script-powershell-example"></a>Příklad aktualizace skriptu PowerShellu
 

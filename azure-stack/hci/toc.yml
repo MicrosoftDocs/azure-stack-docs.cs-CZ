@@ -14,8 +14,10 @@
   items:
     - name: Použití Azure Stack HCL s centrem pro správu Windows
       href: get-started.md
-- name: Nasazení
+- name: Nasadit
   items:
+    - name: Rychlý Start nasazení
+      href: deploy/deployment-quickstart.md
     - name: Přehled nasazení
       href: deploy/deployment-overview.md
     - name: Nasazení operačního systému Azure Stack HCI
@@ -24,6 +26,10 @@
       href: deploy/create-cluster.md
     - name: Nastavení určujícího clusteru
       href: deploy/witness.md
+    - name: Migrace na nový hardware
+      href: deploy/migrate-cluster-new-hardware.md
+    - name: Migrace na stejný hardware
+      href: deploy/migrate-cluster-same-hardware.md
     - name: Registrace v Azure
       href: deploy/register-with-azure.md
     - name: Ověřit cluster
@@ -154,6 +160,8 @@
           href: concepts/updates.md
         - name: Důležité informace o zabezpečení
           href: concepts/security.md
+        - name: Pomocné aplikace
+          href: concepts/utility-applications.md
 - name: Referenční informace
   items:
     - name: Příkazy Azure CLI pro registraci Azure

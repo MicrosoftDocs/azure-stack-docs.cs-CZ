@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2019
-ms.openlocfilehash: 7046eff5aa90504e2f02d7b7d24b1c2a74421270
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b232bf2efb690ddc0a351d762e6866a75ced4a81
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77697174"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97011361"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Odebrat poskytovatele prostředků SQL
 
@@ -35,13 +35,13 @@ Při odebrání poskytovatele prostředků SQL se odstraní přidružené plány
 
 3. Otevřete nové okno konzoly PowerShellu se zvýšenými oprávněními a přejděte do adresáře, do kterého jste extrahovali instalační soubory poskytovatele prostředků SQL.
 
-4. Spusťte skript DeploySqlProvider. ps1 pomocí následujících parametrů:
+4. Spusťte skript DeploySqlProvider.ps1 pomocí následujících parametrů:
 
     * **Odinstalace**: Odebere poskytovatele prostředků a všechny přidružené prostředky.
     * **PrivilegedEndpoint**: IP adresa nebo název DNS privilegovaného koncového bodu.
     * **AzureEnvironment**: prostředí Azure používané pro nasazení centra Azure Stack. Vyžaduje se jenom pro nasazení Azure AD.
     * **CloudAdminCredential**: přihlašovací údaje pro správce cloudu, které jsou nezbytné pro přístup k privilegovanému koncovému bodu.
-    * **AzCredential**: přihlašovací údaje pro účet správce služby Azure Stack hub. Použijte stejné přihlašovací údaje, které jste použili k nasazení centra Azure Stack.
+    * **AzCredential**: přihlašovací údaje pro účet správce služby Azure Stack hub. Použijte stejné přihlašovací údaje, které jste použili k nasazení centra Azure Stack. Pokud účet, který používáte se službou AzCredential, vyžaduje vícefaktorové ověřování (MFA), skript se nezdaří.
 
 ## <a name="next-steps"></a>Další kroky
 

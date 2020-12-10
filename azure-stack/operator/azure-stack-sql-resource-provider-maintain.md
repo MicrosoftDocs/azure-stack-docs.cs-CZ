@@ -8,12 +8,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 0de06d7bf13919be95b3d97aa1113221f4378625
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.openlocfilehash: ec2eebc7aa8195c0560beb8c61f0f98ce1689b07
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96035330"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97011344"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Operace údržby poskytovatele prostředků SQL
 
@@ -108,7 +108,7 @@ Pokud používáte poskytovatele prostředků SQL a MySQL s integrovanými syst�
 |Parametr|Popis|Komentář|
 |-----|-----|-----|
 |AzureEnvironment|Prostředí Azure účtu správce služby používaného pro nasazení centra Azure Stack. Vyžaduje se jenom pro nasazení Azure AD. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment** nebo, pokud používáte Čína Azure Active Directory **AzureChinaCloud**.|Volitelné|
-|AzCredential|Přihlašovací údaje účtu správce služby Azure Stack hub.|Povinné|
+|AzCredential|Přihlašovací údaje účtu správce služby Azure Stack hub. Pokud účet, který používáte se službou AzCredential, vyžaduje vícefaktorové ověřování (MFA), skript se nezdaří.|Povinné|
 |CloudAdminCredential|Přihlašovací údaje účtu domény správce cloudu Azure Stack hub.|Povinné|
 |PrivilegedEndpoint|Privilegovaný koncový bod pro přístup k Get-AzureStackStampInformation.|Povinné|
 |DiagnosticsUserPassword|Heslo uživatelského účtu diagnostiky|Volitelné|

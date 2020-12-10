@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: ff9c1054f505625e51426fca70bbb2ae7d9115a5
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.openlocfilehash: 681f02fa220331a93a59448cd1c15bc490ee4b24
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572938"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97011174"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Operace údržby poskytovatele prostředků MySQL v centru Azure Stack
 
@@ -155,8 +155,8 @@ Pokud používáte poskytovatele prostředků SQL a MySQL s integrovanými syst�
 
 |Parametr|Popis|Komentář|
 |-----|-----|-----|
-|AzureEnvironment|Prostředí Azure účtu správce služby používaného pro nasazení centra Azure Stack. Vyžaduje se jenom pro nasazení Azure AD. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment**nebo, pokud používáte Čína Azure Active Directory **AzureChinaCloud**.|Volitelné|
-|AzCredential|Přihlašovací údaje účtu správce služby Azure Stack hub.|Povinné|
+|AzureEnvironment|Prostředí Azure účtu správce služby používaného pro nasazení centra Azure Stack. Vyžaduje se jenom pro nasazení Azure AD. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment** nebo, pokud používáte Čína Azure Active Directory **AzureChinaCloud**.|Volitelné|
+|AzCredential|Přihlašovací údaje účtu správce služby Azure Stack hub. Pokud účet, který používáte se službou AzCredential, vyžaduje vícefaktorové ověřování (MFA), skript se nezdaří.|Povinné|
 |CloudAdminCredential|Přihlašovací údaje účtu domény správce cloudu Azure Stack hub.|Povinné|
 |PrivilegedEndpoint|Privilegovaný koncový bod pro přístup k Get-AzureStackStampInformation.|Povinné|Volitelné|
 |DiagnosticsUserPassword|Heslo uživatelského účtu diagnostiky|Volitelné|
@@ -168,11 +168,11 @@ Pokud používáte poskytovatele prostředků SQL a MySQL s integrovanými syst�
 
 ### <a name="known-issues"></a>Známé problémy
 
-**Chybu**<br>
+**Problém:**<br>
 Protokoly pro rotaci tajných klíčů nejsou automaticky shromažďovány, pokud při spuštění dojde k chybě skriptu pro otočení tajného klíče.
 
-**Alternativní řešení:**<br>
-Ke shromáždění všech protokolů poskytovatele prostředků, včetně AzureStack.DatabaseAdapter.SecretRotation.ps1_ *. log, uložených v C:\Logs., použijte rutinu Get-AzsDBAdapterLogs.
+**Odstraníte**<br>
+Pomocí rutiny Get-AzsDBAdapterLogs Shromážděte všechny protokoly poskytovatele prostředků, včetně AzureStack.DatabaseAdapter.SecretRotation.ps1_ *. log, uložené v C:\Logs..
 
 ## <a name="collect-diagnostic-logs"></a>Shromážděte diagnostické protokoly.
 
@@ -240,11 +240,11 @@ Ve výchozím nastavení je na virtuálním počítači adaptéru poskytovatele 
    
    ![Přejít na nastavení diagnostiky](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-diagnostics-settings.png)
 
-4. Přidejte **Microsoft-AzureStack-DatabaseAdapter/Operational \* !** pro shromáždění protokolů provozních událostí poskytovatele prostředků MySQL.
+4. Přidejte **Microsoft-AzureStack-DatabaseAdapter/Operational \* !* _ shromažďovat protokoly provozních událostí poskytovatele prostředků MySQL.
 
    ![Přidat protokoly událostí](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-event-logs.png)
 
-5. Chcete-li povolit shromažďování protokolů služby IIS, zaškrtněte **protokoly služby IIS** a **protokoly neúspěšných požadavků**.
+5. Pokud chcete povolit shromažďování protokolů IIS, zaškrtněte _ *IIS protokoly** a **protokoly chybných žádostí**.
 
    ![Přidat protokoly IIS](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-iis-logs.png)
 

@@ -5,13 +5,13 @@ ms.topic: how-to
 author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
-ms.date: 11/06/2020
-ms.openlocfilehash: 1caa5e6573137ec33680ea3a13e7beeda12de424
-ms.sourcegitcommit: 08ef9545316798c9a21c2f9bc1da8c15cb648982
+ms.date: 12/10/2020
+ms.openlocfilehash: fc52f53a31b8d7cdcb91dd93e0fbe97c94b7e846
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94360186"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97010908"
 ---
 # <a name="add-or-remove-servers-for-an-azure-stack-hci-cluster"></a>Přidání nebo odebrání serverů pro Azure Stack clusteru HCI
 
@@ -67,7 +67,11 @@ Kdykoli přidáváte nebo odebíráte servery z clusteru, ujistěte se, že a n�
 
 Roztažené clustery vyžadují stejný počet uzlů serveru a stejný počet jednotek v každé lokalitě. Když přidáte dvojici serverů do roztaženého clusteru, jejich jednotky se okamžitě přidají do fondu úložiště obou lokalit v roztaženém clusteru. Pokud fond úložiště v každé lokalitě nemá stejnou velikost v době přidání, je odmítnut. Důvodem je to, že velikost fondu úložiště musí být stejná mezi lokalitami.
 
-Na rozdíl od pro roztažené clustery můžete přidat nebo odebrat servery jenom v roztaženém clusteru pomocí Windows PowerShellu. Pomocí rutin [Get-ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusterfaultdomainxml) a [set-ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterfaultdomainxml) nejprve před přidáním serverů upravíte informace o lokalitě (doména selhání).
+Pokud si chcete přehrát video při přidávání uzlů serveru do roztaženého clusteru, vezměte v úvahu několik minut:
+
+> [!VIDEO https://www.youtube.com/embed/AVHPkRmsZ5Y]
+
+Servery můžete přidat nebo odebrat do roztaženého clusteru pomocí prostředí Windows PowerShell. Pomocí rutin [Get-ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusterfaultdomainxml) a [set-ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterfaultdomainxml) nejprve před přidáním serverů upravíte informace o lokalitě (doména selhání).
 
 Pak můžete přidat dvojici serverů do každé lokality současně pomocí rutiny [Add-ClusterNode](https://docs.microsoft.com/powershell/module/failoverclusters/add-clusternode) a umožnit tak přidávání jednotlivých jednotek na novém serveru současně.
 

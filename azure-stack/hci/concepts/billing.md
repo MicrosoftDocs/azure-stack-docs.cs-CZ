@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/01/2020
-ms.openlocfilehash: 22758f9a6b905e2c948a47c5870a05edcb63acdf
-ms.sourcegitcommit: 1c5e7d8419037c0f3ef6fe9d8e6bfb6a59659c84
+ms.date: 11/19/2020
+ms.openlocfilehash: 0cdd8a7f6c0c59eddbe1e8dd93158eb7a280e8ab
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89428477"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97010715"
 ---
 # <a name="azure-stack-hci-billing-and-payment"></a>Fakturace a platba v Azure Stack HCI
 
@@ -22,7 +22,7 @@ Azure Stack HCI je služba Azure, která se účtuje na vašem předplatném Azu
 
 ## <a name="what-does-azure-stack-hci-charge-for"></a>K čemu se účtují poplatky za Azure Stack?
 
-Model fakturace v cloudovém stylu Azure Stack HCI je pro zákazníky, kteří už používají Azure nebo jakékoli jiné cloudové služby, konzistentní, dobře známý a snadný. Ve verzi Public Preview se neúčtují žádné poplatky. Po skončení předplatného bude fakturace vycházet z paušální sazby na jádro fyzického procesoru v Azure Stack clusteru HCI (další poplatky za využití platí, pokud používáte další služby Azure).
+Model fakturace v cloudovém stylu Azure Stack HCI je pro zákazníky, kteří už používají Azure nebo jakékoli jiné cloudové služby, konzistentní, dobře známý a snadný. Fakturace vychází z paušální sazby na jádro fyzického procesoru v Azure Stack clusteru HCI (další poplatky za využití platí, pokud používáte další služby Azure).
 
 Cenový model se liší od fakturace založené na využívání nebo na základě spotřeby založené na počtu virtuálních počítačů. I když se počet jader virtuálních procesorů (vCPU) může v průběhu měsíce lišit, nemá to vliv na cenu, kterou platíte za Azure Stack HCI: stále platíte na základě počtu fyzických jader, které jsou v clusteru přítomné.
 
@@ -38,7 +38,7 @@ Pokud chcete zjistit, kolik jader se v clusteru nachází, Azure Stack HCI pravi
 
 K ručnímu nahrání základních dat do Azure použijte **`Sync-AzureStackHCI`** rutinu.
 
-## <a name="faq"></a>Nejčastější dotazy
+## <a name="faq"></a>Časté otázky
 
 - Pokud už mám předplatné Azure, můžu ho použít pro Azure Stack HCI? **Ano**
 - Pokud finanční oddělení v organizaci již schválilo útratu v Azure, zahrnuje Azure Stack HCI? **Ano**

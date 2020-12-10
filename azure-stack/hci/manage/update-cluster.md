@@ -5,21 +5,18 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.date: 10/27/2020
-ms.openlocfilehash: acb3b9c8c0db738d04bba44ccec799a5f9c0939b
-ms.sourcegitcommit: 75603007badd566f65d01ac2eacfe48ea4392e58
+ms.openlocfilehash: 001cf81721423aad770093c0fe5cf92ec6b66af8
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92688303"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97010817"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>Aktualizace Azure Stackch clusterů HCI
 
 > Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019
 
 Když aktualizujete clustery Azure Stack HCI, cílem je zachovat dostupnost tím, že se v clusteru aktualizuje jenom jeden server. Mnoho aktualizací operačního systému vyžaduje převedení serveru do režimu offline, například k restartování nebo k aktualizaci softwaru, například síťového zásobníku. Doporučujeme používat službu Cluster-Aware Update (CAU), funkci, která usnadňuje instalaci aktualizací na každém serveru v clusteru a přitom udržuje spuštěné aplikace. Cluster-Aware aktualizace automatizuje při instalaci aktualizací a restartování serveru v režimu údržby a v případě potřeby i restartování serveru. Aktualizace Cluster-Aware je výchozí metodou aktualizace, kterou používá centrum pro správu Windows, a dá se taky inicializovat pomocí PowerShellu.
-
-   > [!IMPORTANT]
-   > 20. října 2020 Preview (KB4580388) pro Azure Stack HCI může způsobit selhání operace aktualizace pro clustery, pokud se očekává, že během aktualizace pro clustery dojde k vykonání libovolného virtuálního počítače Migrace za provozu. Alternativní řešení najdete v [poznámkách k verzi](../release-notes.md#october-20-2020-preview-update-kb4580388) .
 
 Toto téma se zaměřuje na operační systém a aktualizace softwaru. Pokud potřebujete provést údržbu hardwaru z režimu offline, přečtěte si téma [převedení serveru do režimu offline kvůli údržbě](maintain-servers.md).
 
@@ -30,17 +27,17 @@ Centrum pro správu Windows usnadňuje aktualizaci clusteru a instalaci operačn
 Centrum pro správu systému Windows zkontroluje, jestli je cluster správně nakonfigurovaný tak, aby běžel Cluster-Aware aktualizace, a v případě potřeby se zobrazí dotaz, jestli chcete pro vás nakonfigurovat funkci aktualizace pro clustery (CAU), včetně instalace role clusteru CAU a povolení požadovaných pravidel brány firewall.
 
 1. Když se připojíte ke clusteru, řídicí panel centra pro správu systému Windows vás upozorní, pokud má jeden nebo více serverů aktualizace připravené k instalaci, a poskytne odkaz na aktualizaci nyní. Alternativně můžete vybrat **aktualizace** z nabídky **nástroje** vlevo.
-1. Chcete-li použít nástroj Cluster-Aware aktualizace v centru pro správu systému Windows, je nutné povolit zprostředkovatele CredSSP (Credential Security Service Provider) a zadat explicitní přihlašovací údaje. Až se zobrazí dotaz, jestli by se měl povolit CredSSP, klikněte na **Ano** .
-1. Zadejte své uživatelské jméno a heslo a klikněte na **pokračovat** .
+1. Chcete-li použít nástroj Cluster-Aware aktualizace v centru pro správu systému Windows, je nutné povolit zprostředkovatele CredSSP (Credential Security Service Provider) a zadat explicitní přihlašovací údaje. Až se zobrazí dotaz, jestli by se měl povolit CredSSP, klikněte na **Ano**.
+1. Zadejte své uživatelské jméno a heslo a klikněte na **pokračovat**.
 1. Zobrazí se všechny dostupné aktualizace. Kliknutím na možnost **ověřit dostupné aktualizace** seznam aktualizujte.
-1. Vyberte aktualizace, které chcete nainstalovat, a klikněte na **použít všechny aktualizace** . Tím se aktualizace nainstalují na každý server v clusteru. Pokud je potřeba restartování, role clusteru, jako jsou virtuální počítače, se nejprve přesunou na jiný server, aby se zabránilo jakémukoli přerušení.
+1. Vyberte aktualizace, které chcete nainstalovat, a klikněte na **použít všechny aktualizace**. Tím se aktualizace nainstalují na každý server v clusteru. Pokud je potřeba restartování, role clusteru, jako jsou virtuální počítače, se nejprve přesunou na jiný server, aby se zabránilo jakémukoli přerušení.
 1. Pokud chcete zvýšit zabezpečení, zakažte zprostředkovatele CredSSP hned po dokončení instalace aktualizací:
-    - V centru pro správu systému Windows v části **všechna připojení** vyberte první server v clusteru a pak vyberte **připojit** .
-    - Na stránce **Přehled** vyberte **Zakázat CredSSP** a potom v místním okně **vypnout zprostředkovatele CredSSP** vyberte **Ano** .
+    - V centru pro správu systému Windows v části **všechna připojení** vyberte první server v clusteru a pak vyberte **připojit**.
+    - Na stránce **Přehled** vyberte **Zakázat CredSSP** a potom v místním okně **vypnout zprostředkovatele CredSSP** vyberte **Ano**.
 
 ## <a name="update-a-cluster-using-powershell"></a>Aktualizace clusteru pomocí PowerShellu
 
-Než budete moct aktualizovat cluster pomocí Cluster-Aware aktualizace, musíte nejdřív nainstalovat **Nástroje clusteringu s podporou převzetí služeb při selhání** , které jsou součástí **Nástroje pro vzdálenou správu serveru (RSAT)** , a zahrnout Cluster-Aware aktualizace softwaru. Pokud aktualizujete existující cluster, tyto nástroje již mohou být nainstalovány.
+Než budete moct aktualizovat cluster pomocí Cluster-Aware aktualizace, musíte nejdřív nainstalovat **Nástroje clusteringu s podporou převzetí služeb při selhání**, které jsou součástí **Nástroje pro vzdálenou správu serveru (RSAT)** , a zahrnout Cluster-Aware aktualizace softwaru. Pokud aktualizujete existující cluster, tyto nástroje již mohou být nainstalovány.
 
 Pokud chcete otestovat, jestli je cluster s podporou převzetí služeb při selhání správně nastavený tak, aby používal aktualizace softwaru pomocí Cluster-Aware aktualizace, spusťte rutinu PowerShellu **Test-CauSetup** , která provádí kontrolu Analyzátor osvědčených postupů (BPA) clusteru s podporou převzetí služeb při selhání a síťové prostředí a upozorní vás na všechna upozornění a chyby:
 
@@ -93,7 +90,7 @@ Cluster-Aware aktualizace může koordinovat úplnou operaci aktualizace cluster
 -   **Režim vzdálené aktualizace** V tomto režimu se jedná o počítač pro vzdálenou správu (obvykle počítač s Windows 10), který má síťové připojení k clusteru s podporou převzetí služeb při selhání, ale není členem clusteru s podporou převzetí služeb při selhání s nástroji clusteringu. V počítači pro vzdálenou správu, který se označuje jako koordinátor aktualizace, správce aktivuje hromadnou postupnou aktualizaci na vyžádání pomocí výchozího nebo vlastního profilu hromadné postupné aktualizace. Režim vzdálených aktualizací je užitečný pro sledování průběhu hromadné postupné aktualizace v reálném čase a pro clustery, které běží na instalacích jádra serveru.  
 
    > [!NOTE]
-   > Počínaje verzí Windows 10 říjen 2018 se RSAT nabízí jako sada funkcí na vyžádání přímo z Windows 10. Stačí přejít na **nastavení > aplikace > aplikace & funkce > volitelné funkce > přidat funkci > RSAT: Nástroje clusteringu s podporou převzetí služeb při selhání** a vybrat **nainstalovat** . Chcete-li zobrazit průběh instalace, klikněte na tlačítko zpět a zobrazte stav na stránce Správa volitelných funkcí. Nainstalovaná funkce bude zachována v rámci upgradu verze Windows 10. Pokud chcete nainstalovat RSAT pro Windows 10 před aktualizací z října 2018, [Stáhněte si balíček pro vzdálenou správu](https://www.microsoft.com/download/details.aspx?id=45520).
+   > Počínaje verzí Windows 10 říjen 2018 se RSAT nabízí jako sada funkcí na vyžádání přímo z Windows 10. Stačí přejít na **nastavení > aplikace > aplikace & funkce > volitelné funkce > přidat funkci > RSAT: Nástroje clusteringu s podporou převzetí služeb při selhání** a vybrat **nainstalovat**. Chcete-li zobrazit průběh instalace, klikněte na tlačítko zpět a zobrazte stav na stránce Správa volitelných funkcí. Nainstalovaná funkce bude zachována v rámci upgradu verze Windows 10. Pokud chcete nainstalovat RSAT pro Windows 10 před aktualizací z října 2018, [Stáhněte si balíček pro vzdálenou správu](https://www.microsoft.com/download/details.aspx?id=45520).
 
 ### <a name="add-cau-cluster-role-to-the-cluster"></a>Přidání role clusteru funkce CAU do clusteru
 
