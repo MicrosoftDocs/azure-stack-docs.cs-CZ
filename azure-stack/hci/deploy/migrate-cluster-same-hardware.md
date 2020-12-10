@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/10/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 1439c4f7e5f4a48051f439712f633bb703f5d562
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: 08ed2b7272fd8a4f9f28f2721b8aff6552131afc
+ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011596"
+ms.locfileid: "97051560"
 ---
 # <a name="migrate-to-azure-stack-hci-on-same-hardware"></a>Migrace na Azure Stack HCI na stejném hardwaru
 
@@ -136,7 +136,7 @@ Podrobné informace o tom, jak vytvořit cluster, najdete v tématu [Vytvoření
 Pokud pomocí prostředí PowerShell vytvoříte cluster Azure Stack HCI, musí být na každém Azure Stack uzlu clusteru HCI nainstalovány následující role a funkce pomocí následující rutiny:
 
 ```powershell
-Install-WindowsFeature -Name Hyper-V, Failover-Clustering, FS-Data-Deduplication, Bitlocker, Data-Center-Bridging -IncludeAllSubFeature -IncludeManagementTools -Verbose
+Install-WindowsFeature -Name Hyper-V, Failover-Clustering, FS-Data-Deduplication, Bitlocker, Data-Center-Bridging, RSAT-AD-PowerShell -IncludeAllSubFeature -IncludeManagementTools -Verbose
 ```
 
 Další informace o tom, jak vytvořit cluster pomocí prostředí PowerShell, najdete v tématu [Vytvoření clusteru Azure Stack HCI pomocí prostředí Windows PowerShell](create-cluster-powershell.md).

@@ -7,12 +7,12 @@ ms.author: v-johcob
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 11/24/2020
-ms.openlocfilehash: 3606c62c562cb7f402aaafae33a55336345b5e62
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.openlocfilehash: f4c6b9585f41388281c6618fabd21932f6d48c38
+ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95812633"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97051594"
 ---
 # <a name="azure-stack-hci-faq"></a>Nejčastější dotazy k Azure Stack HCI
 Nejčastější dotazy k rozhraní Azure Stack HCI obsahují část Azure Stack připojení HCI a obecné části Nejčastější dotazy.
@@ -24,23 +24,23 @@ Azure Stack HCI je místní vysoce sblížená infrastruktura, která se dodáv�
 
 **Odesílají se data uložená v Azure Stack HCL do cloudu?**
 
-Ne. Názvy, metadata, konfigurace a obsah místních virtuálních počítačů se nikdy neodesílají do cloudu, pokud pro tento účel nezapnete další služby, například Azure Backup nebo Azure Site Recovery. Nebo pokud tyto virtuální počítače nezaregistrujete jednotlivě do služeb Cloud Management, jako je Azure ARC.
+No. Názvy, metadata, konfigurace a obsah místních virtuálních počítačů se nikdy neodesílají do cloudu, pokud pro tento účel nezapnete další služby, například Azure Backup nebo Azure Site Recovery. Nebo pokud tyto virtuální počítače nezaregistrujete jednotlivě do služeb Cloud Management, jako je Azure ARC.
 
 ### <a name="edge-local-management-and-control"></a>Řízení a řízení hraničních zařízení – místní
 
 **Prochází se přes Cloud rovina ovládacího prvku Azure Stack HCI?**
 
-Ne. Pomocí nástrojů pro centrální správu, jako je centrum pro správu Windows, PowerShell nebo System Center, můžete spravovat přímo hostitelskou infrastrukturu a virtuální počítače i v případě, že je vaše síťové připojení k cloudu mimo provoz nebo má závažné omezení. Běžné každodenní operace, jako je přesun virtuálního počítače mezi hostiteli, výměna jednotky, která selhala, nebo konfigurace IP adres nezávisí na cloudu. Cloudové připojení se ale potřebuje k získání aktualizací softwaru v letadle, změně registrace Azure nebo použití funkcí, které přímo využívají cloudové služby pro zálohování, monitorování a další funkce.
+No. Pomocí nástrojů pro centrální správu, jako je centrum pro správu Windows, PowerShell nebo System Center, můžete spravovat přímo hostitelskou infrastrukturu a virtuální počítače i v případě, že je vaše síťové připojení k cloudu mimo provoz nebo má závažné omezení. Běžné každodenní operace, jako je přesun virtuálního počítače mezi hostiteli, výměna jednotky, která selhala, nebo konfigurace IP adres nezávisí na cloudu. Cloudové připojení se ale potřebuje k získání aktualizací softwaru v letadle, změně registrace Azure nebo použití funkcí, které přímo využívají cloudové služby pro zálohování, monitorování a další funkce.
 
 **Existují požadavky na šířku pásma nebo latenci mezi Azure Stackmi HCI a cloudem?**
 
-Ne. Připojení s omezením šířky pásma, jako jsou linky venkovského T1 nebo satelitní/mobilní připojení, jsou dostačující pro Azure Stack ke synchronizaci HCI. Minimální požadované připojení je jen několik kilobajtů za den. Další služby mohou vyžadovat větší šířku pásma, zejména pro replikaci nebo zálohování celých virtuálních počítačů, stažení velkých aktualizací softwaru nebo nahrání podrobných protokolů pro analýzu a monitorování v cloudu.
+No. Připojení s omezením šířky pásma, jako jsou linky venkovského T1 nebo satelitní/mobilní připojení, jsou dostačující pro Azure Stack ke synchronizaci HCI. Minimální požadované připojení je jen několik kilobajtů za den. Další služby mohou vyžadovat větší šířku pásma, zejména pro replikaci nebo zálohování celých virtuálních počítačů, stažení velkých aktualizací softwaru nebo nahrání podrobných protokolů pro analýzu a monitorování v cloudu.
 
 ### <a name="designed-for-intermittent-and-limited-connectivity"></a>Navrženo pro přerušované a omezené připojení
 
 **Vyžaduje Azure Stack HCI nepřetržité připojení ke cloudu?**
 
-Ne. Azure Stack HCI je navržená tak, aby zpracovávala tečky s omezeným nebo nulovým připojením.
+No. Azure Stack HCI je navržená tak, aby zpracovávala tečky s omezeným nebo nulovým připojením.
 
 **Co se stane, když se síťové připojení ke cloudu dočasně rozroste?**
 
@@ -68,17 +68,17 @@ To závisí na tom, jaké funkce používáte. Minimální Azure Stack se rozhra
 
 **Kde se synchronizují informace skutečně procházejí?**
 
-Azure Stack HCI se synchronizuje s Azure a ukládá data do zabezpečeného datacentra ovládaného Microsoftem. Další informace najdete v tématu [zasídlí dat v Azure](https://azure.microsoft.com/global-infrastructure/data-residency/).
+Azure Stack HCI se synchronizuje s Azure a ukládá data do zabezpečeného datacentra ovládaného Microsoftem. Další informace najdete v tématu [Azure Stack shromažďování dat](concepts/data-collection.md) a [zasídlí dat v Azure](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 ### <a name="disconnected-or-air-gapped"></a>Odpojeno nebo "air-gapped"
 
 **Můžu použít Azure Stack HCL a nikdy se nepřipojují k Azure?**
 
-Ne. Azure Stack HCI se musí úspěšně synchronizovat s Azure jednou za 30 po sobě jdoucích dnů.
+No. Azure Stack HCI se musí úspěšně synchronizovat s Azure jednou za 30 po sobě jdoucích dnů.
 
 **Můžu převést data do offline režimu mezi "air-gapped" Azure Stack HCL a Azure?**
 
-Ne. Momentálně není k dispozici žádný mechanismus pro registraci a synchronizaci mezi místními počítači a Azure bez připojení k síti. Například nemůžete přenášet certifikáty nebo fakturační data pomocí vyměnitelného úložiště. Pokud je k dispozici dostatek zákaznických požadavků, otevřeme, abychom tuto funkci prozkoumali v budoucnu. Dejte nám vědět ve [Azure Stack Fórum o zpětné vazbě rozhraní HCI](https://feedback.azure.com/forums/929833-azure-stack-hci).
+No. Momentálně není k dispozici žádný mechanismus pro registraci a synchronizaci mezi místními počítači a Azure bez připojení k síti. Například nemůžete přenášet certifikáty nebo fakturační data pomocí vyměnitelného úložiště. Pokud je k dispozici dostatek zákaznických požadavků, otevřeme, abychom tuto funkci prozkoumali v budoucnu. Dejte nám vědět ve [Azure Stack Fórum o zpětné vazbě rozhraní HCI](https://feedback.azure.com/forums/929833-azure-stack-hci).
 
 ## <a name="azure-stack-hci-general-faqs"></a>Azure Stack obecné Nejčastější dotazy pro HCI
 

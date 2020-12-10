@@ -6,19 +6,19 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/09/2020
-ms.openlocfilehash: 19c04e7e7783403250c6e43de6912d1ca0780b56
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.date: 12/10/2020
+ms.openlocfilehash: 3ae8cf313b0b89813bb32efb9fbb45d0fbf05c91
+ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572717"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97051678"
 ---
 # <a name="get-started-with-azure-stack-hci-and-windows-admin-center"></a>Začínáme se službou Azure Stack HCI a centrem pro správu Windows
 
 > Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019
 
-Toto téma poskytuje pokyny pro připojení k Azure Stack clusteru HCI a pro monitorování výkonu clusteru a úložiště. Pokud jste ještě cluster nevytvořili, [Stáhněte si Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) a podívejte se na [Přehled nasazení](deploy/deployment-overview.md) .
+Toto téma poskytuje pokyny pro připojení k Azure Stack clusteru HCI a pro monitorování výkonu clusteru a úložiště. Pokud jste cluster ještě nevytvořili, [Stáhněte si Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) a přečtěte si [rychlý Start: Vytvoření clusteru Azure Stack HCI a jeho registrace do Azure](deploy/deployment-quickstart.md) , kde najdete pokyny.
 
 ## <a name="install-windows-admin-center"></a>Nainstalovat centrum pro správu Windows
 
@@ -36,17 +36,17 @@ Po dokončení instalace centra pro správu systému Windows můžete přidat cl
 
 2. Vyberte, pokud chcete přidat cluster Windows serveru:
 
-    :::image type="content" source="media/get-started/chooseconnectiontype.png" alt-text="[Přidat snímek clusteru":::
+    :::image type="content" source="media/get-started/chooseconnectiontype.png" alt-text="Vybrat typ připojení snímek obrazovky":::
 
 3. Zadejte název clusteru, který chcete spravovat, a klikněte na **Přidat**. Cluster se přidá do vašeho seznamu připojení na stránce Přehled.
 
-4. V části **všechna připojení**klikněte na název clusteru, který jste právě přidali. Centrum pro správu systému Windows spustí **Správce clusteru** a přejde přímo na řídicí panel centra pro správu systému Windows pro daný cluster.
+4. V části **všechna připojení** klikněte na název clusteru, který jste právě přidali. Centrum pro správu systému Windows spustí **Správce clusteru** a přejde přímo na řídicí panel centra pro správu systému Windows pro daný cluster.
 
 ## <a name="monitor-cluster-performance-with-the-windows-admin-center-dashboard"></a>Monitorování výkonu clusteru pomocí řídicího panelu centra pro správu systému Windows
 
 Řídicí panel centra pro správu systému Windows poskytuje výstrahy a informace o stavu serverů, jednotek a svazků a také informace o využití procesoru, paměti a úložiště. Dolní část řídicího panelu zobrazuje informace o výkonu clusteru, jako je IOPS a latence, podle hodin, dnů, týdnů, měsíců nebo let.
 
-:::image type="content" source="media/get-started/dashboard.png" alt-text="[Přidat snímek clusteru":::
+:::image type="content" source="media/get-started/dashboard.png" alt-text="Snímek obrazovky řídicího panelu centra pro správu systému Windows":::
 
 ## <a name="monitor-performance-of-individual-components"></a>Monitorování výkonu jednotlivých komponent
 
@@ -56,47 +56,47 @@ Nabídka **nástroje** nalevo od řídicího panelu vám umožní přejít k pod
 
 Pokud chcete zobrazit souhrn virtuálních počítačů, které jsou spuštěné v clusteru, klikněte na **virtuální počítače** v nabídce **nástroje** vlevo.
 
-:::image type="content" source="media/get-started/vms-summary.png" alt-text="[Přidat snímek clusteru":::
+:::image type="content" source="media/get-started/vms-summary.png" alt-text="Souhrn virtuálního počítače":::
 
 Pro úplný inventář virtuálních počítačů spuštěných v clusteru spolu s jejich stavem, hostitelským serverem, využitím procesoru, tlakem paměti, nároky na paměť, přiřazenou pamětí a dobou provozu klikněte v horní části stránky na **inventář** .
 
-:::image type="content" source="media/get-started/vms-inventory.png" alt-text="[Přidat snímek clusteru":::
+:::image type="content" source="media/get-started/vms-inventory.png" alt-text="Inventář virtuálních počítačů":::
 
 ### <a name="servers"></a>Servery
 
 Chcete-li zobrazit souhrn serverů v clusteru, klikněte na tlačítko **servery** v nabídce **nástroje** vlevo.
 
-:::image type="content" source="media/get-started/servers-summary.png" alt-text="[Přidat snímek clusteru":::
+:::image type="content" source="media/get-started/servers-summary.png" alt-text="Souhrn serverů":::
 
 V případě kompletního inventáře serverů v clusteru, včetně jejich stavu, doby provozu, výrobce, modelu a sériového čísla, klikněte v horní části stránky na možnost **inventář** .
 
-:::image type="content" source="media/get-started/servers-inventory.png" alt-text="[Přidat snímek clusteru":::
+:::image type="content" source="media/get-started/servers-inventory.png" alt-text="Inventář serverů":::
 
 ### <a name="volumes"></a>Svazky
 
 Pokud chcete zobrazit souhrn svazků v clusteru, klikněte na **svazky** v nabídce **nástroje** vlevo.
 
-:::image type="content" source="media/get-started/volumes-summary.png" alt-text="[Přidat snímek clusteru":::
+:::image type="content" source="media/get-started/volumes-summary.png" alt-text="Souhrn svazků":::
 
 V případě kompletního inventáře svazků v clusteru, včetně jejich stavu, systému souborů, odolnosti, velikosti, využití úložiště a IOPS, klikněte v horní části stránky na **inventář** .
 
-:::image type="content" source="media/get-started/volumes-inventory.png" alt-text="[Přidat snímek clusteru":::
+:::image type="content" source="media/get-started/volumes-inventory.png" alt-text="Inventář svazků":::
 
 ### <a name="drives"></a>Drives
 
 Chcete-li zobrazit souhrn jednotek v clusteru, klikněte na **jednotky** v nabídce **nástroje** vlevo.
 
-:::image type="content" source="media/get-started/drives-summary.png" alt-text="[Přidat snímek clusteru":::
+:::image type="content" source="media/get-started/drives-summary.png" alt-text="Souhrn jednotek":::
 
 V případě kompletního inventáře jednotek v clusteru spolu s jejich sériovým číslem, stavem, modelem, velikostí, typem, použitím, umístěním, serverem a kapacitou klikněte v horní části stránky na **inventář** .
 
-:::image type="content" source="media/get-started/drives-inventory.png" alt-text="[Přidat snímek clusteru":::
+:::image type="content" source="media/get-started/drives-inventory.png" alt-text="Inventář jednotek":::
 
 ### <a name="virtual-switches"></a>Virtuální přepínače
 
 Pokud chcete zobrazit nastavení pro virtuální přepínač v clusteru, klikněte na **virtuální přepínače** v nabídce **nástroje** vlevo a pak klikněte na název virtuálního přepínače, pro který chcete zobrazit nastavení. Centrum pro správu systému Windows zobrazí síťové adaptéry přidružené k virtuálnímu přepínači, včetně jejich IP adres, stavu připojení, rychlosti připojení a adresy MAC.
 
-:::image type="content" source="media/get-started/virtual-switch-settings.png" alt-text="[Přidat snímek clusteru":::
+:::image type="content" source="media/get-started/virtual-switch-settings.png" alt-text="Nastavení virtuálního přepínače":::
 
 ## <a name="add-counters-with-the-performance-monitor-tool"></a>Přidání čítačů pomocí nástroje sledování výkonu
 
@@ -104,10 +104,10 @@ Pomocí nástroje sledování výkonu můžete zobrazit a porovnat čítače vý
 
 1. V nabídce **nástroje** na levé straně vyberte **sledování výkonu** .
 2. Kliknutím na možnost **prázdný pracovní prostor** spustíte nový pracovní prostor, nebo **obnovte předchozí** a obnovte předchozí pracovní prostor.
-    :::image type="content" source="media/get-started/performance-monitor.png" alt-text="[Přidat snímek clusteru":::
+    :::image type="content" source="media/get-started/performance-monitor.png" alt-text="Snímek obrazovky sledování výkonu":::
 3. Pokud vytváříte nový pracovní prostor, klikněte na tlačítko **Přidat čítač** a vyberte jeden nebo více zdrojových serverů, které chcete monitorovat, nebo vyberte celý cluster.
 4. Vyberte objekt a instanci, kterou chcete monitorovat, a také typ čítače a grafu pro zobrazení dynamických informací o výkonu.
-    :::image type="content" source="media/get-started/example-counter.png" alt-text="[Přidat snímek clusteru":::
+    :::image type="content" source="media/get-started/example-counter.png" alt-text="Ukázkový snímek obrazovky čítače":::
 5. Uložte pracovní prostor kliknutím na **uložit > Uložit jako** v horní nabídce.
 
 ## <a name="use-azure-monitor-for-monitoring-and-alerts"></a>Použití Azure Monitor pro monitorování a výstrahy

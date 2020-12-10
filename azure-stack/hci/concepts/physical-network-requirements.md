@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 7452437d7f760a688c2403cb4def735b2daaa105
-ms.sourcegitcommit: a7a2ac1b9be926134826dce03e348154fd212bc9
+ms.openlocfilehash: c8ea741534954235fc6de9e32d16602e0c369d6f
+ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96443293"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97051611"
 ---
 # <a name="physical-network-requirements-for-azure-stack-hci"></a>Požadavky na fyzickou síť pro Azure Stack HCI
 
@@ -69,9 +69,9 @@ Přepínače sítě Ethernet musí splňovat specifikaci IEEE 802.1 Qaz, která 
 
 ### <a name="standard-ieee-8021ab"></a>Standard: IEEE 802.1 AB
 
-Přepínače sítě Ethernet musí splňovat specifikaci IEEE 802.1 AB definující Protokol LLDP (Link Layer Discovery Protocol). LLDP se vyžaduje pro Azure Stack HCI a podporuje seskupování pro zjišťování konfigurace přepínače.
+Přepínače sítě Ethernet musí splňovat specifikaci IEEE 802.1 AB definující Protokol LLDP (Link Layer Discovery Protocol). LLDP se vyžaduje pro Azure Stack HCI a umožňuje odstraňování potíží s konfigurací fyzické sítě.
 
-Konfigurace hodnot typu LLDP-Length-Values (TLVs) musí být dynamicky povolena. Tyto přepínače nesmí vyžadovat další konfiguraci nad rámec povolení konkrétního TLV. Například povolení 802,1 podtyp 3 by mělo automaticky inzerovat všechny sítě VLAN, které jsou dostupné na portech přepínače.
+Konfigurace hodnot typu LLDP-Length-Values (TLVs) musí být dynamicky povolena. Přepínače nesmí vyžadovat další konfiguraci nad rámec povolení konkrétního TLV. Například povolení 802,1 podtyp 3 by mělo automaticky inzerovat všechny sítě VLAN, které jsou dostupné na portech přepínače.
 
 ### <a name="custom-tlv-requirements"></a>Vlastní požadavky TLV
 

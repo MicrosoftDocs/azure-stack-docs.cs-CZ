@@ -5,12 +5,12 @@ author: burcuerdemir
 ms.author: burcue
 ms.topic: conceptual
 ms.date: 12/10/2020
-ms.openlocfilehash: bcba678c5f308d5c231bbdb25db6d38337005a7d
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: cfc60f53ba14821dd1eb4089d59a23cdde31d40d
+ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011606"
+ms.locfileid: "97051628"
 ---
 # <a name="utility-applications-for-azure-stack-hci"></a>Pomocné aplikace pro Azure Stack HCI
 
@@ -24,6 +24,13 @@ Doporučujeme používat antivirovou ochranu v programu Microsoft Defender s ope
 
 ## <a name="partner-spotlight"></a>Spotlight pro partnery
 Podpůrné aplikace, které podporují operační systém, jsou k dispozici od následujících partnerů Microsoftu.
+
+:::image type="content" source="./media/utility-applications/altaro-logo.png" alt-text="Logo společnosti Altaro" border="false":::
+
+Zálohování virtuálního počítače Altaro je oceněné řešení zálohování a replikace virtuálních počítačů pro prostředí Hyper-V a VMware. Toto řešení je určené pro IT oddělení, prodejce a konzultanty a poskytovatele spravovaných služeb (účastníci programu MSP). nabízí robustní a zjednodušenou funkčnost na podnikové úrovni.
+
+- Seznam aplikací: [zálohování a replikace virtuálního počítače pro Hyper-V a VMware](https://www.altaro.com/vm-backup/)
+- Podpora aplikací: [Podpora Altaro pro Azure Stack HCI](https://www.altaro.com/news/single/News-Altaro-applies-its-expertise-in-Hyper-V-backup-to-support-Microsoft.php)
 
 :::image type="content" source="./media/utility-applications/veeam-logo.png" alt-text="Logo společnosti Veeam" border="false":::
 
@@ -45,13 +52,6 @@ Veritas Backup Exec je snadno použitelné řešení pro zálohování a obnoven
 
 - Seznam aplikací: [Backup Exec](https://www.veritas.com/protection/backup-exec)
 - Podpora aplikací: [ochrana Azure Stack HCL pomocí programu Backup Exec](https://www.veritas.com/support/en_US/article.100048860)
-
-:::image type="content" source="./media/utility-applications/altaro-logo.png" alt-text="Logo společnosti Altaro" border="false":::
-
-Zálohování virtuálního počítače Altaro je oceněné řešení zálohování a replikace virtuálních počítačů pro prostředí Hyper-V a VMware. Toto řešení je určené pro IT oddělení, prodejce a konzultanty a poskytovatele spravovaných služeb (účastníci programu MSP). nabízí robustní a zjednodušenou funkčnost na podnikové úrovni.
-
-- Seznam aplikací: [zálohování a replikace virtuálního počítače pro Hyper-V a VMware](https://www.altaro.com/vm-backup/)
-- Podpora aplikací: [Podpora Altaro pro Azure Stack HCI](https://www.altaro.com/news/single/News-Altaro-applies-its-expertise-in-Hyper-V-backup-to-support-Microsoft.php)
 
 :::image type="content" source="./media/utility-applications/datadog-logo.png" alt-text="Logo společnosti Datadag" border="false":::
 

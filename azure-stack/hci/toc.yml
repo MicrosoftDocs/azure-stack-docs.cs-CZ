@@ -4,20 +4,20 @@
   items:
     - name: Co je Azure Stack HCI?
       href: overview.md
-    - name: Známé problémy
-      href: known-issues.md
+    - name: Informace o verzi
+      href: release-information.md
     - name: "Poznámky k\_verzi"
-      href: release-notes.md
+      href: 'https://support.microsoft.com/help/4595086'
     - name: Nejčastější dotazy
       href: faq.md
-- name: Začínáme
+- name: Rychlé starty
   items:
     - name: Použití Azure Stack HCL s centrem pro správu Windows
       href: get-started.md
+    - name: Vytvoření clusteru Azure Stack HCI
+      href: deploy/deployment-quickstart.md
 - name: Nasadit
   items:
-    - name: Rychlý Start nasazení
-      href: deploy/deployment-quickstart.md
     - name: Přehled nasazení
       href: deploy/deployment-overview.md
     - name: Nasazení operačního systému Azure Stack HCI
@@ -162,6 +162,8 @@
           href: concepts/security.md
         - name: Pomocné aplikace
           href: concepts/utility-applications.md
+        - name: Shromažďování dat
+          href: concepts/data-collection.md
 - name: Referenční informace
   items:
     - name: Příkazy Azure CLI pro registraci Azure
@@ -218,3 +220,5 @@
       href: 'https://github.com/Azure/AzureStackHCI-EvalGuide/blob/main/README.md'
     - name: Azure Stack ceny HCI
       href: 'https://azure.microsoft.com/pricing/details/azure-stack/hci/'
+    - name: Podpora Azure Stack HCL
+      href: manage/get-support.md
