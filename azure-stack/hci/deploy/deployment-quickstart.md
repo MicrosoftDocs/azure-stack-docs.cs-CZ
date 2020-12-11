@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 12/10/2020
-ms.openlocfilehash: 1787218c32feaa0e944946b6b36614432ea529f1
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: a6e725eee638b0afd2dddbe2f382cade729f9873
+ms.sourcegitcommit: d91d44762383790a0bcfc4a85f43050c8528d5d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011616"
+ms.locfileid: "97069780"
 ---
 # <a name="quickstart-create-an-azure-stack-hci-cluster-and-register-it-with-azure"></a>Rychlý Start: Vytvoření clusteru Azure Stack HCI a jeho registrace do Azure
 
@@ -24,7 +24,7 @@ V tomto rychlém startu se dozvíte, jak nasadit cluster s jednou lokalitou Azur
 
 Před vytvořením clusteru udělejte toto:
 
-* Zakupte dva servery z [katalogu Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/catalog/) přes preferovaný hardwarový partner Microsoftu s předinstalovaným operačním systémem Azure Stack HCI. Zkontrolujte [požadavky na systém](../concepts/system-requirements.md) , abyste se ujistili, že hardware, který vyberete, bude podporovat úlohy, které plánujete spustit v clusteru.
+* Zakupte dva servery z [katalogu Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/catalog/) přes preferovaný hardwarový partner Microsoftu s předinstalovaným operačním systémem Azure Stack HCI. Zkontrolujte [požadavky na systém](../concepts/system-requirements.md) , abyste se ujistili, že hardware, který vyberete, bude podporovat úlohy, které plánujete spustit v clusteru. Doporučujeme používat systém s vysokorychlostními síťovými adaptéry, které používají iWARP pro jednoduchou konfiguraci.
 * Vytvořte uživatelský účet, který je členem místní skupiny Administrators na každém serveru.
 * [Získejte předplatné Azure](https://azure.microsoft.com/), pokud ho ještě nemáte.
 * [Nainstalujte si centrum](/windows-server/manage/windows-admin-center/deploy/install) pro správu Windows na počítač pro správu a [Zaregistrujte centrum pro správu Windows pomocí Azure](../manage/register-windows-admin-center.md). Všimněte si, že váš počítač pro správu musí být připojen ke stejné doméně služby Active Directory, ve které vytvoříte cluster, nebo plně důvěryhodnou doménu.
@@ -43,7 +43,7 @@ Pomocí těchto kroků můžete vytvořit jednoduchý cluster s jedním uzlem a 
 Průvodce vytvořením clusteru má pět oddílů, z nichž každý obsahuje několik kroků.
 
 1. **Začněte.** V této části zkontrolujete požadavky, přidáte servery, připojíte se k doméně, nainstalujete požadované funkce a aktualizace a restartujete servery. 
-2. **Sítě.** V této části Průvodce se ověří, že jsou povolené správné síťové adaptéry a že je zakázané, které nepoužíváte. Vyberte adaptéry pro správu, nastavte konfiguraci virtuálního přepínače a definujte síť tím, že zadáte IP adresy. Pokud chcete zachovat nějaké věci jednoduché, nevybírejte pro tento cluster možnost RDMA. 
+2. **Sítě.** V této části Průvodce se ověří, že jsou povolené správné síťové adaptéry a že je zakázané, které nepoužíváte. Vyberte adaptéry pro správu, nastavte konfiguraci virtuálního přepínače a definujte síť tím, že zadáte IP adresy.
 3. **Clustering.** V této části se ověří, že vaše servery mají konzistentní konfiguraci a jsou vhodné pro clusteringu, a vytvoří vlastní cluster.
 4. **Pamì.** V dalším kroku vyčistíte a zkontrolujete jednotky, ověříte úložiště a povolíte Prostory úložiště s přímým přístupem.
 5. **Sdn.** Můžete přeskočit oddíl 5, protože pro tento cluster nebudeme používat softwarově definované sítě (SDN).

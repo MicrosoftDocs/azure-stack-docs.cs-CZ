@@ -6,18 +6,22 @@ ms.topic: how-to
 ms.date: 12/10/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 08ed2b7272fd8a4f9f28f2721b8aff6552131afc
-ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
+ms.openlocfilehash: ea19dbbdd85f29eb036a0220828bbbb7bca33ea7
+ms.sourcegitcommit: d91d44762383790a0bcfc4a85f43050c8528d5d2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 12/10/2020
-ms.locfileid: "97051560"
+ms.locfileid: "97069800"
 ---
 # <a name="migrate-to-azure-stack-hci-on-same-hardware"></a>Migrace na Azure Stack HCI na stejném hardwaru
 
 > Platí pro Azure Stack HCI, verze 20H2; Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2008 R2
 
 Toto téma popisuje, jak migrovat cluster Windows serveru 2016 nebo Windows Server 2019 na Azure Stack HCL pomocí stávajícího serverového hardwaru. Tento proces nainstaluje nový operační systém Azure Stack HCI a zachová stávající nastavení clusteru a úložiště a importuje vaše virtuální počítače.
+
+Následující diagram znázorňuje místní migraci clusteru Windows serveru pomocí stejného hardwaru serveru. Po vypnutí clusteru Azure Stack HCL je nainstalovaná, úložiště se znovu připojí a vaše virtuální počítače se importují a zpřístupňují s vysokou dostupností (HA).
+
+:::image type="content" source="media/migrate/migrate-cluster-same-hardware.png" alt-text="Migrace clusteru do Azure Stack HCI na stejném hardwaru" lightbox="media/migrate/migrate-cluster-same-hardware.png":::
 
 Pokud chcete migrovat virtuální počítače na nový Azure Stack hardware HCI, přečtěte si téma [migrace na Azure Stack HCI na novém hardwaru](migrate-cluster-new-hardware.md).
 
