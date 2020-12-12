@@ -16,7 +16,7 @@
       href: get-started.md
     - name: Vytvoření clusteru Azure Stack HCI
       href: deploy/deployment-quickstart.md
-- name: Nasadit
+- name: Nasazení
   items:
     - name: Přehled nasazení
       href: deploy/deployment-overview.md
@@ -116,6 +116,8 @@
       items:
         - name: Požadavky na systém
           href: concepts/system-requirements.md
+        - name: Porovnat s Windows serverem
+          href: concepts/compare-windows-server.md
         - name: Zvolit jednotky
           href: concepts/choose-drives.md
         - name: Požadavky na symetrii jednotky
