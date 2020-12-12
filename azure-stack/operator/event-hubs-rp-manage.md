@@ -8,16 +8,14 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: e9f500da4cab68688a6dd33374cfbc1cc166828d
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: aaadabe207146f200d6090c2e59bcc563831c6d4
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80424034"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343582"
 ---
 # <a name="how-to-manage-event-hubs-on-azure-stack-hub"></a>Správa Event Hubs v centru Azure Stack
-
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
 
 Prostředí pro správu Event Hubs umožňuje řídit službu a vizualizovat její stav a výstrahy. 
 
@@ -25,7 +23,7 @@ Prostředí pro správu Event Hubs umožňuje řídit službu a vizualizovat jej
 
 Pro přístup ke stránce pro správu Event Hubs použijte následující postup:
 
-1. Přihlaste se k portálu pro správu centra Azure Stack.
+1. Přihlaste se k portálu pro správu služby Azure Stack Hub.
 2. V levém podokně vyberte **všechny služby** .
 3. Vyhledejte "Event Hubs" a vyberte službu. Pokud nemůžete najít Event Hubs službu, musí se nejdřív [nainstalovat](event-hubs-rp-install.md)poskytovatel prostředků.
 4. Zobrazí se stránka s přehledem správy Event Hubs. Čtyři části najdete v levém podokně:
@@ -51,20 +49,20 @@ Poskytovatel prostředků Event Hubs podporuje následující výstrahy:
 | Kategorie | Výstrahy | Typ | Podmínka |
 |----------|-------|------|-----------|
 | Výkon | | | |
-| | EventHub – CpuUsage | Upozornění | Průměr% využití CPU Event Hubs clusteru za posledních 6 hodin je větší než 50%. |
-| | EventHub – MemoryUsage | Upozornění | Průměr% datového disku (E:) využití clusteru Event Hubs za posledních 6 hodin je větší než 50%. |
-| | EventHub – SKU | Upozornění | Průměr% volného místa na disku Event Hubs clusteru za posledních 6 hodin je menší než 50%. |
+| | EventHub-CpuUsage | Upozornění | Průměr% využití CPU Event Hubs clusteru za posledních 6 hodin je větší než 50%. |
+| | EventHub-MemoryUsage | Upozornění | Průměr% datového disku (E:) využití clusteru Event Hubs za posledních 6 hodin je větší než 50%. |
+| | EventHub-DiskUsage | Upozornění | Průměr% volného místa na disku Event Hubs clusteru za posledních 6 hodin je menší než 50%. |
 | Využití/kvóta | | | |
-| | EventHub – QuotaExceeded | Upozornění | Během posledních šesti hodin došlo k chybě překročení kvóty. |
-| | EventHub – NamespaceCreditUsage | Upozornění | Součet využití kreditu z oboru názvů za posledních šest hodin je větší než 10000,0. |
+| | EventHub-QuotaExceeded | Upozornění | Během posledních šesti hodin došlo k chybě překročení kvóty. |
+| | EventHub-NamespaceCreditUsage | Upozornění | Součet využití kreditu z oboru názvů za posledních šest hodin je větší než 10000,0. |
 | Služba byla snížena. | | | |
-| | EventHub – Nenalezeno | Upozornění | Během posledních šesti hodin došlo k vnitřní chybě serveru. |
-| | EventHub – ServerBusy | Upozornění | V posledních šesti hodinách došlo k chybě zaneprázdněnosti serveru. |
+| | EventHub-InternalServerError | Upozornění | Během posledních šesti hodin došlo k vnitřní chybě serveru. |
+| | EventHub-ServerBusy | Upozornění | V posledních šesti hodinách došlo k chybě zaneprázdněnosti serveru. |
 | Klient | | | |
-| | EventHub – ClientError | Upozornění | V posledních šesti hodinách došlo k chybě klienta. |
+| | EventHub-ClientError | Upozornění | V posledních šesti hodinách došlo k chybě klienta. |
 | Prostředek | | | |
-| | EventHub – PendingDeletingResources | Upozornění | Součet nedokončených odstranění prostředků za posledních šest hodin je větší než 100. |
-| | EventHub – ProvisioningQueueLength | Upozornění | Průměrná délka fronty zřizování za posledních šest hodin je větší než 30. |
+| | EventHub-PendingDeletingResources | Upozornění | Součet nedokončených odstranění prostředků za posledních šest hodin je větší než 100. |
+| | EventHub-ProvisioningQueueLength | Upozornění | Průměrná délka fronty zřizování za posledních šest hodin je větší než 30. |
 
 Výběr **Upozornění** na hlavní stránce zobrazuje seznam vydaných výstrah:
 
@@ -92,7 +90,7 @@ Když vyberete odkaz v části **stav** nebo **záloha** , zobrazí se podrobné
 
 [![Spravovat centra událostí – uživatelské clustery](media/event-hubs-rp-manage/4-user-clusters.png)](media/event-hubs-rp-manage/4-user-clusters.png#lightbox)
 
-Omezení služby jsou konfigurační parametry, které definují provozní hranice Event Hubs. Dostupná omezení služby jsou podobná těm, která jsou nabízená pro Azure Event Hubs úrovně Dedicated. Výběrem odkazů v části **konfigurační hodnota**můžete změnit přiřazenou hodnotu.
+Omezení služby jsou konfigurační parametry, které definují provozní hranice Event Hubs. Dostupná omezení služby jsou podobná těm, která jsou nabízená pro Azure Event Hubs úrovně Dedicated. Výběrem odkazů v části **konfigurační hodnota** můžete změnit přiřazenou hodnotu.
 
 > [!IMPORTANT]
 > Před změnou omezení služby byste měli věnovat čas analýze úplných dopadů. Změny omezení služby můžou mít vliv na chování vašeho řešení, které využívá a generuje události. Změny také mohou ovlivnit spotřebu prostředků z vaší Azure Stack kapacity.

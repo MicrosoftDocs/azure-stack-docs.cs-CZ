@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/10/2020
-ms.openlocfilehash: 918bc4fdee076cdfe5b158f9b276eff789c9ecf8
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.date: 12/11/2020
+ms.openlocfilehash: 9e8c66207ad4601aa7a5ee84b4ee3eb8d7e32654
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011191"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343278"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Přehled řešení Azure Stack HCI
 
@@ -94,7 +94,7 @@ Azure Stack HCI je špičková integrovaná sada virtualizace postavená na prov
 
 Začněte tím, že budete potřebovat:
 
-- Cluster dvou nebo více serverů z [katalogu Azure Stack HCI](https://aka.ms/azurestackhcicatalog), zakoupený od preferovaného poskytovatele hardwaru Microsoftu
+- Cluster dvou nebo více serverů z [katalogu Azure Stack HCI](https://hcicatalog.azurewebsites.net), zakoupený od preferovaného poskytovatele hardwaru Microsoftu
 - [Předplatné Azure](https://azure.microsoft.com/)
 - Připojení k Internetu pro každý server v clusteru, který se může připojit prostřednictvím odchozího provozu HTTPS k dobře známým koncovým bodům Azure nejméně každých 30 dnů
 - Pro roztažené clustery mezi lokalitami potřebujete minimálně 1 1 GB připojení mezi lokalitami (upřednostňuje se 25 GB připojení RDMA), s průměrnou latencí 5 MS na konci přenosu, pokud chcete provést synchronní replikaci, kde se v obou lokalitách vyskytují zápisy současně.
@@ -106,7 +106,7 @@ Další informace najdete v tématu [požadavky na systém](concepts/system-requ
 
 Ověřená řešení Azure Stack HCI si můžete koupit od preferovaného partnera Microsoftu, abyste mohli začít pracovat bez zdlouhavého návrhu a času sestavování. Partneři Microsoftu nabízejí také jeden kontaktní bod pro implementaci a služby podpory. Můžete si buď koupit ověřené uzly, nebo integrovaný systém, který zahrnuje předinstalované operační systémy Azure Stack HCI a také rozšíření partnerů pro aktualizace ovladačů a firmwaru.
 
-Navštivte stránku [Azure Stack řešení HCI](https://azure.microsoft.com/overview/azure-stack/hci) nebo si projděte [Azure Stack v katalogu HCI](https://aka.ms/azurestackhcicatalog) , kde můžete zobrazit 70 + Azure Stack řešení HCI, která jsou aktuálně k dispozici od partnerů Microsoftu, jako je ASUS, Axellio, Blue čip, DataON, Dell EMC, Fujitsu, HPE, Hitachi, Huawei, Lenovo, NEC, primeLine Solutions, QCT, SecureGUARD a Micro.
+Navštivte stránku [Azure Stack řešení HCI](https://azure.microsoft.com/overview/azure-stack/hci) nebo si projděte [Azure Stack v katalogu HCI](https://hcicatalog.azurewebsites.net) , kde můžete zobrazit 70 + Azure Stack řešení HCI, která jsou aktuálně k dispozici od partnerů Microsoftu, jako je ASUS, Axellio, Blue čip, DataON, Dell EMC, Fujitsu, HPE, Hitachi, Huawei, Lenovo, NEC, primeLine Solutions, QCT, SecureGUARD a Micro.
 
 ## <a name="software-partners"></a>Partneři softwaru
 
@@ -203,7 +203,7 @@ Centrum pro správu systému Windows verze 2009 přidává řadu funkcí Azure S
 - **Zahrnutí softwarově definovaných sítí v Průvodci vytvořením clusteru**: Průvodce vytvořením clusteru teď obsahuje možnost nasazení funkce síťového adaptéru s [softwarově definovanými sítěmi (SDN)](concepts/software-defined-networking.md) během [vytváření clusteru](deploy/create-cluster.md#step-5-sdn-optional).
 - **Vylepšení přímého přístupu do paměti vzdáleného počítače (RDMA) v Průvodci vytvořením clusteru**: Průvodce vytvořením clusteru teď může nakonfigurovat RDMA pro síťové adaptéry IWARP a roce, včetně přemostění DATACENTER (DCB).
 
-Podrobnosti o nových funkcích centra pro správu systému Windows najdete na [blogu centra pro správu systému Windows](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/bg-p/Windows-Admin-Center-Blog).
+Podrobnosti o nových funkcích najdete v tématu [oznamujeme obecnou dostupnost rozšíření pro vytváření clusteru v centru pro správu systému Windows](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/announcing-general-availability-of-the-cluster-creation/ba-p/1978332).
 
 Clustery se systémem Azure Stack HCI verze 20H2 ve srovnání s řešeními založenými na Windows serveru 2019 obsahují následující nové funkce:
 

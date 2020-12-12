@@ -8,16 +8,14 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 2a1525f4b91998479d368714aa3a88df6ecfcef9
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b69d5b7a7b621d22745c89c18a3e7f000e54bcbd
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80423957"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343741"
 ---
 # <a name="how-to-remove-event-hubs-on-azure-stack-hub"></a>Postup odebrání Event Hubs v centru Azure Stack
-
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
 
 > [!WARNING]
 > Po odinstalování Event Hubs se odebere (smaže) poskytovatel prostředků a všechny prostředky Event Hubs clustery, obory názvů a centra událostí vytvořené uživatelem. Tím se odeberou také přidružená data události.  
@@ -29,7 +27,7 @@ Tato posloupnost kroků odstraní všechny prostředky Event Hubs, včetně clus
 
 Chcete-li odebrat Event Hubs a všechny související prostředky vytvořené uživateli, proveďte následující kroky:
 
-1. Přihlaste se k portálu pro správu centra Azure Stack.
+1. Přihlaste se k portálu pro správu služby Azure Stack Hub.
 2. Na levé straně vyberte **Správa Marketplace** .
 3. Vyberte **Poskytovatelé prostředků**.
 4. V seznamu poskytovatelů prostředků vyberte **Event Hubs** . Seznam můžete chtít filtrovat zadáním příkazu "Event Hubs" do zadaného textového pole hledání.

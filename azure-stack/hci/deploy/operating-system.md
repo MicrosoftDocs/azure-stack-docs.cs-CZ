@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 12/7/2020
-ms.openlocfilehash: 51a4411e95207d2f7b544fdf507fe8bd8fc98f2e
-ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
+ms.openlocfilehash: 12fda23b2719526c45503a78ff670b595d41f074
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96761707"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343368"
 ---
 # <a name="deploy-the-azure-stack-hci-operating-system"></a>Nasazení operačního systému Azure Stack HCI
 
@@ -21,7 +21,7 @@ ms.locfileid: "96761707"
 Prvním krokem při nasazení Azure Stack HCI je [stažení Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) a instalace operačního systému na každém serveru, který chcete clusterovat. Tento článek popisuje různé způsoby nasazení operačního systému a připojení k serverům pomocí centra pro správu systému Windows.
 
 > [!NOTE]
-> Pokud jste si koupili Azure Stack hardware integrovaného systémového řešení z [katalogu Azure Stack HCI](https://aka.ms/azurestackhcicatalog) přes preferovaný hardwarový partner společnosti Microsoft, měl by být operační systém Azure Stack HCI předem nainstalován. V takovém případě můžete tento krok přeskočit a přejít na, aby se [vytvořil cluster Azure Stack HCI](create-cluster.md).
+> Pokud jste si koupili Azure Stack hardware integrovaného systémového řešení z [katalogu Azure Stack HCI](https://hcicatalog.azurewebsites.net) přes preferovaný hardwarový partner společnosti Microsoft, měl by být operační systém Azure Stack HCI předem nainstalován. V takovém případě můžete tento krok přeskočit a přejít na, aby se [vytvořil cluster Azure Stack HCI](create-cluster.md).
 
 ## <a name="prerequisites"></a>Předpoklady
 
@@ -80,7 +80,7 @@ Operační systém Azure Stack HCI můžete nasadit stejným způsobem, jaký js
 
 V případě podnikového nasazení Azure Stackho operačního systému HCI doporučujeme Azure Stack hardwaru integrovaných systémových řešení systému HCI od preferovaného hardwarového partnera. Hardware řešení dorazí na předinstalovaný operační systém a pomocí centra pro správu systému Windows nasaďte a aktualizujte ovladače a firmware od výrobce hardwaru.
 
-V případě hardwarových řešení se rozsahy od 2 do 16 uzlů testuje a ověřuje i dodavatelé partnerů společnosti Microsoft a partnerů. Pokud chcete najít Azure Stack hardware řešení HCI od preferovaného hardwarového partnera, přečtěte si téma [Azure Stack v katalogu HCI](https://www.microsoft.com/cloud-platform/azure-stack-hci-catalog).
+V případě hardwarových řešení se rozsahy od 2 do 16 uzlů testuje a ověřuje i dodavatelé partnerů společnosti Microsoft a partnerů. Pokud chcete najít Azure Stack hardware řešení HCI od preferovaného hardwarového partnera, přečtěte si téma [Azure Stack v katalogu HCI](https://hcicatalog.azurewebsites.net).
 
 ### <a name="headless-deployment"></a>Bezobslužné nasazení
 

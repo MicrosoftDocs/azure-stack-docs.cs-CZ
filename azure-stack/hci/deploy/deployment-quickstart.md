@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/10/2020
-ms.openlocfilehash: a6e725eee638b0afd2dddbe2f382cade729f9873
-ms.sourcegitcommit: d91d44762383790a0bcfc4a85f43050c8528d5d2
+ms.date: 12/11/2020
+ms.openlocfilehash: 2d2c122a2fd8a9e0be5d3ffd942f85f310845f2d
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97069780"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343172"
 ---
 # <a name="quickstart-create-an-azure-stack-hci-cluster-and-register-it-with-azure"></a>Rychlý Start: Vytvoření clusteru Azure Stack HCI a jeho registrace do Azure
 
@@ -24,7 +24,7 @@ V tomto rychlém startu se dozvíte, jak nasadit cluster s jednou lokalitou Azur
 
 Před vytvořením clusteru udělejte toto:
 
-* Zakupte dva servery z [katalogu Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/catalog/) přes preferovaný hardwarový partner Microsoftu s předinstalovaným operačním systémem Azure Stack HCI. Zkontrolujte [požadavky na systém](../concepts/system-requirements.md) , abyste se ujistili, že hardware, který vyberete, bude podporovat úlohy, které plánujete spustit v clusteru. Doporučujeme používat systém s vysokorychlostními síťovými adaptéry, které používají iWARP pro jednoduchou konfiguraci.
+* Zakupte dva servery z [katalogu Azure Stack HCI](https://hcicatalog.azurewebsites.net) přes preferovaný hardwarový partner Microsoftu s předinstalovaným operačním systémem Azure Stack HCI. Zkontrolujte [požadavky na systém](../concepts/system-requirements.md) , abyste se ujistili, že hardware, který vyberete, bude podporovat úlohy, které plánujete spustit v clusteru. Doporučujeme používat systém s vysokorychlostními síťovými adaptéry, které používají iWARP pro jednoduchou konfiguraci.
 * Vytvořte uživatelský účet, který je členem místní skupiny Administrators na každém serveru.
 * [Získejte předplatné Azure](https://azure.microsoft.com/), pokud ho ještě nemáte.
 * [Nainstalujte si centrum](/windows-server/manage/windows-admin-center/deploy/install) pro správu Windows na počítač pro správu a [Zaregistrujte centrum pro správu Windows pomocí Azure](../manage/register-windows-admin-center.md). Všimněte si, že váš počítač pro správu musí být připojen ke stejné doméně služby Active Directory, ve které vytvoříte cluster, nebo plně důvěryhodnou doménu.

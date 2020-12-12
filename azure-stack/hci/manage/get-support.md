@@ -4,13 +4,13 @@ description: V tomto tématu najdete pokyny, jak získat podporu pro Azure Stack
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
-ms.date: 12/10/2020
-ms.openlocfilehash: a2e679329acca6bcc03363c499d08deb78890b3d
-ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
+ms.date: 12/11/2020
+ms.openlocfilehash: 5b25fdcefd61cb8fa5a497a3477b1f33ab67ece5
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97053071"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343334"
 ---
 # <a name="get-support-for-azure-stack-hci"></a>Získat podporu pro Azure Stack HCI
 
@@ -32,7 +32,7 @@ Informace o dalších Azure Stack dostupných prostředků podpory HCI prostřed
 ## <a name="partner-support-resources-for-azure-stack-hci"></a>Prostředky podpory partnerů pro Azure Stack HCI
 V případě, že hardware integrovaného systémového řešení Azure Stack HCL od preferovaného hardwarového partnera dorazí na předinstalovaný operační systém. Můžete očekávat, že hardwarová služba, podpora a aktualizace zabezpečení od svého partnera hardwaru po dobu nejméně pěti let. Další informace najdete v tématu [aktualizace a upgrady](../concepts/updates.md). 
 
-Další informace o integrovaných systémových partnerech a jejich řešení a podpoře najdete v [katalogu Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/catalog/).
+Další informace o integrovaných systémových partnerech a jejich řešení a podpoře najdete v [katalogu Azure Stack HCI](https://hcicatalog.azurewebsites.net).
 
 ## <a name="next-steps"></a>Další kroky
 Související informace najdete v tématu také:

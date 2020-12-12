@@ -7,17 +7,15 @@ ms.service: azure-stack
 ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
-ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: ec369d8f01ed9dc5e6e5635af4922ef80736c4c5
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 08/15/2020
+ms.openlocfilehash: 41ce43c3eda27d3ede8e6a90175fb3042fa2bf68
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572149"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343565"
 ---
 # <a name="how-to-do-capacity-planning-for-event-hubs-on-azure-stack-hub"></a>Postup plánování kapacity pro Event Hubs v centru Azure Stack
-
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
 
 Jako operátor můžete spravovat kapacitu centra Azure Stack s využitím [kvót](azure-stack-quota-types.md) u prostředků. Event Hubs spotřebu prostředků můžete řídit nastavením kvót na maximálním počtu jader, které používají clustery Event Hubs. Event Hubs clustery jsou vytvořeny uživateli při nasazení Event Hubs prostředků. Existují také různé požadavky na spotřebu prostředků pro poskytovatele prostředků, které jsou pokryty v tomto článku.
 
@@ -35,8 +33,7 @@ Uživatelé budou muset vytvářet Event Hubs clustery s kapacitní jednotky, kt
 
 Všechny clustery Event Hubs používají pro své uzly typ virtuálního počítače [D11_V2](../user/azure-stack-vm-sizes.md#mo-dv2) . Typ virtuálního počítače D11_V2 se skládá ze 2 jader. Takže 1 CU Event Hubs cluster používá 5 D11_V2 virtuálních počítačů, které se vztahují k využívanému 10 jader. Při určování počtu jader, které se mají pro kvótu nakonfigurovat, použijte násobek celkového počtu jader, které používá 1 CU. Tento výpočet odráží maximální počet CU, které umožníte uživatelům používat při vytváření Event Hubs clusterů. Pokud chcete například nakonfigurovat kvótu, která umožňuje uživatelům vytvořit cluster se 2 kapacitní jednotky kapacitou, nastavte kvótu na 20 jader.
 
-> [!NOTE]
-> **Jenom veřejná verze Preview** Dostupná verze Event Hubs v centru Azure Stack podporuje pouze vytváření 1 CU clusterů. Verze Event Hubs obecné dostupnosti (GA) bude zahrnovat podporu pro různé možnosti konfigurace.
+[!INCLUDE [event-hubs-scale](../includes/event-hubs-scale.md)]
 
 ## <a name="resource-provider-resource-consumption"></a>Spotřeba prostředků poskytovatele prostředků  
 

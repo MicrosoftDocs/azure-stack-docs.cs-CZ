@@ -340,7 +340,7 @@
                 - name: Instalace aktualizací
                   href: resource-provider-apply-updates.md
                 - name: Zálohování a obnovení
-                  href: azure-stack-backup-infrastructure-backup.md
+                  href: azure-stack-backup-enable-backup-console.md
                 - name: Shromažďování protokolů
                   href: diagnostic-log-collection.md
                 - name: Výstrahy & stavu
@@ -348,7 +348,7 @@
                 - name: Spravovat
                   href: event-hubs-rp-manage.md
                 - name: Otočit tajné klíče
-                  href: azure-stack-rotate-secrets.md
+                  href: event-hubs-rp-rotate-secrets.md
                 - name: Oznámení o aktualizacích služby
                   href: 'https://techcommunity.microsoft.com/t5/Event-Hubs-Blog/bg-p/EventHubs'
             - name: Odebrat
@@ -483,7 +483,7 @@
           href: azure-stack-backup-best-practices.md
         - name: Odkaz na zálohování
           href: azure-stack-backup-reference.md
-    - name: Získání podpory
+    - name: Získat podporu
       items:
         - name: Pracovní stanice pro přístup k operátoru
           href: operator-access-workstation.md
@@ -499,7 +499,7 @@
               href: azure-stack-get-azurestacklog.md
         - name: Ověřování centra Azure Stack
           href: azure-stack-diagnostic-test.md
-        - name: Poradce při potížích
+        - name: Řešení potíží
           href: azure-stack-troubleshooting.md
 - name: Referenční informace
   items:
@@ -519,7 +519,7 @@
       href: ../asdk/index.yml
     - name: Dokumentace k hybridnímu cloudu Azure
       href: /hybrid
-- name: Zdroje informací
+- name: Zdroje a prostředky
   items:
     - name: Školení a certifikace
       href: azure-stack-train-and-cert.md

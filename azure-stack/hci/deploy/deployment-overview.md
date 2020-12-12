@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/7/2020
-ms.openlocfilehash: 11c82a35d17a61fee474123a658f91ea90790221
-ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
+ms.date: 12/11/2020
+ms.openlocfilehash: fd7f06e834026b2f35f2bce3830440f54b6dd26f
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778015"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343321"
 ---
 # <a name="what-is-the-deployment-process-for-azure-stack-hci"></a>Jaký je proces nasazení Azure Stack HCI?
 
@@ -42,7 +42,7 @@ Před nasazením operačního systému Zjistěte, jestli hardware splňuje poža
 
 ### <a name="1-deploy-azure-stack-hci"></a>1. nasazení Azure Stack HCL
 
-[Stáhněte si Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) a nasaďte Azure Stack [operační systém](operating-system.md) HCI na každém serveru, který chcete clusterovat. Pokud jste si koupili Azure Stack hardware integrovaného systémového řešení z [katalogu Azure Stack HCI](https://aka.ms/azurestackhcicatalog) přes preferovaný hardwarový partner společnosti Microsoft, měl by být operační systém Azure Stack HCI předem nainstalován. V takovém případě můžete tento krok přeskočit a přejít na #2.
+[Stáhněte si Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) a nasaďte Azure Stack [operační systém](operating-system.md) HCI na každém serveru, který chcete clusterovat. Pokud jste si koupili Azure Stack hardware integrovaného systémového řešení z [katalogu Azure Stack HCI](https://hcicatalog.azurewebsites.net) přes preferovaný hardwarový partner společnosti Microsoft, měl by být operační systém Azure Stack HCI předem nainstalován. V takovém případě můžete tento krok přeskočit a přejít na #2.
 
 ### <a name="2-create-the-cluster"></a>2. vytvoření clusteru
 

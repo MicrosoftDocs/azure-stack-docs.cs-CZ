@@ -1,5 +1,5 @@
 ---
-title: Přehled Event Hubs v centru Azure Stack
+title: Přehled Event Hubs v operátoru centra Azure Stack
 description: Přečtěte si o poskytovateli prostředků Event Hubs v centru Azure Stack.
 author: BryanLa
 ms.author: bryanla
@@ -8,16 +8,14 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 2c7574ef54176e4e4b91f5bee8af9e6953d13732
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: a37d4b69b3e5ecd34046e4876f522ccfbce3f919
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742643"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343668"
 ---
-# <a name="event-hubs-on-azure-stack-hub-overview"></a>Přehled Event Hubs v centru Azure Stack
-
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
+# <a name="event-hubs-on-azure-stack-hub-operator-overview"></a>Přehled Event Hubs v operátoru centra Azure Stack
 
 Event Hubs v centru Azure Stack vám umožní realizovat hybridní cloudové scénáře. Podpora streamování a řešení založeného na událostech je podporovaná pro místní i cloudové zpracování Azure. Bez ohledu na to, jestli je váš scénář hybridní (připojený) nebo odpojený, může vaše řešení podporovat zpracování událostí nebo datových proudů ve velkém měřítku. Váš scénář je vázaný jenom na velikost clusteru, kterou můžete zřídit podle svých potřeb. 
 

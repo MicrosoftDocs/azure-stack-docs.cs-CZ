@@ -9,14 +9,14 @@ ms.reviewer: ppacent
 ms.author: bryanla
 ms.lastreviewed: 08/15/2020
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: 69e1aa757f0285cc39d8df16bbd3531af0d3ea51
-ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
+ms.openlocfilehash: 800e6f2173f409283a04259f29b4835e66ced075
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96152841"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343155"
 ---
-# <a name="rotate-secrets-in-azure-stack-hub"></a>Otočení tajných kódů v centru Azure Stack
+# <a name="rotate-secrets-in-azure-stack-hub"></a>Obměna tajných klíčů ve službě Azure Stack Hub
 
 V tomto článku najdete pokyny k provádění rotace tajných kódů, které vám pomůžou zajistit zabezpečenou komunikaci s prostředky infrastruktury Azure Stack a službami.
 
@@ -27,7 +27,7 @@ Azure Stack hub používá k údržbě zabezpečených komunikací s prostředky
 Když jsou tajná data do 30 dnů od vypršení platnosti, vygenerují se na portálu pro správu následující výstrahy. Dokončení rotace tajných klíčů vyřeší tyto výstrahy:
 
 - Čekání na vypršení platnosti hesla účtu služby
-- Čeká se na vypršení platnosti interního certifikátu.
+- Blížící se vypršení platnosti interního certifikátu
 - Blížící se vypršení platnosti externího certifikátu
 
 ::: moniker range="<azs-1811"  
@@ -108,7 +108,7 @@ Před otočením externích tajných klíčů:
 3. Uložte zálohu do certifikátů používaných k otočení v umístění zabezpečené zálohy. Pokud se vaše otočení spustí a pak se nepovede, nahraďte certifikáty ve sdílené složce záložními kopiemi a teprve potom znovu spusťte otočení. Uchovávejte záložní kopie v umístění zabezpečené zálohy.
 4. Vytvořte sdílenou složku, ke které máte přístup z virtuálních počítačů s ERCS. Sdílená složka musí být čitelná a zapisovatelné pro **CloudAdmin** identitu.
 5. Otevřete konzolu PowerShellu ISE z počítače, ke kterému máte přístup ke sdílené složce. Přejděte do sdílené složky, kde vytvoříte adresáře, kam chcete umístit své externí certifikáty.
-6. Stáhněte **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** do síťové sdílené složky, ke které je možné přistupovat během rotace, a spusťte skript. Skript vytvoří strukturu složek, která bude vyhovovat **_.\Certificates\AAD_*_ nebo _*_.\Certificates\ADFS_*_, a to v závislosti na vašem poskytovateli identity. Vaše struktura složky musí začínat* složkou \\ certifikátů _** následovaný pouze složkou **\\ AAD** nebo **\\ ADFS** . Všechny další podadresáře jsou obsaženy v předchozí struktuře. Příklad:
+6. Stáhněte si **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** do síťové sdílené složky a spusťte skript. Skript vytvoří strukturu složek, která bude vyhovovat **_.\Certificates\AAD_*_ nebo _*_.\Certificates\ADFS_*_, a to v závislosti na vašem poskytovateli identity. Vaše struktura složky musí začínat* složkou \\ certifikátů _** následovaný pouze složkou **\\ AAD** nebo **\\ ADFS** . Všechny další podadresáře jsou obsaženy v předchozí struktuře. Příklad:
     - Sdílená složka = **\\\\\<IPAddress>\\\<ShareName>**
     - Kořenová složka certifikátu pro Azure AD Provider = **\\ Certificates\AAD**
     - Úplná cesta = **\\ \\ \<IPAddress> \\ \<ShareName> \Certificates\AAD**

@@ -7,17 +7,15 @@ ms.service: azure-stack
 ms.topic: quickstart
 ms.date: 01/22/2020
 ms.reviewer: bryanla
-ms.lastreviewed: 01/22/2020
-ms.openlocfilehash: 7a2b8504a247048a4f90f7ec70772ff52b5ae9dc
-ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
+ms.lastreviewed: 08/15/2020
+ms.openlocfilehash: 7a5c801f85f7dc4ada1ec155078ba02d9feb26de
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "91107243"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343423"
 ---
 # <a name="quickstart-create-an-event-hubs-cluster-using-the-azure-stack-hub-portal"></a>Rychlý Start: Vytvoření clusteru Event Hubs pomocí portálu centra Azure Stack
-
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
 
 V tomto rychlém startu se dozvíte, jak vytvořit cluster Event Hubs pomocí uživatelského portálu Azure Stack hub. 
 
@@ -28,6 +26,8 @@ Clustery Event Hubs nabízejí nasazení s jedním nájemcem pro nejnáročněj�
 Než budete moct dokončit tento rychlý Start, musíte zajistit, aby byla ve vašem předplatném dostupná služba Event Hubs. Pokud ne, ve spolupráci s vaším správcem [nainstalujte Event Hubs do poskytovatele prostředků služby Azure Stack hub](../operator/event-hubs-rp-overview.md). Postup instalace také pokryje vytvoření nabídky, která zahrnuje službu Event Hubs. 
 
 Jakmile je nabídka k dispozici, může správce vytvořit nebo aktualizovat vaše předplatné, aby zahrnovalo Event Hubs. Alternativně se můžete [přihlásit k odběru nové nabídky a vytvořit vlastní předplatné](azure-stack-subscribe-services.md).
+
+Abyste mohli vytvořit nový cluster, musíte vašemu účtu přiřadit aspoň [oprávnění Přispěvatel](/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles) v oboru skupiny prostředků nebo vyšší.
 
 ## <a name="overview"></a>Přehled
 
@@ -50,6 +50,9 @@ Cluster Event Hubs poskytuje jedinečný obor kontejneru, ve kterém můžete vy
    - **Název clusteru**: zadejte název. Systém okamžitě kontroluje, jestli je název dostupný. Pokud je k dispozici, zobrazí se značka zaškrtnutí na pravé straně pole. 
    - **Předplatné**: vyberte předplatné, ve kterém chcete cluster vytvořit. 
    - **Skupina prostředků**: Vytvořte nebo vyberte skupinu prostředků, ve které chcete cluster vytvořit. 
+   - **Umístění**: můžete ponechat výchozí aktuální umístění nebo ho změnit na jiný.
+   - **Kapacita clusteru**: pro účely tohoto rychlého startu ponechte výchozí hodnotu 1 cu.
+      [!INCLUDE [event-hubs-scale](../includes/event-hubs-scale.md)]
    - Pokračujte výběrem tlačítka **Další: značky >**   v dolní části stránky. Je možné, že budete muset počkat, až systém bude plně zřizovat prostředky. 
 
    [![Vytvoření základních informací o clusteru centra událostí](media/event-hubs-quickstart-cluster-portal/1-create-cluster-basics.png)](media/event-hubs-quickstart-cluster-portal/1-create-cluster-basics.png#lightbox)
@@ -116,10 +119,10 @@ Postup odstranění clusteru:
 1. Znovu vyberte **všechny služby**   z levého navigačního podokna. Do panelu vyhledávání zadejte "Event Hubs clustery" a vyberte položku **Event Hubs clustery** ze seznamu výsledků.
 2. Na stránce **clustery centra událostí** vyhledejte a vyberte cluster, který jste vytvořili dříve.
 
-   [![Snímek obrazovky, který ukazuje, jak vybrat cluster, který se má odstranit](media/event-hubs-quickstart-cluster-portal/4-delete-cluster-clusters.png)](media/event-hubs-quickstart-cluster-portal/4-delete-cluster-clusters.png#lightbox)
+   [![Clustery Event Hubs – vyhledání clusteru, který se má odstranit](media/event-hubs-quickstart-cluster-portal/4-delete-cluster-clusters.png)](media/event-hubs-quickstart-cluster-portal/4-delete-cluster-clusters.png#lightbox)
 
 3. Na stránce **přehled** **Event Hubs clusteru**:
-   -  **Delete**   V horní nabídce vyberte Odstranit.  
+   -  ****   V horní nabídce vyberte Odstranit.  
    - Na pravé straně se otevře panel **Odstranit cluster** s potvrzovací zprávou o odstranění. 
    - Zadejte název clusteru a vyberte **Odstranit**,   aby se cluster odstranil. 
 

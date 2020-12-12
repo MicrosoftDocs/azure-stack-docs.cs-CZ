@@ -8,16 +8,14 @@ ms.topic: how-to
 ms.date: 11/27/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: adb00ebbe3f5ea3cf233ebaa485913d48ea63e23
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: cb09f605f66e4950e0e483fbee920a1a4eba40e5
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546952"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343758"
 ---
 # <a name="overview-of-event-hubs-on-azure-stack-hub"></a>Přehled Event Hubs v centru Azure Stack
-
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
 
 Event Hubs v centru Azure Stack vám umožní realizovat hybridní cloudové scénáře. Podpora streamování a řešení založeného na událostech je podporovaná pro místní i cloudové zpracování Azure. Bez ohledu na to, jestli je váš scénář hybridní (připojený) nebo odpojený, může vaše řešení podporovat zpracování událostí nebo datových proudů ve velkém měřítku. Váš scénář je vázaný jenom na velikost clusteru Event Hubs, kterou můžete zřídit podle svých potřeb. 
 
@@ -42,7 +40,7 @@ Sestavujte hybridní řešení, která ingestují a zpracovávají data Edge mí
 
 Edice Event Hubs (v centru Azure Stack a v Azure) nabízejí vysoký stupeň parity funkcí. Tato parita znamená, že sady SDK, ukázky, PowerShellu, rozhraní příkazového řádku a portálů nabízejí podobné prostředí s několika rozdíly. Následující tabulka shrnuje rozdíly vysoké úrovně v dostupnosti funkcí, které existují mezi edicemi.  
 
-| Příznak | Event Hubs v Azure Stack Hubu | Azure Event Hubs |
+| Funkce | Event Hubs v Azure Stack Hubu | Azure Event Hubs |
 |-|-|-|-|
 | Činnost správce operátorů | ✔ | ✘ |
 | Podpora Kafka | ✔ | ✔ |

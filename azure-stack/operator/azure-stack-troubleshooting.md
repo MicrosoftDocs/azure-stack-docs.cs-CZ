@@ -2,18 +2,18 @@
 title: Řešení potíží s Azure Stack hub
 titleSuffix: Azure Stack
 description: Naučte se řešit potíže s centrem Azure Stack, včetně problémů s virtuálními počítači, úložištěm a App Service.
-author: myoungerman
+author: PatAltimore
 ms.topic: article
-ms.date: 07/21/2020
+ms.date: 12/10/2020
 ms.author: v-myoung
 ms.reviewer: prchint
-ms.lastreviewed: 07/21/2020
-ms.openlocfilehash: 290f6ba7a8f3c53aafe131dd5c8de5186b88d752
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.lastreviewed: 12/10/2020
+ms.openlocfilehash: 583c0e933e823b1ac0fcf11fd378e81515656099
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899767"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343651"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Řešení potíží v centru Azure Stack
 
@@ -46,7 +46,7 @@ Tyto části obsahují odkazy na dokumenty, které pokrývají běžné otázky 
 
 ### <a name="manage-capacity"></a>Správa kapacity
 
-#### <a name="memory"></a>Paměť
+#### <a name="memory"></a>Memory (Paměť)
 
 Pokud chcete zvýšit celkovou dostupnou kapacitu paměti pro centrum Azure Stack, můžete přidat další paměť. V Azure Stackovém centru se váš fyzický server označuje také jako uzel jednotky škálování. Všechny uzly jednotek škálování, které jsou členy jedné jednotky škálování, musí mít [stejnou velikost paměti](azure-stack-manage-storage-physical-memory-capacity.md).
 
@@ -83,7 +83,7 @@ Vyberte typ účtu sdílených služeb, který používáte pro Azure Stack hub.
 Pomocí PowerShellu můžete získat informace o využití razítka bez nutnosti pomáhat podpora Microsoftu. Získání využití razítka:
 
 1. Vytvořte relaci PEP.
-2. Spusťte příkaz `test-azurestack`.
+2. Spusťte `test-azurestack`.
 3. Ukončete relaci PEP.
 4. Spusťte `get-azurestacklog -filterbyrole seedring` pomocí volání vyvolání příkazu.
 5. Extrahujte soubor seedring. zip. Sestavu ověření můžete získat ze složky ERCS, ve které jste spustili `test-azurestack` .
@@ -216,6 +216,16 @@ Proces aktualizace a aktualizace centra Azure Stack slouží k tomu, aby operát
 **Příčina**: při pokusu o instalaci aktualizace centra Azure Stack se může stát, že se stav aktualizace nezdaří a změní se stav na `PreparationFailed` . Pro systémy připojené k Internetu je to obvykle informativní jako aktualizace balíčku aktualizace, který se nedá správně stáhnout z důvodu slabého připojení k Internetu. 
 
 **Náprava**: Tento problém můžete obejít tak, že znovu kliknete na **nainstalovat** . Pokud potíže potrvají, doporučujeme ručně odeslat balíček aktualizace pomocí oddílu [instalovat aktualizace](azure-stack-apply-updates.md?#install-updates-and-monitor-progress) .
+
+**Výskyt**: běžné
+
+### <a name="warnings-and-errors-reported-while-update-is-in-progress"></a>Upozornění a chyby nahlášené během aktualizace probíhá
+
+**Platí**: Tento problém se vztahuje na všechny podporované verze.
+
+**Příčina**: když **je probíhající aktualizace centra Azure Stack, můžou** se na portálu ohlásit upozornění a chyby. Součásti můžou při upgradu čekat na jiné součásti, takže dojde k chybě. Centrum Azure Stack má mechanismus pro opakování nebo nápravu některých úkolů kvůli přerušovaným chybám.
+
+**Náprava**: v průběhu aktualizace centra Azure Stack probíhá **stav, upozornění** a chyby hlášené na portálu lze ignorovat.
 
 **Výskyt**: běžné
 
