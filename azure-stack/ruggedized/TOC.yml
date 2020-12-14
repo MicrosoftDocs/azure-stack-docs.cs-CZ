@@ -114,7 +114,7 @@
           items:
             - name: Ověření registrace v Azure
               href: ../operator/azure-stack-validate-registration.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: Registr
+            - name: Registrovat
               href: operator/registration-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Hodnota – přidat poskytovatele prostředků
               items:
@@ -200,7 +200,7 @@
               href: ../operator/azure-stack-manage-basics.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Konfigurace kolekce telemetrie
               href: ../operator/azure-stack-telemetry.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: Registr
+            - name: Registrovat
               href: operator/registration-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Správa oblastí
               href: ../operator/azure-stack-region-management.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -510,6 +510,60 @@
               href: ../operator/azure-stack-troubleshooting.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Odkaz na odkaz na podporu
               href: operator/aks-refer-table-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Průvodce nahraditelnými jednotkami zákazníka pro taktické Cloud zařízení
+              items:
+                - name: Zpracování preventivních opatření
+                  href: customer-replaceable-unit/handling-precautions.md
+                - name: Požadované znalosti pro práci s hostitelem životního cyklu hardwaru
+                  href: customer-replaceable-unit/required-knowledge-hardware-lifecycle-host.md
+                - name: Ověření přístupu a stavu hostitele životního cyklu životnosti hardwaru
+                  href: customer-replaceable-unit/verify-hardware-lifecycle-host-access-and-health.md
+                - name: Požadované znalosti pro práci s uzly jednotek škálování
+                  href: customer-replaceable-unit/required-knowledge-scale-unit-nodes.md
+                - name: Ověření přístupu k uzlu jednotky škálování a stavu
+                  href: customer-replaceable-unit/verify-scale-unit-node-access-and-health.md
+                - name: Napájení hostitele životního cyklu životní cyklus
+                  href: customer-replaceable-unit/power-off-hlh.md
+                - name: Vypínání uzlů jednotek škálování
+                  href: customer-replaceable-unit/power-off-scu.md
+                - name: Nahradit DIMM
+                  href: customer-replaceable-unit/replace-dimm.md
+                - name: Výměna neúspěšného disku externího úložiště
+                  href: customer-replaceable-unit/replace-failed-external-storage-disk.md
+                - name: Nahradit chladicí ventilátor
+                  href: customer-replaceable-unit/replace-cooling-fan.md
+                - name: Nahradit síťovou dceřinou kartu
+                  href: customer-replaceable-unit/replace-network-daughter-card.md
+                - name: Nahradit jednotku napájení
+                  href: customer-replaceable-unit/replace-power-supply-unit.md
+                - name: Výměna disku s operačním systémem
+                  href: customer-replaceable-unit/replace-operating-system-disk.md
+                - name: Rozbalení topení a naplánování instalace topení
+                  href: customer-replaceable-unit/unpack-heater-and-plan-installation.md
+                - name: Vyměnit ohřívací
+                  href: customer-replaceable-unit/replace-heater.md
+                - name: Uzel výkonné jednotky škálování
+                  href: customer-replaceable-unit/power-on-scale-unit-node.md
+                - name: Opravit uzel jednotky škálování
+                  href: customer-replaceable-unit/repair-scale-unit-node.md
+                - name: Ověřit stav hostitele životního cyklu hardwaru
+                  href: customer-replaceable-unit/verify-hardware-lifecycle-host-health.md
+                - name: Ověřit stav uzlu jednotky škálování
+                  href: customer-replaceable-unit/verify-scale-unit-node-health.md
+                - name: Ověřit stav disku uzlu škálování jednotky
+                  href: customer-replaceable-unit/verify-scale-unit-node-disk-health.md
+                - name: Hardwarový diagram centra Azure Stack
+                  href: customer-replaceable-unit/azure-stack-hub-hardware-diagram.md
+                - name: Server EMC PowerEdge taktické R640 – přehled
+                  href: customer-replaceable-unit/emc-poweredge-tactical-r640-server-overview.md
+                - name: Taktické a značky a kódy pro EMC PowerEdge
+                  href: customer-replaceable-unit/emc-poweredge-tactical-indicators-and-codes.md
+                - name: Přístup k rozhraní iDRAC přes přímé připojení USB
+                  href: customer-replaceable-unit/access-idrac-over-usb-connection.md
+                - name: Instalovat firmware přes rozhraní iDRAC
+                  href: customer-replaceable-unit/install-firmware-using-idrac.md
+                - name: Přístup k pracovní stanici privilegovaného přístupu a privilegovanému koncovému bodu
+                  href: customer-replaceable-unit/privileged-access-workstation.md
     - name: Referenční informace
       items:
         - name: Operátor centra Azure Stack
@@ -641,7 +695,7 @@
                   href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Použití služeb
               items:
-                - name: Výpočetní prostředky
+                - name: Compute
                   items:
                     - name: Přehled
                       href: ../user/azure-stack-compute-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json

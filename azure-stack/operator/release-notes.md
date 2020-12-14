@@ -3,16 +3,16 @@ title: Poznámky k verzi centra Azure Stack
 description: Poznámky k verzi pro integrované systémy Azure Stack hub, včetně aktualizací a oprav chyb.
 author: sethmanheim
 ms.topic: article
-ms.date: 12/07/2020
+ms.date: 12/11/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: aed3b9f5eb59ef440503625d807f8ef7b777f7b1
-ms.sourcegitcommit: 85827a2227eb2d1ed1ed44bb9f00e28d96818c84
+ms.openlocfilehash: fcc0df8281e2a3ccc48f2cf81c1bdfe3848fa134
+ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96869033"
+ms.lasthandoff: 12/14/2020
+ms.locfileid: "97390435"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -131,7 +131,7 @@ Opravy hotfix centra Azure Stack se vztahují pouze na integrované systémy Azu
 
 Verze 2008 centra Azure Stack se musí použít ve verzi 2005 s následujícími opravami hotfix:
 
-- [1.2005.24.90 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4595070)
+- [1.2005.25.92 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4595074)
 
 ### <a name="after-successfully-applying-the-2008-update"></a>Po úspěšné instalaci aktualizace 2008
 
@@ -239,7 +239,7 @@ Od verze 2005 se při aktualizaci na novou hlavní verzi (například 1.2002. x 
 
 Pokud se následně uvolní nějaké opravy hotfix 2005, měli byste po instalaci 2005 nainstalovat tyto opravy:
 
-- [1.2005.24.90 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4595070)
+- [1.2005.25.92 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4595074)
 ::: moniker-end
 
 ::: moniker range="azs-2002"
