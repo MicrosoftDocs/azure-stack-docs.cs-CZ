@@ -8,12 +8,12 @@ ms.author: bryanla
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
 ms.custom: conteperfq4
-ms.openlocfilehash: 3087e7b4f84aa710a89a2f122e91bcfd643eed8d
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 971bac83972664bbefe900f16aa2ab83c12aa3a1
+ms.sourcegitcommit: 32d77de1a554315f53473407279e464a72aa9aa1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544186"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97515044"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>Integrace AD FS identity s vaším datacenterm centra Azure Stack
 
@@ -74,8 +74,8 @@ Další informace o lokalitách služby Active Directory najdete v tématu [navr
 Volitelně můžete vytvořit účet pro službu Graph Service v existující službě Active Directory. Tento krok proveďte, pokud ještě nemáte účet, který chcete použít.
 
 1. V existující službě Active Directory vytvořte následující uživatelský účet (doporučení):
-   - **Uživatelské jméno** : graphservice
-   - **Heslo** : použijte silné heslo a nakonfigurujte heslo tak, aby nikdy nevypršela platnost.
+   - **Uživatelské jméno**: graphservice
+   - **Heslo**: použijte silné heslo a nakonfigurujte heslo tak, aby nikdy nevypršela platnost.
 
    Nevyžadují se žádná zvláštní oprávnění ani členství.
 
@@ -92,6 +92,8 @@ Pro tento postup použijte počítač v síti datového centra, který může ko
 
 2. Teď, když máte relaci s privilegovaným koncovým bodem, spusťte následující příkaz: 
 
+   **Spusťte níže uvedený skript pro Azure Stack centrum sestavení 2008 a novější.** <br>
+
    ```powershell  
     $i = @(
            [pscustomobject]@{ 
@@ -104,6 +106,14 @@ Pro tento postup použijte počítač v síti datového centra, který může ko
     Invoke-Command -Session $pep -ScriptBlock {Register-DirectoryService -customCatalog $using:i} 
 
 
+   ```
+
+   **Spusťte níže uvedený skript pro Azure Stack sestavení centra před 2008** <br>
+
+   ```powershell  
+   Invoke-Command -Session $pep -ScriptBlock {Register-DirectoryService -CustomADGlobalCatalog contoso.com} 
+   
+   
    ```
 
    Po zobrazení výzvy zadejte pověření pro uživatelský účet, který chcete použít pro službu Graph Service (například graphservice). Vstup pro rutinu Register-DirectoryService musí být název doménové struktury nebo kořenová doména v doménové struktuře, nikoli žádná jiná doména v doménové struktuře.
@@ -139,7 +149,7 @@ Pro parametry automatizace se jako vstup vyžadují tyto informace:
 |---------|---------|---------|---------|
 |CustomAdfsName|Název poskytovatele AD FS|Název zprostředkovatele deklarací identity.<br>Toto zobrazení se zobrazí na AD FS cílové stránce.|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|Identifikátor URI AD FS metadat|Odkaz federačních metadat| https: \/ /ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
-|SigningCertificateRevocationCheck|Není k dispozici|Volitelný parametr pro přeskočení kontroly CRL|Žádné|
+|SigningCertificateRevocationCheck|Není k dispozici|Volitelný parametr pro přeskočení kontroly CRL|Žádná|
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack-hub"></a>Aktivace automatizace pro konfiguraci vztahu důvěryhodnosti zprostředkovatele deklarací v centru Azure Stack

@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Přečtěte si o zásadách obsluhy centra Azure Stack a o tom, jak zachovat integrovaný systém v podporovaném stavu.
 author: sethmanheim
 ms.topic: article
-ms.date: 09/25/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: cff03367985558bd5b9b6786455cf626993836db
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 126504ce42ba4c7567e15a6c19378ef2bf2c628b
+ms.sourcegitcommit: 32d77de1a554315f53473407279e464a72aa9aa1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545563"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97515030"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Zásady obsluhy centra Azure Stack
 
@@ -68,6 +68,8 @@ Informace o aktuálně dostupných opravách hotfix naleznete v poznámkách k v
 
 Aby vaše instance centra Azure Stack zůstala v podporovaném stavu, musí instance běžet z poslední vydané verze aktualizace nebo spustit jednu z těchto dvou předchozích verzí aktualizace.
 
+Musíte mít také aktivní smlouvu o podpoře s hardwarovým partnerem, který systém vyrobil. Společnost Microsoft není schopna podporovat vás bez smlouvy o podpoře hardwaru.
+
 Opravy hotfix nejsou považovány za hlavní verze aktualizací. Pokud je vaše instance centra Azure Stack za více než dvěma aktualizacemi, je považována za nedodržující předpisy. Aby bylo možné získat podporu, musíte aktualizovat aspoň minimální podporovanou verzi.
 
 Pokud je například poslední dostupná verze aktualizace 1904 a předchozí dva aktualizační balíčky byly verze 1903 a 1902, zůstane podpora 1902 i 1903. 1901 ale nepodporují. Zásada má hodnotu true, pokud není k dispozici žádná verze na měsíc nebo dvě. Pokud je například aktuální verze 1807 a nebyla vydána žádná verze 1806, v rámci podpory zůstanou předchozí dva balíčky aktualizací 1805 a 1804.
@@ -80,7 +82,7 @@ U poskytovatelů prostředků Azure Stack hub je důležité poznamenat, že je 
 
 Další informace o kompatibilitě poskytovatele prostředků najdete v poznámkách k verzi pro konkrétního poskytovatele prostředků.
 
-## <a name="get-support"></a>Získání podpory
+## <a name="get-support"></a>Získat podporu
 
 Centrum Azure Stack se řídí stejným procesem podpory jako Azure. Podnikoví zákazníci mohou postupovat podle postupu popsaného v tématu [Postup vytvoření žádosti o podporu Azure](/azure/azure-supportability/how-to-create-azure-support-request). Pokud jste zákazníkem poskytovatele Cloud Solution Provider (CSP), požádejte o podporu svého CSP. Další informace najdete v nejčastějších dotazech k [podpoře Azure](https://azure.microsoft.com/support/faq/).
 

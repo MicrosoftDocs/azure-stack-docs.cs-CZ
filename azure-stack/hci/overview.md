@@ -6,19 +6,19 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/11/2020
-ms.openlocfilehash: d8f8d1191d2e5531c377173f2a8a8c665c7355dc
-ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
+ms.date: 12/15/2020
+ms.openlocfilehash: 6eef8388367bb1bba3f419fba5b61c54fd729743
+ms.sourcegitcommit: 32d77de1a554315f53473407279e464a72aa9aa1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97364162"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97515009"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Přehled řešení Azure Stack HCI
 
 > Platí pro: Azure Stack HCI, verze 20H2
 
-Azure Stack HCI je řešení clusteru s více konvergy (HCI), které hostuje virtualizované úlohy Windows a Linux a jejich úložiště v hybridním místním prostředí. Služba Azure Hybrid Services vylepšuje cluster s využitím funkcí, jako jsou cloudové monitorování, Site Recovery a zálohování virtuálních počítačů, a také centrální zobrazení všech Azure Stackch nasazení HCL v Azure Portal. Cluster můžete spravovat pomocí stávajících nástrojů, včetně centra pro správu Windows, nástroje System Center a PowerShellu.
+Azure Stack HCI je řešení clusteru s více konvergy (HCI), které hostuje virtualizované úlohy Windows a Linux a jejich úložiště v hybridním místním prostředí. Služba Azure Hybrid Services vylepšuje cluster s využitím funkcí, jako jsou cloudové monitorování, Site Recovery a zálohování virtuálních počítačů, a také centrální zobrazení všech Azure Stackch nasazení HCL v Azure Portal. Cluster můžete spravovat pomocí stávajících nástrojů, včetně centra pro správu Windows a prostředí PowerShell.
 
 Azure Stack HCI, verze 20H2 je teď [k dispozici ke stažení](https://azure.microsoft.com/products/azure-stack/hci/hci-download/). Je určený pro místní clustery, na kterých běží virtualizované úlohy s integrovanými připojeními hybridního cloudu. V takovém případě se Azure Stack HCI doručuje jako služba Azure a účtuje se na základě předplatného Azure. Azure Stack rozhraní HCI teď také nabízí možnost hostovat službu Azure Kubernetes. Podrobnosti najdete v tématu [Služba Azure Kubernetes na Azure Stack HCL](../aks-hci/overview.md).
 
@@ -151,7 +151,7 @@ Clustery se systémem Azure Stack HCI verze 20H2 ve srovnání s řešeními zal
 - **Šifrování BitLockeru**: teď můžete použít BitLocker k šifrování obsahu datových svazků v Azure Stack HCL a pomáhat státním institucím a dalším zákazníkům, aby dodržovali standardy jako FIPS 140-2 a HIPAA.
 - **Vylepšená rychlost opravy prostory úložiště s přímým přístupem svazků**: Opravte svazky rychle a hladce.
 
-Centrum pro správu systému Windows, verze 20H2, poskytuje také nové prostředí aktualizace clusteru pro clustery založené na systému Windows Server, včetně původních řešení Azure Stack HCI. A i když můžete použít Průvodce vytvořením nového clusteru s Windows serverem, nemůže vytvářet clustery Windows serveru s Prostory úložiště s přímým přístupem; pro to budete potřebovat operační systém Azure Stack HCI.
+Pokud chcete získat další informace o novinkách v Azure Stack HCI 20H2, podívejte se na [Toto video](https://www.youtube.com/watch?v=DPG7wGhh3sAa) z Microsoft inspirovat.
 
 ## <a name="roles-you-can-run-without-virtualizing"></a>Role, které můžete spustit bez virtualizace
 
