@@ -1,7 +1,7 @@
 ---
-title: Otočení tajných kódů registru kontejneru v centru Azure Stack | Microsoft Docs
+title: Otočení tajných kódů registru kontejneru v Azure Stack hub – MDC
 titleSuffix: Azure Stack Hub
-description: Naučte se, jak na rozbočovači Azure Stack otočit tajné klíče registru kontejneru.
+description: Naučte se, jak otočit tajné klíče registru kontejneru v centru Azure Stack pro modulární datová centra.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,14 +16,14 @@ ms.date: 10/26/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: eb835552b8f7142878d03aa1bb3bb062cd2cf3f6
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 932f63ef4b442578baf9f217ae0f25a6fe29290e
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934978"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598211"
 ---
-# <a name="rotate-container-registry-secrets-in-azure-stack-hub"></a>Otočení tajných kódů registru kontejneru v centru Azure Stack
+# <a name="rotate-container-registry-secrets-in-azure-stack-hub---modular-data-center-mdc"></a>Otočení tajných kódů registru kontejneru v centru Azure Stack – modulární datové centrum (MDC)
 
 Vaši uživatelé centra Azure Stack můžou pro nasazení šablony registru kontejneru otáčet tajné klíče (certifikáty, uživatelské jméno a heslo). Můžete spustit skript, který naplní nové tajné hodnoty v Microsoft Azure Key Vault a **znovu nasadí** existující instanci šablony registru kontejneru. Střídání tajných kódů nevyžadují nové nasazení.
 
@@ -257,11 +257,11 @@ Podle následujících pokynů nastavte nové tajné kódy v Key Vault.
 
 3. Vyberte nasazení v části **nasazení**.
 
-    ![Nasazení](./media/container-registry-template-rotating-secrets-tzl/deployments.png)
+    ![Snímek obrazovky zobrazující stránku nasazení](./media/container-registry-template-rotating-secrets-tzl/deployments.png)
 
 4.  Při prvním střídání tajných klíčů vyberte původní nasazení. Pokud se nejedná o první střídání tajných klíčů, vyberte nejnovější nasazení a pak vyberte znovu **nasadit**.
 
-    ![Opětovné nasazení](./media/container-registry-template-rotating-secrets-tzl/redeploy.png)
+    ![Snímek obrazovky zobrazující stránku ' Přehled ' s vybranou akcí ' znovu nasadit '.](./media/container-registry-template-rotating-secrets-tzl/redeploy.png)
 
 5.  V části **nasadit šablonu řešení** vyberte **použít existující skupinu prostředků** a vyberte skupinu prostředků, která se použila k původnímu nasazení šablony registru kontejneru. Aby bylo opětovné nasazení úspěšné, musí používat stejnou skupinu prostředků.
 
@@ -273,7 +273,7 @@ Podle následujících pokynů nastavte nové tajné kódy v Key Vault.
 
     - Pokud certifikát přenášíte, budete muset zadat nové hodnoty pro PFXKeyVaultSecretURL a PFXThumbprint, které byly vydány jako výstup z nastavení nových tajných klíčů.
 
-    ![Parametry](./media/container-registry-template-rotating-secrets-tzl/parameters.png)
+    ![Snímek obrazovky, který zobrazuje okno parametry.](./media/container-registry-template-rotating-secrets-tzl/parameters.png)
 
 7.  Vyberte **OK** a pak **vytvořit**. Opětovné nasazení bude pokračovat. Funkce registru budou během opětovného nasazení nadále fungovat.
 

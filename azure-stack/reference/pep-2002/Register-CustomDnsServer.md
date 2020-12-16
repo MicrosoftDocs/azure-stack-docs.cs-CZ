@@ -1,25 +1,25 @@
 ---
-title: Registrovat – CustomDnsServer
-description: Referenční informace pro Azure Stack privilegovaného koncového bodu prostředí PowerShell – Close-PrivilegedEndpoint
+title: Register-CustomDnsServer
+description: Přečtěte si o skriptu k registraci vlastních serverů DNS pomocí Azure Stack centra DNS-Register-CustomDnsServer.
 author: mattbriggs
 ms.topic: reference
 ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 896ab0f8efa224b4d2224d417dba91e55dea1c19
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: 88d24d8ee32f82f9f19f256249241bf8b0060641
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742661"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598262"
 ---
-# <a name="register-customdnsserver"></a>Registrovat – CustomDnsServer
+# <a name="register-customdnsserver"></a>Register-CustomDnsServer
 
 ## <a name="synopsis"></a>Stručný obsah
 Skript k registraci vlastních serverů DNS s Azure Stack centra DNS. Tento skript vytvoří podmíněné přesměrování v Azure Stack DNS centra.
 
-## <a name="syntax"></a>Syntaxe
+## <a name="syntax"></a>Syntax
 
 ```
 Register-CustomDnsServer [[-TimeoutInSecs] <Object>] [[-CustomDomainName] <Object>]

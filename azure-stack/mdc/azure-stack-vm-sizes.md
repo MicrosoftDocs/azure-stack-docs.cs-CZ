@@ -1,6 +1,6 @@
 ---
-title: Velikosti virtuálních počítačů podporované v Azure Stack | Microsoft Docs
-description: Referenční informace o podporovaných velikostech virtuálních počítačů ve MDC.
+title: Velikosti virtuálních počítačů podporované v Azure Stack pro MDC | Microsoft Docs
+description: Referenční informace o podporovaných velikostech virtuálních počítačů v MDC.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,14 +14,14 @@ ms.date: 12/20/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: 80132bec125e6e8a9730d8c1fddf12f1163a0fe6
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 79245ddf40d2ab39f4bb8ed7548023b3df6ec556
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92183052"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598602"
 ---
-# <a name="vm-sizes-supported-in-azure-stack"></a>Podporované velikosti virtuálních počítačů ve službě Azure Stack
+# <a name="vm-sizes-supported-in-azure-stack---modular-data-center-mdc"></a>Velikosti virtuálních počítačů podporované v modulárních datových centrech Azure Stack (MDC)
 
 V tomto článku jsou uvedeny velikosti virtuálních počítačů, které jsou k dispozici v Azure Stack. Tento článek vám může pomoci zajistit, aby váš výběr virtuálního počítače podporoval vaše řešení Azure Stack.
 
@@ -36,7 +36,7 @@ Velikosti virtuálních počítačů pro obecné účely představují vyvážen
 > [!NOTE]
 > *Základní A* Velikosti virtuálních počítačů se při [vytváření služby Virtual Machine Scale Sets](../operator/azure-stack-compute-add-scalesets.md) (VMSS) prostřednictvím portálu neúčtují. Pokud chcete vytvořit VMSS s touto velikostí, použijte PowerShell nebo šablonu.
 
-|Velikost – Size\Name |Virtuální procesory     |Paměť | Max. velikost dočasného disku | Maximální propustnost disku s operačním systémem: (IOPS) | Maximální propustnost dočasného úložiště (IOPS) | Maximální propustnost datového disku (IOPS) | Maximální počet síťových karet |    
+|Velikost – Size\Name |Virtuální procesory     |Memory (Paměť) | Max. velikost dočasného disku | Maximální propustnost disku s operačním systémem: (IOPS) | Maximální propustnost dočasného úložiště (IOPS) | Maximální propustnost datového disku (IOPS) | Maximální počet síťových karet |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
 |**A0\Basic_A0**  |1    |768 MB   | 20 GB   |300  | 300  |1/1x300  |2   |
 |**A1\Basic_A1**  |1    |1,75 GB  | 40 GB   |300  | 300  |2/2x300  |2   |

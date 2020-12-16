@@ -1,20 +1,20 @@
 ---
-title: Akce uzlů jednotek škálování ve službě Azure Stack Hub
-description: Seznamte se s akcemi uzlu jednotky škálování, včetně zapnutí, vypnutí, zakázání, obnovení a zobrazení stavu uzlu v integrovaných systémech Azure Stack hub.
+title: Škálování akcí uzlu jednotky v Azure Stackovém centru pro MDC
+description: Naučte se škálovat akce uzlu jednotek, včetně zapnutí, vypnutí, zakázání, obnovení a zobrazení stavu uzlu v integrovaných systémech centra Azure Stack.
 author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 10/26/2020
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: f7bc89e42b315fea585a87d93795a0e1b0f574f3
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 6413cec9b2464d5295feab0f3a3983083b9d04ea
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934892"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598517"
 ---
-# <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Akce uzlů jednotek škálování ve službě Azure Stack Hub
+# <a name="scale-unit-node-actions-in-azure-stack-hub---modular-data-center-mdc"></a>Akce uzlu jednotky škálování v centra Azure Stack – modulární datové centrum (MDC)
 
 Tento článek popisuje, jak zobrazit stav jednotky škálování. Můžete zobrazit uzly jednotky. Můžete spouštět akce uzlu, jako je zapnutí, vypnutí, vypnutí, vyprázdnění, obnovení a oprava. Obvykle tyto akce uzlu použijete během nahrazování částí nebo k obnovení uzlu.
 

@@ -1,6 +1,6 @@
 ---
-title: Osvědčené postupy Infrastructure Backup služby pro Azure Stack | Microsoft Docs
-description: Při nasazení a správě Azure Stack použijte tyto osvědčené postupy, které vám pomůžou snížit riziko ztráty dat v případě závažného selhání.
+title: Osvědčené postupy Infrastructure Backup služby pro Azure Stack-MDC | Microsoft Docs
+description: Tyto osvědčené postupy použijte při nasazení a správě Azure Stack pro MDC, které vám pomůžou snížit riziko ztráty dat v případě závažného selhání.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: d2775627f9834a6410fcf2888bbb4abca66d958b
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: 0bbe41c26861d2a407641e06a2298ec5d3badf0f
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329196"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598551"
 ---
-# <a name="infrastructure-backup-service-best-practices"></a>Osvědčené postupy pro službu Infrastructure Backup
+# <a name="infrastructure-backup-service-best-practices---modular-data-center-mdc"></a>Osvědčené postupy pro Infrastructure Backup služby – modulární datové centrum (MDC)
 
 *Platí pro: modulární datové centrum, Azure Stack centrum je robustní*
 
@@ -70,7 +70,7 @@ Například sdílená složka zálohy je AzSBackups hostovaná v fileserver01.co
 
 `MASBackup`Složka je místo, kde Azure Stack ukládá data záloh. Tuto složku nepoužívejte k ukládání vlastních dat. Výrobci OEM by tuto složku neměli používat ani k ukládání zálohovaných dat.
 
-Výrobci OEM doporučujeme ukládat data záloh pro své komponenty do složky region. Každý síťový přepínač, hostitel životního cyklu hardwaru (HLH) a tak dále může být uložený ve své vlastní podsložce. Například:
+Výrobci OEM doporučujeme ukládat data záloh pro své komponenty do složky region. Každý síťový přepínač, hostitel životního cyklu hardwaru (HLH) a tak dále může být uložený ve své vlastní podsložce. Příklad:
 
 ```shell
 \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\HLH
@@ -95,9 +95,9 @@ Systém podporuje následující výstrahy:
 
 Služba Infrastructure Backup zahrnuje následující součásti:
 
-- **Infrastructure Backup Controller** : vytváří se instance řadiče Infrastructure Backup a v každém Azure Stack cloudu se nachází.
+- **Infrastructure Backup Controller**: vytváří se instance řadiče Infrastructure Backup a v každém Azure Stack cloudu se nachází.
 
-- **Poskytovatel prostředků pro zálohování** : poskytovatel prostředků zálohování (záložní RP) se skládá z uživatelského rozhraní a rozhraní API, které zveřejňují základní funkce zálohování pro infrastrukturu Azure Stack.
+- **Poskytovatel prostředků pro zálohování**: poskytovatel prostředků zálohování (záložní RP) se skládá z uživatelského rozhraní a rozhraní API, které zveřejňují základní funkce zálohování pro infrastrukturu Azure Stack.
 
 ### <a name="infrastructure-backup-controller"></a>Řadič Infrastructure Backup
 
@@ -119,8 +119,8 @@ Tato část popisuje důležité požadavky služby Infrastructure Backup. Dopor
 
 Mezi tyto požadavky patří:
 
-- **Požadavky na software** : popisuje podporovaná umístění úložiště a pokyny k velikosti.
-- **Požadavky na síť** : popisuje požadavky na síť pro různá umístění úložiště.
+- **Požadavky na software**: popisuje podporovaná umístění úložiště a pokyny k velikosti.
+- **Požadavky na síť**: popisuje požadavky na síť pro různá umístění úložiště.
 
 ### <a name="software-requirements"></a>Požadavky na software
 

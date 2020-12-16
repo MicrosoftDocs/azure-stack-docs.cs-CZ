@@ -16,12 +16,12 @@ ms.date: 10/14/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: fb9c323c57d608127c8f86e014f008c1d5a09a9e
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: f34a449490ab7b57beacc942584f9616fd6d543c
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939516"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598313"
 ---
 # <a name="customer-journey"></a>Cesta zákazníka
 
@@ -33,8 +33,8 @@ Následující tabulka znázorňuje, co je možné očekávat v různých fází
 
 |   |Proces pořadí  |Před nasazením |Integrace, ověřování, přenos |Nasazení na pracovišti  |Po nasazení |
 |---|---------------|---------------|-----------------------------------|--------------------|----------------|
-|Partnerský vztah Microsoftu  |-Signál k doručování do umístění USA<br>-Azure Stack centrum je robustní = 10 dní. |Poskytování požadovaných nástrojů a dokumentace pro shromažďování požadavků Datacenter  |– Ověření artefaktů konfigurace a kontrola výsledků ověření<br>– Zajistěte doručení hardwaru  |– Rack a zásobník<br>– Integrace sítě<br>– Azure Stack nasazení centra<br>-Předat zákazníkovi    |Registrace a syndikace webu Marketplace|
-|Customer (Zákazník)   |Označuje nákup   |– Vyplní podrobnosti sítě v listu nasazení.<br>– Shromáždí certifikáty<br>– Získá účty Azure AD.<br>– Spustí jakýkoli poskytnutý Nástroj pro ověření.    |Ujistěte se, že je lokalita připravená na síť, výkon, požadavky na chlazení.    |– Připravte se na artefakty konfigurace nasazení.<br>– K dispozici je inženýr sítě zákazníka   |     |
+| **Microsoft** |-Signál k doručování do umístění USA<br>-Azure Stack centrum je robustní = 10 dní. |Poskytování požadovaných nástrojů a dokumentace pro shromažďování požadavků Datacenter  |– Ověření artefaktů konfigurace a kontrola výsledků ověření<br>– Zajistěte doručení hardwaru  |– Rack a zásobník<br>– Integrace sítě<br>– Azure Stack nasazení centra<br>-Předat zákazníkovi    |Registrace a syndikace webu Marketplace|
+| **Zákazník** |Označuje nákup    |– Vyplní podrobnosti sítě v listu nasazení.<br>– Shromáždí certifikáty<br>– Získá účty Azure AD.<br>– Spustí jakýkoli poskytnutý Nástroj pro ověření.    |Ujistěte se, že je lokalita připravená na síť, výkon, požadavky na chlazení.    |– Připravte se na artefakty konfigurace nasazení.<br>– K dispozici je inženýr sítě zákazníka   |     |
 
 
 ## <a name="order-process"></a>Proces pořadí

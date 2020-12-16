@@ -1,6 +1,6 @@
 ---
-title: Přehled plánování kapacity pro centrum Azure Stack | Microsoft Docs
-description: Přečtěte si o plánování kapacity pro Azure Stack nasazení centra.
+title: Přehled – plánování kapacity pro centrum Azure Stack | Microsoft Docs
+description: Přečtěte si o plánování kapacity pro Azure Stack nasazení centra, včetně informací o COMPUTE a úložišti.
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,14 +16,14 @@ ms.date: 01/10/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: a608a64de28104513cb708ef350eb4db672f5f65
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 12862a71146606bfba81ea0de630a93181951c06
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92183046"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598585"
 ---
-# <a name="overview-of-azure-stack-hub-capacity-planning"></a>Přehled plánování kapacity centra Azure Stack
+# <a name="overview-of-azure-stack-hub-capacity-planning---modular-data-center-mdc"></a>Přehled plánování kapacity centra Azure Stack – modulární datové centrum (MDC)
 
 Když vyhodnocujete řešení centra Azure Stack, zvažte volby konfigurace hardwaru, které mají přímý vliv na celkovou kapacitu cloudu Azure Stack hub. 
 

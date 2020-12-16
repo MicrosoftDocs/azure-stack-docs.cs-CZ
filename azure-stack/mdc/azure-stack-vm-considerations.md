@@ -1,5 +1,5 @@
 ---
-title: Funkce Azure Stack virtuálního počítače | Microsoft Docs
+title: Azure Stack funkce virtuálních počítačů | Microsoft Docs
 description: Přečtěte si o různých funkcích a ohledech při práci s virtuálními počítači v MDC.
 services: azure-stack
 documentationcenter: ''
@@ -15,20 +15,20 @@ ms.date: 12/20/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: b8a5d2a0f08ac36b4f4ebc20e0dc3c9eea67218a
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 8bd1231c0a3e9ef7dc55349fb05c872666d47585
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935096"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598330"
 ---
-# <a name="azure-stack-vm-features"></a>Funkce Azure Stack virtuálního počítače
+# <a name="azure-stack-vm-features---modular-data-center-mdc"></a>Funkce Azure Stack VM – modulární datové centrum (MDC)
 
 Virtuální počítače s Azure Stack poskytují škálovatelné výpočetní prostředky na vyžádání. Než nasadíte virtuální počítače, měli byste se seznámit s rozdíly mezi funkcemi virtuálních počítačů, které jsou dostupné v Azure Stack a Microsoft Azure. Tento článek popisuje tyto rozdíly a identifikuje klíčové důležité důvody pro plánování nasazení virtuálních počítačů. Další informace o rozdílech na vysoké úrovni mezi Azure Stack a Azure najdete v článku [klíčové důležité informace](../user/azure-stack-considerations.md) .
 
 ## <a name="vm-differences"></a>Rozdíly virtuálních počítačů
 
-| Funkce | Azure (Global) | Azure Stack |
+| Příznak | Azure (Global) | Azure Stack |
 | --- | --- | --- |
 | Image virtuálních počítačů | Azure Marketplace obsahuje obrázky, které můžete použít k vytvoření virtuálního počítače. Pokud chcete zobrazit seznam imagí, které jsou k dispozici v Azure Marketplace, zobrazte stránku [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) . | Ve výchozím nastavení nejsou k dispozici žádné obrázky na webu Azure Stack Marketplace. Správce cloudu Azure Stack musí publikovat nebo stahovat image na webu Azure Stack Marketplace, aby je mohli uživatelé používat. |
 | Velikosti virtuálních počítačů | Azure podporuje širokou škálu velikostí virtuálních počítačů. Další informace o dostupných velikostech a možnostech najdete v tématech velikosti virtuálních počítačů s [Windows](/azure/virtual-machines/sizes) a [velikosti virtuálních počítačů Linux](/azure/virtual-machines/linux/sizes) . | Azure Stack podporuje podmnožinu velikostí virtuálních počítačů, které jsou k dispozici v Azure. Pokud chcete zobrazit seznam podporovaných velikostí, přečtěte si část [velikosti virtuálních počítačů](#vm-sizes) v tomto článku. |

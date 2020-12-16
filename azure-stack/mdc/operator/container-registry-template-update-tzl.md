@@ -1,7 +1,7 @@
 ---
-title: Aktualizace registru kontejneru v centru Azure Stack | Microsoft Docs
+title: Aktualizace registru kontejneru v Azure Stack hub – MDC
 titleSuffix: Azure Stack
-description: Naučte se aktualizovat registr kontejneru v Azure Stack hub.
+description: Naučte se aktualizovat registr kontejneru v centru Azure Stack pro modulární datová centra (MDC).
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,14 +16,14 @@ ms.date: 1/8/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: 1d014cfe855bc7e9bb3bdaae6ba7525d3df1e8c7
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: dafd9d485125d7c8da1524b71fddb75af7a4ebba
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329238"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598568"
 ---
-# <a name="update-the-container-registry-in-azure-stack-hub"></a>Aktualizace registru kontejneru v Azure Stackovém centru
+# <a name="update-the-container-registry-in-azure-stack-hub---modular-data-center-mdc"></a>Aktualizace registru kontejneru v centra Azure Stack – modulární datové centrum (MDC)
 
 Uživatelé centra Azure Stack můžou aktualizovat svoje nasazení registrů kontejnerů na novější SKU základní image AKS pomocí níže uvedených pokynů. Virtuální počítač a služba šablony registru kontejneru jsou bezstavové, protože všechny image stavu a kontejneru jsou uložené v úložišti objektů BLOB. Aktualizace je tak jednoduchá jako nasazení šablony registru kontejnerů s novější verzí VHD základní image AKS a přechodem DNS na nový virtuální počítač. Akce aktualizace hodnoty DNS pro virtuální počítače šablony registru pro starý a nový kontejner bude mít za následek malé okno přerušovaného připojení k registru, zatímco se hodnoty šíří.
 
@@ -39,7 +39,7 @@ Uživatelé centra Azure Stack můžou aktualizovat svoje nasazení registrů ko
 
 1.  Zkontrolujte SKLADOVOU položku základní image AKS, která se použila k nasazení šablony registru kontejnerů, a to tak, že přejdete na záznam nasazení ve skupině prostředků a vyberete **vstupy**.
 
-    ![Vstupy](./media/container-registry-template-updating-tzl/inputs.png)
+    ![Snímek obrazovky zobrazující stránku vstupy](./media/container-registry-template-updating-tzl/inputs.png)
 
 2.  Zjistěte, jestli je k dispozici novější SKU základní image AKS pomocí funkce **Get-VMImageSku** , která vyžaduje `Import-Module .\pre-reqs.ps1` ze skriptů šablon registru kontejneru.
 
@@ -95,7 +95,7 @@ Uživatelé centra Azure Stack můžou aktualizovat svoje nasazení registrů ko
     
     ![Uložit změnu](./media/container-registry-template-updating-tzl/save.png)
 
-2.  Přejděte do nové skupiny prostředků, která se používá k nasazení nové instance šablony registru kontejnerů, vyberte prostředek veřejné IP adresy, konfiguraci a aktualizujte popisek názvu DNS na správný název, který jste použili v původním nasazení, a v tomto příkladu `myreg` Vyberte **Save (Uložit** ).
+2.  Přejděte do nové skupiny prostředků, která se používá k nasazení nové instance šablony registru kontejnerů, vyberte prostředek veřejné IP adresy, konfiguraci a aktualizujte popisek názvu DNS na správný název, který jste použili v původním nasazení, a v tomto příkladu `myreg` Vyberte **Save (Uložit**).
 
     ![Vybrat konfiguraci](./media/container-registry-template-updating-tzl/select-configuration.png)
     

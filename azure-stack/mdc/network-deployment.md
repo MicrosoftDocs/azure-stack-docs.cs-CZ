@@ -8,12 +8,12 @@ ms.date: 01/17/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 01/17/2020
-ms.openlocfilehash: d57e4a276ea93a8be70eb2bba05bdb8b2a318924
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 8744ddd518094026afdba678d524ca981b138610
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92182991"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598653"
 ---
 # <a name="network-deployment"></a>Nasazení sítě
 
@@ -31,8 +31,8 @@ K ochraně Azure Stack řešení jsme na přepínačích MANDÁTu implementovali
 
 Následující tabulka koreluje odkazy seznamu řízení přístupu (ACL) k sítím Azure Stack.
 
-| Interní Správa řadiče pro správu základní desky                            | Provoz je omezený jenom na interní.                                                                                                                                      |   |   |   |   |   |
-|----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|---|---|---|---|
+| Interní Správa řadiče pro správu základní desky                            | Provoz je omezený jenom na interní.                                                                                                                                      |
+|----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Externí Správa řadiče pro správu základní desky                            | Seznam ACL umožňuje přístup mimo hraniční zařízení.                                                                                                                            |   |   |   |   |   |
 | Rozšířené správy úložiště                        | Vyhrazená rozhraní pro správu rozšířeného úložného systému                                                                                                           |   |   |   |   |   |
 | Přepnout správu                                  | Rozhraní pro správu vyhrazených přepínačů.                                                                                                                                   |   |   |   |   |   |
@@ -48,7 +48,7 @@ Následující tabulka koreluje odkazy seznamu řízení přístupu (ACL) k sít
 | **Uvádění**                                   | Povolení provozu je povolené, ale ve výchozím nastavení je zakázaný přístup přes SSH.                                                                                                           |   |   |   |   |   |
 | **Žádná trasa**                                     | Trasy nejsou šířeny mimo Azure Stack prostředí.                                                                                                         |   |   |   |   |   |
 | **SEZNAM ACL PRO MUX**                                      | Jsou využívány seznamy ACL pro Azure Stack MUX.                                                                                                                                       |   |   |   |   |   |
-| **Není k dispozici**                                          | Nejedná se o součást seznamu ACL sítě VLAN.                                                                                                                                                 |   |   |   |   |   |
+| **–**                                          | Nejedná se o součást seznamu ACL sítě VLAN.                                                                                                                                                 |   |   |   |   |   |
 |                                              |                                                                                                                                                                           |   |   |   |   |   |
 
 ### <a name="ip-address-assignments"></a>Přiřazení IP adres
@@ -289,7 +289,7 @@ Pro konfiguraci přepínače Azure Stack můžete upravit několik nastavení pr
 Při nasazení Azure Stack řešení vytvoří výrobce OEM (Original Equipment Manufacturer) a použije konfiguraci přepínače pro tory i BMC. Výrobce OEM používá nástroj Azure Stack Automation k ověření, zda jsou požadované konfigurace na těchto zařízeních správně nastaveny. Konfigurace vychází z informací v listu nasazení Azure Stack. 
 
 >[!NOTE]
->**Neprovádět**   Změňte konfiguraci bez souhlasu buď od výrobce OEM, nebo z technického týmu Microsoft Azure Stack. Změna konfigurace síťového zařízení může významně ovlivnit provoz nebo řešení potíží se sítí ve vaší instanci Azure Stack. Pokud chcete získat další informace o těchto funkcích v síťovém zařízení, jak tyto změny provést, obraťte se na dodavatele hardwaru OEM nebo na podporu Microsoftu. Výrobce OEM má konfigurační soubor vytvořený pomocí nástroje pro automatizaci na základě vašeho listu nasazení Azure Stack. 
+>**Neměňte konfiguraci** bez souhlasu výrobce OEM ani Microsoft Azure Stack technický tým. Změna konfigurace síťového zařízení může významně ovlivnit provoz nebo řešení potíží se sítí ve vaší instanci Azure Stack. Pokud chcete získat další informace o těchto funkcích v síťovém zařízení, jak tyto změny provést, obraťte se na dodavatele hardwaru OEM nebo na podporu Microsoftu. Výrobce OEM má konfigurační soubor vytvořený pomocí nástroje pro automatizaci na základě vašeho listu nasazení Azure Stack. 
 
 Existují však některé hodnoty, které lze přidat, odebrat nebo změnit v konfiguraci síťových přepínačů.
 

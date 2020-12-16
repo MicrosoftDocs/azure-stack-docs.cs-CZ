@@ -7,12 +7,12 @@ ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 12/30/2019
 ms.lastreviewed: 12/30/2019
-ms.openlocfilehash: 10de658f7e5f8621d44baaa16f2181f58f47811e
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: b18f962ce2348a6a0f90a2ad48c1ea84e01fe921
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92182967"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598636"
 ---
 # <a name="mdc-network-appendix"></a>MDC síť – dodatek
 
@@ -53,25 +53,115 @@ V příloze najdete parametry zařízení a informace o identitě pro MDC hardwa
 
 ### <a name="juniper-mx204"></a>Juniper MX204
 
-|  |  |  |
-|--|--|--|
-| Rozložení | Kapacita systému | 3 Tbps |
-|        | Orientace slotu | Není k dispozici |
-|        | Připojení | Přední nebo středový |
-| Fyzická specifikace | Rozměry (š × H × D) | 17,45 "x 8,71" x 24,5 "(44,3 x 22,1 x 62,2 cm) |
-|                        | Váha plně načtena | 130 kg |
-|                        | Váha – Nenačteno | 52 kg 23.6 kg |
-| Modul směrování | Výchozí paměť | 2x16 MB nebo úložiště flash; 64 GB DDR4 paměti RAM; 2x50 GB SSD |
-|                | Počet jader | 6 jader |
-| Redundance | Komponenty | Zdroje napájení, zdroje, ventilátory |
-| Prostředí | Tok vzduchu | Vedle sebe |
-|               | Provozní teplota | 32 ° až 115 ° F (0 ° až 46 °c) na úrovni moře |
-|               | Provozní vlhkost | 5% až 90% |
-|               | Provozní nadmořská výška | 10 000 ft (3048 m) |
-| Certifikace | NEBS | • GR 1089 – Core EMC a elektrická bezpečnost |
-|                | | • Společná síť pro vazbu (CBN) |
-|                | | • Národní elektrický kód (NEC) |
-|                | | • GR – 63 – základní fyzická ochrana |
+:::row:::
+    :::column:::
+        **Rozložení**
+    :::column-end:::
+    :::column:::
+        Kapacita systému
+
+        Orientace slotu
+
+        Připojení
+    :::column-end:::
+    :::column span="2":::
+        3 Tbps
+
+        Není k dispozici
+
+        Přední nebo středový
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        **Fyzická specifikace**
+    :::column-end:::
+    :::column:::
+        Rozměry (š × H × D)
+
+        Váha plně načtena
+
+        Váha – Nenačteno
+    :::column-end:::
+    :::column span="2":::
+        17,45 "x 8,71" x 24,5 "(44,3 x 22,1 x 62,2 cm)
+
+        130 kg
+
+        52 kg 23.6 kg
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        **Modul směrování**
+    :::column-end:::
+    :::column:::
+        Výchozí paměť
+
+        Počet jader
+    :::column-end:::
+    :::column span="2":::
+        2x16 MB nebo úložiště flash; 64 GB DDR4 paměti RAM; 2x50 GB SSD
+
+        6 jader
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        **Redundance**
+    :::column-end:::
+    :::column:::
+        Komponenty
+    :::column-end:::
+    :::column span="2":::
+        Zdroje napájení, zdroje, ventilátory
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        **Prostředí**
+    :::column-end:::
+    :::column:::
+        Tok vzduchu
+
+        Provozní teplota
+
+        Provozní vlhkost
+
+        Provozní nadmořská výška
+    :::column-end:::
+    :::column span="2":::
+        Vedle sebe
+
+        32 ° až 115 ° F (0 ° až 46 °c) na úrovni moře
+
+        5% až 90%
+
+        10 000 ft (3048 m)
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        **Certifikace**
+    :::column-end:::
+    :::column:::
+        NEBS
+    :::column-end:::
+    :::column span="2":::
+        • GR 1089 – Core EMC a elektrická bezpečnost
+
+        • Společná síť pro vazbu (CBN)
+
+        • Národní elektrický kód (NEC)
+
+        • GR – 63 – základní fyzická ochrana
+    :::column-end:::
+:::row-end:::
 
 ### <a name="dell-emc-s4148f-on"></a>Dell EMC S4148F – ON
 

@@ -1,6 +1,6 @@
 ---
 title: Capacity Planner centra Azure Stack | Microsoft Docs
-description: Přečtěte si o plánování kapacity pro Azure Stack nasazení centra.
+description: Naučte se používat Plánovač kapacity centra Azure Stack k zobrazení přidělení výpočetních prostředků pro nasazení centra Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: prchint
@@ -16,14 +16,14 @@ ms.date: 05/31/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 85416a044da5f3f834011da52ba6023ee2456995
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 6928c301ae2c5985a9db52bff109c874024327cb
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92183057"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598279"
 ---
-# <a name="azure-stack-hub-capacity-planner"></a>Capacity Planner centra Azure Stack
+# <a name="azure-stack-hub-capacity-planner---modular-data-center-mdc"></a>Centrum Azure Stack Capacity Planner modulárního datového centra (MDC)
 
 Capacity Planner centra Azure Stack je tabulka, která ukazuje, jakým způsobem se různé alokace výpočetních prostředků vejdou na výběr hardwarových nabídek. 
 

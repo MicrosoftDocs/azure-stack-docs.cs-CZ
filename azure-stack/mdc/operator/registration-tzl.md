@@ -1,20 +1,20 @@
 ---
-title: Registrace centra Azure Stack s Azure
-description: Naučte se registrovat centra Azure Stack s Azure, abyste si mohli stáhnout Azure Marketplace položky a nastavit vytváření sestav dat.
+title: Registrace centra Azure Stack s Azure (MDC)
+description: Naučte se, jak registrovat Azure Stack centrum pomocí Azure, abyste mohli stahovat položky Azure Marketplace a nastavovat sestavy dat pro MDC.
 author: sethmanheim
 ms.topic: article
 ms.date: 12/07/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 68a89c3f3f2a15a23a21d2a1d6c6052727982941
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 69c33d41149937b286a528c7eef3c6e795cd7642
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934875"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598466"
 ---
-# <a name="register-azure-stack-hub-with-azure"></a>Registrace centra Azure Stack s Azure
+# <a name="register-azure-stack-hub-with-azure---modular-data-center-mdc"></a>Registrace centra Azure Stack s využitím Azure – modulárních datových Center (MDC)
 
 Pokud chcete nastavit syndikaci na webu Marketplace a používat služby PaaS, musíte po dokončení nasazení zaregistrovat a aktivovat své modulární datové centrum (MDC) nebo centrum Azure Stack v závislosti na centru Azure Stack. Pomocí syndikace Marketplace správce naplní místní web centra Azure Stack s obrázky staženými z Azure Marketplace.
 

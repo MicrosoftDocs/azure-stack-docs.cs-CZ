@@ -1,6 +1,6 @@
 ---
-title: Stažení položek z webu Marketplace z Azure a publikování do Azure Stack | Microsoft Docs
-description: Naučte se stahovat položky Marketplace z Azure a publikovat na Azure Stack.
+title: Stažení položek z webu Marketplace z Azure a publikování do Azure Stack
+description: Naučte se stahovat položky Marketplace z Azure a publikovat je do Azure Stack pro modulární datová centra (MDC).
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 32ba4c16d36622cbe2a9595c58e4ec2e2f46b481
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 2a3dec7699911988c4c9a958c31386c127f70694
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935028"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598228"
 ---
-# <a name="download-marketplace-items-to-azure-stack-hub"></a>Stažení položek z Marketplace do centra Azure Stack 
+# <a name="download-marketplace-items-to-azure-stack-hub---modular-data-center-mdc"></a>Stažení položek z Marketplace do centra Azure Stack – modulární datové centrum (MDC) 
 
 Jako operátor cloudu můžete z Marketplace stahovat položky do centra Azure Stack a zpřístupnit je všem uživatelům pomocí prostředí Azure Stack hub. Položky, které můžete vybrat, jsou z uspořádaného seznamu Azure Marketplacech položek, které jsou předem testovány a podporovány pro práci s Azure Stack. Do tohoto seznamu se často přidají další položky, takže se budete moct vrátit k novému obsahu.
 
@@ -60,11 +60,11 @@ Vaše nasazení centra Azure Stack musí mít připojení k Internetu a musí b�
 
 4. V každé položce řádku se zobrazí také aktuálně dostupná verze. Pokud je k dispozici více než jedna verze položky Marketplace, zobrazí se ve sloupci **verze** **více**. Kliknutím na každou položku můžete zobrazit její popis a další informace, včetně její velikosti ke stažení:
 
-   ![Přidat z Azure](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure-1.png)
+   ![Snímek obrazovky zobrazující stránku přidat z Azure](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure-1.png)
 
 5. Pokud je verze položky zobrazená jako **více**, můžete tuto položku vybrat a pak vybrat konkrétní verzi z rozevíracího seznamu výsledná verze – výběr:
 
-   ![Přidat z Azure](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure-3.png)
+   ![ScrenShot, která zobrazuje stránku pro správu s vybraným rozevíracím seznamem pro selektor verzí.](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure-3.png)
 
 6. Vyberte položku, kterou chcete, a pak vyberte **Stáhnout**. Doba stahování se liší a závisí na připojení k síti. Po dokončení stahování můžete novou položku Marketplace nasadit buď jako operátor Azure Stack, nebo na uživatele.
 

@@ -1,21 +1,21 @@
 ---
-title: Základy správy centra Azure Stack
+title: Základy správy centra Azure Stack – MDC
 titleSuffix: Azure Stack Hub
-description: Seznamte se se základy správy centra Azure Stack.
+description: Seznamte se se základy správy centra Azure Stack. Podívejte se na Další informace o podpoře a podívejte se na další kroky.
 author: justinha
 ms.topic: article
 ms.date: 10/26/2020
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 9369f29d802350f71ac4a5a462009768dec5c2cb
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 5124494511d1e9c28bddce5cb42ba8e253c53807
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934926"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598534"
 ---
-# <a name="azure-stack-hub-administration-basics"></a>Základy správy centra Azure Stack
+# <a name="azure-stack-hub-administration-basics---modular-data-center-mdc"></a>Základy správy centra Azure Stack – modulární datové centrum (MDC)
 
 Pokud s Azure Stack správy centra začínáte, je potřeba znát několik věcí. Tento článek poskytuje přehled vaší role jako operátor centra Azure Stack a o tom, co je potřeba k tomu, abychom svým uživatelům informovali, že jim pomohou zvýšit produktivitu.
 
