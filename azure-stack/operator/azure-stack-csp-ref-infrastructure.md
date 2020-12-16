@@ -3,16 +3,16 @@ title: Využití infrastruktury vytváření sestav pro poskytovatele Cloud Solu
 description: Seznamte se s infrastrukturou vytváření sestav využití, která se používá ke sledování využití pro klienty používané poskytovatelem Cloud Solution Provider (CSP).
 author: sethmanheim
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 51e747b5670a3e7eb58316069567e83e9ed9fc82
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 820cd9db933ee017f4b7a1890c277870d1bd23bd
+ms.sourcegitcommit: a53ea4a28e715c80a99fa89e9d364bc4556558de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573046"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97576985"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-solution-providers"></a>Využití infrastruktury vytváření sestav pro poskytovatele cloudových řešení
 
@@ -26,8 +26,8 @@ Existují některé rozdíly mezi tím, jak se účtují služby Azure Stack hub
 
 Můžete získat informace o měřičích centra Azure Stack používaných při obchodování a jejich cenách v partnerském centru. Tento proces je stejný jako u služeb Azure:
 
-1. V partnerském centru přejděte do nabídky **řídicí panel** , vyberte **prodávat**a pak vyberte **ceny a nabídky**.
-2. V části **služby založené na používání**vyberte **aktuální**.
+1. V partnerském centru přejděte do nabídky **řídicí panel** , vyberte **prodávat** a pak vyberte **ceny a nabídky**.
+2. V části **služby založené na používání** vyberte **aktuální**.
 3. Otevřete tabulku **Azure v globálním seznamu ceníků CSP** .
 4. Filtr v **oblasti = Azure Stack hub**.
 
@@ -35,10 +35,10 @@ Můžete získat informace o měřičích centra Azure Stack používaných při
 
 Pro účely využití a fakturace v centru Azure Stack se používají následující pojmy a koncepty:
 
-| Pojem | Definice |
+| Označení | Definice |
 | --- | --- |
 | Přímý poskytovatel CSP | Přímý poskytovatel CSP obdrží fakturu přímo od Microsoftu k Azure a využití centra Azure Stack a účtuje zákazníky přímo. |
-| Nepřímý CSP | Nepřímí prodejci pracují s nepřímým poskytovatelem (také označovaným jako distributor). Prodejci přikupují koncové zákazníky; nepřímý poskytovatel obsahuje fakturační vztah s Microsoftem, spravuje fakturaci zákazníků a poskytuje další služby, jako je podpora produktů. |
+| Nepřímý poskytovatel CSP | Nepřímí prodejci pracují s nepřímým poskytovatelem (také označovaným jako distributor). Prodejci přikupují koncové zákazníky; nepřímý poskytovatel obsahuje fakturační vztah s Microsoftem, spravuje fakturaci zákazníků a poskytuje další služby, jako je podpora produktů. |
 | Koncový zákazník | Koncoví zákazníci jsou podniky a státní úřady, které vlastní aplikace a další úlohy spuštěné v Azure Stackovém centru. |
 
 ## <a name="next-steps"></a>Další kroky

@@ -3,16 +3,16 @@ title: Delegování nabídek v centru Azure Stack
 description: Naučte se delegovat úlohy, jako je vytváření nabídek a registrace uživatelů.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/24/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 8cbbf5f2694b714ff5fdf71786a91e6e03522f58
-ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
+ms.openlocfilehash: 806c4c565553fe76cb8347d763aa7ce20e000821
+ms.sourcegitcommit: a53ea4a28e715c80a99fa89e9d364bc4556558de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88857578"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97577070"
 ---
 # <a name="delegate-offers-in-azure-stack-hub"></a>Delegování nabídek v centru Azure Stack
 
@@ -79,7 +79,7 @@ Chcete-li použít tento návod, potřebujete kromě svého účtu operátora ce
 
    b.  [Vytvořte nabídku](azure-stack-create-offer.md) na základě tohoto plánu. V tomto článku se jako příklad používá nabídka s názvem **OfferToDP** .
 
-   c.  Přidejte delegovaného zprostředkovatele jako předplatitele této nabídky, a to tak, že vyberete **odběry**, pak **přidáte**a pak **nové předplatné tenanta**.
+   c.  Přidejte delegovaného zprostředkovatele jako předplatitele této nabídky, a to tak, že vyberete **odběry**, pak **přidáte** a pak **nové předplatné tenanta**.
 
    ![Přidat delegovaného zprostředkovatele jako předplatitele na portálu pro správu centra Azure Stack](media/azure-stack-delegated-provider/image3.png)
 
@@ -95,7 +95,7 @@ Dalším krokem je vytvoření plánu a nabídky, která bude delegována a kter
    > [!NOTE]
    > Tato nabídka nemusí být veřejná, ale můžete ji zveřejnit. Ve většině případů ale chcete, aby k této nabídce měli přístup jenom delegovaní zprostředkovatelé. Po delegování soukromé nabídky, jak je popsáno v následujícím postupu, má delegovaný zprostředkovatel přístup k němu.
 
-2. Delegovat nabídku Přejít na **DelegatedOffer**. V části **Nastavení**vyberte **delegovaní zprostředkovatelé**a pak vyberte **Přidat**.
+2. Delegovat nabídku Přejít na **DelegatedOffer**. V části **Nastavení** vyberte **delegovaní zprostředkovatelé** a pak vyberte **Přidat**.
 
 3. V rozevíracím seznamu vyberte předplatné delegovaného zprostředkovatele a pak vyberte **delegovat**.
 
@@ -105,7 +105,7 @@ Dalším krokem je vytvoření plánu a nabídky, která bude delegována a kter
 
 Přihlaste se k portálu User Portal jako delegovaný zprostředkovatel a pak vytvořte novou nabídku pomocí delegované nabídky jako šablony.
 
-1. Vyberte **+ vytvořit prostředek**, pak **nabídky tenanta + plány**a pak vyberte **nabídky**.
+1. Vyberte **+ vytvořit prostředek**, pak **nabídky tenanta + plány** a pak vyberte **nabídky**.
 
     ![Vytvoření nové nabídky na portále User Portal centra Azure Stack](media/azure-stack-delegated-provider/image5.png)
 
@@ -116,11 +116,11 @@ Přihlaste se k portálu User Portal jako delegovaný zprostředkovatel a pak vy
    >[!IMPORTANT]
    >Je důležité pochopit, že delegovaní zprostředkovatelé můžou zvolit jenom nabídky, které jsou na ně delegované. Tyto nabídky nemůžou provádět změny. Tyto nabídky může změnit pouze operátor centra Azure Stack. Například pouze operátor může změnit své plány a kvóty. Delegovaný zprostředkovatel nevytváří nabídku ze základních plánů a plánů doplňku.
 
-3. Delegovaný zprostředkovatel může tyto nabídky zveřejnit prostřednictvím vlastní adresy URL portálu. Pokud chcete nabídku zveřejnit, vyberte **Procházet**a pak **nabídky**. Vyberte nabídku a pak vyberte **změnit stav**.
+3. Delegovaný zprostředkovatel může tyto nabídky zveřejnit prostřednictvím vlastní adresy URL portálu. Pokud chcete nabídku zveřejnit, vyberte **Procházet** a pak **nabídky**. Vyberte nabídku a pak vyberte **změnit stav**.
 
 4. Veřejné delegované nabídky se teď zobrazují jenom prostřednictvím delegovaného portálu. Vyhledání a změna této adresy URL:
 
-    a.  Vyberte **Procházet**, pak **všechny služby**a potom v kategorii **Obecné** vyberte **předplatná**. Vyberte předplatné delegovaného poskytovatele (například **DPSubscription**) a pak **vlastnosti**.
+    a.  Vyberte **Procházet**, pak **všechny služby** a potom v kategorii **Obecné** vyberte **předplatná**. Vyberte předplatné delegovaného poskytovatele (například **DPSubscription**) a pak **vlastnosti**.
 
     b.  Zkopírujte adresu URL portálu do samostatného umístění, například do poznámkového bloku.
 

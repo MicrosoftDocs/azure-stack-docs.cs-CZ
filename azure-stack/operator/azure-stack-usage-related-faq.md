@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 08/25/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 540fce92723c434ec5c8cb5ee7a2be0dd04b3639
-ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
+ms.openlocfilehash: a4f9744139199f999475f24a3910e1929b0a8b9b
+ms.sourcegitcommit: a53ea4a28e715c80a99fa89e9d364bc4556558de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88857488"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97576968"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>Nejčastější dotazy týkající se využití centra Azure Stack
 
@@ -157,40 +157,40 @@ Použití je hlášeno pro následující poskytovatele prostředků:
 
 **ID měřiče**: 578ae51d-4ef9-42f9-85ae-42b52d3d83ac **měřiče**: ActualPremiumSnapshotSize **jednotka**: GB \* měsíc **poznámky**: skutečná velikost na disku spravovaného snímku Premium.
 
-**ID měřiče**: 5d76e09f-4567-452A-94cc-7d1f097761f0 **měřič názvů**: S4 **jednotka**: počet disků v \* hodinách: Standard Managed disk-32 GB (zastaralé) **Notes**
+**ID měřiče**: 5d76e09f-4567-452A-94cc-7d1f097761f0 **měřič názvů**: S4 **jednotka**: počet disků v \* hodinách: Standard Managed disk-32 GB (zastaralé) 
 
 **ID měřiče**: dc9fc6a9-0782-432a-b8dc-978130457494 **měřič Name**: S6 **jednotka**: počet disků v \* hodinách **poznámky**: Standard Managed disk-64 GB (zastaralé)
 
-**ID měřiče**: e5572fce-9f58-49D7-840c-b168c0f01fff **měřiče**: S10 **jednotka**: počet disků v \* hodinách: Standard Managed disk-128 GB (zastaralé) **Notes**
+**ID měřiče**: e5572fce-9f58-49D7-840c-b168c0f01fff **měřiče**: S10 **jednotka**: počet disků v \* hodinách: Standard Managed disk-128 GB (zastaralé) 
 
-**ID měřiče**: 9a8caedd-1195-4cd5-80b4-a4c22f9302b8 **měřiče**: S15 **jednotka**: počet disků v \* hodinách: Standard Managed disk-256 GB (zastaralé) **Notes**
+**ID měřiče**: 9a8caedd-1195-4cd5-80b4-a4c22f9302b8 **měřiče**: S15 **jednotka**: počet disků v \* hodinách: Standard Managed disk-256 GB (zastaralé) 
 
-**ID měřiče**: 5938f8da-0ecd-4c48-8d5a-c7c6c23546be **měřiče**: S20 **jednotka**: počet disků v \* hodinách: Standard Managed disk-512 GB (zastaralé) **Notes**
+**ID měřiče**: 5938f8da-0ecd-4c48-8d5a-c7c6c23546be **měřiče**: S20 **jednotka**: počet disků v \* hodinách: Standard Managed disk-512 GB (zastaralé) 
 
-**ID měřiče**: 7705a158-bd8b-4b2b-b4c2-0782343b81e6 **měřiče**: S30 **jednotka**: počet disků v \* hodinách: Standard Managed disk-1024 GB (zastaralé) **Notes**
+**ID měřiče**: 7705a158-bd8b-4b2b-b4c2-0782343b81e6 **měřiče**: S30 **jednotka**: počet disků v \* hodinách: Standard Managed disk-1024 GB (zastaralé) 
 
-**ID měřiče**: 5c105f5f-cbdf-435c-b49b-3c7174856dcc **měřič názvů**: P4 **jednotka**: počet disků v \* hodinách: spravovaný disk úrovně Premium – 32 GB (zastaralé) **Notes**
+**ID měřiče**: 5c105f5f-cbdf-435c-b49b-3c7174856dcc **měřič názvů**: P4 **jednotka**: počet disků v \* hodinách: spravovaný disk úrovně Premium – 32 GB (zastaralé) 
 
-**ID měřiče**: 518b412b-1927-4f25-985f-4aea24e55c4f **měřiče**: P6 **jednotka**: počet disků v \* hodinách: spravovaný disk úrovně Premium – 64 GB (zastaralé) **Notes**
+**ID měřiče**: 518b412b-1927-4f25-985f-4aea24e55c4f **měřiče**: P6 **jednotka**: počet disků v \* hodinách: spravovaný disk úrovně Premium – 64 GB (zastaralé) 
 
-**ID měřiče**: 5cfb1fed-0902-49e3-8217-9add946fd624 **měřiče**: P10 **jednotka**: počet disků v \* hodinách: spravovaný disk úrovně Premium – 128 GB (zastaralé) **Notes**  
+**ID měřiče**: 5cfb1fed-0902-49e3-8217-9add946fd624 **měřiče**: P10 **jednotka**: počet disků v \* hodinách: spravovaný disk úrovně Premium – 128 GB (zastaralé)   
 
-**ID měřiče**: **název měřiče**8de91c94-F740-4d9a-b665-bd5974fa08d4: P15  
-**Jednotka**: počet disků v \* hodinách **Notes**: spravovaný disk úrovně Premium – 256 GB (zastaralé)
+**ID měřiče**: **název měřiče** 8de91c94-F740-4d9a-b665-bd5974fa08d4: P15  
+**Jednotka**: počet disků v \* hodinách : spravovaný disk úrovně Premium – 256 GB (zastaralé)
 
 **ID měřiče**: c7e7839c-293b-4761-ae4c-848Eda91130b **název měřiče**: P20 **jednotka**: počet disků v \* hodinách **poznámky**: spravovaný disk úrovně Premium – 512 GB (zastaralé)
 
-**ID měřiče**: 9f502103-adf4-4488-b494-456c95d23a9f **měřiče**: P30 **jednotka**: počet disků v \* hodinách: spravovaný disk úrovně Premium – 1024 GB (zastaralé) **Notes**
+**ID měřiče**: 9f502103-adf4-4488-b494-456c95d23a9f **měřiče**: P30 **jednotka**: počet disků v \* hodinách: spravovaný disk úrovně Premium – 1024 GB (zastaralé) 
 
-**ID měřiče**: 8a409390-1913-40AE-917b-08d0f16f3c38 **měřiče**: ActualStandardDiskSize **jednotka**: bajtů – \* hodiny: skutečná velikost na disku standardního spravovaného disku (zastaralé). **Notes**  
+**ID měřiče**: 8a409390-1913-40AE-917b-08d0f16f3c38 **měřiče**: ActualStandardDiskSize **jednotka**: bajtů – \* hodiny: skutečná velikost na disku standardního spravovaného disku (zastaralé).   
 
 **ID měřiče**: 1273b16f-8458-4C34-8ce2-a515de551ef6  
-**Název měřiče**: ActualPremiumDiskSize **jednotka**: bajtů – \* hodiny: skutečná velikost na disku spravovaného disku úrovně Premium (zastaralé). **Notes**
+**Název měřiče**: ActualPremiumDiskSize **jednotka**: bajtů – \* hodiny: skutečná velikost na disku spravovaného disku úrovně Premium (zastaralé). 
 
 **ID měřiče**: 89009682-df7f-44fe-aeb1-63fba3ddbf4c  
-**Název měřiče**: ActualStandardSnapshotSize **jednotka**: bajtů – \* hodiny: skutečná velikost na disku spravovaného standardního snímku (zastaralé). **Notes**
+**Název měřiče**: ActualStandardSnapshotSize **jednotka**: bajtů – \* hodiny: skutečná velikost na disku spravovaného standardního snímku (zastaralé). 
 
-**ID měřiče**: 95b0c03f-8a82-4524-8961-ccfbf575f536 **měřiče**: ActualPremiumSnapshotSize **jednotka**: bajtů – \* hodiny: skutečná velikost na disku spravovaného snímku Premium (zastaralé). **Notes**
+**ID měřiče**: 95b0c03f-8a82-4524-8961-ccfbf575f536 **měřiče**: ActualPremiumSnapshotSize **jednotka**: bajtů – \* hodiny: skutečná velikost na disku spravovaného snímku Premium (zastaralé). 
 
 **ID měřiče**: 75d4b707-1027-4403-9986-6ec7c05579c8 **měřiče**: ActualStandardSnapshotSize **jednotka**: GB \* měsíc **poznámky**: skutečná velikost na disku spravovaného standardního snímku (zastaralé).
 
@@ -265,7 +265,7 @@ Použití je hlášeno pro následující poskytovatele prostředků:
 ### <a name="custom-worker-tiers"></a>Vlastní vrstvy pracovního procesu
   
 **ID měřiče**: název měřiče *vlastních vrstev pracovního procesu* 
- **Meter name**: vlastní vrstvy pracovního procesu  
+ : vlastní vrstvy pracovního procesu  
 **Jednotka**: hodiny **poznámky**: deterministické ID měřiče se vytvoří na základě SKU a vlastního názvu vrstvy pracovního procesu. Toto ID měřiče je jedinečné pro každou vlastní vrstvu pracovního procesu.  
   
 **ID měřiče**: 264ACB47-AD38-47F8-Add3-47F01DC4F473  
@@ -274,10 +274,10 @@ Použití je hlášeno pro následující poskytovatele prostředků:
 **Poznámky**: App Service podporuje dva typy připojení SSL: připojení SSL indikace názvu serveru (SNI) a IP adresa připojení SSL. SSL založená na SNI funguje v moderních prohlížečích a protokol SSL založený na protokolu IP funguje ve všech prohlížečích.  
   
 **ID měřiče**: 60B42D72-DC1C-472C-9895-6C516277EDB4  
-**Název měřiče**: IP SSL **jednotka**: na základě IP adres **vazeb SSL**založených na protokolu IP: App Service podporuje dva typy připojení SSL: indikace názvu serveru (SNI) připojení SSL a IP adresa připojení SSL. SSL založená na SNI funguje v moderních prohlížečích a protokol SSL založený na protokolu IP funguje ve všech prohlížečích.  
+**Název měřiče**: IP SSL **jednotka**: na základě IP adres **vazeb SSL** založených na protokolu IP: App Service podporuje dva typy připojení SSL: indikace názvu serveru (SNI) připojení SSL a IP adresa připojení SSL. SSL založená na SNI funguje v moderních prohlížečích a protokol SSL založený na protokolu IP funguje ve všech prohlížečích.  
   
 **ID měřiče**: 73215A6C-FA54-4284-B9C1-7E8EC871CC5B  
-**Název měřiče**: **jednotka**webového procesu:  
+**Název měřiče**: **jednotka** webového procesu:  
 **Poznámky**: vypočítáno na aktivní web za hodinu.
   
 **ID měřiče**: 5887D39B-0253-4E12-83C7-03E1A93DFFD9  

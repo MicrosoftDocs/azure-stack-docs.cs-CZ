@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Přehled správy oblastí v centru Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: e40d79dcac58035172d4e292461fd0950ee77979
-ms.sourcegitcommit: 03aad17afe8519536066c735c59ad1bdfe8de083
+ms.openlocfilehash: 86e449c9a825c80fa230d94948281c67e4756a25
+ms.sourcegitcommit: a53ea4a28e715c80a99fa89e9d364bc4556558de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89041634"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97577019"
 ---
 # <a name="region-management-in-azure-stack-hub"></a>Správa oblastí v centru Azure Stack
 
@@ -41,7 +41,7 @@ Pokud vyberete oblast na dlaždici **Správa oblastí** , můžete získat pří
 
 5. **Role infrastruktury**: komponenty nezbytné ke spuštění centra Azure Stack. V seznamu se zobrazí jenom role infrastruktury, na které se hlásí výstrahy. Výběrem role můžete zobrazit výstrahy spojené s rolí a instancemi rolí, na kterých je tato role spuštěná.
 
-6. **Vlastnosti**: stav registrace a podrobnosti vašeho prostředí v okně Správa oblastí. Stav lze **zaregistrovat**, **není zaregistrováno**nebo **vypršela jeho platnost**. Pokud je zaregistrované, zobrazí se také ID předplatného Azure, které jste použili k registraci centra Azure Stack, spolu se skupinou prostředků registrace a názvem.
+6. **Vlastnosti**: stav registrace a podrobnosti vašeho prostředí v okně Správa oblastí. Stav lze **zaregistrovat**, **není zaregistrováno** nebo **vypršela jeho platnost**. Pokud je zaregistrované, zobrazí se také ID předplatného Azure, které jste použili k registraci centra Azure Stack, spolu se skupinou prostředků registrace a názvem.
 
 ## <a name="next-steps"></a>Další kroky
 

@@ -4,22 +4,22 @@ titleSuffix: Azure Stack
 description: Referenční informace o rozhraních API pro využití prostředků, které načítají informace o využití centra Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/25/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d6e31a08badcaa171a2a6c30171ec8f2573e4b76
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 1fdc86f9077f6c59fa1424d7118d7c0ec6499d4f
+ms.sourcegitcommit: a53ea4a28e715c80a99fa89e9d364bc4556558de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545529"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97576951"
 ---
 # <a name="tenant-resource-usage-api-reference"></a>Referenční informace k rozhraní API využití prostředků tenanta
 
 Tenant může pomocí rozhraní API tenanta zobrazit data o využití prostředků v tenantovi. Tato rozhraní API jsou konzistentní s rozhraními API využití Azure.
 
-Pomocí rutiny [Get-UsageAggregates](/powershell/module/Az.usageaggregates/get-usageaggregates) prostředí Windows PowerShell můžete získat data o využití, stejně jako v Azure.
+Pomocí rutiny [Get-UsageAggregates](/powershell/module/azurerm.usageaggregates/get-usageaggregates) prostředí Windows PowerShell můžete získat data o využití, stejně jako v Azure.
 
 ## <a name="api-call"></a>Volání rozhraní API
 
@@ -37,7 +37,7 @@ Požadavek získá podrobnosti o spotřebě pro požadovaná předplatná a pro 
 | --- | --- |
 | Armendpoint |Azure Resource Manager koncový bod vašeho prostředí centra Azure Stack. Azure Stack konvence centra je název Azure Resource Manager koncového bodu ve formátu `https://management.{domain-name}` . Například pro vývojovou sadu je název domény Local. azurestack. external a pak je koncový bod Správce prostředků `https://management.local.azurestack.external` . |
 | subId |ID předplatného uživatele, který provádí volání. Toto rozhraní API můžete použít jenom k dotazování na použití jednoho předplatného. Poskytovatelé můžou použít rozhraní API využití prostředků poskytovatele k dotazování na využití pro všechny klienty. |
-| reportedStartTime |Počáteční čas dotazu. Hodnota pro *DateTime* by měla být v UTC a na začátku hodiny; například 13:00. U denní agregace nastavte tuto hodnotu na půlnoc UTC. Formát je řídicí. ISO 8601; Příklad **: 2015-06-16T18% 3A53% 3a11% 2b00% 3a00Z** , kde dvojtečka je uvozená na% 3a a plus je uvozena na% 2b, aby bylo uživatelsky přívětivé URI. |
+| reportedStartTime |Počáteční čas dotazu. Hodnota pro *DateTime* by měla být v UTC a na začátku hodiny; například 13:00. U denní agregace nastavte tuto hodnotu na půlnoc UTC. Formát je řídicí. ISO 8601; Příklad **: 2015-06-16T18% 3A53% 3a11% 2b00% 3a00Z**, kde dvojtečka je uvozená na% 3a a plus je uvozena na% 2b, aby bylo uživatelsky přívětivé URI. |
 | reportedEndTime |Koncový čas dotazu. Omezení vztahující se na **reportedStartTime** platí také pro tento parametr. Hodnota pro **reportedEndTime** nemůže být v budoucnu. |
 | aggregationGranularity |Volitelný parametr, který má dvě diskrétní možné hodnoty: **denně** a **každou hodinu**. Vzhledem k tomu, že hodnoty naznačují, vrátí jedna data v denní členitosti a druhá je hodinové řešení. Možnost **denní** je výchozí hodnota. |
 | verze-api |Verze protokolu, který se používá k provedení tohoto požadavku. Je nutné použít **verzi 2015-06-01-Preview**. |
@@ -84,9 +84,9 @@ GET
 | subscriptionId |Identifikátor předplatného uživatele Azure |
 | usageStartTime |Čas spuštění v čase UTC sady, do které patří agregace tohoto využití. |
 | usageEndTime |Čas ukončení UTC intervalu použití, do kterého patří agregace tohoto využití. |
-| instanceData |Páry klíč-hodnota podrobností instance (v novém formátu):<br>  *resourceUri* : plně kvalifikované ID prostředku, včetně skupin prostředků a názvu instance. <br>  *umístění* : oblast, ve které byla tato služba spuštěna. <br>  *značky* : značky prostředků, které uživatel zadá. <br>  *AdditionalInfo* : Další podrobnosti o spotřebovaném prostředku. Například verze operačního systému nebo typ bitové kopie. |
+| instanceData |Páry klíč-hodnota podrobností instance (v novém formátu):<br>  *resourceUri*: plně kvalifikované ID prostředku, včetně skupin prostředků a názvu instance. <br>  *umístění*: oblast, ve které byla tato služba spuštěna. <br>  *značky*: značky prostředků, které uživatel zadá. <br>  *AdditionalInfo*: Další podrobnosti o spotřebovaném prostředku. Například verze operačního systému nebo typ bitové kopie. |
 | quantity |Množství spotřeby prostředků, ke kterým došlo v tomto časovém rámci. |
-| meterId |Jedinečné ID prostředku, který byl spotřebován (označovaný také jako **ResourceID** ). |
+| meterId |Jedinečné ID prostředku, který byl spotřebován (označovaný také jako **ResourceID**). |
 
 ## <a name="next-steps"></a>Další kroky
 
