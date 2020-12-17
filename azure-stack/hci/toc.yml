@@ -26,6 +26,8 @@
       href: deploy/create-cluster.md
     - name: Nastavení určujícího clusteru
       href: deploy/witness.md
+    - name: Nasazení infrastruktury SDN
+      href: deploy/sdn-express.md
     - name: Migrace na nový hardware
       href: deploy/migrate-cluster-new-hardware.md
     - name: Migrace na stejný hardware
