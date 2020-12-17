@@ -1,20 +1,20 @@
 ---
-title: Připojení Azure Stack HCl k Azure
-description: Jak zaregistrovat Azure Stack HCL pomocí Azure
+title: Připojení Azure Stack HCI k Azure
+description: Jak registrovat Azure Stack clusterů HCI pomocí Azure.
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/10/2020
-ms.openlocfilehash: e56718e080638eb6349625f644c837798c001a1d
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.date: 12/16/2020
+ms.openlocfilehash: 95e0ed6b87fb501b31c024c5d2d886b4e1bce8ac
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97010851"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620632"
 ---
-# <a name="connect-azure-stack-hci-to-azure"></a>Připojení Azure Stack HCl k Azure
+# <a name="connect-azure-stack-hci-to-azure"></a>Připojení Azure Stack HCI k Azure
 
 > Platí pro: Azure Stack HCI v20H2
 
@@ -29,7 +29,7 @@ Dokud nevytvoříte cluster Azure Stack HCI, nebudete moct s Azure registrovat. 
 
 ### <a name="internet-access"></a>Přístup k internetu
 
-Azure Stack HCI se musí pravidelně připojovat ke veřejnému cloudu Azure. Pokud je odchozí připojení omezené externí podnikovou bránou firewall nebo proxy server, musí být nakonfigurovaná tak, aby umožňovala odchozí přístup k portu 443 (HTTPS) na omezeném počtu dobře známých IP adres Azure. 
+Azure Stack HCI se musí pravidelně připojovat ke veřejnému cloudu Azure. Pokud je odchozí připojení omezené externí podnikovou bránou firewall nebo proxy server, musí být nakonfigurovaná tak, aby umožňovala odchozí přístup k portu 443 (HTTPS) na omezeném počtu dobře známých IP adres Azure. Informace o tom, jak připravit brány firewall, najdete v tématu [Konfigurace bran firewall pro Azure Stack HCI](../concepts/configure-firewalls.md).
 
    > [!NOTE]
    > Proces registrace se pokusí kontaktovat Galerie prostředí PowerShell a ověří, zda máte nejnovější verzi nezbytných modulů prostředí PowerShell, například AZ a AzureAD. I když je Galerie prostředí PowerShell hostována v Azure, aktuálně nemá značku služby. Pokud nemůžete spustit výše uvedenou rutinu z počítače pro správu, který má odchozí přístup k Internetu, doporučujeme stáhnout moduly a ručně je přenést do uzlu clusteru, kde budete `Register-AzStackHCI` příkaz spouštět. Případně můžete [moduly nainstalovat v odpojeném scénáři](/powershell/scripting/gallery/how-to/working-with-local-psrepositories?view=powershell-7.1#installing-powershellget-on-a-disconnected-system).
@@ -97,7 +97,7 @@ K dokončení procesu registrace budete také potřebovat příslušná Azure Ac
 
 Pomocí následujícího postupu můžete zaregistrovat Azure Stack clusteru HCI s Azure pomocí počítače pro správu.
 
-1. Na počítač pro správu nainstalujte požadované rutiny. Pokud zaregistrujete cluster nasazený z image obecné dostupnosti (GA) Azure Stack HCL, stačí spustit následující příkaz. Pokud byl cluster nasazen z Public Preview Image, před pokusem o registraci se ujistěte, že jste na každý server v clusteru nainstalovali aktualizaci Preview (KB4586852) 23. listopadu 2020.
+1. Na počítač pro správu nainstalujte požadované rutiny. Pokud zaregistrujete cluster nasazený z aktuální obecné dostupnosti (GA) Azure Stack HCL, stačí spustit následující příkaz. Pokud byl váš cluster nasazený z Public Preview Image, před pokusem o registraci v Azure se ujistěte, že jste na každý server v clusteru nainstalovali aktualizaci KB4586852 (verze Preview 23. listopadu 2020).
 
    ```PowerShell
    Install-Module -Name Az.StackHCI
@@ -110,7 +110,7 @@ Pomocí následujícího postupu můžete zaregistrovat Azure Stack clusteru HCI
 2. Proveďte registraci pomocí názvu libovolného serveru v clusteru. Pokud chcete získat ID předplatného Azure, přejděte na [Portal.Azure.com](https://portal.azure.com), přejděte na odběry a zkopírujte nebo vložte své ID ze seznamu.
 
    ```PowerShell
-   Register-AzStackHCI  -SubscriptionId "<subscription_ID>" -ComputerName Server1 [–Credential] [-ResourceName] [-ResourceGroupName]
+   Register-AzStackHCI  -SubscriptionId "<subscription_ID>" -ComputerName Server1 [–Credential] [-ResourceName] [-ResourceGroupName] [-Region]
    ```
 
    Tato syntaxe registruje cluster (z kterého je Server1 členem), jako aktuální uživatel, s výchozí oblastí Azure a cloudovým prostředím, a používá inteligentní výchozí názvy pro prostředek Azure a skupinu prostředků, ale pokud chcete, můžete do tohoto příkazu přidat parametry a zadat tyto hodnoty.

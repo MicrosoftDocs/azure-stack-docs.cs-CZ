@@ -3,16 +3,16 @@ title: Správa centra Azure Stack pomocí Azure CLI
 description: Naučte se používat rozhraní příkazového řádku (CLI) pro různé platformy ke správě a nasazení prostředků v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 12/2/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 5cd1c1b7dac9e05925488b3543461f3fbd8dd9e5
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.lastreviewed: 12/16/2020
+ms.openlocfilehash: a1307ca10a2655e166b41d43da4ac83cbe601dc5
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525876"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620717"
 ---
 # <a name="install-azure-cli-on-azure-stack-hub"></a>Instalace rozhraní příkazového řádku Azure CLI do centra Azure Stack
 
@@ -36,7 +36,7 @@ Rozhraní příkazového řádku Azure můžete nainstalovat pro správu centra 
 
 2. Poznamenejte si umístění Pythonu pro rozhraní příkazového řádku. Pokud používáte ASDK, musíte k přidání certifikátu použít toto umístění. Pokyny k nastavení certifikátů pro instalaci rozhraní příkazového řádku na ASDK najdete v tématu [nastavení certifikátů pro Azure CLI v Azure Stack Development Kit](../asdk/asdk-cli.md).
 
-## <a name="set-up-azure-cli"></a>Nastavení Azure CLI
+## <a name="connect-with-azure-cli"></a>Připojení pomocí Azure CLI
 
 ### <a name="azure-ad-on-windows"></a>[Azure AD ve Windows](#tab/ad-win)
 
@@ -50,17 +50,25 @@ V této části se dozvíte, jak nastavit rozhraní příkazového řádku, poku
 
 3. Zaregistrujte své prostředí. Při spuštění použijte následující parametry `az cloud register` :
 
-    | Hodnota | Příklad | Popis |
-    | --- | --- | --- |
-    | Název prostředí | AzureStackUser | Použijte `AzureStackUser`  pro uživatelské prostředí. Pokud jste operátor, zadejte `AzureStackAdmin` . |
-    | Správce prostředků koncový bod | `https://management.local.azurestack.external` | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
-    | Koncový bod úložiště | Local. azurestack. external | `local.azurestack.external` je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
-    | Přípona trezoru klíčů | . trezor. Local. azurestack. external | `.vault.local.azurestack.external` je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
-    | Koncový bod dokumentu aliasu pro image virtuálního počítače – | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | Identifikátor URI dokumentu, který obsahuje aliasy imagí virtuálních počítačů Další informace najdete v tématu [Nastavení koncového bodu aliasu virtuálního počítače](../asdk/asdk-cli.md#set-up-the-virtual-machine-alias-endpoint). |
+      | Hodnota | Příklad | Popis |
+      | --- | --- | --- |
+      | Název prostředí | AzureStackUser | Použijte `AzureStackUser`  pro uživatelské prostředí. Pokud jste operátor, zadejte `AzureStackAdmin` . |
+      | Správce prostředků koncový bod | `https://management.contoso.onmicrosoft.com` | **ResourceManagerUrl** v ASDK je: `https://management.contoso.onmicrosoft.com/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
+      | Koncový bod úložiště | local.contoso.onmicrosoft.com | `local.azurestack.external` je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
+      | Přípona trezoru klíčů | . vault.contoso.onmicrosoft.com | `.vault.local.azurestack.external` je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
+      | ID prostředku grafu služby Active Directory koncového bodu | https://graph.windows.net/ | Identifikátor prostředku služby Azure Active Directory. |
+    
+      ```azurecli  
+      az cloud register `
+          -n <environmentname> `
+          --endpoint-resource-manager "https://management.<region>.<fqdn>" `
+          --suffix-storage-endpoint "<fqdn>" `
+          --suffix-keyvault-dns ".vault.<fqdn>" `
+          --endpoint-active-directory-graph-resource-id "https://graph.windows.net/"
+      ```
 
-    ```azurecli  
-    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
-    ```
+    Odkaz na [příkaz Register](https://docs.microsoft.com/cli/azure/cloud?view=azure-cli-latest#az_cloud_register) najdete v referenční dokumentaci k Azure CLI.
+
 
 4. Nastavte aktivní prostředí pomocí následujících příkazů.
 
@@ -73,18 +81,17 @@ V této části se dozvíte, jak nastavit rozhraní příkazového řádku, poku
     ```azurecli
     az cloud update --profile 2019-03-01-hybrid
    ```
-
-    >[!NOTE]  
-    >Pokud používáte verzi centra Azure Stack před sestavením 1808, musíte použít profil verze API **2017-03-09-Profile** , nikoli profil verze rozhraní API **2019-03-01-Hybrid**. Musíte také použít nejnovější verzi Azure CLI.
  
-6. Přihlaste se k prostředí Azure Stackového centra pomocí `az login` příkazu. Přihlaste se do prostředí Azure Stack hub buď jako uživatel, nebo jako [instanční objekt](/azure/active-directory/develop/app-objects-and-service-principals). 
+6. Přihlaste se k prostředí Azure Stackového centra pomocí `az login` příkazu.
+
+    K prostředí centra Azure Stack se můžete přihlásit pomocí přihlašovacích údajů uživatele nebo pomocí [instančního objektu](/azure/active-directory/develop/app-objects-and-service-principals) , který vám poskytl operátor cloudu. 
 
    - Přihlaste se jako *uživatel*: 
 
      Můžete buď zadat uživatelské jméno a heslo přímo v rámci `az login` příkazu, nebo ověřit pomocí prohlížeče. Pokud má váš účet povolené ověřování Multi-Factor Authentication, musíte to udělat:
 
      ```azurecli
-     az login -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
+     az login -u "user@contoso.onmicrosoft.com" -p 'Password123!' --tenant contoso.onmicrosoft.com
      ```
 
      > [!NOTE]
@@ -92,11 +99,34 @@ V této části se dozvíte, jak nastavit rozhraní příkazového řádku, poku
 
    - Přihlaste se jako *instanční objekt*: 
     
-     Než se přihlásíte, [vytvořte instanční objekt pomocí Azure Portal nebo rozhraní](../operator/azure-stack-create-service-principals.md?view=azs-2002) příkazového řádku a přiřaďte mu roli. Teď se přihlaste pomocí následujícího příkazu:
+        Než se přihlásíte, [vytvořte instanční objekt pomocí Azure Portal nebo rozhraní](../operator/azure-stack-create-service-principals.md?view=azs-2002) příkazového řádku a přiřaďte mu roli. Teď se přihlaste pomocí následujícího příkazu:
+    
+        ```azurecli  
+        az login `
+          --tenant <Azure Active Directory Tenant name. `
+                    For example: myazurestack.onmicrosoft.com> `
+        --service-principal `
+          -u <Application Id of the Service Principal> `
+          -p <Key generated for the Service Principal>
+        ```
+    
+7. Ověřte, že je vaše prostředí správně nastavené a že vaše prostředí je aktivním cloudem.
 
-     ```azurecli  
-     az login --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> --service-principal -u <Application Id of the Service Principal> -p <Key generated for the Service Principal>
-     ```
+      ```azurecli
+          az cloud list --output table
+      ```
+
+Měli byste vidět, že je vaše prostředí uvedené  a je aktivní `true` . Příklad:
+
+```azurecli  
+IsActive    Name               Profile
+----------  -----------------  -----------------
+False       AzureCloud         2019-03-01-hybrid
+False       AzureChinaCloud    latest
+False       AzureUSGovernment  latest
+False       AzureGermanCloud   latest
+True        AzureStackUser     2019-03-01-hybrid
+```
 
 #### <a name="test-the-connectivity"></a>Testování připojení
 

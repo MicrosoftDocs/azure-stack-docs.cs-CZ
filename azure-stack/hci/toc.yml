@@ -38,7 +38,7 @@
       items:
         - name: Vytvoření clusteru pomocí prostředí PowerShell
           href: deploy/create-cluster-powershell.md
-- name: Spravovat
+- name: Správa
   items:
     - name: Správa virtuálních počítačů
       items:
@@ -158,6 +158,8 @@
       items:
         - name: Fakturace
           href: concepts/billing.md
+        - name: Konfigurace bran firewall
+          href: concepts/configure-firewalls.md
         - name: Aktualizace a upgrady
           href: concepts/updates.md
         - name: Důležité informace o zabezpečení

@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Naučte se vytvořit a nahrát virtuální pevný disk Azure (VHD), který obsahuje operační systém Red Hat Linux.
 author: sethmanheim
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 3ddc8a44d59a373f5dfe340860a5dcf195668cac
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: f0a408cdbd7b1c76a0a24f03537f20d1ae7b851e
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742576"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620598"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack-hub"></a>Příprava virtuálního počítače založeného na Red Hat pro službu Azure Stack Hub
 
@@ -40,16 +40,16 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
 
 1. Ve Správci technologie Hyper-V vyberte virtuální počítač.
 
-1. Vyberte **připojit** a otevřete tak okno konzoly pro virtuální počítač.
+2. Vyberte **připojit** a otevřete tak okno konzoly pro virtuální počítač.
 
-1. Vytvořte nebo upravte `/etc/sysconfig/network` soubor a přidejte následující text:
+3. Vytvořte nebo upravte `/etc/sysconfig/network` soubor a přidejte následující text:
 
     ```shell
     NETWORKING=yes
     HOSTNAME=localhost.localdomain
     ```
 
-1. Vytvořte nebo upravte `/etc/sysconfig/network-scripts/ifcfg-eth0` soubor a podle potřeby přidejte následující text:
+4. Vytvořte nebo upravte `/etc/sysconfig/network-scripts/ifcfg-eth0` soubor a podle potřeby přidejte následující text:
 
     ```shell
     DEVICE=eth0
@@ -62,19 +62,19 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
     NM_CONTROLLED=no
     ```
 
-1. Spuštěním následujícího příkazu zajistěte spuštění síťové služby v době spuštění:
+5. Spuštěním následujícího příkazu zajistěte spuštění síťové služby v době spuštění:
 
     ```bash
     sudo systemctl enable network
     ```
 
-1. Zaregistrujte své předplatné Red Hat, abyste mohli povolit instalaci balíčků z úložiště RHEL spuštěním následujícího příkazu:
+6. Zaregistrujte své předplatné Red Hat, abyste mohli povolit instalaci balíčků z úložiště RHEL spuštěním následujícího příkazu:
 
     ```bash
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Chcete-li provést tuto úpravu, otevřete `/etc/default/grub` v textovém editoru a upravte `GRUB_CMDLINE_LINUX` parametr. Příklad:
+7. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Chcete-li provést tuto úpravu, otevřete `/etc/default/grub` v textovém editoru a upravte `GRUB_CMDLINE_LINUX` parametr. Příklad:
 
     ```shell
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -88,38 +88,38 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
     rhgb quiet crashkernel=auto
     ```
 
-1. Po dokončení úprav `/etc/default/grub` Spusťte následující příkaz pro opětovné sestavení konfigurace grub:
+8. Po dokončení úprav `/etc/default/grub` Spusťte následující příkaz pro opětovné sestavení konfigurace grub:
 
     ```bash
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-1. [Volitelné po 1910 vydání] Zastavení a odinstalace Cloud-Init:
+9. Volitelné: Zastavte a odinstalujte `cloud-init` :
 
     ```bash
     systemctl stop cloud-init
     yum remove cloud-init
     ```
 
-1. Ujistěte se, že je server SSH nainstalovaný a nakonfigurované tak, aby se spouštěl při spuštění, což je obvykle výchozí. Upravte `/etc/ssh/sshd_config` , aby obsahovala následující řádek:
+10. Ujistěte se, že je server SSH nainstalovaný a nakonfigurované tak, aby se spouštěl při spuštění, což je obvykle výchozí. Upravte `/etc/ssh/sshd_config` , aby obsahovala následující řádek:
 
     ```shell
     ClientAliveInterval 180
     ```
 
-1. Při vytváření vlastního virtuálního pevného disku pro Azure Stack hub si všimněte, že WALinuxAgent verze mezi 2.2.20 a 2.2.35 (obojí) nefungují v prostředích Azure Stack hub před vydáním verze 1910. K přípravě image můžete použít verze 2.2.20/2.2.35. Pokud chcete k přípravě vlastní image použít verze vyšší než 2.2.35, aktualizujte centrum Azure Stack na verzi 1903 nebo novější nebo použijte opravu hotfix 1901/1902.
-    
-    [Před 1910 verzí] Pro stažení kompatibilního WALinuxAgent postupujte podle těchto pokynů:
-    
-    1. Stáhněte si setuptools.
-        
+11. Při vytváření vlastního virtuálního pevného disku pro Azure Stack hub si všimněte, že **WALinuxAgent** verze mezi 2.2.20 a 2.2.35 (obojí) nefungují v prostředích Azure Stack hub před vydáním verze 1910. K přípravě image můžete použít verze 2.2.20/2.2.35. Chcete-li použít verze novější než 2.2.35 pro přípravu vlastní image, aktualizujte centrum Azure Stack na vydání 1903 nebo novější nebo použijte opravu hotfix 1901/1902.
+
+    Před vydáním verze 1910: postupujte podle těchto pokynů a stáhněte kompatibilní **WALinuxAgent**:
+
+    1. Stáhněte si nástroje pro instalaci:
+
         ```bash
         wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
         tar xzf setuptools-7.0.tar.gz
         cd setuptools-7.0
         ```
-    
-    1. Stáhněte si a rozbalte verzi 2.2.20 agenta z našeho GitHubu.
+
+    2. Stáhnout a rozbalit verzi 2.2.20 agenta z GitHubu:
 
         ```bash
         wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
@@ -127,40 +127,40 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
         cd WALinuxAgent-2.2.20
         ```
 
-    1. Nainstalujte setup.py.
+    3. Nainstalovat **Setup.py**:
 
         ```bash
         sudo python setup.py install
         ```
 
-    1. Restartujte waagent.
-    
+    4. Restartovat **waagent**:
+
         ```bash
         sudo systemctl restart waagent
         ```
 
-    1. Otestujte, jestli verze agenta odpovídá vašemu, který jste stáhli. V tomto příkladu by měl být 2.2.20.
+    5. Otestujte, jestli verze agenta odpovídá vašemu, který jste stáhli. V tomto příkladu by měl být 2.2.20:
 
         ```bash
         waagent -version
         ```
 
-    Po vydání 1910 postupujte podle těchto pokynů a stáhněte kompatibilní WALinuxAgent:
-    
-    1. Balíček WALinuxAgent byl `WALinuxAgent-<version>` vložen do úložiště Red Hat Extras. Povolte úložiště Extras spuštěním následujícího příkazu:
+    Po vydání 1910 postupujte podle těchto pokynů a stáhněte kompatibilní **WALinuxAgent**:
+
+    1. Balíček **WALinuxAgent** byl `WALinuxAgent-<version>` vložen do úložiště Red Hat Extras. Povolte úložiště Extras spuštěním následujícího příkazu:
 
         ```bash
         subscription-manager repos --enable=rhel-7-server-extras-rpms
         ```
 
-    1. Nainstalujte agenta Azure Linux spuštěním následujícího příkazu:
+    2. Nainstalujte agenta Azure Linux spuštěním následujícího příkazu:
 
         ```bash
         sudo yum install WALinuxAgent
         sudo systemctl enable waagent.service
         ```
 
-1. Nevytvářejte odkládací místo na disku s operačním systémem.
+12. Nevytvářejte odkládací místo na disku s operačním systémem.
 
     Agent Azure Linux může automaticky nakonfigurovat odkládací prostor pomocí disku místního prostředku, který je připojený k virtuálnímu počítači po zřízení virtuálního počítače v Azure. Disk místního prostředku je dočasný disk a při zrušení zřízení virtuálního počítače může dojít k jeho vyprázdnění. Po instalaci agenta Azure Linux v předchozím kroku upravte `/etc/waagent.conf` správným způsobem následující parametry:
 
@@ -172,15 +172,15 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
     ResourceDisk.SwapSizeMB=2048    #NOTE: set this to whatever you need it to be.
     ```
 
-1. Pokud chcete zrušit registraci předplatného, spusťte následující příkaz:
+13. Pokud chcete zrušit registraci předplatného, spusťte následující příkaz:
 
     ```bash
     sudo subscription-manager unregister
     ```
 
-1. Pokud používáte systém, který byl nasazen pomocí certifikační autority rozlehlé sítě, virtuální počítač RHEL nebude důvěřovat kořenovému certifikátu centra Azure Stack. Tento certifikát je nutné umístit do důvěryhodného kořenového úložiště. Další informace najdete v tématu [Přidání důvěryhodných kořenových certifikátů na server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
+14. Pokud používáte systém, který byl nasazen pomocí certifikační autority rozlehlé sítě, virtuální počítač RHEL nebude důvěřovat kořenovému certifikátu centra Azure Stack. Tento certifikát je nutné umístit do důvěryhodného kořenového úložiště. Další informace najdete v tématu [Přidání důvěryhodných kořenových certifikátů na server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
-1. Spusťte následující příkazy, abyste virtuální počítač zrušili a připravili pro zřizování v Azure:
+15. Spusťte následující příkazy, abyste virtuální počítač zrušili a připravili pro zřizování v Azure:
 
     ```bash
     sudo waagent -force -deprovision
@@ -188,15 +188,15 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
     logout
     ```
 
-1. Vyberte **akci**a potom **vypnout** ve Správci technologie Hyper-V.
+16. Vyberte **akci** a potom **vypnout** ve Správci technologie Hyper-V.
 
-1. Převeďte virtuální pevný disk na virtuální pevný disk s pevnou velikostí pomocí funkce "upravit disk Správce technologie Hyper-V" nebo příkazu Convert-VHD PowerShell. Virtuální pevný disk se systémem Linux je teď připravený k nahrání do Azure.
+17. Pomocí funkce **Upravit disk** Správce technologie Hyper-V nebo příkazu PowerShellu převeďte VHD na virtuální pevný disk s pevnou velikostí `Convert-VHD` . Virtuální pevný disk se systémem Linux je teď připravený k nahrání do Azure.
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-kvm"></a>Příprava virtuálního počítače založeného na Red Hat z KVM
 
 1. Stáhněte si obrázek RHEL 7 na webu Red Hat. Tento postup jako příklad používá RHEL 7.
 
-1. Nastavte kořenové heslo.
+2. Nastavte kořenové heslo.
 
     Vygenerujte šifrované heslo a zkopírujte výstup příkazu:
 
@@ -217,16 +217,16 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
 
    Změnit druhé pole kořenového uživatele z "!!" do šifrovaného hesla.
 
-1. Z image QCOW2 vytvořte virtuální počítač v KVM. Nastavte typ disku na **QCOW2**a nastavte model zařízení rozhraní virtuální sítě na **virtio**. Pak spusťte virtuální počítač a přihlaste se jako kořenový adresář.
+3. Z image **QCOW2** vytvořte virtuální počítač v KVM. Nastavte typ disku na **QCOW2** a nastavte model zařízení rozhraní virtuální sítě na **virtio**. Pak spusťte virtuální počítač a přihlaste se jako kořenový adresář.
 
-1. Vytvořte nebo upravte `/etc/sysconfig/network` soubor a přidejte následující text:
+4. Vytvořte nebo upravte `/etc/sysconfig/network` soubor a přidejte následující text:
 
     ```shell
     NETWORKING=yes
     HOSTNAME=localhost.localdomain
     ```
 
-1. Vytvořte nebo upravte `/etc/sysconfig/network-scripts/ifcfg-eth0` soubor a přidejte následující text:
+5. Vytvořte nebo upravte `/etc/sysconfig/network-scripts/ifcfg-eth0` soubor a přidejte následující text:
 
     ```shell
     DEVICE=eth0
@@ -239,19 +239,19 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
     NM_CONTROLLED=no
     ```
 
-1. Spuštěním následujícího příkazu zajistěte spuštění síťové služby v době spuštění:
+6. Spuštěním následujícího příkazu zajistěte spuštění síťové služby v době spuštění:
 
     ```bash
     sudo systemctl enable network
     ```
 
-1. Zaregistrujte své předplatné Red Hat, abyste povolili instalaci balíčků z úložiště RHEL spuštěním následujícího příkazu:
+7. Zaregistrujte své předplatné Red Hat, abyste povolili instalaci balíčků z úložiště RHEL spuštěním následujícího příkazu:
 
     ```bash
     subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Chcete-li tuto konfiguraci provést, otevřete `/etc/default/grub` v textovém editoru a upravte `GRUB_CMDLINE_LINUX` parametr. Příklad:
+8. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Chcete-li tuto konfiguraci provést, otevřete `/etc/default/grub` v textovém editoru a upravte `GRUB_CMDLINE_LINUX` parametr. Příklad:
 
     ```shell
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -265,13 +265,13 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
     rhgb quiet crashkernel=auto
     ```
 
-1. Po dokončení úprav `/etc/default/grub` Spusťte následující příkaz pro opětovné sestavení konfigurace grub:
+9. Po dokončení úprav `/etc/default/grub` Spusťte následující příkaz pro opětovné sestavení konfigurace grub:
 
     ```bash
     grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-1. Přidejte moduly technologie Hyper-V do initramfs.
+10. Přidejte moduly technologie Hyper-V do **initramfs**.
 
     Upravit `/etc/dracut.conf` a přidat obsah:
 
@@ -285,14 +285,14 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
     dracut -f -v
     ```
 
-1. [Volitelné po 1910 vydání] Zastavení a odinstalace Cloud-Init:
+11. Volitelné po 1910 vydání: zastavení a odinstalace `cloud-init` :
 
     ```bash
     systemctl stop cloud-init
     yum remove cloud-init
     ```
 
-1. Ujistěte se, že je server SSH nainstalovaný a nakonfigurované tak, aby se spouštěl při spuštění:
+12. Ujistěte se, že je server SSH nainstalovaný a nakonfigurované tak, aby se spouštěl při spuštění:
 
     ```bash
     systemctl enable sshd
@@ -305,60 +305,60 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
     ClientAliveInterval 180
     ```
 
-1. Při vytváření vlastního virtuálního pevného disku pro Azure Stack hub si všimněte, že WALinuxAgent verze mezi 2.2.20 a 2.2.35 (obojí) nefungují v prostředích Azure Stack hub před vydáním verze 1910. K přípravě image můžete použít verze 2.2.20/2.2.35. Pokud chcete k přípravě vlastní image použít verze vyšší než 2.2.35, aktualizujte centrum Azure Stack na verzi 1903 nebo novější nebo použijte opravu hotfix 1901/1902.
+13. Při vytváření vlastního virtuálního pevného disku pro Azure Stack hub si všimněte, že **WALinuxAgent** verze mezi 2.2.20 a 2.2.35 (obojí) nefungují v prostředích Azure Stack hub před vydáním verze 1910. K přípravě image můžete použít verze 2.2.20/2.2.35. Chcete-li použít verze novější než 2.2.35 pro přípravu vlastní image, aktualizujte centrum Azure Stack na verzi 1903 nebo novější nebo použijte opravu hotfix 1901/1902.
 
-    [Před 1910 verzí] Pro stažení kompatibilního WALinuxAgent postupujte podle těchto pokynů:
+    Před vydáním 1910: postupujte podle těchto pokynů a stáhněte kompatibilní **WALinuxAgent**:
 
-    1. Stáhněte si setuptools.
-        
+    1. Stáhněte si nástroje pro instalaci:
+
         ```bash
         wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
         tar xzf setuptools-7.0.tar.gz
         cd setuptools-7.0
         ```
-        
-    1. Stáhněte si a rozbalte verzi 2.2.20 agenta z našeho GitHubu.
-        
+
+    2. Stáhnout a rozbalit verzi 2.2.20 agenta z GitHubu:
+
         ```bash
         wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
         unzip v2.2.20.zip
         cd WALinuxAgent-2.2.20
         ```
-        
-    1. Nainstalujte setup.py.
-        
+
+    3. Nainstalovat **Setup.py**:
+
         ```bash
         sudo python setup.py install
         ```
-        
-    1. Restartujte waagent.
-        
+
+    4. Restartujte **waagent**.
+
         ```bash
         sudo systemctl restart waagent
         ```
-        
-    1. Otestujte, jestli verze agenta odpovídá vašemu, který jste stáhli. V tomto příkladu by měl být 2.2.20.
-        
+
+    5. Otestujte, jestli verze agenta odpovídá vašemu, který jste stáhli. V tomto příkladu by měl být 2.2.20:
+
         ```bash
         waagent -version
         ```
-        
-    [Po 1910 vydání] Pro stažení kompatibilního WALinuxAgent postupujte podle těchto pokynů:
-    
-    1. Balíček WALinuxAgent byl `WALinuxAgent-<version>` vložen do úložiště Red Hat Extras. Povolte úložiště Extras spuštěním následujícího příkazu:
+
+    Po vydání 1910: postupujte podle těchto pokynů a stáhněte kompatibilní **WALinuxAgent**:
+
+    1. Balíček **WALinuxAgent** byl `WALinuxAgent-<version>` vložen do úložiště Red Hat Extras. Povolte úložiště Extras spuštěním následujícího příkazu:
 
         ```bash
         subscription-manager repos --enable=rhel-7-server-extras-rpms
         ```
 
-    1. Nainstalujte agenta Azure Linux spuštěním následujících příkazů:
+    2. Nainstalujte agenta Azure Linux spuštěním následujících příkazů:
 
         ```bash
         sudo yum install WALinuxAgent
         sudo systemctl enable waagent.service
         ```
 
-1. Nevytvářejte odkládací místo na disku s operačním systémem.
+14. Nevytvářejte odkládací místo na disku s operačním systémem.
 
     Agent Azure Linux může automaticky nakonfigurovat odkládací prostor pomocí disku místního prostředku, který je připojený k virtuálnímu počítači po zřízení virtuálního počítače v Azure. Disk místního prostředku je dočasný disk a při zrušení zřízení virtuálního počítače může dojít k jeho vyprázdnění. Po instalaci agenta Azure Linux v předchozím kroku upravte `/etc/waagent.conf` správným způsobem následující parametry:
 
@@ -370,15 +370,15 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
     ResourceDisk.SwapSizeMB=2048    #NOTE: set this to whatever you need it to be.
     ```
 
-1. Zrušení registrace předplatného (v případě potřeby) spuštěním následujícího příkazu:
+15. Zrušením registrace předplatného (v případě potřeby) spuštěním následujícího příkazu:
 
     ```bash
     subscription-manager unregister
     ```
 
-1. Pokud používáte systém, který byl nasazen pomocí certifikační autority rozlehlé sítě, virtuální počítač RHEL nebude důvěřovat kořenovému certifikátu centra Azure Stack. Tento certifikát je nutné umístit do důvěryhodného kořenového úložiště. Další informace najdete v tématu [Přidání důvěryhodných kořenových certifikátů na server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
+16. Pokud používáte systém, který byl nasazen pomocí certifikační autority rozlehlé sítě, virtuální počítač RHEL nebude důvěřovat kořenovému certifikátu centra Azure Stack. Tento certifikát je nutné umístit do důvěryhodného kořenového úložiště. Další informace najdete v tématu [Přidání důvěryhodných kořenových certifikátů na server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
-1. Spusťte následující příkazy, abyste virtuální počítač zrušili a připravili pro zřizování v Azure:
+17. Spusťte následující příkazy, abyste virtuální počítač zrušili a připravili pro zřizování v Azure:
 
     ```bash
     sudo waagent -force -deprovision
@@ -386,12 +386,12 @@ V této části se předpokládá, že už máte soubor ISO z webu Red Hat a má
     logout
     ```
 
-1. Vypněte virtuální počítač v KVM.
+18. Vypněte virtuální počítač v KVM.
 
-1. Převeďte image QCOW2 na formát VHD.
+19. Převeďte image QCOW2 na formát VHD.
 
     > [!NOTE]
-    > Verze qemu-img obsahuje známou chybu >= 2.2.1, která má za následek nesprávně naformátovaný virtuální pevný disk. Tento problém byl opravený v QEMU 2,6. Doporučuje se použít buď qemu, img 2.2.0 nebo Lower, nebo aktualizovat na 2,6 nebo vyšší. Odkaz: https://bugs.launchpad.net/qemu/+bug/1490611 .
+    > Verze **qemu-img** obsahuje známou chybu >= 2.2.1, která má za následek nesprávně naformátovaný virtuální pevný disk. Tento problém byl opravený v QEMU 2,6. Doporučuje se použít buď qemu, img 2.2.0 nebo Lower, nebo aktualizovat na 2,6 nebo vyšší. Další informace [najdete v tomto příspěvku qemu](https://bugs.launchpad.net/qemu/+bug/1490611).
 
     Nejprve převeďte obrázek do nezpracovaného formátu:
 
@@ -438,7 +438,7 @@ V této části se předpokládá, že jste už nainstalovali virtuální počí
     HOSTNAME=localhost.localdomain
     ```
 
-1. Vytvořte nebo upravte `/etc/sysconfig/network-scripts/ifcfg-eth0` soubor a přidejte následující text:
+2. Vytvořte nebo upravte `/etc/sysconfig/network-scripts/ifcfg-eth0` soubor a přidejte následující text:
 
     ```shell
     DEVICE=eth0
@@ -451,19 +451,19 @@ V této části se předpokládá, že jste už nainstalovali virtuální počí
     NM_CONTROLLED=no
     ```
 
-1. Spuštěním následujícího příkazu zajistěte spuštění síťové služby v době spuštění:
+3. Spuštěním následujícího příkazu zajistěte spuštění síťové služby v době spuštění:
 
     ```bash
     sudo chkconfig network on
     ```
 
-1. Zaregistrujte své předplatné Red Hat, abyste mohli povolit instalaci balíčků z úložiště RHEL spuštěním následujícího příkazu:
+4. Zaregistrujte své předplatné Red Hat, abyste mohli povolit instalaci balíčků z úložiště RHEL spuštěním následujícího příkazu:
 
     ```bash
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Chcete-li tuto úpravu provést, otevřete `/etc/default/grub` v textovém editoru. Upravte `GRUB_CMDLINE_LINUX` parametr. Příklad:
+5. Upravte spouštěcí řádek jádra v konfiguraci GRUB tak, aby zahrnoval další parametry jádra pro Azure. Chcete-li tuto úpravu provést, otevřete `/etc/default/grub` v textovém editoru. Upravte `GRUB_CMDLINE_LINUX` parametr. Příklad:
 
     ```shell
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -477,13 +477,13 @@ V této části se předpokládá, že jste už nainstalovali virtuální počí
 
     Grafické a tiché spouštění nejsou užitečné v cloudovém prostředí, kde chceme, aby se všechny protokoly odesílaly na sériový port. Možnost můžete nechat `crashkernel` nakonfigurovanou v případě potřeby. Tento parametr snižuje množství dostupné paměti v virtuálním počítači o 128 MB nebo více, což může být problematické u menších velikostí virtuálních počítačů.
 
-1. Po dokončení úprav `/etc/default/grub` Spusťte následující příkaz pro opětovné sestavení konfigurace grub:
+6. Po dokončení úprav `/etc/default/grub` Spusťte následující příkaz pro opětovné sestavení konfigurace grub:
 
     ```bash
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-1. Přidejte moduly technologie Hyper-V do initramfs.
+7. Přidejte moduly technologie Hyper-V do initramfs.
 
     Upravit `/etc/dracut.conf` , přidat obsah:
 
@@ -497,73 +497,73 @@ V této části se předpokládá, že jste už nainstalovali virtuální počí
     dracut -f -v
     ```
 
-1. [Volitelné po 1910 vydání] Zastavení a odinstalace Cloud-Init:
+8. Volitelné po 1910 vydání: zastavení a odinstalace `cloud-init` :
 
     ```bash
     systemctl stop cloud-init
     yum remove cloud-init
     ```
 
-1. Ujistěte se, že je server SSH nainstalovaný a nakonfigurované tak, aby se spouštěl při spuštění. Toto nastavení je obvykle výchozí. Upravte `/etc/ssh/sshd_config` , aby obsahovala následující řádek:
+9. Ujistěte se, že je server SSH nainstalovaný a nakonfigurované tak, aby se spouštěl při spuštění. Toto nastavení je obvykle výchozí. Upravte `/etc/ssh/sshd_config` , aby obsahovala následující řádek:
 
     ```shell
     ClientAliveInterval 180
     ```
 
-1. Při vytváření vlastního virtuálního pevného disku pro Azure Stack hub si všimněte, že verze WALinuxAgent mezi 2.2.20 a 2.2.35 (obojí) nefungují v prostředích Azure Stack hub před vydáním verze 1910. K přípravě image můžete použít verze 2.2.20/2.2.35. Chcete-li použít verze novější než 2.2.35 pro přípravu vlastní image, aktualizujte centrum Azure Stack na vydání 1903 nebo novější nebo použijte opravu hotfix 1901/1902.
+10. Při vytváření vlastního virtuálního pevného disku pro Azure Stack hub si všimněte, že verze WALinuxAgent mezi 2.2.20 a 2.2.35 (obojí) nefungují v prostředích Azure Stack hub před vydáním verze 1910. K přípravě image můžete použít verze 2.2.20/2.2.35. Chcete-li použít verze novější než 2.2.35 pro přípravu vlastní image, aktualizujte centrum Azure Stack na vydání 1903 nebo novější nebo použijte opravu hotfix 1901/1902.
 
-    [Před 1910 verzí] Pro stažení kompatibilního WALinuxAgent postupujte podle těchto pokynů:
+    Před vydáním verze 1910: postupujte podle těchto pokynů a stáhněte kompatibilní **WALinuxAgent**:
 
-    1. Stáhněte si setuptools.
-    
+    1. Stáhněte si nástroje pro instalaci:
+
         ```bash
         wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
         tar xzf setuptools-7.0.tar.gz
         cd setuptools-7.0
         ```
-        
-    1. Stáhněte si a rozbalte verzi 2.2.20 agenta z našeho GitHubu.
-        
+
+    2. Stáhnout a rozbalit verzi 2.2.20 agenta z GitHubu:
+
         ```bash
         wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
         unzip v2.2.20.zip
         cd WALinuxAgent-2.2.20
         ```
-        
-    1. Nainstalujte setup.py.
-        
+
+    3. Nainstalovat **Setup.py**:
+
         ```bash
         sudo python setup.py install
         ```
-        
-    1. Restartujte waagent.
-        
+
+    4. Restartovat **waagent**:
+
         ```bash
         sudo systemctl restart waagent
         ```
-        
-    1. Otestujte, jestli verze agenta odpovídá vašemu, který jste stáhli. V tomto příkladu by měl být 2.2.20.
-        
+
+    5. Otestujte, jestli verze agenta odpovídá vašemu, který jste stáhli. V tomto příkladu by měl být 2.2.20:
+
         ```bash
         waagent -version
         ```
-        
-    [Po 1910 vydání] Pro stažení kompatibilního WALinuxAgent postupujte podle těchto pokynů:
-    
-    1. Balíček WALinuxAgent byl `WALinuxAgent-<version>` vložen do úložiště Red Hat Extras. Povolte úložiště Extras spuštěním následujícího příkazu:
+
+    Po vydání 1910: postupujte podle těchto pokynů a stáhněte kompatibilní **WALinuxAgent**:
+
+    1. Balíček **WALinuxAgent** byl `WALinuxAgent-<version>` vložen do úložiště Red Hat Extras. Povolte úložiště Extras spuštěním následujícího příkazu:
 
         ```bash
         subscription-manager repos --enable=rhel-7-server-extras-rpms
         ```
 
-    1. Nainstalujte agenta Azure Linux spuštěním následujícího příkazu:
-    
+    2. Nainstalujte agenta Azure Linux spuštěním následujícího příkazu:
+
         ```bash
         sudo yum install WALinuxAgent
         sudo systemctl enable waagent.service
         ```
-git        
-1. Nevytvářejte odkládací místo na disku s operačním systémem.
+
+11. Nevytvářejte odkládací místo na disku s operačním systémem.
 
     Po zřízení virtuálního počítače v Azure může agent Azure Linux automaticky nakonfigurovat odkládací místo pomocí místního disku prostředků připojeného k virtuálnímu počítači. Všimněte si, že místní disk prostředků je dočasný disk a při zrušení zřízení virtuálního počítače se může vyprázdnit. Po instalaci agenta Azure Linux v předchozím kroku upravte `/etc/waagent.conf` správným způsobem následující parametry:
 
@@ -575,15 +575,15 @@ git
     ResourceDisk.SwapSizeMB=2048    NOTE: set this to whatever you need it to be.
     ```
 
-1. Pokud chcete zrušit registraci předplatného, spusťte následující příkaz:
+12. Pokud chcete zrušit registraci předplatného, spusťte následující příkaz:
 
     ```bash
     sudo subscription-manager unregister
     ```
 
-1. Pokud používáte systém, který byl nasazen pomocí certifikační autority rozlehlé sítě, virtuální počítač RHEL nebude důvěřovat kořenovému certifikátu centra Azure Stack. Je nutné umístit ho do důvěryhodného kořenového úložiště. Další informace najdete v tématu [Přidání důvěryhodných kořenových certifikátů na server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
+13. Pokud používáte systém, který byl nasazen pomocí certifikační autority rozlehlé sítě, virtuální počítač RHEL nebude důvěřovat kořenovému certifikátu centra Azure Stack. Je nutné umístit ho do důvěryhodného kořenového úložiště. Další informace najdete v tématu [Přidání důvěryhodných kořenových certifikátů na server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
-1. Spusťte následující příkazy, abyste virtuální počítač zrušili a připravili pro zřizování v Azure:
+14. Spusťte následující příkazy, abyste virtuální počítač zrušili a připravili pro zřizování v Azure:
 
     ```bash
     sudo waagent -force -deprovision
@@ -591,10 +591,10 @@ git
     logout
     ```
 
-1. Vypněte virtuální počítač a převeďte soubor VMDK na formát VHD.
+15. Vypněte virtuální počítač a převeďte soubor VMDK na formát VHD.
 
     > [!NOTE]
-    > Verze qemu-img obsahuje známou chybu >= 2.2.1, která má za následek nesprávně naformátovaný virtuální pevný disk. Tento problém byl opravený v QEMU 2,6. Doporučuje se použít buď qemu, img 2.2.0 nebo Lower, nebo aktualizovat na 2,6 nebo vyšší.
+    > `qemu-img`Verze >= 2.2.1 obsahuje známou chybu, která má za následek nesprávně naformátovaný virtuální pevný disk. Tento problém byl opravený v QEMU 2,6. Doporučuje se použít buď qemu, img 2.2.0 nebo Lower, nebo aktualizovat na 2,6 nebo vyšší.
 
     Nejprve převeďte obrázek do nezpracovaného formátu:
 
@@ -626,7 +626,7 @@ git
 
 ## <a name="prepare-a-red-hat-based-vm-from-an-iso-by-using-a-kickstart-file-automatically"></a>Příprava virtuálního počítače založeného na Red Hat z ISO pomocí souboru Kickstart automaticky
 
-1. Vytvořte soubor Kickstart, který obsahuje následující obsah, a uložte soubor. Zastavování a odinstalace Cloud-init je volitelná (Cloud-init se podporuje v Azure Stackém centru po 1910 vydání). Nainstalujte agenta z úložiště RedHat jenom po vydání 1910. Před 1910 použijte úložiště Azure, jak je to hotové v předchozí části. Podrobnosti o instalaci Kickstart najdete v [Průvodci instalací Kickstart](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
+1. Vytvořte soubor Kickstart, který obsahuje následující obsah, a uložte soubor. Zastavení a odinstalace **Cloud-init** je volitelná (**Cloud-init** se podporuje v Azure Stackovém centru po vydání verze 1910). Nainstalujte agenta z úložiště RedHat jenom po vydání 1910. Před 1910 použijte úložiště Azure, jak je to hotové v předchozí části. Podrobnosti o instalaci Kickstart najdete v [Průvodci instalací Kickstart](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
     ```shell
     Kickstart for provisioning a RHEL 7 Azure VM
@@ -753,11 +753,11 @@ git
     %end
     ```
 
-1. Umístěte soubor Kickstart, ke kterému má instalační systém přístup.
+2. Uložte soubor Kickstart do umístění, ze kterého k němu má instalační systém přístup.
 
-1. Ve Správci technologie Hyper-V vytvořte nový virtuální počítač. Na stránce **připojit virtuální pevný disk** vyberte možnost **připojit virtuální pevný disk později**a dokončete Průvodce novým virtuálním počítačem.
+3. Ve Správci technologie Hyper-V vytvořte nový virtuální počítač. Na stránce **připojit virtuální pevný disk** vyberte možnost **připojit virtuální pevný disk později** a dokončete Průvodce novým virtuálním počítačem.
 
-1. Otevřete nastavení virtuálního počítače:
+4. Otevřete nastavení virtuálního počítače:
 
     a. Připojte k virtuálnímu počítači nový virtuální pevný disk. Ujistěte se, že jste vybrali **formát VHD** a **pevnou velikost**.
 
@@ -765,11 +765,11 @@ git
 
     c. Nastavte systém BIOS na spouštění z disku CD-ROM.
 
-1. Spusťte virtuální počítač. Po zobrazení Průvodce instalací stiskněte klávesu **TAB** a nakonfigurujte možnosti spuštění.
+5. Spusťte virtuální počítač. Po zobrazení Průvodce instalací stiskněte klávesu **TAB** a nakonfigurujte možnosti spuštění.
 
-1. Zadejte `inst.ks=<the location of the kickstart file>` na konci možností spuštění a stiskněte klávesu **ENTER**.
+6. Zadejte `inst.ks=<the location of the kickstart file>` na konci možností spuštění a stiskněte klávesu **ENTER**.
 
-1. Počkejte na dokončení instalace. Po dokončení se virtuální počítač automaticky vypne. Virtuální pevný disk se systémem Linux je teď připravený k nahrání do Azure.
+7. Počkejte na dokončení instalace. Po dokončení se virtuální počítač automaticky vypne. Virtuální pevný disk se systémem Linux je teď připravený k nahrání do Azure.
 
 ## <a name="known-issues"></a>Známé problémy
 

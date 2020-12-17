@@ -3,17 +3,17 @@ title: Stažení položek z webu Marketplace z Azure a publikování do centra A
 description: Přečtěte si, jak stáhnout položky z webu Marketplace z Azure a publikovat do centra Azure Stack.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 12/9/2020
+ms.date: 12/16/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 12/9/2020
+ms.lastreviewed: 12/16/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: e66d49fc20a9cfbc70eeeb11a7817bd5bc75d7c0
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: f0aafd572aa50760a7b326d5ca699e3f1331b3e9
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934960"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620649"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Stažení položek z Marketplace do centra Azure Stack
 
@@ -44,7 +44,7 @@ Vaše nasazení centra Azure Stack musí mít připojení k Internetu a musí b�
 
 2. Před stažením položek z webu Marketplace zkontrolujte dostupný prostor úložiště. Později můžete po výběru položek ke stažení porovnat velikost stahovaných zařízení s dostupnou kapacitou úložiště. Pokud je kapacita omezená, zvažte možnosti [správy dostupného místa](azure-stack-manage-storage-shares.md#manage-available-space).
 
-   Chcete-li zkontrolovat dostupné místo: v **oblasti Správa oblastí** vyberte oblast, kterou chcete prozkoumat, a pak klikněte na úložiště **poskytovatelé prostředků**  >  **Storage**:
+   Chcete-li zkontrolovat dostupné místo: v **oblasti Správa oblastí** vyberte oblast, kterou chcete prozkoumat, a pak klikněte na úložiště **poskytovatelé prostředků**  >  :
 
    ![Kontrola prostoru úložiště na portálu pro správu centra Azure Stack](media/azure-stack-download-azure-marketplace-item/storage.png)
 
@@ -119,7 +119,7 @@ Po registraci Azure Stack můžete ignorovat následující zprávu, která se z
 
 1. V počítači s připojením k Internetu otevřete konzolu PowerShellu jako správce.
 
-2. Přihlaste se ke příslušnému klientovi Azure Cloud a AzureAD Directory pomocí účtu Azure, který jste použili k registraci centra Azure Stack. Pokud chcete účet přidat, v PowerShellovém běhu `Add-AzureRmAccount` :
+2. Přihlaste se ke příslušnému klientovi Azure Cloud a AzureAD Directory pomocí účtu Azure, který jste použili k registraci centra Azure Stack. Pokud chcete účet přidat, v PowerShellovém běhu `Login-AzAccount` :
 
    ```powershell  
    Login-AzAccount -Environment AzureCloud -Tenant '<mydirectory>.onmicrosoft.com'

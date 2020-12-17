@@ -3,16 +3,16 @@ title: Nainstalovat modul PowerShellu AzureRM pro centrum Azure Stack
 description: Přečtěte si, jak nainstalovat PowerShell pro centrum Azure Stack. Přečtěte si téma Jak nainstalovat modul PowerShell AzureRM a požadované profily rozhraní API.
 author: mattbriggs
 ms.topic: article
-ms.date: 12/2/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: d4a1b0678aa5d9822b19d36584bba226e317b8fc
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.lastreviewed: 12/16/2020
+ms.openlocfilehash: d11a439054fc013ae0b595a684f0d6760fa932a5
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525502"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620615"
 ---
 # <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>Nainstalovat modul PowerShellu AzureRM pro centrum Azure Stack
 
@@ -20,7 +20,7 @@ Azure PowerShell Azure Resource Manager (AzureRM) poskytuje sadu rutin, které p
 
 ::: moniker range=">=azs-2002"
 > [!IMPORTANT]  
-> Dostali jste se na webovou stránku pro zastaralou verzi Azure PowerShellu. Všechny verze modulu Azure Resource Manager (AzureRM) PowerShell jsou zastaralé, ale nejsou podporovány. Aktuálně je doporučeným modulem PowerShell pro interakci s Azure modul Az PowerShell. Pokud chcete začít pracovat s modulem AZ PowerShell, přečtěte si téma [instalace PowerShellu AZ Preview Module for Azure Stack hub](powershell-install-az-module.md). Zjistěte, jak migrovat do modulu AZ PowerShell. [Azure PowerShell AZ in Azure Stack hub](migrate-azurerm-az.md), najdete v tématu Migrace z AzureRM.
+> Dostali jste se na webovou stránku pro zastaralou verzi Azure PowerShellu. Všechny verze modulu Azure Resource Manager (AzureRM) PowerShell jsou zastaralé, ale nejsou podporovány. Modul AZ PowerShell je teď doporučeným modulem PowerShellu pro interakci s Azure a centra Azure Stack. Pokud chcete začít pracovat s modulem AZ PowerShell, přečtěte si téma [instalace PowerShellu AZ Preview Module for Azure Stack hub](powershell-install-az-module.md). Zjistěte, jak migrovat do modulu AZ PowerShell. [Azure PowerShell AZ in Azure Stack hub](migrate-azurerm-az.md), najdete v tématu Migrace z AzureRM.
 ::: moniker-end
 
 K určení kompatibilních koncových bodů pro poskytovatele prostředků Azure Stack hub je také potřeba použít *profily rozhraní API* .

@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Seznamte se s hostovanými operačními systémy, které se dají použít v Azure Stack hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 2275f00f8df77b3822537ca73ec35b342b477617
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: 3d535893b75cdaf49b4003fce2382ab092b328fe
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250295"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620581"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Podporované hostované operační systémy ve službě Azure Stack Hub
 
@@ -33,7 +33,7 @@ Centrum Azure Stack podporuje hostované operační systémy Windows, které jso
 | Windows 10 *(viz poznámka 1)* | 64-bit, pro a Enterprise | Přineste si vlastní image |
 
 > [!NOTE]
-> Pokud chcete nasadit klientské operační systémy Windows 10 v Azure Stackovém centru, musíte mít [licenci pro Windows pro jednotlivé uživatele](https://www.microsoft.com/licensing/product-licensing/windows10.aspx) nebo si koupit prostřednictvím kvalifikovaného hostitele s více klienty ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)).
+> Pokud chcete nasadit klientské operační systémy Windows 10 v Azure Stackovém centru, musíte mít [licenci pro Windows pro jednotlivé uživatele](https://www.microsoft.com/licensing/product-licensing/windows10.aspx) nebo si koupit prostřednictvím [kvalifikovaného hostitele s více klienty (QMTH)](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx).
 
 K dispozici jsou image Marketplace pro licencování s průběžnými platbami nebo BYOL (EA/SPLA). Použití obou v rámci jedné instance centra Azure Stack se nepodporuje. Při nasazení Azure Stack centrum vloží do image vhodnou verzi agenta hosta.
 

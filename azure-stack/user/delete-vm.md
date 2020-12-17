@@ -3,16 +3,16 @@ title: Odstraní virtuální počítač se závislostmi v centru Azure Stack.
 description: Jak odstranit virtuální počítač (virtuální počítač) se závislostmi na Azure Stackovém centru
 author: mattbriggs
 ms.topic: how-to
-ms.date: 12/7/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 12/7/2020
-ms.openlocfilehash: aaedac367ab9bd12a75e09917acfa6b02dc4930e
-ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
+ms.lastreviewed: 12/16/2020
+ms.openlocfilehash: 63a4ed0c6f1d63b21e221713befa84b0d10c1a95
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778185"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620700"
 ---
 # <a name="how-to-delete-a-vm-virtual-machine-with-dependencies-on-azure-stack-hub"></a>Jak odstranit virtuální počítač (virtuální počítač) se závislostmi na Azure Stackovém centru
 
@@ -52,7 +52,7 @@ V případě, že nemůžete odstranit skupinu prostředků, buď nejsou závisl
     2. Počkejte, až se prostředek zcela odstraní.
     3. Pak můžete odstranit další závislost.
 
-### <a name="with-powershell"></a>[S využitím PowerShellu](#tab/ps-az)
+### <a name="az-modules"></a>[AZ modules](#tab/ps-az)
 
 V případě, že nemůžete odstranit skupinu prostředků, buď nejsou závislosti ve stejné skupině prostředků, nebo existují jiné prostředky, postupujte podle těchto kroků.
 
@@ -126,7 +126,7 @@ Pokud chcete virtuální počítač odstranit, ve stejné relaci spusťte násle
 ```powershell
 $machine | Remove-AzVM -Force
 ```
-### <a name="with-powershell"></a>[S využitím PowerShellu](#tab/ps-azureRM)
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/ps-azureRM)
 
 V případě, že nemůžete odstranit skupinu prostředků, buď nejsou závislosti ve stejné skupině prostředků, nebo existují jiné prostředky, postupujte podle těchto kroků.
 

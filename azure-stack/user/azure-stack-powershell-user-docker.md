@@ -3,16 +3,16 @@ title: Použití Docker ke spuštění PowerShellu v centru Azure Stack
 description: Použití Docker ke spuštění PowerShellu v centru Azure Stack
 author: mattbriggs
 ms.topic: how-to
-ms.date: 12/2/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 802a173239534c6826e90a1d4d4c2095c1abcf9a
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.lastreviewed: 12/16/2020
+ms.openlocfilehash: 798b3d9e94f6263b02c291d2f5725768f1a8522a
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525604"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620683"
 ---
 # <a name="use-docker-to-run-powershell-for-azure-stack-hub"></a>Použití Docker ke spuštění PowerShellu pro Azure Stack hub
 
@@ -99,7 +99,7 @@ V těchto pokynech spustíte image kontejneru se systémem Linux, která obsahuj
 
 ### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/rm)
 
-V těchto pokynech spustíte image kontejneru se systémem Windows a nainstalujete PowerShell a požadované moduly pro Azure Stack hub.
+V těchto pokynech spustíte image kontejneru se systémem Windows a nainstalujete PowerShell a požadované moduly pro Azure Stack hub. Pokud máte v úmyslu spustit Docker v systému Windows, bude nutné spustit Docker na fyzickém počítači. Technologie Hyper-V nepodporuje vnořenou virtualizaci.
 
 1. Je potřeba spustit Docker s využitím kontejnerů Windows, které vyžadují Windows 10. Když spustíte Docker, přepněte do kontejnerů Windows. Image podporující AZ Module budou vyžadovat Docker 17,05 nebo novější.
 
