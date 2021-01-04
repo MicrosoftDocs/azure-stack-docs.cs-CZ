@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 2393a088e64ec0a3144fe7d5f4c5c3d2c8e25ab1
-ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
+ms.openlocfilehash: e21839e5333a03b1a36322f0c632a2b278da9665
+ms.sourcegitcommit: 8790b8a4ecf4421409534df5ff510d537cc000da
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84813726"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802010"
 ---
 # <a name="create-vpn-gateways-for-azure-stack-hub"></a>Vytváření bran sítě VPN pro centrum Azure Stack
 
@@ -74,7 +74,7 @@ Připojení k *více lokalitám* je varianta připojení typu Site-to-site. Z br
 
 ![Příklad propojení Multi-Site pomocí Azure VPN Gateway](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-multisite-connection-diagram.png)
 
-## <a name="gateway-skus"></a>Skladové jednotky (SKU) brány
+## <a name="gateway-skus"></a>Skladové položky brány
 
 Když vytváříte bránu virtuální sítě pro centrum Azure Stack, zadáte SKU brány, kterou chcete použít. Podporovány jsou následující SKU brány VPN:
 
@@ -100,11 +100,11 @@ Scénáře s vysokou dostupností je možné nakonfigurovat jenom na SKU pro př
 
 V Azure Stackovém centru existují tři virtuální počítače infrastruktury s více klienty. Dva z těchto virtuálních počítačů jsou v aktivním režimu a třetí je v redundantním režimu. Aktivní virtuální počítače umožňují vytváření připojení k síti VPN a redundantní virtuální počítač akceptuje připojení VPN jenom v případě, že dojde k převzetí služeb při selhání. Pokud virtuální počítač aktivní brány přestane být dostupný, připojení VPN se po krátké době (několik sekund) převezme k redundantnímu virtuálnímu počítači po krátkou dobu (několik sekund) ztráty připojení.
 
-## <a name="estimated-aggregate-throughput-by-sku"></a>Odhadovaná agregovaná propustnost podle typů SKU
+## <a name="estimated-aggregate-tunnel-throughput-by-sku"></a>Odhadovaná propustnost agregovaného tunelu podle SKU
 
-Následující tabulka ukazuje typy brány a odhadovanou agregovanou propustnost pomocí SKU brány:
+Následující tabulka ukazuje typy brány a odhadovanou agregovanou propustnost pro každé tunelové nebo připojení pomocí SKU brány:
 
-|| Propustnost brány sítě VPN (1) | Maximální počet tunelových propojení IPsec brány sítě VPN (2) |
+|| Propustnost tunelu (1) | Maximální počet tunelových propojení IPsec brány sítě VPN (2) |
 |-------|-------|-------|
 |**Základní SKU** **(3)** | 100 Mb/s | 20 |
 |**Standardní SKU** | 100 Mb/s | 20 |
@@ -112,7 +112,7 @@ Následující tabulka ukazuje typy brány a odhadovanou agregovanou propustnost
 
 ### <a name="table-notes"></a>Poznámky tabulky
 
-**(1)** – propustnost sítě VPN není zaručená propustnost pro připojení mezi různými místy přes Internet. Jedná se o maximální možné měření propustnosti.  
+**(1)** – propustnost tunelu není zaručená propustnost pro připojení mezi různými místy přes Internet. Jedná se o maximální možné měření propustnosti.  
 **(2)** – maximální počet tunelů je celkem na nasazení centra Azure Stack pro všechna předplatná.  
 **(3)** – pro základní SKU není podporováno směrování protokolu BGP.
 

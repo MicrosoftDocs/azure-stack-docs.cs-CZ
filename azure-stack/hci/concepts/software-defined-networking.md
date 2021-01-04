@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/16/2020
-ms.openlocfilehash: 3aaee084c30dd8d6b3f6514d18951fd604bd75aa
-ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
+ms.date: 12/21/2020
+ms.openlocfilehash: 20d42c6685bb1a2a2c8de36d04434d23a97f81e1
+ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92157661"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97737874"
 ---
 # <a name="software-defined-networking-sdn-in-azure-stack-hci"></a>Softwarově definované sítě (SDN) v Azure Stack HCI
 
@@ -42,7 +42,7 @@ Nasazení síťového adaptéru umožňuje následující funkce:
 
 ## <a name="software-load-balancing"></a>Vyrovnávání zatížení softwaru
 
-[Vyrovnávání zatížení softwaru](/windows-server/networking/sdn/technologies/network-function-virtualization/software-load-balancing-for-sdn) (SLB) se dá použít k rovnoměrné distribuci síťového provozu zákazníka mezi více virtuálních počítačů. Umožňuje více serverům hostovat stejnou úlohu a poskytovat vysokou dostupnost a škálovatelnost. SLB používá [Border Gateway Protocol](/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) k inzerování virtuálních IP adres do fyzické sítě.
+[Software Load Balancer](software-load-balancer.md) (SLB) se dá použít k rovnoměrné distribuci síťového provozu zákazníka mezi více virtuálních počítačů. Umožňuje více serverům hostovat stejnou úlohu a poskytovat vysokou dostupnost a škálovatelnost. SLB používá [Border Gateway Protocol](/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) k inzerování virtuálních IP adres do fyzické sítě.
 
 ## <a name="gateway"></a>brána
 

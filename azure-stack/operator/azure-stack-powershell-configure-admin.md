@@ -7,18 +7,18 @@ ms.date: 11/19/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 11/19/2020
-ms.openlocfilehash: 19438a56b487e4c5c167977fbc831bf64dc3695a
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 791923d3b2deacdc886dfcc0167736bd7214f9b8
+ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96035313"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97697618"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell"></a>Připojení k centru Azure Stack pomocí PowerShellu
 
 Centrum Azure Stack můžete nakonfigurovat tak, aby používalo PowerShell ke správě prostředků, jako je vytváření nabídek, plánů, kvót a výstrah. Toto téma vám pomůže nakonfigurovat prostředí operátorů.
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 Pokud jste [připojení k ASDK prostřednictvím sítě VPN](../asdk/asdk-connect.md#connect-with-vpn), spusťte následující předpoklady buď z [Azure Stack Development Kit (ASDK)](../asdk/asdk-connect.md#connect-with-rdp) , nebo z externího klienta založeného na systému Windows.
 
@@ -123,6 +123,7 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
 ## <a name="next-steps"></a>Další kroky
 
+- [Použití PowerShellu ke správě předplatných, plánů a nabídek v centru Azure Stack](azure-stack-powershell-plan-offer.md)
 - [Vytvořte šablony pro centrum Azure Stack](../user/azure-stack-develop-templates.md).
 - [Nasaďte šablony pomocí PowerShellu](../user/azure-stack-deploy-template-powershell.md).
-  - [Odkaz na modul centra Azure Stack](/powershell/azure/azure-stack/overview).
+- [Odkaz na modul centra Azure Stack](/powershell/azure/azure-stack/overview).

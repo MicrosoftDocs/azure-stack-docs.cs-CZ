@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 61149b7eb89908b641fd995b10b22e3d05a5fb8d
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.openlocfilehash: 33c7d66b7a8b0d352bbf9227cec11adf7cd001fe
+ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95812707"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97737738"
 ---
 # <a name="update-the-mysql-resource-provider-in-azure-stack-hub"></a>Aktualizace poskytovatele prostředků MySQL v Azure Stack hub
 
@@ -23,7 +23,7 @@ Při aktualizaci Azure Stackch sestavení centra se může uvolnit nový adapté
 
   |Podporovaná verze centra Azure Stack|Verze MySQL RP|Windows Server, na kterém běží služba RP
   |-----|-----|-----|
-  |2008, 2005|[MySQL RP verze 1.1.93.0](https://aka.ms/azshmysqlrp11930)|POUZE interní doplněk Microsoft AzureStack RP – Windows Server
+  |2008, 2005|[MySQL RP verze 1.1.93.1](https://aka.ms/azshmysqlrp11931)|Microsoft AzureStack Add-on RP Windows Server
   |2005, 2002, 1910|[MySQL RP verze 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|Windows Server 2016 Datacenter – jádro serveru|
   |1908|[MySQL RP verze 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|Windows Server 2016 Datacenter – jádro serveru|
   |     |     |     |
@@ -61,8 +61,8 @@ Při spuštění skriptu **UpdateMySQLProvider.ps1** PowerShell zadejte z přík
 | **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Povinné_ | 
 | **MaxRetryCount** | Počet pokusů o opakování všech operací, pokud dojde k selhání.| 2 | 
 | **RetryDuration** | Interval časového limitu mezi opakovanými pokusy (v sekundách). | 120 | 
-| **Odinstalace** | Odebrání poskytovatele prostředků a všech přidružených prostředků (viz následující poznámky). | No | 
-| **DebugMode** | Zabraňuje automatickému vyčištění při selhání. | No | 
+| **Odinstalace** | Odebrání poskytovatele prostředků a všech přidružených prostředků (viz následující poznámky). | Ne | 
+| **DebugMode** | Zabraňuje automatickému vyčištění při selhání. | Ne | 
 | **AcceptLicense** | Přeskočí výzvu k přijetí licence GPL.  (https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
 
 ## <a name="update-script-example"></a>Příklad aktualizace skriptu

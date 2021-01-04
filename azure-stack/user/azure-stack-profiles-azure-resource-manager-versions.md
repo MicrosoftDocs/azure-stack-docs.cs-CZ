@@ -2,18 +2,18 @@
 title: Verze rozhraní API poskytovatele prostředků podporované profily v centru Azure Stack
 description: Přečtěte si o verzích rozhraní API Azure Resource Manager podporovaných profily v centru Azure Stack.
 author: sethmanheim
-ms.custom: contperfq4
+ms.custom: contperf-fy20q4
 ms.topic: article
 ms.date: 12/2/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 5b558eb0abb0494cb75f2509e51f291b08bd29ef
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 31916f9f68f69785eb1e6e16cd9abd3ca8bf84f8
+ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525536"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97697666"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack-hub"></a>Verze rozhraní API poskytovatele prostředků podporované profily v centru Azure Stack
 
@@ -166,7 +166,7 @@ Azure Resource Manager vám umožní nasadit a spravovat infrastrukturu pro vaš
 | Operace | 2018-05-01 |
 | Zprostředkovatelé | 2018-05-01 |
 | SkupinyProstředků| 2018-05-01 |
-| Zdroje | 2018-05-01 |
+| Zdroje a prostředky | 2018-05-01 |
 | Předplatná | 2018-05-01 |
 | Předplatná/umístění | 2016-06-01 |
 | Předplatná/operationresults | 2018-05-01 |

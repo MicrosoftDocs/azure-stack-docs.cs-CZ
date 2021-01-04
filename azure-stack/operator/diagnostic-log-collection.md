@@ -7,12 +7,12 @@ ms.date: 10/30/2020
 ms.author: v-myoung
 ms.reviewer: shisab
 ms.lastreviewed: 12/08/2020
-ms.openlocfilehash: 6e2b00d80d600a0cdafa21455c9938e9df7af564
-ms.sourcegitcommit: b0a96f98f2871bd6be28d3f2461949e2237ddaf0
+ms.openlocfilehash: eaa265189769bf1f192ef6fce260a221935736cb
+ms.sourcegitcommit: 076ece88c3177db321f0ae32cba1d05179ffc393
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96872640"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97794188"
 ---
 # <a name="diagnostic-log-collection"></a>Shromažďování protokolů diagnostiky
 
@@ -123,7 +123,7 @@ Pokud jste odpojeni z Internetu nebo chcete ukládat pouze protokoly místně, p
 
 Pokud používáte metodu **Odeslat protokoly** a chcete místo portálu pro správu používat PowerShell, můžete `Send-AzureStackDiagnosticLog` k shromažďování a odesílání konkrétních protokolů použít rutinu.
 
-* Parametry **FromDate** a **ToDate** na více dní lze použít ke shromažďování protokolů pro konkrétní časové období. Nejsou-li tyto parametry zadány, budou ve výchozím nastavení shromažďovány protokoly za poslední čtyři hodiny.
+* Parametry **FromDate** a  na více dní lze použít ke shromažďování protokolů pro konkrétní časové období. Nejsou-li tyto parametry zadány, budou ve výchozím nastavení shromažďovány protokoly za poslední čtyři hodiny.
 
 * Pomocí parametru **FilterByNode** můžete filtrovat protokoly podle názvu počítače. Například:
 
@@ -142,7 +142,17 @@ Pokud používáte metodu **Odeslat protokoly** a chcete místo portálu pro spr
   ```powershell
   Send-AzureStackDiagnosticLog -FilterByResourceProvider <<value-add RP name>>
   ```
- 
+  Odesílání diagnostických protokolů pro SQL RP: 
+
+  ```powershell
+  Send-AzureStackDiagnosticLog -FilterByResourceProvider SQLAdapter
+  ```
+  Odeslání diagnostických protokolů pro MySQL RP: 
+
+  ```powershell
+  Send-AzureStackDiagnosticLog -FilterByResourceProvider MySQLAdapter
+  ```
+
   Postup odesílání diagnostických protokolů pro IoT Hub: 
 
   ```powershell

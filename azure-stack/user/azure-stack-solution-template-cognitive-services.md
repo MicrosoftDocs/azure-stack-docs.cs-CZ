@@ -7,12 +7,12 @@ ms.date: 10/09/2020
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 10/09/2020
-ms.openlocfilehash: 121a26506fbbe2993786c2fa7f7bfe58fc85a3f0
-ms.sourcegitcommit: 1e97e42380734ee7b239ee7e995c302d9dc3e2b3
+ms.openlocfilehash: 4dc6ad30d54b61e05f54be4a4f1301472794db60
+ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952402"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97697687"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Nasazení služby Azure Cognitive Services do centra Azure Stack
 
@@ -23,9 +23,10 @@ Kontejnering je přístup k distribuci softwaru, ve kterém se aplikace nebo slu
 Podpora kontejnerů je aktuálně k dispozici pro podmnožinu Azure Cognitive Services:
 
 - **Speech**
+    - Převod řeči na text (Standard)
+    - Převod řeči na text (vlastní)
     - Převod textu na řeč (standardně)
-    - Převod textu na řeč (vlastní)
-    - Převod textu na řeč (standardně)
+    - Převod textu na řeč (neuronové)
 - **Jazyk**
     - Rozpoznávání jazyka
     - Analýza textu (analýza mínění)
@@ -43,11 +44,11 @@ Podpora kontejnerů je aktuálně ve verzi Public Preview pro podmnožinu Azure 
     - Přečíst 3,0, přečíst 3,1
     - Prostorová analýza (novinka)
 - **Jazyk**
-    - extrakce klíčových frází,
-    - rozpoznávání jazyka,
+    - Extrakce klíčových frází
+    - Rozpoznávání jazyka
     - Analýza textu pro stav
 - **Speech**
-    - Rozpoznávání jazyka řeči
+    - Rozpoznávání mluveného jazyka
     - Neuronové TTS
     - Převod textu na řeč (vlastní)
 
@@ -73,7 +74,7 @@ Další podrobnosti o Cognitive Services kontejnerech najdete [v podpoře kontej
 
 Tento článek popisuje, jak nasadit Azure Face API v clusteru Kubernetes v centru Azure Stack. Stejný přístup můžete použít k nasazení jiných kontejnerů služby pro rozpoznávání na Azure Stack clustery Kubernetes hub.
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 Než začnete, budete potřebovat:
 

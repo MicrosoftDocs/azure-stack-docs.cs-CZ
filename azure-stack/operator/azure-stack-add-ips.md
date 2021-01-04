@@ -7,12 +7,12 @@ ms.date: 05/28/2020
 ms.author: justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 423f274dab5569273cc35ec4aac6b082326217f3
-ms.sourcegitcommit: f4c2d5b87bc86ac4accb4d4df5b731b67d1a346c
+ms.openlocfilehash: 245817c62d2c5ddbd0856bdf4af869b7a66dbe18
+ms.sourcegitcommit: 8790b8a4ecf4421409534df5ff510d537cc000da
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84203132"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97801993"
 ---
 # <a name="add-public-ip-addresses"></a>Přidat veřejné IP adresy
 
@@ -44,7 +44,7 @@ První věc, kterou je potřeba udělat, je získání bloku adres, který chcet
 4. Vyhledejte dlaždici poskytovatelé prostředků a klikněte na poskytovatele síťových prostředků.
 5. Klikněte na dlaždici využití fondů veřejných IP adres.
 6. Klikněte na tlačítko Přidat fond IP adres.
-7. Zadejte název fondu IP adres. Vámi zvolený název vám pomůže snadno identifikovat fond IP adres. Je dobrým zvykem, aby byl název stejný jako rozsah adres, ale to není vyžadováno.
+7. Zadejte název fondu IP adres. Vámi zvolený název vám pomůže snadno identifikovat fond IP adres. V tomto poli nemůžete použít speciální znak, například "/". Je dobrým zvykem, aby byl název stejný jako rozsah adres, ale to není vyžadováno.
 8. Zadejte blok adres, který chcete přidat do zápisu CIDR. Příklad: 192.168.203.0/24
 9. Když zadáte platný rozsah CIDR v poli Rozsah adres (blok CIDR), automaticky se naplní pole Počáteční IP adresa, koncová IP adresa a dostupná IP adresa. Jsou jen pro čtení a automaticky vygenerovány, takže tato pole nemůžete změnit, aniž by bylo nutné měnit hodnotu v poli Rozsah adres.
 10. Po kontrole informací v okně a potvrzení, že vše vypadá správně, vyberte **OK** a potvrďte změnu a přidejte rozsah adres do centra Azure Stack.

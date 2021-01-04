@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.author: bryanla
 ms.reviewer: caoyang
 ms.lastreviewed: 12/07/2020
-ms.openlocfilehash: b6d345ecfecaa3859420087bc7cff051b39fbb36
-ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
+ms.openlocfilehash: 0d123679c0394d740876df2fcc78f7347049c61c
+ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778151"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97737826"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Nasazení poskytovatele prostředků MySQL do centra Azure Stack
 
@@ -21,7 +21,7 @@ Pomocí poskytovatele prostředků serveru MySQL můžete zveřejnit databáze M
 > [!IMPORTANT]
 > Pouze poskytovatel prostředků by měl vytvořit položky na serverech, které jsou hostiteli SQL nebo MySQL. Položky vytvořené na hostitelském serveru, které nejsou vytvořené poskytovatelem prostředků, nejsou podporované a můžou mít za následek neshodné stavy.
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 Aby bylo možné nasadit poskytovatele prostředků MySQL Azure Stack hub, je nutné, aby bylo provedeno několik požadavků:
 
@@ -35,13 +35,13 @@ Aby bylo možné nasadit poskytovatele prostředků MySQL Azure Stack hub, je nu
 
 - Přidejte požadovaný virtuální počítač s Windows serverem do centra Azure Stack Marketplace.
   - Pro MySQL RP verze <= 1.1.47.0 stáhněte bitovou kopii **systému Windows server 2016 Datacenter-Server** .
-  - Pro MySQL RP verze >= 1.1.93.0 stáhněte **jenom interní image Microsoft AzureStack Add-On RP Windows serveru** . Tato verze Windows serveru je specializovaná pro Azure Stack infrastrukturu Add-On RP a není viditelná pro tržiště tenanta.
+  - Pro MySQL RP verze >= 1.1.93.0 Stáhněte image **Windows serveru Microsoft AzureStack Add-On RP** . Tato verze Windows serveru je specializovaná pro Azure Stack infrastrukturu Add-On RP a není viditelná pro tržiště tenanta.
 
 - Stáhněte si podporovanou verzi binárního poskytovatele prostředků MySQL podle níže uvedené tabulky mapování verzí. Spusťte samočinného extrahování pro extrakci staženého obsahu do dočasného adresáře. 
 
   |Podporovaná verze centra Azure Stack|Verze MySQL RP|Windows Server, na kterém běží služba RP
   |-----|-----|-----|
-  |2008, 2005|[MySQL RP verze 1.1.93.0](https://aka.ms/azshmysqlrp11930)|POUZE interní doplněk Microsoft AzureStack RP – Windows Server
+  |2008, 2005|[MySQL RP verze 1.1.93.1](https://aka.ms/azshmysqlrp11931)|Microsoft AzureStack Add-on RP Windows Server
   |2005, 2002, 1910|[MySQL RP verze 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|Windows Server 2016 Datacenter – jádro serveru|
   |1908|[MySQL RP verze 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|Windows Server 2016 Datacenter – jádro serveru|
   |     |     |     |
@@ -52,7 +52,7 @@ Aby bylo možné nasadit poskytovatele prostředků MySQL Azure Stack hub, je nu
 
 - Ujistěte se, že jsou splněné předpoklady pro integraci Datacenter:
 
-    |Požadavek|Odkaz|
+    |Požadavek|Referenční informace|
     |-----|-----|
     |Podmíněné předávání DNS je nastaveno správně.|[Integrace centrálního centra Azure Stack – DNS](azure-stack-integrate-dns.md)|
     |Příchozí porty pro poskytovatele prostředků jsou otevřené.|[Integrace Datacenter centra Azure Stack – publikování koncových bodů](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
@@ -147,8 +147,8 @@ Tyto parametry můžete zadat z příkazového řádku. Pokud ne, nebo pokud se 
 | **DefaultSSLCertificatePassword** | Heslo pro certifikát. pfx. | _Povinné_ |
 | **MaxRetryCount** | Počet pokusů o opakování všech operací, pokud dojde k selhání.| 2 |
 | **RetryDuration** | Interval časového limitu mezi opakovanými pokusy (v sekundách). | 120 |
-| **Odinstalace** | Odebere poskytovatele prostředků a všechny přidružené prostředky (viz následující poznámky). | No |
-| **DebugMode** | Zabraňuje automatickému vyčištění při selhání. | No |
+| **Odinstalace** | Odebere poskytovatele prostředků a všechny přidružené prostředky (viz následující poznámky). | Ne |
+| **DebugMode** | Zabraňuje automatickému vyčištění při selhání. | Ne |
 | **AcceptLicense** | Přeskočí výzvu k přijetí licence GPL.  <https://www.gnu.org/licenses/old-licenses/gpl-2.0.html> | |
 
 ## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>Nasazení poskytovatele prostředků MySQL pomocí vlastního skriptu

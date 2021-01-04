@@ -8,12 +8,12 @@ ms.date: 8/19/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 37f80bbbc753a988b91987c96bd4c0d765529804
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: 970268d952f1dd391343cfb970b3d04d3c23de59
+ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011157"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97737959"
 ---
 # <a name="update-the-sql-resource-provider"></a>Aktualizace poskytovatele prostředků SQL
 
@@ -24,7 +24,7 @@ Nový poskytovatel prostředků SQL může být vydaný, když se Azure Stack ce
 
 |Podporovaná verze centra Azure Stack|Verze SQL RP|Windows Server, na kterém běží služba RP
   |-----|-----|-----|
-  |2008, 2005|[SQL RP verze 1.1.93.0](https://aka.ms/azshsqlrp11930)|POUZE interní doplněk Microsoft AzureStack RP – Windows Server
+  |2008, 2005|[SQL RP verze 1.1.93.1](https://aka.ms/azshsqlrp11931)|Microsoft AzureStack Add-on RP Windows Server
   |2005, 2002, 1910|[SQL RP verze 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|Windows Server 2016 Datacenter – jádro serveru|
   |1908|[SQL RP verze 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|Windows Server 2016 Datacenter – jádro serveru|
   |     |     |     |

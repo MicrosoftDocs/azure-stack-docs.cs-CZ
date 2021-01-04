@@ -2,7 +2,7 @@
   href: index.yml
 - name: Přehled
   items:
-    - name: Co je centrum Azure Stack?
+    - name: Co je Azure Stack Hub?
       href: azure-stack-overview.md
     - name: Porovnání ekosystému Azure
       href: compare-azure-azure-stack.md
@@ -43,7 +43,7 @@
           href: azure-stack-capacity-planner.md
     - name: Integrace datových center
       items:
-        - name: Názorný postup
+        - name: Návod
           href: azure-stack-customer-journey.md
         - name: Obecné aspekty
           href: azure-stack-datacenter-integration.md
@@ -285,6 +285,8 @@
           href: azure-stack-delegated-provider.md
         - name: Typy kvót
           href: azure-stack-quota-types.md
+        - name: Použití PowerShellu ke správě plánů a nabídek
+          href: azure-stack-powershell-plan-offer.md
     - name: Nabídka síťových řešení
       href: azure-stack-network-solutions-enable.md
     - name: Správa hodnot – přidat poskytovatele prostředků
@@ -297,7 +299,7 @@
               href: azure-stack-app-service-capacity-planning.md
             - name: Nejčastější dotazy k fakturaci App Service
               href: app-service-billing-faq.md
-            - name: Předpoklady
+            - name: Požadavky
               href: azure-stack-app-service-before-you-get-started.md
             - name: Nasazení App Service
               href: azure-stack-app-service-deploy.md
@@ -331,7 +333,7 @@
               href: event-hubs-rp-overview.md
             - name: Plánování kapacity
               href: event-hubs-rp-capacity-planning.md
-            - name: Předpoklady
+            - name: Požadavky
               href: event-hubs-rp-prerequisites.md
             - name: Instalace
               href: event-hubs-rp-install.md

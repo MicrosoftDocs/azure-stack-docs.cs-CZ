@@ -3,15 +3,15 @@ title: Přehled roztaženého clusteru
 description: Přečtěte si o roztažené clustery
 author: v-dasis
 ms.topic: how-to
-ms.date: 12/04/2020
+ms.date: 12/21/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 13ec96862c6aaf494c96f9e3cb3ff6312bc9ab97
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: 2a09d459a44171a864729fd4163197de35995f2e
+ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96611619"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97737925"
 ---
 # <a name="stretched-clusters-overview"></a>Přehled roztaženého clusteru
 
@@ -25,7 +25,7 @@ Replika úložiště podporuje synchronní i asynchronní replikaci:
 - Asynchronní replikace zrcadlí data v lokalitách nad rámec metropolitních oblastí přes síťová propojení s vyššími latencemi, ale bez záruky, že obě lokality mají v době selhání totožné kopie dat.
 
 >[!NOTE]
-> Asynchronní replikace je ruční převzetí služeb při selhání a vyžaduje, abyste ji přenesli online. Další informace najdete v tématu [asynchronní replikace](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-overview#asynchronous-replication).
+> Pro asynchronní replikaci je potřeba po převzetí služeb při selhání ručně přenést cílové svazky v jiné lokalitě online. Další informace najdete v tématu [asynchronní replikace](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-overview#asynchronous-replication).
 
 Existují dva typy roztaženého clusteru, aktivní – pasivní a aktivní-aktivní. Můžete nastavit replikaci sítě aktivní – pasivní, kde je k dispozici upřednostňovaný web a směr pro replikaci. Replikace aktivní-aktivní je v případě, kdy se replikace může probíhat obousměrně z obou lokalit. Tento článek se zabývá jenom konfigurací aktivní/pasivní.
 
@@ -51,6 +51,7 @@ Následující diagram ukazuje lokalitu 1 i Web 2 jako aktivní lokality a obous
 ## <a name="next-steps"></a>Další kroky
 
 - Přečtěte si další informace o replice úložiště. Další informace najdete v tématu [Přehled repliky úložiště](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-overview).
+- Přečtěte si ještě víc o používání repliky úložiště. Viz téma [Konfigurace clusteru s podporou převzetí služeb při selhání Hyper-V nebo souborového serveru pro obecný cluster pro použití](https://docs.microsoft.com/windows-server/storage/storage-replica/stretch-cluster-replication-using-shared-storage#configure-a-hyper-v-failover-cluster-or-a-file-server-for-a-general-use-cluster).
 - Seznamte se s hardwarem a dalšími požadavky na roztažené clustery. Viz [požadavky na systém](system-requirements.md).
 - Naučte se nasadit roztaženého clusteru pomocí centra pro správu Windows. Další informace najdete v tématu [Vytvoření clusteru pomocí centra pro správu systému Windows](../deploy/create-cluster.md).
 - Naučte se nasazovat roztaženého clusteru pomocí prostředí PowerShell. Další informace najdete v tématu [Vytvoření clusteru pomocí prostředí PowerShell](../deploy/create-cluster-powershell.md).

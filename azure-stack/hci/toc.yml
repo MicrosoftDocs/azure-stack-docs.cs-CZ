@@ -4,6 +4,8 @@
   items:
     - name: Co je Azure Stack HCI?
       href: overview.md
+    - name: Porovnat s Windows serverem
+      href: concepts/compare-windows-server.md
     - name: Informace o verzi
       href: release-information.md
     - name: "Poznámky k\_verzi"
@@ -40,7 +42,7 @@
       items:
         - name: Vytvoření clusteru pomocí prostředí PowerShell
           href: deploy/create-cluster-powershell.md
-- name: Správa
+- name: Spravovat
   items:
     - name: Správa virtuálních počítačů
       items:
@@ -118,8 +120,6 @@
       items:
         - name: Požadavky na systém
           href: concepts/system-requirements.md
-        - name: Porovnat s Windows serverem
-          href: concepts/compare-windows-server.md
         - name: Zvolit jednotky
           href: concepts/choose-drives.md
         - name: Požadavky na symetrii jednotky
@@ -228,3 +228,5 @@
       href: 'https://azure.microsoft.com/pricing/details/azure-stack/hci/'
     - name: Podpora Azure Stack HCL
       href: manage/get-support.md
+    - name: Archivované poznámky k verzi Azure Stack HCI
+      href: preview-release-notes.md

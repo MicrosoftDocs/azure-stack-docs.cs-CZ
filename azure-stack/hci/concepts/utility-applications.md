@@ -4,13 +4,13 @@ description: Toto téma popisuje aplikace nástrojů od partnerů Microsoftu, kt
 author: burcuerdemir
 ms.author: burcue
 ms.topic: conceptual
-ms.date: 12/10/2020
-ms.openlocfilehash: cfc60f53ba14821dd1eb4089d59a23cdde31d40d
-ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
+ms.date: 12/18/2020
+ms.openlocfilehash: 7f18a85b30dad52a10d2fc63d9966b05cf0331ff
+ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97051628"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97697722"
 ---
 # <a name="utility-applications-for-azure-stack-hci"></a>Pomocné aplikace pro Azure Stack HCI
 
@@ -58,7 +58,7 @@ Veritas Backup Exec je snadno použitelné řešení pro zálohování a obnoven
 Služby Datadog je plně sjednocená platforma, která zahrnuje monitorování infrastruktury, monitorování výkonu aplikací, správu protokolů, monitorování uživatelského prostředí a další funkce.
 
 - Seznam aplikací: [moderní monitorování & zabezpečení](https://www.datadoghq.com/)
-- Podpora aplikací: [podporované verze operačních systémů](https://docs.datadoghq.com/agent/basic_agent_usage/?tab=agentv6v7#supported-os-versions)
+- Podpora aplikací: [monitorování Microsoft Azure Stack HCL pomocí služby Datadog](https://www.datadoghq.com/blog/monitor-azure-stack-hci-datadog)
 
 ## <a name="next-steps"></a>Další kroky
 Další informace najdete v tématu také:

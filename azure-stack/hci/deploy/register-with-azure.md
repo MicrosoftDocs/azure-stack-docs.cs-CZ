@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/16/2020
-ms.openlocfilehash: 95e0ed6b87fb501b31c024c5d2d886b4e1bce8ac
-ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
+ms.date: 12/28/2020
+ms.openlocfilehash: de2ad8fecc2d79e8c8ff56e3a53a0769698a6fc1
+ms.sourcegitcommit: 8790b8a4ecf4421409534df5ff510d537cc000da
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97620632"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97801959"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Připojení Azure Stack HCI k Azure
 
@@ -21,7 +21,11 @@ ms.locfileid: "97620632"
 Azure Stack HCI se doručuje jako služba Azure a musí se zaregistrovat do 30 dnů od instalace podle podmínek pro Azure Online Services. Toto téma vysvětluje, jak zaregistrovat Azure Stack cluster HCI pomocí [Azure ARC](https://azure.microsoft.com/services/azure-arc/) pro monitorování, podporu, fakturaci a hybridní služby. Po registraci se vytvoří prostředek Azure Resource Manager, který bude představovat každý místní cluster s Azure Stack HCI, a efektivně rozšiřuje rovinu správy Azure na Azure Stack HCI. Informace se pravidelně synchronizují mezi prostředkem Azure a místními clustery.
 
    > [!IMPORTANT]
-   > Vyžaduje se registrace v Azure. Dokud nebude cluster zaregistrován v Azure, Azure Stack operační systém HCI není platný, není podporován a má omezené funkce (například nebudete moci vytvářet virtuální počítače).
+   > Vyžaduje se registrace v Azure a váš cluster není plně podporovaný, dokud nebude vaše registrace aktivní. Pokud svůj cluster nezaregistrujete do 30 dnů od nasazení nebo pokud je váš cluster registrovaný, ale nepřipojený k Azure po dobu delší než 30 dnů, systém nedovolí vytvořit nebo přidat nové virtuální počítače. Pokud k tomu dojde, při pokusu o vytvoření virtuálních počítačů se zobrazí následující chybová zpráva:
+   >
+   > *Při konfiguraci role virtuálního počítače pro VMName došlo k chybě. Úloha se nezdařila. Při otevírání clusterových rolí VMName došlo k chybě. Přistupovaná služba je licencovaná pro určitý počet připojení. V tuto chvíli není možné ve službě provést žádná další připojení, protože už existuje tolik připojení, kolik jich služba může přijmout.*
+   >
+   > Řešením je umožnit odchozí připojení k Azure a ujistit se, že je váš cluster registrovaný, jak je popsáno v tomto tématu.
 
 ## <a name="prerequisites-for-registration"></a>Předpoklady pro registraci
 

@@ -8,18 +8,18 @@ ms.date: 09/02/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 95e12f2f90cd7e33fb3a2cc3a5f016f35ac0e54f
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: 48add21dfcbf5c83a525e1f0ebd6a9e2123f75e4
+ms.sourcegitcommit: 076ece88c3177db321f0ae32cba1d05179ffc393
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623213"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97794154"
 ---
-# <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>Odesílání diagnostických protokolů centra Azure Stack pomocí privilegovaného koncového bodu (PEP)
+# <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>Odesílání diagnostických protokolů služby Azure Stack Hub s využitím privilegovaného koncového bodu
 
 <!--how do you look up the PEP IP address. You look up the azurestackstampinfo.json--->
 
-Ke spuštění rutiny Get-AzureStackLog v integrovaném systému je potřeba mít přístup k privilegovanému koncovému bodu (PEP). Tady je ukázkový skript, který můžete spustit pomocí PEP a shromažďovat protokoly. Pokud rušíte spuštěnou kolekci protokolů, abyste spustili novou, počkejte prosím 5 minut, než začnete novou kolekci protokolů, a pak zadejte `Remove-PSSession -Session $session` .
+Pokud chcete spustit Get-AzureStackLog v integrovaném systému, musíte mít přístup k privilegovanému koncovému bodu (PEP). Tady je ukázkový skript, který můžete spustit pomocí PEP a shromažďovat protokoly. Pokud rušíte spuštěnou kolekci protokolů, abyste spustili novou, počkejte prosím 5 minut, než začnete novou kolekci protokolů, a pak zadejte `Remove-PSSession -Session $session` .
 
 
 ```powershell
@@ -86,6 +86,18 @@ if ($session) {
   Get-AzureStackLog -FilterByResourceProvider <<value-add RP name>>
   ```
  
+  Shromažďování protokolů pro SQL RP: 
+
+  ```powershell
+  Get-AzureStackLog -FilterByResourceProvider SQLAdapter
+  ```
+
+  Shromažďování protokolů pro MySQL RP: 
+
+  ```powershell
+  Get-AzureStackLog -FilterByResourceProvider MySQLAdapter
+  ```
+
   Postup shromáždění protokolů pro IoT Hub: 
 
   ```powershell
@@ -133,14 +145,14 @@ if ($session) {
   5. Vyberte **vytvořit nový kontejner**.
   6. Klikněte pravým tlačítkem na nový kontejner a pak klikněte na **získat sdílený přístupový podpis**.
   7. V závislosti na vašich požadavcích Vyberte platný **čas spuštění** a **čas ukončení**.
-  8. Pro požadovaná oprávnění vyberte **čtení**, **zápis**a **seznam**.
+  8. Pro požadovaná oprávnění vyberte **čtení**, **zápis** a **seznam**.
   9. Vyberte **Vytvořit**.
   10. Získáte sdílený přístupový podpis. Zkopírujte část adresy URL a poskytněte ji `-OutputSasUri` parametru.
 
 ### <a name="parameter-considerations"></a>Požadavky na parametry
 
 * Parametry **OutputSharePath** a **OutputShareCredential** se používají k ukládání protokolů v umístění zadaném uživatelem.
-* Parametry **FromDate** a **ToDate** na více dní lze použít ke shromažďování protokolů pro konkrétní časové období. Nejsou-li tyto parametry zadány, budou ve výchozím nastavení shromažďovány protokoly za poslední čtyři hodiny.
+* Parametry **FromDate** a  na více dní lze použít ke shromažďování protokolů pro konkrétní časové období. Nejsou-li tyto parametry zadány, budou ve výchozím nastavení shromažďovány protokoly za poslední čtyři hodiny.
 * Pomocí parametru **FilterByNode** můžete filtrovat protokoly podle názvu počítače. Například:
 
     ```powershell
@@ -302,7 +314,7 @@ if ($session) {
 
       SRP
 
-      Storage
+      Úložiště
 
       StorageController
 
@@ -318,7 +330,7 @@ if ($session) {
 
       UsageBridge
 
-      VirtualMachines
+      Virtuální počítače
 
       VYTVOŘEN
 
@@ -343,7 +355,7 @@ if ($session) {
 > [!NOTE]
 > Limity velikosti a stáří se v protokolech shromažďují, protože jsou nezbytné k zajištění efektivního využití prostoru úložiště a k tomu, abyste se vyhnuli zahlcení protokoly. Při diagnostikování problému ale někdy budete potřebovat protokoly, které už neexistují z důvodu těchto limitů. Proto se **důrazně doporučuje** přesměrovat protokoly do externího prostoru úložiště (účet úložiště v Azure, dalších místních úložných zařízení atd.) každých 8 až 12 hodin a v závislosti na vašich požadavcích je uchovávat po dobu 1-3 měsíců. Zajistěte také, aby bylo toto umístění úložiště šifrované.
 
-### <a name="invoke-azurestackondemandlog"></a>Invoke – AzureStackOnDemandLog
+### <a name="invoke-azurestackondemandlog"></a>Invoke-AzureStackOnDemandLog
 
 Pomocí rutiny **Invoke-AzureStackOnDemandLog** můžete pro určité role generovat protokoly na vyžádání (viz seznam na konci této části). Protokoly generované touto rutinou nejsou ve výchozím nastavení k dispozici v sadě protokolů, které obdržíte při spuštění rutiny **Get-AzureStackLog** . Také se doporučuje shromažďovat tyto protokoly pouze v případě, že je požaduje tým podpory společnosti Microsoft.
 
@@ -392,7 +404,7 @@ Kolektor trasování je ve výchozím nastavení povolená a na pozadí se bude 
 
 #### <a name="get-azurestacklog"></a>Get-AzureStackLog
 
-Rutina PowerShellu Get-AzureStackLog se dá použít ke shromažďování protokolů ze všech komponent v prostředí centra Azure Stack. Ukládá je do souborů zip v uživatelsky definovaném umístění. Pokud tým technické podpory centra Azure Stack potřebuje vaše protokoly, aby mohl pomoct vyřešit problém, může vás požádat o spuštění rutiny Get-AzureStackLog.
+Pomocí rutiny PowerShellu Get-AzureStackLog můžete shromažďovat protokoly ze všech komponent v prostředí centra Azure Stack. Ukládá je do souborů zip v uživatelsky definovaném umístění. Pokud tým technické podpory centra Azure Stack potřebuje vaše protokoly, aby mohl pomoct vyřešit problém, může vás požádat o spuštění rutiny Get-AzureStackLog.
 
 > [!CAUTION]
 > Tyto soubory protokolu mohou obsahovat identifikovatelné osobní údaje (PII). Před tím, než budete veřejně publikovat všechny soubory protokolu, je nutné vzít v úvahu.
@@ -406,5 +418,5 @@ Níže jsou uvedeny příklady typů protokolů, které jsou shromažďovány:
 * **Diagnostické protokoly úložiště**
 * **Protokoly ETW**
 
-Tyto soubory se shromažďují a ukládají do sdílené složky pomocí Kolektor trasování. Příkaz Get-AzureStackLog je pak možné použít k jejich shromáždění v případě potřeby.
+Tyto soubory se shromažďují a ukládají do sdílené složky pomocí Kolektor trasování. Get-AzureStackLog pak můžete v případě potřeby použít k jejich shromáždění.
 

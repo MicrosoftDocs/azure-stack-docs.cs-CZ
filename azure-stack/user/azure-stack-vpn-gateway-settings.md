@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 55f62550521e6b57d08852eb6d3f0c14da735fec
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 178164148e9d7de069c4ab12dc3042899b83d16d
+ms.sourcegitcommit: 8790b8a4ecf4421409534df5ff510d537cc000da
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546799"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97801942"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>Konfigurace nastavení služby VPN Gateway pro centrum Azure Stack
 
@@ -39,7 +39,7 @@ Při vytváření brány virtuální sítě je nutné zadat SKU brány, které c
 
 Centrum Azure Stack nabízí SKU brány VPN uvedené v následující tabulce:
 
-| | Propustnost brány VPN Gateway |Maximální počet tunelových propojení IPsec brány VPN Gateway |
+| | Propustnost tunelu |Maximální počet tunelových propojení IPsec brány VPN Gateway |
 |-------|-------|-------|
 |**Základní SKU**  | 100 Mb/s    | 20    |
 |**Standardní SKU**   | 100 Mb/s  | 20 |
@@ -49,7 +49,7 @@ Centrum Azure Stack nabízí SKU brány VPN uvedené v následující tabulce:
 
 Centrum Azure Stack nepodporuje změnu velikosti SKU mezi podporovanými staršími SKU.
 
-Podobně Azure Stack centrum nepodporuje změnu velikosti z podporované starší verze SKU ( **Basic** , **Standard** a **HighPerformance** ) na novější SKU podporovanou Azure ( **VpnGw1** , **VpnGw2** a **VpnGw3** ).
+Podobně Azure Stack centrum nepodporuje změnu velikosti z podporované starší verze SKU (**Basic**, **Standard** a **HighPerformance**) na novější SKU podporovanou Azure (**VpnGw1**, **VpnGw2** a **VpnGw3**).
 
 ### <a name="configure-the-gateway-sku"></a>Konfigurace SKU brány
 
@@ -59,7 +59,7 @@ Pokud k vytvoření Správce prostředků brány virtuální sítě používáte
 
 #### <a name="powershell"></a>PowerShell
 
-Následující příklad prostředí PowerShell Určuje `-GatewaySku` parametr jako **Standard** :
+Následující příklad prostředí PowerShell Určuje `-GatewaySku` parametr jako **Standard**:
 
 ```powershell
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -88,12 +88,12 @@ Když vytvoříte bránu virtuální sítě pro konfiguraci brány sítě VPN, m
 >
 > Kromě toho centrum Azure Stack v tuto chvíli nepodporuje používání selektorů přenosu na základě zásad pro brány založené na trasách, protože vlastní konfigurace zásad IPSec/IKE se nepodporuje.
 
-* **PolicyBased** : sítě VPN založené na zásadách šifrují a směrují pakety prostřednictvím tunelů IPsec na základě zásad IPSec nakonfigurovaných s kombinacemi předpon adres mezi vaší místní sítí a virtuální sítí centra Azure Stack. Zásada nebo selektor provozu je obvykle seznam přístupu v konfiguraci zařízení VPN.
+* **PolicyBased**: sítě VPN založené na zásadách šifrují a směrují pakety prostřednictvím tunelů IPsec na základě zásad IPSec nakonfigurovaných s kombinacemi předpon adres mezi vaší místní sítí a virtuální sítí centra Azure Stack. Zásada nebo selektor provozu je obvykle seznam přístupu v konfiguraci zařízení VPN.
 
   >[!NOTE]
   >**PolicyBased** se podporuje v Azure, ale ne v centru Azure Stack.
 
-* **RouteBased** : sítě VPN založené na směrování používají trasy, které jsou nakonfigurované v tabulce předávání IP nebo směrovací tabulky, k přímému směrování paketů na odpovídající rozhraní tunelového propojení. Rozhraní tunelového propojení potom šifrují nebo dešifrují pakety směřující do tunelových propojení nebo z nich. Zásady nebo selektor provozu pro sítě VPN **RouteBased** jsou nakonfigurovány jako libovolné (nebo používají zástupné karty). Ve výchozím nastavení se nedají změnit. Hodnota pro typ VPN **RouteBased** je **RouteBased**.
+* **RouteBased**: sítě VPN založené na směrování používají trasy, které jsou nakonfigurované v tabulce předávání IP nebo směrovací tabulky, k přímému směrování paketů na odpovídající rozhraní tunelového propojení. Rozhraní tunelového propojení potom šifrují nebo dešifrují pakety směřující do tunelových propojení nebo z nich. Zásady nebo selektor provozu pro sítě VPN **RouteBased** jsou nakonfigurovány jako libovolné (nebo používají zástupné karty). Ve výchozím nastavení se nedají změnit. Hodnota pro typ VPN **RouteBased** je **RouteBased**.
 
 Následující příklad prostředí PowerShell Určuje `-VpnType` jako **RouteBased**. Když vytvoříte bránu, musíte se ujistit, že `-VpnType` je správná pro vaši konfiguraci.
 

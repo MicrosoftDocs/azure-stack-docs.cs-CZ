@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/11/2020
-ms.openlocfilehash: bd1798ddfcf0897eeaedaeaae0cfb02eac1aaa1e
-ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
+ms.date: 12/22/2020
+ms.openlocfilehash: a4429113088497fd6a7c887a65f524a7495c6b74
+ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97365137"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97737806"
 ---
 # <a name="compare-azure-stack-hci-to-azure-stack-hub-and-windows-server"></a>Porovnání Azure Stack HCL pro Azure Stack hub a Windows Server
 
@@ -41,7 +41,7 @@ Systémy Windows Server a Azure Stack HCI poskytují stejné vysoce kvalitní u�
 
 | Windows Server | Azure Stack HCI |
 | --------------- | --------------- |
-| Windows Server může běžet místně nebo v cloudu, ale samo o ni ještě nepředstavuje kompletní nabídku.| Použijte Azure Stack HCL ke spouštění virtuálních počítačů místně, případně roztažené napříč dvěma lokalitami a s připojeními k Azure Hybrid Services. Je to snadný způsob, jak modernizovat a zabezpečit vaše datová centra a firemní pobočky, dosáhnout nejlepšího výkonu pro SQL Serveré databáze a místní spouštění virtuálních klientů pro zajištění nízké latence a suverenity dat.|
+| Windows Server může běžet místně nebo v cloudu, ale nenabídne nejnovější funkce, které se v ní přesouvají.| Azure Stack HCL je špičkovou infrastrukturou platformy Microsoftu pro spouštění virtuálních počítačů v místním prostředí, případně roztažená na dvě lokality a s připojeními k Azure Hybrid Services. Je to snadný způsob, jak modernizovat a zabezpečit vaše datová centra a firemní pobočky, dosáhnout nejlepšího výkonu pro SQL Serveré databáze a místní spuštění virtuálních počítačů nebo virtuálních ploch pro účely nízké latence a suverenity dat.|
 | Windows Server je skvělým "švýcarským" všestranným nůžm pro všechny role Windows serveru, které jsou virtualizované nebo ne. | Použijte Azure Stack HCI k virtualizaci klasických podnikových aplikací, jako je Exchange, SharePoint a SQL Server, a k virtualizaci rolí Windows serveru, jako jsou souborové servery, DNS, DHCP, IIS a AD. Zahrnuje neomezený přístup ke všem funkcím Hyper-V, jako jsou stíněné virtuální počítače.|
 | Mnoho nasazení Windows serveru běží na základě stárnutí hardwaru. | Použijte Azure Stack HCI k použití softwarově definované infrastruktury místo polí úložišť nebo síťových zařízení, bez hlavní opětovné architektury. Integrované technologie Hyper-V, Prostory úložiště s přímým přístupem a Software-Defined Networking (SDN) jsou přímo přístupné a spravovatelné. Spouštějte aplikace v rámci virtuálních počítačů se systémem Windows nebo Linux.|
 

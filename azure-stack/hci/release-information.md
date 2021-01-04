@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/10/2020
-ms.openlocfilehash: 79462b14602b915289e79fff358e643f8f5f0292
-ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
+ms.date: 12/18/2020
+ms.openlocfilehash: 22f5ee148952046d78baf6fd44b52136fd81c902
+ms.sourcegitcommit: 5d292b43676a55c0acd635d5253b342de1feca1f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97053070"
+ms.lasthandoff: 12/21/2020
+ms.locfileid: "97710274"
 ---
 # <a name="azure-stack-hci-release-information"></a>Informace o verzi Azure Stack HCI
 
@@ -33,3 +33,10 @@ Všechna data jsou uvedena ve formátu ISO 8601: *RRRR-MM-DD*
 | **Sestavení operačního systému** | **Datum zpřístupnění** | **Článek znalostní báze Knowledge Base**                                           |
 |:------------ |:----------------------|:---------------------------------------------------------|
 | 17784,1408   | 2020-12-10            | [KB 4592441](https://support.microsoft.com/help/4592441) |
+
+## <a name="next-steps"></a>Další kroky
+
+Další informace najdete v tématu také:
+
+- [Poznámky k verzi pro Azure Stack HCI](https://support.microsoft.com/help/4595086/)
+- [Poznámky k verzi pro Azure Stack HCL verze Preview verze 20H2 verze Preview](preview-release-notes.md)

@@ -8,14 +8,14 @@ ms.date: 11/19/2020
 ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 11/19/2020
-ms.custom: contperfq4
+ms.custom: contperf-fy20q4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 88928837377f478249e252021c1d610d99606679
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 28c809f70c479c4037061bd7c1504c0954a3584c
+ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517731"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97697644"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Registrace centra Azure Stack s Azure
 
@@ -26,7 +26,7 @@ Informace v tomto článku popisují registraci Azure Stack integrovaných syst�
 > [!IMPORTANT]  
 > K podpoře kompletních funkcí centra Azure Stack, včetně položek nabídky na webu Marketplace, se vyžaduje registrace. Pokud se nezaregistrujete při použití modelu fakturace s průběžnými platbami, budete mít porušení licenčních podmínek centra Azure Stack. Další informace o modelech licencování centra Azure Stack najdete na [stránce Jak koupit](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 Před registrací proveďte následující předpoklady:
 
@@ -471,7 +471,7 @@ Registraci musíte aktualizovat v následujících případech:
 - Když změníte model fakturace.
 - Při škálování změn (přidávání nebo odebírání uzlů) pro účely fakturace na základě kapacity.
 
-### <a name="prerequisites"></a>Předpoklady
+### <a name="prerequisites"></a>Požadavky
 
 Chcete-li obnovit nebo změnit registraci, potřebujete následující informace z [portálu pro správu](#verify-azure-stack-hub-registration) :
 
