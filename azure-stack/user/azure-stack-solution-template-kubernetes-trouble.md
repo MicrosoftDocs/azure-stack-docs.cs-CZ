@@ -4,15 +4,15 @@ description: Naučte se řešit potíže s nasazením Kubernetes do centra Azure
 author: mattbriggs
 ms.topic: article
 ms.author: mabrigg
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 9a88b6ff0e759c38ad62e6455cbee25eaa9be9eb
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: d15b6d3cbd4cac10c3df0d8c215a869c1fa398b7
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920759"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873873"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Řešení potíží s nasazením Kubernetes do centra Azure Stack
 
@@ -23,7 +23,7 @@ Tento článek popisuje, jak řešit potíže s clusterem Kubernetes. Chcete-li 
 
 ## <a name="overview-of-kubernetes-deployment"></a>Přehled nasazení Kubernetes
 
-Než začnete řešit potíže s clusterem, přečtěte Azure Stack si téma proces nasazení clusteru Kubernetes hub. Nasazení používá šablonu řešení Azure Resource Manager k vytvoření virtuálních počítačů a instalaci modulu AKS pro váš cluster.
+Než začnete řešit potíže s clusterem, přečtěte Azure Stack si téma proces nasazení clusteru Kubernetes hub. Nasazení používá šablonu řešení Azure Resource Manager k vytvoření virtuálních počítačů a instalaci AKS-Engine pro váš cluster.
 
 ### <a name="kubernetes-deployment-workflow"></a>Pracovní postup nasazení Kubernetes
 
@@ -94,8 +94,8 @@ Na virtuálních počítačích, které podporují cluster Kubernetes, můžete 
 Když nasadíte cluster Kubernetes, můžete zkontrolovat stav nasazení a zkontrolovat případné problémy.
 
 1. Otevřete portál centra Azure Stack `https://portal.local.azurestack.external` .
-2. Vyberte **skupiny prostředků**a pak vyberte název skupiny prostředků, kterou jste použili při nasazování clusteru Kubernetes.
-3. Vyberte **nasazení**a potom vyberte **název nasazení**.
+2. Vyberte **skupiny prostředků** a pak vyberte název skupiny prostředků, kterou jste použili při nasazování clusteru Kubernetes.
+3. Vyberte **nasazení** a potom vyberte **název nasazení**.
 
     ![Řešení potíží s Kubernetes: vyberte nasazení.](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-kub-trouble-report.png)
 

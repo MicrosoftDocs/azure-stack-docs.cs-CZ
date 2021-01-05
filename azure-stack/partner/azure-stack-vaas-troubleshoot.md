@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Řešení potíží s ověřováním jako služby pro centrum Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 06e9958d2311d456e977d72fe37eb88d18008092
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: f9a3b4b3ac61447a3dca567ad9ebcb636c8f9bc3
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764796"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874621"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>Řešení potíží s ověřováním jako službou
 
@@ -41,7 +41,7 @@ Pokud je proces agenta nekorektně vypnutý, bude se test, který na něm běže
 ## <a name="vm-images"></a>Image virtuálních počítačů
 
 ### <a name="failure-occurs-when-uploading-vm-image-in-the-vaasprereq-script"></a>K selhání dojde při nahrávání image virtuálního počítače ve `VaaSPreReq` skriptu.
-Informace o **pomalém připojení k síti**najdete v části níže. Nabízí ruční kroky pro nahrání imagí virtuálních počítačů do Azure Stack razítkem.
+Informace o **pomalém připojení k síti** najdete v části níže. Nabízí ruční kroky pro nahrání imagí virtuálních počítačů do Azure Stack razítkem.
 
 ### <a name="handle-slow-network-connectivity"></a>Zpracování pomalého připojení k síti
 
@@ -120,7 +120,7 @@ Pomocí rutiny **Get-HashFile** můžete získat hodnotu hash pro stažené soub
     | Typ operačního systému | Windows |
     | SKU | 2012-R2-Datacenter |
     | Verze | 1.0.0 |
-    | Identifikátor URI objektu BLOB disku s operačním systémem | https://<*Your storage account* >/< *název kontejneru* účtu úložiště>/windowsserver2012r2datacenterbyol.VHD |
+    | Identifikátor URI objektu BLOB disku s operačním systémem | https://< >/< *název kontejneru* účtu úložiště>/WindowsServer2012R2DatacenterBYOL.VHD |
 
 
 5. Vyberte tlačítko **Vytvořit**.

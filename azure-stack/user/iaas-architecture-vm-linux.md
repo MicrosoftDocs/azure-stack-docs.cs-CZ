@@ -3,16 +3,16 @@ title: Spuštění virtuálního počítače se systémem Linux v centru Azure S
 description: Přečtěte si, jak spustit virtuální počítač se systémem Linux v centru Azure Stack.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 949bc2a89d485057d92e5c805fa63a7972ac1fb0
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 0803dc8332e296c0b92912967d34a6dfd885d4df
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920283"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873720"
 ---
 # <a name="run-a-linux-virtual-machine-on-azure-stack-hub"></a>Spuštění virtuálního počítače se systémem Linux v centru Azure Stack
 
@@ -42,7 +42,7 @@ Doporučujeme také použít [Managed disks](./azure-stack-managed-disk-consider
 
 Disk s operačním systémem je virtuální pevný disk uložený v [Azure Stack úložiště centra](./azure-stack-storage-overview.md), takže zůstane i v případě, že je hostitelský počítač mimo provoz. Pro virtuální počítače se systémem Linux je disk s operačním systémem/dev/sda1.. Doporučujeme také vytvořit jeden nebo více [datových disků](./azure-stack-manage-vm-disks.md), což jsou trvalé virtuální pevné disky používané pro data aplikací.
 
-Když vytvoříte virtuální pevný disk, je neformátovaný. Přihlaste se k virtuálnímu počítači a disk naformátujte. V prostředí Linux se datové disky zobrazují jako/dev/sdc,/dev/SDD a tak dále. Můžete spustit lsblk a zobrazit tak seznam blokovaných zařízení, včetně disků. Pokud chcete použít datový disk, vytvořte oddíl a souborový systém a potom disk připojte. Příklad:
+Když vytvoříte virtuální pevný disk, je neformátovaný. Přihlaste se k virtuálnímu počítači a disk naformátujte. V prostředí Linux se datové disky zobrazují jako/dev/sdc,/dev/SDD a tak dále. Můžete spustit lsblk a zobrazit tak seznam blokovaných zařízení, včetně disků. Pokud chcete použít datový disk, vytvořte oddíl a souborový systém a potom disk připojte. Například:
 
 ```bash
 # Create a partition.

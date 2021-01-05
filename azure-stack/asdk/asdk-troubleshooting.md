@@ -1,18 +1,18 @@
 ---
 title: Řešení potíží s ASDK
 description: Naučte se řešit potíže s Azure Stack Development Kit (ASDK).
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 11/05/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: bc828444a67e1489f2d5b4b51fc0cbd18e6f0641
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: b5b0310aa778cf470c436f0770c9b5ca0d46fd8f
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489925"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872938"
 ---
 # <a name="troubleshoot-the-asdk"></a>Řešení potíží s ASDK
 Tento článek poskytuje běžné informace pro řešení potíží s Azure Stack Development Kit (ASDK). Nápovědu k Azure Stack integrovaným systémům najdete v tématu [řešení potíží s Microsoft Azure Stack](../operator/azure-stack-troubleshooting.md). 
@@ -22,7 +22,7 @@ Vzhledem k tomu, že ASDK je zkušební prostředí, podpora Microsoftu neposkyt
 
 ## <a name="deployment"></a>Nasazení
 ### <a name="deployment-failure"></a>Selhání nasazení
-Pokud při instalaci dojde k chybě, můžete restartovat nasazení z neúspěšného kroku pomocí možnosti-znovu spustit ve skriptu nasazení. Příklad:
+Pokud při instalaci dojde k chybě, můžete restartovat nasazení z neúspěšného kroku pomocí možnosti-znovu spustit ve skriptu nasazení. Například:
 
   ```powershell
   cd C:\CloudDeployment\Setup
@@ -56,7 +56,7 @@ K ostatním selháním nasazení obvykle dochází v důsledku potíží s přip
 Pokud chcete ověřit připojení k prostředkům na internetu, můžete provést následující kroky:
 
 1. Otevřete PowerShell.
-2. Zadejte-PSSession k WAS01 nebo libovolnému virtuálnímu počítači ERCs.
+2. Enter-PSSession k WAS01 nebo libovolnému virtuálnímu počítači ERCs.
 3. Spusťte následující rutinu: 
    ```powershell
    Test-NetConnection login.windows.net -port 443
@@ -89,7 +89,7 @@ Pokud se zobrazí "osamocené" disky VHD, je důležité znát, jestli jsou sou�
 
 Další informace o konfiguraci prahové hodnoty pro uchování a opětovného získávání na vyžádání najdete v tématu [Správa účtů úložiště](../operator/azure-stack-manage-storage-accounts.md).
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Úložiště
 ### <a name="storage-reclamation"></a>Recyklace úložiště
 Může trvat až 14 hodin, než se kapacita uvolní, aby se na portálu zobrazovala. Recyklace místa závisí na různých faktorech, včetně procentuálního využití vnitřních souborů kontejneru v úložišti objektů blob bloku. V závislosti na tom, kolik dat je odstraněno, však není nijak zaručeno množství místa, které by mohlo být uvolněno při spuštění systému uvolňování paměti.
 

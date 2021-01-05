@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Naučte se spravovat testy na portálu pro ověřování centra Azure Stack.
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 28791e9687dead6a571097e23258fb5b6aff1200
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 0d2b0625467fdc4998bee5626952c53feb4cff09
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764762"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874778"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Monitorování a Správa testů na portálu VaaS
 
@@ -73,7 +73,7 @@ Každá plánovaná instance testu zobrazuje následující informace:
 | Úspěšné operace | Počet operací, které byly během testu úspěšné. |
 |  Neúspěšné operace | Počet operací, které během testu selhaly. |
 
-### <a name="actions"></a>Akce
+### <a name="actions"></a>Actions
 
 Každá instance testu obsahuje seznam dostupných akcí, které můžete provést při výběru místní nabídky **[...]** v tabulce instance testu.
 

@@ -3,16 +3,16 @@ title: Nasazení Kubernetes pro použití kontejnerů centra Azure Stack
 description: Naučte se, jak nasadit Kubernetes, abyste mohli používat kontejnery pomocí centra Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 38b73bb6237b8467f04ff21fd6769e26a49a8b63
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 916a053f656d1509df66f1206bb4073fe83ceee2
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920130"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873856"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack-hub"></a>Nasazení Kubernetes pro použití kontejnerů pomocí centra Azure Stack
 
@@ -45,7 +45,7 @@ Pokyny k instalaci clusteru při použití AD FS najdete v tématu [nasazení Ku
 
 ## <a name="connect-to-your-cluster"></a>Připojení ke clusteru
 
-Nyní jste připraveni připojit se ke clusteru. Hlavní stránku najdete ve vaší skupině prostředků clusteru a jmenuje se `k8s-master-<sequence-of-numbers>` . Použijte klienta SSH pro připojení k hlavnímu serveru. V hlavní části můžete ke správě clusteru použít **kubectl**a klienta příkazového řádku Kubernetes. Pokyny najdete v tématu [Kubernetes.IO](https://kubernetes.io/docs/reference/kubectl/overview).
+Nyní jste připraveni připojit se ke clusteru. Hlavní stránku najdete ve vaší skupině prostředků clusteru a jmenuje se `k8s-master-<sequence-of-numbers>` . Použijte klienta SSH pro připojení k hlavnímu serveru. V hlavní části můžete ke správě clusteru použít **kubectl** a klienta příkazového řádku Kubernetes. Pokyny najdete v tématu [Kubernetes.IO](https://kubernetes.io/docs/reference/kubectl/overview).
 
 Můžete také najít správce balíčků **Helm** , který je užitečný pro instalaci a nasazení aplikací do clusteru. Pokyny k instalaci a používání Helm s clusterem najdete v tématu [Helm.sh](https://helm.sh/).
 

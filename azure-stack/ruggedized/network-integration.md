@@ -1,18 +1,18 @@
 ---
 title: Robustní Síťová integrace centra Azure Stack
 description: Přečtěte si o Azure Stack síťové integraci pro robustní zařízení centra Azure Stack.
-author: justinha
-ms.author: justinha
+author: PatAltimore
+ms.author: patricka
 ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: 91f21fd139e2816e764f5d4a1dc3fc7602b8fecb
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: fb2fce649ecdda418c899b94a34d435a2050a73f
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939668"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874434"
 ---
 # <a name="azure-stack-hub-ruggedized-network-integration"></a>Robustní Síťová integrace centra Azure Stack 
 
@@ -184,11 +184,11 @@ Zachycení provozu SSL není podporované a může při přístupu k koncovým b
 
 |Účel|Cílová adresa URL|Protokol|Porty|Zdrojová síť|
 |---------|---------|---------|---------|---------|
-|Identita|**Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com<br>ManagementServiceUri = https: \/ /Management.Core.Windows.NET<br>ARMUri = https: \/ /Management.Azure.com<br>https: \/ / \* . msftauth.NET<br>https: \/ / \* . msauth.NET<br>https: \/ / \* . msocdn.com<br>**Azure Government**<br>https: \/ /Login.microsoftonline.us/<br>https: \/ /Graph.Windows.NET/<br>**Azure China 21Vianet**<br>https: \/ /Login.chinacloudapi.cn/<br>https: \/ /Graph.chinacloudapi.cn/<br>**Azure (Německo)**<br>https: \/ /Login.microsoftonline.de/<br>https: \/ /Graph.cloudapi.de/|HTTP<br>HTTPS|80<br>443|Veřejná VIP-/27<br>Síť veřejné infrastruktury|
-|Syndikace Marketplace|**Azure**<br>https:\//management.azure.com<br>https://&#42;. blob.core.windows.net<br>https://&#42;. azureedge.net<br>**Azure Government**<br>https: \/ /Management.usgovcloudapi.NET/<br>https://&#42;. blob.core.usgovcloudapi.net/<br>**Azure China 21Vianet**<br>https: \/ /Management.chinacloudapi.cn/<br>http://&#42;. blob.core.chinacloudapi.cn|HTTPS|443|Veřejná VIP-/27|
+|Identita|**Azure**<br>login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com<br>ManagementServiceUri = https: \/ /Management.Core.Windows.NET<br>ARMUri = https: \/ /Management.Azure.com<br>https: \/ / \* . msftauth.NET<br>https: \/ / \* . msauth.NET<br>https: \/ / \* . msocdn.com<br>**Azure Government**<br>https: \/ /Login.microsoftonline.us/<br>https: \/ /Graph.Windows.NET/<br>**Azure (Čína) 21Vianet**<br>https: \/ /Login.chinacloudapi.cn/<br>https: \/ /Graph.chinacloudapi.cn/<br>**Azure (Německo)**<br>https: \/ /Login.microsoftonline.de/<br>https: \/ /Graph.cloudapi.de/|HTTP<br>HTTPS|80<br>443|Veřejná VIP-/27<br>Síť veřejné infrastruktury|
+|Syndikace Marketplace|**Azure**<br>https:\//management.azure.com<br>https://&#42;. blob.core.windows.net<br>https://&#42;. azureedge.net<br>**Azure Government**<br>https: \/ /Management.usgovcloudapi.NET/<br>https://&#42;. blob.core.usgovcloudapi.net/<br>**Azure (Čína) 21Vianet**<br>https: \/ /Management.chinacloudapi.cn/<br>http://&#42;. blob.core.chinacloudapi.cn|HTTPS|443|Veřejná VIP-/27|
 |Oprava & aktualizace|https://&#42;. azureedge.net<br>https: \/ /aka.MS/azurestackautomaticupdate|HTTPS|443|Veřejná VIP-/27|
-|Registrace|**Azure**<br>https:\//management.azure.com<br>**Azure Government**<br>https: \/ /Management.usgovcloudapi.NET/<br>**Azure China 21Vianet**<br>https: \/ /Management.chinacloudapi.cn|HTTPS|443|Veřejná VIP-/27|
-|Využití|**Azure**<br>https://&#42;. trafficmanager.net<br>**Azure Government**<br>https://&#42;. usgovtrafficmanager.net<br>**Azure China 21Vianet**<br>https://&#42;. trafficmanager.cn|HTTPS|443|Veřejná VIP-/27|
+|Registrace|**Azure**<br>https:\//management.azure.com<br>**Azure Government**<br>https: \/ /Management.usgovcloudapi.NET/<br>**Azure (Čína) 21Vianet**<br>https: \/ /Management.chinacloudapi.cn|HTTPS|443|Veřejná VIP-/27|
+|Využití|**Azure**<br>https://&#42;. trafficmanager.net<br>**Azure Government**<br>https://&#42;. usgovtrafficmanager.net<br>**Azure (Čína) 21Vianet**<br>https://&#42;. trafficmanager.cn|HTTPS|443|Veřejná VIP-/27|
 |Windows Defender|&#42;. wdcp.microsoft.com<br>&#42;. wdcpalt.microsoft.com<br>&#42;. wd.microsoft.com<br>&#42;. update.microsoft.com<br>&#42;. download.microsoft.com<br>https: \/ /www.Microsoft.com/pkiops/CRL<br>https: \/ /www.Microsoft.com/pkiops/certs<br>https: \/ /CRL.Microsoft.com/pki/crl/products<br>https: \/ /www.Microsoft.com/PKI/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|Veřejná VIP-/27<br>Síť veřejné infrastruktury|
 |NTP|(IP adresa serveru NTP, který je k dispozici pro nasazení)|UDP|123|Veřejná VIP-/27|
 |DNS|(IP adresa serveru DNS poskytnutá pro nasazení)|TCP<br>UDP|53|Veřejná VIP-/27|

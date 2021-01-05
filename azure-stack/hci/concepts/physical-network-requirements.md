@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: c8ea741534954235fc6de9e32d16602e0c369d6f
-ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
+ms.openlocfilehash: 1e42f830683a1faefd8e068da1e968f9332b7e0a
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97051611"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872717"
 ---
 # <a name="physical-network-requirements-for-azure-stack-hci"></a>Požadavky na fyzickou síť pro Azure Stack HCI
 
@@ -145,6 +145,6 @@ Azure Stack HCI podporuje bezplatných připojení pro East-West provoz u všech
 
 - Seznamte se s požadavky na síťový adaptér a hostitele. Viz [požadavky na síť hostitele](host-network-requirements.md).
 - Vyštětcte se základy clusteringu s podporou převzetí služeb při selhání. Seznamte se se [Základy sítí pro převzetí služeb při selhání](https://techcommunity.microsoft.com/t5/failover-clustering/.failover-clustering-networking-basics-and-fundamentals/ba-p/1706005?s=09).
-- Zapnout štětce při použití SET Podívejte [se na téma přímý přístup do paměti vzdáleného počítače (RDMA) a Switch Embedded Teaming (set)](https://docs.microsoft.com/windows-server/virtualization/.hyper-v-virtual-switch/rdma-and-switch-embedded-teaming).
+- Zapnout štětce při použití SET Podívejte [se na téma přímý přístup do paměti vzdáleného počítače (RDMA) a Switch Embedded Teaming (set)](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming).
 - Nasazení najdete v tématu [Vytvoření clusteru pomocí centra pro správu systému Windows](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster).
 - Informace k nasazení najdete v tématu [Vytvoření clusteru pomocí Windows PowerShellu](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster-powershell).

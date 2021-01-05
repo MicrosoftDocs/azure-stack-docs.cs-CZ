@@ -3,16 +3,16 @@ title: Spuštění N-vrstvé aplikace v několika oblastech centra Azure Stack p
 description: Naučte se spouštět N-vrstvou aplikaci v několika oblastech centra Azure Stack pro zajištění vysoké dostupnosti.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 0b379e776c64daf1f5d66bf8d1c24216523a889c
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: df65f32abdc7c643c953f176ae8a4fd0b47309f5
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572371"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873737"
 ---
 # <a name="run-an-n-tier-application-in-multiple-azure-stack-hub-regions-for-high-availability"></a>Spuštění N-vrstvé aplikace v několika oblastech centra Azure Stack pro zajištění vysoké dostupnosti
 
@@ -37,7 +37,7 @@ Tato architektura sestaví na takovém obrázku, který je zobrazený v [N-vrstv
 
 -   **Skupina dostupnosti Always On SQL Server**. Pokud používáte SQL Server, doporučujeme vám pro vysokou dostupnost použít [skupiny dostupnosti AlwaysOn pro SQL Server](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15). Vytvořte jednu skupinu dostupnosti, která obsahuje instance SQL Serveru v obou oblastech.
 
--   **Připojení VPN k virtuální síti**VNET. Protože VNET Peering ještě není v centru Azure Stack k dispozici, použijte připojení VPN VNET to VNET, aby se tyto dva virtuální sítěy připojily. Další informace najdete [v tématu virtuální síť a virtuální síť v centru Azure Stack](./azure-stack-network-howto-vnet-to-vnet.md?view=azs-1908) .
+-   **Připojení VPN k virtuální síti** VNET. Protože VNET Peering ještě není v centru Azure Stack k dispozici, použijte připojení VPN VNET to VNET, aby se tyto dva virtuální sítěy připojily. Další informace najdete [v tématu virtuální síť a virtuální síť v centru Azure Stack](./azure-stack-network-howto-vnet-to-vnet.md?view=azs-1908) .
 
 ## <a name="recommendations"></a>Doporučení
 

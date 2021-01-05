@@ -1,18 +1,18 @@
 ---
 title: Požadavky a předpoklady pro ASDK
 description: Seznamte se s požadavky na hardware, software a prostředí pro Azure Stack Development Kit (ASDK).
-author: myoungerman
+author: PatAltimore
 ms.topic: article
 ms.date: 09/23/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 09/23/2020
-ms.openlocfilehash: dbd0398b7f6582c12288c2ae72137c4a673ddfcc
-ms.sourcegitcommit: 950dbc793b3498173923d0bc9fe56662a349abf1
+ms.openlocfilehash: 64b0209ad669c42b7a792498369ca0f48bfcca52
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92082084"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873278"
 ---
 # <a name="asdk-requirements-and-considerations"></a>Požadavky a předpoklady pro ASDK
 
@@ -20,7 +20,7 @@ Před nasazením Azure Stack Development Kit (ASDK) se ujistěte, že váš host
 
 ## <a name="hardware"></a>Hardware
 
-| Součást                                             | Minimum                                                                                                 | Doporučeno                                                                                             |
+| Komponenta                                             | Minimum                                                                                                 | Doporučeno                                                                                             |
 |-------------------------------------------------------|---------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 | Diskové jednotky: Operační systém                         | 1 disk s operačním systémem s minimálně 200 GB, který je k dispozici pro systémový oddíl (SSD nebo HDD).             | 1 disk s operačním systémem, který má minimálně 200 GB, je k dispozici pro systémový oddíl (SSD nebo HDD).                           |
 | Diskové jednotky: data pro obecné vývojové sady<sup>*</sup> | Čtyři disky. Každý disk poskytuje minimálně 240 GB kapacity (SSD nebo HDD). Používají se všechny dostupné disky. | Čtyři disky. Každý disk poskytuje minimálně 400 GB kapacity (SSD nebo HDD). Používají se všechny dostupné disky. |
@@ -66,7 +66,7 @@ Postup použití konfigurace se dvěma způsoby zrcadlení pro odolnost úloži�
 
 - Potřebujete kapacitu HDD v systému o více než 2 terabajty.
 - Pokud ve svém ASDK nemáte SSD, budete pro konfiguraci obousměrného zrcadlení potřebovat aspoň osm HDD.
-- Pokud jste SSD ve své ASDK spolu s HDD, budete potřebovat aspoň pět HDD. Nicméně se doporučuje šest HHDs. Pro šest HDD se také doporučuje mít alespoň tři odpovídající SSD v systému, abyste měli k dispozici jeden disk mezipaměti (SSD), který bude obsluhovat dvě jednotky kapacity (HDD).
+- Pokud jste SSD ve své ASDK spolu s HDD, budete potřebovat aspoň pět HDD. Nicméně se doporučuje šest HDD. Pro šest HDD se také doporučuje mít alespoň tři odpovídající SSD v systému, abyste měli k dispozici jeden disk mezipaměti (SSD), který bude obsluhovat dvě jednotky kapacity (HDD).
 
 Příklad konfigurace se dvěma způsoby zrcadlení:
 
@@ -97,10 +97,10 @@ Pokud chcete nasadit Azure Stack pomocí účtu Azure AD, musíte před spuště
    
    | **Účet Azure Active Directory** | **Doložen?** |
    | --- | --- |
-   | Pracovní nebo školní účet s platným globálním předplatným Azure |Yes |
-   | Účet Microsoft s platným globálním předplatným Azure |Yes |
-   | Pracovní nebo školní účet s platným Čínou – předplatné Azure |Yes |
-   | Pracovní nebo školní účet s platnými předplatné Azure pro státní správu USA |Yes |
+   | Pracovní nebo školní účet s platným globálním předplatným Azure |Ano |
+   | Účet Microsoft s platným globálním předplatným Azure |Ano |
+   | Pracovní nebo školní účet s platným Čínou – předplatné Azure |Ano |
+   | Pracovní nebo školní účet s platnými předplatné Azure pro státní správu USA |Ano |
 
 Po nasazení se oprávnění globálního správce služby Azure AD nevyžadují. Některé operace ale můžou vyžadovat přihlašovací údaje globálního správce. Příklady takových operací zahrnují skript instalačního programu poskytovatele prostředků nebo novou funkci, která vyžaduje udělení oprávnění. Můžete buď dočasně obnovit oprávnění globálního správce účtu, nebo použít samostatný účet globálního správce, který je vlastníkem *výchozího předplatného poskytovatele*.
 

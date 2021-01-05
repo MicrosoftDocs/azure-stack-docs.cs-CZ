@@ -1,18 +1,18 @@
 ---
 title: Spuštění a zastavení ASDK
 description: Naučte se spouštět a zastavovat Azure Stack Development Kit (ASDK).
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 07/18/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 6798481e7645c4a1a49c6370b00b1851c32ff478
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: e30652bbb497a19c21b751e4cebd713a37e2083b
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79511976"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872989"
 ---
 # <a name="start-and-stop-the-asdk"></a>Spuštění a zastavení ASDK
 Nedoporučuje se jednoduše restartovat hostitelský počítač ASDK. Místo toho postupujte podle pokynů v tomto článku, abyste správně vypnuli a restartovali ASDK služby.
@@ -56,7 +56,7 @@ Bez ohledu na to, jak byl ASDK vypnutý, byste měli pomocí následujících kr
 
 Další informace o doporučených postupech pro správné vypnutí a restartování služeb Azure Stack najdete v tématu [spuštění a zastavení Azure Stack](../operator/azure-stack-start-and-stop.md).
 
-## <a name="troubleshoot-startup-and-shutdown"></a>Řešení potíží při spuštění a vypnutí 
+## <a name="troubleshoot-startup-and-shutdown"></a>Řešení potíží se spuštěním a vypnutím 
 Postupujte podle těchto kroků, pokud se Azure Stack služby nespustí do dvou hodin po zapnutí počítače s hostitelským počítačem s ASDK:
 
 1. Přihlaste se jako AzureStack\AzureStackAdmin na hostitelském počítači ASDK.

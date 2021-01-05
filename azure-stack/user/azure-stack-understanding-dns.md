@@ -1,18 +1,18 @@
 ---
 title: Použití IDN v centru Azure Stack
 description: Naučte se používat funkce a možnosti IDN v centru Azure Stack.
-author: Justinha
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 09/16/2019
-ms.author: Justinha
+ms.author: patricka
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 466e44156181e53a92181ecb462b8b4ff0074317
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 8860553f9b35b5a17d07edeb867ea5bad4c3fefa
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566528"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873788"
 ---
 # <a name="use-idns-in-azure-stack-hub"></a>Použití IDN v centru Azure Stack 
 
@@ -63,7 +63,7 @@ Toto je jednoduché prostředí, které předvádí, jak to funguje. Vytvořili 
 |VIRTUÁLNÍ POČÍTAČ – B1 |VNetB   | 10.0.0.4    |172.31.12.57 |VM-B1-Label. lnv1. cloudapp. azscss. external |
  
  
-|VNet  |Identifikátor GUID                                 |Řetězec přípony DNS                                                  |
+|Virtuální síť  |Identifikátor GUID                                 |Řetězec přípony DNS                                                  |
 |------|-------------------------------------|-------------------------------------------------------------------|
 |Partnerském |e71e1db5-0a38-460d-8539-705457a4cf75 |e71e1db5-0a38-460d-8539-705457a4cf75. Internal. lnv1. azurestack. Local|
 |VNetB |e8a6e386-bc7a-43e1-a640-61591b5c76dd |e8a6e386-bc7a-43e1-a640-61591b5c76dd. Internal. lnv1. azurestack. Local|

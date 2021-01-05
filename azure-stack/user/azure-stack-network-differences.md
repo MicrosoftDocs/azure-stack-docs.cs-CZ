@@ -2,17 +2,17 @@
 title: Rozdíly v sítích centra Azure Stack
 description: Přečtěte si o rozdílech a ohledech při práci se sítěmi v centru Azure Stack.
 author: mattbriggs
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: f081d0fa91e967ca00b46ac2a9ffaf4b56933e87
-ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
+ms.openlocfilehash: 349a2f5fb8cf44fb76467776b8275cdd8fd01278
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97364111"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873992"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Rozdíly a požadavky pro sítě Azure Stack hub
 
@@ -30,7 +30,7 @@ Tento článek obsahuje přehled jedinečných důležitých informací o sítí
 |  | Sady záznamů DNS na zónu | 5000 (výchozí)<br>Lze zvýšit na vyžádání. | 5000 |
 |  | Názvové servery pro delegování zóny | Azure poskytuje čtyři názvové servery pro každou vytvořenou zónu uživatele (tenanta). | Centrum Azure Stack poskytuje dva názvové servery pro každou vytvořenou zónu uživatele (tenanta). |
 | Brána Azure Firewall | Služba zabezpečení sítě | Azure Firewall je spravovaná cloudová služba síťového zabezpečení, která chrání vaše prostředky ve virtuálních sítích Azure. | Zatím se nepodporuje. |
-| Virtual Network | Peering virtuálních sítí | Propojit dvě virtuální sítě ve stejné oblasti prostřednictvím páteřní sítě Azure. | Podporované, protože verze 2008 [Virtual Network partnerský vztah](virtual-network-peering.md) |
+| Virtual Network | Partnerský vztah virtuální sítě | Propojit dvě virtuální sítě ve stejné oblasti prostřednictvím páteřní sítě Azure. | Podporované, protože verze 2008 [Virtual Network partnerský vztah](virtual-network-peering.md) |
 |  | IPv6 adresy | Adresu IPv6 můžete přiřadit jako součást [Konfigurace síťového rozhraní](/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions). | Podporovaný je jenom protokol IPv4. |
 |  | Plán DDoS Protection | Podporováno | Zatím se nepodporuje. |
 |  | Konfigurace IP adres sady škálování | Podporováno | Zatím se nepodporuje. |
@@ -53,12 +53,12 @@ Tento článek obsahuje přehled jedinečných důležitých informací o sítí
 |  | Konfigurace dostupnosti | Aktivní/aktivní | Aktivní/pasivní |
 |  | UsePolicyBasedTrafficSelectors | Azure podporuje selektory přenosu založené na zásadách s připojeními bran založenými na trasách. | Zatím se nepodporuje. |
 |  | Monitorování a výstrahy | Azure používá Azure Monitor k tomu, aby poskytovala možnost nastavit výstrahy pro prostředky sítě VPN. | Zatím se nepodporuje.|
-| Nástroj pro vyrovnávání zatížení | Skladová položka | Podporují se základní a standardní nástroje pro vyrovnávání zatížení. | Podporuje se jenom základní Load Balancer.<br>Vlastnost SKU není podporována.<br>/Path/nástroje pro vyrovnávání zatížení základního SKU nemůže mít více než 5 konfigurací front-endové IP adresy.  |
+| Nástroj pro vyrovnávání zatížení | SKU | Podporují se základní a standardní nástroje pro vyrovnávání zatížení. | Podporuje se jenom základní Load Balancer.<br>Vlastnost SKU není podporována.<br>/Path/nástroje pro vyrovnávání zatížení základního SKU nemůže mít více než 5 konfigurací front-endové IP adresy.  |
 |  | Zóny | Zóny dostupnosti jsou podporovány. | Zatím nepodporováno |
 |  | Podpora pravidel příchozího překladu adres (NAT) pro koncové body služby | Azure podporuje určení koncových bodů služby pro pravidla příchozího překladu adres (NAT). | Centrum Azure Stack ještě nepodporuje koncové body služby, takže je nejde zadat. |
 |  | Protokol | Azure podporuje určení protokolu GRE nebo ESP. | Třída protokolu není v centru Azure Stack podporována. |
 | Veřejná IP adresa | Verze veřejné IP adresy | Azure podporuje IPv6 i IPv4. | Podporovaný je jenom protokol IPv4. |
-| | Skladová položka | Azure podporuje základní a standardní. | Podporovaná je jenom základní. |
+| | SKU | Azure podporuje základní a standardní. | Podporovaná je jenom základní. |
 | Síťové rozhraní | Získat efektivní směrovací tabulku | Podporováno | Zatím se nepodporuje. |
 |  | Získání efektivních seznamů ACL | Podporováno | Zatím se nepodporuje. |
 |  | Povolit akcelerované síťové služby | Podporováno | Zatím se nepodporuje. |

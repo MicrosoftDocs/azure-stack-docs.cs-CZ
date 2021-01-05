@@ -3,16 +3,16 @@ title: Známé problémy s modulem AKS v centru Azure Stack
 description: Přečtěte si o známých problémech s použitím modulu AKS v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/11/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/11/2020
-ms.openlocfilehash: f12895e82cbe6e4c2370eec6fb33eb90383bb669
-ms.sourcegitcommit: 716ca50bd198fd51a4eec5b40d5247f6f8c16530
+ms.openlocfilehash: e1a7768eee19fb8a2246ec8c3934f5742d23534c
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92898608"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874162"
 ---
 # <a name="known-issues-with-the-aks-engine-on-azure-stack-hub"></a>Známé problémy s modulem AKS v centru Azure Stack
 
@@ -20,23 +20,23 @@ Toto téma popisuje známé problémy modulu AKS v centru Azure Stack.
 
 ## <a name="unable-to-resize-cluster-vms-with-the-compute-service"></a>Nepovedlo se změnit velikost virtuálních počítačů clusteru pomocí služby Compute.
 
-- **Platí pro** : Azure Stack hub, modul AKS (vše)
-- **Popis** : Změna velikosti virtuálních počítačů clusteru prostřednictvím výpočetní služby nefunguje s modulem AKS. Modul AKS udržuje stav clusteru v souboru JSON modelu rozhraní API. Aby se zajistilo, že se požadovaná velikost virtuálního počítače projeví v rámci operace vytvoření, aktualizace nebo škálování, která se provádí s modulem AKS, musíte před spuštěním kterékoli z těchto operací aktualizovat model rozhraní API. Pokud například změníte velikost virtuálního počítače v již nasazeném clusteru na jinou velikost pomocí výpočetní služby, dojde při spuštění ke ztrátě stavu `aks-engine update` .
-- **Oprava** : Pokud chcete, aby tato práce vyhledala model rozhraní API pro cluster, změňte jeho velikost a pak spusťte `aks-engine update` .
-- **Výskyt** : při pokusu o změnu velikosti pomocí výpočetní služby.
+- **Platí pro**: Azure Stack hub, modul AKS (vše)
+- **Popis**: Změna velikosti virtuálních počítačů clusteru prostřednictvím výpočetní služby nefunguje s modulem AKS. Modul AKS udržuje stav clusteru v souboru JSON modelu rozhraní API. Aby se zajistilo, že se požadovaná velikost virtuálního počítače projeví v rámci operace vytvoření, aktualizace nebo škálování, která se provádí s modulem AKS, musíte před spuštěním kterékoli z těchto operací aktualizovat model rozhraní API. Pokud například změníte velikost virtuálního počítače v již nasazeném clusteru na jinou velikost pomocí výpočetní služby, dojde při spuštění ke ztrátě stavu `aks-engine update` .
+- **Oprava**: Pokud chcete, aby tato práce vyhledala model rozhraní API pro cluster, změňte jeho velikost a pak spusťte `aks-engine update` .
+- **Výskyt**: při pokusu o změnu velikosti pomocí výpočetní služby.
 
 ## <a name="disk-detach-operation-fails-in-aks-engine-0550"></a>Operace odpojení disku v 0.55.0 modulu AKS se nezdařila.
 
-- **Platí pro** : centra Azure Stack (aktualizace 2005), 0.55.0 Engine AKS
-- **Popis** : Pokud se pokusíte odstranit nasazení, které obsahuje svazky trvalého uložení, operace odstranění spustí sérii chyb připojení a odpojení. Příčinou je chyba poskytovatele cloudu AKS Engine v 0.55.0. Poskytovatel cloudu volá Azure Resource Manager pomocí novější verze rozhraní API, než Azure Resource Manager aktuálně podporuje v Azure Stackm centru (aktualizace 2005).
-- **Náprava** : můžete najít podrobnosti a kroky pro zmírnění rizik v [úložišti GitHub AKS engine (problém 3817)](https://github.com/Azure/aks-engine/issues/3817#issuecomment-691329443). Upgradujte hned po novém sestavení modulu AKS a k dispozici odpovídající image.
-- **Výskyt** : při odstraňování nasazení, které obsahuje svazky trvalého uložení.
+- **Platí pro**: centra Azure Stack (aktualizace 2005), 0.55.0 Engine AKS
+- **Popis**: Pokud se pokusíte odstranit nasazení, které obsahuje svazky trvalého uložení, operace odstranění spustí sérii chyb připojení a odpojení. Příčinou je chyba poskytovatele cloudu AKS Engine v 0.55.0. Poskytovatel cloudu volá Azure Resource Manager pomocí novější verze rozhraní API, než Azure Resource Manager aktuálně podporuje v Azure Stackm centru (aktualizace 2005).
+- **Náprava**: můžete najít podrobnosti a kroky pro zmírnění rizik v [úložišti GitHub AKS engine (problém 3817)](https://github.com/Azure/aks-engine/issues/3817#issuecomment-691329443). Upgradujte hned po novém sestavení modulu AKS a k dispozici odpovídající image.
+- **Výskyt**: při odstraňování nasazení, které obsahuje svazky trvalého uložení.
 
 
 
 ## <a name="upgrade-issues-in-aks-engine-0510"></a>Problémy s upgradem v AKS Engine 0.51.0
 
-* Během upgradu (upgrade AKS) clusteru Kubernetes z verze 1.15. x na 1.16. x, upgrade následujících komponent Kubernetes vyžaduje další ruční kroky: **Kube-proxy** , **Azure-CNI-networkmonitor** , **CSI-tajné – Store** , **Kubernetes-řídicí panel** . Níže najdete popis toho, co můžete sledovat, a jak tyto problémy obejít.
+* Během upgradu (upgrade AKS) clusteru Kubernetes z verze 1.15. x na 1.16. x, upgrade následujících komponent Kubernetes vyžaduje další ruční kroky: **Kube-proxy**, **Azure-CNI-networkmonitor**, **CSI-tajné – Store**, **Kubernetes-řídicí panel**. Níže najdete popis toho, co můžete sledovat, a jak tyto problémy obejít.
 
   * V propojených prostředích není zřejmé, že se jedná o tento problém, protože v clusteru nejsou žádné známky, že se ohrožené součásti neupgradují. Vše se zdá, že funguje podle očekávání.
   <!-- * In disconnected environments, you can see this problem when you run a query for the system pods status and see that the pods for the components mentioned below are not in "Ready" state: -->
@@ -51,8 +51,8 @@ Toto téma popisuje známé problémy modulu AKS v centru Azure Stack.
     |---------------|-----------|------------------|
     |**Kube – proxy**     | `kubectl delete ds kube-proxy -n kube-system` |Připojeno, odpojeno |
     |**Azure – CNI – networkmonitor**   | `kubectl delete ds azure-cni-networkmonitor -n kube-system`   | Připojeno, odpojeno |
-    |**CSI – tajné klíče – úložiště**  |`sudo sed -i s/Always/IfNotPresent/g /etc/kubernetes/addons/secrets-store-csi-driver.yaml`<br>`kubectl delete ds csi-secrets-store -n kube-system` | Propojení |
-    |**Kubernetes – řídicí panel** |Na každém hlavním uzlu spusťte následující příkaz:<br>`sudo sed -i s/Always/IfNotPresent/g /etc/kubernetes/addons/kubernetes-dashboard.yaml` |Propojení |
+    |**CSI – tajné klíče – úložiště**  |`sudo sed -i s/Always/IfNotPresent/g /etc/kubernetes/addons/secrets-store-csi-driver.yaml`<br>`kubectl delete ds csi-secrets-store -n kube-system` | Odpojeno |
+    |**Kubernetes – řídicí panel** |Na každém hlavním uzlu spusťte následující příkaz:<br>`sudo sed -i s/Always/IfNotPresent/g /etc/kubernetes/addons/kubernetes-dashboard.yaml` |Odpojeno |
 
 * Kubernetes 1,17 není v této verzi podporován. I když existují žádosti o přijetí změn GitHubu (PR) s odkazem na 1,17, není tato podpora podporovaná.
 

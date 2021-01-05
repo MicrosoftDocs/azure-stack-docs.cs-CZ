@@ -3,16 +3,16 @@ title: Vývoj šablon pro centrum Azure Stack
 description: Naučte se vyvíjet šablony Azure Resource Manager pro přenositelnost aplikací mezi Azure a centrum Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: dd43abbf1194aa4aaa3ca1cc75a3e2ff6262bbbc
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 2d449adc59be9051188c1d942ae54d6a0761d28e
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146746"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874213"
 ---
 # <a name="develop-templates-for-azure-stack-hub-with-azure-resource-manager"></a>Vývoj šablon pro centra Azure Stack s využitím Azure Resource Manager
 
@@ -40,7 +40,7 @@ Verze služeb Azure se můžou v centru Azure a Azure Stack lišit. Každý pros
 | --- | --- |
 | Compute |**2015-06-15** |
 | Síť |**2015-06-15**, **2015-05-01 – Preview** |
-| Storage |**2016-01-01**, **2015-06-15**, **2015-05-01 – Preview** |
+| Úložiště |**2016-01-01**, **2015-06-15**, **2015-05-01 – Preview** |
 | KeyVault | **2015-06-01** |
 | App Service |**2015-08-01** |
 

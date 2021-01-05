@@ -3,16 +3,16 @@ title: Připojení k centru Azure Stack
 description: Naučte se připojit centrum Azure Stack.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 8661666b4f953d07a96f1a2402782970e32c140b
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 9369f0d11ba8c39ce27134a85c93328ce2389833
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545730"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874247"
 ---
 # <a name="connect-to-azure-stack-hub"></a>Připojení k centru Azure Stack
 
@@ -26,7 +26,7 @@ S Připojení ke vzdálené ploše může jeden souběžný uživatel pracovat s
 
 1. Otevřete Připojení ke vzdálené ploše a připojte se k vývojové sadě. Jako uživatelské jméno zadejte **AzureStack\AzureStackAdmin** a heslo správce, které jste zadali během Azure Stack nastavení centra.  
 
-2. V počítači vývojové sady otevřete Správce serveru, klikněte na **místní server** , vypněte rozšířené zabezpečení aplikace Internet Explorer a potom zavřete Správce serveru.
+2. V počítači vývojové sady otevřete Správce serveru, klikněte na **místní server**, vypněte rozšířené zabezpečení aplikace Internet Explorer a potom zavřete Správce serveru.
 
 3. Pokud chcete portál otevřít, použijte `https://portal.local.azurestack.external/` přihlašovací údaje uživatele a přihlaste se.
 

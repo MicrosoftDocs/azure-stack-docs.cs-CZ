@@ -1,18 +1,18 @@
 ---
 title: Základy správy ASDK
 description: Přečtěte si, jak provádět základní úlohy správy pro Azure Stack Development Kit (ASDK).
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 02/19/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: c320b0fa20746da3e14a3cb4af2c8fcd1a9775ea
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 1f2830fa931f1ec02986fe45715e2fafed1a2aa0
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489823"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873635"
 ---
 # <a name="asdk-admin-basics"></a>Základy správy ASDK
 Pokud s Azure Stack Development Kit (ASDK) nebudete mít jistotu, budete potřebovat několik věcí. Tento návod poskytuje přehled vaší role jako operátor Azure Stack ve zkušebním prostředí. Familiarizing se s těmito informacemi, zajistíte, aby vaši testovací uživatelé byli co nejrychleji produktivní.
@@ -29,7 +29,7 @@ K dispozici je několik důležitých informací o účtech, které byste měli 
 |Místní správce (.\Administrator)|Správce hostitele ASDK|Správce hostitele ASDK|
 |AzureStack\AzureStackAdmin|Správce hostitele ASDK<br><br>Dá se použít k přihlášení na portál správce Azure Stack.<br><br>Přístup k zobrazení a správě Service Fabricch okruhů|Správce hostitele ASDK<br><br>Žádný přístup k portálu pro správu Azure Stack<br><br>Přístup k zobrazení a správě Service Fabricch okruhů<br><br>Už není vlastníkem předplatného výchozího poskytovatele (DPS).|
 |AzureStack\CloudAdmin|Umožňuje přístup k povoleným příkazům v rámci privilegovaného koncového bodu a jejich spouštění.|Umožňuje přístup k povoleným příkazům v rámci privilegovaného koncového bodu a jejich spouštění.<br><br>Nejde se přihlásit k hostiteli ASDK<br><br>Vlastník předplatného výchozího poskytovatele (DPS)|
-|Globální správce Azure AD|Používá se během instalace.<br><br>Vlastník předplatného výchozího poskytovatele (DPS)|-|
+|Globální správce Azure AD|Používá se během instalace.<br><br>Vlastník předplatného výchozího poskytovatele (DPS)|Není|
 |
 
 ## <a name="what-tools-do-i-use-to-manage"></a>Jaké nástroje se používají ke správě?
@@ -53,7 +53,7 @@ Kromě poskytování služeb se musíte postarat o všechny běžné povinnosti 
 ## <a name="where-to-get-support"></a>Kde získat podporu
 Pro ASDK se můžete zeptat na dotazy související s podporou na [Azure Stack Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack).
 
-Přístup k fórům můžete zobrazit také tak, že v pravém horním rohu portálu pro správu kliknete na **Nápověda** (otazník). Pak kliknutím na tlačítko **help + podpora** otevřete **Přehled**pomocníka + support, který obsahuje odkaz na fórum. Fóra MSDN se pravidelně monitorují.  
+Přístup k fórům můžete zobrazit také tak, že v pravém horním rohu portálu pro správu kliknete na **Nápověda** (otazník). Pak kliknutím na tlačítko **help + podpora** otevřete **Přehled** pomocníka + support, který obsahuje odkaz na fórum. Fóra MSDN se pravidelně monitorují.  
 
 > [!IMPORTANT]
 > Vzhledem k tomu, že ASDK je zkušební prostředí, není k dispozici žádná oficiální podpora prostřednictvím podpora Microsoftu.

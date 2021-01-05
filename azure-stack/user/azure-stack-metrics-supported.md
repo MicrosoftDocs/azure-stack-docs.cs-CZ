@@ -3,15 +3,15 @@ title: Azure Monitor podporované metriky v centru Azure Stack
 description: Přečtěte si o podporovaných metrikách pro Azure Monitor v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 4a7847c7ff1b9fb56eab132412ab229b90b78b15
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 50064d480c1900fdd03fd08c182427b1a77399d5
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90571639"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874026"
 ---
 # <a name="supported-metrics-for-azure-monitor-on-azure-stack-hub"></a>Podporované metriky pro Azure Monitor v centru Azure Stack
 
@@ -21,13 +21,13 @@ V následujících tabulkách jsou uvedeny metriky dostupné s kanálem metriky 
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
-| Metrika | Zobrazovaný název metriky | Jednotka | Typ agregace | Popis | Dimenze |
+| Metric | Zobrazovaný název metriky | Jednotka | Typ agregace | Popis | Dimenze |
 |----------------|---------------------|---------|------------------|-----------------------------------------------------------------------------------------------|---------------|
 | Procento CPU | Procento CPU | Procento | Průměr | Procento přidělených výpočetních jednotek, které jsou aktuálně používány virtuálními počítači. | Žádné dimenze |
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft. Storage/storageAccounts
 
-| Metrika | Zobrazovaný název metriky | Jednotka | Typ agregace | Popis | Dimenze |
+| Metric | Zobrazovaný název metriky | Jednotka | Typ agregace | Popis | Dimenze |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | UsedCapacity | Využitá kapacita | Bajty | Průměr | Kapacita využitého účtu | Žádné dimenze |
 | Transakce | Transakce | Počet | Celkem | Počet požadavků provedených na službu úložiště nebo zadanou operaci rozhraní API. Toto číslo zahrnuje úspěšné a neúspěšné požadavky a také požadavky, které vygenerovaly chyby. Použijte dimenzi ResponseType pro počet různých typů odpovědí. | ResponseType, typ ApiName |
@@ -39,7 +39,7 @@ V následujících tabulkách jsou uvedeny metriky dostupné s kanálem metriky 
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft. Storage/storageAccounts/blobServices
 
-| Metrika | Zobrazovaný název metriky | Jednotka | Typ agregace | Popis | Dimenze |
+| Metric | Zobrazovaný název metriky | Jednotka | Typ agregace | Popis | Dimenze |
 |--------|---------------------|------|------------------|-------------|------------|
 | BlobCapacity | Kapacita objektu BLOB | Bajty | Celkem | Velikost úložiště využitá Blob service účtu úložiště v bajtech | BlobType |
 | BlobCount | Počet objektů BLOB | Počet | Celkem | Počet objektů BLOB v Blob service účtu úložiště. | BlobType |
@@ -53,7 +53,7 @@ V následujících tabulkách jsou uvedeny metriky dostupné s kanálem metriky 
 
 ## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft. Storage/storageAccounts/tableServices
 
-| Metrika | Zobrazovaný název metriky | Jednotka | Typ agregace | Popis | Dimenze |
+| Metric | Zobrazovaný název metriky | Jednotka | Typ agregace | Popis | Dimenze |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | TableCapacity | Kapacita tabulky | Bajty | Průměr | Velikost úložiště využitá Table service účtu úložiště v bajtech | Žádné dimenze |
 | TableCount | Počet tabulek | Počet | Průměr | Počet tabulek v Table service účtu úložiště | Žádné dimenze |
@@ -67,7 +67,7 @@ V následujících tabulkách jsou uvedeny metriky dostupné s kanálem metriky 
 
 ## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft. Storage/storageAccounts/queueServices
 
-| Metrika | Zobrazovaný název metriky | Jednotka | Typ agregace | Popis | Dimenze |
+| Metric | Zobrazovaný název metriky | Jednotka | Typ agregace | Popis | Dimenze |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | QueueCapacity | Kapacita fronty | Bajty | Průměr | Velikost úložiště využitá Služba front účtu úložiště v bajtech | Žádné dimenze |
 | QueueCount | Počet front | Počet | Průměr | Počet front v Služba front účtu úložiště. | Žádné dimenze |

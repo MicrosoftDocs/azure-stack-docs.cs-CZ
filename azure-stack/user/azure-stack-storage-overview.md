@@ -3,15 +3,15 @@ title: Úvod do úložiště centra Azure Stack
 description: Přečtěte si o Azure Stack služby úložiště hub.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: d45b8069915ea920d6366daeefdfb53953301102
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: c9b8d2bbe30cedcd84759fbb5cd9a51b0a03c51a
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146984"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873822"
 ---
 # <a name="introduction-to-azure-stack-hub-storage"></a>Úvod do úložiště centra Azure Stack
 
@@ -27,7 +27,7 @@ ms.locfileid: "84146984"
 
     Úložiště objektů BLOB ukládá nestrukturovaná data objektů. Objekt BLOB může být libovolný typ textu nebo binárních dat, jako je dokument, soubor médií nebo instalační program aplikace.
 
-- **Úložiště tabulek**
+- **Table Storage**
 
     Tabulkové úložiště slouží k ukládání strukturovaných datových sad. Table Storage je úložiště dat NoSQL klíčového atributu, které umožňuje rychlý vývoj a rychlý přístup k velkým objemům dat.
 
@@ -58,7 +58,7 @@ Každý objekt blob se organizuje do kontejneru. Kontejnery také nabízejí pra
 
     Objekty blob bloku jsou optimalizované pro streamování a ukládání objektů cloudu. Jsou dobrou volbou pro ukládání dokumentů, mediálních souborů, záloh a dalších podobných souborů.
 
-- **Připojit objekty blob**
+- **Doplňovací objekty blob**
 
     Doplňovací objekty blob jsou podobné objektům blob bloku, ale jsou optimalizované pro doplňovací operace. Doplňovací objekt blob se může aktualizovat jen přidáním nového bloku na konec. Doplňovací objekty blob jsou dobrou volbou pro takové scénáře, jako je například protokolování, kde se nová data potřebují zapisovat jen na konec objektu blob.
 

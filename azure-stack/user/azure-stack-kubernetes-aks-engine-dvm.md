@@ -3,16 +3,16 @@ title: Přesunout cluster položek Marketplace do stroje AKS v centru Azure Stac
 description: Naučte se, jak přesunout svůj cluster položek Marketplace do modulu AKS na rozbočovači Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: f80be3811f24a8ee2677543d2229f99f335d9eb3
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 112862f5e73806d2e73d809b70e4bd7fd2e315b5
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573934"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874179"
 ---
 # <a name="move-your-marketplace-item-cluster-to-the-aks-engine-on-azure-stack-hub"></a>Přesuňte svůj cluster položek Marketplace do modulu AKS v centru Azure Stack.
 

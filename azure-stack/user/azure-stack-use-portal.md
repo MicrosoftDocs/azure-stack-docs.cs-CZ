@@ -3,16 +3,16 @@ title: Použití uživatelského portálu Azure Stack hub
 description: Naučte se, jak získat přístup k portálu User Portal a používat ho v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 26225b1b6ba55ed0f5934130e361f1dbab4b664e
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 24734f5e5696a66174287b151b05eb2a67a38ba7
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631385"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873805"
 ---
 # <a name="use-the-azure-stack-hub-user-portal"></a>Použití uživatelského portálu Azure Stack hub
 
@@ -22,13 +22,13 @@ Pomocí portálu Azure Stack hub se přihlaste k odběru veřejných nabídek a 
 
 Váš operátor centra Azure Stack (ve vaší organizaci buď poskytovatel služeb nebo správce), vám umožní znát správnou adresu URL pro přístup k portálu.
 
-- V případě integrovaného systému se adresa URL liší v závislosti na oblasti vašeho operátoru a na externím názvu domény a bude ve formátu https://portal.&lt .* oblast* &gt; . &lt; *Plně kvalifikovaný název domény* &gt; .
+- V případě integrovaného systému se adresa URL liší v závislosti na oblasti vašeho operátoru a na externím názvu domény a bude ve formátu https://portal.&lt .*oblast* &gt; . &lt; *Plně kvalifikovaný název domény* &gt; .
 - Pokud používáte Azure Stack Development Kit (ASDK), adresa portálu je `https://portal.local.azurestack.external` .
 - Výchozí časové pásmo pro všechna nasazení centra Azure Stack je nastavené na koordinovaný světový čas (UTC). Při instalaci Azure Stackového centra můžete vybrat časové pásmo, ale při instalaci se automaticky obnoví na standard UTC.
 
 ## <a name="customize-the-dashboard"></a>Přizpůsobit řídicí panel
 
-Řídicí panel obsahuje výchozí sadu dlaždic. Vyberte **Upravit řídicí panel** pro úpravu výchozího řídicího panelu nebo vyberte **nový řídicí panel** a vytvořte vlastní řídicí panel. Řídicí panel můžete snadno přizpůsobit přidáním nebo odebráním dlaždic. Pokud například chcete přidat dlaždici COMPUTE, vyberte **+ vytvořit prostředek**. Klikněte pravým tlačítkem na **COMPUTE**a potom vyberte **Připnout na řídicí panel**.
+Řídicí panel obsahuje výchozí sadu dlaždic. Vyberte **Upravit řídicí panel** pro úpravu výchozího řídicího panelu nebo vyberte **nový řídicí panel** a vytvořte vlastní řídicí panel. Řídicí panel můžete snadno přizpůsobit přidáním nebo odebráním dlaždic. Pokud například chcete přidat dlaždici COMPUTE, vyberte **+ vytvořit prostředek**. Klikněte pravým tlačítkem na **COMPUTE** a potom vyberte **Připnout na řídicí panel**.
 
 ![Snímek obrazovky s uživatelským portálem Azure Stack hub](media/azure-stack-use-portal/userportal.png)
 

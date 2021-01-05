@@ -3,16 +3,16 @@ title: Nasazení clusteru Kubernetes s modulem AKS na rozbočovači Azure Stack
 description: Postup nasazení clusteru Kubernetes na rozbočovači Azure Stack z virtuálního počítače klienta, na kterém běží modul AKS.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 213e7a0d3a0ad8e395729749e68466a3a4dbab42
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: 6284e771a4b0e326ab5c6296b0a2c09dffe791d0
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415262"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874196"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Nasazení clusteru Kubernetes s modulem AKS v centru Azure Stack
 
@@ -46,7 +46,7 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
 
 3.  V kubernetes-azurestack.jsv souboru vyhledejte orchestratorRelease a orchestratorVersion. Vyberte jednu z podporovaných verzí Kubernetes. Například pro `orchestratorRelease` použití 1,14 nebo 1,15 a pro `orchestratorVersion` použití 1.14.7 nebo 1.15.10. Zadejte `orchestratorRelease` jako x. XX a orchestratorVersion jako x. xx. x. Seznam aktuálních verzí najdete v tématu [podporované verze modulu AKS](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions) .
 
-4.  Vyhledejte `customCloudProfile` adresu URL portálu tenanta a poskytněte ji. Například, `https://portal.local.azurestack.external`. 
+4.  Vyhledejte `customCloudProfile` adresu URL portálu tenanta a poskytněte ji. Například `https://portal.local.azurestack.external`. 
 
 5. Přidejte, `"identitySystem":"adfs"` Pokud používáte AD FS. Příklad:
 
@@ -60,7 +60,7 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
     > [!NOTE]  
     > Pokud pro svůj systém identit používáte Azure AD, nemusíte přidávat pole **identitySystem** .
 
-6. Vyhledejte `portalURL` adresu URL portálu tenanta a poskytněte ji. Například, `https://portal.local.azurestack.external`.
+6. Vyhledejte `portalURL` adresu URL portálu tenanta a poskytněte ji. Například `https://portal.local.azurestack.external`.
 
 7.  V nástroji `masterProfile` nastavte následující pole:
 

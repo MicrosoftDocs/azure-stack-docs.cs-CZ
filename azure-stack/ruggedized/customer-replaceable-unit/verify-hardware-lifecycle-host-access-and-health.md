@@ -1,18 +1,18 @@
 ---
 title: Ověření přístupu a stavu hostitele životního cyklu životnosti hardwaru
 description: Informace o ověření přístupu a stavu hostitele životního cyklu hardwaru
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: b14bff53b8c8d5545a00424a543656a190c06bf3
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: c203923352202dd8d58b27fdf955942342685bdf
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97391310"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874485"
 ---
 # <a name="verifying-hardware-lifecycle-host-access-and-health"></a>Ověření přístupu a stavu hostitele životního cyklu hardwaru
 

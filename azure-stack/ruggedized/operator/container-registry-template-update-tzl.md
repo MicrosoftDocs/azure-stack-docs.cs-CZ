@@ -12,22 +12,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/8/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: 1239e12235debaa8ab6a3037c34ea27e11da0ce2
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: e4890c075505ac5babbb5d614ae36472941d2b17
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939631"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874349"
 ---
 # <a name="update-the-container-registry-in-azure-stack-hub"></a>Aktualizace registru kontejneru v Azure Stackovém centru
 
 Uživatelé centra Azure Stack můžou aktualizovat svoje nasazení registrů kontejnerů na novější SKU základní image AKS pomocí níže uvedených pokynů. Virtuální počítač a služba šablony registru kontejneru jsou bezstavové, protože všechny image stavu a kontejneru jsou uložené v úložišti objektů BLOB. Aktualizace je tak jednoduchá jako nasazení šablony registru kontejnerů s novější verzí VHD základní image AKS a přechodem DNS na nový virtuální počítač. Akce aktualizace hodnoty DNS pro virtuální počítače šablony registru pro starý a nový kontejner bude mít za následek malé okno přerušovaného připojení k registru, zatímco se hodnoty šíří.
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 ### <a name="operator"></a>Operátor
 

@@ -1,18 +1,18 @@
 ---
 title: Telemetrie Azure Stack
 description: Přečtěte si, jak nakonfigurovat Azure Stack nastavení telemetrie pomocí prostředí PowerShell.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 34995d8e1d5525e242a0b0919e7b3927c37507ca
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: a3bedcc62645dd518e694cca1052d6002bed5306
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415143"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872955"
 ---
 # <a name="azure-stack-telemetry"></a>Telemetrie Azure Stack
 
@@ -72,22 +72,22 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 
 Úrovně telemetrie jsou kumulativní a kategorizované na čtyři úrovně (0-3):
 
-**0 (zabezpečení)** : pouze data zabezpečení. Informace, které jsou potřebné k zajištění zabezpečení operačního systému, včetně údajů o nastaveních a prostředích souvisejících s připojeným uživatelem a komponentami telemetrie a programu Windows Defender. Na této úrovni se nevysílá žádná telemetrie Azure Stack žádná konkrétní.
+**0 (zabezpečení)**: pouze data zabezpečení. Informace, které jsou potřebné k zajištění zabezpečení operačního systému, včetně údajů o nastaveních a prostředích souvisejících s připojeným uživatelem a komponentami telemetrie a programu Windows Defender. Na této úrovni se nevysílá žádná telemetrie Azure Stack žádná konkrétní.
 
-**1 (základní)** : data zabezpečení a základní data o stavu a kvalitě. Základní informace o zařízení, včetně dat týkajících se kvality, kompatibility aplikací, dat o využití aplikací a dat z úrovně zabezpečení. Nastavení úrovně telemetrie na Basic umožní telemetrii Azure Stack. Data shromážděná na této úrovni zahrnují:
+**1 (základní)**: data zabezpečení a základní data o stavu a kvalitě. Základní informace o zařízení, včetně dat týkajících se kvality, kompatibility aplikací, dat o využití aplikací a dat z úrovně zabezpečení. Nastavení úrovně telemetrie na Basic umožní telemetrii Azure Stack. Data shromážděná na této úrovni zahrnují:
 
 - **Základní informace o zařízení** , které pomáhají zajistit porozumění typům a konfiguracím nativních a virtualizovaných instancí Windows serveru 2016 v ekosystému, včetně těchto:
   - Atributy počítače, jako je například výrobce OEM a model.
   - Síťové atributy, jako je počet a rychlost síťových adaptérů.
   - Atributy procesoru a paměti, jako je počet jader a velikost paměti.
   - Atributy úložiště, jako je počet jednotek, typ a velikost.
-- **Funkce telemetrie** , včetně procenta nahraných událostí, vyřazených událostí a času posledního nahrávání.
+- **Funkce telemetrie**, včetně procenta nahraných událostí, vyřazených událostí a času posledního nahrávání.
 - **Informace související s kvalitou** , které pomáhají Microsoftu vyvíjet základní znalosti o tom, jak probíhá Azure Stack. Příkladem je počet kritických výstrah pro konkrétní hardwarovou konfiguraci.
-- **Data kompatibility** , která pomáhají získat informace o tom, které poskytovatele prostředků se instalují do systému a virtuálního počítače a které identifikují potenciální problémy s kompatibilitou.
+- **Data kompatibility**, která pomáhají získat informace o tom, které poskytovatele prostředků se instalují do systému a virtuálního počítače a které identifikují potenciální problémy s kompatibilitou.
 
-**2 (rozšířené)** : Další přehledy, včetně toho, jak se používají operační systém a další Azure Stack služby, jak provádějí, pokročilá data o spolehlivosti a data ze základní úrovně a úrovně zabezpečení.
+**2 (rozšířené)**: Další přehledy, včetně toho, jak se používají operační systém a další Azure Stack služby, jak provádějí, pokročilá data o spolehlivosti a data ze základní úrovně a úrovně zabezpečení.
 
-**3 (úplné)** : všechna data potřebná pro identifikaci a pomoc při řešení problémů a data z úrovní zabezpečení, základní a rozšířené úrovně.
+**3 (úplné)**: všechna data potřebná pro identifikaci a pomoc při řešení problémů a data z úrovní zabezpečení, základní a rozšířené úrovně.
 
 > [!NOTE]
 > Výchozí hodnota úrovně telemetrie je 2 (rozšířené).

@@ -6,15 +6,15 @@ metadata:
   description: Služba Microsoft Azure Stack hub je hybridní cloudová platforma, která vám umožní poskytovat služby Azure z vašeho datového centra. Naučte se spravovat infrastrukturu robustních integrovaných systémů centra Azure Stack a jak nabízet služby prostřednictvím našich šablon rychlý Start a kurzů.
   ms.service: azure-stack
   ms.topic: landing-page
-  author: justinha
-  ms.author: justinha
+  author: PatAltimore
+  ms.author: patricka
   ms.date: 10/14/2020
-  ms.openlocfilehash: 7e131f116ef28620cda1804782d38c14d5700bad
-  ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+  ms.openlocfilehash: 896bd56c3e040a1f2d949824037e68bbb5ecbc95
+  ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
   ms.translationtype: MT
   ms.contentlocale: cs-CZ
-  ms.lasthandoff: 12/09/2020
-  ms.locfileid: "96939572"
+  ms.lasthandoff: 01/05/2021
+  ms.locfileid: "97874383"
 landingContent:
 - title: O robustním centru Azure Stack
   linkLists:

@@ -3,16 +3,16 @@ title: Nasazení clusteru Kubernetes do vlastní virtuální sítě v centru Azu
 description: Naučte se, jak nasadit cluster Kubernetes do vlastní virtuální sítě v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 9/2/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 9/2/2020
-ms.openlocfilehash: 588adfc39dc6ff3eec26e67283a7f51a28655fd2
-ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
+ms.openlocfilehash: 417d2cee37bc97f64de9b3d21f81ff60c075e74b
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91853206"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873686"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-a-custom-virtual-network-on-azure-stack-hub"></a>Nasazení clusteru Kubernetes do vlastní virtuální sítě v centru Azure Stack 
 
@@ -35,9 +35,9 @@ Vytvořte ve virtuální síti novou podsíť. Budete potřebovat získat ID pro
 1. V instanci centra Azure Stack otevřete portál User Portal Azure Stack hub.
 2. Vyberte **Všechny prostředky**.
 3. Do vyhledávacího pole zadejte název vaší virtuální sítě.
-4. Vyberte **podsítě**a  >  **podsítě** a přidejte tak podsíť.
+4. Vyberte **podsítě** a  >  **podsítě** a přidejte tak podsíť.
 5. Přidejte **název** a **Rozsah adres** pomocí zápisu CIDR. Vyberte **OK**.
-4. V okně **virtuální sítě** vyberte **vlastnosti** . Zkopírujte **ID prostředku**a pak ho přidejte `/subnets/<nameofyoursubnect>` . Tuto hodnotu použijete jako hodnotu pro `vnetSubnetId` klíč v modelu rozhraní API pro váš cluster. ID prostředku pro podsíť používá následující formát:<br>`/subscriptions/SUB_ID/resourceGroups/RG_NAME/providers/Microsoft.Network/virtualNetworks/VNET_NAME/subnets/SUBNET_NAME`
+4. V okně **virtuální sítě** vyberte **vlastnosti** . Zkopírujte **ID prostředku** a pak ho přidejte `/subnets/<nameofyoursubnect>` . Tuto hodnotu použijete jako hodnotu pro `vnetSubnetId` klíč v modelu rozhraní API pro váš cluster. ID prostředku pro podsíť používá následující formát:<br>`/subscriptions/SUB_ID/resourceGroups/RG_NAME/providers/Microsoft.Network/virtualNetworks/VNET_NAME/subnets/SUBNET_NAME`
 
     ![ID prostředku virtuální sítě](media/kubernetes-aks-engine-custom-vnet/virtual-network-id.png)
 
@@ -97,13 +97,13 @@ V **agentPoolProfiles** nastavte následující hodnoty:
 | --- | --- | --- |
 | vnetSubnetId | `/subscriptions/77e28b6a-582f-42b0-94d2-93b9eca60845/resourceGroups/MDBN-K8S/providers/Microsoft.Network/virtualNetworks/MDBN-K8S/subnets/default` | Zadejte adresu Azure Resource Manager ID podsítě.  |
 
-V **orchestratorProfile**Najděte **kubernetesConfig** a nastavte následující hodnotu:
+V **orchestratorProfile** Najděte **kubernetesConfig** a nastavte následující hodnotu:
 
 | Pole | Příklad | Popis |
 | --- | --- | --- |
 | clusterSubnet | `172.16.244.0/24` | Rozsah IP adres podsítě clusteru (POD sítí) musí používat rozsah IP adres v prostoru vlastního definovaného rozsahu IP adres virtuální sítě. |
 
-Příklad:
+Například:
 
 ```json
 "masterProfile": {

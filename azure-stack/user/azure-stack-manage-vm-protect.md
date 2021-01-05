@@ -3,16 +3,16 @@ title: Ochrana virtuálních počítačů nasazených v centru Azure Stack
 description: Naučte se, jak vytvořit plán obnovení pro ochranu virtuálních počítačů nasazených v Azure Stack hub před ztrátou dat a neplánovanými výpadky.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/5/2020
-ms.openlocfilehash: 5634cd783a010f5aa45de88ba923dfe6a8378c4c
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: 8fe38a530477f080efafcf728e553a8194b74ec6
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742704"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874060"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>Ochrana virtuálních počítačů nasazených v centru Azure Stack
 
@@ -22,7 +22,7 @@ Chcete-li chránit před ztrátou dat a prodlouženým výpadkem, implementujte 
 
 ## <a name="considerations-for-protecting-iaas-vms"></a>Požadavky na ochranu virtuálních počítačů s IaaS
 
-### <a name="roles-and-responsibilities"></a>Role a odpovědnosti
+### <a name="roles-and-responsibilities"></a>Role a povinnosti
 
 Nejprve se ujistěte, že existuje jasné porozumění rolím a odpovědnostem souvisejícím s vlastníky a operátory aplikace v souvislosti s ochranou a obnovením.
 

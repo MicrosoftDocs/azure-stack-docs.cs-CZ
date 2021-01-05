@@ -1,19 +1,19 @@
 ---
-title: Použití Azure Monitor v centru Azure Stack
+title: Používání služby Azure Monitor ve službě Azure Stack Hub
 description: Naučte se používat Azure Monitor v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2019
-ms.openlocfilehash: 7d0a11f8a559f1f40ae797392f27caa815129c69
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 7688ebd4aed8ee797cd940da5631e19e4c1ef8ff
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920775"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874111"
 ---
-# <a name="use-azure-monitor-on-azure-stack-hub"></a>Použití Azure Monitor v centru Azure Stack
+# <a name="use-azure-monitor-on-azure-stack-hub"></a>Používání služby Azure Monitor ve službě Azure Stack Hub
 
 Tento článek poskytuje přehled služby Azure Monitor v centru Azure Stack. Popisuje provoz Azure Monitor a další informace o tom, jak používat Azure Monitor v Azure Stack hub.
 
@@ -98,9 +98,9 @@ Některá data monitorování se už v Azure Monitoru uchovávají a jsou po ur�
 
 **Dotaz**  
 
-Pro přístup k datům v systému nebo Azure Storage můžete použít příkazy rozhraní příkazového řádku (CLI) Azure Monitor REST API, rutiny prostředí PowerShell nebo rozhraní .NET SDK pro více platforem. 
+Pro přístup k datům v systému nebo úložišti Azure můžete použít příkazy Azure Monitor REST API, příkazy rozhraní příkazového řádku Command-Line (CLI) pro různé platformy, rutiny prostředí PowerShell nebo sadu .NET SDK. 
 
-**Vizualizac**
+**Vizualizace**
 
 Vizualizace dat monitorování pomocí grafů a diagramů vám umožňuje rozpoznat trendy rychleji, než když prohlížíte samotná data. 
 

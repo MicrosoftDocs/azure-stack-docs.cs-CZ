@@ -3,16 +3,16 @@ title: Nasazení vysoce dostupných síťových virtuálních zařízení v cent
 description: Naučte se nasadit virtuální síťová zařízení s vysokou dostupností na Azure Stack hub.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 31635f6ecfefc0c513fddec5ec00da1006b44f44
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 7e928757447f47c9235690f38e62778a4594faf1
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106995"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873771"
 ---
 # <a name="deploy-highly-available-network-virtual-appliances-on-azure-stack-hub"></a>Nasazení vysoce dostupných síťových virtuálních zařízení v centru Azure Stack
 

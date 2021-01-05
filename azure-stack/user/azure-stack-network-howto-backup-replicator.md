@@ -3,16 +3,16 @@ title: Replikace prostředků napříč několika předplatnými centra Azure St
 description: Naučte se replikovat prostředky pomocí sady Azure Stack Replikátor předplatných rozbočovače.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 80200b283ba6ef0266513eefaa1fdcb8faf9faa8
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: f638f4a46a805d03d30512f5f32285702c67c20c
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546731"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874009"
 ---
 # <a name="replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Replikace prostředků pomocí replikátoru předplatného centra Azure Stack
 
@@ -68,7 +68,7 @@ Existuje však možnost, že verze rozhraní API poskytovatele prostředků cíl
 
 ### <a name="parallel-deployments"></a>Paralelní nasazení
 
-Nástroj vyžaduje parametr pojmenovaný **Parallel**. Tento parametr přebírá logickou hodnotu určující, zda mají být načteny prostředky paralelně nasazeny. Pokud je hodnota nastavená na **true,** pak každé volání **New-AzResourceGroupDeployment** bude mít příznak **-asJob** a bloky kódu, které se budou čekat na dokončení paralelních úloh, se přidají do mezi sadami nasazení prostředků na základě typů prostředků. Zajišťuje, aby všechny prostředky jednoho typu byly nasazeny před nasazením dalšího typu prostředku. Pokud je hodnota **paralelního** parametru nastavena na **false** , všechny prostředky budou nasazeny v sériovém tvaru.
+Nástroj vyžaduje parametr pojmenovaný **Parallel**. Tento parametr přebírá logickou hodnotu určující, zda mají být načteny prostředky paralelně nasazeny. Pokud je hodnota nastavená na **true,** pak každé volání **New-AzResourceGroupDeployment** bude mít příznak **-asJob** a bloky kódu, které se budou čekat na dokončení paralelních úloh, se přidají do mezi sadami nasazení prostředků na základě typů prostředků. Zajišťuje, aby všechny prostředky jednoho typu byly nasazeny před nasazením dalšího typu prostředku. Pokud je hodnota **paralelního** parametru nastavena na **false**, všechny prostředky budou nasazeny v sériovém tvaru.
 
 ## <a name="add-additional-resource-types"></a>Přidat další typy prostředků
 
@@ -78,7 +78,7 @@ Přidávání nových typů prostředků je jednoduché. Vývojář musí vytvo�
 
 Pokud chcete spustit nástroj replikátoru předplatného Azure (V3), musíte aktivovat resource_retriever.ps1 a zadáte všechny parametry. Parametr **ResourceType** má možnost zvolit **vše** , nikoli jeden typ prostředku. Pokud je vybrána možnost **vše** , resource_retriever.ps1 zpracuje všechny prostředky v pořadí tak, aby po spuštění nasazení byly nejprve nasazeny závislé prostředky. Například virtuální sítě se nasazují před virtuálními počítači, protože virtuální počítače vyžadují, aby byla virtuální síť v místě, aby se mohla správně nasadit.
 
-Po dokončení spuštění skriptu budou k dispozici tři nové složky, **Deployment_Files** , **Parameter_Files** a **Custom_ARM_Templates**.
+Po dokončení spuštění skriptu budou k dispozici tři nové složky, **Deployment_Files**, **Parameter_Files** a **Custom_ARM_Templates**.
 
  > [!NOTE]  
  > Před spuštěním některého z generovaných skriptů musíte nastavit správné prostředí a přihlásit se k cílovému předplatnému (v novém centru Azure Stack pro ex) a nastavit pracovní adresář na složku **Deployment_Files** .
@@ -98,7 +98,7 @@ Deployment_Files budou obsahovat dva soubory **DeployResourceGroups.ps1** a **De
 
     ![Kontrola složek](./media/azure-stack-network-howto-backup-replicator/image4.png)
 
-3.  Nastavte kontext na cílové předplatné, změňte složku na **Deployment_Files** , nasaďte skupiny prostředků (spusťte skript DeployResourceGroups.ps1) a potom spusťte nasazení prostředků (spusťte skript DeployResources.ps1).
+3.  Nastavte kontext na cílové předplatné, změňte složku na **Deployment_Files**, nasaďte skupiny prostředků (spusťte skript DeployResourceGroups.ps1) a potom spusťte nasazení prostředků (spusťte skript DeployResources.ps1).
 
     ![Konfigurace a spuštění nasazení](./media/azure-stack-network-howto-backup-replicator/image6.png)
 
@@ -106,7 +106,7 @@ Deployment_Files budou obsahovat dva soubory **DeployResourceGroups.ps1** a **De
 
 ## <a name="clean-up"></a>Vyčištění
 
-Ve složce replicatorV3 se nachází soubor s názvem **cleanup_generated_items.ps1** – odstraní složky **Deployment_Files** , **Parameter_Files** a **Custom_ARM_Templates** a veškerý jejich obsah.
+Ve složce replicatorV3 se nachází soubor s názvem **cleanup_generated_items.ps1** – odstraní složky **Deployment_Files**, **Parameter_Files** a **Custom_ARM_Templates** a veškerý jejich obsah.
 
 ## <a name="subscription-replicator-operations"></a>Operace replikátoru předplatného
 

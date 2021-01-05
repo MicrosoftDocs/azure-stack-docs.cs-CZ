@@ -3,16 +3,16 @@ title: N-vrstvá aplikace Windows v centru Azure Stack s SQL Server
 description: Naučte se spouštět N-vrstvou aplikaci Windows v Azure Stackovém centru s SQL Server.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 310d9a198c7fb6c9212ff15ff9b838a74bd342d1
-ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
+ms.openlocfilehash: 50b08f594b121601b8e049c4c4875cb31143cbaa
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88965292"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873669"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>N-vrstvá aplikace Windows v centru Azure Stack s SQL Server
 
@@ -76,7 +76,7 @@ Vyberte rozsah adres, který se nepřekrývá s vaší místní sítí, pro př�
 
 Při navrhování podsítí myslete na požadované funkce a požadavky na zabezpečení. Všechny virtuální počítače ve stejné vrstvě nebo roli by měly patřit do stejné podsítě, která může být hranicí zabezpečení. Další informace o návrhu virtuálních sítí a podsítí najdete v tématu [plánování a návrh Azure Virtual Networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 
-### <a name="load-balancers"></a>Nástrojů pro vyrovnávání zatížení
+### <a name="load-balancers"></a>Nástroje pro vyrovnávání zatížení
 
 Nevystavujte virtuální počítače přímo na internetu, ale místo toho každému virtuálnímu počítači poskytněte privátní IP adresu. Klienti se připojují pomocí veřejné IP adresy přidružené k Load Balancer vrstvy 7.
 

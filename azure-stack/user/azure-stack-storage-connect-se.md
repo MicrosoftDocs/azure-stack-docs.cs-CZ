@@ -3,20 +3,20 @@ title: Připojení Průzkumník služby Storage k předplatnému centra Azure St
 description: Informace o tom, jak připojit Průzkumník služby Storage k předplatnému centra Azure Stack
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 773d80909c167f328e6e3eb0868cb99c7d52ffd7
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: b8718cf0a36640ab23137b5f89d5a60ad5ca34f7
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107142"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873907"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Připojení Průzkumník služby Storage k předplatnému centra Azure Stack nebo účtu úložiště
 
-V tomto článku se dozvíte, jak se připojit k předplatným centra Azure Stack a účtům úložiště pomocí [Průzkumník služby Azure Storage](/azure/vs-azure-tools-storage-manage-with-storage-explorer). Průzkumník služby Storage je samostatná aplikace, která umožňuje snadnou práci s daty úložiště Azure Stack hub v systémech Windows, macOS a Linux.
+V tomto článku se dozvíte, jak se připojit k předplatným centra Azure Stack a účtům úložiště pomocí [Průzkumník služby Azure Storage](/azure/vs-azure-tools-storage-manage-with-storage-explorer). Průzkumník služby Storage je samostatná aplikace, která umožňuje jednoduchou práci s daty v úložišti služby Azure Stack Hub v systémech Windows, macOS a Linux.
 
 > [!NOTE]  
 > K dispozici je několik nástrojů pro přesun dat do a z Azure Stack úložiště centra. Další informace najdete v tématu [Nástroje pro přenos dat pro úložiště Azure Stack hub](azure-stack-storage-transfer.md).
@@ -40,27 +40,27 @@ Exportujte a pak importujte certifikát centra Azure Stack pro odpojené integro
 
 1. Otevřete `mmc.exe` na hostitelském počítači centra Azure Stack nebo místní počítač s připojením VPN k centru Azure Stack. 
 
-2. V **souboru**vyberte **Přidat nebo odebrat modul snap-in**. V okně dostupné moduly snap-in vyberte **certifikáty** . 
+2. V **souboru** vyberte **Přidat nebo odebrat modul snap-in**. V okně dostupné moduly snap-in vyberte **certifikáty** . 
 
-3. Vyberte položku **účet počítače**a potom vyberte možnost **Další**. Vyberte položku **místní počítač**a pak vyberte **Dokončit**.
+3. Vyberte položku **účet počítače** a potom vyberte možnost **Další**. Vyberte položku **místní počítač** a pak vyberte **Dokončit**.
 
 4.  V části **Konzola Root\Certificated (místní počítač) \Trusted Root Certification Authorities\Certificates** najít **AzureStackSelfSignedRootCert**.
 
     ![Načtení kořenového certifikátu centra Azure Stack prostřednictvím mmc.exe](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
 
-5. Klikněte pravým tlačítkem na certifikát, vyberte **všechny úlohy**  >  **exportovat**a pak podle pokynů exportujte certifikát se **zakódovaným X. 509 s kódováním Base-64 (. CER)**.
+5. Klikněte pravým tlačítkem na certifikát, vyberte **všechny úlohy**  >  **exportovat** a pak podle pokynů exportujte certifikát se **zakódovaným X. 509 s kódováním Base-64 (. CER)**.
 
     Vyexportovaný certifikát se použije v dalším kroku.
 
 6. Spusťte Průzkumník služby Storage. Pokud se zobrazí dialogové okno **připojit k Azure Storage** , zrušte ho.
 
-7. V nabídce **Upravit** vyberte **certifikáty SSL**a pak vyberte **importovat certifikáty**. Pomocí dialogového okna pro výběr souborů najděte a otevřete certifikát, který jste exportovali v předchozím kroku.
+7. V nabídce **Upravit** vyberte **certifikáty SSL** a pak vyberte **importovat certifikáty**. Pomocí dialogového okna pro výběr souborů najděte a otevřete certifikát, který jste exportovali v předchozím kroku.
 
     Po importu certifikátu budete vyzváni k restartování Průzkumník služby Storage.
 
     ![Importujte certifikát do Průzkumník služby Storage](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
 
-8. Po Průzkumník služby Storage restartování vyberte nabídku **Upravit** a zkontrolujte, jestli je vybraná možnost **cílové Azure Stack centra rozhraní API** . Pokud není, vyberte **cíl Azure Stack centrum**a pak Průzkumník služby Storage restartujte, aby se změna projevila. Tato konfigurace je nutná pro kompatibilitu s vaším prostředím Azure Stack hub.
+8. Po Průzkumník služby Storage restartování vyberte nabídku **Upravit** a zkontrolujte, jestli je vybraná možnost **cílové Azure Stack centra rozhraní API** . Pokud není, vyberte **cíl Azure Stack centrum** a pak Průzkumník služby Storage restartujte, aby se změna projevila. Tato konfigurace je nutná pro kompatibilitu s vaším prostředím Azure Stack hub.
 
     ![Ujistěte se, že je vybraná možnost cílové centrum Azure Stack.](./media/azure-stack-storage-connect-se/target-azure-stack-new.png)
 
@@ -75,7 +75,7 @@ Pomocí následujících kroků se připojte Průzkumník služby Storage k pře
 
     ![Přidat účet Azure Stack hub](./media/azure-stack-storage-connect-se/add-azure-stack-account.png)
 
-3. V dialogovém okně připojit k Azure Storage v části **prostředí Azure**vyberte **Azure**, **Azure Čína 21Vianet**, **Azure Německo**, **Azure US státní správa USA**nebo **přidejte nové prostředí**. To závisí na použitém účtu Azure Stack hub. Vyberte **Přihlásit** se a přihlaste se pomocí účtu centra Azure Stack přidruženého k aspoň jednomu aktivnímu předplatnému centra Azure Stack.
+3. V dialogovém okně připojit k Azure Storage v části **prostředí Azure** vyberte **Azure**, **Azure Čína 21Vianet**, **Azure Německo**, **Azure US státní správa USA** nebo **přidejte nové prostředí**. To závisí na použitém účtu Azure Stack hub. Vyberte **Přihlásit** se a přihlaste se pomocí účtu centra Azure Stack přidruženého k aspoň jednomu aktivnímu předplatnému centra Azure Stack.
 
     ![Připojení k úložišti Azure](./media/azure-stack-storage-connect-se/azure-stack-connect-to-storage.png)
 
@@ -99,7 +99,7 @@ Pomocí následujících kroků se připojte Průzkumník služby Storage k pře
 
     ![Snímek obrazovky, který ukazuje, jak přidat účet do Průzkumník služby Storage.](media/azure-stack-storage-connect-se/add-an-account.png)
 
-3. Vyberte **Další**. V dialogovém okně připojit k Azure Storage v části **prostředí Azure**vyberte **použít vlastní prostředí**a pak klikněte na **Další**.
+3. Vyberte **Další**. V dialogovém okně připojit k Azure Storage v části **prostředí Azure** vyberte **použít vlastní prostředí** a pak klikněte na **Další**.
 
     ![Připojení ke službě Azure Storage](media/azure-stack-storage-connect-se/connect-to-azure-storage.png)
 
@@ -146,7 +146,7 @@ Můžete se také připojit k účtu úložiště Azure Stack hub pomocí názvu
 
     ![Připojit jméno a klíč](./media/azure-stack-storage-connect-se/azure-stack-attach-name-and-key.png)
 
-5. Vyberte **Připojit**.
+5. Vyberte **Connect** (Připojit).
 6. Po úspěšném připojení účtu úložiště se účet úložiště zobrazí s názvem (**externí, jiný**) připojeným k jeho názvu.
 
     ![VMWINDISK](./media/azure-stack-storage-connect-se/azure-stack-vmwindisk.png)

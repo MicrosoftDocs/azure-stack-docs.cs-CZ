@@ -1,18 +1,18 @@
 ---
 title: Server EMC PowerEdge taktické R640 – přehled
 description: Další informace o serveru EMC PowerEdge taktické R640
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: d1f0e141c4ca4966aab9735064287121718dee87
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: d035d82d8b41f9997a3632ee93d801469251d807
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97391194"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874723"
 ---
 # <a name="dell-emc-poweredge-tactical-r640-server-overview"></a>Server Dell EMC PowerEdge taktické R640 – přehled
 
@@ -99,7 +99,7 @@ Obrázek 8. Rozložení základní desky pro PowerEdge taktické R640
 
 ![](media/image-73.png)
 
-## <a name="memory"></a>Memory (Paměť)
+## <a name="memory"></a>Paměť
 
 Následující obrázek ukazuje informace o paměti pro PowerEdge taktické R640.
 

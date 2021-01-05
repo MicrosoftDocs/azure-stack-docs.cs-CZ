@@ -1,18 +1,18 @@
 ---
 title: Ověření přístupu k uzlu jednotky škálování a stavu
 description: Zjistěte, jak ověřit přístup a stav uzlu jednotky škálování.
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: cec29fed89fa02f6a5142f9eb179d8fc8437f37d
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: c28d58d4416ab15885d687e9f0cbe7b6cdc8bdf8
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97391315"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874451"
 ---
 # <a name="verifying-scale-unit-node-access-and-health"></a>Ověření přístupu k uzlu jednotky škálování a stavu
 

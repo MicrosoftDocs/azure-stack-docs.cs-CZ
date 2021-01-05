@@ -3,16 +3,16 @@ title: Přesunutí specializovaného virtuálního počítače z místního poč
 description: Naučte se, jak přesunout specializovaný virtuální počítač z místního počítače do centra Azure Stack.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 9/8/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: 383e96889f742b05a5f4b25e91bab48e1fd4c075
-ms.sourcegitcommit: 9a340b383dcf42c85bc6ec0d01ff3c9ae29dfe4c
+ms.openlocfilehash: c88ef8ff8cfebc3749a6988d2e5e7f604df63cc0
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89609783"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872853"
 ---
 # <a name="move-a-specialized-vm-from-on-premises-to-azure-stack-hub"></a>Přesunutí specializovaného virtuálního počítače z místního počítače do centra Azure Stack
 
@@ -57,7 +57,7 @@ Určete, jaká verze agenta pro Linux je nainstalována na zdrojové imagi virtu
    waagent -version
    ```
     
-   Příklad:
+   Například:
     
    ```bash  
    waagent -version
@@ -68,7 +68,7 @@ Určete, jaká verze agenta pro Linux je nainstalována na zdrojové imagi virtu
 
 #### <a name="linux-agent-224-and-earlier-disable-the-linux-agent-provisioning"></a>Pro Linux agent 2.2.4 a starší zakažte zřizování agenta pro Linux. 
 
-Zakažte zřizování agenta pro Linux s agentem pro Linux nižší než 2.2.4, nastavte v **/etc/waagent.conf**tyto parametry: `Provisioning.Enabled=n, and Provisioning.UseCloudInit=n` .
+Zakažte zřizování agenta pro Linux s agentem pro Linux nižší než 2.2.4, nastavte v **/etc/waagent.conf** tyto parametry: `Provisioning.Enabled=n, and Provisioning.UseCloudInit=n` .
 
 #### <a name="linux-agent-2245-and-later-disable-the-linux-agent-provisioning"></a>2.2.45 agenta pro Linux a novějším, zakažte zřizování agenta pro Linux.
 
@@ -91,7 +91,7 @@ V této verzi momentálně není k dispozici žádný `Provisioning.Agent` způs
 
 #### <a name="run-an-extension"></a>Spustit rozšíření
 
-1. Nastavte v **/etc/waagent.conf**následující parametr:
+1. Nastavte v **/etc/waagent.conf** následující parametr:
 
    - `Provisioning.Enabled=n`
    - `Provisioning.UseCloudInit=n`

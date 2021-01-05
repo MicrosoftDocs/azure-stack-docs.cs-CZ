@@ -3,15 +3,15 @@ title: Vytvoření virtuálního počítače s Windows v centru Azure Stack pomo
 description: Vytvoření virtuálního počítače s Windows v Azure Stackovém centru pomocí Azure CLI
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 81406ed38a31f07f201523b06e761165654d3333
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 157fc4e201325a6b482672373b183ceb26f14ad4
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573883"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873924"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack-hub"></a>Rychlý Start: Vytvoření virtuálního počítače s Windows serverem pomocí rozhraní příkazového řádku Azure v centru Azure Stack
 

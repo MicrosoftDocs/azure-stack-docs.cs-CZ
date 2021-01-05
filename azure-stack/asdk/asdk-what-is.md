@@ -1,23 +1,23 @@
 ---
 title: Co je Azure Stack Development Kit (ASDK)? | Dokumentace Microsoftu
 description: Přečtěte si o Azure Stack Development Kit a o tom, jak se používá k vyhodnocení centra Azure Stack.
-author: justinha
+author: PatAltimore
 ms.topic: overview
 ms.date: 11/27/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: 38aaf52936d09c999765118e36bfcde909409cdd
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 9d5ee01b1f69d589acb73db522765e1acc0c3ddb
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489908"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872802"
 ---
 # <a name="what-is-the-azure-stack-development-kit-asdk"></a>Co je Azure Stack Development Kit (ASDK)?
 Rozsah [integrovaných systémů centra Microsoft Azure Stack](../operator/azure-stack-overview.md) je velikost z uzlů 4-16 a jsou společně podporovány hardwarovým partnerem a společností Microsoft. Pomocí integrovaných systémů Azure Stack Hub můžete pro vaše produkční úlohy povolit nové scénáře. Pokud jste operátor centra Azure Stack, který spravuje infrastrukturu integrovaných systémů a nabízí služby, přečtěte si naši [dokumentaci k operátorovi](../operator/index.yml).
 
-ASDK je nasazení centra Azure Stack s jedním uzlem, které můžete **zdarma**stáhnout a používat. Všechny součásti ASDK jsou nainstalovány na virtuálních počítačích běžících na jednom hostitelském počítači, který musí splňovat nebo překročit [minimální požadavky na hardware](asdk-deploy-considerations.md#hardware). ASDK má poskytovat prostředí, ve kterém můžete vyhodnotit Azure Stack hub a vyvíjet moderní aplikace pomocí rozhraní API a nástrojů konzistentních s Azure v *neprodukčním* prostředí. 
+ASDK je nasazení centra Azure Stack s jedním uzlem, které můžete **zdarma** stáhnout a používat. Všechny součásti ASDK jsou nainstalovány na virtuálních počítačích běžících na jednom hostitelském počítači, který musí splňovat nebo překročit [minimální požadavky na hardware](asdk-deploy-considerations.md#hardware). ASDK má poskytovat prostředí, ve kterém můžete vyhodnotit Azure Stack hub a vyvíjet moderní aplikace pomocí rozhraní API a nástrojů konzistentních s Azure v *neprodukčním* prostředí. 
 
 > [!IMPORTANT]
 > ASDK není určena pro použití nebo podporu v produkčním prostředí.
