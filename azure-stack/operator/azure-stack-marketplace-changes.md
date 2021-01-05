@@ -3,16 +3,16 @@ title: Co je nového v tržišti Azure Stack hub
 description: Podívejte se, co je nového v tržišti Azure Stack hub, včetně nových, zastaralých a aktualizovaných položek Marketplace.
 author: sethmanheim
 ms.topic: article
-ms.date: 12/07/2020
+ms.date: 12/22/2020
 ms.author: sethm
 ms.reviewer: gara
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: e8db7987b06270b239c04bdb9596094bb7f06d1c
-ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
+ms.openlocfilehash: ac442a5ad52c67fc23472dc54eac0cb52f1b1b50
+ms.sourcegitcommit: f4a1a7e9d0b64ca84105d48170a23e1f473e976c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96777998"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97743569"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Změny v tržišti centra Azure Stack
 
@@ -166,6 +166,7 @@ V tomto článku najdete seznam nedávných přidání, aktualizací, změn a od
 
 ## <a name="updated-marketplace-items"></a>Aktualizované položky Marketplace
 
+- 12/22/2020: podvodný Wave software CentOS 7,8 – verze 7.8.2020062400
 - 12/07/2020: Bitnami Elasticsearch cluster – verze 1.0.2
 - 12/07/2020: Bitnami Cassandra cluster – verze 1.0.21
 - 12/07/2020: Bitnami etcd cluster – verze 1.0.16

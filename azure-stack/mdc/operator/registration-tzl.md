@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 69c33d41149937b286a528c7eef3c6e795cd7642
-ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
+ms.openlocfilehash: 7726e16e497693db04ef859fbda316568d069c2b
+ms.sourcegitcommit: aef251d6771400b21a314bbfbea4591ab263f8fb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97598466"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97726165"
 ---
 # <a name="register-azure-stack-hub-with-azure---modular-data-center-mdc"></a>Registrace centra Azure Stack s využitím Azure – modulárních datových Center (MDC)
 
@@ -34,7 +34,7 @@ Pokud je systém připojený ke cloudu Azure, můžete všechny čtyři kroky sp
 > [!NOTE]
 > Pro MDC musí být každý ze systémů centra Azure Stack zaregistrován samostatně. Proto je třeba provést tři tyto pokyny třikrát.
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 Před registrací potřebujete tyto předpoklady:
 
@@ -88,9 +88,9 @@ Instalace nejnovějšího nástroje centra Azure Stack:
 1. Otevřete příkazový řádek PowerShell se zvýšenými oprávněními.
 2. Spusťte následující rutinu:
 
-    ```powershell  
-        Install-Module -Name Azs.Tools.Admin
-    ```
+   ```powershell  
+   Install-Module -Name Azs.Tools.Admin
+   ```
 
 ### <a name="determine-your-registration-scenario"></a>Určení scénáře registrace
 
@@ -120,41 +120,37 @@ Pomocí následujících kroků zaregistrujete systém Azure Stack hub, který m
 
 Připojená prostředí mají přístup k Internetu a k Azure. V případě těchto prostředí Zaregistrujte poskytovatele prostředků centra Azure Stack v Azure a potom nakonfigurujte model fakturace.
 
-
 ### <a name="az-modules"></a>[AZ modules](#tab/az1)
 
 1. Pokud chcete zaregistrovat poskytovatele prostředků centra Azure Stack v Azure, spusťte PowerShell ISE jako správce a použijte následující rutiny PowerShellu s parametrem **Environment** nastaveným na příslušný typ předplatného Azure (viz následující parametry).
 
-2. Přidejte účet Azure, který jste použili k registraci centra Azure Stack. Pokud chcete účet přidat, spusťte rutinu **Add-AzAccount** . Zobrazí se výzva k zadání přihlašovacích údajů k účtu Azure a možná budete muset použít dvojúrovňové ověřování na základě konfigurace vašeho účtu.
-
-   ```powershell
-   Add-AzAccount -EnvironmentName "<environment name>"
-   ```
-
-   | Parametr | Popis |  
-   |-----|-----|
-   | EnvironmentName | Název prostředí Azure Cloud Subscription. Podporované názvy prostředí jsou **AzureCloud** nebo **AzureUSGovernment**.  |
-
-   >[!NOTE]
-   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí rutiny **Add-AzAccount**: **Remove-AzAccount-Scope Process**.
-
-3. Ve stejné relaci prostředí PowerShell se ujistěte, že jste přihlášeni ke správnému kontextu Azure PowerShell. Tento kontext je účet Azure, který byl dříve použit k registraci poskytovatele prostředků služby Azure Stack hub:
+2. Ve stejné relaci prostředí PowerShell se ujistěte, že jste přihlášeni ke správnému kontextu Azure PowerShell. Tento kontext je účet Azure, který byl dříve použit k registraci poskytovatele prostředků služby Azure Stack hub:
 
    ```powershell  
    Connect-AzAccount -Environment "<environment name>"
    ```
 
+   Pro **AzureUSSec** musíte nejdřív inicializovat `CustomCloud` prostředí a pak zavolat **Connect-AzureRmAccount**:
+
+   ```powershell
+   Initialize-AzureRmEnvironment -Name 'CustomCloud' -CloudManifestFilePath $CloudManifestFilePath
+   Connect-AzureRmAccount -Environment 'CustomCloud'
+   ```
+
    | Parametr | Popis |  
    |-----|-----|
-   | EnvironmentName | Název prostředí Azure Cloud Subscription. Podporované názvy prostředí jsou **AzureCloud** nebo **AzureUSGovernment**.  |
+   | EnvironmentName | Název prostředí Azure Cloud Subscription. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment** nebo **AzureUSSec**.   |
 
-4. Máte-li více předplatných, spusťte následující příkaz a vyberte ten, který chcete použít:
+   >[!NOTE]
+   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí rutiny **Add-AzureRmAccount**: **Remove-AzureRmAccount-Scope Process**.
 
-   ```powershell  
+3. Máte-li více předplatných, spusťte následující příkaz a vyberte ten, který chcete použít:
+
+   ```powershell
    Get-AzSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzSubscription
    ```
 
-5. Spuštěním následujícího příkazu zaregistrujte poskytovatele prostředků centra Azure Stack v rámci vašeho předplatného Azure:
+4. Spuštěním následujícího příkazu zaregistrujte poskytovatele prostředků centra Azure Stack v rámci vašeho předplatného Azure:
 
    ```powershell  
    Register-AzResourceProvider -ProviderNamespace Microsoft.AzureStack
@@ -164,8 +160,7 @@ Připojená prostředí mají přístup k Internetu a k Azure. V případě těc
 
    ![Zaregistrovat poskytovatele prostředků centra Azure Stack](./media/registration-tzl/register-azure-resource-provider-portal.png)
 
-
-6. Ve stejné relaci prostředí PowerShell spusťte rutinu **set-AzsRegistration** :
+5. Ve stejné relaci prostředí PowerShell spusťte rutinu **set-AzsRegistration** :
 
    ```powershell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -180,8 +175,9 @@ Připojená prostředí mají přístup k Internetu a k Azure. V případě těc
       -msAssetTag $msAssetTagName `
       -UsageReportingEnabled: $false
    ```
+
    Štítek MS Asset ( `msAssetTag` ) je povinný pro vlastní registraci modelu fakturace a tiskne se na produktu.
-    
+
    Proces trvá od 10 do 15 minut. Po dokončení příkazu se zobrazí zpráva. **Vaše prostředí je teď zaregistrované a aktivované pomocí zadaných parametrů.**
 
 ### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm1)
@@ -189,18 +185,18 @@ Připojená prostředí mají přístup k Internetu a k Azure. V případě těc
 1. Pokud chcete zaregistrovat poskytovatele prostředků centra Azure Stack v Azure, spusťte PowerShell ISE jako správce a použijte následující rutiny PowerShellu s parametrem **Environment** nastaveným na příslušný typ předplatného Azure (viz následující parametry).
   
 2. Přidejte účet Azure, který jste použili k registraci centra Azure Stack. Pokud chcete účet přidat, spusťte rutinu **Add-AzureRmAccount** . Zobrazí se výzva k zadání přihlašovacích údajů k účtu Azure a možná budete muset použít dvojúrovňové ověřování na základě konfigurace vašeho účtu.
-   
+
    ```powershell
    Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
-   
+
    | Parametr | Popis |  
    |-----|-----|
-   | EnvironmentName | Název prostředí Azure Cloud Subscription. Podporované názvy prostředí jsou **AzureCloud** nebo **AzureUSGovernment**.  |
-   
+   | EnvironmentName | Název prostředí Azure Cloud Subscription. Podporované názvy prostředí jsou **AzureCloud**, **AzureUSGovernment** nebo **AzureUSSec**. 
+
    >[!NOTE]
    > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí rutiny **Add-AzureRmAccount**: **Remove-AzureRmAccount-Scope Process**.
-   
+
 3. Ve stejné relaci prostředí PowerShell se ujistěte, že jste přihlášeni ke správnému kontextu Azure PowerShell. Tento kontext je účet Azure, který byl dříve použit k registraci poskytovatele prostředků služby Azure Stack hub:
 
    ```powershell
