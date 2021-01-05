@@ -1,20 +1,20 @@
 ---
-title: Vygenerovat žádosti o podepsání certifikátu pro centrum Azure Stack
+title: Generování žádostí o podepsání certifikátů pro službu Azure Stack Hub
 description: Naučte se generovat žádosti o podepsání certifikátu pro Azure Stack centrálních certifikátů PKI v integrovaných systémech centra Azure Stack.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: article
 ms.date: 10/19/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: ppacent
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: 1b7737f387ea1ea3afc913116642605fa54818a6
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: b03766efe531683310b81dbf2d03de8e990deec0
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543711"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870439"
 ---
-# <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>Vygenerovat žádosti o podepsání certifikátu pro centrum Azure Stack
+# <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>Generování žádostí o podepsání certifikátů pro službu Azure Stack Hub
 
 Nástroj pro kontrolu připravenosti centra Azure Stack můžete použít k vytvoření žádostí o podepsání certifikátů, které jsou vhodné pro nasazení centra Azure Stack. Certifikáty by se měly požadovat, vygenerovat a ověřit dostatečně včas k testování před nasazením. Nástroj můžete získat [z Galerie prostředí PowerShell](https://aka.ms/AzsReadinessChecker).
 
@@ -22,7 +22,7 @@ K vyžádání následujících certifikátů můžete použít nástroj pro kon
 
 - **Standardní požadavky na certifikáty** podle [vygenerování žádosti o podepsání certifikátu pro nová nasazení](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-new-deployments).
 - **Požadavky na obnovení certifikátu** podle [vygenerování žádosti o podepsání certifikátu pro obnovení certifikátu](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-certificate-renewal).
-- **Platforma jako služba** : pro certifikáty můžete požádat o názvy PaaS (platforma jako služba), které jsou uvedené v [požadavcích na certifikát infrastruktury veřejných klíčů služby Azure Stack hub – volitelné certifikáty PaaS](azure-stack-pki-certs.md#optional-paas-certificates).
+- **Platforma jako služba**: pro certifikáty můžete požádat o názvy PaaS (platforma jako služba), které jsou uvedené v [požadavcích na certifikát infrastruktury veřejných klíčů služby Azure Stack hub – volitelné certifikáty PaaS](azure-stack-pki-certs.md#optional-paas-certificates).
 
 ## <a name="prerequisites"></a>Požadavky
 

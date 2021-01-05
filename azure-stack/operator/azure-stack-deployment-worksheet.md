@@ -1,18 +1,18 @@
 ---
 title: Sešit nasazení pro centrum Azure Stack
 description: Naučte se instalovat a používat nástroj pro nasazení sešitu Azure Stack k nasazení centra.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: article
 ms.date: 04/19/2019
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: wamota
 ms.lastreviewed: 04/19/2019
-ms.openlocfilehash: 1949d198c7d85e60c5a3195dfbd5e725cef834c7
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: afdad104cad67e928e1d6d988138ab1c8555631c
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836120"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870881"
 ---
 # <a name="deployment-worksheet-for-azure-stack-hub-integrated-systems"></a>Sešit nasazení pro integrované systémy centra Azure Stack
 
@@ -62,9 +62,9 @@ Pokud chcete spustit sešit nasazení a použít ho na počítači, na kterém j
    Start-DeploymentWorksheet
    ```
 
-Sešit nasazení se skládá z různých karet pro shromažďování nastavení prostředí, jako je **nastavení zákazníka**, **nastavení sítě**a **škálování jednotky #**. Než bude možné vygenerovat jakékoli soubory konfiguračních dat, je nutné zadat všechny hodnoty (kromě těch, které jsou označeny jako **volitelné**) na všech kartách. Po zadání všech požadovaných hodnot do nástroje můžete pomocí nabídky **Akce** **importovat**, **exportovat**a **Generovat**. Soubory JSON vyžadované pro nasazení jsou následující:
+Sešit nasazení se skládá z různých karet pro shromažďování nastavení prostředí, jako je **nastavení zákazníka**, **nastavení sítě** a **škálování jednotky #**. Než bude možné vygenerovat jakékoli soubory konfiguračních dat, je nutné zadat všechny hodnoty (kromě těch, které jsou označeny jako **volitelné**) na všech kartách. Po zadání všech požadovaných hodnot do nástroje můžete pomocí nabídky **Akce** **importovat**, **exportovat** a **Generovat**. Soubory JSON vyžadované pro nasazení jsou následující:
 
-**Import**: umožňuje importovat soubor dat konfigurace centra Azure Stack (ConfigurationData. JSON), který byl vygenerován tímto nástrojem, nebo soubory vytvořenými předchozí verzí listu nasazení. Při provedení importu se resetují formuláře a odstraní se všechna dříve zadaná nastavení nebo generovaná data.
+**Import**: umožňuje importovat soubor dat konfigurace centra Azure Stack (ConfigurationData.json), který byl vygenerován tímto nástrojem, nebo soubory vytvořenými předchozí verzí listu nasazení. Při provedení importu se resetují formuláře a odstraní se všechna dříve zadaná nastavení nebo generovaná data.
 
 **Export**: ověří aktuálně zadaná data do formulářů, vygeneruje podsítě IP a přiřazení a pak obsah uloží jako konfigurační soubory ve formátu JSON. Pak můžete tyto soubory použít k vygenerování konfigurace sítě a instalaci centra Azure Stack.
 
@@ -82,7 +82,7 @@ Postup spuštění nástroje s podrobným protokolováním:
    Start-DeploymentWorksheet -EnableLogging
    ```
 
-Uložený protokol najdete v **dočasném** adresáři aktuálního uživatele. například: **c:\users\me\appdata\local\temp\ Microsoft_AzureStack \ DeploymentWorksheet_Log. txt**.
+Uložený protokol najdete v **dočasném** adresáři aktuálního uživatele. například: **C:\Users\me\AppData\Local\Temp\Microsoft_AzureStack\DeploymentWorksheet_Log.txt**.
 
 ## <a name="next-steps"></a>Další kroky
 

@@ -1,18 +1,18 @@
 ---
 title: Změna nastavení v konfiguraci přepínače centra Azure Stack
 description: Přečtěte si, jaká nastavení můžete změnit v konfiguraci přepínače centra Azure Stack.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: wamota
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 9fcbd0203684afbbae9d11ed00db12402d8040dd
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 0faedfb69b833312dbb334eb6fe5d72fafd2ca80
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82835998"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871204"
 ---
 # <a name="change-settings-on-your-azure-stack-hub-switch-configuration"></a>Změna nastavení v konfiguraci přepínače centra Azure Stack
 
@@ -39,7 +39,7 @@ Operátory mohou přesměrovat protokoly přepínačů na server syslog na svém
 
 Operátor může nakonfigurovat protokol SNMP v2 nebo v3 pro monitorování síťových zařízení a odesílání depeší do aplikace monitorování sítě v datacentru. Z bezpečnostních důvodů použijte protokol SNMPv3, protože je bezpečnější než v2. Pokud potřebujete MIB a konfiguraci, obraťte se na svého poskytovatele hardwaru OEM. Informace o tom, jak nakonfigurovat oprávnění pro přístup ke správě přepínačů, najdete v části [aktualizace seznamu řízení přístupu](#access-control-list-updates) .
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Ověřování
 
 Operátor může nakonfigurovat buď protokol RADIUS, nebo TACACS pro správu ověřování na síťových zařízeních. Podporované metody a konfigurace si můžete prostudovat u svého poskytovatele hardwaru OEM. Informace o tom, jak nakonfigurovat oprávnění pro přístup ke správě přepínačů, najdete v části [aktualizace seznamu řízení přístupu](#access-control-list-updates) .
 

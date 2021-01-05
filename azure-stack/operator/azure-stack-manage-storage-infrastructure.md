@@ -2,18 +2,18 @@
 title: Správa infrastruktury úložiště pro centrum Azure Stack
 titleSuffix: Azure Stack
 description: Naučte se spravovat infrastrukturu úložiště pro centrum Azure Stack. Viz jak monitorovat svazky a jednotky. Podívejte se na tipy pro řešení potíží při přidávání jednotek do fondů.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: article
 ms.date: 10/19/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.lastreviewed: 5/4/2020
 ms.reviewer: jiaha
-ms.openlocfilehash: 7141d52e100ce465a20637da2a40cbb75b417939
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 122d1b6e2d2103387605c337bd68c31ec03f5d10
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92179454"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870337"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Správa infrastruktury úložiště pro centrum Azure Stack
 Tento článek popisuje stav a provozní stav prostředků infrastruktury úložiště služby Azure Stack hub. Mezi tyto prostředky patří jednotky a svazky úložiště. Informace v tomto tématu vám pomůžou při odstraňování různých problémů, například když se do fondu nedá přidat jednotka.

@@ -1,22 +1,22 @@
 ---
 title: Integrace služby DNS centra Azure Stack
 description: Přečtěte si, jak integrovat službu DNS centra Azure Stack k vašemu serveru DNS vašeho datového centra.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: article
 ms.date: 04/10/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: wfayed
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: be6ea1e8dbf8b17e02a4117f5f2d20cb9cfbbcfe
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 2edd6fb4c427f9b20edebbd09f3d28a4ac413ef8
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488718"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870371"
 ---
 # <a name="azure-stack-hub-datacenter-dns-integration"></a>Integrace služby DNS centra Azure Stack
 
-Aby bylo možné získat přístup k koncovým bodům centra Azure Stack, jako jsou **portál**, **adminportal**, **Správa**a **adminmanagement** z vnějšího centra Azure Stack, je nutné integrovat služby DNS centra Azure Stack se servery DNS, které hostují zóny dns, které chcete použít v centru pro Azure Stack.
+Aby bylo možné získat přístup k koncovým bodům centra Azure Stack, jako jsou **portál**, **adminportal**, **Správa** a **adminmanagement** z vnějšího centra Azure Stack, je nutné integrovat služby DNS centra Azure Stack se servery DNS, které hostují zóny dns, které chcete použít v centru pro Azure Stack.
 
 ## <a name="azure-stack-hub-dns-namespace"></a>Obor názvů DNS centra Azure Stack
 
@@ -25,10 +25,10 @@ Pokud nasazujete Azure Stack centrum, budete muset poskytnout nějaké důležit
 
 |Pole  |Popis  |Příklad|
 |---------|---------|---------|
-|Region (Oblast)|Geografické umístění vašeho nasazení centra Azure Stack.|`east`|
+|Oblast|Geografické umístění vašeho nasazení centra Azure Stack.|`east`|
 |Název externí domény|Název zóny, kterou chcete použít pro nasazení centra Azure Stack.|`cloud.fabrikam.com`|
 |Interní název domény|Název interní zóny, která se používá pro služby infrastruktury v centru Azure Stack. Je to integrovaná a soukromá adresářová služba (není dostupná z vnějšku nasazení Azure Stack hub).|`azurestack.local`|
-|Servery DNS pro přeposílání|Servery DNS, které se používají k přeposílání dotazů DNS, zón DNS a záznamů hostovaných mimo centrum Azure Stack, buď na podnikovém intranetu nebo na veřejném Internetu. Po nasazení můžete hodnotu služby DNS resílat upravit pomocí [rutiny **set-AzSDnsForwarder** ](#editing-dns-forwarder-ips) . 
+|Servery DNS pro přeposílání|Servery DNS, které se používají k přeposílání dotazů DNS, zón DNS a záznamů hostovaných mimo centrum Azure Stack, buď na podnikovém intranetu nebo na veřejném Internetu. Po nasazení můžete hodnotu služby DNS resílat upravit pomocí [rutiny **set-AzSDnsForwarder**](#editing-dns-forwarder-ips) . 
 |Předpona názvů (volitelné)|Předpona názvů, kterou chcete, aby názvy počítačů v rolích infrastruktury centra Azure Stack měly.  Pokud není zadaný, použije se výchozí hodnota `azs` .|`azs`|
 
 Plně kvalifikovaný název domény (FQDN) vašeho nasazení centra Azure Stack a koncových bodů je kombinací parametru region a parametru názvu externí domény. Při použití hodnot z příkladů v předchozí tabulce bude plně kvalifikovaný název domény pro toto nasazení centra Azure Stack následující název:
@@ -76,7 +76,7 @@ Centrum Azure Stack zahrnuje autoritativní i rekurzivní servery DNS. Rekurzivn
 
 ## <a name="resolving-external-dns-names-from-azure-stack-hub"></a>Překlad externích názvů DNS z centra Azure Stack
 
-Chcete-li přeložit názvy DNS pro koncové body mimo Azure Stack centra (například: www \. Bing.com), je nutné poskytnout servery DNS, které Azure Stack Hub může použít k přeposílání požadavků DNS, pro které není rozbočovač Azure Stack autoritativní. Pro nasazení se v listu nasazení (v poli pro přeposílání DNS) vyžadují servery DNS, na které Azure Stack požadavky na rozbočovače dopředně požadavky. Pro odolnost proti chybám zadejte v tomto poli aspoň dva servery. Bez těchto hodnot není nasazení centra Azure Stack úspěšné. Po nasazení můžete hodnoty DNS pro přeposílání upravit pomocí [rutiny **set-AzSDnsForwarder** ](#editing-dns-forwarder-ips) . 
+Chcete-li přeložit názvy DNS pro koncové body mimo Azure Stack centra (například: www \. Bing.com), je nutné poskytnout servery DNS, které Azure Stack Hub může použít k přeposílání požadavků DNS, pro které není rozbočovač Azure Stack autoritativní. Pro nasazení se v listu nasazení (v poli pro přeposílání DNS) vyžadují servery DNS, na které Azure Stack požadavky na rozbočovače dopředně požadavky. Pro odolnost proti chybám zadejte v tomto poli aspoň dva servery. Bez těchto hodnot není nasazení centra Azure Stack úspěšné. Po nasazení můžete hodnoty DNS pro přeposílání upravit pomocí [rutiny **set-AzSDnsForwarder**](#editing-dns-forwarder-ips) . 
 
 ### <a name="configure-conditional-dns-forwarding"></a>Konfigurace podmíněného předávání DNS
 

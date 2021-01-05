@@ -1,18 +1,18 @@
 ---
 title: Integrace centra Azure Stack s řešeními monitorování prostřednictvím předávání syslog
 description: Naučte se integrovat Azure Stack hub s řešeními monitorování pomocí předávání syslog.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: article
 ms.date: 01/10/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/15/2020
-ms.openlocfilehash: 9709c72233acdff710f4be2764adc7e408b32dde
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 9a6da457b32bf9a224a906bc24ec65c7adcf1fab
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934858"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870405"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>Integrace centra Azure Stack s řešeními monitorování pomocí předávání syslog
 
@@ -261,7 +261,7 @@ Tabulka PEP závažnosti:
 |----------|-------| ----------------|
 |0|Nedefinované|Hodnota: 0. Indikuje protokoly na všech úrovních.|
 |10|Kritické|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
-|8|Chyba| Hodnota: 2. Označuje protokoly pro chybu.|
+|8|Chybová| Hodnota: 2. Označuje protokoly pro chybu.|
 |5|Upozornění|Hodnota: 3. Indikuje protokoly pro upozornění.|
 |2|Informace|Hodnota: 4. Označuje protokoly pro informační zprávu.|
 |0|Verbose|Hodnota: 5. Indikuje protokoly na všech úrovních.|
@@ -294,7 +294,7 @@ Tabulka závažnosti zástupce:
 |----------|-------| ----------------|
 |0|Nedefinované|Hodnota: 0. Indikuje protokoly na všech úrovních.|
 |10|Kritické|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
-|8|Chyba| Hodnota: 2. Označuje protokoly pro chybu.|
+|8|Chybová| Hodnota: 2. Označuje protokoly pro chybu.|
 |5|Upozornění|Hodnota: 3. Indikuje protokoly pro upozornění.|
 |2|Informace|Hodnota: 4. Označuje protokoly pro informační zprávu.|
 |0|Verbose|Hodnota: 5. Indikuje protokoly na všech úrovních.|
@@ -314,7 +314,7 @@ Tabulka závažnosti pro události systému Windows:
 |--------------------|---------------------| ----------------|
 |0|Nedefinované|Hodnota: 0. Indikuje protokoly na všech úrovních.|
 |10|Kritické|Hodnota: 1. Označuje protokoly pro kritickou výstrahu.|
-|8|Chyba| Hodnota: 2. Označuje protokoly pro chybu.|
+|8|Chybová| Hodnota: 2. Označuje protokoly pro chybu.|
 |5|Upozornění|Hodnota: 3. Indikuje protokoly pro upozornění.|
 |2|Informace|Hodnota: 4. Označuje protokoly pro informační zprávu.|
 |0|Verbose|Hodnota: 5. Indikuje protokoly na všech úrovních.|

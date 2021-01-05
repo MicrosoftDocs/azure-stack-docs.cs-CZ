@@ -1,18 +1,18 @@
 ---
 title: Capacity Planner centra Azure Stack
 description: Naučte se používat Capacity Planner tabulku Azure Stack hub pro nasazení.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 51b9530fdd67826616f6117c3c95dbe48b45303f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d78d52bf28671527bd5f9dbfd80efef401888264
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701631"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871527"
 ---
 # <a name="azure-stack-hub-capacity-planner"></a>Capacity Planner centra Azure Stack
 
@@ -20,11 +20,11 @@ Capacity Planner centra Azure Stack je tabulka, která ukazuje, jakým způsobem
 
 ## <a name="worksheet-descriptions"></a>Popisy listů
 
-Následující tabulka popisuje každý list v Capacity Planner centra Azure Stack, ze [https://aka.ms/azstackcapacityplanner](https://aka.ms/azstackcapacityplanner)kterého se dá stáhnout.
+Následující tabulka popisuje každý list v Capacity Planner centra Azure Stack, ze kterého se dá stáhnout [https://aka.ms/azstackcapacityplanner](https://aka.ms/azstackcapacityplanner) .
 
 |Název listu|Popis|
 |-----|-----|
-|Omezení verze|Účel kalkulačky, číslo verze a datum vydání|
+|Version-Disclaimer|Účel kalkulačky, číslo verze a datum vydání|
 |Pokyny|Podrobné pokyny pro modelování plánování kapacity pro kolekci virtuálních počítačů (VM).|
 |DefinedSolutionSKUs|Tabulka s až pěti definicemi hardwaru. Tyto položky jsou příklady. Změňte podrobnosti tak, aby odpovídaly zadaným konfiguracím systému.|
 |DefineByVMFootprint|Vyhledejte příslušnou skladovou jednotku hardwaru porovnáním konfigurací s různými velikostmi a množstvím virtuálních počítačů.|

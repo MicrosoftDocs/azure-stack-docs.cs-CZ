@@ -1,18 +1,18 @@
 ---
 title: Integrace řešení pro externí monitorování pomocí centra Azure Stack
 description: Naučte se integrovat Azure Stack hub s externím řešením monitorování ve vašem datovém centru.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: article
 ms.date: 11/18/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 11/18/2020
-ms.openlocfilehash: 28da3cf886219eab10fff32d24b62cb7db101cb5
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 79fd494996c87aa513fc7aa4ab0554449c5770d5
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517697"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870898"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>Integrace řešení pro externí monitorování pomocí centra Azure Stack
 
@@ -117,7 +117,7 @@ Následující parametry jsou k dispozici pro konfiguraci v souboru azurestack. 
 
 Další informace o tom, jak vytvořit hlavní název služby (SPN), najdete v tématu [použití identity aplikace pro přístup k prostředkům](azure-stack-create-service-principals.md).
 
-| Parametr | Popis | Authentication |
+| Parametr | Popis | Ověřování |
 | --- | --- | --- |
 | **External_domain_fqdn** | Plně kvalifikovaný název domény externí domény |    |
 | **věřitel** | Název oblasti |    |

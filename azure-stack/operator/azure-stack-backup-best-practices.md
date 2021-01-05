@@ -1,18 +1,18 @@
 ---
 title: Osvědčené postupy pro Infrastructure Backup služby – centrum Azure Stack
 description: Při nasazení a správě centra Azure Stack použijte tyto osvědčené postupy, které vám pomůžou snížit riziko ztráty dat v případě závažného selhání.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 02/08/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: hectorl
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: fe0fa50ca2dfd69475fe2726042332c6ce9f51ad
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: f1208b2a683923e4cf09951d9812e8cbcfcd475f
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573118"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871816"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Osvědčené postupy pro službu Infrastructure Backup
 
@@ -34,7 +34,7 @@ Po nasazení každého cloudu centra Azure Stack povolte Infrastructure Backup. 
 
 #### <a name="version-1901-and-newer"></a>Verze 1901 a novější
 
-Šifrovací certifikát se používá k šifrování zálohovaných dat, která se exportují do externího úložiště. Certifikát může být certifikát podepsaný svým držitelem, protože certifikát se používá jenom k přenosu klíčů. Další informace o tom, jak vytvořit certifikát, najdete v článku New-SelfSignedCertificate.
+Šifrovací certifikát se používá k šifrování zálohovaných dat, která se exportují do externího úložiště. Certifikát může být certifikát podepsaný svým držitelem, protože certifikát se používá jenom k přenosu klíčů. Další informace o tom, jak vytvořit certifikát, najdete v tématu New-SelfSignedCertificate.
   
 Klíč musí být uložený v zabezpečeném umístění (například globální Azure Key Vault certifikát). Formát CER certifikátu slouží k šifrování dat. Formát PFX se musí použít během nasazování Cloud Recovery Azure Stack hub k dešifrování zálohovaných dat.
 
@@ -75,7 +75,7 @@ Oblast: NYC
 
 Složka MASBackup je místo, kde Azure Stack hub ukládá data záloh. Tuto složku nepoužívejte k ukládání vlastních dat. Výrobci OEM by tuto složku neměli používat k ukládání zálohovaných dat buď.
 
-Výrobci OEM doporučujeme ukládat data záloh pro své komponenty do složky region. Každý síťový přepínač, hostitel životního cyklu hardwaru (HLH) a tak dále může být uložený ve své vlastní podsložce. Příklad:
+Výrobci OEM doporučujeme ukládat data záloh pro své komponenty do složky region. Každý síťový přepínač, hostitel životního cyklu hardwaru (HLH) a tak dále může být uložený ve své vlastní podsložce. Například:
 
 ```console
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\HLH

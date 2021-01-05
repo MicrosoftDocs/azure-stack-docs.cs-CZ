@@ -1,18 +1,18 @@
 ---
 title: Zálohování centra Azure Stack
 description: Naučte se, jak provést zálohování na vyžádání v centru Azure Stack.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2019
-ms.openlocfilehash: 2090471cee6fa36a32b9e2147de7941cd4abed54
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 5df894d32d335b488ad51b09bb38c3011f754e15
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544271"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871833"
 ---
 # <a name="back-up-azure-stack-hub"></a>Zálohování centra Azure Stack
 

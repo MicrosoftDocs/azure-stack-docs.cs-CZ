@@ -1,22 +1,22 @@
 ---
 title: Ověření stavu systému pomocí nástroje Azure Stackho ověřování centra
 description: Naučte se používat nástroj pro ověření centra Azure Stack k ověření stavu systému.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 01/10/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: adshar
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 4c91954e4a3a19640d519d16363c0d2742077d67
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: cd6eba86f75cffe3014ca954877ee4b39767bbf0
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415160"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870830"
 ---
 # <a name="validate-azure-stack-hub-system-state"></a>Ověřit stav systému centra Azure Stack
 
-Jako operátor centra Azure Stack je možné určit stav systému na vyžádání v podstatě. Nástroj pro ověření centra Azure Stack ( **test-AzureStack** ) je rutina prostředí PowerShell, která umožňuje spustit sérii testů v systému, aby bylo možné identifikovat chyby, pokud jsou k dispozici. Obvykle budete požádáni o spuštění tohoto nástroje prostřednictvím [privilegovaného koncového bodu (PEP)](azure-stack-privileged-endpoint.md) při kontaktování podpory zákaznických služeb microsoftu (podpora Microsoftu) s problémem. Když jsou dostupné informace o stavu a stavu v rámci systému, podpora Microsoftu můžou shromažďovat a analyzovat podrobné protokoly, soustředit se na oblast, kde došlo k chybě, a spolupracovat s vámi, abyste problém vyřešili.
+Jako operátor centra Azure Stack je možné určit stav systému na vyžádání v podstatě. Nástroj pro ověření centra Azure Stack (**test-AzureStack**) je rutina prostředí PowerShell, která umožňuje spustit sérii testů v systému, aby bylo možné identifikovat chyby, pokud jsou k dispozici. Obvykle budete požádáni o spuštění tohoto nástroje prostřednictvím [privilegovaného koncového bodu (PEP)](azure-stack-privileged-endpoint.md) při kontaktování podpory zákaznických služeb microsoftu (podpora Microsoftu) s problémem. Když jsou dostupné informace o stavu a stavu v rámci systému, podpora Microsoftu můžou shromažďovat a analyzovat podrobné protokoly, soustředit se na oblast, kde došlo k chybě, a spolupracovat s vámi, abyste problém vyřešili.
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>Spuštění nástroje pro ověřování a přístup k výsledkům
 
@@ -163,16 +163,16 @@ Uživatelské jméno správce cloudu musí být zadané ve formátu hlavního n�
 
 ### <a name="groups"></a>Skupiny
 
-Pro zlepšení prostředí operátora je povolený parametr **skupiny** , aby bylo možné spustit více kategorií testů současně. V současné době jsou definovány tři skupiny: **Default** , **UpdateReadiness** a **SecretRotationReadiness**.
+Pro zlepšení prostředí operátora je povolený parametr **skupiny** , aby bylo možné spustit více kategorií testů současně. V současné době jsou definovány tři skupiny: **Default**, **UpdateReadiness** a **SecretRotationReadiness**.
 
-- **Výchozí** : považuje se za standardní běh rutiny **test-AzureStack**. Tato skupina se spouští ve výchozím nastavení, pokud nejsou vybrané žádné jiné skupiny.
-- **UpdateReadiness** : zkontroluje, jestli se instance centra Azure Stack dá aktualizovat. Když je spuštěná skupina **UpdateReadiness** , zobrazí se upozornění jako chyby ve výstupu konzoly a měla by se považovat za blokování pro aktualizaci. Od centra Azure Stack verze 1910 jsou součástí skupiny **UpdateReadiness** tyto kategorie:
+- **Výchozí**: považuje se za standardní běh rutiny **test-AzureStack**. Tato skupina se spouští ve výchozím nastavení, pokud nejsou vybrané žádné jiné skupiny.
+- **UpdateReadiness**: zkontroluje, jestli se instance centra Azure Stack dá aktualizovat. Když je spuštěná skupina **UpdateReadiness** , zobrazí se upozornění jako chyby ve výstupu konzoly a měla by se považovat za blokování pro aktualizaci. Od centra Azure Stack verze 1910 jsou součástí skupiny **UpdateReadiness** tyto kategorie:
 
   - **AzsInfraFileValidation**
   - **AzsActionPlanStatus**
   - **AzsStampBMCSummary**
 
-- **SecretRotationReadiness** : zkontroluje, jestli je instance centra Azure Stack ve stavu, ve kterém je možné spustit rotaci tajných klíčů. Když je spuštěná skupina **SecretRotationReadiness** , zobrazí se upozornění jako chyby ve výstupu konzoly a měla by se považovat za blokování pro rotaci tajných klíčů. Následující kategorie jsou součástí skupiny SecretRotationReadiness:
+- **SecretRotationReadiness**: zkontroluje, jestli je instance centra Azure Stack ve stavu, ve kterém je možné spustit rotaci tajných klíčů. Když je spuštěná skupina **SecretRotationReadiness** , zobrazí se upozornění jako chyby ve výstupu konzoly a měla by se považovat za blokování pro rotaci tajných klíčů. Následující kategorie jsou součástí skupiny SecretRotationReadiness:
 
   - **AzsAcsSummary**
   - **AzsDefenderSummary**

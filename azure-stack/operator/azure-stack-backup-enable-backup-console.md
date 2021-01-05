@@ -1,18 +1,18 @@
 ---
 title: Povolení zálohování centra Azure Stack na portálu pro správu
 description: Naučte se, jak povolit službu Infrastructure Backup z portálu pro správu, aby bylo možné v případě selhání obnovit centrum Azure Stack.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 08/21/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: hectorl
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: ba942571d804ec221ee9c25d1b78ddfa1e3a52de
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 4ec0aebf0fcf46973a4f371d659aece8e51eb2c7
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106618"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871850"
 ---
 # <a name="enable-backup-for-azure-stack-hub-from-the-administrator-portal"></a>Povolení zálohování centra Azure Stack z portálu pro správu
 
@@ -35,13 +35,13 @@ Správci a uživatelé zodpovídají za zálohování a obnovování prostředk�
 ## <a name="enable-or-reconfigure-backup"></a>Povolení nebo překonfigurování zálohování
 
 1. Otevřete [portál Azure Stack centrum pro správu](azure-stack-manage-portals.md).
-2. Vyberte **všechny služby**a potom v kategorii **Správa** vyberte **zálohování infrastruktury**. V okně **zálohování infrastruktury** vyberte **Konfigurace** .
+2. Vyberte **všechny služby** a potom v kategorii **Správa** vyberte **zálohování infrastruktury**. V okně **zálohování infrastruktury** vyberte **Konfigurace** .
 3. Zadejte cestu k **umístění úložiště zálohy**. Použijte řetězec UNC (Universal Naming Convention) pro cestu ke sdílené složce hostované na samostatném zařízení. Řetězec UNC určuje umístění prostředků, jako jsou třeba sdílené soubory nebo zařízení. Pro službu můžete použít IP adresu. Aby se zajistila dostupnost zálohovaných dat po havárii, mělo by být zařízení v samostatném umístění.
 
     > [!Note]  
     > Pokud vaše prostředí podporuje rozlišení názvů z sítě infrastruktury centra Azure Stack do vašeho podnikového prostředí, můžete místo IP adresy použít plně kvalifikovaný název domény (FQDN).
 
-4. Zadejte **uživatelské jméno** s použitím domény a uživatelského jména s dostatečným přístupem ke čtení a zápisu souborů. Například, `Contoso\backupshareuser`.
+4. Zadejte **uživatelské jméno** s použitím domény a uživatelského jména s dostatečným přístupem ke čtení a zápisu souborů. Například `Contoso\backupshareuser`.
 5. Zadejte **heslo** pro uživatele.
 6. Zadejte heslo znovu a **potvrďte heslo**.
 7. **Frekvence v hodinách** určuje, jak často se vytvářejí zálohy. Výchozí hodnota je 12. Scheduler podporuje maximálně 12 a minimálně 4. 
@@ -82,7 +82,7 @@ Pokud chcete spustit zálohování, klikněte na **Zálohovat nyní** a spusťte
 Rutinu PowerShellu **Start-AzsBackup** můžete spustit také na počítači správce centra Azure Stack. Další informace najdete v tématu [zálohování centra Azure Stack](azure-stack-backup-back-up-azure-stack.md).
 
 ## <a name="enable-or-disable-automatic-backups"></a>Povolit nebo zakázat automatické zálohování
-Zálohování se automaticky naplánuje při povolení zálohování. V části **základy**si můžete prohlédnout další čas zálohování plánu. 
+Zálohování se automaticky naplánuje při povolení zálohování. V části **základy** si můžete prohlédnout další čas zálohování plánu. 
 
 ![Azure Stack zálohování na vyžádání do centra](media/azure-stack-backup/on-demand-backup.png)
 
@@ -90,7 +90,7 @@ Pokud potřebujete zakázat budoucí naplánovaná zálohování, klikněte na *
 
 ![Azure Stack centrum – zakázat plánované zálohy](media/azure-stack-backup/disable-auto-backup.png)
 
-Potvrďte, že v **Essentials**jsou budoucí naplánovaná zálohování zakázaná:
+Potvrďte, že v **Essentials** jsou budoucí naplánovaná zálohování zakázaná:
 
 ![Centrum Azure Stack – potvrzení zálohování je zakázané.](media/azure-stack-backup/confirm-disable.png)
 

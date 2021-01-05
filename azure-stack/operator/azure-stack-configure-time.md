@@ -1,18 +1,18 @@
 ---
 title: Konfigurace časového serveru v centru Azure Stack
 description: Přečtěte si, jak nakonfigurovat časový server v centru Azure Stack.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: article
 ms.date: 2/19/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 10/10/2019
-ms.openlocfilehash: f1627be5d6986cd82fe21a58163f22eb0873eda6
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: e50bb123e7f52c17e5d180d0dd33cc84669882ab
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836100"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871408"
 ---
 # <a name="configure-the-time-server-for-azure-stack-hub"></a>Konfigurace časového serveru pro centrum Azure Stack
 
@@ -40,7 +40,7 @@ Pro Azure Stack centra pro synchronizaci času je vyžadován jeden časový ser
 3. Spuštěním následujícího příkazu aktualizujte centrum Azure Stack tak, aby používalo nový server NTP, a okamžitě synchronizujte čas.
 
     > [!Note]  
-    > Tato procedura neaktualizuje časový server na fyzických přepínačích. Pokud Váš časový server není serverem NTP se systémem Windows, je nutné přidat příznak `0x8`.
+    > Tato procedura neaktualizuje časový server na fyzických přepínačích. Pokud Váš časový server není serverem NTP se systémem Windows, je nutné přidat příznak `0x8` .
 
     ```PowerShell
     Set-AzsTimeSource -TimeServer NEWTIMESERVERIP -resync

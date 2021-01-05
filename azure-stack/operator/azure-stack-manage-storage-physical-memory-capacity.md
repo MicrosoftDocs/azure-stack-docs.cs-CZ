@@ -1,18 +1,18 @@
 ---
 title: Správa kapacity fyzické paměti v centru Azure Stack
 description: Naučte se monitorovat a spravovat fyzickou paměť a kapacitu v Azure Stack hub.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: b52775083f05be4aac3de4fd5d3f72808bcc7569
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 82aa7c6bd9295d5727ca7a37fa6798d2bf352887
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78368069"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870184"
 ---
 # <a name="manage-physical-memory-capacity-in-azure-stack-hub"></a>Správa kapacity fyzické paměti v centru Azure Stack
 

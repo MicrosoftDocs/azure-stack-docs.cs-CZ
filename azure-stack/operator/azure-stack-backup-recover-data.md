@@ -1,18 +1,18 @@
 ---
 title: Obnovení z závažné ztráty dat v centru Azure Stack
 description: Naučte se obnovovat a obnovovat data infrastruktury v Azure Stack hub po závažných ztrátách dat.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 10/23/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: hectorl
 ms.lastreviewed: 10/23/2020
-ms.openlocfilehash: 35d55eec6c1311c39014f94f94fb04d39c7acb3b
-ms.sourcegitcommit: 25f6211aa16308d50315872f647d840f402fa62e
+ms.openlocfilehash: ba7710196b57050c636ac43301ed4434f13af063
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496414"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871697"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Obnovení z katastrofické ztráty dat
 

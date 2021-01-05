@@ -2,18 +2,18 @@
 title: Základy správy centra Azure Stack – MDC
 titleSuffix: Azure Stack Hub
 description: Seznamte se se základy správy centra Azure Stack. Podívejte se na Další informace o podpoře a podívejte se na další kroky.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 10/26/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 5124494511d1e9c28bddce5cb42ba8e253c53807
-ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
+ms.openlocfilehash: ab28418b30c2e17cdd48471b30206397ed476ed8
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97598534"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872122"
 ---
 # <a name="azure-stack-hub-administration-basics---modular-data-center-mdc"></a>Základy správy centra Azure Stack – modulární datové centrum (MDC)
 
@@ -98,7 +98,7 @@ Kromě poskytování služeb je třeba provést běžné povinnosti operátora, 
 
 Tady je seznam každodenních, týdenních a měsíčních úloh pro operátor:
 
-# <a name="daily"></a>[Každý den](#tab/daily)
+# <a name="daily"></a>[Denně](#tab/daily)
 
 1. Kontrolovat výstrahy.
 2. Ověřte stav zálohování.

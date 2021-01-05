@@ -1,18 +1,18 @@
 ---
 title: Připojení ohraničení a integrace sítě pro integrované systémy centra Azure Stack
 description: Naučte se plánovat připojení k síti datacenter v datových centrech v integrovaných systémech Azure Stack hub.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: wamota
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: 020b3c33361207d3c8fad7fb414fff0365a3acf3
-ms.sourcegitcommit: 98f62c33469ba963ba266bd88e206e9144258ea3
+ms.openlocfilehash: 1377f04a9c746a41ed1965a2798a1dbfd3b0db21
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82032803"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871544"
 ---
 # <a name="border-connectivity"></a>Připojení k okraji 
 Plánování integrace sítě je důležitou podmínkou pro úspěšné nasazení, provoz a správu integrovaných systémů integrovaného centra Azure Stack. Plánování připojení k okraji začíná tím, že zvolíte, jestli chcete používat dynamické směrování s protokolem BGP (Border Gateway Protocol). To vyžaduje, abyste přiřadili 16bitové číslo autonomního systému (ASN), veřejný nebo soukromý nebo pomocí statického směrování.
@@ -36,7 +36,7 @@ Statické směrování vyžaduje další konfiguraci hraničních zařízení. P
 
 Pokud chcete integrovat Azure Stack hub do svého síťového prostředí pomocí statického směrování, musí být připojené všechny čtyři fyzické odkazy mezi hranicí a zařízením. Vysokou dostupnost nelze zaručit kvůli tomu, jak statické směrování funguje.
 
-Hraniční zařízení musí být nakonfigurované se statickými trasami, které odkazují na každou ze čtyř sad IP adres P2P mezi MANDÁTem a hranicí pro provoz směřující do libovolné sítě v rámci centra Azure Stack, ale k provozu se vyžaduje jenom *externí* nebo veřejná síť VIP. Pro počáteční nasazení se vyžadují statické trasy k *řadiči pro správu základní desky* a *externí* sítě. Operátoři se můžou rozhodnout pro ponechání statických tras na hranici pro přístup k prostředkům správy, které se nacházejí na řadiči pro správu *základní desky* a v síti *infrastruktury* . Přidání statických tras pro *Přepnutí infrastruktury* a sítí *pro správu přepínačů* je volitelné.
+Hraniční zařízení musí být nakonfigurované se statickými trasami, které odkazují na každou ze čtyř sad IP adres P2P mezi MANDÁTem a hranicí pro provoz směřující do libovolné sítě v rámci centra Azure Stack, ale k provozu se vyžaduje jenom *externí* nebo veřejná síť VIP. Pro počáteční nasazení se vyžadují statické trasy k *řadiči pro správu základní desky* a *externí* sítě. Operátoři se můžou rozhodnout pro ponechání statických tras na hranici pro přístup k prostředkům správy, které se nacházejí na řadiči pro správu *základní desky*  a v síti *infrastruktury* . Přidání statických tras pro *Přepnutí infrastruktury* a sítí *pro správu přepínačů* je volitelné.
 
 Zařízení se systémem se konfigurují se statickou výchozí trasou, která odesílá veškerý provoz do hraničních zařízení. Jedinou výjimkou provozu na výchozí pravidlo je pro privátní prostor, který se zablokuje pomocí Access Controlho seznamu, který se používá pro připojení k hraniční síti.
 
@@ -44,11 +44,11 @@ Statické směrování platí jenom pro odchozí připojení mezi přepínači p
 
 ![Statické směrování](media/azure-stack-border-connectivity/static-routing.svg)
 
-<sup>\*</sup>Síť řadiče pro správu základní desky je po nasazení volitelná.
+<sup>\*</sup> Síť řadiče pro správu základní desky je po nasazení volitelná.
 
-<sup>\*\*</sup>Síť infrastruktury přepínače je volitelná, protože celá síť může být součástí sítě pro správu přepínače.
+<sup>\*\*</sup> Síť infrastruktury přepínače je volitelná, protože celá síť může být součástí sítě pro správu přepínače.
 
-<sup>\*\*\*</sup>Síť pro správu přepínače je povinná a je možné ji přidat odděleně ze sítě infrastruktury přepínače.
+<sup>\*\*\*</sup> Síť pro správu přepínače je povinná a je možné ji přidat odděleně ze sítě infrastruktury přepínače.
 
 ## <a name="transparent-proxy"></a>Transparentní proxy server
 Pokud vaše datacentrum vyžaduje, aby všechny přenosy používaly proxy server, musíte nakonfigurovat *transparentní proxy server* tak, aby zpracovával veškerý provoz z racku, aby ho mohl zpracovat podle zásad, což rozděluje přenos mezi zónami v síti.

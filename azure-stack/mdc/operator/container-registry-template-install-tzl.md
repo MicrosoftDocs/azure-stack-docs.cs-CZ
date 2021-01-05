@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 1/10/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: 44cf8fe76ec203fb0a6260a92c4e47641d4f40f8
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: cba936293c5771737c2022a24acd9c7202ff78c1
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934996"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872105"
 ---
 # <a name="add-a-container-registry-to-azure-stack-hub"></a>Přidání registru kontejneru do centra Azure Stack
 
@@ -33,7 +33,7 @@ Položku Marketplace **šablony Container Registry** můžete najít v následuj
 
 Můžete také přidat položku (zatížení na straně) do Marketplace pomocí Microsoft. AzureStackDockerContainerRegistry. 1.0.2. azpkg. Ke skriptům v tomto článku lze získat pøístup stažením úložiště Git jako (ZIP) balíčku z https://github.com/msazurestackworkloads/azurestack-gallery/archive/master.zip a extrahováním souborů. Skript můžete najít ve `azurestack-gallery-master\registry\scripts` složce.
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 Před přidáním položky Container Registry Marketplace do centra Azure Stack budete muset mít následující položky.
 
@@ -167,7 +167,7 @@ Instalace šablony registru kontejnerů vyžaduje vytvoření několika prostře
 3. Označte image, která se má cílit na nově nasazený registr kontejnerů Docker.
 4. Nahrajte image do nového cílového registru.
 
-Příklad:
+Například:
 
 ```powershell  
 PS C:\> docker pull mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0

@@ -1,18 +1,18 @@
 ---
 title: Pomoc a podpora centra Azure Stack
 description: Získejte podporu pro Centrum Microsoft Azure Stack.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 02/26/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: db1a7919987803682ff0a9df84565fa7aef47620
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: 7c4bb5f75118552d7f8379edac7083f8830082a5
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415296"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870711"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Pomoc a podpora centra Azure Stack
 
@@ -76,10 +76,10 @@ Diagnostické protokoly můžete společnosti Microsoft odeslat dvěma způsoby:
 
 ## <a name="diagnostic-log-collection"></a>Shromažďování protokolů diagnostiky
 
-Od verze 1907 existují dva nové způsoby, jak shromažďovat protokoly v **nápovědě a podpoře** :
+Od verze 1907 existují dva nové způsoby, jak shromažďovat protokoly v **nápovědě a podpoře**:
 
-- **Automatická kolekce** : Pokud je tato možnost povolená, spustí se shromažďování protokolů konkrétními upozorněními na stav.
-- **Shromažďovat protokoly nyní** : můžete zvolit posuvné okno 1-4 hodin za posledních sedm dní.
+- **Automatická kolekce**: Pokud je tato možnost povolená, spustí se shromažďování protokolů konkrétními upozorněními na stav.
+- **Shromažďovat protokoly nyní**: můžete zvolit posuvné okno 1-4 hodin za posledních sedm dní.
 
 ![Možnosti shromažďování protokolů diagnostiky](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
 

@@ -1,18 +1,18 @@
 ---
 title: Povolení zálohování centra Azure Stack pomocí PowerShellu
 description: Naučte se, jak povolit službu Infrastructure Backup pomocí prostředí PowerShell, aby bylo možné v případě selhání obnovit centrum Azure Stack.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 04/25/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: hectorl
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: bc6ce6c36e3aca05015e6acbef3de0d5fd841eb6
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 0e1bdbf55556d8168e517a5d9cfb30d6747c02f3
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543914"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871748"
 ---
 # <a name="enable-backup-for-azure-stack-hub-with-powershell"></a>Povolení zálohování centra Azure Stack pomocí PowerShellu
 
@@ -36,7 +36,7 @@ Ve stejné relaci prostředí PowerShell upravte následující skript prostřed
 
 | Proměnná        | Popis   |
 |---              |---                                        |
-| `$username`       | Zadejte **uživatelské jméno** s použitím domény a uživatelského jména pro umístění sdílené jednotky s dostatečným přístupem ke čtení a zápisu souborů. Například, `Contoso\backupshareuser`. |
+| `$username`       | Zadejte **uživatelské jméno** s použitím domény a uživatelského jména pro umístění sdílené jednotky s dostatečným přístupem ke čtení a zápisu souborů. Například `Contoso\backupshareuser`. |
 | `$password`       | Zadejte **heslo** pro uživatele. |
 | `$sharepath`      | Zadejte cestu k **umístění úložiště zálohy**. Je nutné použít řetězec UNC (Universal Naming Convention) pro cestu ke sdílené složce hostované na samostatném zařízení. Řetězec UNC určuje umístění prostředků, jako jsou třeba sdílené soubory nebo zařízení. Aby se zajistila dostupnost zálohovaných dat, mělo by být zařízení v samostatném umístění. |
 | `$frequencyInHours` | Frekvence v hodinách určuje, jak často se vytvářejí zálohy. Výchozí hodnota je 12. Scheduler podporuje maximálně 12 a minimálně 4.|

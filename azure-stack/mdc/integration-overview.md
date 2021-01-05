@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 11/04/2020
-ms.openlocfilehash: 2d65f96cb7e64b22949150a246326d620ea66f56
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: e69881e5f898b0c1f397a4a6d407da5995dd3049
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96615483"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872343"
 ---
 # <a name="modular-datacenter-integration-overview"></a>Přehled integrace modulárního datacentra
 
@@ -34,7 +34,7 @@ Následující tabulka uvádí, co je možné očekávat během různých fází
 | Strany |Proces pořadí |Před nasazením |Integrace, ověřování, přenos |Nasazení na pracovišti |Po nasazení |
 |---|---------------|---------------|-----------------------------------|--------------------|----------------|
 |Partnerský vztah Microsoftu  | Signál pro doručení do umístění v USA.    |Poskytněte potřebné nástroje a dokumentaci pro shromažďování požadavků Datacenter. |– Ověřte artefakty konfigurace a zkontrolujte výsledky ověření.<br>– Zajistěte doručení hardwaru.    |– Rack a Stack.<br>– Integrace sítě.<br>-Azure Stack nasazení centra.<br>-Ruku od zákazníka.    |Registrace a syndikace webu centra Azure Stack.|
-|Zákazník   |Nákup signálu   |– Vyplní podrobnosti sítě v listu nasazení.<br>– Shromáždění certifikátů.<br>– Získejte účty Azure Active Directory (Azure AD).<br>-Spustit jakýkoli poskytnutý Nástroj pro ověření.   |Ujistěte se, že je lokalita připravena se všemi požadavky na síť, napájení a chlazení.   |– Připravte se na artefakty konfigurace nasazení.<br>– Ujistěte se, že je k dispozici pracovník sítě zákazníka.   |     |
+|Customer (Zákazník)   |Nákup signálu   |– Vyplní podrobnosti sítě v listu nasazení.<br>– Shromáždění certifikátů.<br>– Získejte účty Azure Active Directory (Azure AD).<br>-Spustit jakýkoli poskytnutý Nástroj pro ověření.   |Ujistěte se, že je lokalita připravena se všemi požadavky na síť, napájení a chlazení.   |– Připravte se na artefakty konfigurace nasazení.<br>– Ujistěte se, že je k dispozici pracovník sítě zákazníka.   |     |
 
 
 ## <a name="order-process"></a>Proces pořadí

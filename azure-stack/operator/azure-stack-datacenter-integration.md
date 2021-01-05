@@ -1,18 +1,18 @@
 ---
 title: Plánování integrace Datacenter pro integrované systémy Azure Stack hub
 description: Naučte se plánovat a připravit integraci Datacenter pomocí integrovaných systémů Azure Stack hub.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2019
-ms.openlocfilehash: 825db573a614d1a1dd9b54cd87d8894c981fce4b
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 89cb7fe7ee0f8e19c2774d5ebfef988ec0933e03
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573029"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871017"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>Požadavky na plánování integrace Datacenter pro integrované systémy centra Azure Stack
 
@@ -55,7 +55,7 @@ Další informace o výběru poskytovatele identity najdete v [článku modely p
 
 Pokud se rozhodnete nasadit Azure Stack hub pomocí AD FS jako poskytovatele identity, musíte integrovat instanci AD FS v Azure Stackovém centru s existující instancí AD FS prostřednictvím vztahu důvěryhodnosti federace. Tato integrace umožňuje identitám v existující doménové struktuře služby Active Directory ověřování pomocí prostředků v centru Azure Stack.
 
-Službu Graph Service můžete také integrovat do centra Azure Stack s existující službou Active Directory. Tato integrace vám umožní spravovat Access Control na základě rolí (RBAC) v centru Azure Stack. Když je delegovaný přístup k prostředku, komponenta grafu vyhledá uživatelský účet v existující doménové struktuře služby Active Directory pomocí protokolu LDAP.
+Službu Graph Service můžete také integrovat do centra Azure Stack s existující službou Active Directory. Tato integrace vám umožní spravovat Role-Based Access Control (RBAC) v centru pro Azure Stack. Když je delegovaný přístup k prostředku, komponenta grafu vyhledá uživatelský účet v existující doménové struktuře služby Active Directory pomocí protokolu LDAP.
 
 Následující diagram znázorňuje integrovaný tok provozu AD FS a grafů.<br/><br/>
 ![Diagram znázorňující tok provozu AD FS a grafu](media/azure-stack-datacenter-integration/ADFSIntegration.svg)
@@ -185,7 +185,7 @@ Pokud dojde k závažné ztrátě dat, můžete použít zálohu infrastruktury 
 - Vstupy a identifikátory nasazení
 - Service Accounts
 - Kořenový certifikát certifikační autority
-- prostředky fFederated (v odpojených nasazeních)
+- Federované prostředky (v odpojených nasazeních)
 - Plány, nabídky, předplatné a kvóty
 - Přiřazení zásad a rolí RBAC
 - Key Vault tajných klíčů

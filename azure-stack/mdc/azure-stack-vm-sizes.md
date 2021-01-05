@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 12/20/2019
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: 79245ddf40d2ab39f4bb8ed7548023b3df6ec556
-ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
+ms.openlocfilehash: 13b38a80e782db1a81cccfe5f5e2e5e11b2d59f8
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97598602"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872496"
 ---
 # <a name="vm-sizes-supported-in-azure-stack---modular-data-center-mdc"></a>Velikosti virtuálních počítačů podporované v modulárních datových centrech Azure Stack (MDC)
 
@@ -36,7 +36,7 @@ Velikosti virtuálních počítačů pro obecné účely představují vyvážen
 > [!NOTE]
 > *Základní A* Velikosti virtuálních počítačů se při [vytváření služby Virtual Machine Scale Sets](../operator/azure-stack-compute-add-scalesets.md) (VMSS) prostřednictvím portálu neúčtují. Pokud chcete vytvořit VMSS s touto velikostí, použijte PowerShell nebo šablonu.
 
-|Velikost – Size\Name |Virtuální procesory     |Memory (Paměť) | Max. velikost dočasného disku | Maximální propustnost disku s operačním systémem: (IOPS) | Maximální propustnost dočasného úložiště (IOPS) | Maximální propustnost datového disku (IOPS) | Maximální počet síťových karet |    
+|Velikost – Size\Name |Virtuální procesory     |Paměť | Max. velikost dočasného disku | Maximální propustnost disku s operačním systémem: (IOPS) | Maximální propustnost dočasného úložiště (IOPS) | Maximální propustnost datového disku (IOPS) | Maximální počet síťových karet |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
 |**A0\Basic_A0**  |1    |768 MB   | 20 GB   |300  | 300  |1/1x300  |2   |
 |**A1\Basic_A1**  |1    |1,75 GB  | 40 GB   |300  | 300  |2/2x300  |2   |

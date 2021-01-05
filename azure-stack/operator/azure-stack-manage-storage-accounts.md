@@ -1,18 +1,18 @@
 ---
 title: Správa účtů úložiště Azure Stack hub
 description: Přečtěte si, jak najít, spravovat, obnovit a získat Azure Stack účty úložiště centra.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 2e4882717b4dc708298df7b4ee9a8dc0ef2c1b9c
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: 4a939cafccd91b29a324dd15e01b04be47074df8
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415313"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870099"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>Správa účtů úložiště Azure Stack hub
 
@@ -37,12 +37,12 @@ Pokud vás zajímá konkrétní účet úložiště, můžete **filtrovat a nač
 **Filtrování účtů:**
 
 1. V horní části podokna vyberte **Filtr** .
-2. V podokně filtru můžete zadat **název účtu** , **ID předplatného** nebo **stav** , abyste mohli vyladit seznam účtů úložiště, které se mají zobrazit. Použijte je podle potřeby.
+2. V podokně filtru můžete zadat **název účtu**, **ID předplatného** nebo **stav** , abyste mohli vyladit seznam účtů úložiště, které se mají zobrazit. Použijte je podle potřeby.
 3. Při psaní se v seznamu automaticky použije filtr.
 
     ![Filtrování účtů úložiště Azure Stack hub](media/azure-stack-manage-storage-accounts/image5.png)
 
-4. Postup obnovení filtru: vyberte **Filtr** , zrušte výběr a aktualizujte.
+4. Postup obnovení filtru: vyberte **Filtr**, zrušte výběr a aktualizujte.
 
 Textové pole Hledat (v horní části podokna Seznam účtů úložiště) umožňuje v seznamu účtů zvýraznit vybraný text. Tuto možnost můžete použít, pokud není úplný název nebo ID snadno dostupné.
 
@@ -90,8 +90,8 @@ Nastavení doby uchovávání umožňuje operátorovi cloudu nastavit časové o
 **Postup změny doby uchování:**
 
 1. Přihlaste se k portálu pro správu `https://adminportal.local.azurestack.external` .
-2. V části Správa vyberte **všechny služby**  >  **Správa oblastí** . **Administration**
-3. Vyberte **prostředky**  >  **Storage**  >  **Nastavení** úložiště poskytovatelé. Vaše cesta je domovská > *oblast* – poskytovatelé prostředků > úložiště.
+2. V části Správa vyberte **všechny služby**  >  **Správa oblastí** . 
+3. Vyberte **prostředky**  >    >  **Nastavení** úložiště poskytovatelé. Vaše cesta je domovská > *oblast* – poskytovatelé prostředků > úložiště.
 4. Vyberte **Konfigurace** a pak upravte hodnotu Doba uchování.
 
    Nastavte počet dnů a pak ho uložte.

@@ -1,18 +1,18 @@
 ---
 title: Změna majitele fakturace pro předplatné uživatele centra Azure Stack
 description: Naučte se, jak změnit vlastníka fakturace pro předplatné Azure Stackho centra uživatele.
-author: justinha
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 11/16/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: shnatara
 ms.lastreviewed: 11/16/2020
-ms.openlocfilehash: 0a455f7f902e76e61f5a7451e26219abf10b7622
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: c5438aaf928efeee0b71470e0965c6b18b5a7c0a
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96035268"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871280"
 ---
 # <a name="change-the-billing-owner-for-an-azure-stack-hub-user-subscription"></a>Změna majitele fakturace pro předplatné uživatele centra Azure Stack
 

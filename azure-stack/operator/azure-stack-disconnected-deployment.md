@@ -1,18 +1,18 @@
 ---
 title: Rozhodnutí o odpojeném nasazení Azure pro integrované systémy Azure Stack hub
 description: Přečtěte si informace o odpojeném nasazení integrovaných systémů centra Azure Stack a o rozhodnutích, která je potřeba vzít v úvahu.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: wfayed
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 9f7ca860de1dd801ae35134683583a4ce8053dde
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 98633108390ee24416c9383ed8171439a4ee1459
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78368698"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870847"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Rozhodnutí týkající se plánování nasazení na odpojení Azure pro integrované systémy centra Azure Stack
 Až se rozhodnete, [jak budete integrovat Azure Stack hub do svého hybridního cloudového prostředí](azure-stack-connection-models.md), můžete dokončit rozhodnutí o nasazení Azure Stack centra.

@@ -1,18 +1,18 @@
 ---
 title: Kapacita výpočetní kapacity centra Azure Stack
 description: Přečtěte si o plánování kapacity pro Azure Stack nasazení centra.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 03/04/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 67e1961a0f1f739e550cc55d100900190892bb5e
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 8d1d6c6da0e11278b2b7ce796ca3dffd77385e81
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899750"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871497"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Kapacita výpočetní kapacity centra Azure Stack
 
@@ -91,7 +91,7 @@ Pokud se znovu spustí uvolněný virtuální počítač, využití paměti nebo
 
 Aktuálně nasazené velké virtuální počítače ukazují, že přidělená paměť je 112 GB, ale nároky na paměť těchto virtuálních počítačů jsou přibližně 2-3 GB.
     
-| Name | Přiřazená paměť (GB) | Požadavky na paměť (GB) | ComputerName |  
+| Název | Přiřazená paměť (GB) | Požadavky na paměť (GB) | ComputerName |  
 | ---- | -------------------- | ------------------ | ------------ |                                        
 | ca7ec2ea-40fd-4d41-9d9b-b11e7838d508 |                 112  |     2.2392578125  |  LISSA01P-NODE01 |
 | 10cd7b0f-68f4-40ee-9d98-b9637438ebf4  |                112  |     2.2392578125  |   LISSA01P-NODE01 |
@@ -142,11 +142,11 @@ Rezerva odolnosti = 512 + 230,4 + 224 = 966,4 GB
 
 **Otázka**: můj tenant má nasazený nový virtuální počítač, jak dlouho bude trvat, než se v grafu schopností na portálu pro správu zobrazí zbývající kapacita?
 
-Odpověď **: okno kapacity se aktualizuje**každých 15 minut, takže Vezměte v úvahu.
+Odpověď **: okno kapacity se aktualizuje** každých 15 minut, takže Vezměte v úvahu.
 
 **Otázka**: Jak můžu zobrazit dostupné jádra a přiřazené jádra?
 
-**A**Odpověď: v **prostředí PowerShell** `test-azurestack -include AzsVmPlacement -debug` , které generuje výstup podobný tomuto:
+Odpověď: v **prostředí PowerShell** `test-azurestack -include AzsVmPlacement -debug` , které generuje výstup podobný tomuto:
 
 ```console
     Starting Test-AzureStack
@@ -166,15 +166,15 @@ Odpověď **: okno kapacity se aktualizuje**každých 15 minut, takže Vezměte 
 
 **Otázka**: počet nasazených virtuálních počítačů v centru Azure Stack se nezměnil, ale kapacita se pohybuje. Proč?
 
-Odpověď **: dostupná**paměť pro umístění virtuálního počítače má několik závislostí, jedna z nich je rezerva HOSTITELSKÉHO operačního systému. Tato hodnota závisí na paměti používané různými procesy technologie Hyper-V spuštěné na hostiteli, což není konstantní hodnota.
+Odpověď **: dostupná** paměť pro umístění virtuálního počítače má několik závislostí, jedna z nich je rezerva HOSTITELSKÉHO operačního systému. Tato hodnota závisí na paměti používané různými procesy technologie Hyper-V spuštěné na hostiteli, což není konstantní hodnota.
 
 **Otázka**: jaký stav mají virtuální počítače tenanta pro využívání paměti?
 
-Odpověď **: Kromě**spuštěných virtuálních počítačů je paměť spotřebovaná všemi virtuálními počítači, které se proložily v prostředcích infrastruktury. To znamená, že virtuální počítače, které jsou ve stavu "vytvoření" nebo "selhání", budou spotřebovávat paměť. Virtuální počítače, které se vypnou z hosta, na rozdíl od zrušení přidělení z portálu nebo PowerShellu/CLI budou také spotřebovávat paměť.
+Odpověď **: Kromě** spuštěných virtuálních počítačů je paměť spotřebovaná všemi virtuálními počítači, které se proložily v prostředcích infrastruktury. To znamená, že virtuální počítače, které jsou ve stavu "vytvoření" nebo "selhání", budou spotřebovávat paměť. Virtuální počítače, které se vypnou z hosta, na rozdíl od zrušení přidělení z portálu nebo PowerShellu/CLI budou také spotřebovávat paměť.
 
 **Otázka**: mám rozbočovač Azure Stack se čtyřmi hostiteli. Můj tenant má 3 virtuální počítače, které využívají 56 GB paměti RAM (D5_v2). U jednoho z virtuálních počítačů se změní velikost na 112 GB RAM (D14_v2) a dostupné generování sestav paměti na řídicím panelu vedlo k celkovému využití 168 GB v okně kapacity. Následná změna velikosti dalších dvou D5_v2 virtuálních počítačů na D14_v2 vedla pouze k navýšení 56 GB paměti RAM. Proč to jde?
 
-Odpověď **: dostupná**paměť je funkce rezervy odolnosti udržované Azure Stack hub. Rezerva odolnosti je funkce největší velikosti virtuálního počítače na razítku centra Azure Stack. Nejdřív je největší virtuální počítač na razítku 56 GB paměti. Když se změnila velikost virtuálního počítače, největší virtuální počítač na razítku se stal 112 GB paměti, což nejen zvýšilo paměť využitou virtuálním počítačem tenanta, ale také zvýšila rezervu odolnosti. Tato změna způsobila zvýšení 56 GB (56 GB až 112 GB zvýšení paměti virtuálního počítače klienta) + 112 GB zvýšení odolnosti paměti virtuálního počítače. Když se změnila velikost dalších virtuálních počítačů, největší velikost virtuálního počítače zůstala 112 GB virtuálního počítače, a proto se nemusela zvýšit žádná rezerva v důsledku odolnosti proti chybám. Zvýšení spotřeby paměti bylo pouze zvýšení paměti virtuálního počítače klienta (56 GB).
+Odpověď **: dostupná** paměť je funkce rezervy odolnosti udržované Azure Stack hub. Rezerva odolnosti je funkce největší velikosti virtuálního počítače na razítku centra Azure Stack. Nejdřív je největší virtuální počítač na razítku 56 GB paměti. Když se změnila velikost virtuálního počítače, největší virtuální počítač na razítku se stal 112 GB paměti, což nejen zvýšilo paměť využitou virtuálním počítačem tenanta, ale také zvýšila rezervu odolnosti. Tato změna způsobila zvýšení 56 GB (56 GB až 112 GB zvýšení paměti virtuálního počítače klienta) + 112 GB zvýšení odolnosti paměti virtuálního počítače. Když se změnila velikost dalších virtuálních počítačů, největší velikost virtuálního počítače zůstala 112 GB virtuálního počítače, a proto se nemusela zvýšit žádná rezerva v důsledku odolnosti proti chybám. Zvýšení spotřeby paměti bylo pouze zvýšení paměti virtuálního počítače klienta (56 GB).
 
 > [!NOTE]
 > Požadavky na plánování kapacity pro sítě jsou minimální, protože je konfigurovatelná jenom velikost veřejné virtuální IP adresy. Informace o tom, jak přidat další veřejné IP adresy do centra Azure Stack, najdete v tématu [Přidání veřejných IP adres](azure-stack-add-ips.md).

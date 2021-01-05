@@ -3,16 +3,16 @@ title: Dostupné položky Azure Marketplace pro službu Azure Stack Hub
 description: Zjistěte, které Azure Marketplace položky lze použít v centru Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 12/9/2020
+ms.date: 01/04/2021
 ms.author: sethm
 ms.reviewer: gara
 ms.lastreviewed: 12/9/2020
-ms.openlocfilehash: ccc190d13d78f3dbbfdca3b05a1868763637f55b
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 475aa05c8274f36ea63763d648c69f2b3778da71
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935215"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871770"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>Dostupné položky Azure Marketplace pro službu Azure Stack Hub
 
@@ -219,7 +219,7 @@ Centrum Microsoft Azure Stack podporuje následující Azure Marketplace virtuá
 | ![Víceklientská vrstva WordPress](media/azure-stack-marketplace-azure-items/wordpress.png) | [Víceklientská vrstva WordPress](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.multi-tier-wordpress) | WordPress je nejoblíbenější platforma pro psaní blogů a obsahu na světě. Výkonné, ale všichni od studentů až po globální společnosti ji využívají k vytváření působivých a funkčních webů. Toto řešení používá dva virtuální počítače, jeden s front-end aplikací a druhý s databází. Tato šablona řešení také vyžaduje **Debian 9** a **vlastní skript pro rozšíření Linux 2,0**. | Bitnami |
 | ![WordPress s NGINX a SSL](media/azure-stack-marketplace-azure-items/wordpress.png) | [WordPress s NGINX a SSL](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.wordpresspro) | WordPress s NGINX a SSL kombinuje nejoblíbenější aplikaci pro psaní blogů s výkonem webového serveru NGINX. Také zjednodušuje konfiguraci certifikátů, které umožňují šifrování, a zajišťuje tak jejich zabezpečení. | Bitnami |
 | :::image type="icon" source="media/azure-stack-marketplace-azure-items/xoops.png" border="false"::: | [Xoops](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.xoops) | Program CMS a webový portál, který vytváří dynamické weby. | Bitnami |
-| :::image type="icon" source="media/azure-stack-marketplace-azure-items/zurmo.png" border="false"::: | [Zurmo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zurmo) | Open source systém CRM: mobilní, sociální a Gamified. | Bitnami |
+| :::image type="icon" source="media/azure-stack-marketplace-azure-items/zurmo.png" border="false"::: | [Zurmo](https://sourceforge.net/projects/zurmo/) | Open source systém CRM: mobilní, sociální a Gamified. | Bitnami |
 | :::image type="icon" source="media/azure-stack-marketplace-azure-items/zookeeper.png" border="false"::: | [ZooKeeper](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zookeeper) | ZooKeeper poskytuje spolehlivý a centralizovaný registr konfiguračních dat a služeb pro distribuované aplikace. | Bitnami |
 | ![Cluster ZooKeeper](media/azure-stack-marketplace-azure-items/zookeeper.png) | [Cluster ZooKeeper](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zookeepermultitier) | ZooKeeper poskytuje spolehlivý a centralizovaný registr konfiguračních dat a služeb pro distribuované aplikace. Toto řešení poskytuje škálovatelné, spolehlivé a centralizované služby pro ukládání a koordinaci dat pro distribuované aplikace. Zřizuje také konfigurovatelný počet uzlů, které dohromady tvoří cluster ZooKeeper odolný proti chybám. Můžete ho také integrovat s jinými aplikacemi, jako je Kafka. Tato šablona řešení také vyžaduje **Debian 9** a **vlastní skript pro rozšíření Linux 2,0**. | Bitnami |
 | ![Check Point CloudGuard IaaS High Availability](media/azure-stack-marketplace-azure-items/checkpoint.png) | [CloudGuard IaaS High Availability](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Toto řešení nasadí cluster CloudGuard IaaS kontrolního bodu člena. Každý člen má 2 síťová rozhraní. | Check Point |
@@ -250,4 +250,5 @@ Centrum Microsoft Azure Stack podporuje následující Azure Marketplace virtuá
 | ![Software pro Teradici Cloud Access](media/azure-stack-marketplace-azure-items/teradici.png) | [Software pro Teradici Cloud Access](https://azuremarketplace.microsoft.com/marketplace/apps/teradici.teradici_cas_azure_stack) | &reg;Software pro Cloud Access, který využívá technologii PCoIP, zajišťuje vzdálené plochy a pracovní stanice z Azure Stack do libovolného zařízení, kdekoli. Konsolidujte úložiště dat, Vylepšete spolupráci, zabezpečte data, Zjednodušte správu stolních počítačů a další funkce. | Teradici |
 | ![CipherTrust Cloud Key Manager](media/azure-stack-marketplace-azure-items/cckm.png) | [CipherTrust Cloud Key Manager](https://azuremarketplace.microsoft.com/marketplace/apps/thales-vormetric.ciphertrust-ckm) | Správce cloudových klíčů CipherTrust, který využívá Microsoft Azure a další rozhraní API BYOK (Cloud Provider Bring Your Own Key), snižuje složitost správy klíčů a provozní náklady tím, že poskytuje cloudové řízení životního cyklu šifrovacích klíčů pomocí centralizované správy a viditelnosti. | Thales eSecurity |
 | ![Replikace Veeam Backup &](media/azure-stack-marketplace-azure-items/veeam.png) | [Replikace Veeam Backup &](https://azuremarketplace.microsoft.com/marketplace/apps/veeam.veeam-backup-replication?tab=Overview) | Veeam &reg; Backup & Replication &trade; pomáhá firmám dosáhnout komplexní ochrany dat pro všechny úlohy – Virtual, fyzickou i cloudovou. Pomocí jediné konzoly můžete dosáhnout rychlého, flexibilního a spolehlivého zálohování, obnovení a replikace všech aplikací a dat. | Veeam software |
+| ![Operační systém (VOS) – naopak](media/azure-stack-marketplace-azure-items/versa.png) | [Operační systém (VOS) – naopak](https://azuremarketplace.microsoft.com/marketplace/apps/versanetworks.versa-operating-system?tab=Overview) | NeVOSý operační systém () je komplexní a pokročilé virtuální zařízení nové generace, které přináší sílu SD-WAN, SD-Routing a SD-Security do cloudu Microsoft Azure. | Sítě – odrážky |
 | ![ZeroDown software BCaaS](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown softwarová kontinuita jako služba](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | ZeroDown &reg; software Technology poskytuje firmám nepřetržitý přístup k jejich podnikovým datům prostřednictvím architektury BCaaS (Business kontinuity jako služby) &trade; , ochrany aplikací a transakcí, pokud dojde k přerušení sítě, která by normálně Cripple podnikem. | ZeroDown software |

@@ -1,18 +1,18 @@
 ---
 title: Škálování akcí uzlu jednotky v Azure Stackovém centru pro MDC
 description: Naučte se škálovat akce uzlu jednotek, včetně zapnutí, vypnutí, zakázání, obnovení a zobrazení stavu uzlu v integrovaných systémech centra Azure Stack.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: article
 ms.date: 10/26/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 6413cec9b2464d5295feab0f3a3983083b9d04ea
-ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
+ms.openlocfilehash: 835b6a39e089bbe959c7c5cf5283d2b516b6d4f7
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97598517"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872054"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub---modular-data-center-mdc"></a>Akce uzlu jednotky škálování v centra Azure Stack – modulární datové centrum (MDC)
 
@@ -84,7 +84,7 @@ V nepravděpodobném případě, že akce zastavení nefunguje, zkuste operaci z
 
 Další informace najdete v tématu [stop-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/stop-azsscaleunitnode).
 
-## <a name="start"></a>Spustit
+## <a name="start"></a>Start
 
 Akce **Spustit** zapne uzel. Je to stejné jako při stisknutí tlačítka napájení.
 

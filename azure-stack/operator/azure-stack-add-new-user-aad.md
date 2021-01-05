@@ -1,18 +1,18 @@
 ---
 title: Přidání nového uživatelského účtu centra Azure Stack v Azure Active Directory
 description: Naučte se, jak vytvořit uživatelský účet v Azure Active Directory, abyste mohli prozkoumat portál User Portal.
-author: JustinHall
+author: PatAltimore
 ms.topic: article
 ms.date: 05/20/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 435b2bfdd2de9a232379190a0fe3db0dca642def
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9ada0a0c7731b92bc67f85545b5d9cd81e87cd36
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77700557"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871969"
 ---
 # <a name="add-a-new-azure-stack-hub-user-account-in-azure-active-directory-azure-ad"></a>Přidání nového uživatelského účtu centra Azure Stack v Azure Active Directory (Azure AD)
 
@@ -24,7 +24,7 @@ Abyste mohli Azure Portal používat, musíte mít předplatné Azure.
 
 1. Přihlaste se k [Azure](https://portal.azure.com).
 2. V levém navigačním panelu vyberte **Active Directory** a přejděte do adresáře, který chcete použít pro Azure Stack hub (nebo vytvořte nový).
-3. Vyberte **Azure Active Directory** > **Uživatelé** > **Nový uživatel**.
+3. Vyberte **Azure Active Directory**  >  **Uživatelé**  >  **Nový uživatel**.
 
     ![Uživatelé – stránka všichni uživatelé s vybraným novým uživatelem](media/azure-stack-add-new-user-aad/new-user-all-users.png)
 
@@ -33,7 +33,7 @@ Abyste mohli Azure Portal používat, musíte mít předplatné Azure.
     ![Přidání nového uživatele, stránky uživatele s informacemi o uživateli](media/azure-stack-add-new-user-aad/new-user-user.png)
 
    - **Název (povinné)**: jméno a příjmení nového uživatele. Například Marie Parker.
-   - **Uživatelské jméno (povinné)**: uživatelské jméno nového uživatele. Například, mary@contoso.com.
+   - **Uživatelské jméno (povinné)**: uživatelské jméno nového uživatele. Například mary@contoso.com.
        Část domény uživatelského jména musí používat počáteční výchozí název domény, <_názevvašídomény_>. onmicrosoft.com, nebo vlastní název domény, jako je contoso.com. Další informace o tom, jak vytvořit vlastní název domény, najdete v tématu [Postup přidání vlastního názvu domény do Azure AD](/azure/active-directory/fundamentals/add-custom-domain).
    - **Profil**: Volitelně můžete přidat další informace o uživateli. Později můžete také přidat informace o uživateli. Další informace o přidání informací o uživateli najdete v tématu [jak přidat nebo změnit informace o profilu uživatele](/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal).
    - **Role adresáře**: vyberte možnost **uživatel**.
@@ -42,10 +42,10 @@ Abyste mohli Azure Portal používat, musíte mít předplatné Azure.
 
 6. Vyberte **Vytvořit**.
 
-    Uživatel se vytvoří a přidá do vašeho tenanta Azure AD.
+    Uživatel se vytvoří a přidá se do vašeho tenanta Azure AD.
 
 7. Přihlaste se k Azure Portal pomocí nového účtu. Po zobrazení výzvy změňte heslo.
-8. Přihlaste `https://portal.local.azurestack.external` se k novému účtu, abyste viděli portál User Portal.
+8. Přihlaste se k `https://portal.local.azurestack.external` novému účtu, abyste viděli portál User Portal.
 
 ## <a name="create-a-user-account-using-powershell"></a>Vytvoření uživatelského účtu pomocí prostředí PowerShell
 
@@ -79,7 +79,7 @@ Pokud nemáte předplatné Azure, nemůžete použít Azure Portal k přidání 
     ```
 
 1. Přihlaste se k Azure pomocí nového účtu. Po zobrazení výzvy změňte heslo.
-2. Přihlaste `https://portal.local.azurestack.external` se k novému účtu, abyste viděli portál User Portal.
+2. Přihlaste se k `https://portal.local.azurestack.external` novému účtu, abyste viděli portál User Portal.
 
 ## <a name="next-steps"></a>Další kroky
 

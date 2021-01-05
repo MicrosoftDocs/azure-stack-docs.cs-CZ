@@ -1,19 +1,19 @@
 ---
 title: Azure Stack nasazení sítě pro MDC
 description: Přečtěte si o Azure Stack nasazení sítě pro zařízení MDC.
-author: justinha
+author: PatAltimore
 ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 01/17/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 01/17/2020
-ms.openlocfilehash: 8744ddd518094026afdba678d524ca981b138610
-ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
+ms.openlocfilehash: a0de01ce240248767ebfd8e558a83408c84282be
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97598653"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872207"
 ---
 # <a name="network-deployment"></a>Nasazení sítě
 
@@ -39,7 +39,7 @@ Následující tabulka koreluje odkazy seznamu řízení přístupu (ACL) k sít
 | Azure Stack infrastruktura                 | Služby infrastruktury Azure Stack a virtuální počítače s omezenou sítí                                                                                                          |   |   |   |   |   |
 | Veřejná infrastruktura Azure Stack (PEP/ERCS) | Azure Stack chráněný koncový bod, Server konzoly pro nouzové zotavení. Zákazník může otevřít seznam ACL a povolit tak provoz do sítě pro správu Datacenter.                        |   |   |   |   |   |
 | Tor1,Tor2 RouterIP                           | Rozhraní zpětné smyčky přepínače používaného pro partnerský vztah protokolu BGP mezi SLB a přepínačem a směrovačem. Zákazník bude mít na hranici bránu firewall, aby tyto IP adresy vypnula. |   |   |   |   |   |
-| Storage                                      | Privátní IP adresy nejsou směrované mimo oblast.                                                                                                                             |   |   |   |   |   |
+| Úložiště                                      | Privátní IP adresy nejsou směrované mimo oblast.                                                                                                                             |   |   |   |   |   |
 | Interní VIP                                | Privátní IP adresy nejsou směrované mimo oblast.                                                                                                                             |   |   |   |   |   |
 | Veřejné virtuální IP adresy                                  | Adresní prostor klientské sítě, který je spravovaný síťovým adaptérem.                                                                                                           |   |   |   |   |   |
 | VIP – veřejné správy                            | Malá podmnožina adres ve fondu tenantů, které jsou nutné pro komunikaci s Internal-VIPs a Azure Stack infrastruktury                                                    |   |   |   |   |   |
@@ -307,7 +307,7 @@ Pomocí této konfigurace můžete zajistit, aby se protokoly z určitého bodu 
 Operátor může nakonfigurovat protokol SNMP (Simple Network Management Protocol) v2 nebo v3 pro monitorování síťových zařízení a odesílání depeší do aplikace monitorování sítě v datacentru. Z bezpečnostních důvodů použijte protokol SNMPv3, protože je bezpečnější než v2. Pokud potřebujete MIB a konfiguraci, obraťte se na svého poskytovatele hardwaru OEM.
 Informace o tom, jak nakonfigurovat oprávnění pro přístup ke správě přepínačů, najdete v části aktualizace seznamu řízení přístupu.
 
-#### <a name="authentication"></a>Authentication
+#### <a name="authentication"></a>Ověřování
 
 Operátor může nakonfigurovat buď protokol RADIUS, nebo TACACS pro správu ověřování na síťových zařízeních. Podporované metody a konfigurace si můžete prostudovat u svého poskytovatele hardwaru OEM. Informace o tom, jak nakonfigurovat oprávnění pro přístup ke správě přepínačů, najdete v části aktualizace seznamu řízení přístupu.
 
