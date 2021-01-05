@@ -1,18 +1,18 @@
 ---
 title: Správa kapacity úložiště v centru Azure Stack
 description: Naučte se monitorovat a spravovat kapacitu a dostupnost úložiště v Azure Stack hub.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: bbced92ca9eb275ed1599ff7422bde1601be11c0
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 85f3aed4ebf5b57b1e77a5b58604eeb881204396
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545495"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870031"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Správa kapacity úložiště pro centrum Azure Stack
 
@@ -92,8 +92,8 @@ Jako operátor cloudu můžete sledovat kapacitu úložiště sdílené složky 
 
 ![Příklad: vrácení volného místa pro sdílené složky](media/azure-stack-manage-storage-shares/free-space.png)
 
-- **Celková kapacita** : celkové místo (v bajtech), které je k dispozici na sdílené složce. Tento prostor se používá pro data a metadata, která jsou spravovaná službami úložiště.
-- **Využitá kapacita** : objem dat (v bajtech), který se používá pro všechny rozsahy ze souborů, které ukládají data tenanta a přidružená metadata.
+- **Celková kapacita**: celkové místo (v bajtech), které je k dispozici na sdílené složce. Tento prostor se používá pro data a metadata, která jsou spravovaná službami úložiště.
+- **Využitá kapacita**: objem dat (v bajtech), který se používá pro všechny rozsahy ze souborů, které ukládají data tenanta a přidružená metadata.
 
 ### <a name="use-the-administrator-portal"></a>Použití portálu pro správu
 
@@ -104,7 +104,7 @@ Jako operátor cloudu můžete pomocí portálu pro správu zobrazit kapacitu ú
 
     ![Příklad: úložiště sdílené složky na portálu pro správu centra Azure Stack](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
-   - **Total (celkem** ): celkový prostor (v bajtech), který je k dispozici na sdílené složce. Tento prostor se používá pro data a metadata, která jsou spravovaná službami úložiště.
+   - **Total (celkem**): celkový prostor (v bajtech), který je k dispozici na sdílené složce. Tento prostor se používá pro data a metadata, která jsou spravovaná službami úložiště.
    - **Používá** se: množství dat (v bajtech), které se používají ve všech rozsahu ze souborů, které ukládají data tenanta a přidružená metadata.
 
 ::: moniker-end
@@ -120,8 +120,8 @@ Jako operátor cloudu můžete sledovat kapacitu úložiště svazku pomocí `Ge
 
 ![Příklad: vrácení volného místa pro svazky](media/azure-stack-manage-storage-shares/listvolumespowershell.png)
 
-- **Celková kapacita** : celkové místo v GB, které je ve sdílené složce k dispozici. Tento prostor se používá pro data a metadata, která jsou spravovaná službami úložiště.
-- **Zbývající kapacita** : množství místa v GB, které je zdarma pro uložení dat tenanta a přidružených metadat.
+- **Celková kapacita**: celkové místo v GB, které je ve sdílené složce k dispozici. Tento prostor se používá pro data a metadata, která jsou spravovaná službami úložiště.
+- **Zbývající kapacita**: množství místa v GB, které je zdarma pro uložení dat tenanta a přidružených metadat.
 
 ### <a name="use-the-administrator-portal"></a>Použití portálu pro správu
 
@@ -132,7 +132,7 @@ Jako operátor cloudu můžete pomocí portálu pro správu zobrazit kapacitu ú
 
     ![Příklad: svazky úložiště na portálu pro správu centra Azure Stack](media/azure-stack-manage-storage-shares/listvolumes.png)
 
-   - **Total (celkem** ): celkové místo k dispozici na svazku. Tento prostor se používá pro data a metadata, která jsou spravovaná službami úložiště.
+   - **Total (celkem**): celkové místo k dispozici na svazku. Tento prostor se používá pro data a metadata, která jsou spravovaná službami úložiště.
    - **Používá** se: množství dat, která jsou využívána všemi rozsahy ze souborů, které ukládají data tenanta a přidružená metadata.
 
 ::: moniker-end
@@ -144,15 +144,15 @@ Když použijete portál pro správu, zobrazí se upozornění na svazky, které
 > [!IMPORTANT]
 > Jako operátor cloudu byste měli zabránit tomu, aby sdílené složky dosáhly plného využití. Pokud je sdílená složka 100%, služba úložiště pro tuto sdílenou složku přestane fungovat. Chcete-li obnovit volné místo a operace obnovení ve sdílené složce, která je 100%, je třeba se obrátit na podporu společnosti Microsoft.
 
-* **Upozornění** : Pokud je sdílená složka větší než 80%, obdržíte *Upozornění* na portálu pro správu:
+* **Upozornění**: Pokud je sdílená složka větší než 80%, obdržíte *Upozornění* na portálu pro správu:
 
   ![Příklad: výstražné upozornění na portálu pro správu centra Azure Stack](media/azure-stack-manage-storage-shares/alert-warning.png)
 
-* **Kritické** : Pokud je sdílená složka větší než 90%, obdržíte *kritickou* výstrahu na portálu pro správu:
+* **Kritické**: Pokud je sdílená složka větší než 90%, obdržíte *kritickou* výstrahu na portálu pro správu:
 
   ![Příklad: kritická výstraha na portálu pro správu centra Azure Stack](media/azure-stack-manage-storage-shares/alert-critical.png)
 
-* **Zobrazit podrobnosti** : na portálu pro správu můžete otevřít podrobnosti výstrahy pro zobrazení možností zmírnění rizika:
+* **Zobrazit podrobnosti**: na portálu pro správu můžete otevřít podrobnosti výstrahy pro zobrazení možností zmírnění rizika:
 
   ![Příklad: zobrazení podrobností o výstrahách na portálu pro správu centra Azure Stack](media/azure-stack-manage-storage-shares/alert-details.png)
 
@@ -248,7 +248,7 @@ Migrace slučuje všechny objekty blob kontejneru v nové sdílené složce.
 
    ![Příklad: vrácení stavu zpět](media/azure-stack-manage-storage-shares/rollback.png)
 
-7. Můžete znovu spustit příkaz z kroku 6, dokud nebude stav migrace *zrušený* :  
+7. Můžete znovu spustit příkaz z kroku 6, dokud nebude stav migrace *zrušený*:  
 
     ![Snímek obrazovky, který ukazuje příklad stavu zrušené migrace.](media/azure-stack-manage-storage-shares/cancelled.png)
 
@@ -327,7 +327,7 @@ Můžete uvolnit místo na využívaném svazku tak, že ručně migrujete někt
 
    ![Příklad: stav dílčí úlohy migrace](media/azure-stack-manage-storage-shares/diskmigrationsubtask.png)
 
-6. Probíhající úlohu migrace můžete zrušit. Zrušené úlohy migrace se zpracovávají asynchronně. Zrušení můžete sledovat pomocí názvu úlohy, dokud stav nepotvrdí, že se úloha migrace **zruší** :
+6. Probíhající úlohu migrace můžete zrušit. Zrušené úlohy migrace se zpracovávají asynchronně. Zrušení můžete sledovat pomocí názvu úlohy, dokud stav nepotvrdí, že se úloha migrace **zruší**:
 
    ```powershell
    Stop-AzsDiskMigrationJob -Name $jobName

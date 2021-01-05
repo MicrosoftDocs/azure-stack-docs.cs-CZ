@@ -1,19 +1,19 @@
 ---
-title: Monitorování stavu a výstrah v centru Azure Stack
+title: Monitorování stavu a upozornění ve službě Azure Stack Hub
 description: Naučte se monitorovat stav a výstrahy v centru Azure Stack.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: f2b827510087a40ae011e506b5d1f467153e3fdb
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: de197a87478a666fe20bbd451bda76fc991b5a02
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78368086"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869929"
 ---
-# <a name="monitor-health-and-alerts-in-azure-stack-hub"></a>Monitorování stavu a výstrah v centru Azure Stack
+# <a name="monitor-health-and-alerts-in-azure-stack-hub"></a>Monitorování stavu a upozornění ve službě Azure Stack Hub
 
 Centrum Azure Stack zahrnuje možnosti monitorování infrastruktury, které vám pomůžou zobrazit stav a výstrahy pro oblast centra Azure Stack. Dlaždice **Správa oblastí** obsahuje seznam všech nasazených oblastí centra Azure Stack. Ve výchozím nastavení je připnuté na portálu pro správu pro výchozí předplatné poskytovatele. Tato dlaždice zobrazuje počet aktivních výstrah kritických a varovných upozornění pro jednotlivé oblasti. Tato dlaždice je vaším vstupním bodem do funkce stavu a výstrahy centra Azure Stack.
 
@@ -30,7 +30,7 @@ Centrum Azure Stack vyvolává výstrahy jenom se dvěma závažnostmi: **Upozor
 - **Upozornění**  
   Operátor může výstražné upozornění naplánovaným způsobem vyřešit. Výstraha obvykle nemá vliv na uživatelské úlohy.
 
-- **Kritická**  
+- **Kritické**  
   Operátor by měl vyřešit kritickou výstrahu s naléhavostí. Tyto výstrahy označují problémy, které aktuálně ovlivňují nebo brzy ovlivní Azure Stack uživatelů centra.
 
 
@@ -45,7 +45,7 @@ Chcete-li zobrazit stav na portálu, klikněte na oblast, kterou chcete zobrazit
 Kliknutím na poskytovatel prostředků nebo na roli infrastruktury zobrazíte podrobnější informace.
 
 > [!WARNING]  
-> Pokud kliknete na roli infrastruktury a pak na instanci role, existují možnosti **spuštění**, **restartování**nebo **vypnutí**. Tyto akce nepoužívejte při použití aktualizací pro integrovaný systém. Nepoužívejte také **not** tyto možnosti v prostředí Azure Stack Development Kit (ASDK). Tyto možnosti jsou určené jenom pro prostředí s integrovanými systémy, kde je na jednu roli infrastruktury víc instancí role. Restartování instance role (obzvláště AzS-Xrp01) v ASDK způsobuje nestabilitu systému. Pokud potřebujete pomoc s řešením potíží, vystavte svůj problém do [fóra centra Azure Stack](https://aka.ms/azurestackforum).
+> Pokud kliknete na roli infrastruktury a pak na instanci role, existují možnosti **spuštění**, **restartování** nebo **vypnutí**. Tyto akce nepoužívejte při použití aktualizací pro integrovaný systém. Nepoužívejte také  tyto možnosti v prostředí Azure Stack Development Kit (ASDK). Tyto možnosti jsou určené jenom pro prostředí s integrovanými systémy, kde je na jednu roli infrastruktury víc instancí role. Restartování instance role (obzvláště AzS-Xrp01) v ASDK způsobuje nestabilitu systému. Pokud potřebujete pomoc s řešením potíží, vystavte svůj problém do [fóra centra Azure Stack](https://aka.ms/azurestackforum).
 >
 
 ## <a name="view-alerts"></a>Zobrazení upozornění
@@ -85,6 +85,6 @@ Po opětovném návratu instance role infrastruktury do režimu online se tato v
 
 ## <a name="next-steps"></a>Další kroky
 
-[Správa aktualizací v centru Azure Stack](azure-stack-updates.md)
+[Správa aktualizací ve službě Azure Stack Hub](azure-stack-updates.md)
 
 [Správa oblastí v centru Azure Stack](azure-stack-region-management.md)

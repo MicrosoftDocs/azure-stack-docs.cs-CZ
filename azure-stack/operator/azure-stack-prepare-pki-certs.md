@@ -2,18 +2,18 @@
 title: Příprava certifikátů PKI Azure Stack hub pro nasazení nebo otočení
 titleSuffix: Azure Stack Hub
 description: Naučte se, jak připravit certifikáty PKI pro nasazení Azure Stackho centra nebo pro otáčení tajných klíčů.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 10/19/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: ppacent
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: b0d750c81299b59fb8bab64c327a642f0d58503a
-ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
+ms.openlocfilehash: aa40849a62973b9e5fe989580909d7813acfe92b
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96152858"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869606"
 ---
 # <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>Příprava certifikátů PKI Azure Stack hub pro nasazení nebo otočení
 
@@ -24,7 +24,7 @@ Soubory certifikátů [získané od certifikační autority (CA)](azure-stack-ge
 
 V tomto článku se dozvíte, jak importovat, zabalit a ověřovat externí certifikáty, abyste se připravili na Azure Stack nasazení centra nebo rotaci tajných kódů. 
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 Před sbalením certifikátů PKI pro nasazení centra Azure Stack musí systém splňovat následující požadavky:
 
@@ -43,24 +43,24 @@ Pomocí těchto kroků můžete balíčky certifikátů pomocí rutin PowerShell
     ```powershell  
         Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
     ```
-2. Zadejte **cestu** k souborům certifikátu. Příklad:
+2. Zadejte **cestu** k souborům certifikátu. Například:
 
     ```powershell  
         $Path = "$env:USERPROFILE\Documents\AzureStack"
     ```
 
-3. Deklarujte třídu **pfxPassword**. Příklad:
+3. Deklarujte třídu **pfxPassword**. Například:
 
     ```powershell  
         $pfxPassword = Read-Host -AsSecureString -Prompt "PFX Password"
     ```
-4. Deklarujete **ExportPath** , do kterého bude výsledný PFXs exportován. Příklad:
+4. Deklarujete **ExportPath** , do kterého bude výsledný PFXs exportován. Například:
 
     ```powershell  
         $ExportPath = "$env:USERPROFILE\Documents\AzureStack"
     ```
 
-5. Převod certifikátů na certifikáty centra Azure Stack. Příklad:
+5. Převod certifikátů na certifikáty centra Azure Stack. Například:
 
     ```powershell  
         ConvertTo-AzsPFX -Path $Path -pfxPassword $pfxPassword -ExportPath $ExportPath

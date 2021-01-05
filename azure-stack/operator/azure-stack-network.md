@@ -1,18 +1,18 @@
 ---
 title: Plánování integrace sítě pro centrum Azure Stack
 description: Naučte se plánovat integraci sítě Datacenter pomocí integrovaných systémů centra Azure Stack.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: dc9273ba215c819595099aa35e6b3487623f6cd2
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: a03052ddae302444fa843a6195ef738c61769fa2
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545240"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869827"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Plánování integrace sítě pro Azure Stack
 
@@ -45,7 +45,7 @@ Následující tabulka uvádí logické sítě a přidružené rozsahy podsítí
 | Veřejná virtuální IP adresa | Azure Stack používá celkem 31 adres z této sítě. Osm veřejných IP adres se používá pro malou sadu Azure Stack služeb a zbývající jsou používány virtuálními počítači klienta. Pokud plánujete použít App Service a poskytovatele prostředků SQL, použijí se 7 dalších adres. Zbývajících 15 IP adres se rezervuje pro budoucí služby Azure. | /26 (62 hostitelů)-/22 (1022 hostitelů)<br><br>Doporučené =/24 (254 hostitelů) | 
 | Přepnout infrastrukturu | IP adresy Point-to-Point pro účely směrování, rozhraní pro správu vyhrazených přepínačů a adresy zpětné smyčky přiřazené přepínači. | za 26 | 
 | Infrastruktura | Slouží k Azure Stack interní součásti pro komunikaci. | za 24 |
-| Soukromá | Používá se pro síť úložiště, privátní virtuální IP adresy, kontejnery infrastruktury a další interní funkce. Od 1910 se velikost této podsítě mění na/20. Další podrobnosti najdete v části [privátní síť](#private-network) v tomto článku. | /20 | 
+| Privátní | Používá se pro síť úložiště, privátní virtuální IP adresy, kontejnery infrastruktury a další interní funkce. Od 1910 se velikost této podsítě mění na/20. Další podrobnosti najdete v části [privátní síť](#private-network) v tomto článku. | /20 | 
 | Řadič BMC | Slouží ke komunikaci s BMC na fyzických hostitelích. | za 26 | 
 | | | |
 
@@ -68,9 +68,9 @@ HLH také hostuje virtuální počítač nasazení (DVM). DVM se používá běh
 
 Tato/20 IP adres (4096) je privátní pro Azure Stackou oblast (nejedná se o trasu nad rámec hraničních zařízení Azure Stack systému) a je rozdělená do několika podsítí, tady je několik příkladů:
 
-- **Síť úložiště** : a/25 (128 IP adres), která se používá k podpoře použití prostorových přímých a přenosů úložiště protokolu SMB (Server Message Block) a migrace za provozu virtuálních počítačů.
-- **Interní virtuální IP síť** : a/25 síť vyhrazenou pouze pro interní VIP pro nástroj pro vyrovnávání zatížení softwaru.
-- **Síť kontejneru** : a/23 (512 IP adres), které jsou vyhrazené jenom pro interní přenosy mezi kontejnery, na kterých běží služby infrastruktury.
+- **Síť úložiště**: a/25 (128 IP adres), která se používá k podpoře použití prostorových přímých a přenosů úložiště protokolu SMB (Server Message Block) a migrace za provozu virtuálních počítačů.
+- **Interní virtuální IP síť**: a/25 síť vyhrazenou pouze pro interní VIP pro nástroj pro vyrovnávání zatížení softwaru.
+- **Síť kontejneru**: a/23 (512 IP adres), které jsou vyhrazené jenom pro interní přenosy mezi kontejnery, na kterých běží služby infrastruktury.
 
 Počínaje verzí 1910 **vyžaduje** systém Azure Stack hub další/20 privátní interní IP místo. Tato síť bude privátním systémem Azure Stack (netrasuje se nad rámec hraničních zařízení Azure Stack systému) a je možné ji znovu použít ve více systémech Azure Stack v rámci vašeho datového centra. I když je síť soukromá, aby Azure Stack, nesmí se překrývat s ostatními sítěmi v datacentru. Privátní IP místo/20 je rozdělené do několika sítí, které umožňují provozovat infrastrukturu centra Azure Stack v kontejnerech. Kromě toho tato nová privátní IP adresa umožňuje nepřetržité úsilí snížit před nasazením požadované IP místo pro směrování. Cílem provozování infrastruktury centra Azure Stack v kontejnerech je optimalizace využití a zvýšení výkonu. Kromě toho privátní IP místo/20 slouží také k povolení průběžného úsilí, které před nasazením omezí požadovaný adresní prostor IP adres. Pokyny k privátnímu adresnímu prostoru IP adres doporučujeme následující:  [RFC 1918](https://tools.ietf.org/html/rfc1918).
 
@@ -79,7 +79,7 @@ Pro systémy nasazené před 1910 bude tato/20 podsíť další síť, která se
 > [!NOTE]
 > Vstup/20 slouží jako předpoklad pro příští aktualizaci centra Azure Stack po 1910. Když se další aktualizace centra Azure Stack po 1910 vydání a pokusíte se ji nainstalovat, aktualizace se nezdaří, pokud jste nedokončili vstup/20, jak je popsáno v následujících krocích oprav. V portálu pro správu bude k dispozici výstraha, dokud výše uvedené kroky nápravy nejsou dokončeny. V článku věnovaném [integraci sítě Datacenter](azure-stack-network.md#private-network) se dozvíte, jak bude tento nový privátní prostor použit.
 
-**Postup nápravy** : Pokud chcete problém vyřešit, postupujte podle pokynů a [otevřete relaci PEP](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Připravte velikost [privátního interního rozsahu IP adres](azure-stack-network.md#logical-networks) /20 a v relaci PEP spusťte následující rutinu (k dispozici pouze počínaje 1910) pomocí následujícího příkladu: `Set-AzsPrivateNetwork -UserSubnet 10.87.0.0/20` . Pokud se operace provede úspěšně, obdržíte do **Konfigurace přidaný rozsah interní sítě AZS**. Po úspěšném dokončení se výstraha zavře na portálu pro správu. Systém centra Azure Stack se teď může aktualizovat na další verzi.
+**Postup nápravy**: Pokud chcete problém vyřešit, postupujte podle pokynů a [otevřete relaci PEP](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Připravte velikost [privátního interního rozsahu IP adres](azure-stack-network.md#logical-networks) /20 a v relaci PEP spusťte následující rutinu (k dispozici pouze počínaje 1910) pomocí následujícího příkladu: `Set-AzsPrivateNetwork -UserSubnet 10.87.0.0/20` . Pokud se operace provede úspěšně, obdržíte do **Konfigurace přidaný rozsah interní sítě AZS**. Po úspěšném dokončení se výstraha zavře na portálu pro správu. Systém centra Azure Stack se teď může aktualizovat na další verzi.
 
 ### <a name="azure-stack-infrastructure-network"></a>Síť Azure Stack infrastruktury
 

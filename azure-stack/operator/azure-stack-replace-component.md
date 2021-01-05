@@ -2,18 +2,18 @@
 title: Výměna hardwarové součásti na uzlu jednotky škálování centra Azure Stack
 titleSuffix: Azure Stack Hub
 description: Naučte se, jak nahradit hardwarovou součást v integrovaném systému Azure Stack hub.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 2755daf33f1bd2bd4bc02858821ae0727df71042
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 5111857dbf154c3669e3971b16af686eb0facc44
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572592"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869402"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-hub-scale-unit-node"></a>Nahrazení hardwarové komponenty na uzlu jednotky škálování Azure Stack Hub
 
@@ -22,7 +22,7 @@ Tento článek popisuje obecný proces nahrazení hardwarových komponent, kter�
 > [!CAUTION]  
 > Úroveň firmwaru je zásadní pro úspěch operace popsané v tomto článku. Chybějící tento krok může vést k nestabilitě systému, poklesu výkonu, vláknům zabezpečení nebo zabrání automatizaci centra Azure Stack v nasazení operačního systému. Při nahrazování hardwaru vždy projděte dokumentaci k vašemu hardwarovému partnerovi, aby se zajistilo, že aplikovaný firmware odpovídá verzi OEM zobrazené na [portálu pro správu centra Azure Stack](azure-stack-updates.md).
 
-| Hardwarový partner | Region (Oblast) | URL |
+| Hardwarový partner | Oblast | URL |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Cisco | Vše | [Příručka k provoznímu systému Cisco Integrated System for Microsoft Azure Stack hub](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[Poznámky k verzi integrovaného systému Cisco pro Centrum Microsoft Azure Stack](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
 | Dell EMC | Vše | [Cloud pro Microsoft Azure Stack hub 14G (účet a přihlášení požadováno)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud pro Microsoft Azure Stack hub 13G (účet a přihlášení požadováno)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |

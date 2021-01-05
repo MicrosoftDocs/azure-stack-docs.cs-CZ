@@ -3,21 +3,21 @@ author: mattbriggs
 ms.author: mabrigg
 ms.service: azure-stack
 ms.topic: include
-ms.date: 08/04/2020
+ms.date: 12/16/2020
 ms.reviewer: thoroet
 ms.lastreviewed: 08/04/2020
-ms.openlocfilehash: f0aee3ea85db7cf95555ad5f54e8ffb4e3352f5d
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 3f8381940d7482b82ce36fd995cfac0929545f6c
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91936204"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867276"
 ---
 1. Přihlaste se k portálu pro uživatele centra Azure Stack.
 
     Pokud jste operátor cloudu, který vytváří image platformy, postupujte podle pokynů v části [Přidání image platformy](../operator/azure-stack-add-vm-image.md#add-a-platform-image) a přidejte VHD přes portál správce nebo s koncovými body správce.
 
-2. Na portálu User Portal vyberte **všechny**  >  **Image**Services  >  **Přidat**.
+2. Na portálu User Portal vyberte **všechny**  >  **Image** Services  >  **Přidat**.
 
 3. V nástroji **vytvořit obrázek**:
 

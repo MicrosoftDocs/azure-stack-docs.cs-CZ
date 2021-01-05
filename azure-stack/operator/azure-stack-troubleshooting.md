@@ -5,15 +5,15 @@ description: Naučte se řešit potíže s centrem Azure Stack, včetně problé
 author: PatAltimore
 ms.topic: article
 ms.date: 12/10/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 12/10/2020
-ms.openlocfilehash: 583c0e933e823b1ac0fcf11fd378e81515656099
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.openlocfilehash: ef2bbc0fe85b0d6a1db605af440eab2d0e80a805
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343651"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868977"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Řešení potíží v centru Azure Stack
 
@@ -26,7 +26,7 @@ Tyto části obsahují odkazy na dokumenty, které pokrývají běžné otázky 
 ### <a name="purchase-considerations"></a>Důležité informace o nákupu
 
 * [Možnosti nákupu](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)
-* [Přehled centra Azure Stack](azure-stack-overview.md)
+* [Přehled o službě Azure Stack Hub](azure-stack-overview.md)
 
 ### <a name="updates-and-diagnostics"></a>Aktualizace a diagnostika
 
@@ -46,7 +46,7 @@ Tyto části obsahují odkazy na dokumenty, které pokrývají běžné otázky 
 
 ### <a name="manage-capacity"></a>Správa kapacity
 
-#### <a name="memory"></a>Memory (Paměť)
+#### <a name="memory"></a>Paměť
 
 Pokud chcete zvýšit celkovou dostupnou kapacitu paměti pro centrum Azure Stack, můžete přidat další paměť. V Azure Stackovém centru se váš fyzický server označuje také jako uzel jednotky škálování. Všechny uzly jednotek škálování, které jsou členy jedné jednotky škálování, musí mít [stejnou velikost paměti](azure-stack-manage-storage-physical-memory-capacity.md).
 

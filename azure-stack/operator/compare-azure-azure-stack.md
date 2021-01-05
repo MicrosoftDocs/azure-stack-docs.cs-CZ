@@ -2,20 +2,20 @@
 title: Rozdíly mezi globálním Azure, Azure Stack hub Azure Stack HCI
 titleSuffix: Azure Stack Hub
 description: Přečtěte si o rozdílech mezi globálním úložištěm Azure, Azure Stack hub a Azure Stack HCI.
-author: justinha
+author: PatAltimore
 ms.topic: overview
 ms.date: 07/10/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: 4b6fe9434d7fbc0f62de4c22241300ad20170af2
-ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
+ms.openlocfilehash: 4fc890225801fe35ec4ab72e84777aa56d597035
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94674488"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868705"
 ---
-# <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hci"></a>Rozdíly mezi globálním Azure, Azure Stack hub a Azure Stack HCI
+# <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hci"></a>Rozdíly mezi globální službou Azure a službami Azure Stack Hub a Azure Stack HCI
 
 Microsoft poskytuje Azure a Azure Stackovou rodinu centra pro služby v jednom ekosystému Azure. Používejte stejný aplikační model, samoobslužné portály a rozhraní API s Azure Resource Manager k poskytování cloudových funkcí, ať už vaše firma používá globální Azure nebo místní prostředky.
 

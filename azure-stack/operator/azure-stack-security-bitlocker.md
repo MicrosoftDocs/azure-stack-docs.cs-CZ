@@ -2,18 +2,18 @@
 title: Šifrování dat v klidovém umístění
 titleSuffix: Azure Stack Hub
 description: Přečtěte si, jak Azure Stack centrum chrání vaše data pomocí šifrování v klidovém prostředí.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 08/06/2020
-ms.openlocfilehash: 8d188c77ab04044db94e13cdbf36fdb0e7cbe839
-ms.sourcegitcommit: 6a51687a98c417a004cd4295ad06ae813e1978cc
+ms.openlocfilehash: 891c544c27be43834ebd1a1785da76282a0fbf59
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638814"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869317"
 ---
 # <a name="data-at-rest-encryption-in-azure-stack-hub"></a>Šifrování neaktivních dat v centru Azure Stack
 

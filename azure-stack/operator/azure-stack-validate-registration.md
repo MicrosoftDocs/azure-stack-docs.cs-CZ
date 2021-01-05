@@ -2,22 +2,22 @@
 title: Ověření registrace v Azure
 titleSuffix: Azure Stack Hub
 description: Přečtěte si, jak ověřit registraci Azure pomocí nástroje pro kontrolu připravenosti centra Azure Stack.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 10/19/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: jerskine
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: 0034bd17e42aba8ddbbf55c86aaffea9c243a600
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: ffe992c4a2db39f5b2e29d80a002f1486099baaa
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545709"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868790"
 ---
 # <a name="validate-azure-registration"></a>Ověření registrace v Azure
 
-Pomocí nástroje pro kontrolu připravenosti centra Azure Stack ( **AzsReadinessChecker** ) ověřte, že vaše předplatné Azure je připravené k použití s centrem Azure Stack, než začnete s nasazením centra Azure Stack. Kontrola připravenosti ověřuje tyto údaje:
+Pomocí nástroje pro kontrolu připravenosti centra Azure Stack (**AzsReadinessChecker**) ověřte, že vaše předplatné Azure je připravené k použití s centrem Azure Stack, než začnete s nasazením centra Azure Stack. Kontrola připravenosti ověřuje tyto údaje:
 
 - Předplatné Azure, které používáte, je podporovaný typ. Odběry musí být poskytovatel Cloud Solution Provider (CSP) nebo smlouva Enterprise (EA).
 - Účet, který použijete k registraci předplatného v Azure, se může přihlásit k Azure a je vlastníkem předplatného.
@@ -47,7 +47,7 @@ Budete muset mít nainstalované moduly AZ PowerShellu. Pokyny najdete v tématu
 
 ### <a name="steps-to-validate-the-azure-registration"></a>Postup ověření registrace Azure
 
-1. Otevřete příkazový řádek prostředí PowerShell se zvýšenými oprávněními a spusťte následující příkaz pro instalaci **AzsReadinessChecker** :
+1. Otevřete příkazový řádek prostředí PowerShell se zvýšenými oprávněními a spusťte následující příkaz pro instalaci **AzsReadinessChecker**:
 
    ```powershell
    Install-Module -Name Az.BootStrapper -Force -AllowPrerelease
@@ -108,11 +108,11 @@ Budete muset mít nainstalované moduly AZ PowerShellu. Pokyny najdete v tématu
 
 - Identifikujte uživatelské jméno a heslo pro účet, který je vlastníkem předplatného Azure, které použijete u služby Azure Stack hub.  
 - Identifikujte ID předplatného pro předplatné Azure, které budete používat.
-- Identifikujte **AzureEnvironment** , který budete používat. Podporované hodnoty parametru název prostředí jsou **AzureCloud** , **AzureChinaCloud** nebo **AzureUSGovernment** v závislosti na tom, které předplatné Azure používáte.
+- Identifikujte **AzureEnvironment** , který budete používat. Podporované hodnoty parametru název prostředí jsou **AzureCloud**, **AzureChinaCloud** nebo **AzureUSGovernment** v závislosti na tom, které předplatné Azure používáte.
 
 ### <a name="steps-to-validate-the-azure-registration"></a>Postup ověření registrace Azure
 
-1. V počítači, který splňuje požadavky, otevřete příkazový řádek PowerShell se zvýšenými oprávněními a spusťte následující příkaz pro instalaci **AzsReadinessChecker** :
+1. V počítači, který splňuje požadavky, otevřete příkazový řádek PowerShell se zvýšenými oprávněními a spusťte následující příkaz pro instalaci **AzsReadinessChecker**:
 
    ```powershell
    Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
@@ -135,7 +135,7 @@ Budete muset mít nainstalované moduly AZ PowerShellu. Pokyny najdete v tématu
 
 4. Z příkazového řádku PowerShellu spusťte následující příkaz, který spustí ověření předplatného:
 
-   - Zadejte hodnotu `AzureEnvironment` jako **AzureCloud** , **AzureGermanCloud** nebo **AzureChinaCloud**.  
+   - Zadejte hodnotu `AzureEnvironment` jako **AzureCloud**, **AzureGermanCloud** nebo **AzureChinaCloud**.  
    - Zadejte svého správce Azure AD a název tenanta Azure AD.
       ```powershell
       Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID

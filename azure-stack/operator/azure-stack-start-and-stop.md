@@ -2,18 +2,18 @@
 title: Spustit a zastavit
 titleSuffix: Azure Stack Hub
 description: Naučte se spouštět a zastavovat centrum Azure Stack.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 730e4dd823509f7a8c738f3d02bd10c82529834c
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 529cbfe4aff3c84cf732e58ff92b1bd920cd64b3
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487783"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869130"
 ---
 # <a name="start-and-stop-azure-stack-hub"></a>Spuštění a zastavení centra Azure Stack
 
@@ -44,7 +44,7 @@ Spusťte Azure Stack centrum pomocí následujících kroků. Postupujte podle t
 
 1. Zapněte všechny fyzické uzly v prostředí Azure Stack hub. Podle pokynů výrobce OEM, který dodal hardware pro centrum Azure Stack, ověřte, jestli jsou pro fyzické uzly pokyny pro zapnutí.
 
-2. Počkejte, dokud se nespustí služby infrastruktury centra Azure Stack. Služby infrastruktury centra Azure Stack můžou k dokončení procesu spuštění vyžadovat dvě hodiny. Pomocí [rutiny **Get-ActionStatus** ](#get-the-startup-status-for-azure-stack-hub)můžete ověřit stav spuštění centra Azure Stack.
+2. Počkejte, dokud se nespustí služby infrastruktury centra Azure Stack. Služby infrastruktury centra Azure Stack můžou k dokončení procesu spuštění vyžadovat dvě hodiny. Pomocí [rutiny **Get-ActionStatus**](#get-the-startup-status-for-azure-stack-hub)můžete ověřit stav spuštění centra Azure Stack.
 
 3. Zajistěte, aby se všechny prostředky tenanta vrátily do stavu před vypnutím. Úlohy spuštěné v prostředcích tenanta možná budete muset po spuštění znovu nakonfigurovat správcem úloh.
 

@@ -7,12 +7,12 @@ ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: d654f0489c0ec1987eb42197e4bfdeb0f01291ef
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 3a6312a81632bffbb128049088119b30de79a732
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939688"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867796"
 ---
 # <a name="azure-stack-hub-ruggedized-network-introduction"></a>Síťové představení robustního síťového centra Azure Stack
 
@@ -107,8 +107,8 @@ Plně kvalifikovaný název domény (FQDN) robustního nasazení centra Azure St
 
 Například příklady některých koncových bodů tohoto nasazení by vypadaly jako následující adresy URL:
 
-- https://portal.east.cloud.fabrikam.com
-- https://adminportal.east.cloud.fabrikam.com
+- `https://portal.east.cloud.fabrikam.com`
+- `https://adminportal.east.cloud.fabrikam.com`
 
 Pokud chcete tento ukázkový obor názvů DNS použít pro robustní nasazení centra Azure Stack, vyžadují se tyto podmínky:
 
@@ -198,7 +198,7 @@ Každá virtuální síť může mít dvě brány virtuální sítě, ale každ�
 
 Předtím, než vytvoříte a nakonfigurujete brány sítě VPN pro robustní Azure Stack, přečtěte si téma požadavky pro robustní sítě služby Azure Stack hub. Zjistíte, jak se konfigurace pro službu Azure Stack hub robustní liší od Azure.
 
-V Azure se propustnost šířky pásma pro SKLADOVOU položku brány VPN, kterou zvolíte, musí rozdělit mezi všechna připojení, která jsou připojená k bráně. V Azure Stackovém centru se ale hodnota šířky pásma pro SKU brány VPN použije u každého prostředku připojení, který je připojený k bráně. Příklad: 
+V Azure se propustnost šířky pásma pro SKLADOVOU položku brány VPN, kterou zvolíte, musí rozdělit mezi všechna připojení, která jsou připojená k bráně. V Azure Stackovém centru se ale hodnota šířky pásma pro SKU brány VPN použije u každého prostředku připojení, který je připojený k bráně. Například: 
 
 - V Azure může základní propustnost služby VPN Gateway vyhovět přibližně 100 MB/s agregované propustnosti. Pokud vytvoříte dvě připojení k této bráně VPN a jedno připojení používá 50 MB/s šířky pásma, pak je k dispozici 50 MB/s pro druhé připojení. 
 - V případě robustního centra Azure Stack se každé připojení k skladové jednotce základní brány VPN přiděluje 100 MB/s propustnosti.
@@ -238,7 +238,7 @@ Diagramy a popisy v následujících částech vám pomůžou vybrat topologii p
 
 #### <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>Síť typu Site-to-site a Multi-Site (tunel VPN IPsec/IKE)
 
-##### <a name="site-to-site"></a>Připojení typu site-to-site
+##### <a name="site-to-site"></a>Site-to-Site
 
 Připojení brány VPN typu *site-to-site* (S2S) je připojení přes tunelové připojení VPN pomocí protokolu IPSec/IKE (IKEv2). Tento typ připojení vyžaduje zařízení VPN, které je umístěné místně a má přiřazenou veřejnou IP adresu. Toto zařízení se nemůže nacházet za překladem adres (NAT). Připojení S2S můžete použít pro konfigurace mezi různými místy a pro hybridní konfigurace.
 
@@ -412,7 +412,7 @@ V tomto článku se předpokládá, že:
 - Máte základní znalosti o robustním Azure Stackovém centru.
 - Máte základní znalosti o sítích.
 
-#### <a name="prerequisites"></a>Předpoklady
+#### <a name="prerequisites"></a>Požadavky
 
 K připojení centra Azure Stack a Azure pomocí ExpressRoute je potřeba splnit následující požadavky:
 

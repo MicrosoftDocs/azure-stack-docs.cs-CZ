@@ -1,18 +1,18 @@
 ---
 title: Akce uzlů jednotek škálování ve službě Azure Stack Hub
 description: Seznamte se s akcemi uzlu jednotky škálování, včetně zapnutí, vypnutí, zakázání, obnovení a zobrazení stavu uzlu v integrovaných systémech Azure Stack hub.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 11/19/2020
-ms.openlocfilehash: ecca245124ce30597a535d8c2ca014821d471d67
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: dc98263b16a72e6b9809e7ef3bc0c286b627749d
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517680"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869759"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Akce uzlů jednotek škálování ve službě Azure Stack Hub
 
@@ -48,7 +48,7 @@ Zobrazení stavu jednotky škálování:
 
 | Status | Popis |
 |----------------------|-------------------------------------------------------------------|
-| Spuštěný | Uzel je aktivně zapojen do jednotky škálování. |
+| Spuštěno | Uzel je aktivně zapojen do jednotky škálování. |
 | Zastaveno | Uzel není k dispozici. |
 | Přidávání | Uzel se aktivně přidávají do jednotky škálování. |
 | Opravíte | Uzel je aktivně opravován. |
@@ -192,7 +192,7 @@ Další informace najdete v tématu [Enable-AzsScaleUnitNode](/powershell/module
 > Úroveň firmwaru je zásadní pro úspěch operace popsané v tomto článku. Chybějící tento krok může vést k nestabilitě systému, snížení výkonu, bezpečnostním hrozbám nebo selhání při nasazení služby Azure Stack hub Automation. Při nahrazování hardwaru vždy projděte dokumentaci k vašemu hardwarovému partnerovi, aby se zajistilo, že aplikovaný firmware odpovídá verzi OEM zobrazené na [portálu pro správu centra Azure Stack](azure-stack-updates.md).<br><br>
 Další informace a odkazy na dokumentaci k partnerům najdete v tématu [Výměna hardwarové komponenty](azure-stack-replace-component.md).
 
-| Hardwarový partner | Region | URL |
+| Hardwarový partner | Oblast | URL |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Cisco | Vše | [Příručka k provoznímu systému Cisco Integrated System for Microsoft Azure Stack hub](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[Poznámky k verzi integrovaného systému Cisco pro Centrum Microsoft Azure Stack](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
 | Dell EMC | Vše | [Cloud pro Microsoft Azure Stack hub 14G (účet a přihlášení je povinné)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud pro Microsoft Azure Stack hub 13G (účet a přihlášení je povinné)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |

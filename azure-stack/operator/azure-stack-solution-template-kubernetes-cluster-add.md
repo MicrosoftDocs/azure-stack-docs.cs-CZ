@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Naučte se, jak přidat Kubernetes do Marketplace centra Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 07/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 03/24/2020v
-ms.openlocfilehash: e2edda983e6fd554b2ff76a526b476318b31a6f5
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: b96b8a2bed340201b9450b37b1aad166ebbdf26d
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250176"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869232"
 ---
 # <a name="add-kubernetes-to-azure-stack-hub-marketplace"></a>Přidání Kubernetes do tržiště centra Azure Stack
 
@@ -34,7 +34,7 @@ Vytvořte plán, nabídku a předplatné pro položku Kubernetes Marketplace. M�
 
 1. Vytvořte nabídku. Pokyny najdete v tématu [Vytvoření nabídky v centru Azure Stack](azure-stack-create-offer.md).
 
-1. Vyberte **nabídky**a najděte nabídku, kterou jste vytvořili.
+1. Vyberte **nabídky** a najděte nabídku, kterou jste vytvořili.
 
 1. V okně nabídka vyberte **Přehled** .
 
@@ -62,7 +62,7 @@ Přidejte následující image serveru Ubuntu do tržiště centra Azure Stack:
 
 1. Přihlaste se k portálu pro správu `https://adminportal.local.azurestack.external` .
 
-1. Vyberte **všechny služby**a potom v kategorii **Správa** vyberte **Správa Marketplace**.
+1. Vyberte **všechny služby** a potom v kategorii **Správa** vyberte **Správa Marketplace**.
 
 1. Vyberte **+ Přidat z Azure**.
 

@@ -1,18 +1,18 @@
 ---
 title: Vyměnit topení
 description: Informace o tom, jak vyměnit topení
-author: myoungerman
+author: PatAltimore
 ms.topic: how-to
 ms.date: 11/13/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 956d726d889cbd917a77322ce8bf46a8b3cb3c17
-ms.sourcegitcommit: 3bd42be22e626564b62e560dc037aed4d462011f
+ms.openlocfilehash: 66bebd5d8b4f88a8abc90face23d3722d45159d6
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97390778"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868416"
 ---
 # <a name="replacing-the-heater"></a>Výměna topení
 

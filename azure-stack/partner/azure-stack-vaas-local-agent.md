@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Naučte se nasadit místního agenta pro Azure Stack ověřování centra jako služby.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7661177ec292d7c0b678f05d95c33d90f8e57c2c
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: ef131c1b7b54c05b6feee9336a0875f3507f5174
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764779"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868365"
 ---
 # <a name="deploy-the-local-agent"></a>Nasazení místního agenta
 
@@ -85,7 +85,7 @@ Ověřte, že váš počítač splňuje následující kritéria:
 
 | Parametr | Popis |
 | --- | --- |
-| `AadServiceAdminUser` | Uživatel globálního správce pro vašeho tenanta Azure AD. Například: vaasadmin@contoso.onmicrosoft.com. |
+| `AadServiceAdminUser` | Uživatel globálního správce pro vašeho tenanta Azure AD. Příklad: vaasadmin@contoso.onmicrosoft.com. |
 | `AadServiceAdminPassword` | Heslo pro uživatele globálního správce |
 | `CloudAdminUserName` | Uživatel s oprávněním správce cloudu, který má přístup k povoleným příkazům v rámci privilegovaného koncového bodu Příklad: AzusreStack\CloudAdmin. Další informace najdete v tématu [společné parametry pracovních postupů pro VaaS](azure-stack-vaas-parameters.md). |
 | `CloudAdminPassword` | Heslo pro účet správce cloudu.|

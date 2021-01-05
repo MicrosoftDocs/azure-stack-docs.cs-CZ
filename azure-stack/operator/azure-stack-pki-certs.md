@@ -1,20 +1,20 @@
 ---
 title: Požadavky na certifikát infrastruktury veřejných klíčů centra Azure Stack
 description: Přečtěte si o požadavcích na certifikát PKI centra Azure Stack pro integrované systémy Azure Stack hub.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: ee0ef7119dfb2255cd97e343f8e7339ab715ed7d
-ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
+ms.openlocfilehash: aba799122e4ccbd61258628b079061aa7a02e0ae
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "93049598"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869691"
 ---
-# <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Požadavky na certifikát infrastruktury veřejných klíčů (PKI) Azure Stack hub
+# <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Požadavky na certifikáty infrastruktury veřejných klíčů (PKI) služby Azure Stack Hub
 
 Centrum Azure Stack má síť s veřejnou infrastrukturou, která používá externě přístupné veřejné IP adresy, které jsou přiřazené k malé sadě služeb Azure Stack hub a případně tenantů virtuálních počítačů. Certifikáty PKI s příslušnými názvy DNS pro tyto koncové body veřejné infrastruktury centra Azure Stack se při nasazení centra Azure Stack vyžadují. Tento článek poskytuje informace o:
 
@@ -106,7 +106,7 @@ Následující tabulka obsahuje popis koncových bodů a certifikátů vyžadova
 |Rozsah (na oblast)|Certifikát|Požadovaný předmět certifikátu a alternativní názvy subjektu (San)|Obor názvů subdomény|
 |-----|-----|-----|-----|
 |App Service|Výchozí certifikát SSL pro webový provoz|&#42;. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>&#42;. SCM. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>&#42;. SSO. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>(Certifikát SSL s více doménovými znaky<sup>1</sup>)|AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>SCM. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*|
-|App Service|Rozhraní API|API. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>(Certifikát SSL<sup>2</sup>)|AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>SCM. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*|
+|App Service|rozhraní API|API. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>(Certifikát SSL<sup>2</sup>)|AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>SCM. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*|
 |App Service|FTP|FTP. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>(Certifikát SSL<sup>2</sup>)|AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>SCM. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*|
 |App Service|Jednotné přihlašování|SSO. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>(Certifikát SSL<sup>2</sup>)|AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>SCM. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*|
 |Event Hubs|SSL|&#42;. eventhub. *&lt;> &lt; oblasti plně kvalifikovaný název domény>* | eventhub. *&lt;> &lt; oblasti plně kvalifikovaný název domény>* |

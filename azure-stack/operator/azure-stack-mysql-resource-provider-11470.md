@@ -1,18 +1,18 @@
 ---
 title: 1.1.47.0 zpráva k vydání verze poskytovatele prostředků MySQL centra pro Azure Stack
 description: Podívejte se na poznámky k verzi a zjistěte, co je nového ve 1.1.47.0 aktualizace poskytovatele prostředků MySQL centra pro Azure Stack.
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 11/26/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/26/2019
-ms.openlocfilehash: 5bc03134a859182909e62c60159049d639eb8ffe
-ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
+ms.openlocfilehash: d98a4d4c7de76d5a73cab3005893dd279a6e1025
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89364673"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869844"
 ---
 # <a name="mysql-resource-provider-11470-release-notes"></a>Poznámky k verzi pro poskytovatele prostředků MySQL 1.1.47.0
 

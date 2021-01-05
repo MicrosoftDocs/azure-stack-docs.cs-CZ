@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Naučte se nastavit prostředky Azure AD a úložiště pro Azure Stack ověřování pomocí centra jako služby.
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1076dc69190b79728d28be99c7b84629e80b5709
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 19f1b9e33f0304d155dad070ef8cb10fc6a930fc
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86490163"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869045"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Kurz: nastavení prostředků pro ověřování jako služby
 
@@ -50,8 +50,8 @@ Vytvořte tenanta, který bude vaše organizace používat pro přístup ke slu�
 
     Přiřazení rolí v aplikaci **služby ověřování centra Azure Stack** :
 
-   1. Přihlaste se k webu [Azure Portal](https://portal.azure.com).
-   2. V části Identita vyberte **všechny služby**  >  **Azure Active Directory** . **Identity**
+   1. Přihlaste se na [Azure Portal](https://portal.azure.com).
+   2. V části Identita vyberte **všechny služby**  >  **Azure Active Directory** . 
    3. Vyberte **podnikové aplikace**  >  **Azure Stack aplikaci služby ověřování centra** .
    4. Vyberte **Uživatelé a skupiny**. Okno **Azure Stack služby ověřování centra – uživatelé a skupiny** zobrazí seznam uživatelů, kteří mají oprávnění k používání aplikace.
    5. Vyberte **+ Přidat uživatele** a přidejte uživatele ze svého tenanta a přiřaďte roli.
@@ -92,7 +92,7 @@ Během provádění testu VaaS výstupy pro diagnostické protokoly na účet Az
 
 2. Vyberte předplatné, ve kterém chcete vytvořit účet úložiště.
 
-3. V části **Skupina prostředků**vyberte **vytvořit novou**. Zadejte název nové skupiny prostředků.
+3. V části **Skupina prostředků** vyberte **vytvořit novou**. Zadejte název nové skupiny prostředků.
 
 4. Přečtěte si [zásady vytváření názvů](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#storage) pro účty Azure Storage. Zadejte název účtu úložiště.
 
@@ -104,7 +104,7 @@ Během provádění testu VaaS výstupy pro diagnostické protokoly na účet Az
 
     - Ve výchozím nastavení je v poli **model nasazení** nastavena hodnota **Správce prostředků** .
     - Pole **Výkon** má výchozí nastavení **Standardní**.
-    - Jako **úložiště objektů BLOB**vyberte pole **druh účtu** .
+    - Jako **úložiště objektů BLOB** vyberte pole **druh účtu** .
     - Ve výchozím nastavení je **pole replikace** nastaveno na **místně redundantní úložiště (LRS)** .
     - Pole **Úroveň přístupu** má výchozí nastavení **Horká**.
 

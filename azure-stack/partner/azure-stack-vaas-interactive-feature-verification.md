@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Naučte se vytvářet interaktivní testy pro ověřování funkcí pro Azure Stack centra s ověřováním jako službou.
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1e7e87073518ab5a040cc96ec1af5b7db5f808d9
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 8dc3759c050c208017f7963a4cb7844d6acb8cdc
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107251"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868467"
 ---
 # <a name="interactive-feature-verification-testing"></a>Testování ověřování interaktivních funkcí  
 

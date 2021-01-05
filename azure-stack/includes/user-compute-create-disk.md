@@ -3,21 +3,21 @@ author: mattbriggs
 ms.author: mabrigg
 ms.service: azure-stack
 ms.topic: include
-ms.date: 08/04/2020
+ms.date: 12/16/2020
 ms.reviewer: thoroet
 ms.lastreviewed: 08/04/2020
-ms.openlocfilehash: 97f578d81458e371640574d8db287e261b37daab
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 8d92b379a2c3c0e77fc3e682121963afcc8be31d
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91936115"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867272"
 ---
 1. Přihlaste se k portálu pro uživatele centra Azure Stack.
 
     Pokud jste operátor cloudu, který vytváří disk platformy, postupujte podle pokynů v části [Přidání image platformy](../operator/azure-stack-add-vm-image.md#add-a-platform-image) a přidejte VHD pomocí portálu pro správu nebo pomocí koncových bodů správce.
 
-2. Na portálu User Portal vyberte **všechny**  >  **disky**služby  >  **Přidat**.
+2. Na portálu User Portal vyberte **všechny**  >  **disky** služby  >  **Přidat**.
 
 3. V nástroji **vytvořit spravovaný disk**:
 

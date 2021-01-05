@@ -1,21 +1,21 @@
 ---
-title: Přehled centra Azure Stack
+title: Přehled o službě Azure Stack Hub
 description: Přehled toho, co je centrum Azure Stack a jak vám umožňuje spouštět služby Azure ve vašem datovém centru.
-author: justinha
+author: PatAltimore
 ms.topic: overview
 ms.date: 04/20/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 11/08/2019
 ms.custom: conteperfq4
-ms.openlocfilehash: 5acbe557c58d33785e0c227c2014264fbcd06a06
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 1d41130c77f0fc39760453bed29936db2b99901b
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488412"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869810"
 ---
-# <a name="azure-stack-hub-overview"></a>Přehled centra Azure Stack
+# <a name="azure-stack-hub-overview"></a>Přehled o službě Azure Stack Hub
 
 Azure Stack Hub je rozšíření Azure, které poskytuje způsob, jak spouštět aplikace v místním prostředí a doručovat služby Azure ve vašem datacentru. S konzistentní cloudovou platformou můžou organizace bez obav dělat rozhodování o technologiích na základě podnikových požadavků, a ne podle obchodních rozhodnutí založených na omezeních technologie.
 
@@ -27,7 +27,7 @@ Azure poskytuje vývojářům bohatou platformu pro vytváření moderních apli
 
 - **Cloudové aplikace, které splňují různé předpisy**. Vývoj a nasazování aplikací v Azure s plnou flexibilitou pro nasazení místně pomocí centra Azure Stack pro splnění zákonných požadavků nebo zásad. Nevyžadují se žádné změny kódu. Mezi příklady aplikací patří globální audit, finanční vykazování, obchodování s cizím systémem Exchange, hraní online her a generování sestav výdajů.
 
-- **Model cloudové aplikace v místním**prostředí. Používejte služby, kontejnery, bez serveru a architektury mikroslužeb, abyste mohli aktualizovat a roztáhnout existující aplikace nebo vytvářet nové. Pomocí konzistentních DevOps procesů napříč Azure v cloudu a centra Azure Stack v místním prostředí Urychlete modernizaci aplikací pro základní klíčové aplikace.
+- **Model cloudové aplikace v místním** prostředí. Používejte služby, kontejnery, bez serveru a architektury mikroslužeb, abyste mohli aktualizovat a roztáhnout existující aplikace nebo vytvářet nové. Pomocí konzistentních DevOps procesů napříč Azure v cloudu a centra Azure Stack v místním prostředí Urychlete modernizaci aplikací pro základní klíčové aplikace.
 
 ## <a name="azure-stack-hub-architecture"></a>Architektura centra Azure Stack
 

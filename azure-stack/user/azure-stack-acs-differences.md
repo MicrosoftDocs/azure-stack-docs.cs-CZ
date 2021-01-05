@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Seznamte se s rozdíly mezi Azure Stack úložiště centra a Azure Storage společně s Azure Stackmi požadavky na nasazení centra.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviwer: jiahan
 ms.lastreviewed: 08/12/2020
-ms.openlocfilehash: ffb0d52d56fada2f2c08d93c2c701a86d3f44924
-ms.sourcegitcommit: 85827a2227eb2d1ed1ed44bb9f00e28d96818c84
+ms.openlocfilehash: 9cac2ee9798388f955bfd3376395d21438889fc9
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96869050"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867362"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Úložiště centra Azure Stack: rozdíly a požadavky
 
@@ -23,7 +23,7 @@ Tento článek shrnuje známé rozdíly v úložištích Azure Stack centra od s
 
 ## <a name="cheat-sheet-storage-differences"></a>Tahák list: rozdíly v úložišti
 
-| Příznak | Azure (Global) | Azure Stack Hub |
+| Funkce | Azure (Global) | Azure Stack Hub |
 | --- | --- | --- |
 |File Storage|Podporuje cloudové sdílené složky SMB. | Zatím se nepodporuje.
 |Šifrování služby Azure Storage pro neaktivní neaktivní data|256 šifrování AES. Podpora šifrování pomocí klíčů spravovaných zákazníkem v Key Vault.|BitLocker 128-bit AES Encryption. Šifrování pomocí klíčů spravovaných zákazníkem se nepodporuje.

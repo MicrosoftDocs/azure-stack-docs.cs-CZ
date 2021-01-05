@@ -1,18 +1,18 @@
 ---
 title: Konfigurace ovládacích prvků zabezpečení v centru Azure Stack
 description: Naučte se konfigurovat řízení zabezpečení v centru Azure Stack.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/17/2019
-ms.openlocfilehash: 0426dc0ba78b992ccc1605cca6c0f581cb9a24b9
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: 2ba13915c572c4b71cd5261ddb08cb876dd137a5
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83375038"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869249"
 ---
 # <a name="configure-azure-stack-hub-security-controls"></a>Konfigurace ovládacích prvků zabezpečení centra Azure Stack
 
@@ -55,7 +55,7 @@ Parametry pro rutinu *set-TLSPolicy* :
 
 | Parametr | Popis | Typ | Vyžadováno |
 |-----|-----|-----|-----|
-| *Verze* | Povolené verze protokolu TLS v centru Azure Stack | String | ano |
+| *Verze* | Povolené verze protokolu TLS v centru Azure Stack | Řetězec | ano |
 
 Pomocí jedné z následujících hodnot nakonfigurujte povolené verze TLS pro všechny koncové body centra Azure Stack:
 

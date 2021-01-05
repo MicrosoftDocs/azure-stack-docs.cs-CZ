@@ -1,18 +1,18 @@
 ---
 title: Použití aktualizace OEM na centrum Azure Stack
 description: Naučte se, jak použít aktualizaci výrobce OEM (Original Equipment Manufacturer) na Azure Stack hub.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 10/15/2019
-ms.author: inhenkel
+ms.author: patricka
 ms.lastreviewed: 03/04/2020
 ms.reviewer: ppacent
-ms.openlocfilehash: f97b42898c106a58ac217738d5936c1686f74042
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: 8b8c3a39f61693cad9904b99bd1f82b175d53a7b
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83374975"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868859"
 ---
 # <a name="apply-azure-stack-hub-original-equipment-manufacturer-oem-updates"></a>Použití aktualizací pro výrobce OEM (Original Equipment Manufacturer) od centra Azure Stack
 
@@ -32,9 +32,9 @@ Někteří dodavatelé hardwaru můžou vyžadovat *virtuální počítač dodav
 
 Tato část obsahuje kontaktní informace OEM a odkazy na referenční materiály pro výrobce OEM Azure Stack.
 
-| Hardwarový partner | Oblast | zprostředkovatele identity |
+| Hardwarový partner | Oblast | URL |
 |-----|----|-----|
-| Cisco | Vše | [Příručka k provoznímu systému Cisco Integrated System for Microsoft Azure Stack hub](https://aka.ms/aa708e2)<br><br>[UCS řady UCS – připojit serverový software spravovaný přes UCS](https://aka.ms/aa700rq) |
+| Cisco | Vše | [Příručka k provoznímu systému Cisco Integrated System for Microsoft Azure Stack hub](https://aka.ms/aa708e2)<br><br>[UCS Rack-Mount UCS-Managed serverový software řady UCS C-Series](https://aka.ms/aa700rq) |
 | Dell EMC | Vše | [Cloud pro Microsoft Azure Stack hub 14G (účet a přihlášení je povinné)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud pro Microsoft Azure Stack hub 13G (účet a přihlášení je povinné)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
 | Fujitsu | Japonsko | [Oddělení podpory spravované služby Fujitsu (vyžaduje se účet a přihlášení)](https://eservice.fujitsu.com/supportdesk-web/) |
 |  | & V OBLASTI EMEA | [Společnosti Fujitsu podporují IT produkty a systémy](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |

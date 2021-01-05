@@ -4,15 +4,15 @@ description: Přečtěte si, jak stáhnout a nakonfigurovat pracovní stanici pr
 author: ashika789
 ms.topic: article
 ms.date: 11/04/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 11/04/2020
-ms.openlocfilehash: 3c01f6f4e51adb9d91ee1b3098c11814a618ac1c
-ms.sourcegitcommit: ec00358a8780086dda217f93f2ef813a8b24dd3b
+ms.openlocfilehash: bd94503efe97eb30955b0fd9deb7a5c41e263e7b
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95006816"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868586"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Pracovní stanice pro přístup k operátorovi centra Azure Stack 
 
@@ -205,11 +205,11 @@ V následující tabulce je uveden seznam definic pro každý parametr.
 
 | Parametr   | Požadováno/volitelné  | Popis       |
 |-------------|--------------------|-------------------|
-| LocalAdministratorPassword | Vyžadováno | Heslo pro účet místního správce virtuálního počítače AdminUser. |
-| IPAddress                  | Vyžadováno | Statická adresa IPv4 pro konfiguraci protokolu TCP/IP na virtuálním počítači.                                                |
-| SubnetMask                 | Vyžadováno | Maska podsítě IPv4 pro konfiguraci protokolu TCP/IP na virtuálním počítači.                                                   |
-| DefaultGateway             | Vyžadováno | Adresa IPv4 výchozí brány pro konfiguraci protokolu TCP/IP na virtuálním počítači.                                    |
-| DNS                        | Vyžadováno | Servery DNS pro konfiguraci protokolu TCP/IP na virtuálním počítači.                                                          |
+| LocalAdministratorPassword | Povinné | Heslo pro účet místního správce virtuálního počítače AdminUser. |
+| IPAddress                  | Povinné | Statická adresa IPv4 pro konfiguraci protokolu TCP/IP na virtuálním počítači.                                                |
+| SubnetMask                 | Povinné | Maska podsítě IPv4 pro konfiguraci protokolu TCP/IP na virtuálním počítači.                                                   |
+| DefaultGateway             | Povinné | Adresa IPv4 výchozí brány pro konfiguraci protokolu TCP/IP na virtuálním počítači.                                    |
+| DNS                        | Povinné | Servery DNS pro konfiguraci protokolu TCP/IP na virtuálním počítači.                                                          |
 | ImageFilePath              | Volitelné | Cesta k souboru OAW. vhdx, kterou poskytla společnost Microsoft. Výchozí hodnota je **OAW. vhdx** ve stejné nadřazené složce tohoto skriptu. |
 | VirtualMachineName         | Volitelné | Název, který se má přiřadit k virtuálnímu počítači. Pokud se dá předpona pro pojmenování najít v DeploymentData.jssouboru, použije se jako výchozí název. V opačném případě se jako výchozí název použije **AzSOAW** . Pokud chcete přepsat výchozí hodnotu, můžete zadat jiný název. |
 | VirtualMachineMemory       | Volitelné | Paměť, která se má přiřadit k virtuálnímu počítači. Výchozí hodnota je **4 GB**.                            |

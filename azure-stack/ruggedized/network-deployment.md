@@ -1,19 +1,19 @@
 ---
 title: Azure Stack nasazení sítě pro Azure Stack centra
 description: Přečtěte si o Azure Stack nasazení sítě pro robustní zařízení centra Azure Stack.
-author: justinha
+author: PatAltimore
 ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: d41e7668533d4d67da329d0058f20a50a796555e
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: df20e3f9ad04959bf2c85d8912644819cae09ba1
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939676"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867685"
 ---
 # <a name="azure-stack-hub-ruggedized-network-deployment"></a>Síťové nasazení robustního síťového centra Azure Stack
 
@@ -43,7 +43,7 @@ Následující tabulka koreluje odkazy seznamu řízení přístupu (ACL) k sít
 | Infrastruktura                             |                                                                                                                            |
 | Veřejné (PEP/ERCS)                          |                                                                                                                            |
 | Tor1,Tor2 RouterIP                         | Rozhraní zpětné smyčky přepínače používaného pro partnerský vztah protokolu BGP mezi SLB a přepínačem a směrovačem.                                   |
-| Storage                                    | Privátní IP adresy nejsou směrované mimo oblast.                                                                              |
+| Úložiště                                    | Privátní IP adresy nejsou směrované mimo oblast.                                                                              |
 | Interní VIP                              | Privátní IP adresy nejsou směrované mimo oblast.                                                                              |
 | Public-VIPs                                | Adresní prostor klientské sítě, který je spravovaný síťovým adaptérem.                                                            |
 | Veřejné – admin – VIP                          | Malá podmnožina adres ve fondu tenantů, které jsou nutné pro komunikaci s Internal-VIPs a Azure Stack infrastruktury     |
@@ -53,7 +53,7 @@ Následující tabulka koreluje odkazy seznamu řízení přístupu (ACL) k sít
 | **Uvádění**                                 | Povolení provozu je povolené, ale SSH je ve výchozím nastavení zakázaný. Zákazník si může povolit službu SSH.         |
 | **Žádná trasa**                                   | Trasy nejsou šířeny mimo Azure Stack prostředí.                                                          |
 | **SEZNAM ACL PRO MUX**                                    | Jsou využívány seznamy ACL pro Azure Stack MUX.                                                                                        |
-| **NENÍ K DISPOZICI**                                        | Nejedná se o součást seznamu ACL sítě VLAN.                                                                                                  |
+| **–**                                        | Nejedná se o součást seznamu ACL sítě VLAN.                                                                                                  |
 
 ### <a name="ip-address-assignments"></a>Přiřazení IP adres
 

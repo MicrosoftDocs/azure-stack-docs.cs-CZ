@@ -3,17 +3,17 @@ title: Ověření řešení v centru Azure Stack
 description: Naučte se, jak ověřit nové řešení centra Azure Stack pomocí pracovního postupu ověřování řešení.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 65984da8615d9146db98800c710efee004f021c2
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 0218e1adc239e0f609e79a75e2fd62e364739fe9
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764881"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868254"
 ---
 # <a name="validate-a-solution-in-azure-stack-hub"></a>Ověření řešení v centru Azure Stack
 

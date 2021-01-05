@@ -2,20 +2,20 @@
 title: Správa síťových prostředků
 titleSuffix: Azure Stack Hub
 description: Naučte se spravovat síťové prostředky, včetně fondu adres MAC a spotřeby veřejných IP adres v oblasti.
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 1/22/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: scottnap
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: b96485e74286cbbbd2ff20f2378dc7c452849b52
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: f4fc98a7fae3a58d9467d8c1cafe46fcbef858fc
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487392"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868722"
 ---
-# <a name="manage-network-resources-in-azure-stack-hub"></a>Správa síťových prostředků v centru Azure Stack
+# <a name="manage-network-resources-in-azure-stack-hub"></a>Správa síťových prostředků ve službě Azure Stack Hub
 
 ## <a name="mac-address-pool"></a>Fond adres MAC
 
@@ -42,7 +42,7 @@ Na dlaždici **využití fondů veřejné IP** adresy se zobrazuje počet veřej
 
 Účelem dlaždice je poskytnout operátorům Azure Stackového rozbočovače smysl počtu veřejných IP adres, které se používají v tomto umístění. Číslo pomáhá správcům určit, jestli mají nedostatek na tomto prostředku.
 
-Položka nabídky **veřejné IP adresy** v části **prostředky tenanta** uvádí jenom veřejné IP adresy, které byly *explicitně vytvořené klienty*. Položku nabídky najdete v podokně síť **poskytovatelé prostředků**  ->  **Network** . Počet **použitých** veřejných IP adres na dlaždici **využití fondů veřejné IP** adresy se vždycky liší od (větší než) čísla na dlaždici **veřejné IP adresy** v části **prostředky tenanta**.
+Položka nabídky **veřejné IP adresy** v části **prostředky tenanta** uvádí jenom veřejné IP adresy, které byly *explicitně vytvořené klienty*. Položku nabídky najdete v podokně síť **poskytovatelé prostředků**  ->   . Počet **použitých** veřejných IP adres na dlaždici **využití fondů veřejné IP** adresy se vždycky liší od (větší než) čísla na dlaždici **veřejné IP adresy** v části **prostředky tenanta**.
 
 ### <a name="view-the-public-ip-address-usage-information"></a>Zobrazit informace o využití veřejné IP adresy
 
@@ -57,7 +57,7 @@ Zobrazení celkového počtu veřejných IP adres, které byly spotřebovány v 
 
 ### <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>Zobrazení veřejných IP adres vytvořených předplatnými tenanta
 
-V části **prostředky tenanta**vyberte **veřejné IP adresy** . Projděte si seznam veřejných IP adres, které jsou explicitně vytvořeny pomocí odběrů klientů v konkrétní oblasti.
+V části **prostředky tenanta** vyberte **veřejné IP adresy** . Projděte si seznam veřejných IP adres, které jsou explicitně vytvořeny pomocí odběrů klientů v konkrétní oblasti.
 
 ![Veřejné IP adresy tenanta na portálu pro správu centra Azure Stack](media/azure-stack-viewing-public-ip-address-consumption/ip-address-consumption-02.png)
 

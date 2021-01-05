@@ -1,18 +1,18 @@
 ---
 title: Kontrolní seznam aktivity aktualizace centra Azure Stack
 description: Kontrolní seznam pro přípravu systému na nejnovější aktualizaci centra Azure Stack.
-author: myoungerman
+author: PatAltimore
 ms.topic: article
 ms.date: 08/10/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: TBD
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: aa8755b2cd8b7161eee8c7c60375c2b799df2e80
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.openlocfilehash: 53e34636ab29194f1c99fdb86aaf0f17315163c9
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064782"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868382"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Kontrolní seznam aktivity aktualizace centra Azure Stack
 
