@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: abhilashaagarwala
 ms.author: abha
 ms.date: 12/02/2020
-ms.openlocfilehash: 4eb685335d9cb4f3937c48656237b0d10c3a3594
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 3a4ad6203ba14188ff24629f07775285417c306b
+ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910546"
+ms.locfileid: "97918658"
 ---
 # <a name="system-requirements-for-azure-kubernetes-service-on-azure-stack-hci"></a>Požadavky na systém pro službu Azure Kubernetes ve Azure Stack HCL
 
@@ -30,9 +30,9 @@ Pro Azure Kubernetes Service na Azure Stack HCI nebo Windows Server 2019 Datacen
 
  - Ujistěte se, že uživatelské účty, které přidávají aktualizace, a spravují službu Azure Kubernetes na Azure Stack HCI nebo Windows Server 2019 Datacenter mají správná oprávnění ve službě Active Directory. Pokud ke správě zásad skupiny pro servery a služby používáte organizační jednotky (OU), uživatelské účty budou vyžadovat oprávnění list, číst, upravit a odstranit u všech objektů v organizační jednotce. 
 
- - Pro servery a služby, které přidáváte službu Azure Kubernetes, doporučujeme použít samostatnou organizační jednotku v systému Azure Stack HCI nebo Windows Server 2019 Datacenter do. To vám umožní řídit přístup a oprávnění s větší členitosti.
+ - Pro servery a služby, na které přidáváte službu Azure Kubernetes, doporučujeme pro clustery datacenter Azure Stack HCI nebo Windows Server 2019 použít samostatnou organizační jednotku. Použití samostatné organizační jednotky vám umožní řídit přístup a oprávnění s větší členitosti.
 
- - Pokud používáte šablony objektů zásad skupiny v kontejnerech ve službě Active Directory, zajistěte, aby se z těchto zásad vyloučila implementace AKS-HCI. Posílení zabezpečení serveru bude k dispozici v další verzi Preview.
+ - Pokud používáte šablony objektů zásad skupiny v kontejnerech ve službě Active Directory, zajistěte, aby se zásady nasadily pomocí AKS-HCI. Posílení zabezpečení serveru bude k dispozici v další verzi Preview.
 
 ## <a name="compute-requirements"></a>Požadavky na výpočetní výkon
 
@@ -52,20 +52,14 @@ Následující požadavky platí pro Azure Stack cluster HCI a cluster s podporo
 
  - Ověřte, že je na všech síťových adaptérech zakázaný protokol IPv6. 
 
- - Síť musí mít dostupný server DHCP, aby poskytovala virtuálním počítačům a hostitelům virtuálních počítačů adresy TCP/IP. Server DHCP by měl obsahovat i informace o hostiteli NTP a DNS. 
-
- - Doporučujeme také mít server DHCP s vyhrazeným rozsahem adres IPv4, který je přístupný v clusteru Azure Stack HCI. Můžete například vyhradit 10.0.1.1 pro výchozí bránu, rezervovat 10.0.1.2 na 10.0.1.102 pro služby Kubernetes (using-vipPoolStartIp a-vipPoolEndIp v set-AksHciConfig) a používat 10.0.1.103-10.0.1.254 pro Kubernetes clusterových virtuálních počítačů. 
-
- - V případě úspěšného nasazení musí mít uzly clusteru Azure Stack HCI a virtuální počítače clusteru Kubernetes k dispozici externí připojení k Internetu.
-
- - Adresy IPv4, které poskytuje server DHCP, by měly být směrovatelné a mít vypršení 30denní doby zapůjčení, aby se zabránilo ztrátě připojení IP v případě aktualizace nebo opětovného zřizování virtuálního počítače.  
+ - V případě úspěšného nasazení musí mít uzly clusteru Azure Stack HCI a virtuální počítače clusteru Kubernetes k dispozici externí připojení k Internetu. 
 
  - Překlad názvů DNS se vyžaduje, aby všechny uzly mohly vzájemně komunikovat. V případě překladu externích IP adres Kubernetes použijte servery DNS poskytované serverem DHCP, když se IP adresa získá. V případě překladu interního názvu Kubernetes použijte výchozí řešení založené na DNS Kubernetes. 
- 
- - Pro tuto verzi Preview poskytujeme jenom jednu podporu sítě VLAN pro celé nasazení.
 
- - Pro tuto verzi Preview máme pro clustery Kubernetes vytvořené prostřednictvím PowerShellu omezené podpory proxy.
+ - Pro tuto verzi Preview poskytujeme jenom jednu podporu sítě VLAN pro celé nasazení. 
 
+ - Pro tuto verzi Preview máme pro clustery Kubernetes vytvořené prostřednictvím PowerShellu omezené podpory proxy. 
+  
 ### <a name="network-port-and-url-requirements"></a>Požadavky na síťový port a adresu URL 
 
 Při vytváření clusteru Azure Kubernetes na Azure Stack HCI se na každém serveru v clusteru automaticky otevřou tyto porty brány firewall. 
@@ -77,6 +71,7 @@ Při vytváření clusteru Azure Kubernetes na Azure Stack HCI se na každém se
 | 45001             | Port ověřování wssdagent GPRC  | 
 | 55000           | port serveru wssdcloudagent GPRC           |
 | 65000             | Port ověřování wssdcloudagent GPRC  | 
+
 
 
 Pro počítač centra pro správu systému Windows a všechny uzly v clusteru Azure Stack HCI jsou vyžadovány výjimky adresy URL brány firewall. 

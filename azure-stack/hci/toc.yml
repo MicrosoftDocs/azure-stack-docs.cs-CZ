@@ -18,7 +18,7 @@
       href: get-started.md
     - name: Vytvoření clusteru Azure Stack HCI
       href: deploy/deployment-quickstart.md
-- name: Nasazení
+- name: Nasadit
   items:
     - name: Přehled nasazení
       href: deploy/deployment-overview.md
@@ -222,11 +222,13 @@
   items:
     - name: Stránka produktu Azure Stack HCL
       href: 'https://azure.com/hci'
-    - name: Průvodce vyvyhodnocením Azure Stack HCL
+    - name: Průvodce hodnocením
       href: 'https://github.com/Azure/AzureStackHCI-EvalGuide/blob/main/README.md'
-    - name: Azure Stack ceny HCI
+    - name: Ceny
       href: 'https://azure.microsoft.com/pricing/details/azure-stack/hci/'
-    - name: Podpora Azure Stack HCL
+    - name: Podpora
       href: manage/get-support.md
-    - name: Archivované poznámky k verzi Azure Stack HCI
+    - name: Školení
+      href: /learn/paths/azure-stack-hci-foundations/
+    - name: Archivované poznámky k verzi
       href: preview-release-notes.md

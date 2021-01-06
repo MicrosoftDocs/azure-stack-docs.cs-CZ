@@ -5,12 +5,12 @@ author: davannaw-msft
 ms.topic: quickstart
 ms.date: 12/02/2020
 ms.author: dawhite
-ms.openlocfilehash: 99f3e98ff24044c74c9065bb98965dcf640c4032
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: 3d8be2b6b1e3251875ca014e221c9bf4de35671e
+ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96612535"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97918730"
 ---
 # <a name="quickstart-set-up-azure-kubernetes-service-on-azure-stack-hci-using-windows-admin-center"></a>Rychlý Start: nastavení služby Azure Kubernetes v Azure Stack HCI pomocí centra pro správu Windows
 
@@ -29,7 +29,7 @@ Než začnete, ujistěte se, že jste splnili všechny požadavky na stránce [p
 
 ## <a name="download-azure-kubernetes-service-on-azure-stack-hci"></a>Stažení služby Azure Kubernetes na Azure Stack HCL
 
-Pokud jste si ještě nestáhli software verze Preview, přečtěte si téma [vyhodnocení AKS na Azure Stack HCI](https://aka.ms/AKS-HCI-Evaluate). Budete požádáni, abyste si stáhli AKS na Azure Stack HCL i v centru pro správu systému Windows.
+Pokud jste si ještě nestáhli software verze Preview, přečtěte si téma [vyhodnocení AKS na Azure Stack HCI](https://aka.ms/AKS-HCI-Evaluate). Budete požádáni, abyste si stáhli AKS na Azure Stack HCI a také v centru pro správu systému Windows.
 
 ## <a name="setting-up-windows-admin-center"></a>Nastavení centra pro správu Windows
 
@@ -70,7 +70,10 @@ Teď, když jsme ověřili naše nastavení systému, můžeme začít:
 
 5. Projděte si všechny vaše výběry v kroku **Revize + vytvořit** . Pokud jste s vybranými možnostmi spokojeni, vyberte **Další** a spusťte instalaci hostitele. 
 6. Na stránce **průběh instalace** můžete sledovat průběh instalace hostitele. V tuto chvíli jste připraveni otevřít Centrum pro správu Windows na nové kartě a pokračovat v úlohách správy. 
-7. Pokud je nasazení úspěšné, zobrazí se řídicí panel pro správu, kde můžete vytvářet a spravovat clustery Kubernetes. Tento řídicí panel, podobně jako zbytek služeb Azure Kubernetes ve Azure Stack HCI, je ve verzi Preview a bude v budoucích verzích aktualizovat s dalšími funkcemi. 
+7. Pokud je nasazení úspěšné, vyberte *Dokončit* a zobrazí se řídicí panel pro správu, kde můžete vytvářet a spravovat clustery Kubernetes. Tento řídicí panel, podobně jako zbytek služeb Azure Kubernetes ve Azure Stack HCI, je ve verzi Preview a bude v budoucích verzích aktualizovat s dalšími funkcemi.
+
+
+1. Pokud je nasazení úspěšné, zobrazí se řídicí panel pro správu, kde můžete vytvářet a spravovat clustery Kubernetes. Tento řídicí panel, podobně jako zbytek služeb Azure Kubernetes ve Azure Stack HCI, je ve verzi Preview a bude v budoucích verzích aktualizovat s dalšími funkcemi. 
  
   ![Ukazuje služby Azure Kubernetes na řídicím panelu pro správu HCI Azure Stack.](.\media\setup\dashboard.png)
  

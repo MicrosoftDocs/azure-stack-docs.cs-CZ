@@ -3,21 +3,23 @@ title: Řešení potíží s vytvářením sestav ověření clusteru
 description: Řešení potíží s vytvářením sestav ověření clusteru a ověření konfigurace nastavení QoS pro Azure Stack clustery HCI
 author: khdownie
 ms.topic: troubleshooting
-ms.date: 07/21/2020
+ms.date: 01/05/2021
 ms.author: v-kedow
 ms.reviewer: JasonGerend
-ms.openlocfilehash: c4da92a6d88a3d2046ee6136f2481ac23e5bd476
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.openlocfilehash: a5b6ef03701daf1c1f4115f88a2a4e44bac1bd61
+ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86867201"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97918636"
 ---
 # <a name="troubleshoot-cluster-validation-reporting"></a>Řešení potíží s vytvářením sestav ověření clusteru
 
 > Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019
 
 Toto téma vám pomůže při řešení potíží s vytvářením sestav ověřování clusteru pro síť a nastavení QoS (Quality of Service) v rámci serverů v Azure Stack clusteru HCI a ověřte, že jsou definovaná důležitá pravidla. Pro zajištění optimálního připojení a výkonu proces ověření clusteru ověří, jestli je konfigurace technologie QoS přemostění Datacenter (DCB), a jestli je definovaná, obsahuje vhodná pravidla pro třídy přenosů s podporou převzetí služeb při selhání a SMB/SMB Direct.
+
+DCB se vyžaduje pro RDMA přes sblížené sítě Ethernet (RoCE) a je volitelný (ale doporučený) pro sítě Internet WAN Standard RDMA Protocol (iWARP).
 
 ## <a name="install-data-center-bridging"></a>Instalace přemostění datového centra
 
@@ -35,7 +37,7 @@ Install-WindowsFeature –Name Data-Center-Bridging -ComputerName Server1
 
 ## <a name="run-a-cluster-validation-test"></a>Spustit test ověření clusteru
 
-Buď použijte funkci ověřit v centru pro správu systému Windows, vyberte **nástroje > servery > inventarizace > ověřit cluster**nebo spusťte následující příkaz prostředí PowerShell:
+Buď použijte funkci ověřit v centru pro správu systému Windows, vyberte **nástroje > servery > inventarizace > ověřit cluster** nebo spusťte následující příkaz prostředí PowerShell:
 
 ```PowerShell
 Test-Cluster –Node Server1, Server2

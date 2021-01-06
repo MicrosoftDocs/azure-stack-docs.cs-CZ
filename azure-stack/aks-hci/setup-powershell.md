@@ -5,12 +5,12 @@ author: jessicaguan
 ms.topic: quickstart
 ms.date: 12/02/2020
 ms.author: jeguan
-ms.openlocfilehash: 4211ec50ef0ea24ffb55f14791101c5d266ede2e
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: 7e36deb4be03e7866371bba3039295fcce065ff7
+ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96612552"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97918709"
 ---
 # <a name="quickstart-set-up-an-azure-kubernetes-service-host-on-azure-stack-hci-using-powershell"></a>Rychlý Start: nastavení hostitele služby Azure Kubernetes na Azure Stack HCI pomocí prostředí PowerShell
 
@@ -64,7 +64,7 @@ Zavřete všechna okna PowerShellu znovu a znovu otevřete relaci pro správu a 
   
 Po spuštění výše uvedených příkazů zavřete všechna okna PowerShellu a znovu otevřete relaci pro správu, abyste ověřili upgrade modulu PowerShellu, jak je uvedeno níže, a pak `Update-AksHci` příkaz spusťte podle pokynů dále v dokumentu.
 
-## <a name="step-13-validate-upgraded-powershell-module"></a>Krok 1,3: ověření aktualizovaného modulu PowerShellu
+### <a name="step-13-validate-upgraded-powershell-module"></a>Krok 1,3: ověření aktualizovaného modulu PowerShellu
 
 **Zavřete všechna okna prostředí PowerShell** a znovu otevřete novou relaci pro správu, abyste zkontrolovali, jestli máte nejnovější verzi modulu PowerShellu.  
 
@@ -130,11 +130,11 @@ Nakonfigurujte nasazení pomocí následujícího příkazu.
                     [-vipPoolEndIp <String>]
                     [-macPoolStart <String>]
                     [-macPoolEnd <String>]
-                    [-vlanID <int>]
+                    [-vlandID <int>]
                     [-kvaLoadBalancerType {unstacked_haproxy, stacked_kube_vip}]
                     [-kvaControlPlaneEndpoint <String>]
                     [-proxyServerHTTP <String>]
-                    [-proxyServerHTTP <String>]
+                    [-proxyServerHTTPS <String>]
                     [-proxyServerNoProxy <String>]
                     [-proxyServerCredential <PSCredential>]
                     [-cloudServiceCidr <String>]

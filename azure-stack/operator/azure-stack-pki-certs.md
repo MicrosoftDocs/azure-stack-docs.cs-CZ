@@ -7,12 +7,12 @@ ms.date: 08/19/2020
 ms.author: patricka
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: aba799122e4ccbd61258628b079061aa7a02e0ae
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: ac5880d319518ba93d4eb41497b289c3230fe69d
+ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869691"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97918667"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Požadavky na certifikáty infrastruktury veřejných klíčů (PKI) služby Azure Stack Hub
 
@@ -38,7 +38,6 @@ Následující seznam popisuje požadavky obecného vystavení, zabezpečení a 
 ::: moniker-end
 - Použití certifikátů podepsaných svým držitelem není podporováno.
 - Pro nasazení a rotaci můžete buď použít jeden certifikát, který pokrývá všechny obory názvů v poli název předmětu a alternativní název předmětu (SAN) certifikátu, nebo můžete použít jednotlivé certifikáty pro každý obor názvů pod tím, že služby Azure Stack hub, které hodláte využívat, vyžadují. Oba přístupy vyžadují použití zástupných karet pro koncové body, kde jsou povinné, jako je třeba **trezor** klíčů a **KeyVaultInternal**.
-- Šifrování PFX certifikátu by mělo být 3DES.
 - Algoritmus podpisu certifikátu by neměl být SHA1.
 - Formát certifikátu musí být PFX, protože veřejné i privátní klíče se vyžadují pro Azure Stack instalaci centra. Privátní klíč musí mít nastaven atribut klíč místního počítače.
 - Šifrování PFX musí být 3DES (Toto šifrování je při exportu z úložiště certifikátů klienta Windows 10 nebo Windows serveru 2016 výchozí.
@@ -106,7 +105,7 @@ Následující tabulka obsahuje popis koncových bodů a certifikátů vyžadova
 |Rozsah (na oblast)|Certifikát|Požadovaný předmět certifikátu a alternativní názvy subjektu (San)|Obor názvů subdomény|
 |-----|-----|-----|-----|
 |App Service|Výchozí certifikát SSL pro webový provoz|&#42;. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>&#42;. SCM. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>&#42;. SSO. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>(Certifikát SSL s více doménovými znaky<sup>1</sup>)|AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>SCM. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*|
-|App Service|rozhraní API|API. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>(Certifikát SSL<sup>2</sup>)|AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>SCM. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*|
+|App Service|Rozhraní API|API. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>(Certifikát SSL<sup>2</sup>)|AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>SCM. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*|
 |App Service|FTP|FTP. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>(Certifikát SSL<sup>2</sup>)|AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>SCM. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*|
 |App Service|Jednotné přihlašování|SSO. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>(Certifikát SSL<sup>2</sup>)|AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>SCM. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*|
 |Event Hubs|SSL|&#42;. eventhub. *&lt;> &lt; oblasti plně kvalifikovaný název domény>* | eventhub. *&lt;> &lt; oblasti plně kvalifikovaný název domény>* |

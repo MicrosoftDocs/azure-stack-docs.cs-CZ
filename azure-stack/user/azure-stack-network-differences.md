@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 349a2f5fb8cf44fb76467776b8275cdd8fd01278
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: e93197f1906aba53097d5d7123ccc2e85aec0622
+ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873992"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97918690"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Rozdíly a požadavky pro sítě Azure Stack hub
 
@@ -53,7 +53,7 @@ Tento článek obsahuje přehled jedinečných důležitých informací o sítí
 |  | Konfigurace dostupnosti | Aktivní/aktivní | Aktivní/pasivní |
 |  | UsePolicyBasedTrafficSelectors | Azure podporuje selektory přenosu založené na zásadách s připojeními bran založenými na trasách. | Zatím se nepodporuje. |
 |  | Monitorování a výstrahy | Azure používá Azure Monitor k tomu, aby poskytovala možnost nastavit výstrahy pro prostředky sítě VPN. | Zatím se nepodporuje.|
-| Nástroj pro vyrovnávání zatížení | SKU | Podporují se základní a standardní nástroje pro vyrovnávání zatížení. | Podporuje se jenom základní Load Balancer.<br>Vlastnost SKU není podporována.<br>/Path/nástroje pro vyrovnávání zatížení základního SKU nemůže mít více než 5 konfigurací front-endové IP adresy.  |
+| Nástroj pro vyrovnávání zatížení | SKU | Podporují se základní a standardní nástroje pro vyrovnávání zatížení. | Podporuje se jenom základní Load Balancer.<br>Vlastnost SKU není podporována.<br>Nástroj pro vyrovnávání zatížení Basic SKU podporuje 10 konfigurací front-endové IP adresy pro verze 1807-1906 a 200 konfigurace front-endové IP adresy pro vydané verze 1907 a novější na Vyrovnávání zatížení.  |
 |  | Zóny | Zóny dostupnosti jsou podporovány. | Zatím nepodporováno |
 |  | Podpora pravidel příchozího překladu adres (NAT) pro koncové body služby | Azure podporuje určení koncových bodů služby pro pravidla příchozího překladu adres (NAT). | Centrum Azure Stack ještě nepodporuje koncové body služby, takže je nejde zadat. |
 |  | Protokol | Azure podporuje určení protokolu GRE nebo ESP. | Třída protokolu není v centru Azure Stack podporována. |
