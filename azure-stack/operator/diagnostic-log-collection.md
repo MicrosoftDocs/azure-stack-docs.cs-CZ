@@ -7,12 +7,12 @@ ms.date: 10/30/2020
 ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 12/08/2020
-ms.openlocfilehash: 1bf32b01035cff3557c2e801fe1fea87cc5ee472
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: c8913bd91b7d931baf47f249dd214dd6eea71e4a
+ms.sourcegitcommit: 6efe456173ce77d52789144709195b6291d0d707
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97868654"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97950735"
 ---
 # <a name="diagnostic-log-collection"></a>Shromažďování protokolů diagnostiky
 
@@ -125,13 +125,13 @@ Pokud používáte metodu **Odeslat protokoly** a chcete místo portálu pro spr
 
 * Parametry **FromDate** a  na více dní lze použít ke shromažďování protokolů pro konkrétní časové období. Nejsou-li tyto parametry zadány, budou ve výchozím nastavení shromažďovány protokoly za poslední čtyři hodiny.
 
-* Pomocí parametru **FilterByNode** můžete filtrovat protokoly podle názvu počítače. Například:
+* Pomocí parametru **FilterByNode** můžete filtrovat protokoly podle názvu počítače. Příklad:
 
   ```powershell
   Send-AzureStackDiagnosticLog -FilterByNode azs-xrp01
   ```
 
-* Pomocí parametru **FilterByLogType** můžete filtrovat protokoly podle typu. Můžete zvolit filtrování podle souboru, sdílení nebo WindowsEvent. Například:
+* Pomocí parametru **FilterByLogType** můžete filtrovat protokoly podle typu. Můžete zvolit filtrování podle souboru, sdílení nebo WindowsEvent. Příklad:
 
   ```powershell
   Send-AzureStackDiagnosticLog -FilterByLogType File
@@ -142,6 +142,9 @@ Pokud používáte metodu **Odeslat protokoly** a chcete místo portálu pro spr
   ```powershell
   Send-AzureStackDiagnosticLog -FilterByResourceProvider <<value-add RP name>>
   ```
+
+  ::: moniker range=">= azs-2008"
+
   Odesílání diagnostických protokolů pro SQL RP: 
 
   ```powershell
@@ -152,6 +155,8 @@ Pokud používáte metodu **Odeslat protokoly** a chcete místo portálu pro spr
   ```powershell
   Send-AzureStackDiagnosticLog -FilterByResourceProvider MySQLAdapter
   ```
+  
+  ::: moniker-end
 
   Postup odesílání diagnostických protokolů pro IoT Hub: 
 

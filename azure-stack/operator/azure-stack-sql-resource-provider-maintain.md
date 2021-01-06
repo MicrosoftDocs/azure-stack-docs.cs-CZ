@@ -8,16 +8,16 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: ec2eebc7aa8195c0560beb8c61f0f98ce1689b07
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: 3472cf330efb250f20eb66a5df50239a66293307
+ms.sourcegitcommit: 6efe456173ce77d52789144709195b6291d0d707
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011344"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97950701"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Operace údržby poskytovatele prostředků SQL
 
-Poskytovatel prostředků SQL běží na uzamčeném virtuálním počítači (VM). Chcete-li povolit operace údržby, je nutné aktualizovat zabezpečení virtuálního počítače. Pokud to chcete provést pomocí objektu s nejnižšími oprávněními, použijte [prostředí PowerShell, které stačí pro správu DBAdapterMaintenance (JEA)](/powershell/scripting/learn/remoting/jea/overview) koncového bodu. *DBAdapterMaintenance* Instalační balíček poskytovatele prostředků obsahuje skript pro tuto akci.
+Poskytovatel prostředků SQL běží na uzamčeném virtuálním počítači (VM). Chcete-li povolit operace údržby, je nutné aktualizovat zabezpečení virtuálního počítače. Pokud to chcete provést pomocí objektu s nejnižšími oprávněními, použijte [prostředí PowerShell, které stačí pro správu DBAdapterMaintenance (JEA)](/powershell/scripting/learn/remoting/jea/overview) koncového bodu.  Instalační balíček poskytovatele prostředků obsahuje skript pro tuto akci.
 
 ## <a name="patching-and-updating"></a>Oprava a aktualizace
 
@@ -31,7 +31,7 @@ Vzhledem k tomu, že poskytovatel prostředků běží na *uživatelském* virtu
 
 Zodpovídáte za vytváření a udržování účtů sysadmin na vašich SQL serverech. Poskytovatel prostředků potřebuje účet s těmito oprávněními ke správě databází pro uživatele, ale nepotřebuje přístup k datům uživatelů. Pokud potřebujete aktualizovat hesla sysadmin na serverech SQL, můžete použít rozhraní Správce poskytovatele prostředků ke změně uloženého hesla. Tato hesla se ukládají v Key Vault vaší instance centra Azure Stack.
 
-Chcete-li upravit nastavení, vyberte **Procházet** &gt; **prostředky pro správu** &gt; přihlašovacích **serverů SQL hostující servery** &gt; **SQL Logins** a vyberte uživatelské jméno. Tato změna se musí provést nejdříve v instanci SQL (a v případě potřeby všechny repliky). V části **Nastavení** vyberte **heslo**.
+Chcete-li upravit nastavení, vyberte **Procházet** &gt; **prostředky pro správu** &gt; přihlašovacích **serverů SQL hostující servery** &gt;  a vyberte uživatelské jméno. Tato změna se musí provést nejdříve v instanci SQL (a v případě potřeby všechny repliky). V části **Nastavení** vyberte **heslo**.
 
 ![Aktualizace hesla správce SQL](./media/azure-stack-sql-rp-deploy/sql-rp-update-password.png)
 
@@ -186,6 +186,14 @@ $session | Remove-PSSession
 ```
 
 ## <a name="collect-diagnostic-logs"></a>Shromážděte diagnostické protokoly.
+
+::: moniker range=">= azs-2008"
+
+Centrum Azure Stack má několik způsobů, jak shromažďovat, ukládat a odesílat diagnostické protokoly do podpora Microsoftu. Od verze 1.1.93 poskytovatel prostředků SQL podporuje standardní způsob shromažďování protokolů z vašeho prostředí Azure Stack hub. Další informace najdete v tématu [shromažďování diagnostických protokolů](diagnostic-log-collection.md).
+
+::: moniker-end
+
+Od verze 1.1.93 poskytovatel prostředků SQL podporuje standardní způsob shromažďování protokolů z vašeho prostředí Azure Stack hub. Pokud používáte starší verzi, doporučuje se aktualizovat poskytovatele prostředků SQL na nejnovější verzi.
 
 Pokud chcete shromažďovat protokoly z uzamčeného virtuálního počítače, použijte PowerShellový koncový bod pro správu JEA ( *DBAdapterDiagnostics*). Tento koncový bod nabízí následující příkazy:
 

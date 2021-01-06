@@ -8,12 +8,12 @@ ms.date: 09/02/2020
 ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 1a7efd4a7be3af242f817d93f6ba80591d860fa0
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 95ca8364e06176f1a96fae388e1d8047eb4a0403
+ms.sourcegitcommit: 6efe456173ce77d52789144709195b6291d0d707
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870762"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97950718"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>Odesílání diagnostických protokolů služby Azure Stack Hub s využitím privilegovaného koncového bodu
 
@@ -74,7 +74,7 @@ if ($session) {
   Get-AzureStackLog -OutputPath <Path> -InputSasUri "<Blob Service Sas URI>" -FromDate "<Beginning of the time range>" -ToDate "<End of the time range>"
   ```
 
-  Například:
+  Příklad:
 
   ```powershell
   Get-AzureStackLog -OutputPath C:\KubernetesLogs -InputSasUri "https://<storageAccountName>.blob.core.windows.net/<ContainerName><SAS token>" -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2) 
@@ -85,7 +85,9 @@ if ($session) {
   ```powershell
   Get-AzureStackLog -FilterByResourceProvider <<value-add RP name>>
   ```
- 
+  
+  ::: moniker range=">= azs-2008"
+
   Shromažďování protokolů pro SQL RP: 
 
   ```powershell
@@ -97,6 +99,8 @@ if ($session) {
   ```powershell
   Get-AzureStackLog -FilterByResourceProvider MySQLAdapter
   ```
+  
+  ::: moniker-end
 
   Postup shromáždění protokolů pro IoT Hub: 
 
@@ -122,7 +126,7 @@ if ($session) {
   Get-AzureStackLog -OutputSasUri "<Blob service SAS Uri>"
   ```
 
-  Například:
+  Příklad:
 
   ```powershell
   Get-AzureStackLog -OutputSasUri "https://<storageAccountName>.blob.core.windows.net/<ContainerName><SAS token>"
@@ -153,13 +157,13 @@ if ($session) {
 
 * Parametry **OutputSharePath** a **OutputShareCredential** se používají k ukládání protokolů v umístění zadaném uživatelem.
 * Parametry **FromDate** a  na více dní lze použít ke shromažďování protokolů pro konkrétní časové období. Nejsou-li tyto parametry zadány, budou ve výchozím nastavení shromažďovány protokoly za poslední čtyři hodiny.
-* Pomocí parametru **FilterByNode** můžete filtrovat protokoly podle názvu počítače. Například:
+* Pomocí parametru **FilterByNode** můžete filtrovat protokoly podle názvu počítače. Příklad:
 
     ```powershell
     Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByNode azs-xrp01
     ```
 
-* Pomocí parametru **FilterByLogType** můžete filtrovat protokoly podle typu. Můžete zvolit filtrování podle souboru, sdílení nebo WindowsEvent. Například:
+* Pomocí parametru **FilterByLogType** můžete filtrovat protokoly podle typu. Můžete zvolit filtrování podle souboru, sdílení nebo WindowsEvent. Příklad:
 
     ```powershell
     Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByLogType File
@@ -314,7 +318,7 @@ if ($session) {
 
       SRP
 
-      Úložiště
+      Storage
 
       StorageController
 
