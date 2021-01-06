@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: ba480afc0c94207b76df5c61b5a4f747636b4ece
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 5c270de88d78bb8cb7ba1f7b9216c4a160a4aae8
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867906"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910052"
 ---
 # <a name="accessing-the-idrac-interface-over-a-direct-usb-connection"></a>Přístup k rozhraní iDRAC přes přímé připojení USB
 
@@ -29,7 +29,7 @@ Pokud chcete získat přístup k rozhraní iDRAC přes port USB, proveďte násl
 2.  Připojte kabel mikrosběrnice USB od přenosného počítače k iDRAC přímému portu umístěnému na začátku serveru.
     V diagramu se podívejte na položku 4.
 
-    ![](media/image-67.png)
+    ![Diagram, který zobrazuje tlačítko napájení, U B a u všech portů v/v B.](media/image-67.png)
 
 3.  Počkejte, až přenosný počítač získá IP adresu 169.254.0.4.
 

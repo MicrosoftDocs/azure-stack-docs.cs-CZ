@@ -1,6 +1,6 @@
 ---
-title: Obnovení dat v Azure Stack pomocí služby Infrastructure Backup | Microsoft Docs
-description: Naučte se zálohovat a obnovovat data konfigurace a služby v Azure Stack pomocí služby Infrastructure Backup.
+title: Obnovení dat v Azure Stack pomocí Infrastructure Backup služby – MDC
+description: Naučte se zálohovat a obnovovat data konfigurace a služby v Azure Stack pomocí služby Infrastructure Backup. Pro modulární datové centrum (MDC).
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,14 +14,14 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: c32065beeeb446d7d8e494634bc68318e280a693
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: 5a9e8615168714b3346f735d9182c38b2c604cca
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329187"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910801"
 ---
-# <a name="recover-data-in-azure-stack-with-the-infrastructure-backup-service"></a>Obnovení dat v Azure Stack pomocí služby Infrastructure Backup
+# <a name="recover-data-in-azure-stack-with-the-infrastructure-backup-service---modular-data-center-mdc"></a>Obnovení dat v Azure Stack pomocí Infrastructure Backup služby – modulární datové centrum (MDC)
 
 *Platí pro: modulární datová centra a centrum Azure Stack, které je robustní*
 

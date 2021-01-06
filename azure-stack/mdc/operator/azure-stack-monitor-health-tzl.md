@@ -1,6 +1,6 @@
 ---
-title: Monitorování stavu a výstrah v Azure Stack | Microsoft Docs
-description: Naučte se monitorovat stav a výstrahy v Azure Stack.
+title: Monitorování stavu a výstrah v Azure Stack – MDC | Microsoft Docs
+description: Naučte se monitorovat stav a výstrahy v Azure Stack pro modulární datové centrum (MDC).
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 10/26/2020
 ms.author: mabrigg
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 4a14700a081e8c85f29a7edc69c471ba9bd3d249
-ms.sourcegitcommit: 6db48bd8e6ccfaaa897713ad7eb2846a8d506358
+ms.openlocfilehash: bdc027e8c61053fddddd5ad365eff8069acb840d
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94885780"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910818"
 ---
-# <a name="monitor-health-and-alerts-in-azure-stack"></a>Monitorování stavu a upozornění ve službě Azure Stack
+# <a name="monitor-health-and-alerts-in-azure-stack---modular-data-center-mdc"></a>Monitorování stavu a výstrah v Azure Stackovém datovém centru (MDC)
 
 Azure Stack zahrnuje možnosti monitorování infrastruktury, které vám pomůžou zobrazit stav a výstrahy pro Azure Stack oblasti. Dlaždice **Správa oblastí** obsahuje seznam všech nasazených oblastí Azure Stack. Ve výchozím nastavení je připnuté na portálu pro správu pro výchozí předplatné poskytovatele. Tato dlaždice zobrazuje počet aktivních výstrah kritických a varovných upozornění pro jednotlivé oblasti. Tato dlaždice je vaším vstupním bodem do funkce stavu a výstrahy Azure Stack.
 

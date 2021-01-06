@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Přečtěte si o běžných parametrech pracovního postupu pro Azure Stack ověřování centra jako služby.
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: f7932714642568c1d41a94d55a212af1bcc385ad
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 51821c70153f2b4f091b0e8ccb659dddf863bb5e
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112053"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97910853"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-hub-validation-as-a-service"></a>Společné parametry pracovního postupu pro ověřování centra Azure Stack jako služba
 
@@ -53,7 +53,7 @@ Hodnoty parametrů prostředí se taky dají ručně umístit do **konfiguračn�
 
 Mezi běžné parametry testu patří citlivé informace, které nelze uložit v konfiguračních souborech. Tyto parametry je nutné zadat ručně.
 
-Parametr    | Description
+Parametr    | Popis
 -------------|-----------------
 Správce klienta uživatel                            | Správce tenanta Azure Active Directory (Azure AD), který byl zřízen správcem služby v adresáři AAD. Tento uživatel provádí akce na úrovni tenanta, jako je nasazení šablon, k nastavení prostředků (virtuálních počítačů, účtů úložiště atd.) a provádění úloh. Podrobnosti o zřízení účtu tenanta najdete v tématu [Přidání nového tenanta centra Azure Stack](../operator/azure-stack-add-new-user-aad.md).
 Uživatel správce služeb             | Správce Azure AD pro tenanta adresáře Azure AD zadaný během nasazování centra Azure Stack. `AADTenant`V konfiguračním souboru EHK vyhledejte a vyberte hodnotu v `UniqueName` elementu.
@@ -69,11 +69,11 @@ Připojovací řetězec diagnostiky je vyžadován pro ukládání diagnostický
 
 1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
 
-1. Z **možností povolených služeb**vyberte **objekt BLOB** . Zrušte výběr všech zbývajících možností.
+1. Z **možností povolených služeb** vyberte **objekt BLOB** . Zrušte výběr všech zbývajících možností.
 
-1. Vyberte **službu**, **kontejner**a **objekt** z **povolených typů prostředků**.
+1. Vyberte **službu**, **kontejner** a **objekt** z **povolených typů prostředků**.
 
-1. Vyberte **číst**, **zapsat**, **vypsat**, **Přidat**a **vytvořit** z **povolených oprávnění**. Zrušte výběr všech zbývajících možností.
+1. Vyberte **číst**, **zapsat**, **vypsat**, **Přidat** a **vytvořit** z **povolených oprávnění**. Zrušte výběr všech zbývajících možností.
 
 1. Nastaví **počáteční čas** na aktuální čas a **koncový čas** na tři měsíce od aktuálního času.
 

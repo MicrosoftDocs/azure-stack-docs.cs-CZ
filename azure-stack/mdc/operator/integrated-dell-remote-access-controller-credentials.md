@@ -1,6 +1,6 @@
 ---
-title: Integrované přihlašovací údaje k řadiči vzdáleného přístupu Dell
-description: Vysvětluje, jak aktualizovat přihlašovací údaje pro integrovaný kontroler vzdáleného přístupu Dell.
+title: Integrované přihlašovací údaje k řadiči vzdáleného přístupu Dell – MDC
+description: Naučte se aktualizovat přihlašovací údaje pro integrovaný kontroler vzdáleného přístupu (iDRAC) od společnosti Dell (MDC) v modulárním datovém centru ().
 author: troettinger
 ms.author: thoroet
 ms.service: azure-stack
@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 10/27/2020
 ms.reviewer: justinha
 ms.lastreviewed: 10/27/2020
-ms.openlocfilehash: 1525872e3c59ab7e5b0cd436ba5ab8e2e3836594
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: d0d2f522038d0788d4942db68b36e5bb21884619
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329095"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910733"
 ---
-# <a name="update-credentials-for-the-integrated-dell-remote-access-controller"></a>Aktualizovat přihlašovací údaje pro integrovaný kontroler vzdáleného přístupu Dell
+# <a name="update-credentials-for-the-integrated-dell-remote-access-controller---modular-data-center-mdc"></a>Aktualizace přihlašovacích údajů pro integrovaný kontroler vzdáleného přístupu Dell – modulární datové centrum (MDC)
 
 V této části je popsán postup změny integrovaných přihlašovacích údajů k řadiči vzdáleného přístupu (iDRAC) od společnosti Dell. 
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 Před spuštěním postupu: 
 
@@ -33,7 +33,7 @@ Pokud chcete aktualizovat přihlašovací údaje iDRAC pro všechny servery Powe
 1. Ve webovém prohlížeči se přihlaste k https://<iDRAC_IP>. 
 1. Přejít na **iDRAC nastavení**  >  **Uživatelé**. 
 1. Vyberte uživatele, kterého chcete upravit, a pak klikněte na **Upravit**. 
-1. V okně **Upravit uživatele** zadejte nové heslo do pole **heslo** a **potvrďte heslo** , jak je znázorněno na následujícím obrázku: 
+1. V okně **Upravit uživatele** zadejte nové heslo do pole **heslo** a **potvrďte heslo**, jak je znázorněno na následujícím obrázku: 
 
    ![Snímek obrazovky zobrazující informace o uživateli](../operator/media/idrac-credentials/enter-user.png)
 
@@ -41,4 +41,4 @@ Pokud chcete aktualizovat přihlašovací údaje iDRAC pro všechny servery Powe
 
 ## <a name="next-steps"></a>Další kroky
 
-[Otočení tajných kódů v centru Azure Stack](../../operator/azure-stack-rotate-secrets.md)
+[Obměna tajných klíčů ve službě Azure Stack Hub](../../operator/azure-stack-rotate-secrets.md)

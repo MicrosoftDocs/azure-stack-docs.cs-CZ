@@ -1,6 +1,6 @@
 ---
-title: Křížové odkazy na odkazy v centru Azure Stack
-description: Vyhledejte referenční odkazy portálu Azure Stack hub.
+title: Odkazy na MDC v centru pro křížové odkazy – Azure Stack
+description: Vyhledat odkazy na portál pro Azure Stack hub při provozu z modulárního datového centra (MDC).
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 10/26/2020
 ms.author: mabrigg
 ms.lastreviewed: 10/26/2020
 ms.reviewer: efemmano
-ms.openlocfilehash: dd52df36363e45868e586c0e980950b10b7c6836
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: bfc9c4aeb2e3dfb003d3cd1e1fc9dcc71b0caf82
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329072"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910921"
 ---
-# <a name="alerts-akams-link-reference-for-azure-stack-hub"></a>Odkaz na odkaz na aka.msu výstrahy pro centrum Azure Stack
+# <a name="alerts-akams-link-reference-for-azure-stack-hub---modular-data-center-mdc"></a>Referenční informace o aka.msch upozorněních na propojení pro centra Azure Stack – modulární datové centrum (MDC)
 
 Toto téma obsahuje seznam křížových odkazů pro odkazy, které se zobrazují v rámci výstrah na portálu pro správu. 
 

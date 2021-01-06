@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 972c9e8f0b66470a6e1b7cbc81d40062ff34a950
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 2eb2c85bcdb350173923b3d8b5a3b463ce6a16ff
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874706"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910716"
 ---
 # <a name="powering-off-scale-unit-nodes"></a>Vypínání uzlů jednotek škálování
 
@@ -26,15 +26,15 @@ Pokud se \' **stav napájení** uzlu **nezastavil**, použijte následující po
 
     1.  Na portálu pro správu vyberte uzel, který je potřeba opravit, a pak vyberte **vyprázdnit**.
 
-        ![](media/image-23.png)
+        ![Snímek obrazovky zobrazující stránku pro správu s vybranou akcí vyprázdnit a zvýrazněný uzel](media/image-23.png)
         
     1.  Po zobrazení výzvy zadejte název uzlu, který se má vyprázdnit, a vyberte **Ano**.
 
-        ![](media/image-24.png)
+        ![Snímek obrazovky zobrazující stránku Správa – uzly](media/image-24.png)
     
     1.  Zobrazí se oznámení, že probíhá vyprazdňování.
     
-        ![](media/image-25.png)
+        ![Snímek obrazovky, na které se zobrazí stránka Správa – uzly se zobrazeným oznámením o vyprázdnění](media/image-25.png)
         
     1.  Přihlaste se k rozhraní iDRAC a ověřte \' v **systémových informacích** značku služby Node.
     
@@ -43,17 +43,17 @@ Pokud se \' **stav napájení** uzlu **nezastavil**, použijte následující po
 
     1.  Po dokončení vyprázdnění znovu vyberte uzel, ověřte, zda je **provozní stav** **údržby** , a vyberte možnost **vypnout**.
 
-        ![](media/image-26.png)
+        ![Snímek obrazovky, který zobrazuje stránku pro správu uzlů s uzlem a vybranou akcí vypnout](media/image-26.png)
         
     1.  Po zobrazení výzvy vyberte **Ano** a potvrďte tak vypnutí.
     
-        ![](media/image-27.png)
+        ![Snímek obrazovky zobrazující stránku Správa – uzly s zobrazeným dialogovým oknem pro vypnutí uzlu](media/image-27.png)
         
     1.  Zobrazí se oznámení oznamující, že probíhá vypnutí.
 
-        ![](media/image-28.png)
+        ![Snímek obrazovky zobrazující stránku Správa – uzly s zobrazeným dialogovým oknem pro vypnutí](media/image-28.png)
     
     1.  Po dokončení vypnutí se **stav napájení** **zastaví**.
     
-        ![](media/image-29.png)
+        ![Snímek obrazovky, na které se zobrazuje stránka pro správu uzlů s vybraným uzlem a pro stav napájení je zvýrazněná položka zastaveno](media/image-29.png)
         

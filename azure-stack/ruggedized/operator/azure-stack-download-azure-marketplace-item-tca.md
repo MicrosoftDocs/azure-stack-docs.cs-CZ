@@ -15,14 +15,14 @@ ms.date: 01/02/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: 734c84c1226a9e1ed4a9f3e34b787f1677ab6902
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: a3d8fcc1c3ffa65539b233a8b89f55d57f61a5ef
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939523"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910614"
 ---
-# <a name="download-marketplace-items-to-azure-stack-hub"></a>Stažení položek z Marketplace do centra Azure Stack 
+# <a name="download-marketplace-items-to-azure-stack-hub-ruggedized"></a>Stažení položek z Marketplace do centra Azure Stack (robustní)
 
 Jako operátor cloudu můžete z Marketplace stahovat položky do centra Azure Stack a zpřístupnit je všem uživatelům pomocí prostředí Azure Stack hub. Položky, které můžete vybrat, jsou z uspořádaného seznamu Azure Marketplacech položek, které jsou předem testovány a podporovány pro práci s Azure Stack. Do tohoto seznamu se často přidají další položky, takže se budete moct vrátit k novému obsahu.
 
@@ -40,7 +40,7 @@ Existují dva scénáře stažení produktů z webu Marketplace:
 
 Pokud se centrum Azure Stack připojuje k Internetu, můžete k stažení položek z Marketplace použít portál pro správu.
 
-### <a name="prerequisites"></a>Předpoklady
+### <a name="prerequisites"></a>Požadavky
 
 Vaše nasazení centra Azure Stack musí mít připojení k Internetu a musí být [zaregistrované v Azure](registration-tzl.md).
 
@@ -50,7 +50,7 @@ Vaše nasazení centra Azure Stack musí mít připojení k Internetu a musí b�
 
 2. Před stažením položek z webu Marketplace zkontrolujte dostupný prostor úložiště. Později můžete po výběru položek ke stažení porovnat velikost stahovaných zařízení s dostupnou kapacitou úložiště. Pokud je kapacita omezená, zvažte možnosti [správy dostupného místa](../../operator/azure-stack-manage-storage-shares.md#manage-available-space).
 
-   Chcete-li zkontrolovat dostupné místo: v **oblasti Správa oblastí** vyberte oblast, kterou chcete prozkoumat, a pak klikněte na úložiště **poskytovatelé prostředků**  >  **Storage**:
+   Chcete-li zkontrolovat dostupné místo: v **oblasti Správa oblastí** vyberte oblast, kterou chcete prozkoumat, a pak klikněte na úložiště **poskytovatelé prostředků**  >  :
 
    ![Kontrola místa v úložišti Azure Stack portálu pro správu](media/azure-stack-download-azure-marketplace-item-tzl/storage.png)
 
@@ -60,7 +60,7 @@ Vaše nasazení centra Azure Stack musí mít připojení k Internetu a musí b�
 
 4. V každé položce řádku se zobrazí také aktuálně dostupná verze. Pokud je k dispozici více než jedna verze položky Marketplace, zobrazí se ve sloupci **verze** **více**. Kliknutím na každou položku můžete zobrazit její popis a další informace, včetně její velikosti ke stažení:
 
-   ![Přidat z Azure](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure1.png)
+   ![Snímek obrazovky zobrazující stránku přidat z Azure s zvýrazněnými položkami verze "více".](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure1.png)
 
 5. Pokud je verze položky zobrazená jako **více**, můžete tuto položku vybrat a pak vybrat konkrétní verzi z rozevíracího seznamu výsledná verze – výběr:
 
@@ -78,7 +78,7 @@ V odpojeném prostředí nemůžete stáhnout položky Marketplace z Azure. K st
 
 ### <a name="download-marketplace-items-from-azure"></a>Stažení položek z Marketplace z Azure
 
-#### <a name="prerequisites"></a>Předpoklady
+#### <a name="prerequisites"></a>Požadavky
 
 - Azure PowerShell v počítači nainstalován.
 
@@ -115,7 +115,7 @@ V odpojeném prostředí nemůžete stáhnout položky Marketplace z Azure. K st
 
 ### <a name="upload-marketplace-items-to-azure-stack-hub"></a>Nahrání položek Marketplace do centra Azure Stack
 
-#### <a name="prerequisites"></a>Předpoklady
+#### <a name="prerequisites"></a>Požadavky
 
 - Správce Azure Stack Správce prostředků koncového bodu a klienta adresáře.
 

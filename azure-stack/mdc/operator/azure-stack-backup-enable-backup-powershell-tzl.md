@@ -1,6 +1,6 @@
 ---
-title: Povolení zálohování pro Azure Stack s využitím PowerShellu | Microsoft Docs
-description: Naučte se, jak povolit službu Infrastructure Backup pomocí prostředí PowerShell, aby bylo možné Azure Stack obnovit v případě selhání.
+title: Povolení zálohování pro Azure Stack pomocí prostředí PowerShell – MDC
+description: Naučte se, jak povolit službu Infrastructure Backup pomocí prostředí PowerShell, aby bylo možné Azure Stack obnovit v případě selhání. Pro modulární datové centrum (MDC).
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/27/2020
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 10/27/2020
-ms.openlocfilehash: 9f50a6096f0fb7881d37a67df34bdcd6f2487eb9
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: f3d28fa9f5610f91ab8b35ad017c836745f5117d
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935045"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910870"
 ---
-# <a name="configure-backup-for-azure-stack-with-powershell"></a>Konfigurace zálohování pro Azure Stack s využitím PowerShellu
+# <a name="configure-backup-for-azure-stack-with-powershell---modular-data-center-mdc"></a>Konfigurace zálohování pro Azure Stack s využitím prostředí PowerShell – modulární datové centrum (MDC)
 
 *Platí pro: modulární datové centrum, Azure Stack centrum je robustní*
 

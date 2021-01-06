@@ -16,12 +16,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: 900be8cd88fdfbbb488bf07c4b37521551581590
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 60caf869fef5537aa6adc35bd2233a81a4fe749d
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874315"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97909816"
 ---
 # <a name="rotate-container-registry-secrets-in-azure-stack-hub"></a>Otočení tajných kódů registru kontejneru v centru Azure Stack
 
@@ -253,19 +253,19 @@ Podle následujících pokynů nastavte nové tajné kódy v Key Vault.
 
 2.  Přejděte do skupiny prostředků, kterou je nasazený virtuální počítač šablony registru kontejneru.
 
-    ![Šablona registru kontejneru](./media/container-registry-template-rotating-secrets-tzl/image1.png)
+    ![Snímek obrazovky zobrazující skupinu prostředků, ve které je nasazený virtuální počítač šablony registru kontejneru.](./media/container-registry-template-rotating-secrets-tzl/image1.png)
 
 3. Vyberte nasazení v části **nasazení**.
 
-    ![Šablona registru kontejneru](./media/container-registry-template-rotating-secrets-tzl/image2.png)
+    ![Snímek obrazovky zobrazující nasazení vybrané na stránce nasazení](./media/container-registry-template-rotating-secrets-tzl/image2.png)
 
 4.  Při prvním střídání tajných klíčů vyberte původní nasazení. Pokud se nejedná o první střídání tajných klíčů, vyberte nejnovější nasazení a pak vyberte znovu **nasadit**.
 
-    ![Šablona registru kontejneru](./media/container-registry-template-rotating-secrets-tzl/image3.png)
+    ![Snímek obrazovky se zvýrazněnou stránkou ' Přehled ' s popisem akce ' znovu nasadit '.](./media/container-registry-template-rotating-secrets-tzl/image3.png)
 
 5.  V části **nasadit šablonu řešení** vyberte **použít existující skupinu prostředků** a vyberte skupinu prostředků, která se použila k původnímu nasazení šablony registru kontejneru. Aby bylo opětovné nasazení úspěšné, musí používat stejnou skupinu prostředků.
 
-    ![Šablona registru kontejneru](./media/container-registry-template-rotating-secrets-tzl/image4.png)
+    ![Snímek obrazovky zobrazující stránky nasadit šablonu řešení a parametry](./media/container-registry-template-rotating-secrets-tzl/image4.png)
 
 6.  V **parametrech** ověřte, zda parametry odpovídají původnímu nasazení. Bude nutné přidat ID a tajný klíč objektu instančního objektu služby.
 

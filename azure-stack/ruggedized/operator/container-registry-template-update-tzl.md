@@ -16,12 +16,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: e4890c075505ac5babbb5d614ae36472941d2b17
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: f63f0d550a841902e1d7c27d9c7688a8b5373149
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874349"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910580"
 ---
 # <a name="update-the-container-registry-in-azure-stack-hub"></a>Aktualizace registru kontejneru v Azure Stackovém centru
 
@@ -33,13 +33,13 @@ Uživatelé centra Azure Stack můžou aktualizovat svoje nasazení registrů ko
 
 1.  Založte nejnovější základní image AKS z webu Marketplace pro Azure Stack. Základní image AKS se aktualizuje na měsíční tempo.
 
-> ![Šablona registru kontejneru](./media/container-registry-template-updating-tzl/image1.png)
+> ![Snímek obrazovky zobrazující stránku přidat z Azure s výsledky hledání pro zobrazení ' AKS Base Ubu '.](./media/container-registry-template-updating-tzl/image1.png)
 
 ### <a name="user"></a>Uživatel
 
 1.  Zkontrolujte SKLADOVOU položku základní image AKS, která se použila k nasazení šablony registru kontejnerů, a to tak, že přejdete na záznam nasazení ve skupině prostředků a vyberete **vstupy**.
 
-    ![Šablona registru kontejneru](./media/container-registry-template-updating-tzl/image2.png)
+    ![Snímek obrazovky zobrazující stránku vstupy](./media/container-registry-template-updating-tzl/image2.png)
 
 2.  Zjistěte, jestli je k dispozici novější SKU základní image AKS pomocí funkce **Get-VMImageSku** , která vyžaduje `Import-Module .\pre-reqs.ps1` ze skriptů šablon registru kontejneru.
 
@@ -75,29 +75,29 @@ Uživatelé centra Azure Stack můžou aktualizovat svoje nasazení registrů ko
 
 1.  Nainstalujte novou instanci šablony registru kontejneru do nové skupiny prostředků.
 
-    ![Šablona registru kontejneru](./media/container-registry-template-updating-tzl/image3.png)
+    ![Snímek obrazovky, který ukazuje stránku vytvořit Container Registry šablony – základy](./media/container-registry-template-updating-tzl/image3.png)
 
 2.  Zadejte poslední výstup SKU ze `Get-VMImage` skriptu a použijte jedinečný parametr **DnsName** z počáteční instalace v konfiguraci virtuálního počítače, jako počáteční instalaci použijte stejný instanční objekt a tajný klíč.
 
-    ![Šablona registru kontejneru](./media/container-registry-template-updating-tzl/image4.png)
+    ![Snímek obrazovky zobrazující stránku vytvořit Container Registry šablonu – konfigurace virtuálního počítače](./media/container-registry-template-updating-tzl/image4.png)
 
 3.  Jako počáteční instalaci pro úložiště a Key Vault konfiguraci použijte stejné parametry úložiště a Key Vault.
 
-    ![Šablona registru kontejneru](./media/container-registry-template-updating-tzl/image5.png)
+    ![Snímek obrazovky zobrazující stránku vytvořit Container Registry šablonu – úložiště a Key Vault konfigurace.](./media/container-registry-template-updating-tzl/image5.png)
 
 1.  Po nasazení nové šablony registru kontejnerů přejděte do počáteční skupiny prostředků a vyberte prostředek veřejné IP adresy.
 
-    ![Šablona registru kontejneru](./media/container-registry-template-updating-tzl/image6.png)
+    ![Snímek obrazovky, který zobrazuje seznam prostředků adresy veřejné I P.](./media/container-registry-template-updating-tzl/image6.png)
 
 1.  V prostředku veřejné IP adresy přejděte na konfigurace a upravte popisek název DNS tak, aby se mohl použít pro nově nasazený prostředek. Poznámka: když upravíte popisek názvu DNS a vyberete možnost **Uložit** volání do Container registry bude začínat selhání.
 
-    ![Šablona registru kontejneru](./media/container-registry-template-updating-tzl/image7.png)
+    ![Snímek obrazovky zobrazující stránku prostředku "veřejná I P-Address" s vybraným "static".](./media/container-registry-template-updating-tzl/image7.png)
     
-    ![Šablona registru kontejneru](./media/container-registry-template-updating-tzl/image8.png)
+    ![Snímek obrazovky zobrazující stránku prostředku "veřejná I P Address" s popiskem N S názvem (volitelné).](./media/container-registry-template-updating-tzl/image8.png)
 
 2.  Přejděte do nové skupiny prostředků, která se používá k nasazení nové instance šablony registru kontejnerů, vyberte prostředek veřejné IP adresy, konfiguraci a aktualizujte popisek názvu DNS na správný název, který jste použili v původním nasazení, a v tomto příkladu `myreg` Vyberte **Save (Uložit**).
 
-    ![Šablona registru kontejneru](./media/container-registry-template-updating-tzl/image9.png)
+    ![Snímek obrazovky zobrazující stránku prostředku "veřejná I P adresa" s původním názvem D N S jmenovkou.](./media/container-registry-template-updating-tzl/image9.png)
     
     ![Šablona registru kontejneru](./media/container-registry-template-updating-tzl/image10.png)
 

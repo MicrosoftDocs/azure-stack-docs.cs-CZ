@@ -1,7 +1,7 @@
 ---
-title: Přidání registru kontejneru do centra Azure Stack | Microsoft Docs
+title: Přidání registru kontejneru – Azure Stack hub | Microsoft Docs
 titleSuffix: Azure Stack
-description: Naučte se, jak přidat registr kontejnerů do webu Azure Stack hub Marketplace.
+description: Naučte se, jak přidat registr kontejnerů do webu Azure Stack hub Marketplace (robustní).
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,14 +16,14 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: 875eaf68324993be7029cfedd3d376ea38184a06
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: a517fc2bef86584c6bdf5aff6f9b7907ac9c0b1e
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874366"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910563"
 ---
-# <a name="add-a-container-registry-to-azure-stack-hub"></a>Přidání registru kontejneru do centra Azure Stack
+# <a name="add-a-container-registry-to-azure-stack-hub-ruggedized"></a>Přidání registru kontejneru do centra Azure Stack (Robustnostd)
 
 Registr kontejnerů můžete přidat do svého tržiště centra Azure Stack, aby uživatelé mohli nasadit a udržovat vlastní registr kontejnerů. Tato šablona řešení nainstaluje a nakonfiguruje Open Source Docker Container Registry v předplatném uživatele, které běží na AKS Base Ubuntu 16,04-LTS. Šablona podporuje nasazení připojená i odpojená (air-gapped) a podporuje jak Azure Active Directory (AAD), tak i služba Active Directory federované služby (AD FS) nasazené Azure Stack rozbočovače.
 
@@ -117,15 +117,15 @@ Instalace šablony registru kontejnerů vyžaduje vytvoření několika prostře
 
 2. Vyberte **vytvořit**  >    >  **šablonu COMPUTE Container Registry**.
 
-    ![Šablona registru kontejneru](./media/container-registry-template-install-tzl/image1.png)
+    ![Snímek obrazovky, na kterém je vybraná stránka "řídicí panel > novou" COMPUTE a je zobrazený výběr Container Registry Template.](./media/container-registry-template-install-tzl/image1.png)
 
 3. Vyberte předplatné, skupinu prostředků a umístění pro nasazení šablony registru kontejnerů.
 
-    ![Šablona registru kontejneru](./media/container-registry-template-install-tzl/image2.png)
+    ![Snímek obrazovky, který ukazuje stránku vytvořit Container Registry šablony – základy](./media/container-registry-template-install-tzl/image2.png)
 
 4. Dokončete podrobnosti konfigurace virtuálního počítače. SKU image má výchozí hodnotu **AKS-Ubuntu-1604-201909**; výstup `Set-ContainerRegistryPrerequisites` funkce ale obsahuje seznam dostupných skladových položek, které se použijí pro nasazení. Pokud existuje více než jedna SKU, vyberte nejnovější SKU pro nasazení.
 
-    ![Šablona registru kontejneru](./media/container-registry-template-install-tzl/image3.png)
+    ![Snímek obrazovky zobrazující stránku vytvořit Container Registry šablonu – konfigurace virtuálního počítače](./media/container-registry-template-install-tzl/image3.png)
 
     | Parametr | Podrobnosti |
     | --- | --- |
@@ -141,7 +141,7 @@ Instalace šablony registru kontejnerů vyžaduje vytvoření několika prostře
 
 1. Dokončete konfiguraci úložiště a Key Vault.
 
-    ![Šablona registru kontejneru](./media/container-registry-template-install-tzl/image4.png)
+    ![Snímek obrazovky se stránkou vytvoření Container Registry šablonou úložiště a Key Vault konfigurace.](./media/container-registry-template-install-tzl/image4.png)
 
     | Parametr | Podrobnosti |
     | --- | --- |

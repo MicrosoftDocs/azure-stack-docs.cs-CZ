@@ -15,14 +15,14 @@ ms.date: 12/11/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 7b899ab7f0916d34a76f64dd6b89c9d45e2a9d5a
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: d54381c185b51b880d452ebf303581c068072f9a
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939540"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97909833"
 ---
-# <a name="infrastructure-backup-service-best-practices"></a>Osvědčené postupy pro službu Infrastructure Backup
+# <a name="infrastructure-backup-service-best-practices---ruggedized"></a>Osvědčené postupy Infrastructure Backup služby – robustní
 
 *Platí pro: modulární datové centrum, Azure Stack centrum je robustní*
 
@@ -70,7 +70,7 @@ Například sdílená složka zálohy je AzSBackups hostovaná v fileserver01.co
 
 `MASBackup`Složka je místo, kde Azure Stack ukládá data záloh. Tuto složku nepoužívejte k ukládání vlastních dat. Výrobci OEM by tuto složku neměli používat ani k ukládání zálohovaných dat.
 
-Výrobci OEM doporučujeme ukládat data záloh pro své komponenty do složky region. Každý síťový přepínač, hostitel životního cyklu hardwaru (HLH) a tak dále může být uložený ve své vlastní podsložce. Příklad:
+Výrobci OEM doporučujeme ukládat data záloh pro své komponenty do složky region. Každý síťový přepínač, hostitel životního cyklu hardwaru (HLH) a tak dále může být uložený ve své vlastní podsložce. Například:
 
 ```shell
 \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\HLH

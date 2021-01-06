@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: b439bfdfcae82c6e80b29d678c18f434945684cc
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 8a820d02ef1832343ba5110a244793c70b73aed3
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867940"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910274"
 ---
 # <a name="dell-emc-poweredge-tactical-indicators-and-codes"></a>Dell EMC PowerEdge – indikátory a kódy taktické
 
@@ -25,7 +25,7 @@ Následující obrázek ukazuje popisek systémové informace, který je na pře
 
 Obrázek 10. Chování INDIKÁTORu
 
-![](media/image-75.png)
+![Popisek systémových informací pro chování indikátoru LED.](media/image-75.png)
 
 ## <a name="idrac-direct-led-indicator-codes"></a>kódy indikátorů LED iDRAC přímých
 
@@ -49,7 +49,7 @@ Následující obrázek ukazuje levý stav ovládacích panelů a indikátory st
 
 Obrázek 11. Levý ovládací panel
 
-![](media/image-76.png)
+![Diagram, který zobrazuje levý stav ovládacích panelů a indikátory stavu.](media/image-76.png)
 
 Následující tabulka popisuje funkce na levém panelu.
 
@@ -58,7 +58,7 @@ Tabulka 5. Stav a indikátory stavu ovládacího panelu PowerEdge vlevo
 |    <br>Položka       |    <br>Indikátor nebo tlačítko                       |    <br>Ikona                                |    <br>Popis                                                                                                  |
 |-------------------|--------------------------------------------------|--------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
 |    <br>1          |    <br>Indikátory LED stavu                     |    <br>–                                 |    <br>Určuje stav systému. Další informace najdete v tématu indikátory LED pro stav PowerEdge na stránce 61.    |
-|    <br>2 a 3    |    <br>Indikátory stavu systému a ID systému    | ![](media/image-77.png) |    <br>Určuje stav systému.                                                                                 |
+|    <br>2 a 3    |    <br>Indikátory stavu systému a ID systému    | ![Ikona stavu systému](media/image-77.png) |    <br>Určuje stav systému.                                                                                 |
 
 V následující tabulce jsou uvedeny indikátory LED pro stav PowerEdge.
 
@@ -83,7 +83,7 @@ Na následujícím obrázku vidíte PSU AC.
 
 Obrázek 12. PSU AC
 
-![](media/image-83.png)
+![Diagram, který zobrazuje PSU AC s uvedeným indikátorem LED.](media/image-83.png)
 
 Kódy ukazatelů jsou definovány v následující tabulce.
 

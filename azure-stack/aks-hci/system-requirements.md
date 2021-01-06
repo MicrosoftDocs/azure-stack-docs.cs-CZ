@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: abhilashaagarwala
 ms.author: abha
 ms.date: 12/02/2020
-ms.openlocfilehash: 2bbd32a8117955a18c525a4a0483d152c5a3ed0c
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: 4eb685335d9cb4f3937c48656237b0d10c3a3594
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96612467"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910546"
 ---
 # <a name="system-requirements-for-azure-kubernetes-service-on-azure-stack-hci"></a>Požadavky na systém pro službu Azure Kubernetes ve Azure Stack HCL
 
@@ -76,7 +76,7 @@ Při vytváření clusteru Azure Kubernetes na Azure Stack HCI se na každém se
 | 45000           | port serveru wssdagent GPRC           |
 | 45001             | Port ověřování wssdagent GPRC  | 
 | 55000           | port serveru wssdcloudagent GPRC           |
-| 55001             | Port ověřování wssdcloudagent GPRC  | 
+| 65000             | Port ověřování wssdcloudagent GPRC  | 
 
 
 Pro počítač centra pro správu systému Windows a všechny uzly v clusteru Azure Stack HCI jsou vyžadovány výjimky adresy URL brány firewall. 

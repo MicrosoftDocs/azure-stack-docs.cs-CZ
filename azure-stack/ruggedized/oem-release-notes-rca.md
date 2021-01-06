@@ -7,12 +7,12 @@ ms.date: 12/08/2020
 ms.author: sethm
 ms.reviewer: danlewi
 ms.lastreviewed: 12/08/2020
-ms.openlocfilehash: fac088f56dc7de04d8f78bfef1ab63c87b83f336
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: be7db92413bdc1223c8600a9e9fc0ff8c3fb4ba0
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939483"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97909697"
 ---
 # <a name="azure-stack-hub-ruggedized-2008-oem-release-notes"></a>Zpráva k vydání verze 2008 OEM v centru Azure Stack
 
@@ -27,7 +27,7 @@ Tento dokument popisuje obsah služby Azure Stack hub narobustní aktualizace pr
 
 ## <a name="baseline-and-document-history"></a>Základní a historii dokumentů
 
-| Vydat | Datum       | Popis změn         |
+| Vydaná verze | Datum       | Popis změn         |
 |---------|------------|--------------------------------|
 | 2008    | 10/13/2020 | Aktualizace balíčků OEM 2.2.2010.5 |
 
@@ -35,7 +35,7 @@ Tento dokument popisuje obsah služby Azure Stack hub narobustní aktualizace pr
 
 ### <a name="bios"></a>Systému BIOS
 
-| Verze vydaných verzí | Verze firmwaru | Změny                                                                                                                                                                                                                                                                                                                                                                                                       |   |   |
+| Verze vydaných verzí | Verze firmwaru | Změny |
 |-----------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|---|
 | 2008            | ve verzi 2.8.2            | Opravili jsme oborový problém, na kterém se 2.6.4 verze systému BIOS, prostřednictvím 2.8.1, kde se systém může během napájení v době, kdy se konfiguruje paměť, zobrazovat na spouštěcí obrazovce. Tento problém se týká konfigurace paměti DDR4 a zařízení NVDIMM-N.<br><br>Vylepšení, které řeší slabá místa zabezpečení (běžná ohrožení zabezpečení a rizika – CVE), jako je CVE-2020-0545, CVE-2020-0548 a CVE-2020-0549. |   |   |
 | 2005            | 2.7.7            |                                                                                                                                                                                                                                                                                                                                                                                                               |   |   |
@@ -43,7 +43,7 @@ Tento dokument popisuje obsah služby Azure Stack hub narobustní aktualizace pr
 
 ### <a name="idrac"></a>IDRAC
 
-| Verze vydaných verzí | Verze firmwaru | Změny                                                                                                                                                                                                                                                                          |   |   |
+| Verze vydaných verzí | Verze firmwaru | Změny |
 |-----------------|------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|---|
 | 2008            | 4.22.0.0         | 167411: Opravili jsme problém, který způsobil vynucené restartování systému při aktualizaci firmwaru prostřednictvím rozhraní Redfish API.<br><br>155376: Opravili jsme problém, který způsobil, že se iDRAC restart při shromažďování protokolů SupportAssist.<br><br>162778: v důsledku služby virtuální konzoly byl opraven stav s nedostatkem paměti pro iDRAC. |   |   |
 | 2005            | 4.10.10.10       |                                                                                                                                                                                                                                                                                  |   |   |

@@ -1,6 +1,6 @@
 ---
-title: Nejčastější dotazy týkající se Azure Stack Windows serveru | Microsoft Docs
-description: Seznam nejčastějších dotazů na Azure Stack Marketplace pro Windows Server
+title: Nejčastější dotazy týkající se Azure Stack Windows serveru – MDC | Microsoft Docs
+description: Přečtěte si seznam Azure Stack Nejčastější dotazy k webu Marketplace pro Windows Server, když provozuje modulární datové centrum (MDC).
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 3570eeb9edadd359081c429f821a09e3d9954439
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: 64ccefb0a6644d2cd613a39d8beaaf1f82ee9fc0
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329114"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910784"
 ---
-# <a name="windows-server-in-azure-stack-marketplace-faq"></a>Nejčastější dotazy k Windows serveru v Azure Stack Marketplace
+# <a name="windows-server-in-azure-stack-marketplace-faq---modular-data-center-mdc"></a>Nejčastější dotazy k Windows serveru v Azure Stack Marketplace – modulární datové centrum (MDC)
 
 Tento článek obsahuje odpovědi na některé nejčastější dotazy týkající se imagí Windows serveru v [tržišti Azure Stack hub](../../operator/azure-stack-marketplace.md).
 
@@ -34,9 +34,9 @@ Uživatelé MDC centra Azure Stack mají nárok na bezplatné použití Windows 
 
 Microsoft nabízí dvě verze imagí Windows serveru na webu Azure Stack Marketplace. V kterémkoli daném Azure Stack prostředí se dá použít jenom jedna verze této image.
 
-- **Platíte podle svých využití** : tyto Image by se neměly používat v Azure Stack zaMDCm nebo nem centru.
+- **Platíte podle svých využití**: tyto Image by se neměly používat v Azure Stack zaMDCm nebo nem centru.
 
-- **Přineste si vlastní licenci (BYOL)** : tyto Image je možné používat na Azure Stackovém centru robustní a MDC.
+- **Přineste si vlastní licenci (BYOL)**: tyto Image je možné používat na Azure Stackovém centru robustní a MDC.
 
 **Jaké jsou další virtuální počítače, které používají Windows Server, například SQL Server?**
 

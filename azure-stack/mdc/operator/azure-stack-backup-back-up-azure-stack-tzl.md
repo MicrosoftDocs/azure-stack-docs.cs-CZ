@@ -1,6 +1,6 @@
 ---
-title: Zálohování Azure Stack | Microsoft Docs
-description: Naučte se, jak provést zálohování na vyžádání v Azure Stack.
+title: Zálohování Azure Stack – MDC | Microsoft Docs
+description: Naučte se, jak provést zálohování na vyžádání v Azure Stack pro modulární datové centrum (MDC).
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 0455c96449d0547d94d8d904fe59f268145da3a8
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: f64b656b6a0a0d5310b6d6e2fbb8ff26d5206ad1
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329204"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910887"
 ---
-# <a name="back-up-azure-stack"></a>Zálohování služby Azure Stack
+# <a name="back-up-azure-stack---modular-data-center-mdc"></a>Zálohování Azure Stackho datového centra (MDC)
 
 *Platí pro: modulární datové centrum, Azure Stack centrum je robustní*
 
@@ -30,7 +30,7 @@ V tomto článku se dozvíte, jak provést zálohování Azure Stack na vyžád�
 
 ## <a name="start-backup"></a>Spustit zálohování
 
-Zálohy jsou automaticky naplánovány. Spuštění zálohování na vyžádání je nezbytné pouze v případě, že obdržíte výstrahu k ručnímu spuštění zálohování. Pokud chcete spustit zálohování na vyžádání, vyberte **Zálohovat nyní**. Zálohování na vyžádání nemění čas příštího plánovaného zálohování. Po dokončení úlohy můžete nastavení potvrdit v okně **základy** :
+Zálohy jsou automaticky naplánovány. Spuštění zálohování na vyžádání je nezbytné pouze v případě, že obdržíte výstrahu k ručnímu spuštění zálohování. Pokud chcete spustit zálohování na vyžádání, vyberte **Zálohovat nyní**. Zálohování na vyžádání nemění čas příštího plánovaného zálohování. Po dokončení úlohy můžete nastavení potvrdit v okně **základy**:
 
 ![Nastavení zálohování](media/azure-stack-backup-back-up-azure-stack-tzl/on-demand-backup.png)
 

@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: d777c9623931585bcdfffd56cceeabfbc253b97f
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 47d3d5198418042ad0bc24e35414bd309a492bc2
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867566"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97909850"
 ---
 # <a name="verifying-hardware-lifecycle-host-health"></a>Ověřuje se stav hostitele životního cyklu hardwaru
 
@@ -23,9 +23,9 @@ Po dokončení nahrazování hardwaru a před opuštěním lokality použijte iD
 
 1.  Ověřte stav systému ve webovém rozhraní iDRAC a zkontrolujte, že problém, na kterém jste pracovali, byl vymazán, pokud byl přítomen ve webovém rozhraní před procesem FRU.
 
-    ![](media/image-5.png)
+    ![Snímek obrazovky zobrazující stránku System s zvýrazněnými akcemi přehled](media/image-5.png)
     
 2.  Ověřte, zda jsou virtuální počítače Hyper-V ve **spuštěném** stavu.
 
-    ![](media/image-55.png) 
+    ![Snímek obrazovky zobrazující stránku Správce technologie Hyper-V se zvýrazněným oddílem ' Virtual Machines '.](media/image-55.png) 
 

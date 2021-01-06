@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: e5ba7b7ea35484293cc0f93958e7ed9d66f62d51
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: d05c696f62aad4d9305137edab777d69b6442814
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867872"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97909918"
 ---
 # <a name="powering-on-and-repairing-a-scale-unit-node"></a>Zapnutí a oprava uzlu jednotky škálování
 
@@ -25,15 +25,15 @@ Chcete-li opravit a přenést uzel jednotek škálování zpátky do produkční
 
 1.  Na **portálu pro správu** vyberte uzel a vyberte **opravit**.
 
-    ![](media/image-52.png)
+    ![Snímek obrazovky, který zobrazuje stránku pro správu uzlů s uzlem a vybranou akcí opravit](media/image-52.png)
 
 1.  Zadejte **IP adresu řadiče pro správu základní desky** , která odpovídá uzlu, který opravujete, a vyberte **opravit**.
 
-    ![](media/image-53.png)
+    ![Snímek obrazovky, který zobrazuje stránku pro správu uzlů s vybraným uzlem, adresa I P se zvýrazní a zobrazí se dialogové okno opravit uzel.](media/image-53.png)
 
 1.  Sledujte průběh v podokně oznámení:
 
-    ![](media/image-54.png)
+    ![Snímek obrazovky, který zobrazuje podokno oznámení a zobrazená možnost opravit běžící uzel.](media/image-54.png)
     
     
     > [!NOTE]

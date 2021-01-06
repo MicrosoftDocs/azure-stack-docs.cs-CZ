@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 476801acccecb463e97d42f38067b2463cfbd86c
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: e53d81e7606c6440ce535726199af31a1dbfd950
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874638"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910648"
 ---
 # <a name="replacing-a-failed-external-storage-disk"></a>Výměna neúspěšného disku externího úložiště
 
@@ -69,11 +69,11 @@ K nahrazení neúspěšného externího disku použijte následující postup.
 
     1.  V horní nabídce vyberte **úložiště**:
 
-        ![](media/image-30.png)
+        ![Snímek obrazovky zobrazující stránku iDRAC s vybranou akcí úložiště](media/image-30.png)
     
     1.  Vyhledejte nahrazený disk a rozbalte položku. Porovnejte **revizi** disku s revizí v matici podpory. Pokud disk není v matrici podpory, popojte ho a pokuste se problém vyřešit.
 
-        ![](media/image-31.png)
+        ![Snímek obrazovky, který zobrazuje stránku iDRAC ' Pokročilé vlastnosti ' se zvýrazněným ' výrobcem ', ' ID produktu ' a ' revize '.](media/image-31.png)
         
 ## <a name="next-steps"></a>Další kroky
 

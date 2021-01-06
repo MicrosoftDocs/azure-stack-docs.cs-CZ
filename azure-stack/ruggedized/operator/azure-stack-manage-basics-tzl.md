@@ -1,5 +1,5 @@
 ---
-title: Základy správy centra Azure Stack
+title: Základy správy centra Azure Stack – robustní
 titleSuffix: Azure Stack Hub
 description: Seznamte se se základy správy centra Azure Stack.
 author: PatAltimore
@@ -8,14 +8,14 @@ ms.date: 06/16/2020
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 06/16/2020
-ms.openlocfilehash: 6d278ba17965e78c2be875d048ed5cc12ba31f25
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: f94a8ba25c595ac231beda9e235245d25541f334
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874332"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97909680"
 ---
-# <a name="azure-stack-hub-administration-basics"></a>Základy správy centra Azure Stack
+# <a name="azure-stack-hub-administration-basics---ruggedized"></a>Základy správy centra Azure Stack – robustní
 
 Pokud s Azure Stack správy centra začínáte, je potřeba znát několik věcí. Tento článek poskytuje přehled vaší role jako operátor centra Azure Stack a o tom, co je potřeba k tomu, abychom svým uživatelům informovali, že jim pomohou zvýšit produktivitu.
 
@@ -98,7 +98,7 @@ Kromě poskytování služeb je třeba provést běžné povinnosti operátora, 
 
 Tady je seznam každodenních, týdenních a měsíčních úloh pro operátor:
 
-# <a name="daily"></a>[Denně](#tab/daily)
+# <a name="daily"></a>[Každý den](#tab/daily)
 
 1. Kontrolovat výstrahy.
 2. Ověřte stav zálohování.

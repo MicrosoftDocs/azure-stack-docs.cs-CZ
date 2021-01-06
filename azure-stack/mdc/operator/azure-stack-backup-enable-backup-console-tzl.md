@@ -1,6 +1,6 @@
 ---
-title: Povolit zálohování pro Azure Stack z portálu pro správu | Microsoft Docs
-description: Naučte se, jak povolit službu Infrastructure Backup z portálu pro správu, aby bylo možné Azure Stack obnovit v případě selhání.
+title: Povolení zálohování pro Azure Stack z portálu pro správu – MDC
+description: Naučte se, jak povolit službu Infrastructure Backup z portálu pro správu, aby bylo možné Azure Stack obnovit v případě selhání. V modulárních datových centrech.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 12/16/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: 3864183ecda856500db1fcbfe38df84d70f3bae9
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: db0980511b2272a6c92c1644401ce1d577ddcf8d
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329203"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910938"
 ---
-# <a name="configure-backup-for-azure-stack-hub-from-the-administrator-portal"></a>Konfigurace zálohování pro centrum Azure Stack z portálu pro správu
+# <a name="configure-backup-for-azure-stack-hub-from-the-administrator-portal---modular-data-center-mdc"></a>Konfigurace zálohování pro centrum Azure Stack z portálu pro správu – modulární datové centrum (MDC)
 
 *Platí pro: modulární datové centrum, Azure Stack centrum je robustní*
 

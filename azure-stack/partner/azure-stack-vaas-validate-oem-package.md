@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Zjistěte, jak ověřit balíčky OEM pomocí ověřování centra Azure Stack jako služby.
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: e475b498895d2c1398ffddb13b1af7baa10d2e90
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 6194211b839cdeb2f12e1f88f1d1fe4617881680
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764864"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97910196"
 ---
 # <a name="validate-oem-packages"></a>Ověřit balíčky OEM
 
@@ -37,10 +37,10 @@ Vytvořte kontejner v účtu úložiště pro objekty blob balíčku. Tento kont
 
 1. V [Azure Portal](https://portal.azure.com)klikněte na účet úložiště vytvořený v části [nastavení prostředků VaaS](azure-stack-vaas-set-up-resources.md).
 
-2. V levém okně v části **BLOB Service**vyberte **kontejnery**.
+2. V levém okně v části **BLOB Service** vyberte **kontejnery**.
 
 3. Z panelu nabídek vyberte **+ kontejner** .
-    1. Zadejte název kontejneru. Například, `vaaspackages`.
+    1. Zadejte název kontejneru. Například `vaaspackages`.
     1. Vyberte požadovanou úroveň přístupu pro neověřené klienty, například VaaS. Podrobnosti o tom, jak udělit přístup VaaS k balíčkům v jednotlivých scénářích, najdete v tématu [zpracování úrovně přístupu kontejneru](#handling-container-access-level).
 
 ### <a name="upload-package-to-storage-account"></a>Nahrát balíček do účtu úložiště
@@ -66,8 +66,8 @@ V případě úrovní přístupu **Private** a **BLOB** musíte dočasně uděli
 
 |Úroveň přístupu | Požadavek pracovního postupu | Požadavek testu |
 |---|---------|---------|
-|Soukromé | Vygenerujte adresu URL SAS na jeden objekt BLOB balíčku ([možnost 1](#option-1-generate-a-blob-sas-url)). | Vygenerujte adresu URL SAS na úrovni účtu a ručně přidejte název objektu BLOB balíčku ([možnost 2](#option-2-construct-a-container-sas-url)). |
-|Blob | Zadejte vlastnost URL objektu BLOB ([možnost 3](#option-3-grant-public-read-access)). | Vygenerujte adresu URL SAS na úrovni účtu a ručně přidejte název objektu BLOB balíčku ([možnost 2](#option-2-construct-a-container-sas-url)). |
+|Privátní | Vygenerujte adresu URL SAS na jeden objekt BLOB balíčku ([možnost 1](#option-1-generate-a-blob-sas-url)). | Vygenerujte adresu URL SAS na úrovni účtu a ručně přidejte název objektu BLOB balíčku ([možnost 2](#option-2-construct-a-container-sas-url)). |
+|Objekt blob | Zadejte vlastnost URL objektu BLOB ([možnost 3](#option-3-grant-public-read-access)). | Vygenerujte adresu URL SAS na úrovni účtu a ručně přidejte název objektu BLOB balíčku ([možnost 2](#option-2-construct-a-container-sas-url)). |
 |Kontejner | Zadejte vlastnost URL objektu BLOB ([možnost 3](#option-3-grant-public-read-access)). | Zadejte vlastnost URL objektu BLOB ([možnost 3](#option-3-grant-public-read-access)).
 
 Možnosti pro udělení přístupu k vašim balíčkům jsou seřazené z minimálního přístupu k největšímu přístupu.
@@ -97,7 +97,7 @@ Tuto možnost použijte, pokud je úroveň přístupu kontejneru úložiště na
 
 1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
 
-1. Z **možností povolených služeb**vyberte **objekt BLOB** . Zrušte výběr všech zbývajících možností.
+1. Z **možností povolených služeb** vyberte **objekt BLOB** . Zrušte výběr všech zbývajících možností.
 
 1. Vyberte **kontejner** a **objekt** z **povolených typů prostředků**.
 

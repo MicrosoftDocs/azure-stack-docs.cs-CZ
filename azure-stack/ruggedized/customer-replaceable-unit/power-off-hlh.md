@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 3d2dd563ca5336063613b08f827d8f102918c1da
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 28ac5a9de578d6ff7580ddad86a887f71889f5eb
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867889"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910682"
 ---
 # <a name="powering-off-the-hardware-lifecycle-host"></a>Vypnutí hostitele životního cyklu životnosti hardwaru
 
@@ -24,7 +24,7 @@ Po ověření jeho stavu můžete vypnout hostitele životního cyklu hardwaru (
 
 2.  Vyberte **tlačítko Start** a výběrem tlačítka **vypnout** ukončete HLH.
 
-    ![](media/image-22.png)
+    ![Snímek obrazovky, který zobrazuje tlačítko Windows a možnost vypnout](media/image-22.png)
 
     Počkejte několik minut, než se vypnutí dokončí.
     

@@ -1,6 +1,6 @@
 ---
-title: Nabídnout CommVault položku Marketplace v Azure Stack | Microsoft Docs
-description: Nasazení CommVault z webu Azure Stack Marketplace
+title: Nabídka CommVault položky Marketplace v Azure Stack-MDC
+description: Nasaďte CommVault z webu Azure Stack Marketplace pro modulární datové centrum (MDC).
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 6ece6792602d90fd43bc682d7547061180ea9289
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: c2f98725a93dbd471f257d8a038a989d9f892c68
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93329188"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910835"
 ---
-# <a name="offer-commvault-marketplace-item-in-azure-stack"></a>Nabídnout CommVault položku Marketplace v Azure Stack
+# <a name="offer-commvault-marketplace-item-in-azure-stack---modular-data-center-mdc"></a>Nabídka CommVault položky Marketplace Azure Stack v modulárním datovém centru (MDC)
 
 *Platí pro: modulární datové centrum, Azure Stack centrum je robustní*
 
@@ -35,7 +35,7 @@ CommVault podporuje zálohování a obnovení následujících typů prostředk�
   - Další informace najdete v tématu [zálohování Virtual Machines](https://documentation.commvault.com/commvault/v11/article?p=86503.htm).
 
 - Záloha účtu úložiště
-  - Blob
+  - Objekt blob
   - Další informace najdete v tématu [Přehled služby Azure Blob Storage](https://documentation.commvault.com/commvault/v11/article?p=30063.htm).
 
 - Zálohování založené na agentovi

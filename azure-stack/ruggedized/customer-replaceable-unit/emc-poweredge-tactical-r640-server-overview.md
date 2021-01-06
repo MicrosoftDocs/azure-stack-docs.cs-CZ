@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: d035d82d8b41f9997a3632ee93d801469251d807
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 13ce0e654a4cc7059ffe3f463190d56aa36fd583
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874723"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910444"
 ---
 # <a name="dell-emc-poweredge-tactical-r640-server-overview"></a>Server Dell EMC PowerEdge taktické R640 – přehled
 
@@ -24,7 +24,7 @@ Na následujícím obrázku je příklad serveru PowerEdge taktické R640, 2U se
 
 Obrázek 3: Taktické R640 pro PowerEdge – HLH a SU – pohled na přední skříň
 
-![](media/image-60.png)
+![Diagram, který zobrazuje přední skříň serveru PowerEdge taktické R640.](media/image-60.png)
 
 Následující tabulka popisuje funkce front-taktické R640 \' s PowerEdge.
 
@@ -42,7 +42,7 @@ Následující obrázek ukazuje komponenty back-R640 pro PowerEdge taktické.
 
 Obrázek 4. Taktické R640 HLH – zobrazení šasi pro back-
 
-![](media/image-61.png)
+![Diagram, který zobrazuje back-taktické serveru PowerEdge R640.](media/image-61.png)
 
 Následující tabulka popisuje funkce na panelu back-taktické R640 pro PowerEdge.
 
@@ -53,12 +53,12 @@ Tabulka 2. Funkce zadního panelu pro PowerEdge taktické R640
 | Pevné disky                   | –                       | Operační systém a úložiště dat pro uzly serveru HLH a SU.                                                                                                                                                                                                                        |
 | Modul nadřízeného                   | –                       | Spouštěcí řešení optimalizovaného úložiště (vedoucí), které se používá k instalaci operačního systému nebo hypervisoru.                                                                                                                                                                                 |
 | Jednotky zdroje napájení (2)        | –                       | Tyto síly poskytují sílu serveru a jsou k dispozici společně pro redundanci.                                                                                                                                                                                                 |
-| Porty USB 3,0                 |  ![](media/image-62.png)   | Porty USB jsou 9-PIN a 3,0 kompatibilní. Tyto porty vám umožní připojit zařízení USB k systému.                                                                                                                                                                     |
-| Port VGA                      |   ![](media/image-63.png)  | Umožňuje připojit zobrazovací zařízení k systému.                                                                                                                                                                                                                      |
-| Sériový port                   |   ![](media/image-64.png)  | Umožňuje připojit sériové zařízení k systému.                                                                                                                                                                                                                       |
-| Port iDRAC9 Enterprise        |   ![](media/image-65.png)  | Umožňuje vzdálený přístup k iDRAC.                                                                                                                                                                                                                                       |
+| Porty USB 3,0                 |  :::image type="icon" source="media/image-62.png"::: | Porty USB jsou 9-PIN a 3,0 kompatibilní. Tyto porty vám umožní připojit zařízení USB k systému.                                                                                                                                                                     |
+| Port VGA                      |   :::image type="icon" source="media/image-63.png":::  | Umožňuje připojit zobrazovací zařízení k systému.                                                                                                                                                                                                                      |
+| Sériový port                   |   :::image type="icon" source="media/image-64.png":::  | Umožňuje připojit sériové zařízení k systému.                                                                                                                                                                                                                       |
+| Port iDRAC9 Enterprise        |   :::image type="icon" source="media/image-65.png":::  | Umožňuje vzdálený přístup k iDRAC.                                                                                                                                                                                                                                       |
 | Port napájení CMA                | –                       | Port napájení ARM správy kabelů (CMA) umožňuje připojit kabel indikátoru stavu k CMA.                                                                                                                                                                     |
-| Tlačítko Identifikace systému  |   ![](media/image-66.png) | Tlačítko Identifikace systému (ID) je dostupné na front-a back serveru. Stisknutí tlačítka způsobí blikání indikátoru ID health\System systému. Pomocí tlačítka ID systému můžete také resetovat iDRAC a přistupovat k systému BIOS pomocí režimu krokování.  |
+| Tlačítko Identifikace systému  |   :::image type="icon" source="media/image-66.png"::: | Tlačítko Identifikace systému (ID) je dostupné na front-a back serveru. Stisknutí tlačítka způsobí blikání indikátoru ID health\System systému. Pomocí tlačítka ID systému můžete také resetovat iDRAC a přistupovat k systému BIOS pomocí režimu krokování.  |
 
 ## <a name="right-control-panel"></a>Ovládací panel vpravo
 
@@ -66,7 +66,7 @@ Následující obrázek ukazuje ovládací panel PowerEdge taktické R640 Right.
 
 Obrázek 5. Ovládací panel PowerEdge taktické R640 vpravo
 
-![](media/image-67.png)
+![Diagram, který zobrazuje tlačítko napájení a porty U S B v Ovládacích panelech.](media/image-67.png)
 
 Následující tabulka popisuje ovládací prvky a indikátory na pravém panelu.
 
@@ -74,10 +74,10 @@ Tabulka 3. Ovládací prvky a indikátory taktické pravého ovládacího panelu
 
 | Položka  | Indikátor nebo tlačítko  | Ikona                      | Popis                                                                                                                                                                                               |
 |-------|----------------------|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1     | Tlačítko napájení         |   ![](media/image-68.png)  | Určuje, zda je systém zapnutý nebo vypnutý. Kliknutím na tlačítko napájení ručně zapněte nebo vypněte systém.  **Poznámka:** K bezproblémovému vypnutí operačního systému kompatibilního se standardem ACPI stiskněte tlačítko napájení.  |
-| 2     | Port USB             | ![](media/image-70.png)    | Port USB je 4 – PIN kód, který odpovídá 2,0. Tento port umožňuje připojit zařízení USB k systému.                                                                                                         |
+| 1     | Tlačítko napájení         |   :::image type="icon" source="media/image-68.png":::  | Určuje, zda je systém zapnutý nebo vypnutý. Kliknutím na tlačítko napájení ručně zapněte nebo vypněte systém.  **Poznámka:** K bezproblémovému vypnutí operačního systému kompatibilního se standardem ACPI stiskněte tlačítko napájení.  |
+| 2     | Port USB             | :::image type="icon" source="media/image-70.png":::    | Port USB je 4 – PIN kód, který odpovídá 2,0. Tento port umožňuje připojit zařízení USB k systému.                                                                                                         |
 | 3     | Přímý LED iDRAC     | –                       | Indikátory LED iDRAC přímého světla, které označují, že port iDRAC Direct je aktivně připojen k zařízení.                                                                                        |
-| 4     | Port iDRAC Direct    |   ![](media/image-65.png) | Port iDRAC Direct je kompatibilní s rozhraním USB 2,0. Tento port vám umožní získat přístup k funkcím iDRAC Direct.                                                                                              |
+| 4     | Port iDRAC Direct    |   :::image type="icon" source="media/image-65.png"::: | Port iDRAC Direct je kompatibilní s rozhraním USB 2,0. Tento port vám umožní získat přístup k funkcím iDRAC Direct.                                                                                              |
 
 ## <a name="inside-the-poweredge-tactical-r640"></a>V rámci PowerEdge taktické R640
 
@@ -85,11 +85,11 @@ Následující obrázek ukazuje interní součásti nástroje PowerEdge taktick�
 
 Obrázek 6. V rámci PowerEdge taktické R640 HLH
 
-![](media/image-71.png)
+![Diagram, který zobrazuje pohled na horní stranu interních součástí serveru R640 HLH.](media/image-71.png)
 
 Obrázek 7. V rámci PowerEdge taktické R640 SU
 
-![](media/image-72.png)
+![Diagram, který zobrazuje pohled na horní stranu interního serveru součásti R640 SU.](media/image-72.png)
 
 ## <a name="motherboard"></a>Základní desky
 
@@ -97,7 +97,7 @@ Následující obrázek znázorňuje rozložení základní desky.
 
 Obrázek 8. Rozložení základní desky pro PowerEdge taktické R640
 
-![](media/image-73.png)
+![Diagram, který zobrazuje informace o službě R640 a rozložení základní desky.](media/image-73.png)
 
 ## <a name="memory"></a>Paměť
 
@@ -105,4 +105,4 @@ Následující obrázek ukazuje informace o paměti pro PowerEdge taktické R640
 
 Obrázek 9: Informace o paměti pro PowerEdge taktické R640
 
-![](media/image-74.png)
+![Diagram, který zobrazuje informace o paměti R640.](media/image-74.png)

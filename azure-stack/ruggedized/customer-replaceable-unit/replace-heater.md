@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 66bebd5d8b4f88a8abc90face23d3722d45159d6
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 028ad9442961708820f905b73037eb55a11af72a
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97868416"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910529"
 ---
 # <a name="replacing-the-heater"></a>Výměna topení
 
@@ -61,74 +61,74 @@ Topení je připojené k tranzitnímu případu, který je schopný v držení j
 
 1. Počínaje předním krytem na začátku můžete po osmi krytích zapnout posun proti směru hodinových ručiček, abyste mohli uvolnit pokrytí z části pod. Podržení nebo zabezpečení pokrytí při vydání všech osmi zámků. 
 
-    ![](media/image-86.png)
+    ![Diagram, ve kterém se zobrazí přední krytka se zvýrazněnými západky pro kryte.](media/image-86.png)
 
 1. Odstraňte pokrytí pod. 
 
-    ![](media/image-87.png)
+    ![Odebrání přední části pod.](media/image-87.png)
 
 1. Zopakováním kroků 1 a 2 odeberte zadní část pod. Nyní můžete přistupovat k součástem v části lusky. 
 
 1. Plné vyvýšení šroubů a následné vyžádání sestavení filtru ze serveru, jak je znázorněno na následujících obrázcích. 
 
-    ![](media/image-88.png)
+    ![Diagram, který zobrazuje umístění šroubů na sestavení filtru.](media/image-88.png)
 
-    ![](media/image-89.png)
+    ![Odložení sestavení filtru.](media/image-89.png)
 
 1. Vyžádejte si karty vydaných verzí z taktické 1U – v2, dokud se neuvolní, a pak přesunete kryt směrem ven z skříňového stojanu v pod. 
 
-    ![](media/image-90.png)
+    ![Diagram znázorňující karty vydání](media/image-90.png)
 
 1. Když spodní část plenum vymaže základ, vyžádá od začátku do přibližně 40 stupňů. Úhel umožňuje přesunout horní část plenum směrem k serveru nebo přepínačům a pak ještě před přijetím plenum z části pod. 
 
-    ![](media/image-91.png)
+    ![Diagram, který ukazuje odebrání plenum.](media/image-91.png)
 
 1. V přední části případu odeberte ze souboru ZIP vazbu v taktické 1U topení-v2. V případě potřeby použijte šikmé ořezávání. 
 
-    ![](media/image-92.png)
+    ![Diagram, který zobrazuje vymezovač pro zip a střední konektor pro zvýrazněný senzor vstupu teploty.](media/image-92.png)
 
 1. Přetáhněte přední kartu mikrokonektoru pomocí prstu a prstem indexeru a vyčkejte, dokud nebude připojení od dolní části topení volné. Přesuňte kabel ze způsobů topení. 
 
-    ![](media/image-93.png)
+    ![Diagram, který zobrazuje dočasný senzor na vstupu serveru s připojeným kabelem](media/image-93.png)
 
 1. V přední části případu odeberte čtyři šrouby 10-32, zamkněte modul pro vyplachování a ploché promytí z management server nebo dolního serveru uzlu jednotky škálování. 
 
-    ![](media/image-94.png)
+    ![Diagram, který zobrazuje umístění šroubů na přední straně případu.](media/image-94.png)
 
-    ![](media/image-95.png)
+    ![Dva diagramy, které znázorňují šrouby, které jsou odebírány z každé strany případu.](media/image-95.png)
 
 1. V přední části případu odeberte přední čtyři 10-32 šrouby, zamkněte modul pro vyplachování a ploché pračky od topení.
 
-    ![](media/image-96.png)
+    ![Diagram, který zobrazuje umístění čtyř šroubů na přední straně topení.](media/image-96.png)
 
-    ![](media/image-97.png)
+    ![Dva diagramy, které znázorňují šrouby, které jsou odebírány z jednotlivých stran topení.](media/image-97.png)
 
 1. Odpojte ze zadních plenum kabelů sítě Ethernet a potom odeberte všechny kabely připojené k serveru uzlů management server nebo spodní jednotky škálování. 
 
 1. V opačném případě zapněte šest popruhů Velcro a vyžádejte si kabely z Velcro. 
 
-    ![](media/image-98.png)
+    ![Diagram, který zobrazuje umístění šesti Velcro popruhů na konci případu.](media/image-98.png)
 
 
 1. V případě, že je Velcro odpojený, odeberte kabely z závorek pro uložení kabelů. 
 
 1. Umožněte všem kabelům zavěsit a opustit plenum. Kabely pro zavěšení nejsou zobrazeny na následujícím obrázku. 
 
-    ![](media/image-99.png)
+    ![Diagram, který zobrazuje kabelový kabel pro napájecí a ethernetový kabel.](media/image-99.png)
 
 
 1. V opačném případě rychle vytáhnete dvířka plenum pomocí horní sady plenum dveří. Dveře plenum by se měly odpojit od propojení, což umožňuje, aby se dveře bez omezení zablokoval. 
 
 1. Pokud je propojení stále připojené, vyžádejte plenum dolů. 
 
-    ![](media/image-100.png)
+    ![Diagram, který zobrazuje plenum na zadní straně pro případ, že se vyžádáte dolů](media/image-100.png)
 
-    ![](media/image-101.png)
+    ![Diagram znázorňující plenum, který se vypíná od levé strany.](media/image-101.png)
 
 
 1. V opačném případě odpojte napájecí kabely serveru od taktické 1U-v2 a umožněte jejich zablokování volně. 
 
-    ![](media/image-102.png)
+    ![Diagram, který zobrazuje umístění napájecích kabelů serveru na zadní straně případu.](media/image-102.png)
 
 
 1. Odpojte napájecí kabely ze serveru a umožněte jejich zablokování volně. 
@@ -147,26 +147,26 @@ Topení je připojené k tranzitnímu případu, který je schopný v držení j
     
     1. dvě pračky 
 
-    ![](media/image-103.png)
+    ![Diagram, který zobrazuje umístění připojení terminálu Terminal Ring.](media/image-103.png)
 
-    ![](media/image-104.png)
+    ![Diagram znázorňující jednotlivý hardware pro připojení terminálu Terminal Ring.](media/image-104.png)
 
 
 1. Vložte hex a pračky zpátky na pozemního příspěvku nebo v bezpečném umístění pro přeinstalaci. 
 
 1. V opačném případě plně vypněte dvě přípravné šrouby držící pravou závorku.
 
-    ![](media/image-105.png)
+    ![Diagram, který zobrazuje zadní část případu, se všemi příšroubky na pravé straně se zvýrazněnými šrouby.](media/image-105.png)
 
-    ![](media/image-106.png)
+    ![Diagram znázorňující, že jsou zapínáné šrouby](media/image-106.png)
 
 1. Vyžádejte si pravou závorku směrem ke středu případu, abyste ji odebrali. 
 
 1. V opačném případě plně vypněte dvě přípravné šrouby držící levou drahou klávesovou závorku. 
 
-    ![](media/image-107.png)
+    ![Diagram, který zobrazuje zadní část případu, se všemi příšroubky na levé straně, které jsou zvýrazněné.](media/image-107.png)
 
-    ![](media/image-108.png)
+    ![Diagram znázorňující, že jsou převedené šrouby a že se odeberou lanová závorka](media/image-108.png)
 
 
 1. Stažení levé lomené závorky směrem ke středu případu a jeho odebrání 
@@ -175,52 +175,52 @@ Topení je připojené k tranzitnímu případu, který je schopný v držení j
 
 1. Na konci případu odeberte jednu z malých kabelů sítě CAT 6 Blue a 2 25 GB/s, ze serveru uzlu pro správu nebo na nižší jednotce škálování. 
 
-    ![](media/image-109.png)
+    ![Diagram, který zobrazuje umístění černého kabelu sítě v CAT 6 s modrou a 25 GB/s v zadní části případu.](media/image-109.png)
 
 
 1. Umístěte kabely do bezpečného umístění pro přeinstalaci. 
 
 1. V opačném případě plně vypněte dvě přípravné šrouby držící levou vnitřní lanovou dráhu na místě. 
 
-    ![](media/image-110.png)
+    ![Diagram, který zobrazuje zadní část případu, a přípravné šrouby na levé straně, které jsou zvýrazněny.](media/image-110.png)
 
-    ![](media/image-111.png)
+    ![Diagram znázorňující, že jsou zaměněny náhodné šrouby a že se odeberou lanová závorka](media/image-111.png)
 
 
 1. Vyžádejte si levou vnitřní lanovou dráhu směrem ke středu, kde se případ odebere. 
 
 1. V opačném případě unscrew šest šroubů závěsů od vrcholu topení, přičemž dvířka a závěsy ponechají dohromady jako jednu jednotku. 
 
-    ![](media/image-112.png)
+    ![Diagram, který zobrazuje šest šroubů závěsů, které jsou odebírány.](media/image-112.png)
 
 1. Vložte vymezovač a šrouby do bezpečného umístění pro přeinstalaci. 
 
 1. Na zadní straně pod sebou odeberte dva šrouby 10-32 kolejnice, zamykací pračky a ploché pračky, které zabezpečují serverovou kolejnici na stojan pod.
 
-    ![](media/image-113.png)
+    ![Diagram, který zobrazuje umístění šroubů, které zabezpečují serverovou kolejnici.](media/image-113.png)
 
-    ![](media/image-114.png)
+    ![Diagram, který zobrazuje šrouby na levé a pravé straně případu, které zabezpečují odebrání železničního serveru.](media/image-114.png)
 
 
 1. Na zadní straně pod sebou odeberte čtyři šrouby 10-32, zamkněte pračky a ploché pračky, které zabezpečí topení do stojanu pod. 
 
-    ![](media/image-115.png)
+    ![Diagram, který zobrazuje umístění čtyř šroubů, které zajišťují zabezpečení topení.](media/image-115.png)
 
-    ![](media/image-116.png)
+    ![Diagram znázorňující uzavření čtyř šroubů, které zajišťují zabezpečení topení.](media/image-116.png)
 
 
 1. Zajistěte, aby všechny kabely byly odpojené a nemusíte mít volnou možnost. 
 
 1. Na začátku tohoto uzlu pečlivě vysuňte Server. Držte střed serveru pro distribuci rovnoměrného poměru při přesunu směrem ven. 
 
-    ![](media/image-117.png)
+    ![Diagram znázorňující Server, který se odebírá z pod.](media/image-117.png)
 
 
 1. Umístěte Server na elektrostatické bezpečné místo pro vypouštění. 
 
 1. Na přední straně pod sebou Namontujte topení z dolní části stojanu. Držíte uprostřed topení na rovnoměrné rozmístění poměrné distribuce při přesunu směrem ven. 
 
-    ![](media/image-118.png)
+    ![Diagram, který zobrazuje topení, které je odebráno z pod.](media/image-118.png)
 
 
 ## <a name="installing-the-heater"></a>Instalace topení
@@ -237,41 +237,41 @@ Topení je připojené k tranzitnímu případu, který je schopný v držení j
 
 1. Na přední straně pod sebou posuňte novou vazbu zip, přestože smyčka v dolní části taktické 1U topení-v2, ale nevytvoří PSČ. 
 
-    ![](media/image-119.png)
+    ![Diagram, který zobrazuje smyčku na spodní straně topení.](media/image-119.png)
 
 
 1. Na přední straně pod sebou vložte taktické 1U-v2, a to tak, že ho posuňte z přední části do back. Zajistěte, aby poštovní směrovací číslo neklesl. 
 
 1. Na přední straně pod sebou nainstalujte dva překrytí 2.064 palců mezi stojanem a taktické 1U-v2. 
 
-    ![](media/image-120.png)
+    ![Diagram, který zobrazuje umístění překrytí na přední straně pod.](media/image-120.png)
 
 
 1. Na zadní straně pod sebou nainstalujte dvě. 064 palců překrytí mezi stojanem a taktické 1U-v2. 
 
-    ![](media/image-121.png)
+    ![Diagram, který zobrazuje umístění překrytí na zadní straně pod.](media/image-121.png)
 
 
 1. Na přední straně pod sebou znovu připojte čtyři šrouby 10-32, zamkněte pračky a ploché pračky. Aplikujte na šroubové vlákna a threadlocker s nízkou silou a točivý momentujte na 27 palců až libry. 
 
-    ![](media/image-122.png)
+    ![Diagram znázorňující připevnění šroubů.](media/image-122.png)
 
 
 1. Na přední straně pod sebou Nainstalujte management server nebo nižší Server uzlu jednotky škálování, posuňte ho od začátku do zadní. Ujistěte se, že neexistují žádné volné kabely na cestě serveru. 
 
 1. Na přední straně pod sebou znovu připojte čtyři šrouby 10-32, zamkněte pračky a ploché pračky. Aplikujte na šroubové vlákna a threadlocker s nízkou silou a točivý momentujte na 27 palců až libry. 
 
-    ![](media/image-123.png)
+    ![Diagram znázorňující, že se připojovat šrouby serveru.](media/image-123.png)
 
 
 1. Na zadní straně pod sebou znovu připojte dva šrouby serveru pro zadní stranu 10-32, zamkněte pračky a ploché pračky. Aplikujte na šroubové vlákna a threadlocker s nízkou intenzitou a točivý moment na 27 palců až na 27 palců – libry. 
 
-    ![](media/image-124.png)
+    ![Diagram, který zobrazuje dva šrouby pro zadní a připojené servery.](media/image-124.png)
 
 
 1. Na zadní straně pod sebou nainstalujte taktické 1U topení-v2 čtyři zadní šrouby 10-32, zamkněte pračky a ploché pračky. Aplikujte na šroubové vlákna a threadlocker s nízkou silou a točivý momentujte na 27 palců až libry. 
 
-    ![](media/image-125.png)
+    ![Diagram, který zobrazuje čtyři šrouby pro znovu připojené topení.](media/image-125.png)
 
 
 1. Na zadní straně pod sebou odeberte dvě překrytí z taktické 1U topení-v2 a umístěte je do sady topení pro budoucí použití. 
@@ -311,14 +311,14 @@ Topení je připojené k tranzitnímu případu, který je schopný v držení j
 
     Dvířka plenum se zachovají při úpravě ARM za kuličkou, která je zadržená. 
     
-    ![](media/image-126.png)
+    ![Diagram znázorňující úpravu obdržení kuličky.](media/image-126.png)
     
-    ![](media/image-127.png)
+    ![Uzavřete kuličku do obdržení.](media/image-127.png)
     
 
 1. Na zadní straně pod sebou stiskněte buď umístění A nebo B s oběma palecmi (současně stiskněte levou i pravou nebo vyšší a nižší), dokud nebude slyšet zvuk, který připraví plenum. 
 
-    ![](media/image-128.png)
+    ![Diagram, který zobrazuje umístění pro stisknutí a zapojení do plenum.](media/image-128.png)
 
 
 1. Na zadní straně pod sebou předá šest kabelů Ethernet (dvě modré CAT 6 a čtyři černá po MB/s) v případě, že se zařadí do závorek, a roztáhněte šest Velcro popruhů kolem kabelů. 
@@ -327,12 +327,12 @@ Topení je připojené k tranzitnímu případu, který je schopný v držení j
 
 1. Na přední straně pod smyčkou směrujte kabel v rámci smyčky, uzavřete hlasovou vazbu kolem kabelu a pak ji zip. Vystřihnout nadbytečnou vazbu zip. 
 
-    ![](media/image-129.png)
+    ![Diagram znázorňující smyčku pro zip a dočasný senzor vstupu serveru.](media/image-129.png)
 
 
 1. Na přední straně pod sebou nainstalujte front-plenum, a to tak, že podržíte plenum na přibližně 40 úhlu (minimum) a při umísťování prstů do přední lomené oblasti. Seznámení s přeloženým kovm plenum na skříň skříně 
 
-    ![](media/image-130.png)
+    ![Diagram, který zobrazuje nainstalovanou front-plenum.](media/image-130.png)
 
 
 1. Po správném zarovnání na kartě verze umístěte plenum na pozici. 

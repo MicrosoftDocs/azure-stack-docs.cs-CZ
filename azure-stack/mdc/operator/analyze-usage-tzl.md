@@ -1,6 +1,6 @@
 ---
-title: Analýza využití Azure Stack a rozhraní API využití prostředků | Microsoft Docs
-description: Analýza využití Azure Stack a referenčních údajů pro rozhraní API využití prostředků, které načítá informace o využití Azure Stack.
+title: Analýza využití Azure Stack a rozhraní API využití prostředků – MDC
+description: Analýza využití Azure Stack a referenčních údajů pro rozhraní API využití prostředků, které načítá informace o využití Azure Stack. Pro modulární datové centrum (MDC).
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/27/2020
-ms.openlocfilehash: 9e7bb8b8174423a21c4f08e09cdb10d2a37bf556
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: efbbfbb76215cdd3322c57ca0c5def8575f5f023
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935062"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910904"
 ---
-# <a name="analyze-azure-stack-usage-with-local-usage-meters"></a>Analýza využití Azure Stack místními měřiči využití
+# <a name="analyze-azure-stack-usage-with-local-usage-meters---modular-data-center-mdc"></a>Analýza využití Azure Stack s využitím místního měřiče měření – modulární datové centrum (MDC)
 
 Informace o tom, které odběry využívají prostředky uložené v místní databázi využití Správci můžou tato data načíst, abyste mohli analyzovat, kteří uživatelé spotřebovávají prostředky.
 

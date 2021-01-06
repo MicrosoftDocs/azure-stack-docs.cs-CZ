@@ -1,6 +1,6 @@
 ---
-title: Přehled modelu fakturace zákazníka v Azure Stack | Microsoft Docs
-description: Přečtěte si, jak se Azure Stack uživatelům účtuje využití prostředků.
+title: Přehled modelu fakturace zákazníka v Azure Stack – MDC | Microsoft Docs
+description: Naučte se, jak se Azure Stack uživatelům fakturují využití prostředků v modulárních datových centrech (MDC).
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 12/04/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: bd20dee177ac1f061b954eb0285b3103747675d1
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 15f894a668374be5380f322d368b76d88bb93cba
+ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934841"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97910750"
 ---
-# <a name="billing-model-overview"></a>Přehled modelu fakturace
+# <a name="billing-model-overview---modular-data-center-mdc"></a>Přehled modelu fakturace – modulární datové centrum (MDC)
 
 Jako uživatel MDC nebo centra Azure Stack se společnost Microsoft účtuje podle toho, jak dlouho máte jednotlivá zařízení. Poplatky jsou za období a zahrnují právo používat základní výpočetní, úložné a síťové služby. Účtují se vám poplatky na základě využití App Service, Event Hubs a všech dalších služeb PaaS a virtuálních počítačů s Windows serverem PAYG, které běží na Azure Stackovém rozbočovači, který je robustní a MDC. Pokud jste zcela odpojeni a nemůžete ohlásit data o využití, musíte získat licence na kapacitu pro služby PaaS a přenést vlastní licence na virtuální počítače s Windows.
 
