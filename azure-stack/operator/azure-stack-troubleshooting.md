@@ -8,12 +8,12 @@ ms.date: 12/10/2020
 ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 12/10/2020
-ms.openlocfilehash: ef2bbc0fe85b0d6a1db605af440eab2d0e80a805
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 4c5117469e1a568252e23f2794996f8d367942af
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97868977"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974247"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Řešení potíží v centru Azure Stack
 
@@ -203,7 +203,7 @@ Proces aktualizace a aktualizace centra Azure Stack slouží k tomu, aby operát
 
 1. Postupujte podle kroků pro nápravu v upozornění na selhání vytvořeného při selhání aktualizace.
 
-2. Pokud jste tento problém nedokázali vyřešit, vytvořte [lístek podpory centra Azure Stack](./azure-stack-help-and-support-overview.md?view=azs-2002). Ujistěte se, že máte [shromážděné protokoly](./azure-stack-diagnostic-log-collection-overview.md#send-logs-now) pro časové období, kdy k problému došlo.
+2. Pokud jste tento problém nedokázali vyřešit, vytvořte [lístek podpory centra Azure Stack](./azure-stack-help-and-support-overview.md). Ujistěte se, že máte [shromážděné protokoly](./azure-stack-diagnostic-log-collection-overview.md#send-logs-now) pro časové období, kdy k problému došlo.
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>Běžné problémy s opravou a aktualizacemi centra Azure Stack
 
@@ -236,5 +236,5 @@ Proces aktualizace a aktualizace centra Azure Stack slouží k tomu, aby operát
 
 **Příčina**: při pokusu o aktualizaci 2002 může aktualizace selhat a poskytnout tuto zprávu: `The private network parameter is missing from cloud parameters. Please use set-azsprivatenetwork cmdlet to set private networkTrace` .
 
-**Náprava**: [nastavte privátní interní síť](./azure-stack-network.md?view=azs-2002#private-network).
+**Náprava**: [nastavte privátní interní síť](./azure-stack-network.md?view=azs-2002&preserve-view=true#private-network).
 ::: moniker-end

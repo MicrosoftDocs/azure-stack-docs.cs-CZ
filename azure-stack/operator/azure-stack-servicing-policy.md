@@ -8,12 +8,12 @@ ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 126504ce42ba4c7567e15a6c19378ef2bf2c628b
-ms.sourcegitcommit: 32d77de1a554315f53473407279e464a72aa9aa1
+ms.openlocfilehash: a0f8d5e66f0413446a9efe8c266dfc366446b08a
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97515030"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974264"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Zásady obsluhy centra Azure Stack
 
@@ -47,9 +47,9 @@ Najděte si dokumentaci, jak naplánovat a spravovat aktualizace a jak zjistit a
 
 Informace o konkrétní aktualizaci, včetně toho, jak ji stáhnout, najdete v poznámkách k verzi této aktualizace:
 
-- [Aktualizace centra Azure Stack 2008](/azure-stack/operator/release-notes?view=azs-2008)
-- [Aktualizace centra Azure Stack 2005](/azure-stack/operator/release-notes?view=azs-2005)
-- [Aktualizace centra Azure Stack 2002](/azure-stack/operator/release-notes?view=azs-2002)
+- [Aktualizace centra Azure Stack 2008](/azure-stack/operator/release-notes?view=azs-2008&preserve-view=true)
+- [Aktualizace centra Azure Stack 2005](/azure-stack/operator/release-notes?view=azs-2005&preserve-view=true)
+- [Aktualizace centra Azure Stack 2002](/azure-stack/operator/release-notes?view=azs-2002&preserve-view=true)
 
 ## <a name="hotfixes"></a>Opravy hotfix
 
@@ -61,8 +61,8 @@ Opravy hotfix se stáhnou a nainstalují stejně jako běžné úplné balíčky
 
 Informace o aktuálně dostupných opravách hotfix naleznete v poznámkách k verzi této aktualizace:
 
-- [2005 oprava hotfix centra Azure Stack](/azure-stack/operator/release-notes?view=azs-2005#hotfixes)
-- [2002 oprava hotfix centra Azure Stack](/azure-stack/operator/release-notes?view=azs-2002#hotfixes-1)
+- [2005 oprava hotfix centra Azure Stack](/azure-stack/operator/release-notes?view=azs-2005&preserve-view=true#hotfixes)
+- [2002 oprava hotfix centra Azure Stack](/azure-stack/operator/release-notes?view=azs-2002&preserve-view=true#hotfixes-1)
 
 ## <a name="keep-your-system-under-support"></a>Zachování systému v rámci podpory
 

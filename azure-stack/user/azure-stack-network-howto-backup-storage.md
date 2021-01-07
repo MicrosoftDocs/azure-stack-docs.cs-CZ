@@ -7,12 +7,12 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 40ec516f2f10f02716257077a4676c5724acf4ec
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 6bbca7a38e23a0dfadcd0e7654430430d55da3f2
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525689"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974060"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>Zálohování účtů úložiště v centru Azure Stack
 
@@ -32,7 +32,7 @@ Data se dají replikovat mezi účty úložiště v různých jednotkách škál
 
 AzCopy je skvělý nástroj, který se dá využít ke kopírování dat z místních systémů souborů, Azure Cloud Storage Azure Stack, úložiště centra a S3. AzCopy v současné době nemůže kopírovat data mezi dvěma účty úložiště centra Azure Stack. Kopírování objektů ze zdrojového účtu úložiště Azure Stack do cílového účtu úložiště Azure Stack hub vyžaduje zprostředkující místní systém souborů.
 
-Další informace najdete v tématu AzCopy v článku [použití nástrojů pro přenos dat v Azure Stack centra](./azure-stack-storage-transfer.md?view=azs-1908#azcopy) .
+Další informace najdete v tématu AzCopy v článku [použití nástrojů pro přenos dat v Azure Stack centra](./azure-stack-storage-transfer.md#azcopy) .
 
 ### <a name="azure-stack-hub-source"></a>Centrum Azure Stack (zdroj)
 

@@ -7,12 +7,12 @@ ms.date: 12/2/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 2f84233e47a5d86b9a22b76cb0d5a6dd993f4464
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: fe28503ec5072cb11996563efcb70662bb1025fa
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96526012"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973958"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack-hub"></a>Správa profilů verzí rozhraní API v centru Azure Stack
 
@@ -43,7 +43,7 @@ Toto téma vám pomůže s těmito aktivitami:
 
 Nejnovější profily rozhraní Azure API nejsou kompatibilní s Azure Stack hub. Pomocí následujících zásad vytváření názvů Identifikujte profily, které se mají použít pro vaše řešení Azure Stack hub:
 
-**Nejnovější**  
+**Latest (Nejnovější)**  
 Tento profil obsahuje nejaktuálnější verze rozhraní API, které najdete v globálním Azure, které nefungují v Azure Stack hub. **Nejnovější** má největší počet přerušujících změn. Tento profil přináší nestabilitu a kompatibilitu s jinými cloudy. Pokud se snažíte použít nejaktuálnější verze rozhraní API, **nejnovější** je profil, který byste měli použít.
 
 **RRRR-MM-DD – Hybrid**  
@@ -74,7 +74,7 @@ Můžete najít ukázky kódu, které vám pomohou integrovat vaše řešení s 
 Použijte profil rozhraní .NET API k získání nejnovější a nejspolehlivější verze každého typu prostředku v balíčku poskytovatele prostředků. Další informace najdete v tématu [použití profilů verzí rozhraní API s rozhraním .NET v centru Azure Stack](azure-stack-version-profiles-net.md).
 - **PowerShell**  
 Pomocí modulu  **AZ. zaváděcího nástroje** , který je k dispozici prostřednictvím Galerie prostředí PowerShell, získáte rutiny prostředí PowerShell vyžadované pro práci s profily verze rozhraní API. Informace najdete v tématu [použití profilů verzí rozhraní API pro PowerShell](azure-stack-version-profiles-powershell.md).
-Pomocí modulu  **AzureRM. zaváděcího nástroje** , který je k dispozici prostřednictvím Galerie prostředí PowerShell, získáte rutiny prostředí PowerShell vyžadované pro práci s profily verze rozhraní API. Informace najdete v tématu [použití profilů verzí rozhraní API pro PowerShell](../operator/powershell-install-az-module.md?view=azs-2002).
+Pomocí modulu  **AzureRM. zaváděcího nástroje** , který je k dispozici prostřednictvím Galerie prostředí PowerShell, získáte rutiny prostředí PowerShell vyžadované pro práci s profily verze rozhraní API. Informace najdete v tématu [použití profilů verzí rozhraní API pro PowerShell](../operator/powershell-install-az-module.md).
 - **Azure CLI**  
 Aktualizujte konfiguraci prostředí tak, aby používala profil konkrétní verze rozhraní API centra Azure Stack. Informace najdete v tématu [použití profilů verzí rozhraní API pro Azure CLI](azure-stack-version-profiles-azurecli2.md).
 - **Přejít**  

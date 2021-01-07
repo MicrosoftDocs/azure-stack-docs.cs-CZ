@@ -8,12 +8,12 @@ ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 11/08/2019
 ms.custom: conteperfq4
-ms.openlocfilehash: 1d41130c77f0fc39760453bed29936db2b99901b
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 88ece6a5d29e56caf0752fd8c7b71989237d70c1
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869810"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974298"
 ---
 # <a name="azure-stack-hub-overview"></a>Přehled o službě Azure Stack Hub
 
@@ -72,7 +72,7 @@ Centrum Azure Stack můžete spravovat pomocí portálu pro správu, portálu Us
 
 > Další informace o správě centra Azure Stack pomocí portálu pro správu najdete v tématu [rychlý Start k portálu pro správu centra Azure Stack](azure-stack-manage-portals.md).
 
-Jako operátor centra Azure Stack můžete doručovat [virtuální počítače](./tutorial-offer-services.md?view=azs-2002), [webové aplikace](azure-stack-app-service-overview.md), vysoce dostupné databáze [SQL Server](azure-stack-tutorial-sql.md)a [MySQL serveru](azure-stack-tutorial-mysql.md) . K nasazení SharePointu, Exchange a dalších šablon můžete také použít [rychlý Start centra Azure Stack Azure Resource Manager](https://github.com/Azure/AzureStack-QuickStart-Templates) .
+Jako operátor centra Azure Stack můžete doručovat [virtuální počítače](./tutorial-offer-services.md), [webové aplikace](azure-stack-app-service-overview.md), vysoce dostupné databáze [SQL Server](azure-stack-tutorial-sql.md)a [MySQL serveru](azure-stack-tutorial-mysql.md) . K nasazení SharePointu, Exchange a dalších šablon můžete také použít [rychlý Start centra Azure Stack Azure Resource Manager](https://github.com/Azure/AzureStack-QuickStart-Templates) .
 
 Operátor může spravovat Azure Stack hub pomocí portálu pro [správu](azure-stack-manage-portals.md) nebo [PowerShellu](/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1). Centrum Azure Stack můžete nakonfigurovat tak, aby [poskytovala služby](service-plan-offer-subscription-overview.md) klientům pomocí plánů, kvót, nabídek a předplatných. Uživatelé tenanta se můžou přihlásit k odběru několika nabídek. Nabídky mohou mít jeden nebo více plánů a plány můžou mít jednu nebo více služeb. Operátoři také spravují kapacitu a reagují na výstrahy.
 

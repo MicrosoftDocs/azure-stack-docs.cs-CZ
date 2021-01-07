@@ -7,12 +7,12 @@ ms.date: 12/2/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 629c50225bc7544512b0ccb1333e56ef1e7cf07a
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 0b790eebb276c23f5204d3f6c178c9e6ba54480b
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525808"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973992"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s .NET v Azure Stackovém centru
 
@@ -56,7 +56,7 @@ Můžete zkombinovat všechny možnosti ve stejné aplikaci.
 
 - Ujistěte se, že váš instanční objekt má v předplatném roli Přispěvatel/vlastník. Informace o tom, jak přiřadit roli k instančnímu objektu, najdete v tématu [poskytnutí přístupu aplikací k rozbočovači služby Azure Stack][].
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 Pokud chcete použít sadu .NET Azure SDK s Azure Stack hub, musíte zadat následující hodnoty a pak hodnoty nastavit pomocí proměnných prostředí. Chcete-li nastavit proměnné prostředí, přečtěte si pokyny uvedené v tabulce pro konkrétní operační systém.
 
@@ -206,4 +206,4 @@ Další informace o profilech rozhraní API:
   [Shrnutí profilů rozhraní API]: ../user/azure-stack-version-profiles.md#summary-of-api-profiles
   [Test Project to Virtual Machine, vNet, resource groups, and storage account]: https://github.com/seyadava/azure-sdk-for-net-samples/tree/master/TestProject
   [Use Azure PowerShell to create a service principal with a certificate]: ../operator/azure-stack-create-service-principals.md
-  [Run unit tests with Test Explorer.]: /visualstudio/test/run-unit-tests-with-test-explorer?view=vs-2017
+  [Run unit tests with Test Explorer.]: /visualstudio/test/run-unit-tests-with-test-explorer?view=vs-2017&preserve-view=true

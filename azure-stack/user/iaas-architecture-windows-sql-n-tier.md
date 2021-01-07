@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 50b08f594b121601b8e049c4c4875cb31143cbaa
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: b543a94c75ac50c7b0e75f5635956093340b970d
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873669"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973571"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>N-vrstvá aplikace Windows v centru Azure Stack s SQL Server
 
@@ -34,7 +34,7 @@ Tato architektura se skládá z následujících součástí.
 
 -   **Virtuální síť a podsítě**. Každý virtuální počítač Azure je nasazený do virtuální sítě, která se dá rozdělit do podsítí. Vytvořte pro každou vrstvu samostatnou podsíť.
 
--   **Load Balancer vrstvy 7.** Protože Application Gateway ještě není v centru Azure Stack k dispozici, jsou k dispozici alternativy na [trhu centra Azure Stack](../operator/azure-stack-marketplace-azure-items.md?view=azs-1908) , jako je: [kemp LoadMaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) /  [F5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best) nebo [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
+-   **Load Balancer vrstvy 7.** Protože Application Gateway ještě není v centru Azure Stack k dispozici, jsou k dispozici alternativy na [trhu centra Azure Stack](../operator/azure-stack-marketplace-azure-items.md) , jako je: [kemp LoadMaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) /  [F5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best) nebo [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
 
 -   Nástroje pro **Vyrovnávání zatížení**. Použijte [Azure Load Balancer ](/azure/load-balancer/load-balancer-overview)k distribuci síťového provozu z webové vrstvy do obchodní vrstvy a z obchodní vrstvy na SQL Server.
 
@@ -98,15 +98,15 @@ Vytvořte pravidla 2 – 4 s vyšší prioritou, než má první pravidlo, takž
 
 ## <a name="sql-server-always-on-availability-groups"></a>Další informace o skupinách dostupnosti AlwaysOn pro SQL Server
 
-Pro vysoce dostupný SQL Server vám doporučujeme použít [skupiny dostupnosti AlwaysOn](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15). Skupiny dostupnosti AlwaysOn vyžadují před Windows Serverem 2016 řadič domény a všechny uzly ve skupině dostupnosti musí být ve stejné doméně AD.
+Pro vysoce dostupný SQL Server vám doporučujeme použít [skupiny dostupnosti AlwaysOn](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15&preserve-view=true). Skupiny dostupnosti AlwaysOn vyžadují před Windows Serverem 2016 řadič domény a všechny uzly ve skupině dostupnosti musí být ve stejné doméně AD.
 
 Pro vysokou dostupnost vrstvy virtuálního počítače musí být všechny virtuální počítače SQL ve skupině dostupnosti.
 
-Další vrstvy se k databázi připojí prostřednictvím [naslouchacího procesu skupiny dostupnosti](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15). Naslouchací proces umožňuje klientovi SQL připojit se bez znalosti názvu fyzické instance SQL Serveru. Virtuální počítače, které přistupují k databázi, musí být připojené k doméně. Klient (v tomto případě jiná vrstva) používá DNS, aby přeložil název virtuální sítě naslouchacího procesu do IP adres.
+Další vrstvy se k databázi připojí prostřednictvím [naslouchacího procesu skupiny dostupnosti](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15&preserve-view=true). Naslouchací proces umožňuje klientovi SQL připojit se bez znalosti názvu fyzické instance SQL Serveru. Virtuální počítače, které přistupují k databázi, musí být připojené k doméně. Klient (v tomto případě jiná vrstva) používá DNS, aby přeložil název virtuální sítě naslouchacího procesu do IP adres.
 
 Skupiny dostupnosti AlwaysOn pro SQL Server nakonfigurujte následovně:
 
-1.  Vytvořte cluster s podporou převzetí služeb při selhání Windows Serveru (WSFC), skupinu dostupnosti AlwaysOn pro SQL Server a primární repliku. Další informace najdete v článku [Začínáme se skupinami dostupnosti Always On](/sql/database-engine/availability-groups/windows/getting-started-with-always-on-availability-groups-sql-server?view=sql-server-ver15).
+1.  Vytvořte cluster s podporou převzetí služeb při selhání Windows Serveru (WSFC), skupinu dostupnosti AlwaysOn pro SQL Server a primární repliku. Další informace najdete v článku [Začínáme se skupinami dostupnosti Always On](/sql/database-engine/availability-groups/windows/getting-started-with-always-on-availability-groups-sql-server?view=sql-server-ver15&preserve-view=true).
 
 2.  Vytvořte interní nástroj pro vyrovnávání zatížení se statickou privátní IP adresou.
 
@@ -121,9 +121,9 @@ Když se klient SQL pokusí připojit, nástroj pro vyrovnávání zatížení b
 
 Během převzetí služeb při selhání jsou existující připojení klienta uzavřená. Po dokončení převzetí služeb při selhání se budou nová připojení směrovat na novou primární repliku.
 
-Pokud vaše aplikace poskytuje více operací čtení než zápisů, můžete přesměrovat některé dotazy jen pro čtení na sekundární repliku. Podívejte se na článek o [použití naslouchacího procesu pro připojení k sekundární replice, která je jen pro čtení (směrování jen pro čtení)](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15#ConnectToSecondary).
+Pokud vaše aplikace poskytuje více operací čtení než zápisů, můžete přesměrovat některé dotazy jen pro čtení na sekundární repliku. Podívejte se na článek o [použití naslouchacího procesu pro připojení k sekundární replice, která je jen pro čtení (směrování jen pro čtení)](/sql/database-engine/availability-groups/windows/listeners-client-connectivity-application-failover?view=sql-server-ver15&preserve-view=true#ConnectToSecondary).
 
-Otestujte své nasazení [vynucením ručního převzetí služeb při selhání](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15) skupiny dostupnosti.
+Otestujte své nasazení [vynucením ručního převzetí služeb při selhání](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15&preserve-view=true) skupiny dostupnosti.
 
 V případě optimalizace výkonu SQL můžete také informace o [osvědčených postupech pro SQL Server, které optimalizují výkon v centru Azure Stack](./azure-stack-sql-server-vm-considerations.md).
 

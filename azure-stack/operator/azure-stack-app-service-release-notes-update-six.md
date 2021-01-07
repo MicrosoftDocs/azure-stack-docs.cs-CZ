@@ -8,12 +8,12 @@ ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 932686cb52e7aa2a1aa1c948e1ab5d5469d4bf30
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 689f5eaccb7dc30ce7888e9fffdbbd62ac9b5267
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489585"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974366"
 ---
 # <a name="app-service-on-azure-stack-hub-update-6-release-notes"></a>App Service zpráva k vydání verze Azure Stack centra pro aktualizaci 6
 
@@ -98,7 +98,7 @@ Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adr
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Známé problémy pro Cloud Admins, které pracují Azure App Service v centru Azure Stack
 
-Informace najdete v [poznámkách k verzi centra Azure Stack 1908](./release-notes.md?view=azs-1908).
+Informace najdete v [poznámkách k verzi centra Azure Stack 1908](./release-notes.md?view=azs-1908&preserve-view=true).
 
 ## <a name="known-issues-for-tenants-deploying-applications-on-azure-app-service-on-azure-stack-hub"></a>Známé problémy pro klienty nasazující aplikace v Azure App Service v centru Azure Stack
 
@@ -112,7 +112,7 @@ Informace najdete v [poznámkách k verzi centra Azure Stack 1908](./release-not
 
 - Azure Function monitor průběžně zobrazuje "načítání" na portálu.
 
-    Když se pokusíte monitorovat jednotlivé funkce na portálu User Portal, uvidíte, že nedošlo k žádnému protokolu vyvolání, počtu úspěchů nebo počtu chyb. Pokud chcete tuto funkci znovu povolit, přečtěte si **Function App**, navštivte **možnosti platformy**a pak přejít na **nastavení aplikace**.  Přidejte nové nastavení aplikace s názvem **AzureWebJobsDashboard** a nastavte hodnotu na stejnou hodnotu, jako je nastavena v AzureWebJobsStorage. Pak přejděte do zobrazení monitorování na vaší funkci a zobrazí se informace o monitorování.
+    Když se pokusíte monitorovat jednotlivé funkce na portálu User Portal, uvidíte, že nedošlo k žádnému protokolu vyvolání, počtu úspěchů nebo počtu chyb. Pokud chcete tuto funkci znovu povolit, přečtěte si **Function App**, navštivte **možnosti platformy** a pak přejít na **nastavení aplikace**.  Přidejte nové nastavení aplikace s názvem **AzureWebJobsDashboard** a nastavte hodnotu na stejnou hodnotu, jako je nastavena v AzureWebJobsStorage. Pak přejděte do zobrazení monitorování na vaší funkci a zobrazí se informace o monitorování.
 
 ## <a name="next-steps"></a>Další kroky
 

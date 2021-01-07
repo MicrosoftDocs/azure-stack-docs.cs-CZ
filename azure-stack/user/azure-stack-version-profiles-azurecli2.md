@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/16/2020
-ms.openlocfilehash: a1307ca10a2655e166b41d43da4ac83cbe601dc5
-ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
+ms.openlocfilehash: 2e3c25e282a84a0e41d6c69d0af6e2f352bbfba5
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97620717"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974009"
 ---
 # <a name="install-azure-cli-on-azure-stack-hub"></a>Instalace rozhraní příkazového řádku Azure CLI do centra Azure Stack
 
@@ -99,7 +99,7 @@ V této části se dozvíte, jak nastavit rozhraní příkazového řádku, poku
 
    - Přihlaste se jako *instanční objekt*: 
     
-        Než se přihlásíte, [vytvořte instanční objekt pomocí Azure Portal nebo rozhraní](../operator/azure-stack-create-service-principals.md?view=azs-2002) příkazového řádku a přiřaďte mu roli. Teď se přihlaste pomocí následujícího příkazu:
+        Než se přihlásíte, [vytvořte instanční objekt pomocí Azure Portal nebo rozhraní](../operator/azure-stack-create-service-principals.md) příkazového řádku a přiřaďte mu roli. Teď se přihlaste pomocí následujícího příkazu:
     
         ```azurecli  
         az login `
@@ -282,7 +282,7 @@ Pomocí následujících kroků se připojte k centru Azure Stack:
    
    * Přihlášení jako *instanční objekt*
     
-     Než se přihlásíte, [vytvořte instanční objekt pomocí Azure Portal nebo rozhraní](../operator/azure-stack-create-service-principals.md?view=azs-2002) příkazového řádku a přiřaďte mu roli. Teď se přihlaste pomocí následujícího příkazu:
+     Než se přihlásíte, [vytvořte instanční objekt pomocí Azure Portal nebo rozhraní](../operator/azure-stack-create-service-principals.md) příkazového řádku a přiřaďte mu roli. Teď se přihlaste pomocí následujícího příkazu:
 
      ```azurecli  
      az login \

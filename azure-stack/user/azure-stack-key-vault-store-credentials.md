@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/09/2020
 ms.author: sethm
 ms.lastreviewed: 01/16/2020
-ms.openlocfilehash: c17ba69fedfd51681c5038efde591115ce54bddf
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: e1409105c0682552875a524aab9a222f6ab0c459
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567514"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974077"
 ---
 # <a name="store-service-principal-credentials-in-azure-stack-hub-key-vault"></a>Ukládat přihlašovací údaje instančního objektu ve službě Azure Stack hub Key Vault
 
@@ -32,7 +32,7 @@ K vytvoření trezoru klíčů použijte tento postup:
 
 1. Přihlaste se k portálu centra Azure Stack.
 
-2. Z řídicího panelu vyberte **+ vytvořit prostředek**a pak **zabezpečení a identita**a pak vyberte **Key Vault.**
+2. Z řídicího panelu vyberte **+ vytvořit prostředek** a pak **zabezpečení a identita** a pak vyberte **Key Vault.**
 
    ![Vytvoření trezoru klíčů](media/azure-stack-key-vault-store-credentials/create-key-vault.png)
 
@@ -48,17 +48,17 @@ K vytvoření trezoru klíčů použijte tento postup:
 
 8. Volitelně můžete pro povolení přístupu k funkcím zvolit zásadu pokročilého přístupu.
 
-9. Po nakonfigurování nastavení vyberte **OK**a pak vyberte **vytvořit**. Začíná nasazení trezoru klíčů.
+9. Po nakonfigurování nastavení vyberte **OK** a pak vyberte **vytvořit**. Začíná nasazení trezoru klíčů.
 
 ## <a name="create-a-service-principal"></a>Vytvoření instančního objektu
 
 1. Přihlaste se ke svému účtu Azure prostřednictvím Azure Portal.
 
-2. Vyberte **Azure Active Directory**a pak **Registrace aplikací**a pak **Přidat**.
+2. Vyberte **Azure Active Directory** a pak **Registrace aplikací** a pak **Přidat**.
 
 3. Zadejte název a adresu URL pro aplikaci. Pro typ aplikace, kterou chcete vytvořit, vyberte možnost **Webová aplikace/rozhraní API** nebo **nativní** . Po nastavení hodnot vyberte **vytvořit**.
 
-4. Vyberte **Active Directory**, pak **Registrace aplikací**a vyberte svou aplikaci.
+4. Vyberte **Active Directory**, pak **Registrace aplikací** a vyberte svou aplikaci.
 
 5. Zkopírujte **ID aplikace** a uložte ho do kódu aplikace. Ukázkové aplikace používají **ID klienta** při odkazování na **ID aplikace**.
 
@@ -88,10 +88,10 @@ K vytvoření trezoru klíčů použijte tento postup:
 
 8. Vyberte **vytvořit** a spusťte nasazení.
 
-Po úspěšném vytvoření tajného klíče se tam uloží hlavní informace o instančním objektu. Můžete ho kdykoli vybrat v **tajných klíčích**a zobrazit nebo upravit jeho vlastnosti. Oddíl **Properties** obsahuje identifikátor tajného kódu, který je identifikátor URI (Uniform Resource Identifier), který používají externí aplikace pro přístup k tomuto tajnému kódu.
+Po úspěšném vytvoření tajného klíče se tam uloží hlavní informace o instančním objektu. Můžete ho kdykoli vybrat v **tajných klíčích** a zobrazit nebo upravit jeho vlastnosti. Oddíl **Properties** obsahuje identifikátor tajného kódu, který je identifikátor URI (Uniform Resource Identifier), který používají externí aplikace pro přístup k tomuto tajnému kódu.
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Použití instančních objektů](../operator/azure-stack-create-service-principals.md?view=azs-2002)
+- [Použití instančních objektů](../operator/azure-stack-create-service-principals.md)
 - [Správa Key Vault v centru Azure Stack na portálu](azure-stack-key-vault-manage-portal.md)  
 - [Správa Key Vault v centru Azure Stack pomocí prostředí PowerShell](azure-stack-key-vault-manage-powershell.md)

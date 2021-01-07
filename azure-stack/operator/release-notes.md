@@ -7,12 +7,12 @@ ms.date: 12/23/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: b2b72ce306d9a3801d7208a748e1bdb3720947ea
-ms.sourcegitcommit: 37e83d0b593d2d61156f4ffd4f8e1afd5f558465
+ms.openlocfilehash: 3c10ea13f3780a7c7e1e0f999d8203d4d03f4e49
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97766593"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974145"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -271,7 +271,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 - Noví Azure PowerShell moduly tenanta budou vydány pro Azure Stack centra 15. dubna 2020. Aktuálně používané moduly Azure RM budou fungovat i nadále, ale po sestavení 2002 už se neaktualizují.
 - Přidání nového upozornění na portál správce centra Azure Stack k hlášení problémů s připojením s nakonfigurovaným serverem syslog. Název výstrahy: **u klienta syslog došlo při odesílání zprávy syslog k potížím se sítí**.
 - Přidání nového upozornění na portál správce centra Azure Stack k hlášení problémů s připojením k serveru NTP (Network Time Protocol). Název výstrahy je **neplatný čas zdroje na [název uzlu]**.
-- [Sada Java SDK](https://azure.microsoft.com/develop/java/) vydala nové balíčky z důvodu zásadní změny v 2002 v souvislosti s omezeními TLS. Je nutné nainstalovat novou závislost sady Java SDK. Pokyny najdete v tématu [profily verze Java a rozhraní API](../user/azure-stack-version-profiles-java.md?view=azs-2002#java-and-api-version-profiles).
+- [Sada Java SDK](https://azure.microsoft.com/develop/java/) vydala nové balíčky z důvodu zásadní změny v 2002 v souvislosti s omezeními TLS. Je nutné nainstalovat novou závislost sady Java SDK. Pokyny najdete v tématu [profily verze Java a rozhraní API](../user/azure-stack-version-profiles-java.md?view=azs-2002&preserve-view=true#java-and-api-version-profiles).
 - K dispozici je nová verze (1.0.5.10) sady MP centra System Center Operations Manager-Azure Stack, která se vyžaduje pro všechny systémy se systémem 2002 z důvodu porušení změn rozhraní API. Změny rozhraní API mají vliv na řídicí panely pro zálohování a úložiště a před aktualizací MP doporučujeme nejprve aktualizovat všechny systémy na 2002.
 
 ### <a name="improvements"></a>Vylepšen
@@ -282,8 +282,8 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 - Nástroj pro kontrolu připravenosti centra Azure Stack nyní ověřuje integraci služby AD Graph pomocí všech portů IP protokolu TCP přidělených ke službě AD Graph.
 - Nástroj pro syndikaci offline byl aktualizován o vylepšení spolehlivosti. Nástroj už není dostupný na GitHubu a [přesunul se do galerie prostředí PowerShell](https://www.powershellgallery.com/packages/Azs.Syndication.Admin/). Další informace najdete v tématu [stažení položek Marketplace do centra Azure Stack](azure-stack-download-azure-marketplace-item.md).
 - Zavádí se nová funkce monitorování. Upozornění na nedostatek místa na disku pro fyzické hostitele a virtuální počítače infrastruktury bude automaticky opraveno platformou a jenom v případě, že tato akce selže, výstraha se zobrazí na portálu pro správu centra Azure Stack, aby mohl obsluhu provést akci.
-- Vylepšení [shromažďování protokolů diagnostiky](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002). Nové prostředí zjednodušuje a zjednodušuje shromažďování protokolů diagnostiky tím, že v předem odebere nutnost konfigurace účtu BLOB Storage. Prostředí úložiště je předem nakonfigurované tak, aby bylo možné odesílat protokoly před otevřením případu podpory a strávíte méně času při volání podpory.
-- Čas potřebný pro [proaktivní shromažďování protokolů i pro shromažďování protokolů na vyžádání](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002) byl snížen o 80%. Doba shromažďování protokolů může trvat déle než tato očekávaná hodnota, ale nevyžaduje akci Azure Stack operátory centra, pokud není shromažďování protokolů úspěšné.
+- Vylepšení [shromažďování protokolů diagnostiky](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002&preserve-view=true). Nové prostředí zjednodušuje a zjednodušuje shromažďování protokolů diagnostiky tím, že v předem odebere nutnost konfigurace účtu BLOB Storage. Prostředí úložiště je předem nakonfigurované tak, aby bylo možné odesílat protokoly před otevřením případu podpory a strávíte méně času při volání podpory.
+- Čas potřebný pro [proaktivní shromažďování protokolů i pro shromažďování protokolů na vyžádání](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002&preserve-view=true) byl snížen o 80%. Doba shromažďování protokolů může trvat déle než tato očekávaná hodnota, ale nevyžaduje akci Azure Stack operátory centra, pokud není shromažďování protokolů úspěšné.
 - Průběh stahování balíčku aktualizace centra Azure Stack je teď v okně aktualizace po zahájení aktualizace viditelný. To platí jenom pro připojené systémy centra Azure Stack, které se rozhodnou [připravit balíčky aktualizací prostřednictvím automatického stažení](azure-stack-update-prepare-package.md#automatic-download-and-preparation-for-update-packages).
 - Vylepšení spolehlivosti agenta hostitele síťového adaptéru.
 - Představili jsme novou mikroslužbu nazvanou DNS Orchestrator, která během opravy a aktualizace vylepšuje logiku pro interní služby DNS.

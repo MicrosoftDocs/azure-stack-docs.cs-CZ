@@ -7,12 +7,12 @@ ms.date: 12/2/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 676cd4fe93a464df0cd0a4cddeb3e12ddee1f229
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 1359ce67220040a326251802b35ad72ec526d09e
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96526029"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973975"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack-hub"></a>Použití profilů verzí rozhraní API s Pythonem v Azure Stackovém centru
 
@@ -38,12 +38,12 @@ Python SDK podporuje následující profily rozhraní API:
 ## <a name="install-the-azure-python-sdk"></a>Instalace sady Azure Python SDK
 
 1. [Nainstalujte Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
-2. Pokyny k instalaci sady Python SDK najdete v tématu [Azure pro vývojáře v Pythonu](/python/azure/python-sdk-azure-install?view=azure-python).
+2. Pokyny k instalaci sady Python SDK najdete v tématu [Azure pro vývojáře v Pythonu](/python/azure/python-sdk-azure-install?view=azure-python&preserve-view=true).
 3. Pokud není k dispozici, vytvořte odběr a uložte ID předplatného, které chcete později použít. Pokyny k vytvoření předplatného najdete [v tématu Vytvoření předplatných nabídek v centru Azure Stack](../operator/azure-stack-subscribe-plan-provision-vm.md).
 4. Vytvořte instanční objekt a uložte jeho ID a tajný klíč. Pokyny k vytvoření instančního objektu pro centrum Azure Stack najdete v tématu [poskytnutí přístupu aplikací k centru Azure Stack](../operator/azure-stack-create-service-principals.md).
 5. Ujistěte se, že váš instanční objekt má v předplatném roli Přispěvatel/vlastník. Pokyny k přiřazení role k instančnímu objektu najdete v tématu [poskytnutí přístupu aplikací k rozbočovači Azure Stack](../operator/azure-stack-create-service-principals.md).
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 Pokud chcete použít sadu Python Azure SDK s Azure Stack hub, musíte zadat následující hodnoty a potom nastavit hodnoty pomocí proměnných prostředí. Chcete-li nastavit proměnné prostředí, postupujte podle pokynů v následující tabulce pro konkrétní operační systém.
 

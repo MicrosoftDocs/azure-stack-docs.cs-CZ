@@ -7,12 +7,12 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: e9f6c41097085a0342b2c0a2fc5b5b995c2d9186
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 0d5b48c04e546d3b8776f436e5562786b8e77f33
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96524788"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974128"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>Zálohování virtuálního počítače v Azure Stack hub pomocí CommVault
 
@@ -111,12 +111,12 @@ Budete potřebovat zjistit, jestli je váš správce identit Azure AD nebo AD FS
 
 | Element | Popis | Zdroj |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| Adresa URL Azure Resource Manager | Koncový bod Správce prostředků centra Azure Stack. | https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby?view=azs-1908#the-azure-stack-hub-resource-manager-endpoint |
+| Adresa URL Azure Resource Manager | Koncový bod Správce prostředků centra Azure Stack. | https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby#the-azure-stack-hub-resource-manager-endpoint |
 | Název aplikace |  |  |
-| ID aplikace | ID aplikace instančního objektu se uložilo při vytvoření instančního objektu v předchozí části tohoto článku. | https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals?view=azs-1908 |
-| ID předplatného | ID předplatného se používá pro přístup k nabídkám v centru Azure Stack. | https://docs.microsoft.com/azure-stack/operator/service-plan-offer-subscription-overview?view=azs-1908#subscriptions |
-| ID klienta (ID adresáře) | Vaše ID tenanta centra Azure Stack. | https://docs.microsoft.com/azure-stack/operator/azure-stack-identity-overview?view=azs-1908 |
-| Heslo aplikace | Tajný kód aplikace instančního objektu se uložil při vytvoření objektu služby. | https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals?view=azs-1908 |
+| ID aplikace | ID aplikace instančního objektu se uložilo při vytvoření instančního objektu v předchozí části tohoto článku. | https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals |
+| ID předplatného | ID předplatného se používá pro přístup k nabídkám v centru Azure Stack. | https://docs.microsoft.com/azure-stack/operator/service-plan-offer-subscription-overview#subscriptions |
+| ID klienta (ID adresáře) | Vaše ID tenanta centra Azure Stack. | https://docs.microsoft.com/azure-stack/operator/azure-stack-identity-overview |
+| Heslo aplikace | Tajný kód aplikace instančního objektu se uložil při vytvoření objektu služby. | https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals |
 
 ## <a name="configure-backup-using-the-commvault-console"></a>Konfigurace zálohování pomocí konzoly CommVault
 

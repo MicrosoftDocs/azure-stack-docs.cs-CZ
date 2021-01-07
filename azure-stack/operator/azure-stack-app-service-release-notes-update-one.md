@@ -8,12 +8,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 48ba500c7b9315c4fbc8a622b99d4707f4eb86a7
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 433bfa9f6aee13131b80f3200c092bc0d72bd65e
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489619"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974383"
 ---
 # <a name="app-service-on-azure-stack-hub-update-1-release-notes"></a>Zpráva k vydání verze Azure Stack centra aktualizace 1 App Service
 
@@ -29,7 +29,7 @@ App Service číslo buildu Azure Stack centra aktualizace 1 se **69.0.13698.9**.
 ## <a name="prerequisites"></a>Požadavky
 
 > [!IMPORTANT]
-> Nová nasazení Azure App Service v centru Azure Stack nyní vyžadují certifikát se zástupným znakem tři subjektu z důvodu vylepšení způsobu, jakým se v Azure App Service zpracovává jednotné přihlašování pro Kudu. Nový předmět je ** \* . SSO. AppService. \<region\> . \<domainname\> . \<extension\> **
+> Nová nasazení Azure App Service v centru Azure Stack nyní vyžadují certifikát se zástupným znakem tři subjektu z důvodu vylepšení způsobu, jakým se v Azure App Service zpracovává jednotné přihlašování pro Kudu. Nový předmět je **\* . SSO. AppService. \<region\> . \<domainname\> . \<extension\>**
 
 Než začnete s nasazením, přečtěte si [požadavky pro nasazení App Service v centru Azure Stack](azure-stack-app-service-before-you-get-started.md) .
 
@@ -203,7 +203,7 @@ Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adr
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Známé problémy pro Cloud Admins, které pracují Azure App Service v centru Azure Stack
 
-Informace najdete v dokumentaci k [verzi centra Azure Stack 1802](./release-notes.md?view=azs-2002) .
+Informace najdete v dokumentaci k [verzi centra Azure Stack 1802](./release-notes.md?view=azs-1802&preserve-view=true) .
 
 ## <a name="next-steps"></a>Další kroky
 

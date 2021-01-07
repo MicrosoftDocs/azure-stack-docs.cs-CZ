@@ -7,12 +7,12 @@ ms.date: 02/19/2019
 ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 1f2830fa931f1ec02986fe45715e2fafed1a2aa0
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 205df69311e2543f245af7bdb8c8ddd98f2511be
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873635"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973346"
 ---
 # <a name="asdk-admin-basics"></a>Základy správy ASDK
 Pokud s Azure Stack Development Kit (ASDK) nebudete mít jistotu, budete potřebovat několik věcí. Tento návod poskytuje přehled vaší role jako operátor Azure Stack ve zkušebním prostředí. Familiarizing se s těmito informacemi, zajistíte, aby vaši testovací uživatelé byli co nejrychleji produktivní.
@@ -38,7 +38,7 @@ Ke správě Azure Stack můžete použít portál správce Azure Stack `https://
 Azure Stack používá Azure Resource Manager jako základní mechanismus nasazení, správy a organizace. Pokud se chystáte spravovat Azure Stack a pomáhat uživatelům podpory, měli byste se dozvědět víc o Azure Resource Manager. Další informace najdete v [Začínáme Azure Resource Manager dokumentu White Paper](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf).
 
 ## <a name="your-typical-responsibilities"></a>Vaše typické povinnosti
-Vaši uživatelé chtějí používat služby. Z perspektivy je hlavním úkolem, aby jim byly dostupné tyto služby. Pomocí ASDK můžete zjistit, které služby se mají nabízet, a jak tyto služby zpřístupnit [vytvořením plánů, nabídek a kvót](../operator/tutorial-offer-services.md?view=azs-2002). Budete také muset přidat položky na web Marketplace, například image virtuálních počítačů. Nejjednodušším způsobem je [stáhnout z Azure položky Marketplace](../operator/azure-stack-create-and-publish-marketplace-item.md) do Azure Stack.
+Vaši uživatelé chtějí používat služby. Z perspektivy je hlavním úkolem, aby jim byly dostupné tyto služby. Pomocí ASDK můžete zjistit, které služby se mají nabízet, a jak tyto služby zpřístupnit [vytvořením plánů, nabídek a kvót](../operator/tutorial-offer-services.md). Budete také muset přidat položky na web Marketplace, například image virtuálních počítačů. Nejjednodušším způsobem je [stáhnout z Azure položky Marketplace](../operator/azure-stack-create-and-publish-marketplace-item.md) do Azure Stack.
 
 > [!NOTE]
 > Pokud chcete testovat vaše plány, nabídky a služby, měli byste použít portál User Portal, `https://portal.local.azurestack.external` ne portál pro správu `https://adminportal.local.azurestack.external` .

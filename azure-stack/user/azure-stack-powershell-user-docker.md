@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/16/2020
-ms.openlocfilehash: 798b3d9e94f6263b02c291d2f5725768f1a8522a
-ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
+ms.openlocfilehash: d187058561f166084b672d941262c7979f7deec2
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97620683"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974043"
 ---
 # <a name="use-docker-to-run-powershell-for-azure-stack-hub"></a>Použití Docker ke spuštění PowerShellu pro Azure Stack hub
 
@@ -34,7 +34,7 @@ V tomto článku můžete pomocí Docker vytvořit kontejner, na kterém běží
 
 Pokud chcete k přístupu k prostředkům v centru Azure Stack použít PowerShell, potřebujete instanční objekt v tenantovi služby Azure Active Directory (Azure AD). Oprávnění můžete delegovat pomocí řízení přístupu na základě role uživatele (RBAC). Možná budete muset požádat o instanční objekt od operátora cloudu.
 
-1. Pokud chcete nastavit instanční objekt, postupujte podle pokynů v [tématu poskytnutí přístupu aplikací k prostředkům Azure Stack centra vytvořením instančních objektů](../operator/azure-stack-create-service-principals.md?view=azs-2002).
+1. Pokud chcete nastavit instanční objekt, postupujte podle pokynů v [tématu poskytnutí přístupu aplikací k prostředkům Azure Stack centra vytvořením instančních objektů](../operator/azure-stack-create-service-principals.md).
 
 2. Poznamenejte si ID aplikace, tajný kód, ID tenanta a ID objektu pro pozdější použití.
 

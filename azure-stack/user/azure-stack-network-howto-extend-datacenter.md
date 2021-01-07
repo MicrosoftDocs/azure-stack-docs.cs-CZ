@@ -7,12 +7,12 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 0d8425fa11f6de0e909a697527074c779acd27da
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 02a3fdb862f3a4c04a63d5e5694487b62435ee16
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525791"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974094"
 ---
 # <a name="extending-storage-to-azure-stack-hub"></a>Rozšíření úložiště do centra Azure Stack
 
@@ -50,7 +50,7 @@ V tomto scénáři nasadíme a nakonfigurujeme virtuální počítač s Windows 
 
 2.  Až budete mít v prostředí Azure Stackového centra bitovou kopii Windows serveru 2019, **Přihlaste se k portálu User Portal služby Azure Stack hub**.
 
-3.  Po přihlášení k portálu User Portal služby Azure Stack hub se ujistěte, že máte [předplatné nabídky](../operator/azure-stack-subscribe-plan-provision-vm.md?view=azs-1908), které vám umožní zřídit prostředky IaaS (výpočetní prostředky, úložiště a síť).
+3.  Po přihlášení k portálu User Portal služby Azure Stack hub se ujistěte, že máte [předplatné nabídky](../operator/azure-stack-subscribe-plan-provision-vm.md), které vám umožní zřídit prostředky IaaS (výpočetní prostředky, úložiště a síť).
 
 4.  Jakmile budete mít předplatné k dispozici, vraťte se na **řídicím panelu** na portálu User portal centra Azure Stack, vyberte **vytvořit prostředek**, vyberte **COMPUTE** a pak vyberte **položku galerie datacenter Windows serveru 2019**.
 

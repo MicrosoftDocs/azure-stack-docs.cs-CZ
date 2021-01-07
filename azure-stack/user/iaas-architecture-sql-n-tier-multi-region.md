@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: df65f32abdc7c643c953f176ae8a4fd0b47309f5
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 6978e6c86df577fc3d0446a8ecc8ce13a57781b7
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873737"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973570"
 ---
 # <a name="run-an-n-tier-application-in-multiple-azure-stack-hub-regions-for-high-availability"></a>Spuštění N-vrstvé aplikace v několika oblastech centra Azure Stack pro zajištění vysoké dostupnosti
 
@@ -35,9 +35,9 @@ Tato architektura sestaví na takovém obrázku, který je zobrazený v [N-vrstv
 
 -   **Virtuální sítě**. Vytvořte samostatnou virtuální síť pro každou oblast. Ujistěte se, že se adresní prostory nepřekrývají.
 
--   **Skupina dostupnosti Always On SQL Server**. Pokud používáte SQL Server, doporučujeme vám pro vysokou dostupnost použít [skupiny dostupnosti AlwaysOn pro SQL Server](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15). Vytvořte jednu skupinu dostupnosti, která obsahuje instance SQL Serveru v obou oblastech.
+-   **Skupina dostupnosti Always On SQL Server**. Pokud používáte SQL Server, doporučujeme vám pro vysokou dostupnost použít [skupiny dostupnosti AlwaysOn pro SQL Server](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-ver15&preserve-view=true). Vytvořte jednu skupinu dostupnosti, která obsahuje instance SQL Serveru v obou oblastech.
 
--   **Připojení VPN k virtuální síti** VNET. Protože VNET Peering ještě není v centru Azure Stack k dispozici, použijte připojení VPN VNET to VNET, aby se tyto dva virtuální sítěy připojily. Další informace najdete [v tématu virtuální síť a virtuální síť v centru Azure Stack](./azure-stack-network-howto-vnet-to-vnet.md?view=azs-1908) .
+-   **Připojení VPN k virtuální síti** VNET. Protože VNET Peering ještě není v centru Azure Stack k dispozici, použijte připojení VPN VNET to VNET, aby se tyto dva virtuální sítěy připojily. Další informace najdete [v tématu virtuální síť a virtuální síť v centru Azure Stack](./azure-stack-network-howto-vnet-to-vnet.md) .
 
 ## <a name="recommendations"></a>Doporučení
 
@@ -113,7 +113,7 @@ Postup konfigurace skupiny dostupnosti:
     az network vnet update --resource-group <resource-group> --name <vnet-name> --dns-servers "10.0.0.4,10.0.0.6,172.16.0.4,172.16.0.6"
     ```
 
--   Vytvořte [clustering převzetí služeb při selhání ve Windows Serveru](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-ver15), který obsahuje instance SQL Serveru v obou oblastech.
+-   Vytvořte [clustering převzetí služeb při selhání ve Windows Serveru](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-ver15&preserve-view=true), který obsahuje instance SQL Serveru v obou oblastech.
 
 -   Vytvořte skupinu dostupnosti AlwaysOn pro SQL Server, která obsahuje instance SQL Serveru jak v primárních, tak i v sekundárních oblastech. Postup najdete v tématu o [rozšíření skupiny dostupnosti AlwaysOn na vzdálené datacentrum Azure (PowerShell)](https://techcommunity.microsoft.com/t5/DataCAT/Extending-AlwaysOn-Availability-Group-to-Remote-Azure-Datacenter/ba-p/305217).
 
@@ -134,10 +134,10 @@ Traffic Manager je možným bodem selhání v systému. Pokud služba Traffic Ma
 
 U clusteru SQL Serveru musíte zvážit dva scénáře převzetí služeb při selhání:
 
--   Všechny repliky databáze SQL Serveru v primární oblasti selžou. K tomu může dojít například během oblastního výpadku. V takovém případě musíte služby při selhání skupiny dostupnosti převzít ručně, přestože Traffic Manager služby při selhání převezme na front-endu automaticky. Postupujte podle pokynů v tématu o [provedení vynuceného ručního převzetí služeb při selhání skupiny dostupnosti SQL Serveru](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15), které popisuje, jak provést vynucené převzetí služeb při selhání použitím aplikací SQL Server Management Studio, Transact-SQL nebo prostředí PowerShell v SQL Serveru 2016.
+-   Všechny repliky databáze SQL Serveru v primární oblasti selžou. K tomu může dojít například během oblastního výpadku. V takovém případě musíte služby při selhání skupiny dostupnosti převzít ručně, přestože Traffic Manager služby při selhání převezme na front-endu automaticky. Postupujte podle pokynů v tématu o [provedení vynuceného ručního převzetí služeb při selhání skupiny dostupnosti SQL Serveru](/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-ver15&preserve-view=true), které popisuje, jak provést vynucené převzetí služeb při selhání použitím aplikací SQL Server Management Studio, Transact-SQL nebo prostředí PowerShell v SQL Serveru 2016.
 
     > [!Warning]  
-    > Při použití vynuceného převzetí služeb při selhání existuje riziko ztráty dat. Jakmile se primární oblast vrátí do režimu online, pořiďte snímek databáze a použijte nástroj [tablediff](/sql/tools/tablediff-utility?view=sql-server-ver15), abyste našli rozdíly.
+    > Při použití vynuceného převzetí služeb při selhání existuje riziko ztráty dat. Jakmile se primární oblast vrátí do režimu online, pořiďte snímek databáze a použijte nástroj [tablediff](/sql/tools/tablediff-utility?view=sql-server-ver15&preserve-view=true), abyste našli rozdíly.
 
 -   Traffic Manager převezme služby při selhání sekundární oblastí, ale primární replika databáze SQL Serveru bude stále k dispozici. Front-endová vrstva může například selhat, aniž by ovlivnila virtuální počítače SQL Serveru. V takovém případě je internetový provoz směrován do sekundární oblasti a ta se stále může připojit k primární replice. Zvýší se však latence, protože připojení SQL Serveru cestují napříč oblastmi. V takovém případě byste měli následujícím způsobem provést ruční převzetí služeb při selhání:
 

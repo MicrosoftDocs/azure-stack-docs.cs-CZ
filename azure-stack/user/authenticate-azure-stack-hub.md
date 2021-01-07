@@ -7,16 +7,16 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 4b39ce2782f8b99740da5a2fea383892c2de5351
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 1e762ab25250a6414087c1b22e911bb7a8d151ed
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525978"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974105"
 ---
 # <a name="get-authentication-information-for-azure-stack-hub"></a>Získat informace o ověřování pro centrum Azure Stack
 
-Aby se ověřilo, že Azure Stack hub vyžaduje, abyste zadali ID předplatného, ID tenanta a umístění a Správce prostředků koncový bod centra Azure Stack. Tyto hodnoty můžete získat z [správce prostředkůho koncového bodu centra Azure Stack](./azure-stack-version-profiles-ruby.md?view=azs-1910#the-azure-stack-hub-resource-manager-endpoint) pro centrum Azure Stack. Můžete je také získat pomocí kroků v tomto článku.
+Aby se ověřilo, že Azure Stack hub vyžaduje, abyste zadali ID předplatného, ID tenanta a umístění a Správce prostředků koncový bod centra Azure Stack. Tyto hodnoty můžete získat z [správce prostředkůho koncového bodu centra Azure Stack](./azure-stack-version-profiles-ruby.md#the-azure-stack-hub-resource-manager-endpoint) pro centrum Azure Stack. Můžete je také získat pomocí kroků v tomto článku.
 
 ## <a name="values-needed-to-authenticate"></a>Hodnoty potřebné k ověření
 
@@ -74,4 +74,4 @@ Pokud chcete získat koncový bod metadat, který odkazuje na vlastnosti, jako j
 
 ## <a name="next-steps"></a>Další kroky
 
-Přečtěte si další informace o použití [Správce prostředků centra Azure Stack](./azure-stack-version-profiles.md?view=azs-1910) v centru Azure Stack.
+Přečtěte si další informace o použití [Správce prostředků centra Azure Stack](./azure-stack-version-profiles.md) v centru Azure Stack.

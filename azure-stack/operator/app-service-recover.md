@@ -7,12 +7,12 @@ ms.date: 03/21/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: ba57de42f882ce62d433768f4fd2a265b862459c
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 3a445fde3d11d42699caf96ff45167871513a2f5
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489755"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973364"
 ---
 # <a name="app-service-recovery-on-azure-stack-hub"></a>Obnovení služby App Service ve službě Azure Stack Hub
 
@@ -39,7 +39,7 @@ Po [přípravě instance SQL Server](azure-stack-app-service-before-you-get-star
 3. Ověřte, zda byla úspěšně obnovena a ukončena SQL Server Management Studio databáze App Service.
 
 > [!NOTE]
-> Chcete-li provést obnovení z instance clusteru s podporou převzetí služeb při selhání, přečtěte si téma [obnovení z neúspěšné instance](/sql/sql-server/failover-clusters/windows/recover-from-failover-cluster-instance-failure?view=sql-server-2017) 
+> Chcete-li provést obnovení z instance clusteru s podporou převzetí služeb při selhání, přečtěte si téma [obnovení z neúspěšné instance](/sql/sql-server/failover-clusters/windows/recover-from-failover-cluster-instance-failure?view=sql-server-2017&preserve-view=true) 
 
 ## <a name="restore-the-app-service-file-share-content"></a>Obnovení obsahu App Service sdílené složky
 Po [přípravě souborového serveru](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server) pro hostování App Service sdílené složky musíte obnovit obsah sdílené složky klienta ze zálohy. Můžete použít libovolnou metodu, kterou máte k dispozici ke zkopírování souborů do nově vytvořené App Service umístění sdílené složky. Po spuštění tohoto příkladu na souborovém serveru se k připojení ke vzdálené sdílené složce a zkopírování souborů do sdílené složky použijí PowerShell a Robocopy:

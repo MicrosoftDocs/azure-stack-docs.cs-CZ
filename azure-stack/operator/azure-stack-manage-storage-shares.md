@@ -7,12 +7,12 @@ ms.date: 10/16/2020
 ms.author: patricka
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: 85f3aed4ebf5b57b1e77a5b58604eeb881204396
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 4f451e5e3202c301e39295ec99953d3fc62a7570
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870031"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974332"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Správa kapacity úložiště pro centrum Azure Stack
 
@@ -345,4 +345,4 @@ Největší způsob správy prostoru zahrnuje přesun nespravovaných disků. Po
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o nabídce virtuálních počítačů pro uživatele najdete v tématu [Správa kapacity úložiště pro centrum Azure Stack](./tutorial-offer-services.md?view=azs-2002).
+Další informace o nabídce virtuálních počítačů pro uživatele najdete v tématu [Správa kapacity úložiště pro centrum Azure Stack](./tutorial-offer-services.md).

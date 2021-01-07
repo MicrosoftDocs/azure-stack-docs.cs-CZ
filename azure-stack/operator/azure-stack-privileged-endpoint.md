@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/28/2020
 ms.custom: conteperfq4
-ms.openlocfilehash: 81a27e841565e00c60183de0228896d56b9eede9
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 18c1935c1e683fab1a2cda8886a45648ee69fbf4
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869504"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974281"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Použití privilegovaného koncového bodu v centru Azure Stack
 
@@ -251,5 +251,5 @@ Token odpovědi je pak zašifrovaný pomocí certifikátu podepsaného svým dr�
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Diagnostické nástroje centra Azure Stack](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002)
+- [Diagnostické nástroje centra Azure Stack](./azure-stack-diagnostic-log-collection-overview.md)
 - [Referenční informace k privilegovanému koncovému bodu centra Azure Stack](../reference/pep-2002/index.md)

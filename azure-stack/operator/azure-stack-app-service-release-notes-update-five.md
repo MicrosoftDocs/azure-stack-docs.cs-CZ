@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 008c49c4db50be2ac7c7544211c0f0a82f3b2e2b
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 3a4b2ae49e052731e372f4bfdaf8ff30c9b5490e
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489687"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97974400"
 ---
 # <a name="app-service-on-azure-stack-hub-update-5-release-notes"></a>Zpráva k vydání verze v App Service Azure Stack centra aktualizace 5
 
@@ -221,7 +221,7 @@ Pokud se rozhodnete nasadit do existující virtuální sítě a interní IP adr
 
 ## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Známé problémy pro Cloud Admins, které pracují Azure App Service v centru Azure Stack
 
-Informace najdete v [poznámkách k verzi centra Azure Stack 1809](./release-notes.md?view=azs-2002).
+Informace najdete v [poznámkách k verzi centra Azure Stack 1809](./release-notes.md).
 
 ## <a name="next-steps"></a>Další kroky
 

@@ -3,26 +3,25 @@ title: Řešení potíží s ASDK
 description: Naučte se řešit potíže s Azure Stack Development Kit (ASDK).
 author: PatAltimore
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 01/06/2021
 ms.author: patricka
 ms.reviewer: misainat
-ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: b5b0310aa778cf470c436f0770c9b5ca0d46fd8f
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.lastreviewed: 01/06/2021
+ms.openlocfilehash: d041a4b30c4f95c5b476e8fd00b9231368706466
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872938"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973533"
 ---
 # <a name="troubleshoot-the-asdk"></a>Řešení potíží s ASDK
 Tento článek poskytuje běžné informace pro řešení potíží s Azure Stack Development Kit (ASDK). Nápovědu k Azure Stack integrovaným systémům najdete v tématu [řešení potíží s Microsoft Azure Stack](../operator/azure-stack-troubleshooting.md). 
 
-Vzhledem k tomu, že ASDK je zkušební prostředí, podpora Microsoftu neposkytuje podporu. Pokud jste narazili na problém, který není dokumentován, můžete získat pomoc od expertů na [Azure Stack Fórum MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
-
+Vzhledem k tomu, že ASDK je zkušební prostředí, podpora Microsoftu neposkytuje podporu. Pokud jste narazili na problém, který není dokumentován, můžete získat pomoc od expertů na [Microsoft Q&A](https://docs.microsoft.com/answers/questions/topics/single/25482.html).
 
 ## <a name="deployment"></a>Nasazení
 ### <a name="deployment-failure"></a>Selhání nasazení
-Pokud při instalaci dojde k chybě, můžete restartovat nasazení z neúspěšného kroku pomocí možnosti-znovu spustit ve skriptu nasazení. Například:
+Pokud při instalaci dojde k chybě, můžete restartovat nasazení z neúspěšného kroku pomocí možnosti-znovu spustit ve skriptu nasazení. Příklad:
 
   ```powershell
   cd C:\CloudDeployment\Setup

@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 0803dc8332e296c0b92912967d34a6dfd885d4df
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 7ad8f412ca4dd984f2d16217efd1a84d632ef829
+ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873720"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97973737"
 ---
 # <a name="run-a-linux-virtual-machine-on-azure-stack-hub"></a>Spuštění virtuálního počítače se systémem Linux v centru Azure Stack
 
@@ -42,7 +42,7 @@ Doporučujeme také použít [Managed disks](./azure-stack-managed-disk-consider
 
 Disk s operačním systémem je virtuální pevný disk uložený v [Azure Stack úložiště centra](./azure-stack-storage-overview.md), takže zůstane i v případě, že je hostitelský počítač mimo provoz. Pro virtuální počítače se systémem Linux je disk s operačním systémem/dev/sda1.. Doporučujeme také vytvořit jeden nebo více [datových disků](./azure-stack-manage-vm-disks.md), což jsou trvalé virtuální pevné disky používané pro data aplikací.
 
-Když vytvoříte virtuální pevný disk, je neformátovaný. Přihlaste se k virtuálnímu počítači a disk naformátujte. V prostředí Linux se datové disky zobrazují jako/dev/sdc,/dev/SDD a tak dále. Můžete spustit lsblk a zobrazit tak seznam blokovaných zařízení, včetně disků. Pokud chcete použít datový disk, vytvořte oddíl a souborový systém a potom disk připojte. Například:
+Když vytvoříte virtuální pevný disk, je neformátovaný. Přihlaste se k virtuálnímu počítači a disk naformátujte. V prostředí Linux se datové disky zobrazují jako/dev/sdc,/dev/SDD a tak dále. Můžete spustit lsblk a zobrazit tak seznam blokovaných zařízení, včetně disků. Pokud chcete použít datový disk, vytvořte oddíl a souborový systém a potom disk připojte. Příklad:
 
 ```bash
 # Create a partition.
@@ -82,7 +82,7 @@ Každá skupina zabezpečení sítě obsahuje sadu [výchozích pravidel](/azure
 
 **Diagnostika**. Povolte monitorování a diagnostiku, včetně základních metrik stavu, diagnostických protokolů infrastruktury a [diagnostiky spouštění](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Diagnostika spouštění vám pomůže zjistit chyby spouštění, pokud se virtuální počítač dostane do stavu, kdy ho nebude možné spustit. Vytvořte účet Azure Storage pro ukládání protokolů. Pro diagnostické protokoly stačí standardní účet místně redundantního úložiště (LRS). Další informace najdete v tématu [Povolení monitorování a diagnostiky](./azure-stack-metrics-azure-data.md).
 
-**Dostupnost**. Váš virtuální počítač může být vystavený restartováním z důvodu plánované údržby, která je naplánována operátorem centra Azure Stack. Pro zajištění vyšší dostupnosti nasaďte několik virtuálních počítačů ve [skupině dostupnosti](../operator/azure-stack-app-service-deploy.md?view=azs-2002).
+**Dostupnost**. Váš virtuální počítač může být vystavený restartováním z důvodu plánované údržby, která je naplánována operátorem centra Azure Stack. Pro zajištění vyšší dostupnosti nasaďte několik virtuálních počítačů ve [skupině dostupnosti](../operator/azure-stack-app-service-deploy.md).
 
 **Zálohy** Doporučení k ochraně virtuálních počítačů IaaS ve službě Azure Stack hub najdete v [tomto](./azure-stack-manage-vm-protect.md) článku.
 
