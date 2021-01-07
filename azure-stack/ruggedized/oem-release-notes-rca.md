@@ -7,12 +7,12 @@ ms.date: 12/08/2020
 ms.author: sethm
 ms.reviewer: danlewi
 ms.lastreviewed: 12/08/2020
-ms.openlocfilehash: be7db92413bdc1223c8600a9e9fc0ff8c3fb4ba0
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: a7765eb44017b8d6521930de24794b630ae22344
+ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97909697"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97965456"
 ---
 # <a name="azure-stack-hub-ruggedized-2008-oem-release-notes"></a>Zpráva k vydání verze 2008 OEM v centru Azure Stack
 
@@ -53,7 +53,7 @@ Tento dokument popisuje obsah služby Azure Stack hub narobustní aktualizace pr
 
 | Verze vydaných verzí    | Verze firmwaru    | Změny                                                                                                          |
 |--------------------|---------------------|------------------------------------------------------------------------------------------------------------------|
-|     2008           |     14.27.60.08     | Opravili jsme kritický výraz pro firmware, který ukázal, že IRISC přestane reagovat kvůli init_hca čeká na vyřízení zámku toku časovače. |
+|     2008           |     14.27.60.08     | Opravili jsme závažné tvrzení firmwaru, které způsobí, že IRISC přestane reagovat kvůli init_hca čekání na vystavení zámku toku časovače. |
 |     2005           |     14.26.60.00     |                                                                                                                  |
 
 ### <a name="nic-hlh"></a>NIC – HLH
@@ -74,7 +74,7 @@ Tento dokument popisuje obsah služby Azure Stack hub narobustní aktualizace pr
 
 |     Verze vydaných verzí |     Verze firmwaru |     Změny                                                                                           |
 |---------------------|----------------------|-------------------------------------------------------------------------------------------------------|
-| 2005, 2008          | 25.5.7.0005          | Opravili jsme problém, kdy se kontrolér mohl při spuštění zablokovat kvůli neúplné konfiguraci nestálé paměti. |
+| 2005, 2008          | 25.5.7.0005          | Opravili jsme problém, kdy řadič při spuštění přestal reagovat kvůli neúplné konfiguraci nestálé paměti. |
 
 ### <a name="hba---boot-drives"></a>Jednotky pro spouštění HBA
 
@@ -86,7 +86,7 @@ Tento dokument popisuje obsah služby Azure Stack hub narobustní aktualizace pr
 
 | Verze vydaných verzí | Verze firmwaru | Změny                                                                                                                                                                                                |
 |-----------------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     2008        |     9.0.6        | Řeší možné IDRAC zablokování během aktualizace firmwaru.<br> Bylo přidáno filtrování šumu signálu, aby se předešlo falešným chybám.<br> Změnila se mapa paměti hostitele, aby se zabránilo potenciálnímu zablokování portů front-USB. |
+|     2008        |     9.0.6        | Řeší možné problémy, které IDRAC může přestat reagovat při aktualizaci firmwaru.<br> Bylo přidáno filtrování šumu signálu, aby se předešlo falešným chybám.<br> Změnila se mapa paměti hostitele, aby se zabránilo potenciálnímu zablokování portů front-USB. |
 |     2005        |     1.0.6        |                                                                                                                                                                                                        |
 
 ### <a name="drive-fw"></a>Jednotka FW

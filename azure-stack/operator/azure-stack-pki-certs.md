@@ -7,12 +7,12 @@ ms.date: 08/19/2020
 ms.author: patricka
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: ac5880d319518ba93d4eb41497b289c3230fe69d
-ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
+ms.openlocfilehash: 8304ef3fe981545ac05de64b335c1edabdf32651
+ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918667"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97965524"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Požadavky na certifikáty infrastruktury veřejných klíčů (PKI) služby Azure Stack Hub
 
@@ -108,8 +108,8 @@ Následující tabulka obsahuje popis koncových bodů a certifikátů vyžadova
 |App Service|Rozhraní API|API. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>(Certifikát SSL<sup>2</sup>)|AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>SCM. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*|
 |App Service|FTP|FTP. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>(Certifikát SSL<sup>2</sup>)|AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>SCM. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*|
 |App Service|Jednotné přihlašování|SSO. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>(Certifikát SSL<sup>2</sup>)|AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>SCM. AppService. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*|
-|Event Hubs|SSL|&#42;. eventhub. *&lt;> &lt; oblasti plně kvalifikovaný název domény>* | eventhub. *&lt;> &lt; oblasti plně kvalifikovaný název domény>* |
-|IoT Hub|SSL|&#42;. mgmtiothub. *&lt;> &lt; oblasti plně kvalifikovaný název domény>* | mgmtiothub. *&lt;> &lt; oblasti plně kvalifikovaný název domény>* |
+|Event Hubs|SSL|&#42;. eventhub. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>(Zástupný certifikát SSL)|eventhub. *&lt;> &lt; oblasti plně kvalifikovaný název domény>* |
+|IoT Hub|SSL|&#42;. mgmtiothub. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>(Zástupný certifikát SSL)|mgmtiothub. *&lt;> &lt; oblasti plně kvalifikovaný název domény>* |
 |SQL, MySQL|SQL a MySQL|&#42;. dbadapter. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*<br>(Zástupný certifikát SSL)|dbadapter. *&lt;> &lt; oblasti plně kvalifikovaný název domény>*|
 
 <sup>1</sup> vyžaduje jeden certifikát s více alternativními názvy subjektu zástupného znaku. Všechny veřejné certifikační autority nemusí podporovat více než jeden zástupný znak sítě SAN na jednom certifikátu.

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/16/2020
 ms.author: patricka
 ms.lastreviewed: 06/16/2020
-ms.openlocfilehash: 063809d47aff3d4e0840f4127f3749faccac7c9b
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: da6e4d78d2464468b75ab2bd22d9bb81dd01e33b
+ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870269"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97965507"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Základy správy centra Azure Stack
 
@@ -51,13 +51,15 @@ V současné době podporujeme následující další služby PaaS (Platform as 
 - App Service
 - Azure Functions
 - Databáze SQL a MySQL
+- Event Hubs
+- IoT Hub (ve verzi Preview)
 - Kubernetes (ve verzi Preview)
 
 Tyto služby vyžadují další konfiguraci, abyste je mohli zpřístupnit uživatelům. Další informace najdete v částech "kurzy" a guides\Offer Services "v naší dokumentaci k operátorovi centra Azure Stack.
 
 **Plán služby**
 
-Centrum Azure Stack bude dál přidávat podporu pro služby Azure. Plánovaný plán najdete v tématu [centrum Azure Stack: rozšíření Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) White Paper. Můžete také monitorovat [příspěvky na blogu centra Azure Stack](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) pro nová oznámení.
+Centrum Azure Stack bude dál přidávat podporu pro služby Azure. Plánovaný plán najdete v tématu [centrum Azure Stack: rozšíření Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) White Paper. Můžete také monitorovat [příspěvky na blogu centra Azure Stack](https://techcommunity.microsoft.com/t5/azure-stack-blog/bg-p/AzureStackBlog) pro nová oznámení.
 
 ## <a name="what-account-should-i-use"></a>Jaký účet mám použít?
 

@@ -4,13 +4,13 @@ description: V tomto tématu najdete pokyny ke konfiguraci bran firewall pro ope
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
-ms.date: 12/10/2020
-ms.openlocfilehash: 374041b5472b20781f6c8648287d665925a8f227
-ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
+ms.date: 01/06/2020
+ms.openlocfilehash: 73e58c69295afc1a1bb106ea078e753647daa08d
+ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97623030"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97965490"
 ---
 # <a name="configure-firewalls-for-azure-stack-hci"></a>Konfigurace bran firewall pro Azure Stack HCI
 
@@ -46,7 +46,7 @@ Azure udržuje správné známé IP adresy pro služby Azure, které jsou organi
 | :-----------------------------| :-----------------------  | :---------------------------------------------------------------------------------- |
 | Azure Active Directory        | Azureactivedirectory selhala      | `https://login.microsoftonline.com`<br> `https://graph.microsoft.com`               |
 | Azure Resource Manager        | AzureResourceManager      | `https://management.azure.com`                        |
-| Cloudová služba Azure Stack HCI | AzureFrontDoor. front-end   | Závisí na oblasti, kterou jste zaregistrovali:<br> Východní USA: `https://eus-azurestackhci-usage.azurewebsites.net`<br> Západní Evropa: `https://weu-azurestackhci-usage.azurewebsites.net` |
+| Cloudová služba Azure Stack HCI | AzureFrontDoor. front-end   | `https://azurestackhci.azurefd.net` |
 | Azure Arc                     | AzureArcInfrastructure<br> AzureTrafficManager | Závisí na funkcích, které chcete použít:<br> Služba hybridní identity: `*.his.arc.azure.com`<br> Konfigurace hosta: `*.guestconfiguration.azure.com`<br> **Poznámka:** Při povolování více funkcí je očekáváno více adres URL. |
 
 ## <a name="update-microsoft-defender-firewall"></a>Aktualizovat firewall v programu Microsoft Defender

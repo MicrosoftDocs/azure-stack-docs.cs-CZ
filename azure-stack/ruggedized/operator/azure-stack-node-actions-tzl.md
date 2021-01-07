@@ -15,12 +15,12 @@ ms.date: 12/20/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 12/20/2020
-ms.openlocfilehash: 126f96069b2440b6a38887306a92409b75f5b682
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 48cb9d6e659f8b6f3507f5c0b4d6b7e60622f025
+ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910597"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97965473"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub---ruggedized"></a>Škálování akcí uzlu jednotky v Azure Stackovém centru – robustní
 
@@ -80,7 +80,7 @@ Je potřeba nainstalovat moduly PowerShellu Azure Stack hub. Tyto rutiny jsou v 
 
 Akce **zastavit** vypne uzel. Je stejný jako při stisknutí tlačítka napájení. Neposílá signál vypnutí operačnímu systému. V případě plánovaných operací zastavení vždy zkuste operaci vypnutí provést jako první.
 
-Tato akce se obvykle používá v případě, že je uzel ve stavu neodpovídá a již nereaguje na požadavky.
+Tato akce se obvykle používá v případě, že uzel již nereaguje na požadavky.
 
 Pokud chcete spustit akci zastavení, otevřete příkazový řádek prostředí PowerShell se zvýšenými oprávněními a spusťte následující rutinu:
 
@@ -169,4 +169,4 @@ Pokud chcete spustit akci vypnutí, otevřete příkazový řádek prostředí P
 
 ## <a name="next-steps"></a>Další kroky
 
-[Seznamte se s modulem operátoru prostředků infrastruktury Azure Stack hub](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0).
+[Seznamte se s modulem operátoru prostředků infrastruktury Azure Stack hub](https://docs.microsoft.com/powershell/module/azs.fabric.admin/).
