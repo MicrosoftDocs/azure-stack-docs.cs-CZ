@@ -8,7 +8,7 @@
       href: concepts/compare-windows-server.md
     - name: Informace o verzi
       href: release-information.md
-    - name: "Poznámky k\_verzi"
+    - name: Zpráva k vydání verze
       href: 'https://support.microsoft.com/help/4595086'
     - name: Nejčastější dotazy
       href: faq.md
@@ -18,7 +18,7 @@
       href: get-started.md
     - name: Vytvoření clusteru Azure Stack HCI
       href: deploy/deployment-quickstart.md
-- name: Nasadit
+- name: Nasazení
   items:
     - name: Přehled nasazení
       href: deploy/deployment-overview.md
@@ -42,6 +42,10 @@
       items:
         - name: Vytvoření clusteru pomocí prostředí PowerShell
           href: deploy/create-cluster-powershell.md
+    - name: Nasazení úloh
+      items:
+        - name: Nasadit důvěryhodnou podnikovou virtualizaci
+          href: deploy/deploy-trusted-enterprise-virtualization.md
 - name: Spravovat
   items:
     - name: Správa virtuálních počítačů

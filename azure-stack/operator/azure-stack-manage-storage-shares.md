@@ -7,12 +7,12 @@ ms.date: 10/16/2020
 ms.author: patricka
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: 4f451e5e3202c301e39295ec99953d3fc62a7570
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: c6f58a2364378180641a7b3ea2e3a38e4bb4f183
+ms.sourcegitcommit: 330d04d39e0cf3e8965e2ccbc181c968cb71d9ad
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974332"
+ms.lasthandoff: 01/08/2021
+ms.locfileid: "98052302"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Správa kapacity úložiště pro centrum Azure Stack
 
@@ -69,7 +69,7 @@ Centrum Azure Stack podporuje na virtuálních počítačích použití spravova
 
 Pro snazší správu a rovnováhu kapacity se doporučuje použít Managed Disks pro virtuální počítač. Před použitím Managed Disks nemusíte připravovat účet úložiště a kontejnery. Při vytváření více spravovaných disků jsou disky distribuovány do více svazků, což pomáhá vyrovnávat kapacitu svazků.  
 
-**Nespravované disky** jsou soubory VHD, které se ukládají jako objekty blob stránky v účtech úložiště Azure. Objekty blob stránky vytvořené klienty se označují jako disky virtuálních počítačů a ukládají se do kontejnerů v účtech úložiště. Nespravované disky doporučujeme používat jenom pro virtuální počítače, které potřebují kompatibilní s nástroji třetích stran. podporují jenom Azure-Unmanaged disky.
+**Nespravované disky** jsou soubory VHD, které se ukládají jako objekty blob stránky v účtech úložiště Azure. Objekty blob stránky vytvořené klienty se označují jako disky virtuálních počítačů a ukládají se do kontejnerů v účtech úložiště. Nespravované disky doporučujeme používat jenom pro virtuální počítače, které musí být kompatibilní s nástroji třetích stran, které podporují jenom Azure-Unmanaged disky.
 
 Pro zvýšení výkonu virtuálního počítače je potřeba umístit jednotlivé disky do samostatného kontejneru a zajistit tak jejich pomoc.
 
