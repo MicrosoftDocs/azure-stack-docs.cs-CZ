@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: patricka
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: de197a87478a666fe20bbd451bda76fc991b5a02
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 00357a7b16ee1ec6b158ea881d9f4a2c77d69e72
+ms.sourcegitcommit: a90b146769279ffbdb09c68ca0506875a867e177
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869929"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98123730"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack-hub"></a>Monitorování stavu a upozornění ve službě Azure Stack Hub
 
@@ -69,19 +69,27 @@ Kliknutím na konkrétní výstrahu můžete zobrazit podrobnosti výstrahy. V p
 
 ![Okno Podrobnosti výstrahy na portálu pro správu centra Azure Stack](media/azure-stack-monitor-health/alert-detail.png)
 
-## <a name="repair-alerts"></a>Opravit výstrahy
+## <a name="alert-remediation"></a>Náprava výstrahy
 
-V některých upozorněních můžete vybrat možnost **opravit** .
+### <a name="automated-remediation"></a>Automatizovaná náprava
 
-Je-li tento příkaz vybrán, provede akce **opravit** kroky specifické pro výstrahu a pokuste se problém vyřešit. Po výběru je stav akce **opravit** k dispozici jako oznámení na portálu.
+Některé výstrahy podporují možnost **opravy** , jak je znázorněno na předchozím obrázku. Je-li tento příkaz vybrán, provede akce **opravit** kroky specifické pro výstrahu a pokuste se problém vyřešit. Po výběru je stav akce **opravit** k dispozici jako oznámení na portálu.
 
 ![Probíhá akce opravy výstrahy.](media/azure-stack-monitor-health/repair-in-progress.png)
 
-Akce **opravit** bude hlásit úspěšné dokončení nebo neúspěšné dokončení akce v okně oznámení na portálu.  Pokud se akce opravy u výstrahy nezdařila, můžete znovu spustit akci **opravy** z podrobností výstrahy. Pokud se akce opravy úspěšně dokončí **, neprovádějte znovu** akci **opravit** .
+Akce **opravit** bude hlásit úspěšné dokončení nebo neúspěšné dokončení akce v okně oznámení na portálu.  Pokud se akce opravy u výstrahy nezdařila, můžete znovu spustit akci **opravy** z podrobností výstrahy. Pokud se akce opravy úspěšně dokončí **, neprovádějte znovu** akci **opravit** . Po opětovném návratu instance role infrastruktury do režimu online se tato výstraha automaticky zavře.
 
 ![Akce opravy byla úspěšně dokončena.](media/azure-stack-monitor-health/repair-completed.png)
 
-Po opětovném návratu instance role infrastruktury do režimu online se tato výstraha automaticky zavře. Mnohé, ale ne všechny výstrahy, se automaticky zavřou, když se vyřeší příslušný problém. Výstrahy, které poskytují tlačítko akce opravy, se automaticky zavřou, pokud Azure Stack centrum problém vyřeší. Pro všechny ostatní výstrahy vyberte **Zavřít výstrahu** po provedení nápravných kroků. Pokud se problém nevyřeší, Azure Stack centrum vygeneruje novou výstrahu. Pokud tento problém vyřešíte, výstraha zůstane zavřená a nevyžaduje žádné další kroky.
+### <a name="manual-remediation"></a>Ruční náprava
+
+Pokud možnost **opravit** není podporovaná, Nezapomeňte dodržovat kompletní sadu nápravných pokynů uvedených v upozornění. V rámci příkladu se při střídání tajného klíče provede interní postup odstraňování potíží s vypršením platnosti certifikátu:
+
+![Náprava vypršení platnosti certifikátu](media/azure-stack-monitor-health/certificate-expiration.png)
+
+### <a name="alert-closure"></a>Uzavření výstrahy
+
+Mnohé, ale ne všechny výstrahy, se automaticky zavřou, když se vyřeší příslušný problém. Výstrahy, které poskytují tlačítko akce opravy, se automaticky zavřou, pokud Azure Stack centrum problém vyřeší. Pro všechny ostatní výstrahy vyberte **Zavřít výstrahu** po provedení nápravných kroků. Pokud se problém nevyřeší, Azure Stack centrum vygeneruje novou výstrahu. Pokud tento problém vyřešíte, výstraha zůstane zavřená a nevyžaduje žádné další kroky.
 
 ## <a name="next-steps"></a>Další kroky
 
