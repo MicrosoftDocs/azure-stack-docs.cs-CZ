@@ -5,12 +5,12 @@ author: jessicaguan
 ms.topic: quickstart
 ms.date: 12/02/2020
 ms.author: jeguan
-ms.openlocfilehash: 7e36deb4be03e7866371bba3039295fcce065ff7
-ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
+ms.openlocfilehash: b4150372a6b5660b65cf6ed2c99bec6970260edf
+ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918709"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98103048"
 ---
 # <a name="quickstart-set-up-an-azure-kubernetes-service-host-on-azure-stack-hci-using-powershell"></a>Rychlý Start: nastavení hostitele služby Azure Kubernetes na Azure Stack HCI pomocí prostředí PowerShell
 
@@ -130,7 +130,7 @@ Nakonfigurujte nasazení pomocí následujícího příkazu.
                     [-vipPoolEndIp <String>]
                     [-macPoolStart <String>]
                     [-macPoolEnd <String>]
-                    [-vlandID <int>]
+                    [-vlanID <int>]
                     [-kvaLoadBalancerType {unstacked_haproxy, stacked_kube_vip}]
                     [-kvaControlPlaneEndpoint <String>]
                     [-proxyServerHTTP <String>]
@@ -224,7 +224,7 @@ Tato možnost slouží k určení začátku adresy MAC pro fond adres MAC, kter�
 
 Tato možnost slouží k určení konce adresy MAC pro fond adres MAC, který chcete použít pro virtuální počítač hostitele služby Azure Kubernetes. Syntaxe adresy MAC vyžaduje, aby nejméně významný bit prvního bajtu měl vždy hodnotu 0 a první bajt by měl být vždy sudým číslem (tj. 00, 02, 04, 06...). První bajt předané adresy jako `-macPoolEnd` by měl být stejný jako první bajt adresy předané jako `-macPoolStart` . Používejte fondy adres MAC pro dlouhodobá nasazení, aby se přiřazené adresy MAC shodovaly. To je užitečné v případě, že máte požadavek, aby virtuální počítače měly konkrétní adresy MAC. Výchozí hodnota je none.
 
-`-vlandID`
+`-vlanID`
 
 Dá se použít k zadání ID sítě VLAN. Síťové adaptéry hostitele služby Azure Kubernetes a síťové adaptéry Kubernetes clusteru se označí pomocí zadaného ID sítě VLAN. Tato možnost by se měla použít, pokud existuje konkrétní ID sítě VLAN, které je potřeba označit a získat tak správné připojení. Výchozí hodnota je none.
 

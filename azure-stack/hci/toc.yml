@@ -44,6 +44,8 @@
           href: deploy/create-cluster-powershell.md
     - name: Nasazení úloh
       items:
+        - name: Nasazení SQL Server
+          href: deploy/deploy-sql-server-workload.md
         - name: Nasadit důvěryhodnou podnikovou virtualizaci
           href: deploy/deploy-trusted-enterprise-virtualization.md
 - name: Spravovat

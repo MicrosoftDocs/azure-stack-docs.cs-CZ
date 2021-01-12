@@ -8,12 +8,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 3472cf330efb250f20eb66a5df50239a66293307
-ms.sourcegitcommit: 6efe456173ce77d52789144709195b6291d0d707
+ms.openlocfilehash: 212d6c89bedc6f46eb6db2cbf735fa61ea0ad909
+ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97950701"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98103092"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Operace údržby poskytovatele prostředků SQL
 
@@ -193,6 +193,8 @@ Centrum Azure Stack má několik způsobů, jak shromažďovat, ukládat a odes�
 
 ::: moniker-end
 
+::: moniker range="< azs-2008"
+
 Od verze 1.1.93 poskytovatel prostředků SQL podporuje standardní způsob shromažďování protokolů z vašeho prostředí Azure Stack hub. Pokud používáte starší verzi, doporučuje se aktualizovat poskytovatele prostředků SQL na nejnovější verzi.
 
 Pokud chcete shromažďovat protokoly z uzamčeného virtuálního počítače, použijte PowerShellový koncový bod pro správu JEA ( *DBAdapterDiagnostics*). Tento koncový bod nabízí následující příkazy:
@@ -245,6 +247,9 @@ $cleanup = Invoke-Command -Session $session -ScriptBlock {Remove-AzsDBAdapterLog
 # Close the session.
 $session | Remove-PSSession
 ```
+
+::: moniker-end
+
 ## <a name="configure-azure-diagnostics-extension-for-sql-resource-provider"></a>Konfigurace rozšíření Azure Diagnostics pro poskytovatele prostředků SQL
 Ve výchozím nastavení je na virtuálním počítači adaptéru poskytovatele prostředků SQL nainstalované rozšíření Azure Diagnostics. Následující kroky ukazují, jak přizpůsobit rozšíření pro shromáždění protokolů provozní události poskytovatele prostředků SQL a protokolů IIS pro účely řešení potíží a auditování.
 

@@ -7,12 +7,12 @@ ms.date: 11/04/2020
 ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 11/04/2020
-ms.openlocfilehash: bd94503efe97eb30955b0fd9deb7a5c41e263e7b
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: f65235e83e0086ad340efbabc311966a0aa6d621
+ms.sourcegitcommit: 5f3adb99b40fa4473955fa408e7ff63d5e1b439f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97868586"
+ms.lasthandoff: 01/11/2021
+ms.locfileid: "98105107"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Pracovní stanice pro přístup k operátorovi centra Azure Stack 
 
@@ -48,7 +48,7 @@ param(
     $DownloadedOAWZipFilePath
 )
 
-$expectedHash = '459D8BA232E4315372FCE7CDD705057D051C1BD60772FC36E0136C741C27A273'
+$expectedHash = '73E16995B79433E79F9EFA9A292443296D112B24B4D86A060FCB4C9403B8D014'
 $actualHash = (Get-FileHash -Path $DownloadedOAWZipFilePath).Hash
 
 Write-Host "Expected hash: $expectedHash"
@@ -82,7 +82,7 @@ V následující tabulce je uveden předinstalovaný software na virtuálním po
 | [Microsoft Edge pro firmy](https://www.microsoft.com/edge/business/)                                            | \[Systémová_jednotka \] \Program Files (x86) \Microsoft\Edge\Application                                                                                        |
 | [AZ modules](./powershell-install-az-module.md)                         | \[Systémová_jednotka \] \ProgramFiles\WindowsPowerShell\Modules                                         |  
 | [PowerShell 7](https://devblogs.microsoft.com/powershell/announcing-PowerShell-7-0/)| \[Systémová_jednotka \] \Program Files\PowerShell\7                                                                       |
-| [Rozhraní příkazového řádku Azure Command-Line (CLI)](/cli/azure/?view=azure-cli-latest) | \[Systémová_jednotka \] \Program Files (x86) \Microsoft SDKs\Azure\CLI2 |
+| [Rozhraní příkazového řádku Azure (CLI)](/cli/azure/?view=azure-cli-latest) | \[Systémová_jednotka \] \Program Files (x86) \Microsoft SDKs\Azure\CLI2 |
 | [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)   | \[Systémová_jednotka \] \Program Files (x86) \microsoft Průzkumník služby Azure Storage                                                                       |
 | [AzCopy](/azure/storage/common/storage-use-azcopy-v10)                             | \[Systémová_jednotka \] \vmsoftware\ azcopy_windows_amd64_10.3.4                                         |
 | [AzureStack – nástroje](https://github.com/Azure/AzureStack-Tools/tree/az)                  | \[Systémová_jednotka \] \VMSoftware\AzureStack-Tools                                                    |
@@ -203,7 +203,7 @@ New-OAW
 
 V následující tabulce je uveden seznam definic pro každý parametr.
 
-| Parametr   | Požadováno/volitelné  | Popis       |
+| Parametr   | Požadováno/volitelné  | Description       |
 |-------------|--------------------|-------------------|
 | LocalAdministratorPassword | Povinné | Heslo pro účet místního správce virtuálního počítače AdminUser. |
 | IPAddress                  | Povinné | Statická adresa IPv4 pro konfiguraci protokolu TCP/IP na virtuálním počítači.                                                |
