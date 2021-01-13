@@ -5,13 +5,13 @@ ms.topic: how-to
 author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
-ms.date: 01/11/2021
-ms.openlocfilehash: a2c07e171468aad411bed1b752834939827be971
-ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
+ms.date: 01/12/2021
+ms.openlocfilehash: 7f77855945ecfb31e223db46be8b2e2e3a012c16
+ms.sourcegitcommit: 502df315764bbc4ff6d3de50b957dfd4a6c0043a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98103188"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98130284"
 ---
 # <a name="manage-azure-stack-hci-clusters-using-windows-admin-center"></a>Správa clusterů Azure Stack HCI pomocí centra pro správu Windows
 
@@ -38,14 +38,6 @@ Pokud si chcete zobrazit tyto informace, vyberte název clusteru v části **vš
 - Celkový počet vstupně-výstupních operací clusteru za sekundu (IOPS)
 - Průměrná latence clusteru v milisekundách
 
-## <a name="view-cluster-resources"></a>Zobrazení prostředků clusteru
-
-Na stránce Přehled clusteru se zobrazují informace o prostředcích clusteru, jako jsou servery, infrastruktura a určující disk kvora.
-
-:::image type="content" source="media/manage-cluster/cluster-overview.png" alt-text="Obrazovka s přehledem clusteru" lightbox="media/manage-cluster/cluster-overview.png":::
-
-Pokud si chcete zobrazit tyto informace, vyberte název clusteru v části **všechna připojení** a potom v části **nástroje** na levé straně vyberte **Přehled**.
-
 ## <a name="change-storage-settings"></a>Změnit nastavení úložiště
 
 Můžete vybrat možnost použití paměti serveru pro ukládání častých čtení do mezipaměti a zadat maximální velikost paměti, která se má použít na server. Další informace najdete v tématu [Principy mezipaměti v Azure Stack HCI](../concepts/cache.md).
@@ -56,9 +48,17 @@ Můžete vybrat možnost použití paměti serveru pro ukládání častých čt
 
     :::image type="content" source="media/manage-cluster/cluster-settings-memory.png" alt-text="obrazovka mezipaměti v paměti clusteru" lightbox="media/manage-cluster/cluster-settings-memory.png":::
 
-1. Název fondu úložiště, který Prostory úložiště s přímým přístupem používá, můžete změnit. Vyberte **fondy úložišť** a zadejte nový název.
+1. Název fondu úložiště, který Prostory úložiště s přímým přístupem používá, můžete změnit. Vyberte **fondy úložišť** a zadejte nový název. Tato funkce se vztahuje na roztažené clustery.
 
-    :::image type="content" source="media/manage-cluster/cluster-settings-ssd.png" alt-text="obrazovka fondu úložiště clusteru" lightbox="media/manage-cluster/cluster-settings-ssd.png":::
+    :::image type="content" source="media/manage-cluster/cluster-settings-storage-pools.png" alt-text="obrazovka fondu úložiště clusteru" lightbox="media/manage-cluster/cluster-settings-storage-pools.png":::
+
+1. Můžete změnit nastavení Prostory úložiště s přímým přístupem. Vyberte **prostory úložiště s přímým přístupem** a podle potřeby změňte následující nastavení:
+
+    - **Trvalá mezipaměť** – povolí nebo zakáže trvalou mezipaměť.
+    - **Režim mezipaměti pro pevný disk** – změna režimu mezipaměti pro jednotky HDD
+    - **Režim mezipaměti pro SSD** – Změna mezipaměti pro jednotky SSD
+
+    :::image type="content" source="media/manage-cluster/cluster-settings-storage-spaces-direct.png" alt-text="obrazovka Prostory úložiště s přímým přístupem clusteru" lightbox="media/manage-cluster/cluster-settings-storage-spaces-direct.png":::
 
 ## <a name="change-cluster-settings"></a>Změnit nastavení clusteru
 
@@ -78,7 +78,7 @@ Pro cluster se dá použít několik obecných nastavení. Tady je místo, kde m
 
    - **Základní provoz** – šifruje provoz odeslaný přes NetFT (virtuální adaptér clusteru) na portu 3343.
 
-   - **Přenosy serverů** – šifruje sdílený svazek clusteru (CSV) a přenosová vrstva sběrnice (SBL)
+   - **Provoz úložiště** – šifruje sdílený svazek clusteru (CSV) a přenosová vrstva sběrnice (SBL)
 
         :::image type="content" source="media/manage-cluster/cluster-settings-encryption.png" alt-text="obrazovka šifrování přenosu clusterových clusterů" lightbox="media/manage-cluster/cluster-settings-encryption.png":::
 
@@ -125,8 +125,6 @@ Existuje několik nastavení hostitele technologie Hyper-V, které lze použít 
 
    - **Cesta Virtual Machines** – zadejte výchozí složku pro ukládání konfiguračních souborů virtuálního počítače.
 
-   - **Typ plánovače hypervisoru** – vyberte **základní Plánovač** nebo **klasický Plánovač**. Tím se určuje, jak hypervisor naplánuje spuštění virtuálních procesů na fyzických procesorech používajících simultánní vícevláknové zpracování (označované také jako SMT nebo Hyper-Threading). Doporučuje se základní plánování.
-
         :::image type="content" source="media/manage-cluster/cluster-settings-hyperv.png" alt-text="obrazovka Obecné nastavení clusteru Hyper-V" lightbox="media/manage-cluster/cluster-settings-hyperv.png":::
 
 1. Pokud chcete zakázat přesměrování místních zařízení a prostředků z virtuálních počítačů, vyberte **režim rozšířené relace**. Všimněte si, že připojení režimu rozšířené relace vyžadují podporovaný hostovaný operační systém.
@@ -141,37 +139,15 @@ Existuje několik nastavení hostitele technologie Hyper-V, které lze použít 
 
    - v případě **ověřovacího protokolu** vyberte buď **CredSSP** , nebo **Kerberos**.
 
-   - pro **možnost výkon** vyberte buď **kompresi** , nebo protokol **SMB**. Komprimovaná data se odesílají přes připojení TCP/IP.
+   - v případě **možností výkonu** vyberte možnost **Komprese** nebo **SMB**. Komprimovaná data se odesílají přes připojení TCP/IP.
 
    - Zaškrtnutím políčka **použít libovolné sítě** můžete použít jakoukoli dostupnou síť v uzlu k provedení migrace.
 
-        :::image type="content" source="media/manage-cluster/cluster-settings-liv-migration.png" alt-text="obrazovka Migrace za provozu clusteru" lightbox="media/manage-cluster/cluster-settings-liv-migration.png":::
+        :::image type="content" source="media/manage-cluster/cluster-settings-live-migration.png" alt-text="obrazovka Migrace za provozu clusteru" lightbox="media/manage-cluster/cluster-settings-live-migration.png":::
 
 1. Chcete-li určit počet migrací úložiště, které lze provést současně, vyberte možnost **migrace úložiště** a pak vyberte číslo.
 
-    :::image type="content" source="media/manage-cluster/cluster-settings-sto-migration.png" alt-text="obrazovka migrace úložiště clusteru" lightbox="media/manage-cluster/cluster-settings-sto-migration.png":::
-
-## <a name="manage-cluster-resources"></a>Správa prostředků clusteru
-
-Pokud chcete spustit, zastavit, odebrat nebo simulovat selhání prostředku clusteru, udělejte toto:
-
-1. Vyberte **Přehled** a potom v části **prostředky clusteru** vyberte prostředek a vyberte **Spustit**, **zastavit** nebo **Odebrat**.
-
-    :::image type="content" source="media/manage-cluster/cluster-overview.png" alt-text="obrazovka Správa prostředků clusteru" lightbox="media/manage-cluster/cluster-overview.png":::
-
-1. Vyberte **Simulovat selhání** pro simulaci selhání clusteru:
-
-    :::image type="content" source="media/manage-cluster/cluster-simulate-failure.png" alt-text="nasimulovat obrazovku selhání prostředku" lightbox="media/manage-cluster/cluster-simulate-failure.png":::
-
-## <a name="validate-the-cluster"></a>Ověřit cluster
-
-Pokud chcete cluster ověřit, vyberte **Přehled** a pak vyberte **ověřit cluster**. Podrobné informace o ověřování clusteru najdete v tématu [připojení Azure Stack HCL do Azure](../deploy/validate.md).
-
-:::image type="content" source="media/manage-cluster/validate-cluster.png" alt-text="obrazovka ověřit cluster" lightbox="media/manage-cluster/validate-cluster.png":::
-
-Chcete-li zobrazit a stáhnout sestavy ověření clusteru, vyberte **sestavy ověření** a pak vyberte **Stáhnout sestavu**.
-
-:::image type="content" source="media/manage-cluster/validation-reports.png" alt-text="obrazovka sestavy ověření" lightbox="media/manage-cluster/validation-reports.png":::
+    :::image type="content" source="media/manage-cluster/cluster-settings-storage-migration.png" alt-text="obrazovka migrace úložiště clusteru" lightbox="media/manage-cluster/cluster-settings-storage-migration.png":::
 
 ## <a name="register-the-cluster-with-azure"></a>Registrace clusteru v Azure
 
@@ -179,14 +155,6 @@ Pokud chcete zaregistrovat nebo zrušit registraci clusteru v Azure, vyberte **A
 
 :::image type="content" source="media/manage-cluster/cluster-registration.png" alt-text="obrazovka registrace clusteru Azure" lightbox="media/manage-cluster/cluster-registration.png":::
 
-## <a name="remove-the-cluster"></a>Odebrání clusteru
-
-Pokud chcete odebrat (zničit) cluster, vyberte **Přehled** a pak vyberte **Odebrat cluster**.
-
-:::image type="content" source="media/manage-cluster/remove-cluster.png" alt-text="obrazovka odebrání clusteru" lightbox="media/manage-cluster/remove-cluster.png":::
-
 ## <a name="next-steps"></a>Další kroky
 
-- Pokud chcete monitorovat svůj cluster, přečtěte si téma [monitorování Azure Stack HCL pomocí Azure monitor](azure-monitor.md).
-
-- Řešení potíží se zprávami o ověření clusteru najdete v tématu [řešení potíží s vytvářením sestav ověření clusteru](validate-qos.md)
+Pokud chcete monitorovat svůj cluster, přečtěte si téma [monitorování Azure Stack HCL pomocí Azure monitor](azure-monitor.md).

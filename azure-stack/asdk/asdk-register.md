@@ -7,12 +7,12 @@ ms.date: 11/14/2020
 ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 11/14/2020
-ms.openlocfilehash: 92b2e5c80069ebb80eec1153f1b17cab8ed943be
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 4448c3bd20c352699fe260ab891c2e8c7fdc57af
+ms.sourcegitcommit: 502df315764bbc4ff6d3de50b957dfd4a6c0043a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873057"
+ms.lasthandoff: 01/12/2021
+ms.locfileid: "98130237"
 ---
 # <a name="register-the-asdk-with-azure"></a>Registrace ASDKu s využitím Azure
 
@@ -84,22 +84,22 @@ Pomocí těchto kroků zaregistrujete ASDK s Azure.
 2. Spusťte následující příkazy PowerShellu k registraci instalace ASDK pomocí Azure. Přihlaste se k ID předplatného Azure pro fakturaci i k místní instalaci ASDK. Pokud ještě nemáte ID předplatného Azure, můžete [si tady vytvořit bezplatný účet Azure](https://azure.microsoft.com/free/?b=17.06). Registrace Azure Stack nevzniká žádné náklady na vaše předplatné Azure.<br><br>Pokud spustíte rutinu **set-AzsRegistration** , nastavte pro registraci jedinečný název. Parametr **registrace** má výchozí hodnotu **AzureStackRegistration**. Pokud však použijete stejný název na více než jedné instanci Azure Stack, skript se nezdaří.
 
     ```powershell  
-    # Add the AzureRMure cloud subscription environment name. 
-    # Supported environment names are AzureRMureCloud, AzureRMureChinaCloud, or AzureRMureUSGovernment depending which AzureRMure subscription you're using.
+    # Add the Azure cloud subscription environment name. 
+    # Supported environment names are AzureCloud, AzureChinaCloud, or AzureUSGovernment depending which Azure subscription you're using.
     Add-AzureRMAccount -EnvironmentName "<environment name>"
     
-    # Register the AzureRMure Stack resource provider in your AzureRMure subscription
-    Register-AzureRMResourceProvider -ProviderNamespace Microsoft.AzureRMureStack
+    # Register the Azure Stack resource provider in your Azure subscription
+    Register-AzureRMResourceProvider -ProviderNamespace Microsoft.AzureStack
     
     # Import the registration module that was downloaded with the GitHub tools
-    Import-Module C:\AzureRMureStack-Tools-AzureRM-master\Registration\RegisterWithAzureRMure.psm1
+    Import-Module C:\AzureStack-Tools-AzureRM-master\Registration\RegisterWithAzure.psm1
     
     # If you have multiple subscriptions, run the following command to select the one you want to use:
     # Get-AzureRMSubscription -SubscriptionID "<subscription ID>" | Select-AzureRMSubscription
     
-    # Register AzureRMure Stack
-    $AzureRMureContext = Get-AzureRMContext
-    $CloudAdminCred = Get-Credential -UserName AzureRMURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
+    # Register Azure Stack
+    $AzureContext = Get-AzureRMContext
+    $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
     $RegistrationName = "<unique-registration-name>"
     Set-AzureRMsRegistration `
     -PrivilegedEndpointCredential $CloudAdminCred `
@@ -150,10 +150,10 @@ Na hostitelském počítači ASDK spusťte PowerShell jako správce a přejděte
 
   ```powershell  
   # Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\zureRMureStack-Tools-AzureRM-master\Registration\RegisterWithAzureRMure.psm1
+  Import-Module C:\AzureStack-Tools-AzureRM-master\Registration\RegisterWithAzure.psm1
 
   # Create registration token
-  $CloudAdminCred = Get-Credential -UserName AzureRMURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
+  $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
   # File path to save the token. This example saves the file as C:\RegistrationToken.txt.
   $FilePathForRegistrationToken = "$env:SystemDrive\RegistrationToken.txt"
   $RegistrationToken = Get-AzureRMsRegistrationToken -PrivilegedEndpointCredential $CloudAdminCred `
@@ -200,20 +200,20 @@ Na počítači připojeném k Internetu pomocí následujících příkazů Powe
 ### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm3)
 
   ```powershell  
-  # Add the AzureRMure cloud subscription environment name. 
-  # Supported environment names are AzureRMureCloud, AzureRMureChinaCloud or AzureRMureUSGovernment depending which AzureRMure subscription you are using.
+  # Add the Azure cloud subscription environment name. 
+  # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
   Add-AzureRMAccount -EnvironmentName "<environment name>"
 
   # If you have multiple subscriptions, run the following command to select the one you want to use:
   # Get-AzureRMSubscription -SubscriptionID "<subscription ID>" | Select-AzureRMSubscription
 
-  # Register the AzureRMure Stack resource provider in your AzureRMure subscription
-  Register-AzureRMResourceProvider -ProviderNamespace Microsoft.AzureRMureStack
+  # Register the Azure Stack resource provider in your Azure subscription
+  Register-AzureRMResourceProvider -ProviderNamespace Microsoft.AzureStack
 
   # Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\zureRMureStack-Tools-AzureRM-master\Registration\RegisterWithAzureRMure.psm1
+  Import-Module C:\AzureStack-Tools-AzureRM-master\Registration\RegisterWithAzure.psm1
 
-  # Register with AzureRMure
+  # Register with Azure
   # This example uses the C:\RegistrationToken.txt file.
   $registrationToken = Get-Content -Path "$env:SystemDrive\RegistrationToken.txt"
   $RegistrationName = "<unique-registration-name>"
@@ -251,20 +251,20 @@ Alternativně můžete použít rutinu **Get-Content** k ukázání na soubor, k
 ### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm4)
 
   ```powershell  
-  # Add the AzureRMure cloud subscription environment name. 
-  # Supported environment names are AzureRMureCloud, AzureRMureChinaCloud or AzureRMureUSGovernment depending which AzureRMure subscription you are using.
+  # Add the Azure cloud subscription environment name. 
+  # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
   Add-AzureRMAccount -EnvironmentName "<environment name>"
 
   # If you have multiple subscriptions, run the following command to select the one you want to use:
   # Get-AzureRMSubscription -SubscriptionID "<subscription ID>" | Select-AzureRMSubscription
 
-  # Register the AzureRMure Stack resource provider in your AzureRMure subscription
-  Register-AzureRMResourceProvider -ProviderNamespace Microsoft.AzureRMureStack
+  # Register the Azure Stack resource provider in your Azure subscription
+  Register-AzureRMResourceProvider -ProviderNamespace Microsoft.AzureStack
 
   # Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\zureRMureStack-Tools-AzureRM-master\Registration\RegisterWithAzureRMure.psm1
+  Import-Module C:\AzureStack-Tools-AzureRM-master\Registration\RegisterWithAzure.psm1
 
-  # Register with AzureRMure 
+  # Register with Azure 
   # This example uses the C:\RegistrationToken.txt file.
   $registrationToken = Get-Content -Path "$env:SystemDrive\RegistrationToken.txt"
   Register-AzureRMsEnvironment -RegistrationToken $registrationToken `
@@ -334,9 +334,9 @@ Vraťte se do prostředí Azure Stack se souborem nebo textem z aktivačního kl
 
   ```Powershell
   # Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\AzureRMureStack-Tools-Master\Registration\RegisterWithAzureRMure.psm1
+  Import-Module C:\AzureStack-Tools-Master\Registration\RegisterWithAzure.psm1
   
-  $CloudAdminCred = Get-Credential -UserName AzureRMURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
+  $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
   $ActivationKey = "<activation key>"
   New-AzureRMsActivationResource -PrivilegedEndpointCredential $CloudAdminCred `
   -PrivilegedEndpoint AzureRMS-ERCS01 `
@@ -368,9 +368,9 @@ Alternativně můžete použít rutinu **Get-Content** k ukázání na soubor, k
 
   ```Powershell
   # Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\zureRMureStack-Tools-AzureRM-master\Registration\RegisterWithAzureRMure.psm1
+  Import-Module C:\zureRMureStack-Tools-AzureRM-master\Registration\RegisterWithAzure.psm1
 
-  $CloudAdminCred = Get-Credential -UserName AzureRMURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
+  $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
   # This example uses the C:\ActivationKey.txt file.
   $ActivationKey = Get-Content -Path "$env:SystemDrive\Activationkey.txt"
   New-AzureRMsActivationResource -PrivilegedEndpointCredential $CloudAdminCred `
