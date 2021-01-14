@@ -5,12 +5,12 @@ author: davannaw-msft
 ms.topic: quickstart
 ms.date: 12/02/2020
 ms.author: dawhite
-ms.openlocfilehash: 3d8be2b6b1e3251875ca014e221c9bf4de35671e
-ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
+ms.openlocfilehash: 25c9163bfaecfd595d56369312d149716c6748fe
+ms.sourcegitcommit: 8776cbe4edca5b63537eb10bcd83be4b984c374a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918730"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98175749"
 ---
 # <a name="quickstart-set-up-azure-kubernetes-service-on-azure-stack-hci-using-windows-admin-center"></a>Rychlý Start: nastavení služby Azure Kubernetes v Azure Stack HCI pomocí centra pro správu Windows
 
@@ -71,9 +71,6 @@ Teď, když jsme ověřili naše nastavení systému, můžeme začít:
 5. Projděte si všechny vaše výběry v kroku **Revize + vytvořit** . Pokud jste s vybranými možnostmi spokojeni, vyberte **Další** a spusťte instalaci hostitele. 
 6. Na stránce **průběh instalace** můžete sledovat průběh instalace hostitele. V tuto chvíli jste připraveni otevřít Centrum pro správu Windows na nové kartě a pokračovat v úlohách správy. 
 7. Pokud je nasazení úspěšné, vyberte *Dokončit* a zobrazí se řídicí panel pro správu, kde můžete vytvářet a spravovat clustery Kubernetes. Tento řídicí panel, podobně jako zbytek služeb Azure Kubernetes ve Azure Stack HCI, je ve verzi Preview a bude v budoucích verzích aktualizovat s dalšími funkcemi.
-
-
-1. Pokud je nasazení úspěšné, zobrazí se řídicí panel pro správu, kde můžete vytvářet a spravovat clustery Kubernetes. Tento řídicí panel, podobně jako zbytek služeb Azure Kubernetes ve Azure Stack HCI, je ve verzi Preview a bude v budoucích verzích aktualizovat s dalšími funkcemi. 
  
   ![Ukazuje služby Azure Kubernetes na řídicím panelu pro správu HCI Azure Stack.](.\media\setup\dashboard.png)
  

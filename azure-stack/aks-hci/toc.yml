@@ -37,13 +37,13 @@
       href: adapt-apps-mixed-os-clusters.md
     - name: Použití kontejnerů s Windows Serverem
       items:
-        - name: Nasazení aplikací .NET v AKS na Azure Stack HCL
+        - name: Nasazení aplikací .NET
           href: deploy-windows-application.md
         - name: Příprava uzlů Windows pro skupinový účet spravované služby
           href: prepare-windows-nodes-gmsa.md
-        - name: Použití trvalého svazku v AKS ve Azure Stack clusteru HCI
+        - name: Použít trvalý svazek
           href: persistent-volume.md
-    - name: Odstranit potíže
+    - name: Řešení potíží
       href: troubleshoot.md
 - name: Související
   items:

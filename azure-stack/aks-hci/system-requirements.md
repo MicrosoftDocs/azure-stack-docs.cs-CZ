@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: abhilashaagarwala
 ms.author: abha
 ms.date: 12/02/2020
-ms.openlocfilehash: 3a4ad6203ba14188ff24629f07775285417c306b
-ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
+ms.openlocfilehash: 71c842cf44963988da7926003646b246bf80f802
+ms.sourcegitcommit: 8776cbe4edca5b63537eb10bcd83be4b984c374a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918658"
+ms.lasthandoff: 01/13/2021
+ms.locfileid: "98175732"
 ---
 # <a name="system-requirements-for-azure-kubernetes-service-on-azure-stack-hci"></a>Požadavky na systém pro službu Azure Kubernetes ve Azure Stack HCL
 
@@ -46,32 +46,70 @@ Pro Azure Kubernetes Service na Azure Stack HCI nebo Windows Server 2019 Datacen
 
 ## <a name="network-requirements"></a>Požadavky sítě 
 
-Následující požadavky platí pro Azure Stack cluster HCI a cluster s podporou převzetí služeb při selhání datacenter Windows serveru 2019: 
+Následující požadavky platí pro Azure Stack cluster HCI a také pro cluster Windows Server 2019 Datacenter: 
 
  - Ověřte, jestli máte existující externí virtuální přepínač nakonfigurovaný, pokud používáte centrum pro správu Windows. U Azure Stack clusterů HCI musí být tento přepínač a jeho název stejný jako u všech uzlů clusteru. 
 
  - Ověřte, že je na všech síťových adaptérech zakázaný protokol IPv6. 
 
- - V případě úspěšného nasazení musí mít uzly clusteru Azure Stack HCI a virtuální počítače clusteru Kubernetes k dispozici externí připojení k Internetu. 
+ - V případě úspěšného nasazení musí mít uzly clusteru Azure Stack HCI a virtuální počítače clusteru Kubernetes k dispozici externí připojení k Internetu.
+  
+ - Ujistěte se, že je mezi Azure Stack hostitele HCI a virtuálními počítači klienta síťové připojení.
 
  - Překlad názvů DNS se vyžaduje, aby všechny uzly mohly vzájemně komunikovat. V případě překladu externích IP adres Kubernetes použijte servery DNS poskytované serverem DHCP, když se IP adresa získá. V případě překladu interního názvu Kubernetes použijte výchozí řešení založené na DNS Kubernetes. 
 
  - Pro tuto verzi Preview poskytujeme jenom jednu podporu sítě VLAN pro celé nasazení. 
 
  - Pro tuto verzi Preview máme pro clustery Kubernetes vytvořené prostřednictvím PowerShellu omezené podpory proxy. 
+ 
+### <a name="ip-address-assignment"></a>Přiřazení IP adresy  
+ 
+V rámci úspěšného AKS nasazení na Azure Stack HCI doporučujeme nakonfigurovat rozsah virtuálních IP adres na server DHCP. Doporučuje se také nakonfigurovat tři až pět uzlů řídicí plochy s vysokou dostupností pro všechny clustery úloh. 
+
+> [!NOTE]
+> Použití samotného přiřazování statických IP adres se nepodporuje. Jako součást této verze Preview musíte nakonfigurovat server DHCP.
+
+#### <a name="dhcp"></a>DHCP
+Při přiřazování IP adres v celém clusteru postupujte podle těchto požadavků:  
+
+ - Síť musí mít dostupný server DHCP, aby poskytovala virtuálním počítačům a hostitelům virtuálních počítačů adresy TCP/IP. Server DHCP by měl také obsahovat informace o protokolu NTP (Network Time Protocol) a DNS host.
+ 
+ - Server DHCP s vyhrazeným oborem adres IPv4, který je přístupný pro Azure Stack clusteru HCI.
+ 
+ - Adresy IPv4, které poskytuje server DHCP, by měly být směrovatelné a mít vypršení 30denní doby zapůjčení, aby se zabránilo ztrátě připojení IP v případě aktualizace nebo opětovného zřizování virtuálního počítače.  
+
+Měli byste rezervovat minimálně následující počet adres DHCP:
+
+| Typ clusteru  | Řídicí uzel roviny | Pracovní uzel | Aktualizace | Nástroj pro vyrovnávání zatížení  |
+| ------------- | ------------------ | ---------- | ----------| -------------|
+| Hostitel AKS |  1  |  0  |  2  |  0  |
+| Cluster úloh  |  1 na uzel  | 1 na uzel |  5  |  1  |
+
+V závislosti na počtu clusterů úloh a roviny řízení a pracovních uzlů, které máte ve vašem prostředí, můžete zjistit, jak je počet požadovaných IP adres proměnný. Doporučujeme, abyste ve fondu IP adres DHCP zavedli IP adresy 256 (/24 podsítí).
+  
+    
+#### <a name="vip-pool-range"></a>Rozsah fondu VIP
+
+Fondy virtuálních IP adres (VIP) se důrazně doporučují pro AKS nasazení HCI v Azure Stack. Fondy VIP představují rozsah rezervovaných statických IP adres, které se používají pro dlouhodobá nasazení, která zaručují, že vaše úlohy nasazení a aplikace jsou vždycky dostupné. V současné době podporujeme jenom IPv4 adresy, proto musíte ověřit, že jste na všech síťových adaptérech zakázali protokol IPv6. Také se ujistěte, že vaše virtuální IP adresy nejsou součástí rezervy IP adresy DHCP.
+
+Přinejmenším byste měli rezervovat jednu IP adresu na cluster (zatížení a hostitele AKS) a jednu IP adresu na službu Kubernetes. Počet požadovaných IP adres v rozsahu fondu VIP se liší v závislosti na počtu clusterů úloh a Kubernetes služeb, které máte ve vašem prostředí. Pro nasazení AKS-HCI doporučujeme zahradit 16 statických IP adres. 
+
+Při nastavování hostitele AKS použijte `-vipPoolStartIp` parametry a v části `-vipPoolEndIp` a `Set-AksHciConfig` vytvořte fond VIP.
+
+#### <a name="mac-pool-range"></a>Rozsah fondu adres MAC
+V rozsahu doporučujeme mít minimálně 16 adres MAC, aby bylo možné v jednotlivých clusterech určit více uzlů roviny ovládacího prvku. Při nastavování hostitele AKS použijte `-macPoolStart` parametry a v části a `-macPoolEnd` `Set-AksHciConfig` rezervujte adresy Mac z fondu adres MAC DHCP pro služby Kubernetes.
   
 ### <a name="network-port-and-url-requirements"></a>Požadavky na síťový port a adresu URL 
 
 Při vytváření clusteru Azure Kubernetes na Azure Stack HCI se na každém serveru v clusteru automaticky otevřou tyto porty brány firewall. 
 
 
-| Port brány firewall               | Popis         | 
+| Port brány firewall               | Description     | 
 | ---------------------------- | ------------ | 
-| 45000           | port serveru wssdagent GPRC           |
+| 45000           | port serveru wssdagent GPRC     |
 | 45001             | Port ověřování wssdagent GPRC  | 
-| 55000           | port serveru wssdcloudagent GPRC           |
-| 65000             | Port ověřování wssdcloudagent GPRC  | 
-
+| 55000           | port serveru wssdcloudagent GPRC      |
+| 65000            | Port ověřování wssdcloudagent GPRC  | 
 
 
 Pro počítač centra pro správu systému Windows a všechny uzly v clusteru Azure Stack HCI jsou vyžadovány výjimky adresy URL brány firewall. 
@@ -82,7 +120,8 @@ https://helm.sh/blog/get-helm-sh/  | 443 | Stažení agenta, WAC | Používá se
 https://storage.googleapis.com/  | 443 | Inicializace cloudu | Stahování binárních souborů Kubernetes 
 https://azurecliprod.blob.core.windows.net/ | 443 | Inicializace cloudu | Stahování binárních souborů a kontejnerů 
 https://aka.ms/installazurecliwindows | 443 | WAC | Stahuje se Azure CLI. 
-https://:443 | 443 | TCP | Slouží k podpoře agentů ARC Azure. 
+https://:443 | 443 | TCP | Slouží k podpoře agentů ARC Azure.  
+*.blob.core.windows.net | 443 | TCP | Požadováno ke stažení
 *. api.cdp.microsoft.com, *. dl.delivery.mp.microsoft.com, *. emdl.ws.microsoft.com | 80, 443 | Stáhnout agenta | Stahují se metadata 
 *. dl.delivery.mp.microsoft.com, *. do.dsp.mp.microsoft.com. | 80, 443 | Stáhnout agenta | Stahují se image VHD. 
 ecpacr.azurecr.io | 443 | Kubernetes | Stahování imagí kontejneru 
@@ -92,7 +131,7 @@ git://:9418 | 9418 | TCP | Slouží k podpoře agentů ARC Azure.
 
 Služba Azure Kubernetes v Azure Stack HCL podporuje následující implementace úložiště: 
 
-|  Název                         | Typ úložiště | Požadovaná kapacita |
+|  Name                         | Typ úložiště | Požadovaná kapacita |
 | ---------------------------- | ------------ | ----------------- |
 | Azure Stack clusteru HCI          | CSV          | 1 TB              |
 | Cluster s podporou převzetí služeb při selhání datacenter Windows serveru 2019          | CSV          | 1 TB              |
