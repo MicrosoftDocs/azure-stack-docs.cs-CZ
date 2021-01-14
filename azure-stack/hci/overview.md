@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/15/2020
-ms.openlocfilehash: 6eef8388367bb1bba3f419fba5b61c54fd729743
-ms.sourcegitcommit: 32d77de1a554315f53473407279e464a72aa9aa1
+ms.date: 01/13/2021
+ms.openlocfilehash: c4280a9b120530b84bbaac9f7f963a695c0eaf99
+ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97515009"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208025"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Přehled řešení Azure Stack HCI
 
@@ -136,7 +136,7 @@ Azure Stack rozhraní HCI je součástí řady Azure a Azure Stack, která využ
 Centrum pro správu systému Windows verze 2009 přidává řadu funkcí Azure Stack HCL, včetně následujících:
 
 - **Možnosti hostování služeb Azure Kubernetes**: teď můžete nainstalovat verzi Preview [služby Azure Kubernetes Service na Azure Stack HCL](https://azure.microsoft.com/products/azure-stack/hci/hci-download/).
-- **Zahrnutí softwarově definovaných sítí v Průvodci vytvořením clusteru**: Průvodce vytvořením clusteru teď obsahuje možnost nasazení funkce síťového adaptéru s [softwarově definovanými sítěmi (SDN)](concepts/software-defined-networking.md) během [vytváření clusteru](deploy/create-cluster.md#step-5-sdn-optional).
+
 - **Vylepšení přímého přístupu do paměti vzdáleného počítače (RDMA) v Průvodci vytvořením clusteru**: Průvodce vytvořením clusteru teď může nakonfigurovat RDMA pro síťové adaptéry IWARP a roce, včetně přemostění DATACENTER (DCB).
 
 Podrobnosti o nových funkcích najdete v tématu [oznamujeme obecnou dostupnost rozšíření pro vytváření clusteru v centru pro správu systému Windows](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/announcing-general-availability-of-the-cluster-creation/ba-p/1978332).

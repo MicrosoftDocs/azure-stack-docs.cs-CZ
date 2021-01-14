@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 12/15/2020
+ms.date: 01/14/2021
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: a4f9744139199f999475f24a3910e1929b0a8b9b
-ms.sourcegitcommit: a53ea4a28e715c80a99fa89e9d364bc4556558de
+ms.openlocfilehash: dc49218a5abce85c1ca1bcfd7ea5ef2077e8265a
+ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97576968"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98207991"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>Nejčastější dotazy týkající se využití centra Azure Stack
 
@@ -209,6 +209,18 @@ Použití je hlášeno pro následující poskytovatele prostředků:
 **Název měřiče**: DatabaseSizeHourMySqlMeter  
 **Jednotka**: MB \* hodin  
 **Poznámky**: Celková kapacita databáze při vytvoření. Pokud voláte rozhraní API pro použití s každodenní členitosti, měřič vrátí počet MB vynásobený počtem hodin.
+
+### <a name="event-hubs"></a>Event Hubs
+
+**ID měřiče**: d3a257e7-cf59-43BD-82c0-cf29ca8f7da0 (placený měřič)  
+**Název měřiče**: 1 jádro    
+**Jednotka**: základní \* hodiny  
+**Poznámky**: počet jader používaných Event Hubs nasazenými clustery. Počty jader jsou v násobcích 10.
+
+**ID měřiče**: 29ea0bfc-6780-4711-98fc-2c7db191e1a4 (měřič pro správu)  
+**Název měřiče**: 1 základní správce   
+**Jednotka**: základní \* hodiny  
+**Poznámky**: počet jader používaných Event Hubs nasazenými clustery. Počty jader jsou v násobcích 10.
 
 ### <a name="key-vault"></a>Key Vault
   

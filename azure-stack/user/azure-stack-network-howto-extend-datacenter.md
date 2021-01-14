@@ -7,12 +7,12 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 02a3fdb862f3a4c04a63d5e5694487b62435ee16
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: 02765dbc33fe1bbcb4100e1523be96526549f367
+ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974094"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208093"
 ---
 # <a name="extending-storage-to-azure-stack-hub"></a>Rozšíření úložiště do centra Azure Stack
 
@@ -264,7 +264,7 @@ Chcete-li nastavit iniciátor iSCSI, nejprve se přihlaste k **portálu pro uži
 
 15. Opakujte tento postup s následujícím:
 
-    a. * * IP adresa * *: vaše druhá cílová IP adresa iSCSI.
+    a. **IP adresa**: vaše druhá cílová IP adresa iSCSI.
 
     b.  **Místní adaptér**: iniciátor iSCSI společnosti Microsoft.
 
@@ -292,7 +292,7 @@ Chcete-li nastavit iniciátor iSCSI, nejprve se přihlaste k **portálu pro uži
 
 1.  Opakujte tento postup pro druhou kombinaci iniciátor/cíl.
 
-    a. * * Místní adaptér * *: iniciátor iSCSI společnosti Microsoft.
+    a. **Místní adaptér**: iniciátor iSCSI společnosti Microsoft.
 
     b.  **IP adresa iniciátoru**: 10.10.11.4.
 

@@ -8,12 +8,12 @@ ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/16/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: f0aafd572aa50760a7b326d5ca699e3f1331b3e9
-ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
+ms.openlocfilehash: dec5c65f39bec2f459abba9adba25c4c097aff04
+ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97620649"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208076"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Stažení položek z Marketplace do centra Azure Stack
 
@@ -34,7 +34,7 @@ Existují dva scénáře stažení produktů z webu Marketplace:
 ::: zone pivot="state-connected"
 Připojené nasazení umožňuje používat portál pro správu ke stažení položek Marketplace.
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 Vaše nasazení centra Azure Stack musí mít připojení k Internetu a musí být zaregistrované v Azure.
 
@@ -75,7 +75,7 @@ Tento scénář obsahuje dvě části:
 - **Část 1**: stažení z položek Marketplace. V počítači s přístupem k Internetu konfigurujete PowerShell, stáhnete nástroj syndikace a pak stáhnete položky z Azure Marketplace.
 - **Část 2**: nahrání a publikování na tržišti Azure Stack hub. Soubory, které jste stáhli do prostředí centra Azure Stack, přesunete a pak je publikujete na webu služby Azure Stack hub Marketplace.
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 - Připojené prostředí (nemusí být Azure Stack hub). Potřebujete připojení, abyste získali seznam produktů z Azure s jejich podrobnostmi a stáhli všechno místně. Až to uděláte, zbývající část postupu nevyžaduje připojení k Internetu. Vytvoří katalog položek, které jste předtím stáhli, abyste je mohli použít v odpojeném prostředí.
 
@@ -196,7 +196,7 @@ Po registraci Azure Stack můžete ignorovat následující zprávu, která se z
    Zobrazí se výzva k zadání přihlašovacích údajů k účtu Azure a možná budete muset použít dvojúrovňové ověřování v závislosti na konfiguraci vašeho účtu.
 
    > [!NOTE]
-   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí `Add-AzureRMRmAccount` : `RemoveAzAccount -Scope Process` .
+   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí `Add-AzureRMRmAccount` : `Remove-AzureRMAccount -Scope Process` .
 
 3. Pokud máte více předplatných, spusťte následující příkaz a vyberte ten, který jste použili pro registraci:
 
@@ -213,7 +213,7 @@ Po registraci Azure Stack můžete ignorovat následující zprávu, která se z
 5. Pokud chcete vybrat položky Marketplace, například image virtuálních počítačů, rozšíření nebo šablony řešení ke stažení, spusťte následující příkaz:
 
    ```powershell
-   $products = Select-AzureRMsMarketplaceItem
+   $products = Select-AzsMarketplaceItem
    ```
 
    Tím se zobrazí tabulka se seznamem všech registrací Azure Stack dostupných ve vybraném předplatném. Zvolte registraci, která odpovídá Azure Stack prostředí, pro které stahujete položky Marketplace, a vyberte **OK**.

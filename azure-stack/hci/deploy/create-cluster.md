@@ -1,19 +1,19 @@
 ---
-title: Vytvoření clusteru Azure Stack HCI pomocí centra pro správu Windows
+title: Vytvoření clusteru Azure Stack HCI pomocí centra Windows Admin Center
 description: Zjistěte, jak vytvořit serverový cluster pro Azure Stack HCI pomocí centra pro správu Windows.
 author: v-dasis
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 01/13/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: e33096b2667ad9d620e942b66934f341982e619b
-ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
+ms.openlocfilehash: a81b684e86f9d13105c39607f9be1c6a1d56eaf0
+ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97364213"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98208045"
 ---
-# <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Vytvoření clusteru Azure Stack HCI pomocí centra pro správu Windows
+# <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Vytvoření clusteru Azure Stack HCI pomocí centra Windows Admin Center
 
 > Platí pro Azure Stack HCI, verze v20H2
 
@@ -199,7 +199,7 @@ Další informace o RDMA a sítích hostitele Hyper-V pro Azure Stack HCI najdet
 
     :::image type="content" source="media/cluster/create-cluster.png" alt-text="Průvodce vytvořením clusteru – vytvoření clusteru" lightbox="media/cluster/create-cluster.png":::
 
-1. V části **IP adresa** vyberte buď statické, nebo dynamické IP adresy, které chcete použít.
+1. V části **IP adresa** vyberte buď statické, nebo dynamické IP adresy, které chcete použít. IP adresa musí být zadaná v následujícím formátu: *IP adresa/aktuální délka podsítě*. Příklad: 10.0.0.200/24.
 1. Vyberte **Upřesnit**. Máte několik možností, které jsou tady:
 
     - **Registrace clusteru pomocí služby DNS a služby Active Directory**
@@ -231,74 +231,9 @@ Může trvat nějakou dobu, než se název clusteru replikuje napříč vaší d
 
 Pokud po nějaké době řešení clusteru neproběhne úspěšně, můžete ve většině případů místo názvu clusteru nahradit název serveru.
 
-## <a name="step-5-sdn-optional"></a>Krok 5: SDN (volitelné)
-
-Tento volitelný krok vás provede nastavením součásti síťového adaptéru [softwarově definovaných sítí (SDN)](../concepts/software-defined-networking.md). Po nastavení síťového adaptéru můžete podle potřeby nakonfigurovat jiné součásti SDN, jako je například software Load Balancer (SLB) a brána služby RAS.
-
-> [!NOTE]
-> Průvodce nekonfiguruje službu SLB a bránu RAS pro SDN. Ke konfiguraci těchto komponent můžete použít skripty SDN Express. Informace o tom, jak to udělat, najdete v [úložišti GitHub SDNExpress](https://github.com/microsoft/SDN/tree/master/SDNExpress/scripts).
-
-> [!NOTE]
-> Pro roztažené clustery není přípona SDN podporována.
-
-1. Vyberte **Další: SDN**.
-
-    :::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="Průvodce vytvořením clusteru – síťový adaptér SDN" lightbox="media/cluster/create-cluster-network-controller.png":::
-
-1. V **5,1 definujte cluster síťového adaptéru** v části **hostitel** zadejte název síťového adaptéru. Jedná se o název DNS, který používají klienti pro správu (například centrum pro správu systému Windows) ke komunikaci se síťovým adaptérem.
-1. Zadejte cestu k souboru VHD Azure Stack HCL. Pro rychlejší vyhledání použijte **Procházet** .
-1. Zadejte počet virtuálních počítačů, které se mají vyhradit pro síťový adaptér. Pro zajištění vysoké dostupnosti se doporučuje aspoň tři virtuální počítače.
-1. V části **síť** zadejte ID sítě VLAN sítě pro správu. Síťový adaptér musí být připojen ke stejné síti pro správu jako hostitelé pro komunikaci a konfiguraci hostitelů.
-
-    > [!NOTE]
-    > Virtuální počítače síťového adaptéru používají virtuální přepínač používaný pro správu clusteru, pokud jsou k dispozici, jinak používají virtuální přepínač "COMPUTE" jako zbytek virtuálních počítačů clusteru. Další informace najdete v části [požadavky na síťový adaptér](../concepts/network-controller.md#network-controller-requirements) v tématu [Plánování nasazení síťového adaptéru](../concepts/network-controller.md).
-
-1. V případě **adresování sítě virtuálních počítačů** vyberte možnost **DHCP** nebo **static**.
-1. Pokud jste vybrali možnost **DHCP**, zadejte název pro virtuální počítače síťového adaptéru.
-1. Pokud jste vybrali možnost **static**, zadejte následující:
-    1. IP adresa.
-    1. Předpona podsítě.
-    1. Výchozí brána.
-    1. Jeden nebo více serverů DNS. Kliknutím na **Přidat** přidejte další servery DNS.
-1. V části **přihlašovací údaje** zadejte uživatelské jméno a heslo, které se použije k připojení virtuálních počítačů síťového adaptéru k doméně clusteru.
-1. Zadejte heslo místního správce pro tyto virtuální počítače.
-1. V části **Upřesnit** zadejte cestu k virtuálním počítačům.
-1. Zadejte hodnoty pro **začátek** a **konec fondu adres** Mac.
-1. Jakmile budete hotovi, klikněte na tlačítko **Další**.
-1. Při **nasazení síťového adaptéru** počkejte, dokud průvodce nedokončí jeho úlohu. Zůstat na této stránce, dokud nebudou dokončeny všechny úlohy průběhu. Klikněte na **Dokončit**.
-
-1. Po vytvoření virtuálních počítačů síťového adaptéru nakonfigurujte dynamické aktualizace DNS pro název clusteru síťového adaptéru na serveru DNS. Informace o tom, jak to provést, najdete v tématu [Konfigurace dynamické registrace DNS pro síťový adaptér](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller).
-
-1. Pokud se nasazení síťového adaptéru nepovede, proveďte následující kroky, než to zkusíte znovu:
-
-- Zastavte a odstraňte všechny virtuální počítače síťového adaptéru, které průvodce vytvořil.  
-
-- Vyčistěte všechny přípojné body VHD, které průvodce vytvořil.  
-
-- Ujistěte se, že máte alespoň 50 100 GB volného místa na hostitelích Hyper-V.  
-
-## <a name="after-you-complete-the-wizard"></a>Po dokončení Průvodce
-
-Po dokončení průvodce jsou stále k dispozici některé důležité úkoly, které je třeba provést.
-
-Prvním úkolem je zakázat protokol CredSSP (Credential Security Support Provider) na každém serveru z hlediska zabezpečení. Zapamatujte si, že pro Průvodce je nutné povolit CredSSP. Pokud máte problémy se zprostředkovatelem CredSSP, přečtěte si další informace v tématu [řešení potíží se zprostředkovatelem](../manage/troubleshoot-credssp.md) zabezpečení.
-
-1. V centru pro správu Windows v části **všechna připojení** vyberte cluster, který jste právě vytvořili.
-1. V části **nástroje** vyberte **servery**.
-1. V pravém podokně vyberte první server v clusteru.
-1. V části **Přehled** vyberte **Zakázat CredSSP**. Uvidíte, že červená zpráva **CREDSSP povolená** v horní části zmizí.
-1. Zopakujte kroky 3 a 4 pro každý server v clusteru.
-
-OK, teď máte další úkoly, které budete muset udělat:
-
-- Nastavte určující cluster. Viz [Nastavení určujícího clusteru](witness.md).
-- Vytvořte si svazky. Viz [vytvoření svazků](../manage/create-volumes.md).
-- U roztaženého clusteru vytvořte svazky a nastavte replikaci. Viz [Vytvoření roztažené svazky clusteru a nastavení replikace](../manage/create-stretched-volumes.md).
-
 ## <a name="next-steps"></a>Další kroky
 
 - Zaregistrujte svůj cluster v Azure. Viz [Správa registrace Azure](../manage/manage-azure-registration.md).
 - Proveďte konečné ověření clusteru. Viz [ověření clusteru Azure Stack HCI](validate.md)
 - Zřizování virtuálních počítačů. Přečtěte si téma [Správa virtuálních počítačů v Azure Stack HCI pomocí centra pro správu systému Windows](../manage/vm.md).
 - Cluster můžete nasadit také pomocí prostředí PowerShell. Přečtěte si téma [vytvoření Azure Stack clusteru HCI pomocí prostředí PowerShell](create-cluster-powershell.md).
-- Síťový adaptér můžete nasadit také pomocí prostředí PowerShell. Viz [nasazení síťového adaptéru pomocí PowerShellu](network-controller-powershell.md).
