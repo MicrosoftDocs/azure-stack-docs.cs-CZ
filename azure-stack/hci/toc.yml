@@ -8,7 +8,7 @@
       href: concepts/compare-windows-server.md
     - name: Informace o verzi
       href: release-information.md
-    - name: Zpráva k vydání verze
+    - name: "Poznámky k\_verzi"
       href: 'https://support.microsoft.com/help/4595086'
     - name: Nejčastější dotazy
       href: faq.md
@@ -18,7 +18,7 @@
       href: get-started.md
     - name: Vytvoření clusteru Azure Stack HCI
       href: deploy/deployment-quickstart.md
-- name: Nasazení
+- name: Nasadit
   items:
     - name: Přehled nasazení
       href: deploy/deployment-overview.md
@@ -58,6 +58,8 @@
           href: manage/vm-powershell.md
         - name: Vytvořit pravidla spřažení virtuálních počítačů
           href: manage/vm-affinity.md
+        - name: Vyrovnávání zatížení virtuálních počítačů
+          href: manage/vm-load-balancing.md
         - name: Připojení GPU k virtuálnímu počítači se systémem Linux
           href: manage/attach-gpu-to-linux-vm.md
     - name: Správa úložiště
@@ -176,7 +178,7 @@
           href: concepts/utility-applications.md
         - name: Shromažďování dat
           href: concepts/data-collection.md
-- name: Referenční informace
+- name: Reference
   items:
     - name: Příkazy Azure CLI pro registraci Azure
       href: 'https://docs.microsoft.com/cli/azure/ext/stack-hci/stack-hci'

@@ -2,7 +2,7 @@
   href: index.yml
 - name: Přehled
   items:
-    - name: Co je centrum Azure Stack?
+    - name: Co je Azure Stack Hub?
       href: user-overview.md
     - name: Klíčové aspekty
       href: azure-stack-considerations.md
@@ -121,7 +121,7 @@
               href: ../operator/azure-stack-create-service-principals.md?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Použití služeb
           items:
-            - name: Výpočetní prostředky
+            - name: Compute
               items:
                 - name: Přehled
                   href: azure-stack-compute-overview.md
@@ -298,6 +298,8 @@
               href: azure-stack-dev-start-howto-vm-python.md
             - name: Nasazení webové aplikace v NodeJS
               href: azure-stack-dev-start-howto-vm-nodejs.md
+        - name: Vytvoření akce GitHubu – přihlášení
+          href: ci-cd-github-action-login-cli.md
         - name: Nasazení modulu IoT pro GPU
           href: gpu-deploy-sample-module.md
     - name: Nasazení základních vzorů
@@ -369,7 +371,7 @@
       href: ../asdk/index.yml
     - name: Dokumentace k hybridnímu cloudu Azure
       href: /hybrid
-- name: Zdroje informací
+- name: Zdroje a prostředky
   items:
     - name: Mapa cest centra Azure Stack
       href: 'https://azure.microsoft.com/updates/?query=azure%20stack%20hub'

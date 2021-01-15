@@ -7,12 +7,12 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 6bbca7a38e23a0dfadcd0e7654430430d55da3f2
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: 5067c873b2313f76c9213d89674ce00926efadc1
+ms.sourcegitcommit: 51ce5ba6cf0a377378d25dac63f6f2925339c23d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974060"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210967"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>Zálohování účtů úložiště v centru Azure Stack
 
@@ -86,7 +86,7 @@ Po nastavení Windows serveru budete muset nainstalovat [Azure Stack centrum Pow
     azcopy sync "https:/<storagaccount>/<container>?<SAS Key>" "C:\\myFolder" --recursive=true --delete-destination=true
     ```
 
-5.  Zadejte **účet úložiště**, * * klíč SAS * * a * * cesta k místnímu adresáři.  Použijete to pro přírůstkové kopírování dat do **cílového** účtu úložiště.
+5.  Zadejte **účet úložiště**,**klíč SAS** a cestu k **místnímu adresáři**.  Použijete to pro přírůstkové kopírování dat do **cílového** účtu úložiště.
     
     ```
     azcopy sync "C:\\myFolder" "https:// <storagaccount>/<container>?<SAS Key>" --recursive=true --delete-destination=true

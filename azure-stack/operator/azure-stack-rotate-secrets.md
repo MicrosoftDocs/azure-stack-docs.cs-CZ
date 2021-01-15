@@ -9,12 +9,12 @@ ms.reviewer: fiseraci
 ms.author: bryanla
 ms.lastreviewed: 01/07/2021
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: ec65268a76a8616d5fea213d6c4f0551a5b5ba38
-ms.sourcegitcommit: a90b146769279ffbdb09c68ca0506875a867e177
+ms.openlocfilehash: 229b7b3995340298b7162de7ae051d0f742e86cf
+ms.sourcegitcommit: 51ce5ba6cf0a377378d25dac63f6f2925339c23d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98123693"
+ms.lasthandoff: 01/14/2021
+ms.locfileid: "98210950"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Obměna tajných klíčů ve službě Azure Stack Hub
 
@@ -238,9 +238,6 @@ K otočení interních tajných kódů proveďte následující kroky:
     $PEPSession = New-PSSession -ComputerName <IP_address_of_ERCS_Machine> -Credential $PEPCreds -ConfigurationName "PrivilegedEndpoint"
 
     # Run Secret Rotation
-    $CertPassword = ConvertTo-SecureString "<Cert_Password>" -AsPlainText -Force
-    $CertShareCreds = Get-Credential
-    $CertSharePath = "<Network_Path_Of_CertShare>"
     Invoke-Command -Session $PEPSession -ScriptBlock {
         Start-SecretRotation -Internal
     }
@@ -325,7 +322,7 @@ K otočení interních tajných kódů proveďte následující kroky:
 
 [Rutina Start-SecretRotation](../reference/pep-2002/start-secretrotation.md) otočí tajné klíče infrastruktury Azure Stackho centrálního systému. Tuto rutinu je možné provést jenom proti PEP koncovému bodu s privilegovaným centrem Azure Stack pomocí  `Invoke-Command` bloku skriptu, který v parametru předává relaci `-Session` . Ve výchozím nastavení otočí jenom certifikáty všech koncových bodů infrastruktury externích sítí.
 
-| Parametr | Typ | Vyžadováno | Pozice | Výchozí | Description |
+| Parametr | Typ | Vyžadováno | Pozice | Výchozí | Popis |
 |--|--|--|--|--|--|
 | `PfxFilesPath` | Řetězec  | Nepravda  | Jmenovanou  | Žádné  | Cesta ke sdílené složce adresáře **\Certificates** obsahující všechny certifikáty koncového bodu externí sítě. Vyžaduje se pouze při otáčení externích tajných klíčů. Koncový adresář musí být **\Certificates**. |
 | `CertificatePassword` | SecureString | Nepravda  | Jmenovanou  | Žádné  | Heslo pro všechny certifikáty, které jsou k dispozici v-PfXFilesPath. Požadovaná hodnota, pokud je k dispozici PfxFilesPath při otočení externích tajných klíčů. |
