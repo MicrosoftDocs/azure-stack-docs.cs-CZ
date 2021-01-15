@@ -8,12 +8,12 @@ ms.date: 06/16/2020
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 06/16/2020
-ms.openlocfilehash: f94a8ba25c595ac231beda9e235245d25541f334
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 6ee19c12e1a80e8c41c5c33d9c2b613d86fbc104
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97909680"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243489"
 ---
 # <a name="azure-stack-hub-administration-basics---ruggedized"></a>Základy správy centra Azure Stack – robustní
 
@@ -49,7 +49,7 @@ Podporujeme následující další služby PaaS (Platform as a Service):
 - IoT Hub
 - Centrum událostí
 
-Tyto služby vyžadují další konfiguraci, abyste je mohli zpřístupnit uživatelům. Další informace najdete v tématech **kurzy** a návody, **které**  >  **nabízí služby** v [dokumentaci k operátorovi centra Azure Stack](https://docs.microsoft.com/azure-stack/operator/).
+Tyto služby vyžadují další konfiguraci, abyste je mohli zpřístupnit uživatelům. Další informace najdete v tématech **kurzy** a návody, **které**  >  **nabízí služby** v [dokumentaci k operátorovi centra Azure Stack](../../operator/index.yml).
 
 ### <a name="service-roadmap"></a>Plán služby
 
@@ -88,11 +88,11 @@ Kromě poskytování služeb je třeba provést běžné povinnosti operátora, 
 - Správa prostředků [sítě](../../operator/azure-stack-viewing-public-ip-address-consumption.md) a [úložiště](../../operator/azure-stack-manage-storage-accounts.md)
 - [Spusťte a zastavte centrum Azure Stack](../../operator/azure-stack-start-and-stop.md).
 - [Provoz rozšířeného úložiště](../../user/azure-stack-network-howto-extend-datacenter.md).
-- [Spravovat IoT Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub).
-- [Správa centra událostí](https://docs.microsoft.com/azure-stack/operator/event-hubs-rp-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl).
-- [Spravovat App Service](https://docs.microsoft.com/azure-stack/operator/azure-stack-app-service-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl).
+- [Spravovat IoT Hub](/azure/iot-hub/about-iot-hub).
+- [Správa centra událostí](../../operator/event-hubs-rp-overview.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&branch=release-tzl&toc=%2fazure-stack%2ftdc%2ftoc.json&view=azs-2002).
+- [Spravovat App Service](../../operator/azure-stack-app-service-overview.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&branch=release-tzl&toc=%2fazure-stack%2ftdc%2ftoc.json&view=azs-2002).
 - Nahraďte špatný hardware. Tady je seznam [nahraditelných částí](../../operator/azure-stack-replace-component.md).
-- [Získejte podporu](https://docs.microsoft.com/azure-stack/operator/azure-stack-help-and-support-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl).
+- [Získejte podporu](../../operator/azure-stack-help-and-support-overview.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&branch=release-tzl&toc=%2fazure-stack%2ftdc%2ftoc.json&view=azs-2002).
 
 ## <a name="operator-tasks"></a>Úkoly operátora
 
@@ -106,7 +106,7 @@ Tady je seznam každodenních, týdenních a měsíčních úloh pro operátor:
 4. Zkontroluje stav systému Isilon a události v OneFS.
 5. Ověřte Isilonou kapacitu.
 
-# <a name="weekly"></a>[Každý týden](#tab/weekly)
+# <a name="weekly"></a>[Týdně](#tab/weekly)
 
 1. Podívejte se na kapacitu.
 2. Spusťte `isi status –verbose` v Avocent připojení.
@@ -135,7 +135,7 @@ Tady je seznam každodenních, týdenních a měsíčních úloh pro operátor:
 
 ## <a name="what-to-tell-your-users"></a>Co říct uživatelům
 
-Budete muset uživatelům sdělit, jak pracovat se službami v centru Azure Stack, jak se připojit k prostředí a jak se přihlásit k odběru nabídek. Kromě jakékoli vlastní dokumentace, kterou byste mohli chtít poskytnout uživatelům, můžete uživatele nasměrovat na [Azure Stack dokumentaci pro uživatele centra](https://docs.microsoft.com/azure-stack/user/).
+Budete muset uživatelům sdělit, jak pracovat se službami v centru Azure Stack, jak se připojit k prostředí a jak se přihlásit k odběru nabídek. Kromě jakékoli vlastní dokumentace, kterou byste mohli chtít poskytnout uživatelům, můžete uživatele nasměrovat na [Azure Stack dokumentaci pro uživatele centra](../../user/index.yml).
 
 ### <a name="understand-how-to-work-with-services-in-azure-stack-hub"></a>Informace o tom, jak pracovat se službami v centru Azure Stack
 

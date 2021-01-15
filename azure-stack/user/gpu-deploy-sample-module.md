@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/13/2020
 ms.reviewer: gara
 ms.lastreviewed: 11/13/2020
-ms.openlocfilehash: b8aef224c5694cd6b8408538473dce3b86996c4d
-ms.sourcegitcommit: 8187658b1d45dceed727aca3ae1b9b57aca04392
+ms.openlocfilehash: 7a5a29c48533874cf2c859780ab0332b8410811f
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94632788"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243472"
 ---
 # <a name="deploy-a-gpu-enabled-iot-module-on-azure-stack-hub"></a>Nasazení modulu IoT s povoleným grafickým procesorem do centra Azure Stack
 
@@ -41,7 +41,7 @@ V rámci vaší instance centra Azure Stack, globálního Azure a místního vý
     Další informace o GPU v Azure Stackovém centru najdete v tématu [virtuální počítač GPU (Graphics Processing Unit) na rozbočovači Azure Stack](gpu-vms-about.md).
   - Globální předplatné Azure. Pokud nemáte globální předplatné Azure, vytvořte si [bezplatný účet](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) před tím, než začnete.
 - [Azure Container Registry (ACR)](/). Poznamenejte si server pro přihlášení ACR, uživatelské jméno a heslo.
--   Služby [IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal) ve službě Global Azure na úrovni Free nebo Standard.
+-   Služby [IoT Hub](/azure/iot-hub/iot-hub-create-through-portal) ve službě Global Azure na úrovni Free nebo Standard.
 
 ### <a name="a-development-machine"></a>Vývojový počítač
 
@@ -63,13 +63,13 @@ Pro hostování zařízení IoT Edge použijte samostatné zařízení. Když po
 
 Vytvořte zařízení IoT Edge v Azure s virtuálním počítačem Linux:
 
-1.  [Vytvořte virtuální počítač s N-Series Linux serverem](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal) na rozbočovači Azure Stack. Když instalujete součásti serveru, budete pracovat se serverem přes SSH. Další informace najdete v tématu [použití veřejného klíče SSH](/azure-stack/user/azure-stack-dev-start-howto-ssh-public-key).
+1.  [Vytvořte virtuální počítač s N-Series Linux serverem](./azure-stack-quick-linux-portal.md) na rozbočovači Azure Stack. Když instalujete součásti serveru, budete pracovat se serverem přes SSH. Další informace najdete v tématu [použití veřejného klíče SSH](./azure-stack-dev-start-howto-ssh-public-key.md).
 
-2.  [Vytvoření a registrace zařízení IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-register-device)
+2.  [Vytvoření a registrace zařízení IoT Edge](/azure/iot-edge/how-to-register-device)
 
 ## <a name="prepare-a-gpu-enabled-vm"></a>Příprava virtuálního počítače s podporou GPU
 
-1. Nainstalujte ovladače GPU NVIDA na server s N-Series Linux podle kroků v článku [instalace ovladačů NVIDIA GPU pro virtuální počítače řady N-Series se systémem Linux](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup).
+1. Nainstalujte ovladače GPU NVIDA na server s N-Series Linux podle kroků v článku [instalace ovladačů NVIDIA GPU pro virtuální počítače řady N-Series se systémem Linux](/azure/virtual-machines/linux/n-series-driver-setup).
 
     > [!NOTE]  
     > K instalaci softwaru použijete příkazový řádek bash. Poznamenejte si příkazy, protože použijete stejné příkazy k instalaci ovladačů do kontejneru běžícího v Docker na VIRTUÁLNÍm počítači s podporou GPU.
@@ -84,7 +84,7 @@ Je nutné nainstalovat Docker 19,02 nebo vyšší. Modul runtime Docker teď pod
 
 ### <a name="install-docker"></a>Instalace Dockeru
 
-Kontejnery Docker můžou běžet kdekoli, místně v datacentru zákazníka, v externím poskytovateli služeb nebo v cloudu v Azure. Kontejnery imagí Docker mohou běžet nativně v systémech Linux a Windows. Image Windows ale můžou běžet jenom na hostitelích s Windows a image Linux můžou běžet na hostitelích Linux a na hostitelích se systémem Windows (s využitím virtuálního počítače Hyper-V Linux), kde hostitel znamená Server nebo virtuální počítač. Další informace najdete v tématu [co je Docker?](https://docs.microsoft.com/dotnet/architecture/microservices/container-docker-introduction/docker-defined).
+Kontejnery Docker můžou běžet kdekoli, místně v datacentru zákazníka, v externím poskytovateli služeb nebo v cloudu v Azure. Kontejnery imagí Docker mohou běžet nativně v systémech Linux a Windows. Image Windows ale můžou běžet jenom na hostitelích s Windows a image Linux můžou běžet na hostitelích Linux a na hostitelích se systémem Windows (s využitím virtuálního počítače Hyper-V Linux), kde hostitel znamená Server nebo virtuální počítač. Další informace najdete v tématu [co je Docker?](/dotnet/architecture/microservices/container-docker-introduction/docker-defined).
 
 1. Připojte se k serveru pro N-Series Linux pomocí klienta SSH.
 
@@ -177,4 +177,4 @@ Pokyny najdete v tématu [Výběr zařízení a přidání modulů](/azure/iot-e
 
   - Další informace o Azure Stackovém centru, Data Box Edge a inteligentním hraničním prostředí, [budoucí výpočetní prostředí: inteligentní cloudová a inteligentní hrana](https://azure.microsoft.com/overview/future-of-cloud)
 
-  - Další informace o hybridních cloudových aplikacích najdete v tématu [hybridní cloudová řešení](https://docs.microsoft.com/hybrid/app-solutions/) .
+  - Další informace o hybridních cloudových aplikacích najdete v tématu [hybridní cloudová řešení](/hybrid/app-solutions/) .

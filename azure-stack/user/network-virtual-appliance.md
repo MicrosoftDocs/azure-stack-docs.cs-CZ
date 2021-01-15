@@ -7,12 +7,12 @@ ms.date: 11/22/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: 271587baa3890a7dbb02d7ac935ceb51e2e405b7
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: bb5d62b4e5302762b4feddfd7afd7b7a39002187
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517144"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243319"
 ---
 # <a name="troubleshoot-network-virtual-appliance-problems"></a>Řešení potíží se síťovými virtuálními zařízení
 
@@ -187,4 +187,4 @@ Pokud potřebujete pomoc, [obraťte se na dodavatele síťové virtuální zař�
 
 ### <a name="create-a-support-ticket"></a>Vytvoření lístku podpory
 
-Pokud předchozí kroky problém nevyřeší, vytvořte [lístek podpory](../operator/azure-stack-manage-basics.md#where-to-get-support) a použijte [Nástroj pro shromažďování protokolů na vyžádání](../operator/azure-stack-diagnostic-log-collection-overview.md) k poskytnutí protokolů.
+Pokud předchozí kroky problém nevyřeší, vytvořte [lístek podpory](../operator/azure-stack-manage-basics.md#where-to-get-support) a použijte [Nástroj pro shromažďování protokolů na vyžádání](../operator/diagnostic-log-collection.md) k poskytnutí protokolů.

@@ -15,12 +15,12 @@ ms.date: 12/21/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: 3d24ba3a714c8ea8f17189a7c63a134dab0f8d12
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 34dbff445ed06291712223b17f8443b384b8cac8
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97909799"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243523"
 ---
 # <a name="register-azure-stack-hub-with-azure---azure-stack-hub-ruggedized"></a>Registrace centra Azure Stack s využitím Azure – centrum Azure Stack robustní
 
@@ -42,7 +42,7 @@ Pokud je systém připojený ke cloudu Azure, můžete všechny čtyři kroky sp
 > [!NOTE]
 > Pro MDC musí být každý ze systémů centra Azure Stack zaregistrován samostatně. Proto je třeba provést tři tyto pokyny třikrát.
 
-## <a name="prerequisites"></a>Požadavky
+## <a name="prerequisites"></a>Předpoklady
 
 Před registrací potřebujete tyto předpoklady:
 
@@ -310,7 +310,7 @@ Pomocí dlaždice **Správa oblastí** můžete ověřit, zda byla registrace ce
 
 4. K zobrazení registračních prostředků centra Azure Stack můžete použít Azure Portal a ověřit, zda byla registrace úspěšná. Přihlaste se k [Azure Portal](https://portal.azure.com/) pomocí účtu přidruženého k předplatnému, které jste použili k registraci centra Azure Stack. Vyberte **všechny prostředky**, zaškrtněte políčko **Zobrazit skryté typy** a potom vyberte název registrace.
 
-5. Pokud se registrace nezdařila, je nutné znovu provést registraci změnou [předplatného, které používáte](https://docs.microsoft.com/azure-stack/operator/azure-stack-registration#change-the-subscription-you-use) k vyřešení problému.
+5. Pokud se registrace nezdařila, je nutné znovu provést registraci změnou [předplatného, které používáte](../../operator/azure-stack-registration.md#change-the-subscription-you-use) k vyřešení problému.
 
 Případně můžete pomocí funkce správy Marketplace ověřit, jestli byla registrace úspěšná. Pokud se v okně **Správa Marketplace** zobrazí seznam položek Marketplace, vaše Registrace proběhla úspěšně. V odpojených prostředích ale nevidíte položky Marketplace ve správě Marketplace.
 
@@ -319,4 +319,4 @@ Případně můžete pomocí funkce správy Marketplace ověřit, jestli byla re
 
 ## <a name="next-steps"></a>Další kroky
 
-[Základy správy centra Azure Stack](../../operator/azure-stack-manage-basics.md)  
+[Základy správy centra Azure Stack](../../operator/azure-stack-manage-basics.md)

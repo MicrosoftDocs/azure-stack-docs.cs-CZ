@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/16/2020
-ms.openlocfilehash: 2e3c25e282a84a0e41d6c69d0af6e2f352bbfba5
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: fe68722e2cabea2cc863bbd6fb6d8414eb91031c
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974009"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243574"
 ---
 # <a name="install-azure-cli-on-azure-stack-hub"></a>Instalace rozhraní příkazového řádku Azure CLI do centra Azure Stack
 
@@ -67,7 +67,7 @@ V této části se dozvíte, jak nastavit rozhraní příkazového řádku, poku
           --endpoint-active-directory-graph-resource-id "https://graph.windows.net/"
       ```
 
-    Odkaz na [příkaz Register](https://docs.microsoft.com/cli/azure/cloud?view=azure-cli-latest#az_cloud_register) najdete v referenční dokumentaci k Azure CLI.
+    Odkaz na [příkaz Register](/cli/azure/cloud?view=azure-cli-latest#az_cloud_register) najdete v referenční dokumentaci k Azure CLI.
 
 
 4. Nastavte aktivní prostředí pomocí následujících příkazů.
@@ -402,4 +402,4 @@ Při použití rozhraní příkazového řádku v Azure Stackovém centru jsou z
 
 - [Nasazení šablon pomocí Azure CLI](azure-stack-deploy-template-command-line.md)
 - [Povolení Azure CLI pro uživatele centra Azure Stack (operátor)](../operator/azure-stack-cli-admin.md)
-- [Správa uživatelských oprávnění](azure-stack-manage-permissions.md) 
+- [Správa uživatelských oprávnění](azure-stack-manage-permissions.md)

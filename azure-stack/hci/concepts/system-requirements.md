@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/29/2020
-ms.openlocfilehash: 2d4aebd0609dff744f4c8f6ae9113fba1b7b0ba9
-ms.sourcegitcommit: 26901a61a44390bc9b7804c22018c213036e680d
+ms.date: 01/14/2021
+ms.openlocfilehash: 3b29dfb35bad91ef02feebc22255b89116da1505
+ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96354152"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98243455"
 ---
 # <a name="system-requirements-for-azure-stack-hci"></a>Požadavky na systém pro Azure Stack HCI
 
@@ -62,20 +62,6 @@ Cluster Azure Stack HCI vyžaduje spolehlivé síťové připojení s vysokou š
 - Ověřte, zda je k dispozici alespoň jeden síťový adaptér, který je vyhrazen pro správu clusteru.
 - Ověřte, že fyzické přepínače ve vaší síti jsou nakonfigurované tak, aby umožňovaly provoz na všech sítích VLAN, které budete používat.
 
-Mezi uzly serveru probíhá více typů komunikace:
-
-- Komunikace s clustery (spojení uzlů, aktualizace clusteru, aktualizace registru)
-- Prezenční signály clusteru
-- Přesměrované přenosy sdílený svazek clusteru (CSV)
-- Provoz migrace za provozu pro virtuální počítače
-
-V Prostory úložiště s přímým přístupem existuje další síťový provoz, který je potřeba vzít v úvahu:
-
-- Vrstva sběrnice úložiště (SBL) – rozsahy nebo data rozprostře mezi uzly.
-- Stav – monitorování a správa objektů (uzly, jednotky, síťové karty, Clusterová služba)
-
-V případě roztaženého clusteru je mezi lokalitami předávány i další přenosy repliky úložiště. Provoz vrstvy úložiště (SBL) a sdílený svazek clusteru (CSV) mezi lokalitami nepřekračuje, jenom mezi uzly serveru v každé lokalitě.
-
 Informace o požadavcích a požadavcích sítě hostitele najdete v tématu [požadavky na síť hostitele](host-network-requirements.md).
 
 ## <a name="software-defined-networking-sdn-requirements"></a>Požadavky na software definované sítě (SDN)
@@ -105,7 +91,7 @@ Další informace najdete v tématech [přímý přístup do paměti vzdálenéh
 
 Aby bylo možné přihlédnout k režii v provozu virtuální sítě tenanta způsobené hlavičkou zapouzdření VXLAN nebo NVGRE, musí být maximální přenosová jednotka (MTU) síťové infrastruktury vrstvy 2 (přepínače a hostitelé) nastavená na hodnotu větší nebo rovna 1674 bajtů, \( včetně hlaviček sítě Ethernet vrstvy 2 \) .
 
-Síťové adaptéry, které podporují nové klíčové slovo *EncapOverhead* Advanced Adapter, nastaví jednotku MTU automaticky prostřednictvím agenta hostitele síťového adaptéru. Síťové adaptéry, které nepodporují nové klíčové slovo *EncapOverhead* , musí ručně nastavit velikost jednotky MTU na každém fyzickém hostiteli *JumboPacket* pomocí \( klíčového slova JumboPacket nebo ekvivalentního \) .
+Síťové adaptéry, které podporují nové klíčové slovo *EncapOverhead* Advanced Adapter, nastaví jednotku MTU automaticky prostřednictvím agenta hostitele síťového adaptéru. Síťové adaptéry, které nepodporují nové klíčové slovo *EncapOverhead* , musí ručně nastavit velikost jednotky MTU na každém fyzickém hostiteli  pomocí \( klíčového slova JumboPacket nebo ekvivalentního \) .
 
 #### <a name="switches-and-routers"></a>Přepínače a směrovače
 
