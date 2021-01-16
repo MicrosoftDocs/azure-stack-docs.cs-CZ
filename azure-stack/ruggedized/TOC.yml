@@ -125,9 +125,9 @@
                     - name: Nasazení App Service
                       href: ../operator/azure-stack-app-service-deploy.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Nasazení App Service pro vysokou dostupnost
-                      href: ../operator/app-service-deploy-ha.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/azure-stack-app-service-deploy.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fruggedized%2ftoc.json
                     - name: Nasazení App Service offline
-                      href: ../operator/azure-stack-app-service-deploy-offline.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/azure-stack-app-service-deploy.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&pivots=state-disconnected%3fpivots%3dstate-disconnected&toc=%2fazure-stack%2fruggedized%2ftoc.json
                 - name: Event Hubs
                   items:
                     - name: Plánování kapacity
@@ -165,7 +165,7 @@
                     - name: Nasazení vysoce dostupných databází SQL
                       href: ../operator/azure-stack-tutorial-sql.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Reference k rutině Start-AzsReadiness
-              href: ../operator/azure-stack-azsreadiness-cmdlet.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              href: ../operator/azure-stack-validate-identity.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fruggedized%2ftoc.json
             - name: Zobrazit sestavu připravenosti
               href: ../operator/azure-stack-validation-report.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Integrace datových center
@@ -233,7 +233,7 @@
                 - name: Aktualizovat App Service
                   href: ../operator/azure-stack-app-service-update.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Aktualizovat App Service offline
-                  href: ../operator/azure-stack-app-service-update-offline.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/azure-stack-app-service-update.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&pivots=state-disconnected%3fpivots%3dstate-disconnected&toc=%2fazure-stack%2fruggedized%2ftoc.json
                 - name: Aktualizovat Event Hubs
                   href: ../operator/resource-provider-apply-updates.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Aktualizovat server MySQL
@@ -353,13 +353,13 @@
                 - name: Nasazení App Service
                   href: ../operator/azure-stack-app-service-deploy.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Nasazení App Service pro vysokou dostupnost
-                  href: ../operator/app-service-deploy-ha.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/azure-stack-app-service-deploy.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fruggedized%2ftoc.json
                 - name: Nasazení App Service offline
-                  href: ../operator/azure-stack-app-service-deploy-offline.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/azure-stack-app-service-deploy.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&pivots=state-disconnected%3fpivots%3dstate-disconnected&toc=%2fazure-stack%2fruggedized%2ftoc.json
                 - name: Aktualizovat App Service
                   href: ../operator/azure-stack-app-service-update.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Aktualizovat App Service offline
-                  href: ../operator/azure-stack-app-service-update-offline.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/azure-stack-app-service-update.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&pivots=state-disconnected%3fpivots%3dstate-disconnected&toc=%2fazure-stack%2fruggedized%2ftoc.json
                 - name: Přidání rolí infrastruktury App Service
                   href: ../operator/azure-stack-app-service-add-worker-roles.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Konfigurace zdrojů nasazení
@@ -391,7 +391,7 @@
                     - name: Zálohování a obnovení
                       href: operator/azure-stack-backup-infrastructure-backup-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Shromažďování protokolů
-                      href: ../operator/azure-stack-diagnostic-log-collection-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/diagnostic-log-collection.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fruggedized%2ftoc.json
                     - name: Výstrahy & stavu
                       href: operator/azure-stack-monitor-health-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Spravovat
@@ -417,7 +417,7 @@
                     - name: Zálohování a obnovení
                       href: ../operator/azure-stack-backup-infrastructure-backup.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Shromažďování protokolů
-                      href: ../operator/azure-stack-diagnostic-log-collection-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/diagnostic-log-collection.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fruggedized%2ftoc.json
                     - name: Výstrahy & stavu
                       href: ../operator/azure-stack-monitor-health.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Spravovat
@@ -499,11 +499,11 @@
                 - name: Shromažďování protokolů diagnostiky
                   items:
                     - name: Přehled
-                      href: ../operator/azure-stack-diagnostic-log-collection-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/diagnostic-log-collection.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fruggedized%2ftoc.json
                     - name: Proaktivní kolekce
-                      href: ../operator/azure-stack-configure-automatic-diagnostic-log-collection.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/diagnostic-log-collection.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fruggedized%2ftoc.json
                     - name: Kolekce na vyžádání
-                      href: ../operator/azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/diagnostic-log-collection.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fruggedized%2ftoc.json
             - name: Získat stav centra Azure Stack
               href: ../operator/azure-stack-diagnostic-test.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Řešení potíží
@@ -564,7 +564,7 @@
                   href: customer-replaceable-unit/install-firmware-using-idrac.md
                 - name: Přístup k pracovní stanici privilegovaného přístupu a privilegovanému koncovému bodu
                   href: customer-replaceable-unit/privileged-access-workstation.md
-    - name: Referenční informace
+    - name: Reference
       items:
         - name: Operátor centra Azure Stack
           href: ../operator/index.yml
@@ -572,7 +572,7 @@
           href: ../user/index.yml
         - name: Azure Stack PowerShell
           href: /powershell/azure/azure-stack/overview
-    - name: Zdroje a prostředky
+    - name: Prostředky
       items:
         - name: Školení a certifikace
           href: ../operator/azure-stack-train-and-cert.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -580,7 +580,7 @@
           href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
         - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/azure-stack'
-- name: Uživatel
+- name: User
   items:
     - name: Přehled
       items:
@@ -627,7 +627,7 @@
                     - name: Přehled prostředí Azure Stack PowerShell
                       href: ../user/azure-stack-powershell-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Instalace Azure Stack PowerShellu
-                      href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                      href: ../operator/azure-stack-powershell-install.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fuser%2ftoc.json
                       maintainContext: true
                     - name: Připojení přes PowerShell
                       href: ../user/azure-stack-powershell-configure-user.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -692,10 +692,10 @@
                 - name: Použití řízení přístupu na základě rolí
                   href: ../user/azure-stack-manage-permissions.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Použití identity aplikace pro přístup k prostředkům
-                  href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/azure-stack-create-service-principals.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fuser%2ftoc.json
             - name: Použití služeb
               items:
-                - name: Compute
+                - name: Výpočetní prostředky
                   items:
                     - name: Přehled
                       href: ../user/azure-stack-compute-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -713,7 +713,7 @@
                       href: ../user/vm-update-management.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Požadavky na SQL Server VM
                       href: ../user/azure-stack-sql-server-vm-considerations.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                - name: Storage
+                - name: Úložiště
                   items:
                     - name: Přehled
                       href: ../user/azure-stack-storage-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -882,7 +882,7 @@
               href: ../user/iaas-architecture-sql-n-tier-multi-region.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Síťová virtuální zařízení
               href: ../user/iaas-architecture-nva-architecture.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-    - name: Referenční informace
+    - name: Reference
       items:
         - name: Azure Stack PowerShell
           href: /powershell/azure/azure-stack/overview?view=azurestackps-1.3.0

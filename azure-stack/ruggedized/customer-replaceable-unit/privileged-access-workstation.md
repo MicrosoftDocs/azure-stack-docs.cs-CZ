@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 9eef242f6e422cdba3b64927d6bfda93fab530b3
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 96a4e944b6b86c8b5db314141fd3473a8512d518
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874519"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256196"
 ---
 # <a name="privileged-access-workstation-and-privileged-endpoint-access"></a>Přístup k pracovní stanici privilegovaného přístupu a privilegovanému koncovému bodu
 
@@ -44,5 +44,5 @@ Chcete-li zavřít relaci privilegovaného koncového bodu, spusťte následují
 
 ## <a name="further-reading"></a>Další materiály
 
-Další informace o připojení a práci s privilegovaným koncovým bodem najdete v tématu [použití privilegovaného koncového bodu v](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint) 
- [centru](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)Azure Stack.
+Další informace o připojení a práci s privilegovaným koncovým bodem najdete v tématu [použití privilegovaného koncového bodu v](../../operator/azure-stack-privileged-endpoint.md) 
+ [centru](../../operator/azure-stack-privileged-endpoint.md)Azure Stack.

@@ -8,12 +8,12 @@ ms.date: 11/10/2020
 ms.author: bryanla
 ms.reviewer: unknown
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: d1d19d79a3a2242ada4e3f7972fa26f61ed600ce
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.openlocfilehash: f9a7a42fafe55e7b598e6fcb67e5353c2453222e
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343202"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255822"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>Řešení běžných potíží s certifikáty PKI služby Azure Stack Hub
 
@@ -23,13 +23,13 @@ Informace v tomto článku vám pomůžou pochopit a vyřešit běžné problém
 
 **Problém** – certifikát neobsahuje seznam CRL protokolu HTTP v rozšíření CDP.
 
-**Oprava** – jedná se o neblokující problém. Azure Stack vyžaduje seznam CRL protokolu HTTP pro kontrolu odvolání podle [požadavků na certifikát infrastruktury veřejných klíčů (PKI)](https://aka.ms/azspki)na základě služby Azure Stack hub.  V certifikátu nebyl zjištěn seznam CRL protokolu HTTP.  Pokud chcete zajistit, aby kontrola odvolání certifikátů fungovala, certifikační autorita by měla vydat certifikát se seznamem CRL protokolu HTTP v rozšíření CDP.
+**Oprava** – jedná se o neblokující problém. Azure Stack vyžaduje seznam CRL protokolu HTTP pro kontrolu odvolání podle [požadavků na certifikát infrastruktury veřejných klíčů (PKI)](./azure-stack-pki-certs.md)na základě služby Azure Stack hub.  V certifikátu nebyl zjištěn seznam CRL protokolu HTTP.  Pokud chcete zajistit, aby kontrola odvolání certifikátů fungovala, certifikační autorita by měla vydat certifikát se seznamem CRL protokolu HTTP v rozšíření CDP.
 
 ## <a name="http-crl---fail"></a>CRL HTTP – selhání
 
 **Problém** – nelze se připojit k seznamu CRL http v rozšíření CDP.
 
-**Oprava** – jedná se o blokující problém. Azure Stack vyžaduje připojení k seznamu CRL protokolu HTTP pro kontrolu odvolání podle [publikačních portů a adres URL pro publikování Azure Stack rozbočovače (odchozí)](https://docs.microsoft.com/azure-stack/operator/azure-stack-integrate-endpoints#ports-and-urls-outbound).
+**Oprava** – jedná se o blokující problém. Azure Stack vyžaduje připojení k seznamu CRL protokolu HTTP pro kontrolu odvolání podle [publikačních portů a adres URL pro publikování Azure Stack rozbočovače (odchozí)](./azure-stack-integrate-endpoints.md#ports-and-urls-outbound).
 
 ## <a name="pfx-encryption"></a>Šifrování PFX
 

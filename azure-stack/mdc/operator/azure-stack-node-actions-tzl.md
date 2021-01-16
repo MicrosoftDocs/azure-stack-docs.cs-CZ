@@ -7,12 +7,12 @@ ms.date: 10/26/2020
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 835b6a39e089bbe959c7c5cf5283d2b516b6d4f7
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: e07e06d2dbe90c846fc8ea96f18e74b0be3caf49
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872054"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255346"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub---modular-data-center-mdc"></a>Akce uzlu jednotky škálování v centra Azure Stack – modulární datové centrum (MDC)
 
@@ -82,9 +82,9 @@ Pokud chcete spustit akci zastavení, otevřete příkazový řádek prostředí
 
 V nepravděpodobném případě, že akce zastavení nefunguje, zkuste operaci zopakovat, a pokud ji podruhé použijete, použijte místo toho webové rozhraní řadiče pro správu základní desky (BMC).
 
-Další informace najdete v tématu [stop-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/stop-azsscaleunitnode).
+Další informace najdete v tématu [stop-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/stop-azsscaleunitnode).
 
-## <a name="start"></a>Start
+## <a name="start"></a>Spustit
 
 Akce **Spustit** zapne uzel. Je to stejné jako při stisknutí tlačítka napájení.
 
@@ -96,7 +96,7 @@ Pokud chcete spustit akci spustit, otevřete příkazový řádek prostředí Po
 
 V nepravděpodobném případě, že akce spuštění nefunguje, zkuste operaci zopakovat. Pokud se to nepovede podruhé, místo toho použijte webové rozhraní řadiče pro správu základní desky (BMC).
 
-Další informace najdete v tématu [Start-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/start-azsscaleunitnode).
+Další informace najdete v tématu [Start-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/start-azsscaleunitnode).
 
 ## <a name="drain"></a>Vyprazdňuje
 
@@ -113,7 +113,7 @@ Pokud chcete spustit akci vyprázdnění, otevřete příkazový řádek PowerSh
   Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
-Další informace najdete v tématu [Disable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/disable-azsscaleunitnode).
+Další informace najdete v tématu [Disable-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/disable-azsscaleunitnode).
 
 ## <a name="resume"></a>Obnovit
 
@@ -125,7 +125,7 @@ Pokud chcete spustit akci obnovení, otevřete příkazový řádek prostředí 
   Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
-Další informace najdete v tématu [Enable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/enable-azsscaleunitnode).
+Další informace najdete v tématu [Enable-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/enable-azsscaleunitnode).
 
 ## <a name="repair"></a>Repair
 
@@ -161,4 +161,4 @@ Pokud chcete spustit akci vypnutí, otevřete příkazový řádek prostředí P
 
 ## <a name="next-steps"></a>Další kroky
 
-[Seznamte se s modulem operátoru prostředků infrastruktury Azure Stack hub](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0).
+[Seznamte se s modulem operátoru prostředků infrastruktury Azure Stack hub](/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0).

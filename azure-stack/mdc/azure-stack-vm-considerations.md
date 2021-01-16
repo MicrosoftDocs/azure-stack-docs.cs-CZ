@@ -15,12 +15,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: 054a3267d48f823ad6d0767f1946e94667c6e12d
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 924819805bd0626e68d9e4cb5bcaa7735b44fa90
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872513"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255567"
 ---
 # <a name="azure-stack-vm-features---modular-data-center-mdc"></a>Funkce Azure Stack VM – modulární datové centrum (MDC)
 
@@ -28,7 +28,7 @@ Virtuální počítače s Azure Stack poskytují škálovatelné výpočetní pr
 
 ## <a name="vm-differences"></a>Rozdíly virtuálních počítačů
 
-| Funkce | Azure (Global) | Azure Stack |
+| Příznak | Azure (Global) | Azure Stack |
 | --- | --- | --- |
 | Image virtuálních počítačů | Azure Marketplace obsahuje obrázky, které můžete použít k vytvoření virtuálního počítače. Pokud chcete zobrazit seznam imagí, které jsou k dispozici v Azure Marketplace, zobrazte stránku [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) . | Ve výchozím nastavení nejsou k dispozici žádné obrázky na webu Azure Stack Marketplace. Správce cloudu Azure Stack musí publikovat nebo stahovat image na webu Azure Stack Marketplace, aby je mohli uživatelé používat. |
 | Velikosti virtuálních počítačů | Azure podporuje širokou škálu velikostí virtuálních počítačů. Další informace o dostupných velikostech a možnostech najdete v tématech velikosti virtuálních počítačů s [Windows](/azure/virtual-machines/sizes) a [velikosti virtuálních počítačů Linux](/azure/virtual-machines/linux/sizes) . | Azure Stack podporuje podmnožinu velikostí virtuálních počítačů, které jsou k dispozici v Azure. Pokud chcete zobrazit seznam podporovaných velikostí, přečtěte si část [velikosti virtuálních počítačů](#vm-sizes) v tomto článku. |
@@ -41,7 +41,7 @@ Virtuální počítače s Azure Stack poskytují škálovatelné výpočetní pr
 | Azure Instance Metadata Service | Azure Instance Metadata Service poskytuje informace o spuštěných instancích virtuálních počítačů, které se dají použít ke správě a nastavení virtuálního počítače.  | Azure Instance Metadata Service se v Azure Stack nepodporuje. |
 | Skupiny dostupnosti virtuálních počítačů|Více domén selhání (2 nebo 3 podle oblasti).<br>Více aktualizačních domén.|Více domén selhání (2 nebo 3 podle oblasti).<br>Jediná aktualizační doména s migrací za provozu k ochraně úloh během aktualizace. 20 aktualizačních domén podporovaných pro kompatibilitu šablon.<br>Skupina virtuálních počítačů a dostupnosti by měla být ve stejném umístění a skupině prostředků.|
 | Škálovací sady virtuálních počítačů|Automatické škálování je podporováno.|Automatické škálování se nepodporuje.<br><br>Přidejte další instance do sady škálování pomocí portálu, Správce prostředků šablon nebo PowerShellu. |
-| Disk s kopií cloudu | Vyberte koncové body z vlastností účtu úložiště, které jsou k dispozici v Azure Stack. | [Určující Cloud](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) je typ určujícího disku kvora clusteru s podporou převzetí služeb při selhání, který používá Microsoft Azure k poskytnutí hlasu kvora clusteru.<br>Koncové body v globálním Azure v porovnání s Azure Stack můžou vypadat takto:<br>Pro globální Azure:<br>`https://mywitness.blob.core.windows.net/`<br>Pro Azure Stack:<br>`https://mywitness.blob.<region>.<FQDN>/`|
+| Disk s kopií cloudu | Vyberte koncové body z vlastností účtu úložiště, které jsou k dispozici v Azure Stack. | [Určující Cloud](/windows-server/failover-clustering/deploy-cloud-witness) je typ určujícího disku kvora clusteru s podporou převzetí služeb při selhání, který používá Microsoft Azure k poskytnutí hlasu kvora clusteru.<br>Koncové body v globálním Azure v porovnání s Azure Stack můžou vypadat takto:<br>Pro globální Azure:<br>`https://mywitness.blob.core.windows.net/`<br>Pro Azure Stack:<br>`https://mywitness.blob.<region>.<FQDN>/`|
 | Diagnostika virtuálního počítače | Diagnostika virtuálního počítače se systémem Linux je podporována. | Diagnostika virtuálního počítače se systémem Linux není v Azure Stack podporována. Když nasadíte virtuální počítač se systémem Linux s povoleným diagnostikou virtuálních počítačů, nasazení se nezdařilo. Nasazení se také nepovede, pokud povolíte základní metriky virtuálního počítače se systémem Linux prostřednictvím nastavení diagnostiky. |
 
 ## <a name="vm-sizes"></a>Velikost virtuálních počítačů
@@ -63,13 +63,13 @@ V následující tabulce jsou uvedené virtuální počítače, které jsou podp
 |Obecné účely  |Dv2-series     |[D1_v2 – D5_v2](azure-stack-vm-sizes.md#ds-series)        |
 |Obecné účely  |DS-series      |[DS1 – DS4](azure-stack-vm-sizes.md#dv2-series)            |
 |Obecné účely  |DSv2-series    |[DS1_v2 – DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
-|Optimalizované z hlediska paměti |D-series       |[D11 – D14](azure-stack-vm-sizes.md#mo-d)            |
-|Optimalizované z hlediska paměti |DS-series      |[DS11 – DS14](azure-stack-vm-sizes.md#mo-ds)|
-|Optimalizované z hlediska paměti |Dv2-series     |[D11_v2 – DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
-|Optimalizované z hlediska paměti |DSv2-series    |[DS11_v2 – DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
-|Optimalizované z hlediska výpočetních služeb|F-series       |[F1 – F16 ÚROVNĚ](azure-stack-vm-sizes.md#f-series)    |
-|Optimalizované z hlediska výpočetních služeb|Řada FS      |[F1s úrovně – F16s úrovně](azure-stack-vm-sizes.md#fs-series)    |
-|Optimalizované z hlediska výpočetních služeb|Řada Fsv2    |[F2s_v2 – F64s_v2](azure-stack-vm-sizes.md#fsv2-series)    |
+|Optimalizované pro paměť. |D-series       |[D11 – D14](azure-stack-vm-sizes.md#mo-d)            |
+|Optimalizované pro paměť. |DS-series      |[DS11 – DS14](azure-stack-vm-sizes.md#mo-ds)|
+|Optimalizované pro paměť. |Dv2-series     |[D11_v2 – DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
+|Optimalizované pro paměť. |DSv2-series    |[DS11_v2 – DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
+|Optimalizované pro výpočty.|F-series       |[F1 – F16 ÚROVNĚ](azure-stack-vm-sizes.md#f-series)    |
+|Optimalizované pro výpočty.|Řada FS      |[F1s úrovně – F16s úrovně](azure-stack-vm-sizes.md#fs-series)    |
+|Optimalizované pro výpočty.|Řada Fsv2    |[F2s_v2 – F64s_v2](azure-stack-vm-sizes.md#fsv2-series)    |
 |GPU zapnuto      |Řada NVv4    |[NVv4](azure-stack-vm-sizes.md#nvv4-series) |
 
 Velikosti virtuálních počítačů a jejich přidružená množství prostředků jsou konzistentní mezi Azure Stack a Azure. Tato konzistence zahrnuje množství paměti, počet jader a počet a velikost datových disků, které lze vytvořit. Výkon virtuálních počítačů se stejnou velikostí ale závisí na základních charakteristikách konkrétního Azure Stackho prostředí.
@@ -136,12 +136,12 @@ Seznam podporovaných typů prostředků a verzí rozhraní API se může lišit
 
 ## <a name="windows-activation"></a>Aktivace Windows
 
-Produkty systému Windows musí být používány v souladu s právy k používání produktů a licenčními podmínkami společnosti Microsoft. Azure Stack pro aktivaci virtuálních počítačů s Windows serverem používá [automatickou aktivaci virtuálního počítače](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA).
+Produkty systému Windows musí být používány v souladu s právy k používání produktů a licenčními podmínkami společnosti Microsoft. Azure Stack pro aktivaci virtuálních počítačů s Windows serverem používá [automatickou aktivaci virtuálního počítače](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA).
 
 - Azure Stack hostitel aktivuje Windows pomocí klíčů AVMA pro Windows Server 2016. Všechny virtuální počítače, na kterých běží Windows Server 2012 R2 nebo novější, se automaticky aktivují.
-- Virtuální počítače s Windows Serverem 2012 nebo starším se neaktivují automaticky a musí se aktivovat pomocí aktivace pomocí kódu [MAK](https://technet.microsoft.com/library/ff793438.aspx). Pokud chcete použít aktivaci pomocí klíče k vícenásobné aktivaci, musíte zadat vlastní kód Product Key.
+- Virtuální počítače s Windows Serverem 2012 nebo starším se neaktivují automaticky a musí se aktivovat pomocí aktivace pomocí kódu [MAK](/previous-versions/tn-archive/ff793438(v=technet.10)). Pokud chcete použít aktivaci pomocí klíče k vícenásobné aktivaci, musíte zadat vlastní kód Product Key.
 
-Microsoft Azure používá k aktivaci virtuálních počítačů s Windows aktivaci pomocí služby správy klíčů. Pokud přesunete virtuální počítač z Azure Stack do Azure a dojde k problémům s aktivací, přečtěte si téma řešení potíží s [aktivací virtuálních počítačů Azure s Windows](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems). Další informace najdete v příspěvku na blogu týmu podpory pro Azure na virtuálních počítačích Azure, které se [týkají potíží s aktivací Windows](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) .
+Microsoft Azure používá k aktivaci virtuálních počítačů s Windows aktivaci pomocí služby správy klíčů. Pokud přesunete virtuální počítač z Azure Stack do Azure a dojde k problémům s aktivací, přečtěte si téma řešení potíží s [aktivací virtuálních počítačů Azure s Windows](/azure/virtual-machines/windows/troubleshoot-activation-problems). Další informace najdete v příspěvku na blogu týmu podpory pro Azure na virtuálních počítačích Azure, které se [týkají potíží s aktivací Windows](/archive/blogs/mast/troubleshooting-windows-activation-failures-on-azure-vms) .
 
 ## <a name="next-steps"></a>Další kroky
 

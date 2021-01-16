@@ -16,12 +16,12 @@ ms.date: 10/20/2020
 ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 10/20/2020
-ms.openlocfilehash: 605ce80e2f88f5c798c955d5ba45a49856086f2e
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 5d59532308239f9eda95ba9f81599235a8c8f61c
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872479"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255550"
 ---
 # <a name="mdc-requirements-overview"></a>Přehled požadavků na MDC
 
@@ -47,7 +47,7 @@ Každé z nich se skládá ze dvou 42U stojanů. Objekt pod zahrnuje přepínač
 
 V následující tabulce jsou uvedeny některé z podmínek, které jsou použity v této příručce.
 
-|Označení    |Definice |
+|Pojem    |Definice |
 |-------|-----------|
 |Hostitel životního cyklu hardwaru (HLH)|    HLH je fyzický server, který se používá k počátečnímu zavádění nasazení, a také průběžnou správu hardwaru, podporu a zálohování infrastruktury Azure Stack hub. HLH spouští Windows Server 2019 s desktopovým prostředím a rolí Hyper-V. Server slouží k hostování nástrojů pro správu hardwaru, nástrojů pro správu přepínačů, Azure Stack nástrojů centra partnerů a virtuálního počítače pro nasazení. |
 |Virtuální počítač pro nasazení (DVM)|    DVM je virtuální počítač, který se vytvoří v HLH po dobu trvání nasazení softwaru Azure Stack hub. DVM spouští modul orchestrace softwaru Azure Stack hub s názvem Enterprise Cloud Engine (EHK) pro instalaci a konfiguraci Azure Stack infrastruktury centra prostředků infrastruktury na všech serverech centra Azure Stack škály, které jsou v síti.|
@@ -65,9 +65,9 @@ Proces nasazení MDC se na vysoké úrovni skládá z těchto fází:
 ### <a name="planning-phase"></a>Plánovací fáze
 1. Plánování výkonu datového centra.
 1. Plánování konfigurace logické sítě Azure Stackho centra
-1. Plánování [integrace sítě Datacenter](https://docs.microsoft.com/azure-stack/operator/azure-stack-network).
-1. Plánování pro [integraci identity a zabezpečení](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
-1. Plánování [certifikátů PKI](https://docs.microsoft.com/azure-stack/operator/azure-stack-pki-certs).
+1. Plánování [integrace sítě Datacenter](../operator/azure-stack-network.md).
+1. Plánování pro [integraci identity a zabezpečení](/azure/security/fundamentals/identity-management-best-practices)
+1. Plánování [certifikátů PKI](../operator/azure-stack-pki-certs.md).
 
 ### <a name="preparation-phase"></a>Přípravná fáze
 1. Shromažďování inventáře.

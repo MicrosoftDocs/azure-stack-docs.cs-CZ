@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: a46ae218cbf4b041b836ad2f204093daa449c785
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 4df7cfa84ff9b4a08d6751aa19ffdb1430a80605
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874553"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256128"
 ---
 # <a name="required-knowledge-for-working-with-scale-unit-nodes-in-a-tactical-cloud-appliance"></a>Požadované znalosti pro práci s uzly jednotek škálování v cloudovém zařízení taktické
 
@@ -30,8 +30,8 @@ Další informace o službě Privileged Access Workstation a také o PEP najdete
 ## <a name="azure-stack-hub-administrator-portal"></a>Portál pro správu centra Azure Stack
 
 Získejte přihlašovací údaje a adresu URL portálu pro správu od zákazníka.
-Další informace najdete v tématu [použití portálu pro správu](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-portals) 
- [v centru Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-portals).
+Další informace najdete v tématu [použití portálu pro správu](../../operator/azure-stack-manage-portals.md) 
+ [v centru Azure Stack](../../operator/azure-stack-manage-portals.md).
 
 ## <a name="dell-emc-poweredge-r640-installation-and-service-manual"></a>Dell EMC PowerEdge R640 – ruční instalace a služba
 
@@ -46,4 +46,3 @@ Příručka ke službě cloudové zařízení taktické hub v centru Microsoft A
 ## <a name="dell-emc-poweredge-idrac"></a>Dell EMC PowerEdge iDRAC
 
 Musíte pochopit, jak můžete procházet a používat webové rozhraní Dell EMC PowerEdge iDRAC. Další informace o používání služby iDRAC najdete v tématu [integrovaná příručka Dell Remote Access Controller 9 User \' s](https://www.dell.com/support/manuals/us/en/04/poweredge-r840/idrac9_4.00.00.00_ug_new/overview-of-idrac?guid=guid-a03c2558-4f39-40c8-88b8-38835d0e9003).
-

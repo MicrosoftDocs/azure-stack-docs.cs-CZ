@@ -14,12 +14,12 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 2296d1228819d32f77ccc0dd35e4f2228908e969
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: eaf9431e3ca93f5f99c24154a96ad1e343bb2bf8
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910257"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255635"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli---modular-data-center-mdc"></a>Správa a nasazení prostředků do centra Azure Stack pomocí Azure CLI – modulární datové centrum (MDC)
 
@@ -47,7 +47,7 @@ Můžete nastavit veřejně přístupný koncový bod, který hostuje soubor s a
 
 ### <a name="install-or-upgrade-cli"></a>Instalace nebo upgrade rozhraní příkazového řádku
 
-Přihlaste se k vývojové pracovní stanici a nainstalujte rozhraní příkazového řádku. Azure Stack hub vyžaduje Azure CLI verze 2,0 nebo novější. Nejnovější verze profilů rozhraní API vyžaduje aktuální verzi rozhraní příkazového řádku. Rozhraní příkazového řádku nainstalujete pomocí postupu popsaného v článku [instalace Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) . 
+Přihlaste se k vývojové pracovní stanici a nainstalujte rozhraní příkazového řádku. Azure Stack hub vyžaduje Azure CLI verze 2,0 nebo novější. Nejnovější verze profilů rozhraní API vyžaduje aktuální verzi rozhraní příkazového řádku. Rozhraní příkazového řádku nainstalujete pomocí postupu popsaného v článku [instalace Azure CLI](/cli/azure/install-azure-cli) . 
 
 Chcete-li ověřit, zda byla instalace úspěšná, otevřete okno terminálu nebo příkazového řádku a spusťte následující příkaz:
 
@@ -218,4 +218,4 @@ Při použití rozhraní příkazového řádku v Azure Stackovém centru jsou z
 
 - [Nasazení šablon pomocí Azure CLI](../user/azure-stack-deploy-template-command-line.md)
 - [Povolení Azure CLI pro uživatele centra Azure Stack (operátor)](../operator/azure-stack-cli-admin.md)
-- [Správa uživatelských oprávnění](../operator/azure-stack-manage-permissions.md) 
+- [Správa uživatelských oprávnění](../operator/azure-stack-manage-permissions.md)

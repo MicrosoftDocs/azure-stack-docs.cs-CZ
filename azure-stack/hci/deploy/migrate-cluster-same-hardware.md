@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/10/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: ea19dbbdd85f29eb036a0220828bbbb7bca33ea7
-ms.sourcegitcommit: d91d44762383790a0bcfc4a85f43050c8528d5d2
+ms.openlocfilehash: d1e033ed2b8bbae2968be8125c7d0dccb3e9f3cf
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97069800"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254632"
 ---
 # <a name="migrate-to-azure-stack-hci-on-same-hardware"></a>Migrace na Azure Stack HCI na stejném hardwaru
 
@@ -36,7 +36,7 @@ Před zahájením migrace je potřeba vzít v úvahu několik požadavků a věc
 
 - Musíte mít přihlašovací údaje domény s oprávněním správce pro Azure Stack HCI.
 
-- Zálohujte všechny virtuální počítače ve zdrojovém clusteru. Dokončete zálohování všech aplikací a dat konzistentní s chybou a zálohou všech databází konzistentních vzhledem k aplikacím.  Informace o zálohování do Azure najdete v tématu [použití Azure Backup](https://docs.microsoft.com/azure-stack/hci/manage/use-azure-backup).
+- Zálohujte všechny virtuální počítače ve zdrojovém clusteru. Dokončete zálohování všech aplikací a dat konzistentní s chybou a zálohou všech databází konzistentních vzhledem k aplikacím.  Informace o zálohování do Azure najdete v tématu [použití Azure Backup](../manage/use-azure-backup.md).
 
 - Shromážděte inventář a konfiguraci všech uzlů clusteru a názvů clusterů, konfigurace sítě, sdílený svazek clusteru (CSV) odolnost a určující kapacitu kvora.
 
@@ -181,7 +181,7 @@ Další informace o tom, jak vytvořit cluster pomocí prostředí PowerShell, n
     Get-StoragePool | ? IsPrimordial -eq $false | ft FriendlyName,Version
     ```
 
-1. Vytvořte určující disk kvora. Informace o tom, jak najdete v tématu [Nastavení určujícího clusteru](https://docs.microsoft.com/azure-stack/hci/deploy/witness).
+1. Vytvořte určující disk kvora. Informace o tom, jak najdete v tématu [Nastavení určujícího clusteru](./witness.md).
 
 1. Ověřte, zda jsou úlohy opravy úložiště dokončeny pomocí následujících kroků:
 

@@ -7,12 +7,12 @@ ms.date: 02/26/2020
 ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: cb2fb8ce9ad1b24430cf545eba3f31ac9e754c43
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: b29bade546862c783d0ba8e10f242b4e8a828fcb
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974315"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255924"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Pomoc a podpora centra Azure Stack
 
@@ -66,8 +66,8 @@ Tato sada kurzů je přizpůsobená v závislosti na tom, jestli používáte AS
 
 Diagnostické protokoly můžete společnosti Microsoft odeslat dvěma způsoby:
 
-- [Odeslat protokoly interaktivně](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively): Pokud je tato možnost povolená, spustí se shromažďování protokolů konkrétními upozorněními na stav.
-- [Odeslat protokoly nyní](./azure-stack-diagnostic-log-collection-overview.md#send-logs-now): jako časový rámec pro shromažďování protokolů můžete zvolit konkrétní posuvné okno.
+- [Odeslat protokoly interaktivně](./diagnostic-log-collection.md#send-logs-proactively): Pokud je tato možnost povolená, spustí se shromažďování protokolů konkrétními upozorněními na stav.
+- [Odeslat protokoly nyní](./diagnostic-log-collection.md#send-logs-now): jako časový rámec pro shromažďování protokolů můžete zvolit konkrétní posuvné okno.
 
 ![Snímek obrazovky, který ukazuje, jak spustit shromažďování diagnostických protokolů.](media/azure-stack-help-and-support/banner-enable-automatic-log-collection.png)
 
@@ -83,7 +83,7 @@ Od verze 1907 existují dva nové způsoby, jak shromažďovat protokoly v **ná
 
 ![Možnosti shromažďování protokolů diagnostiky](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
 
-Integrované systémy můžou sdílet diagnostické protokoly s podpora Microsoftu. Vzhledem k tomu, že Azure Stack Development Kit (ASDK) je zkušební prostředí, není podpora Microsoftu podporováno. Další informace najdete v tématu [Přehled shromažďování protokolů diagnostiky centra Azure Stack](azure-stack-diagnostic-log-collection-overview.md).
+Integrované systémy můžou sdílet diagnostické protokoly s podpora Microsoftu. Vzhledem k tomu, že Azure Stack Development Kit (ASDK) je zkušební prostředí, není podpora Microsoftu podporováno. Další informace najdete v tématu [Přehled shromažďování protokolů diagnostiky centra Azure Stack](./diagnostic-log-collection.md).
 
 ## <a name="help-and-support-for-earlier-releases-azure-stack-hub-pre-1905"></a>Pomoc a podpora pro starší verze Azure Stack centra (pre-1905)
 
@@ -105,6 +105,6 @@ V pravém horním rohu portálu pro správu vyberte **Nápověda** (otazník) a 
 
 ## <a name="next-steps"></a>Další kroky
 
-- Přečtěte si o [shromažďování protokolů diagnostiky](./azure-stack-diagnostic-log-collection-overview.md).
+- Přečtěte si o [shromažďování protokolů diagnostiky](./diagnostic-log-collection.md).
 - Přečtěte si, jak [najít ID cloudu](azure-stack-find-cloud-id.md).
 - Přečtěte si o [řešení potíží s Azure Stack hub](azure-stack-troubleshooting.md).

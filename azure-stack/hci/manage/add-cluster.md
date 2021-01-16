@@ -6,12 +6,12 @@ author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
 ms.date: 01/06/2021
-ms.openlocfilehash: 8b27859b7afab0a6e279774e43d0269f6d58065a
-ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
+ms.openlocfilehash: 77f1800323f57721d3f6f70050841e4adf0fd4c5
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98103122"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254734"
 ---
 # <a name="add-or-remove-servers-for-an-azure-stack-hci-cluster"></a>Přidání nebo odebrání serverů pro Azure Stack clusteru HCI
 
@@ -71,9 +71,9 @@ Pokud si chcete přehrát video při přidávání uzlů serveru do roztaženéh
 
 > [!VIDEO https://www.youtube.com/embed/AVHPkRmsZ5Y]
 
-Servery můžete přidat nebo odebrat do roztaženého clusteru pomocí prostředí Windows PowerShell. Pomocí rutin [Get-ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusterfaultdomainxml) a [set-ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterfaultdomainxml) nejprve před přidáním serverů upravíte informace o lokalitě (doména selhání).
+Servery můžete přidat nebo odebrat do roztaženého clusteru pomocí prostředí Windows PowerShell. Pomocí rutin [Get-ClusterFaultDomainXML](/powershell/module/failoverclusters/get-clusterfaultdomainxml) a [set-ClusterFaultDomainXML](/powershell/module/failoverclusters/set-clusterfaultdomainxml) nejprve před přidáním serverů upravíte informace o lokalitě (doména selhání).
 
-Pak můžete přidat dvojici serverů do každé lokality současně pomocí rutiny [Add-ClusterNode](https://docs.microsoft.com/powershell/module/failoverclusters/add-clusternode) a umožnit tak přidávání jednotlivých jednotek na novém serveru současně.
+Pak můžete přidat dvojici serverů do každé lokality současně pomocí rutiny [Add-ClusterNode](/powershell/module/failoverclusters/add-clusternode) a umožnit tak přidávání jednotlivých jednotek na novém serveru současně.
 
 Obvykle budete spravovat clustery ze vzdáleného počítače, nikoli na serveru v clusteru. Tento vzdálený počítač se nazývá počítač pro správu.
 
@@ -167,7 +167,7 @@ Po úspěšném přidání serverů jsou přidružené jednotky automaticky při
 
 ## <a name="remove-server-pairs-from-a-stretched-cluster"></a>Odebrání dvojic serveru z roztaženého clusteru
 
-Odebrání dvojice serveru z roztaženého clusteru je podobný proces pro přidání dvojice serverů, ale místo toho použijte rutinu [Remove-ClusterNode](https://docs.microsoft.com/powershell/module/failoverclusters/remove-clusternode) .
+Odebrání dvojice serveru z roztaženého clusteru je podobný proces pro přidání dvojice serverů, ale místo toho použijte rutinu [Remove-ClusterNode](/powershell/module/failoverclusters/remove-clusternode) .
 
 1. K určení stavu clusteru použijte následující rutiny PowerShellu:
 

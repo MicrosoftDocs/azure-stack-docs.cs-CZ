@@ -8,12 +8,12 @@ ms.date: 03/04/2020
 ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: a79fcab4bb96eb7e32121095c521e4db0a3b02f9
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: 4f9a6e7ddd52ece2b417221ded8afe9d92c16bca
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97973261"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255720"
 ---
 # <a name="start-and-stop-azure-stack-hub"></a>Spuštění a zastavení centra Azure Stack
 
@@ -84,4 +84,4 @@ Následující kroky proveďte v případě, že se infrastruktura a služby ten
 
 ## <a name="next-steps"></a>Další kroky
 
-Další informace o [diagnostických nástrojích centra Azure Stack](./azure-stack-diagnostic-log-collection-overview.md)
+Další informace o [diagnostických nástrojích centra Azure Stack](./diagnostic-log-collection.md)

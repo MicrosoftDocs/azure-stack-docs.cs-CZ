@@ -16,12 +16,12 @@ ms.date: 10/14/2020
 ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: 0fd077f405256ff0a112dd9730cdc3e8fefb10f8
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: e6fccf96e44a481a0e1e0c5bb300ec238937f86b
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867532"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256179"
 ---
 # <a name="azure-stack-hub-ruggedized-deployment-overview"></a>Přehled robustního nasazení centra Azure Stack
 
@@ -38,7 +38,7 @@ Tato příručka pro nasazení je určená pro tým Microsoft Field Professional
 
 K úplnému pochopení obsahu tohoto průvodce se vyžaduje technické prostředí s virtualizací, servery, operačními systémy, sítěmi a řešeními úložiště. Inženýr nasazení musí mít znalosti Microsoft Windows serveru 2019 s Hyper-V, Azure Stack hub, Azure a Microsoft PowerShellem.
 
-Tato příručka se zaměřuje na nasazení základních komponent centra Microsoft Azure Stack a specifikuje řešení robustního řešení centra Azure Stack. Průvodce nevysvětluje provozní postupy centra Azure Stack a nezahrnuje všechny funkce, které jsou dostupné v centru Azure Stack. Další informace najdete v tématu [Průvodce operátorem centra Azure Stack](https://docs.microsoft.com/azure-stack/operator/).
+Tato příručka se zaměřuje na nasazení základních komponent centra Microsoft Azure Stack a specifikuje řešení robustního řešení centra Azure Stack. Průvodce nevysvětluje provozní postupy centra Azure Stack a nezahrnuje všechny funkce, které jsou dostupné v centru Azure Stack. Další informace najdete v tématu [Průvodce operátorem centra Azure Stack](../operator/index.yml).
 
 ## <a name="introduction"></a>Úvod
 
@@ -52,7 +52,7 @@ Každé SU pod sebou obsahuje dva Azure Stack hub robustní servery R640 SU. Jed
 
 V následující tabulce jsou uvedeny některé z podmínek, které jsou použity v této příručce.
 
-|Označení   | Definice |
+|Pojem   | Definice |
 |-------|------------|
 |Hostitel životního cyklu hardwaru (HLH)| HLH je fyzický server, který se používá k počátečnímu zavádění nasazení, a také průběžnou správu hardwaru, podporu a zálohování infrastruktury Azure Stack hub. HLH spouští Windows Server 2019 s desktopovým prostředím a rolí Hyper-V. Server slouží k hostování nástrojů pro správu hardwaru, nástrojů pro správu přepínačů, Azure Stack nástrojů centra partnerů a virtuálního počítače pro nasazení. |
 |Virtuální počítač pro nasazení (DVM)|  DVM je virtuální počítač, který se vytvoří v HLH po dobu trvání nasazení softwaru Azure Stack hub. DVM spouští modul orchestrace softwaru Azure Stack hub s názvem Enterprise Cloud Engine (EHK) pro instalaci a konfiguraci Azure Stack infrastruktury centra prostředků infrastruktury na všech serverech centra Azure Stack škály, které jsou v síti.|

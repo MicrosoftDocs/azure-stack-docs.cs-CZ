@@ -8,12 +8,12 @@ ms.date: 12/10/2020
 ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 12/10/2020
-ms.openlocfilehash: 4c5117469e1a568252e23f2794996f8d367942af
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: ff3164e16262ecfd4cdf84bbdb5fbb24942fc6ab
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974247"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255703"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Řešení potíží v centru Azure Stack
 
@@ -30,7 +30,7 @@ Tyto části obsahují odkazy na dokumenty, které pokrývají běžné otázky 
 
 ### <a name="updates-and-diagnostics"></a>Aktualizace a diagnostika
 
-* [Použití diagnostických nástrojů v centru Azure Stack](./azure-stack-diagnostic-log-collection-overview.md)
+* [Použití diagnostických nástrojů v centru Azure Stack](./diagnostic-log-collection.md)
 * [Ověření stavu systému Azure Stack hub](azure-stack-diagnostic-test.md)
 * [Aktualizace tempo verze balíčku](azure-stack-servicing-policy.md#update-package-release-cadence)
 * [Ověření a řešení potíží se stavem uzlu](azure-stack-node-actions.md)
@@ -46,7 +46,7 @@ Tyto části obsahují odkazy na dokumenty, které pokrývají běžné otázky 
 
 ### <a name="manage-capacity"></a>Správa kapacity
 
-#### <a name="memory"></a>Paměť
+#### <a name="memory"></a>Memory (Paměť)
 
 Pokud chcete zvýšit celkovou dostupnou kapacitu paměti pro centrum Azure Stack, můžete přidat další paměť. V Azure Stackovém centru se váš fyzický server označuje také jako uzel jednotky škálování. Všechny uzly jednotek škálování, které jsou členy jedné jednotky škálování, musí mít [stejnou velikost paměti](azure-stack-manage-storage-physical-memory-capacity.md).
 
@@ -199,11 +199,11 @@ Pokud skript Create-AADIdentityApp.ps1, který je požadován pro App Service, s
 
 Proces aktualizace a aktualizace centra Azure Stack slouží k tomu, aby operátoři mohli instalovat balíčky aktualizací konzistentním a efektivnějším způsobem. V neobvyklém případě mohou nastat problémy během procesu aktualizace a aktualizace. V následujících krocích se doporučuje, abyste při procesu aktualizace a aktualizace nastavili problém:
 
-0. **Požadavky**: Ujistěte se, že jste následovali [Kontrolní seznam aktivity aktualizace](release-notes-checklist.md) a [povolili proaktivní shromažďování protokolů](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively).
+0. **Požadavky**: Ujistěte se, že jste následovali [Kontrolní seznam aktivity aktualizace](release-notes-checklist.md) a [povolili proaktivní shromažďování protokolů](./diagnostic-log-collection.md#send-logs-proactively).
 
 1. Postupujte podle kroků pro nápravu v upozornění na selhání vytvořeného při selhání aktualizace.
 
-2. Pokud jste tento problém nedokázali vyřešit, vytvořte [lístek podpory centra Azure Stack](./azure-stack-help-and-support-overview.md). Ujistěte se, že máte [shromážděné protokoly](./azure-stack-diagnostic-log-collection-overview.md#send-logs-now) pro časové období, kdy k problému došlo.
+2. Pokud jste tento problém nedokázali vyřešit, vytvořte [lístek podpory centra Azure Stack](./azure-stack-help-and-support-overview.md). Ujistěte se, že máte [shromážděné protokoly](./diagnostic-log-collection.md#send-logs-now) pro časové období, kdy k problému došlo.
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>Běžné problémy s opravou a aktualizacemi centra Azure Stack
 

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/25/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 2d31294b2b3a402efcfd4376988d1de6c3dbabd1
-ms.sourcegitcommit: 26901a61a44390bc9b7804c22018c213036e680d
+ms.openlocfilehash: 3e31852e554c85ffab18aacaa336a007a97874f2
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96355528"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255295"
 ---
 # <a name="host-network-requirements-for-azure-stack-hci"></a>Požadavky na síť hostitele pro Azure Stack HCI
 
@@ -156,7 +156,7 @@ SADA poskytuje další funkce nad LBFO, včetně vylepšení kvality a výkonu. 
 - rychlost (propustnost)
 - konfigurace
 
-Nejjednodušší způsob, jak zjistit, jestli jsou adaptéry symetrické, je, pokud jsou tyto rychlosti stejné a popisy rozhraní se shodují. Můžou se odchýlit jenom v číslicích uvedených v popisu. Pomocí [`Get-NetAdapterAdvancedProperty`](https://docs.microsoft.com/powershell/module/netadapter/get-netadapteradvancedproperty) rutiny ověřte, že nahlášená konfigurace obsahuje seznam stejných hodnot vlastností.
+Nejjednodušší způsob, jak zjistit, jestli jsou adaptéry symetrické, je, pokud jsou tyto rychlosti stejné a popisy rozhraní se shodují. Můžou se odchýlit jenom v číslicích uvedených v popisu. Pomocí [`Get-NetAdapterAdvancedProperty`](/powershell/module/netadapter/get-netadapteradvancedproperty) rutiny ověřte, že nahlášená konfigurace obsahuje seznam stejných hodnot vlastností.
 
 V následující tabulce najdete příklad popisů rozhraní, které se odchylují jenom od číslic (#):
 
@@ -298,6 +298,6 @@ Roztažené clustery mají následující požadavky a charakteristiky:
 
 - Přečtěte si o síťových přepínačích a požadavcích na fyzickou síť. Viz [požadavky na fyzickou síť](physical-network-requirements.md).
 - Vyštětcte se základy clusteringu s podporou převzetí služeb při selhání. Informace najdete v tématu [Základy práce s clustery](https://techcommunity.microsoft.com/t5/failover-clustering/failover-clustering-networking-basics-and-fundamentals/ba-p/1706005?s=09)
-- Zapnout štětce při použití SET Viz [přímý přístup do paměti vzdáleného počítače (RDMA) a Switch Embedded Teaming (set)](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming) .
-- Informace k nasazení najdete v tématu [Vytvoření clusteru pomocí centra pro správu Windows](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster) .
-- Informace k nasazení najdete v tématu [Vytvoření clusteru pomocí Windows PowerShellu](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster-powershell) .
+- Zapnout štětce při použití SET Viz [přímý přístup do paměti vzdáleného počítače (RDMA) a Switch Embedded Teaming (set)](/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming) .
+- Informace k nasazení najdete v tématu [Vytvoření clusteru pomocí centra pro správu Windows](../deploy/create-cluster.md) .
+- Informace k nasazení najdete v tématu [Vytvoření clusteru pomocí Windows PowerShellu](../deploy/create-cluster-powershell.md) .

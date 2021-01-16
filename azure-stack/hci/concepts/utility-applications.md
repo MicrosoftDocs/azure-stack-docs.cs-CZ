@@ -5,12 +5,12 @@ author: burcuerdemir
 ms.author: burcue
 ms.topic: conceptual
 ms.date: 12/18/2020
-ms.openlocfilehash: 7f18a85b30dad52a10d2fc63d9966b05cf0331ff
-ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
+ms.openlocfilehash: ec7623243c09ffc93036ada1927cbe62acad0b9d
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97697722"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254955"
 ---
 # <a name="utility-applications-for-azure-stack-hci"></a>Pomocné aplikace pro Azure Stack HCI
 
@@ -63,4 +63,4 @@ Služby Datadog je plně sjednocená platforma, která zahrnuje monitorování i
 ## <a name="next-steps"></a>Další kroky
 Další informace najdete v tématu také:
 - [Azure Stack HCI](https://azure.microsoft.com/products/azure-stack/hci/)
-- [Antivirová ochrana v programu Microsoft Defender](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-antivirus/microsoft-defender-antivirus-in-windows-10)
+- [Antivirová ochrana v programu Microsoft Defender](/windows/security/threat-protection/microsoft-defender-antivirus/microsoft-defender-antivirus-in-windows-10)

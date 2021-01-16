@@ -6,12 +6,12 @@ ms.author: yiygu
 ms.service: azure-stack
 ms.topic: how-to
 ms.date: 1/6/2020
-ms.openlocfilehash: ca410a3ec5b66a3ab3243ae06f82f4cb736af836
-ms.sourcegitcommit: 0e3296fb27b9dabbc2569bf85656c4c7b1d58ba9
+ms.openlocfilehash: 3fe1459d28c399269ccdb1d4cffed024bd741000
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93049804"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255737"
 ---
 # <a name="how-to-manage-iot-hub-on-azure-stack-hub"></a>Správa IoT Hub v centru Azure Stack
 
@@ -31,11 +31,11 @@ Přístup k řídicímu panelu pro správu IoT Hub:
 
    [![řídicí panel centra IoT Hub – přehled](media\iot-hub-rp-manage\dashboard-rp-iot-hub-overview.png)](media\iot-hub-rp-manage-capacity\dashboard-rp-iot-hub-overview.png#lightbox)
 
-## <a name="alerts"></a>Výstrahy
+## <a name="alerts"></a>Upozornění
 
 Poskytovatel prostředků IoT Hub podporuje následující výstrahy:
 
-|Kategorie|Výstrahy|Typ|Description|
+|Kategorie|Výstrahy|Typ|Popis|
 |-|-|-|-|
 |Výkon|IoT Hub využití procesoru vyžaduje pozornost.|Upozornění|Průměr% využití CPU poskytovatele prostředků IoT Hub za posledních 6 hodin je větší než 75%.|
 |Výkon|Použití IoT Hub paměti vyžaduje pozornost.|Upozornění|Zbývající využití paměti poskytovatele prostředků IoT Hub za posledních 6 hodin má méně než 1024 MB.|
@@ -72,7 +72,7 @@ Jako operátor můžete instanci centra Azure Stack spravovat a provozovat stejn
 
 Chcete-li určit požadovanou kapacitu pro IoT Hub, budete muset odhadnout zatížení, hlavně počet zařízení a propustnost zprávy. Abychom vám pomohli s plánováním, provedli jsme následující testy v prostředí centra Azure Stack se čtyřmi uzly pro referenci:
 
-| Scénář | Virtuální počítače | Virtuální jádra | Zařízení/centrum | [Edice centra](https://azure.microsoft.com/pricing/details/iot-hub) | Centra | Jednotky a centrum | Celkem zařízení | Celkem jednotek centra | Miliony zpráv za den |
+| Scenario | Virtuální počítače | Virtuální jádra | Zařízení/centrum | [Edice centra](https://azure.microsoft.com/pricing/details/iot-hub) | Centra | Jednotky a centrum | Celkem zařízení | Celkem jednotek centra | Miliony zpráv za den |
 |----------|---------------|------------------|-----------------------|-------------------|-|-|-|-|-|
 |Výchozí|5|20|300 000|S2|4|200|1 200 000|800|4 800|
 |12 virtuálních počítačů|12|48|500 000|S2|4|200|2 000 000|800|4 800|
@@ -90,7 +90,7 @@ Monitorování a změna nastavení kapacity:
 
 1. Vyberte zobrazení **kapacity** na levé straně. Zobrazí se stav kapacity včetně počtu virtuálních počítačů zřízených v clusteru IoT Hub a jejich využití prostředků. Počet zobrazených uzlů je aktuální počet uzlů přidělených IoT Hub. 
 
-2. Pokud chcete zvýšit kapacitu, vyberte IoT Hub název clusteru, změňte počet uzlů a pak vyberte **aktualizovat škálování** . Kapacitu můžete zvýšit tak, že přidáte tolik virtuálních počítačů jako dostupné prostředky k dispozici.
+2. Pokud chcete zvýšit kapacitu, vyberte IoT Hub název clusteru, změňte počet uzlů a pak vyberte **aktualizovat škálování**. Kapacitu můžete zvýšit tak, že přidáte tolik virtuálních počítačů jako dostupné prostředky k dispozici.
 
    > [!IMPORTANT]
    > Pro verzi Preview se podporuje jenom IoT Hub škálování clusteru na více instancí (menší až větší). Škálování (s větším až menším) bude podporováno v IoT Hub verze obecné dostupnosti (GA).
@@ -104,5 +104,4 @@ Další informace o:
 
 Azure Stack možnosti monitorování centra, včetně upozorňování, najdete v tématu [monitorování stavu a výstrah](azure-stack-monitor-health.md).
 
-Shromažďování protokolů centra Azure Stack najdete v tématu [přehled Azure Stackho diagnostického protokolu](azure-stack-diagnostic-log-collection-overview.md).
-
+Shromažďování protokolů centra Azure Stack najdete v tématu [přehled Azure Stackho diagnostického protokolu](./diagnostic-log-collection.md).

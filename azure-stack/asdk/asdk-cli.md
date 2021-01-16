@@ -7,18 +7,18 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 7b408e28ff70e66c0460473f54304cbf50fa2c92
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 32a09b833e2e5a76abf0c9a6c67540ca124bfe94
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96524676"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254581"
 ---
 # <a name="setting-up-certificates-for-azure-cli-on-azure-stack-development-kit"></a>Nastavení certifikátů pro Azure CLI v Azure Stack Development Kit
 
 Podle kroků v tomto článku nastavte rozhraní příkazového řádku Azure Command-Line pro správu prostředků Azure Stack Development Kit (ASDK) z klientských platforem Linux, Mac a Windows.
 
-Tento článek popisuje získání certifikátů a jejich důvěřování na počítači pro vzdálenou správu. Informace o instalaci Azure CLI a připojení k prostředí najdete v tématu Instalace rozhraní příkazového [řádku Azure CLI do centra Azure Stack](/azure-stack/user/azure-stack-version-profiles-azurecli2).
+Tento článek popisuje získání certifikátů a jejich důvěřování na počítači pro vzdálenou správu. Informace o instalaci Azure CLI a připojení k prostředí najdete v tématu Instalace rozhraní příkazového [řádku Azure CLI do centra Azure Stack](../user/azure-stack-version-profiles-azurecli2.md).
 
 ## <a name="prepare-for-azure-cli"></a>Příprava pro Azure CLI
 
@@ -93,7 +93,7 @@ Pokud chcete používat Azure CLI s aSDK, musíte důvěřovat kořenovému cert
       python -c "import certifi; print(certifi.where())"
     ```
 
-    Poznamenejte si umístění certifikátu. Například, `~/lib/python3.5/site-packages/certifi/cacert.pem`. Vaše konkrétní cesta závisí na vašem operačním systému a verzi Pythonu, kterou jste nainstalovali.
+    Poznamenejte si umístění certifikátu. Například `~/lib/python3.5/site-packages/certifi/cacert.pem`. Vaše konkrétní cesta závisí na vašem operačním systému a verzi Pythonu, kterou jste nainstalovali.
 
 2. Důvěřování kořenovému certifikátu certifikační autority centra Azure Stack tak, že ho připojíte k existujícímu certifikátu Pythonu.
 
@@ -126,7 +126,7 @@ Pokud chcete používat Azure CLI s aSDK, musíte důvěřovat kořenovému cert
     Write-Host "Python Cert store was updated to allow the Azure Stack Hub CA root certificate"
     ```
 
-Pokyny k instalaci a připojení pomocí Azure CLI najdete v tématu Instalace rozhraní příkazového [řádku Azure CLI do centra Azure Stack](/azure-stack/user/azure-stack-version-profiles-azurecli2).
+Pokyny k instalaci a připojení pomocí Azure CLI najdete v tématu Instalace rozhraní příkazového [řádku Azure CLI do centra Azure Stack](../user/azure-stack-version-profiles-azurecli2.md).
 
 ### <a name="linux"></a>[Linux](#tab/lin)
 
@@ -138,7 +138,7 @@ Při nastavování CLI důvěřujete kořenovému certifikátu CA centra Azure S
     az --version
     ```
 
-    Poznamenejte si umístění certifikátu. Například, `~/lib/python3.5/site-packages/certifi/cacert.pem`. Vaše konkrétní cesta závisí na vašem operačním systému a verzi Pythonu, kterou jste nainstalovali.
+    Poznamenejte si umístění certifikátu. Například `~/lib/python3.5/site-packages/certifi/cacert.pem`. Vaše konkrétní cesta závisí na vašem operačním systému a verzi Pythonu, kterou jste nainstalovali.
 
 2. Spusťte následující příkaz bash s cestou k vašemu certifikátu.
 
@@ -154,7 +154,7 @@ Při nastavování CLI důvěřujete kořenovému certifikátu CA centra Azure S
      sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
      ```
 
-Pokyny k instalaci a připojení pomocí Azure CLI najdete v tématu Instalace rozhraní příkazového [řádku Azure CLI do centra Azure Stack](/azure-stack/user/azure-stack-version-profiles-azurecli2).
+Pokyny k instalaci a připojení pomocí Azure CLI najdete v tématu Instalace rozhraní příkazového [řádku Azure CLI do centra Azure Stack](../user/azure-stack-version-profiles-azurecli2.md).
 
 ---
 

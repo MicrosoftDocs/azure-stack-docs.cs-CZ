@@ -7,12 +7,12 @@ ms.date: 12/23/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 3c10ea13f3780a7c7e1e0f999d8203d4d03f4e49
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: 9276cff891cd4f69c35c0890a2bf02108407bbe0
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974145"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256060"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -64,7 +64,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Co je nového
+### <a name="whats-new"></a>Novinky
 
 <!-- What's new, also net new experiences and features. -->
 - Azure Stack hub teď podporuje partnerský vztah VNET, který umožňuje připojení virtuální sítě bez síťového virtuálního zařízení (síťové virtuální zařízení). Další informace najdete v [dokumentaci nové sítě VNet peering](../user/virtual-network-peering.md).
@@ -159,7 +159,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Co je nového
+### <a name="whats-new"></a>Novinky
 
 <!-- What's new, also net new experiences and features. -->
 - Toto sestavení nabízí podporu 3 nových typů virtuálních počítačů GPU: NCv3 (NVIDIA V100), NVv4 (AMD MI25) a NCas_v4 (NVIDIA T4) velikosti virtuálních počítačů. Nasazení virtuálních počítačů bude úspěšné pro uživatele, kteří mají správný hardware a jsou připojeni do programu Azure Stack hub GPU ve verzi Preview. Pokud vás zajímá, zaregistrujte se do programu pro zobrazení GPU v https://aka.ms/azurestackhubgpupreview . Další informace [najdete v tématu](../user/gpu-vms-about.md).
@@ -262,7 +262,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- The current theme (if any) of this release. -->
 
-### <a name="whats-new"></a>Co je nového
+### <a name="whats-new"></a>Novinky
 
 <!-- What's new, also net new experiences and features. -->
 
@@ -282,8 +282,8 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 - Nástroj pro kontrolu připravenosti centra Azure Stack nyní ověřuje integraci služby AD Graph pomocí všech portů IP protokolu TCP přidělených ke službě AD Graph.
 - Nástroj pro syndikaci offline byl aktualizován o vylepšení spolehlivosti. Nástroj už není dostupný na GitHubu a [přesunul se do galerie prostředí PowerShell](https://www.powershellgallery.com/packages/Azs.Syndication.Admin/). Další informace najdete v tématu [stažení položek Marketplace do centra Azure Stack](azure-stack-download-azure-marketplace-item.md).
 - Zavádí se nová funkce monitorování. Upozornění na nedostatek místa na disku pro fyzické hostitele a virtuální počítače infrastruktury bude automaticky opraveno platformou a jenom v případě, že tato akce selže, výstraha se zobrazí na portálu pro správu centra Azure Stack, aby mohl obsluhu provést akci.
-- Vylepšení [shromažďování protokolů diagnostiky](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002&preserve-view=true). Nové prostředí zjednodušuje a zjednodušuje shromažďování protokolů diagnostiky tím, že v předem odebere nutnost konfigurace účtu BLOB Storage. Prostředí úložiště je předem nakonfigurované tak, aby bylo možné odesílat protokoly před otevřením případu podpory a strávíte méně času při volání podpory.
-- Čas potřebný pro [proaktivní shromažďování protokolů i pro shromažďování protokolů na vyžádání](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002&preserve-view=true) byl snížen o 80%. Doba shromažďování protokolů může trvat déle než tato očekávaná hodnota, ale nevyžaduje akci Azure Stack operátory centra, pokud není shromažďování protokolů úspěšné.
+- Vylepšení [shromažďování protokolů diagnostiky](./diagnostic-log-collection.md?preserve-view=true&view=azs-2002). Nové prostředí zjednodušuje a zjednodušuje shromažďování protokolů diagnostiky tím, že v předem odebere nutnost konfigurace účtu BLOB Storage. Prostředí úložiště je předem nakonfigurované tak, aby bylo možné odesílat protokoly před otevřením případu podpory a strávíte méně času při volání podpory.
+- Čas potřebný pro [proaktivní shromažďování protokolů i pro shromažďování protokolů na vyžádání](./diagnostic-log-collection.md?preserve-view=true&view=azs-2002) byl snížen o 80%. Doba shromažďování protokolů může trvat déle než tato očekávaná hodnota, ale nevyžaduje akci Azure Stack operátory centra, pokud není shromažďování protokolů úspěšné.
 - Průběh stahování balíčku aktualizace centra Azure Stack je teď v okně aktualizace po zahájení aktualizace viditelný. To platí jenom pro připojené systémy centra Azure Stack, které se rozhodnou [připravit balíčky aktualizací prostřednictvím automatického stažení](azure-stack-update-prepare-package.md#automatic-download-and-preparation-for-update-packages).
 - Vylepšení spolehlivosti agenta hostitele síťového adaptéru.
 - Představili jsme novou mikroslužbu nazvanou DNS Orchestrator, která během opravy a aktualizace vylepšuje logiku pro interní služby DNS.

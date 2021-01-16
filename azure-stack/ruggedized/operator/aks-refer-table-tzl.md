@@ -15,12 +15,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.lastreviewed: 12/05/2019
 ms.reviewer: efemmano
-ms.openlocfilehash: 780a8d7bfde9afca01a0e2c60dd6e8f772e06735
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: f4506ac5eb606d4def07fcc741ed5ad1c4900783
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867345"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256094"
 ---
 # <a name="alerts-akams-link-reference-for-azure-stack-hub"></a>Odkaz na odkaz na aka.msu výstrahy pro centrum Azure Stack
 
@@ -37,7 +37,7 @@ Tento článek obsahuje alternativní odkaz na odkazy individuální aka.ms a je
 | `https://aka.ms/azurestackaddcapacity` | [Přidání dalších uzlů jednotek škálování ve službě Azure Stack](../../operator/azure-stack-add-scale-node.md) |
 | `https://aka.ms/azurestackaddnode` | [Přidání dalších uzlů jednotek škálování ve službě Azure Stack](../../operator/azure-stack-add-scale-node.md) |
 | `https://aka.ms/azurestackhealthreport` | [https://github.com/Azure/AzureStack-Tools/blob/master/Identity/README.md#retrieve-azure-stack-identity-health-report](https://aka.ms/aa708dy) |
-| `https://aka.ms/azurestacklogfiles` | [Shromažďovat protokoly diagnostiky Azure Stack na vyžádání](../../operator/azure-stack-configure-on-demand-diagnostic-log-collection-portal.md) |
+| `https://aka.ms/azurestacklogfiles` | [Shromažďovat protokoly diagnostiky Azure Stack na vyžádání](../../operator/diagnostic-log-collection.md) |
 | `https://aka.ms/azurestackpep` | [Použití privilegovaného koncového bodu v Azure Stack](../../operator/azure-stack-privileged-endpoint.md) |
 | `https://aka.ms/azurestackreplacenode` | [Nahrazení uzlu jednotky škálování v integrovaném systému Azure Stack](../../operator/azure-stack-replace-node.md) |
 | `https://aka.ms/azurestackupdatedirectory` | [https://github.com/Azure/AzureStack-Tools/tree/master/Identity#updating-the-azure-stack-aad-home-directory-after-installing-updates-or-new-resource-providers](https://aka.ms/aa700j2) |

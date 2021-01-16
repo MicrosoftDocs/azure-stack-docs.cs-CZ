@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: aaadabe207146f200d6090c2e59bcc563831c6d4
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.openlocfilehash: 1d83ef1d43dbe974ead7a5d80bb42939a311af7a
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343582"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255788"
 ---
 # <a name="how-to-manage-event-hubs-on-azure-stack-hub"></a>Správa Event Hubs v centru Azure Stack
 
@@ -42,7 +42,7 @@ Výběr **kvót** na hlavní stránce zobrazuje seznam používaných kvót, vč
 
 Další informace o typech kvót definovaných pro Event Hubs najdete v tématu [typy kvót](azure-stack-quota-types.md#event-hubs-quota-types) .
 
-## <a name="alerts"></a>Výstrahy
+## <a name="alerts"></a>Upozornění
 
 Poskytovatel prostředků Event Hubs podporuje následující výstrahy:
    
@@ -72,7 +72,7 @@ Výběrem výstrahy ze seznamu zobrazíte na pravé straně panel **Podrobnosti 
 
 [![Spravovat centra událostí – podrobnosti výstrah](media/event-hubs-rp-manage/2-alerts-detail.png)](media/event-hubs-rp-manage/2-alerts-detail.png#lightbox)
 
-Další informace o možnosti monitorování centra Azure Stack, včetně upozorňování, najdete v tématu [monitorování stavu a výstrah](azure-stack-monitor-health.md). Podrobnosti o shromažďování protokolů najdete v tématu [přehled Azure Stackho diagnostického protokolu](azure-stack-diagnostic-log-collection-overview.md).
+Další informace o možnosti monitorování centra Azure Stack, včetně upozorňování, najdete v tématu [monitorování stavu a výstrah](azure-stack-monitor-health.md). Podrobnosti o shromažďování protokolů najdete v tématu [přehled Azure Stackho diagnostického protokolu](./diagnostic-log-collection.md).
 
 ## <a name="event-hubs-clusters"></a>Clustery Event Hubs
 
@@ -101,17 +101,4 @@ Další informace o:
 
 - Typy kvót definované pro Event Hubs, které se projednávají s [typy kvót](azure-stack-quota-types.md#event-hubs-quota-types).
 - Azure Stack možnosti monitorování centra, včetně upozorňování, najdete v tématu [monitorování stavu a výstrah](azure-stack-monitor-health.md). 
-- Shromažďování protokolů centra Azure Stack najdete v tématu [přehled Azure Stackho diagnostického protokolu](azure-stack-diagnostic-log-collection-overview.md).
-
-
-
-
-
-
-
-
-
-
-
-
-
+- Shromažďování protokolů centra Azure Stack najdete v tématu [přehled Azure Stackho diagnostického protokolu](./diagnostic-log-collection.md).

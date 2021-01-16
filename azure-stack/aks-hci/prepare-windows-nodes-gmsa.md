@@ -5,12 +5,12 @@ author: v-susbo
 ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: v-susbo
-ms.openlocfilehash: 754ebc1a365efb7efa0e96eef438ae2347a069ab
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: fd08f288d816468610dadf7e5c063c08b63c0cf2
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96612569"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254700"
 ---
 # <a name="prepare-windows-nodes-for-group-managed-service-account-support"></a>Příprava uzlů Windows pro skupinový účet spravované služby
 
@@ -43,7 +43,7 @@ netdom.exe join %computername% /domain:DomainName /UserD:DomainName\UserName /Pa
 
 Jakmile budou všechny uzly pracovních procesů Windows připojené k doméně, postupujte podle kroků popsaných v části [Konfigurace gMSA](https://kubernetes.io/docs/tasks/configure-pod-container/configure-gmsa/). Tyto kroky vám pomůžou použít vlastní definice prostředků Kubernetes gMSA a Webhooky v clusteru Kubernetes.
 
-Další informace o kontejnerech Windows s gMSA najdete v tématu [kontejnery Windows a gMSA](https://docs.microsoft.com/virtualization/windowscontainers/manage-containers/manage-serviceaccounts). 
+Další informace o kontejnerech Windows s gMSA najdete v tématu [kontejnery Windows a gMSA](/virtualization/windowscontainers/manage-containers/manage-serviceaccounts). 
 
 ## <a name="next-steps"></a>Další kroky
 

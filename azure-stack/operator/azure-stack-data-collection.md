@@ -7,12 +7,12 @@ ms.date: 02/24/2020
 ms.author: patricka
 ms.reviewer: chengwei
 ms.lastreviewed: 02/24/2020
-ms.openlocfilehash: fd383d25f34bcd8342b8e37468fb34f455cb790f
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: 60301776ae496a33622005bed3011e773ea321f2
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974196"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255975"
 ---
 # <a name="azure-stack-hub-log-and-customer-data-handling"></a>Azure Stack zpracování dat protokolů a zákazníků centra 
 
@@ -21,7 +21,7 @@ V případě, že je Microsoft v souvislosti s centrem Azure Stack procesorem ne
 - "Zpracování osobních údajů; GDPR "pravidla ochrany dat" v tématu [online služby](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
 - Evropské unie Obecné nařízení o ochraně osobních údajů podmínkami v příloze 4 [podmínek pro online služby](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
 
-Jako centrum Azure Stack se nachází v datacentrech zákazníků, Microsoft je řadič dat výhradně z dat, která se v Microsoftu sdílí prostřednictvím [diagnostiky](./azure-stack-diagnostic-log-collection-overview.md), [telemetrie](azure-stack-telemetry.md)a [fakturace](azure-stack-usage-reporting.md).  
+Jako centrum Azure Stack se nachází v datacentrech zákazníků, Microsoft je řadič dat výhradně z dat, která se v Microsoftu sdílí prostřednictvím [diagnostiky](./diagnostic-log-collection.md), [telemetrie](azure-stack-telemetry.md)a [fakturace](azure-stack-usage-reporting.md).  
 
 ## <a name="data-access-controls"></a>Řízení přístupu k datům 
 Zaměstnanci Microsoftu, kteří jsou přiřazeni k prozkoumání konkrétního případu podpory, budou mít k šifrovaným datům oprávnění jen pro čtení. Zaměstnanci Microsoftu mají také přístup k nástrojům, které slouží k odstranění dat v případě potřeby. Veškerý přístup k zákaznickým datům je auditován a zaznamenán.  
@@ -41,7 +41,7 @@ Pro akci automatizovaného odstranění dat (90 dní po uzavření případu) ne
 Pro akci odstranění dat na vyžádání mají pracovníci podpory Microsoftu přístup k nástroji, který jim umožňuje odstranit data na vyžádání. Když se zákazník dokončí, může na telefonu poskytnout potvrzení.
 
 ## <a name="diagnostic-data"></a>Diagnostická data
-V rámci procesu podpory mohou operátoři centra Azure Stack [Sdílet diagnostické protokoly](./azure-stack-diagnostic-log-collection-overview.md) s pracovníky podpory centra Azure Stack a technickými týmy pro pomoc s řešením problémů.
+V rámci procesu podpory mohou operátoři centra Azure Stack [Sdílet diagnostické protokoly](./diagnostic-log-collection.md) s pracovníky podpory centra Azure Stack a technickými týmy pro pomoc s řešením problémů.
 
 Společnost Microsoft poskytuje nástroj a skript pro zákazníky, kteří budou shromažďovat a nahrávat požadované soubory protokolu diagnostiky. Po shromáždění se soubory protokolu přenesou prostřednictvím šifrovaného připojení chráněného protokolem HTTPS společnosti Microsoft. Vzhledem k tomu, že protokol HTTPS zajišťuje šifrování po drátě, není při přenosu vyžadováno žádné heslo. Po přijetí se protokoly zašifrují a uloží do doby, než se automaticky odstraní 90 dnů po uzavření případu podpory.
 
@@ -57,4 +57,4 @@ Operátoři centra Azure Stack můžou nakonfigurovat centrum Azure Stack a pře
 
 
 ## <a name="next-steps"></a>Další kroky 
-[Další informace o zabezpečení centra Azure Stack](azure-stack-security-foundations.md) 
+[Další informace o zabezpečení centra Azure Stack](azure-stack-security-foundations.md)

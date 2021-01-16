@@ -3,16 +3,16 @@ title: Co je nového v tržišti Azure Stack hub
 description: Podívejte se, co je nového v tržišti Azure Stack hub, včetně nových, zastaralých a aktualizovaných položek Marketplace.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/04/2021
+ms.date: 01/15/2021
 ms.author: sethm
 ms.reviewer: gara
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: bd738fab6a424c07bd33a41f80621121e93345c4
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 6a1825577f216ad16b0150ef4adecb237e9e1f1c
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869912"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256009"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Změny v tržišti centra Azure Stack
 
@@ -167,6 +167,29 @@ V tomto článku najdete seznam nedávných přidání, aktualizací, změn a od
 
 ## <a name="updated-marketplace-items"></a>Aktualizované položky Marketplace
 
+- 01/06/2021: SQL Server 2017 Enterprise Windows Server 2016 – zajistěte si vlastní 14.0.20201111 verze licence.
+- 01/06/2021: SQL Server 2017 Standard na Windows serveru 2016 – průběžné platby – 14.0.20201111 verze
+- 01/06/2021: SQL Server 2017 standard v systému Windows Server 2016 – zajistěte si vlastní licenci verze 14.0.20201111
+- 01/06/2021: SQL Server 2019 Enterprise na Windows serveru 2019 – průběžné platby – 15.0.20201111 verze
+- 01/06/2021: SQL Server 2019 Enterprise v systému Windows Server 2019 – zajistěte si vlastní licenci verze 15.0.20201111
+- 01/06/2021: licence na bezplatnou SQL Server: vývojář SQL 2019 na Windows serveru 2019 – průběžné platby – verze 15.0.20201111
+- 01/06/2021: licence na bezplatnou SQL Server: vývojář SQL 2019 na Windows serveru 2019 – zajistěte si vlastní licenci na verzi 15.0.20201111
+- 01/06/2021: SQL Server 2019 Standard na Windows serveru 2019 – průběžné platby – 15.0.20201111 verze
+- 01/06/2021: SQL Server 2019 standard v systému Windows Server 2019 – zajistěte si vlastní licenci verze 15.0.20201111
+- 01/06/2021: licence zdarma: SQL Server 2016 SP2 Developer on Windows Server 2016 – průběžné platby – verze 13.2.20201111
+- 01/06/2021: licence na bezplatnou verzi: SQL Server 2016 SP2 Developer on Windows Server 2016 – Přineste si vlastní licenci 13.2.20201111
+- 01/06/2021: licence Free: SQL Server 2016 SP2 Express na Windows serveru 2016 – průběžné platby – verze 13.2.20201111
+- 01/06/2021: licence Free: SQL Server 2016 SP2 Express na Windows serveru 2016 – Přineste si vlastní licenci na verzi 13.2.20201111
+- 01/06/2021: licence na bezplatnou SQL Server: SQL Server 2017 vývojář na Windows serveru 2016 – průběžné platby – 14.0.20201111 verze
+- 01/06/2021: licence na bezplatnou SQL Server: SQL Server 2017 vývojář na Windows serveru 2016 – zajistěte si vlastní 14.0.20201111 verze licence.
+- 01/06/2021: licence na bezplatnou SQL Server: SQL Server 2017 Express na Windows serveru 2016 – průběžné platby – 14.0.20201111 verze
+- 01/06/2021: licence na bezplatnou SQL Server: SQL Server 2017 Express na Windows serveru 2016 – zajistěte si vlastní 14.0.20201111 verze licence.
+- 01/06/2021: SQL Server 2016 SP2 Enterprise na Windows serveru 2016 – průběžné platby – verze 13.2.20201111
+- 01/06/2021: SQL Server 2016 SP2 Enterprise v systému Windows Server 2016 – Přineste si vlastní licenci – 13.2.20201111 verze
+- 01/06/2021: SQL Server 2016 SP2 Standard na Windows serveru 2016 – průběžné platby – verze 13.2.20201111
+- 01/06/2021: SQL Server 2016 SP2 Standard na Windows serveru 2016 – Přineste si vlastní licenci 13.2.20201111
+- 01/06/2021: SQL Server 2017 Enterprise Windows Server 2016 – průběžné platby – 14.0.20201111 verze
+- 01/06/2021: SqlIaaSExtension 1.3.20560
 - 12/22/2020: podvodný Wave software CentOS 7,8 – verze 7.8.2020062400
 - 12/07/2020: Bitnami Elasticsearch cluster – verze 1.0.2
 - 12/07/2020: Bitnami Cassandra cluster – verze 1.0.21

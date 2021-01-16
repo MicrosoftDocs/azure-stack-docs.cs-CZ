@@ -6,18 +6,18 @@ ms.topic: how-to
 ms.date: 12/10/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 16fb7544fb223a1038b3f27d0416f0eda04012b6
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: 7a0c0ca7a99b3554b74cc80911acbee92793aa52
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011620"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254819"
 ---
 # <a name="migrate-to-azure-stack-hci-on-new-hardware"></a>Migrace na Azure Stack HCI na novém hardwaru
 
 > Platí pro Azure Stack HCI, verze 20H2; Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2008 R2
 
-Toto téma popisuje, jak migrovat soubory virtuálního počítače (VM) v systému Windows Server 2012 R2, Windows Server 2016 nebo Windows Server 2019 na nový Azure Stack serverový hardware HCI pomocí prostředí Windows PowerShell a nástroje Robocopy. Robocopy je robustní Metoda kopírování souborů z jednoho serveru na jiný. Obnoví činnost v případě odpojení a pokračuje v práci z posledního známého stavu. Robocopy taky podporuje kopírování souborů s více vlákny přes protokol SMB (Server Message Block). Další informace najdete v tématu [Robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy).
+Toto téma popisuje, jak migrovat soubory virtuálního počítače (VM) v systému Windows Server 2012 R2, Windows Server 2016 nebo Windows Server 2019 na nový Azure Stack serverový hardware HCI pomocí prostředí Windows PowerShell a nástroje Robocopy. Robocopy je robustní Metoda kopírování souborů z jednoho serveru na jiný. Obnoví činnost v případě odpojení a pokračuje v práci z posledního známého stavu. Robocopy taky podporuje kopírování souborů s více vlákny přes protokol SMB (Server Message Block). Další informace najdete v tématu [Robocopy](/windows-server/administration/windows-commands/robocopy).
 
 > [!NOTE]
 > Technologie Hyper-V Migrace za provozu a replika technologie Hyper-V ze systému Windows Server do Azure Stack HCI není podporována.
@@ -57,7 +57,7 @@ Před zahájením migrace je potřeba vzít v úvahu několik požadavků a věc
 
 - Ověřte, jestli Azure Stack HCI podporuje vaši verzi virtuálních počítačů pro import a aktualizaci vašich virtuálních počítačů podle potřeby. Postup najdete v části [Podpora a aktualizace verzí virtuálních počítačů](#vm-version-support-and-update) .
 
-- Zálohujte všechny virtuální počítače ve zdrojovém clusteru. Dokončete zálohování všech aplikací a dat konzistentní s chybou a zálohou všech databází konzistentních vzhledem k aplikacím. Informace o zálohování do Azure najdete v tématu [použití Azure Backup](https://docs.microsoft.com/azure-stack/hci/manage/use-azure-backup).
+- Zálohujte všechny virtuální počítače ve zdrojovém clusteru. Dokončete zálohování všech aplikací a dat konzistentní s chybou a zálohou všech databází konzistentních vzhledem k aplikacím. Informace o zálohování do Azure najdete v tématu [použití Azure Backup](../manage/use-azure-backup.md).
 
 - Vytvořte kontrolní bod virtuálních počítačů a řadičů domény zdrojového clusteru pro případ, že se budete muset vrátit k předchozímu stavu. To se nevztahuje na fyzické servery.
 
@@ -336,9 +336,9 @@ Tady je proces, který používáte:
 
     `Robocopy \\2012R2-Clus01\c$\clusterstorage\volume01\Hyper-V\ \\20H2-Clus01\c$\clusterstorage\volume01\Hyper-V\ /E /MT:32 /R:0 /w:1 /NFL /NDL /copyall /log:c:\log.txt /xf`
 
-1. Vytvořte nové virtuální počítače 1. generace. Podrobné informace o tom, jak to udělat, najdete v tématu [Správa virtuálních počítačů](https://docs.microsoft.com/azure-stack/hci/manage/vm).
+1. Vytvořte nové virtuální počítače 1. generace. Podrobné informace o tom, jak to udělat, najdete v tématu [Správa virtuálních počítačů](../manage/vm.md).
 
-1. Připojte zkopírované soubory VHD k novým virtuálním počítačům. Podrobné informace najdete v tématu [Správa virtuálních pevných disků (VHD)](https://docs.microsoft.com/windows-server/storage/disk-management/manage-virtual-hard-disks) .
+1. Připojte zkopírované soubory VHD k novým virtuálním počítačům. Podrobné informace najdete v tématu [Správa virtuálních pevných disků (VHD)](/windows-server/storage/disk-management/manage-virtual-hard-disks) .
 
 V takovém případě podporují následující hostované operační systémy Windows Server virtuální počítače generace 2:
 
@@ -349,7 +349,7 @@ V takovém případě podporují následující hostované operační systémy W
 - Windows 10
 - 64 bitové verze Windows 8.1 (64 bitů)
 - 64 bitové verze systému Windows 8 (64 bitů)
-- Linux (viz [podporované virtuální počítače se systémem Linux a FreeBSD](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows))
+- Linux (viz [podporované virtuální počítače se systémem Linux a FreeBSD](/windows-server/virtualization/hyper-v/Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows))
 
 ## <a name="next-steps"></a>Další kroky
 

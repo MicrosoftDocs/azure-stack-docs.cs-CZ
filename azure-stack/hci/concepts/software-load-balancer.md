@@ -7,12 +7,12 @@ ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 10/8/2020
-ms.openlocfilehash: 79588b25f76540aed1499123f7d39e4d57cf9ecd
-ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
+ms.openlocfilehash: 35cf6d997a7200b762b8da052e5e30038f288bdc
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91858884"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254989"
 ---
 # <a name="what-is-software-load-balancer-slb-for-sdn"></a>Co je software Load Balancer \( SLB \) pro Sdn?
 
@@ -116,7 +116,7 @@ Kromě toho musíte nakonfigurovat Azure Stack hostitele HCI s virtuálním pře
 
 Následující obrázek poskytuje přehled infrastruktury SLB.
 
-:::image type="content" source="media/software-load-balancing/slb-overview.png" alt-text="Proces vyrovnávání zatížení softwaru" border="false":::
+:::image type="content" source="media/software-load-balancing/slb-overview.png" alt-text="Infrastruktura Load Balancer softwaru" border="false":::
 
 Následující části poskytují další informace o těchto prvcích infrastruktury Load Balancer softwaru.
 
@@ -205,5 +205,5 @@ Následující části popisují některé funkce a možnosti Load Balancer soft
 Související informace najdete v tématu také:
 
 - [Přehled síťového adaptéru](network-controller-overview.md)
-- [Nasazení síťového adaptéru pomocí Windows PowerShellu](../deploy/network-controller-powershell.md)
+- [Nasazení síťového adaptéru pomocí Windows PowerShellu](https://github.com/microsoft/SDN/tree/master/SDNExpress/scripts)
 - [SDN ve Azure Stack HCI](software-defined-networking.md)

@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.author: patricka
 ms.reviewer: TBD
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 53e34636ab29194f1c99fdb86aaf0f17315163c9
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 740fa4fe450121f27211001974e91d47d3aed692
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97868382"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256077"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Kontrolní seznam aktivity aktualizace centra Azure Stack
 
@@ -26,7 +26,7 @@ Zkontrolujte Tento kontrolní seznam, aby bylo možné připravit Azure Stack ak
 | Kontrola aktualizací zabezpečení | [Seznam aktualizací zabezpečení](release-notes-security-updates.md)      |
 | Kontrola aktualizací poskytovatele prostředků doplňku | [App Service](azure-stack-app-service-update.md)<br>[Event Hubs](resource-provider-apply-updates.md)<br> [MySQL](azure-stack-mysql-resource-provider-update.md)<br>[SQL](azure-stack-sql-resource-provider-update.md)<br>  |
 | Použít nejnovější verzi balíčku OEM | Obraťte se na výrobce OEM, abyste zajistili, že váš systém splňuje požadavky na minimální verzi balíčku OEM pro verzi centra Azure Stack, na kterou se systém aktualizuje. Ujistěte se, že je balíček OEM kompatibilní s verzí centra Azure Stack, na kterou aktualizujete. Pokud balíček OEM není kompatibilní s verzí centra Azure Stack, na kterou aktualizujete, budete muset před spuštěním aktualizace centra Azure Stack provést aktualizaci balíčku OEM. Pokyny najdete v části "Azure Stack použití aktualizací z centra OEM (Original Equipment Manufacturer) od výrobce OEM". |
-| Volitelné: Konfigurace automatického shromažďování protokolů | Doporučujeme, abyste v prostředí Azure Stack hub nakonfigurovali automatické shromažďování protokolů, abyste zjednodušili proces shromažďování systémových protokolů v případě, že budete potřebovat otevřít lístek podpory. Pokud chcete konfigurovat automatické shromažďování protokolů, přečtěte si pokyny v tématu [odesílání protokolů proaktivně](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively). |
+| Volitelné: Konfigurace automatického shromažďování protokolů | Doporučujeme, abyste v prostředí Azure Stack hub nakonfigurovali automatické shromažďování protokolů, abyste zjednodušili proces shromažďování systémových protokolů v případě, že budete potřebovat otevřít lístek podpory. Pokud chcete konfigurovat automatické shromažďování protokolů, přečtěte si pokyny v tématu [odesílání protokolů proaktivně](./diagnostic-log-collection.md#send-logs-proactively). |
 | Použít nejnovější opravy hotfix | Použijte nejnovější opravy hotfix, které se vztahují k aktuálně nainstalované verzi. Seznam nejnovějších oprav hotfix najdete v části s [poznámkami k opravě verze poznámky k verzi](release-notes.md) . |
 | Spustit nástroj pro Plánovač kapacity | Pro plánování úloh a změnu velikosti se ujistěte, že používáte nejnovější verzi [nástroje Capacity Planner centra Azure Stack](azure-stack-capacity-planning-overview.md) . Nejnovější verze obsahuje opravy chyb a poskytuje nové funkce, které jsou vydané s každou aktualizací centra Azure Stack. |
 | Spuštění rutiny **test-AzureStack** | Spusťte `Test-AzureStack -Group UpdateReadiness` k identifikaci provozních problémů. Rutina je přístupná prostřednictvím relace privilegovaného koncového bodu (PEP). Další informace najdete v tématu [ověření stavu systému centra Azure Stack](azure-stack-diagnostic-test.md). |

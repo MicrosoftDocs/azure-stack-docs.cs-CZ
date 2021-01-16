@@ -5,12 +5,12 @@ author: AnirbanPaul
 ms.author: anpaul
 ms.topic: conceptual
 ms.date: 10/7/2020
-ms.openlocfilehash: ec9ddb62dc876fbd4b99ebc2c8e2a3af4a54e8a7
-ms.sourcegitcommit: 9a91dbdaa556725f51bcf3d8e79a4ed2dd5a209f
+ms.openlocfilehash: 3ac17ca9cd54c2ec387ceb39cbda76f7cb539305
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91847659"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255074"
 ---
 # <a name="plan-to-deploy-network-controller"></a>Plánování nasazení síťového adaptéru
 
@@ -36,11 +36,11 @@ K nasazení síťového adaptéru je potřeba následující:
 
     **Možnost 2**: síť pro správu je fyzicky oddělená od sítí úloh. Tato možnost používá jediný virtuální přepínač jenom pro výpočetní výkon:
 
-    :::image type="content" source="./media/network-controller/topology-option-2.png" alt-text="Možnost 1 vytvořte fyzickou síť pro síťový adaptér." lightbox="./media/network-controller/topology-option-2.png":::
+    :::image type="content" source="./media/network-controller/topology-option-2.png" alt-text="Možnost 2 pro vytvoření fyzické sítě pro síťový adaptér." lightbox="./media/network-controller/topology-option-2.png":::
 
     **Možnost 3**: síť pro správu je fyzicky oddělená od sítí úloh. Tato možnost používá dvě virtuální přepínače, jednu pro výpočetní prostředí a jednu pro úložiště:
 
-    :::image type="content" source="./media/network-controller/topology-option-3.png" alt-text="Možnost 1 vytvořte fyzickou síť pro síťový adaptér." lightbox="./media/network-controller/topology-option-3.png":::
+    :::image type="content" source="./media/network-controller/topology-option-3.png" alt-text="Možnost 3 pro vytvoření fyzické sítě pro síťový adaptér." lightbox="./media/network-controller/topology-option-3.png":::
 
 - Fyzické adaptéry pro správu můžete také seskupit tak, aby používaly stejný přepínač pro správu. V tomto případě se stále doporučuje použít jednu z možností v této části.
 - Informace o síti pro správu, které síťový adaptér používá ke komunikaci s centrem pro správu systému Windows a hostiteli Hyper-V.
@@ -60,8 +60,8 @@ Teď jste připraveni nasadit síťový adaptér na virtuální počítače s op
 
 Další informace najdete v následujících tématech:
 - [Vytvoření clusteru Azure Stack HCI](../deploy/create-cluster.md)
-- [Nasazení síťového adaptéru pomocí Windows PowerShellu](../deploy/network-controller-powershell.md)
+- [Nasazení síťového adaptéru pomocí Windows PowerShellu](https://github.com/microsoft/SDN/tree/master/SDNExpress/scripts)
 
-## <a name="see-also"></a>Viz také
+## <a name="see-also"></a>Viz také:
 - [Síťový adaptér](/windows-server/networking/sdn/technologies/network-controller/network-controller)
 - [Vysoká dostupnost síťového adaptéru](/windows-server/networking/sdn/technologies/network-controller/network-controller-high-availability)

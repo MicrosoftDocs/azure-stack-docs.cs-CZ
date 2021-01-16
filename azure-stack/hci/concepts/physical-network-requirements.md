@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 1e42f830683a1faefd8e068da1e968f9332b7e0a
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: e26299a53583fa7d4e4b4b61fc46be7d2faa9eba
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872717"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255006"
 ---
 # <a name="physical-network-requirements-for-azure-stack-hci"></a>Požadavky na fyzickou síť pro Azure Stack HCI
 
@@ -26,7 +26,7 @@ Toto téma popisuje fyzické (Fabric) požadavky na síť a požadavky pro Azure
 
 Microsoft testuje Azure Stack HCL do standardů a protokolů, které jsou uvedené v části **požadavky na síťový přepínač** níže. Zatímco společnost Microsoft neosvědčuje síťové přepínače, spolupracuje s dodavateli s cílem identifikovat zařízení, která podporují Azure Stack požadavky na HCI.
 
-Tyto požadavky jsou publikovány také v [zásadách a zásadách programu pro kompatibilitu hardwaru systému Windows](https://docs.microsoft.com/windows-hardware/design/compatibility/whcp-specifications-policies).  Vyberte možnost **Stáhnout specifikace a zásady, verze 1809**, otevřete soubor zip, otevřete **WHCP-Components-Peripherals-Specification-1809.pdf** a pak se podívejte na oddíl **Device. Network. Switch. SDDC** .
+Tyto požadavky jsou publikovány také v [zásadách a zásadách programu pro kompatibilitu hardwaru systému Windows](/windows-hardware/design/compatibility/whcp-specifications-policies).  Vyberte možnost **Stáhnout specifikace a zásady, verze 1809**, otevřete soubor zip, otevřete **WHCP-Components-Peripherals-Specification-1809.pdf** a pak se podívejte na oddíl **Device. Network. Switch. SDDC** .
 
 > [!IMPORTANT]
 > I když další síťové přepínače využívající technologie a protokoly, které tady nejsou uvedené, můžou fungovat, Microsoft nemůže zaručit, že budou fungovat s Azure Stack HCI a nemusí být schopné pomáhat při řešení problémů, ke kterým dochází.
@@ -145,6 +145,6 @@ Azure Stack HCI podporuje bezplatných připojení pro East-West provoz u všech
 
 - Seznamte se s požadavky na síťový adaptér a hostitele. Viz [požadavky na síť hostitele](host-network-requirements.md).
 - Vyštětcte se základy clusteringu s podporou převzetí služeb při selhání. Seznamte se se [Základy sítí pro převzetí služeb při selhání](https://techcommunity.microsoft.com/t5/failover-clustering/.failover-clustering-networking-basics-and-fundamentals/ba-p/1706005?s=09).
-- Zapnout štětce při použití SET Podívejte [se na téma přímý přístup do paměti vzdáleného počítače (RDMA) a Switch Embedded Teaming (set)](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming).
-- Nasazení najdete v tématu [Vytvoření clusteru pomocí centra pro správu systému Windows](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster).
-- Informace k nasazení najdete v tématu [Vytvoření clusteru pomocí Windows PowerShellu](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster-powershell).
+- Zapnout štětce při použití SET Podívejte [se na téma přímý přístup do paměti vzdáleného počítače (RDMA) a Switch Embedded Teaming (set)](/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming).
+- Nasazení najdete v tématu [Vytvoření clusteru pomocí centra pro správu systému Windows](../deploy/create-cluster.md).
+- Informace k nasazení najdete v tématu [Vytvoření clusteru pomocí Windows PowerShellu](../deploy/create-cluster-powershell.md).

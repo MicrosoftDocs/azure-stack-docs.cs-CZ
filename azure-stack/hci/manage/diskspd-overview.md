@@ -5,12 +5,12 @@ author: jasonnyi
 ms.author: jasonyi
 ms.topic: how-to
 ms.date: 11/17/2020
-ms.openlocfilehash: 03d5bf97e29009c67e9520ea59a802c55659db3b
-ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
+ms.openlocfilehash: 8d8a78d0a5faaa3c041e17c3c38f208132f19834
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94811175"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254785"
 ---
 # <a name="use-diskspd-to-test-workload-storage-performance"></a>Použití DISKSPD k testování výkonu úložiště úloh
 
@@ -116,7 +116,7 @@ Vygenerujete testovací soubor v rámci sjednoceného oboru názvů, který posk
 
 Jak vidíte, je naprosto možné nezávisle dosáhnout mezní hodnoty IOPS nebo šířky pásma na limitu virtuálního počítače nebo jednotky. A proto je důležité pochopit velikost virtuálních počítačů a typ jednotky, protože mají omezení maximálního počtu IOPS i meze šířky pásma. Tato znalostní báze pomáhá najít kritická místa a pochopit výsledky výkonu. Další informace o tom, jaká velikost může být vhodná pro vaše zatížení, najdete v následujících zdrojích informací:
 
-- [Velikost virtuálních počítačů](https://docs.microsoft.com/azure/virtual-machines/sizes-general?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json)
+- [Velikost virtuálních počítačů](/azure/virtual-machines/sizes-general?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Typy disků](https://azure.microsoft.com/pricing/details/managed-disks/)
 
 ## <a name="understand-the-output"></a>Pochopení výstupu
@@ -174,7 +174,7 @@ Teď, když jste začali používat DISKSPD, je potřeba vzít v úvahu několik
 Umělý test DISKSPD poskytuje relativně srovnatelné výsledky pro skutečné úlohy. Je ale nutné věnovat pozornost všem nastaveným parametrům a zda odpovídají vašemu reálnému scénáři. Je důležité pochopit, že syntetické úlohy nebudou během nasazení nikdy přesně reprezentovat reálné úlohy vaší aplikace.
 
 ### <a name="preparation"></a>Příprava
-Před spuštěním testu DISKSPD je k dispozici několik doporučených akcí. Mezi ně patří ověření stavu prostoru úložiště, kontrola využití prostředků, aby jiný program nenarušil test a připravuje správce výkonu, pokud chcete shromažďovat další data. Vzhledem k tomu, že cílem tohoto tématu je rychle získat DISKSPD, že se podrobně na konkrétní akce těchto akcí. Další informace najdete v tématu [testování výkonu prostorů úložiště pomocí syntetických úloh ve Windows serveru](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn894707(v=ws.11)).
+Před spuštěním testu DISKSPD je k dispozici několik doporučených akcí. Mezi ně patří ověření stavu prostoru úložiště, kontrola využití prostředků, aby jiný program nenarušil test a připravuje správce výkonu, pokud chcete shromažďovat další data. Vzhledem k tomu, že cílem tohoto tématu je rychle získat DISKSPD, že se podrobně na konkrétní akce těchto akcí. Další informace najdete v tématu [testování výkonu prostorů úložiště pomocí syntetických úloh ve Windows serveru](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn894707(v=ws.11)).
 
 ### <a name="variables-that-affect-performance"></a>Proměnné ovlivňující výkon
 Výkon úložiště je jemnáá věc. To znamená, že existuje mnoho proměnných, které mohou ovlivnit výkon. A proto je pravděpodobně možné zaznamenat číslo, které je nekonzistentní s vašimi očekáváními. Následující zvýrazní některé proměnné, které mají vliv na výkon, i když se nejedná o vyčerpávající seznam:
@@ -213,7 +213,7 @@ Následující stručný přehled vysvětluje, proč použití kopírování sou
 - **Kopie souborů nemusí být optimalizované,** K dispozici jsou dvě úrovně paralelismu, jedna interní a druhá externí. Interně, pokud je kopie souboru zaCopyFileExa na vzdáleném cíli, použije modul nějaké paralelismus. Externě existují různé způsoby, jak vyvolali modul CopyFileEx. Například kopie z Průzkumníka souborů jsou tvořeny jedním vláknem, ale Robocopy jsou vícevláknové. Z těchto důvodů je důležité pochopit, zda důsledky testu jsou to, co hledáte.
 - **Každá kopie má dvě strany.** Když jednoduše zkopírujete a vložíte soubor, můžete použít dva disky: zdrojový disk a cílový disk. Pokud je jeden pomalejší než druhý, budete v podstatě měřit výkon pomalejšího disku. Existují i jiné případy, kdy komunikace mezi zdrojem, cílem a kopírovacím strojem může ovlivnit výkon jedinečným způsobem.
     
-    Další informace najdete v tématu [použití kopírování souborů k měření výkonu úložiště](https://docs.microsoft.com/archive/blogs/josebda/using-file-copy-to-measure-storage-performance-why-its-not-a-good-idea-and-what-you-should-do-instead?ranMID=24542&ranEAID=je6NUbpObpQ&ranSiteID=je6NUbpObpQ-OaAFQvelcuupBvT5Qlis7Q&epi=je6NUbpObpQ-OaAFQvelcuupBvT5Qlis7Q&irgwc=1&OCID=AID2000142_aff_7593_1243925&tduid=%28ir__rcvu3tufjwkftzjukk0sohzizm2xiezdpnxvqy9i00%29%287593%29%281243925%29%28je6NUbpObpQ-OaAFQvelcuupBvT5Qlis7Q%29%28%29&irclickid=_rcvu3tufjwkftzjukk0sohzizm2xiezdpnxvqy9i00).
+    Další informace najdete v tématu [použití kopírování souborů k měření výkonu úložiště](/archive/blogs/josebda/using-file-copy-to-measure-storage-performance-why-its-not-a-good-idea-and-what-you-should-do-instead?epi=je6NUbpObpQ-OaAFQvelcuupBvT5Qlis7Q&irclickid=_rcvu3tufjwkftzjukk0sohzizm2xiezdpnxvqy9i00&irgwc=1&OCID=AID2000142_aff_7593_1243925&ranEAID=je6NUbpObpQ&ranMID=24542&ranSiteID=je6NUbpObpQ-OaAFQvelcuupBvT5Qlis7Q&tduid=(ir__rcvu3tufjwkftzjukk0sohzizm2xiezdpnxvqy9i00)(7593)(1243925)(je6NUbpObpQ-OaAFQvelcuupBvT5Qlis7Q)()).
 
 ## <a name="experiments-and-common-workloads"></a>Experimenty a běžné úlohy
 Tato část obsahuje několik dalších příkladů, experimentů a typů úloh.
@@ -259,5 +259,5 @@ Základní volba návrhu pro tento test zatížení by měla být minimálně:
 
 ## <a name="next-steps"></a>Další kroky
 Další informace a podrobné příklady optimalizace nastavení odolnosti najdete v tématu také:
-- [OLTP a OLAP](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn894707(v=ws.11))
+- [OLTP a OLAP](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn894707(v=ws.11))
 - [Volba odolnosti](https://techcommunity.microsoft.com/t5/storage-at-microsoft/volume-resiliency-and-efficiency-in-storage-spaces-direct/ba-p/425831)

@@ -15,12 +15,12 @@ ms.date: 01/02/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: a3d8fcc1c3ffa65539b233a8b89f55d57f61a5ef
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 8b173f26fdd731de1d7eb21ee7a5c6947da78b55
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910614"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256145"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub-ruggedized"></a>Stažení položek z Marketplace do centra Azure Stack (robustní)
 
@@ -40,7 +40,7 @@ Existují dva scénáře stažení produktů z webu Marketplace:
 
 Pokud se centrum Azure Stack připojuje k Internetu, můžete k stažení položek z Marketplace použít portál pro správu.
 
-### <a name="prerequisites"></a>Požadavky
+### <a name="prerequisites"></a>Předpoklady
 
 Vaše nasazení centra Azure Stack musí mít připojení k Internetu a musí být [zaregistrované v Azure](registration-tzl.md).
 
@@ -74,11 +74,11 @@ Vaše nasazení centra Azure Stack musí mít připojení k Internetu a musí b�
 
 V odpojeném prostředí nemůžete stáhnout položky Marketplace z Azure. K stažení položek Marketplace na místní disk musíte použít nástroj pro syndikaci offline, a pak tyto položky nahrajte do centra Azure Stack.
 
-[Online nástroje pro syndikaci si můžete stáhnout tady](https://aka.ms/azsSyndicationtool).
+[Online nástroje pro syndikaci si můžete stáhnout tady](../../operator/azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected).
 
 ### <a name="download-marketplace-items-from-azure"></a>Stažení položek z Marketplace z Azure
 
-#### <a name="prerequisites"></a>Požadavky
+#### <a name="prerequisites"></a>Předpoklady
 
 - Azure PowerShell v počítači nainstalován.
 
@@ -115,7 +115,7 @@ V odpojeném prostředí nemůžete stáhnout položky Marketplace z Azure. K st
 
 ### <a name="upload-marketplace-items-to-azure-stack-hub"></a>Nahrání položek Marketplace do centra Azure Stack
 
-#### <a name="prerequisites"></a>Požadavky
+#### <a name="prerequisites"></a>Předpoklady
 
 - Správce Azure Stack Správce prostředků koncového bodu a klienta adresáře.
 

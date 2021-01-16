@@ -299,7 +299,7 @@
               href: azure-stack-app-service-capacity-planning.md
             - name: Nejčastější dotazy k fakturaci App Service
               href: app-service-billing-faq.md
-            - name: Požadavky
+            - name: Předpoklady
               href: azure-stack-app-service-before-you-get-started.md
             - name: Nasazení App Service
               href: azure-stack-app-service-deploy.md
@@ -333,7 +333,7 @@
               href: event-hubs-rp-overview.md
             - name: Plánování kapacity
               href: event-hubs-rp-capacity-planning.md
-            - name: Požadavky
+            - name: Předpoklady
               href: event-hubs-rp-prerequisites.md
             - name: Instalace
               href: event-hubs-rp-install.md
@@ -370,7 +370,7 @@
                 - name: Zálohování a obnovení
                   href: azure-stack-backup-infrastructure-backup.md
                 - name: Shromažďování protokolů
-                  href: azure-stack-diagnostic-log-collection-overview.md
+                  href: ./diagnostic-log-collection.md
                 - name: Výstrahy & stavu
                   href: azure-stack-monitor-health.md
                 - name: Spravovat
@@ -521,7 +521,7 @@
       href: ../asdk/index.yml
     - name: Dokumentace k hybridnímu cloudu Azure
       href: /hybrid
-- name: Zdroje a prostředky
+- name: Prostředky
   items:
     - name: Školení a certifikace
       href: azure-stack-train-and-cert.md

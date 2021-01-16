@@ -18,7 +18,7 @@
       href: get-started.md
     - name: Vytvoření clusteru Azure Stack HCI
       href: deploy/deployment-quickstart.md
-- name: Nasadit
+- name: Nasazení
   items:
     - name: Přehled nasazení
       href: deploy/deployment-overview.md
@@ -181,9 +181,9 @@
 - name: Reference
   items:
     - name: Příkazy Azure CLI pro registraci Azure
-      href: 'https://docs.microsoft.com/cli/azure/ext/stack-hci/stack-hci'
+      href: /cli/azure/ext/stack-hci/stack-hci
     - name: Příkazy PowerShellu pro registraci Azure
-      href: 'https://docs.microsoft.com/powershell/module/az.stackhci'
+      href: /powershell/module/az.stackhci
     - name: Přejít na balíček pro ARM Azure Stack rozhraní API služby HCI
       href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/azurestackhci/mgmt/2020-10-01/azurestackhci'
     - name: Azure Stack třídy a rozhraní služby HCI Java
@@ -226,7 +226,7 @@
       href: /windows-server/networking/sdn
     - name: System Center
       href: /system-center/
-- name: Zdroje a prostředky
+- name: Prostředky
   items:
     - name: Stránka produktu Azure Stack HCL
       href: 'https://azure.com/hci'

@@ -15,18 +15,18 @@ ms.date: 10/01/2020
 ms.author: patricka
 ms.reviewer: karlt
 ms.lastreviewed: 10/01/2020
-ms.openlocfilehash: ebb39f3eab90b0f976e5fee2896cbe85d0d023f5
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 8dea13880e2703290e1528fca47b777f98fca7b2
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872394"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255516"
 ---
 # <a name="extended-storage-health-checks"></a>Rozšířené kontroly stavu úložiště
 
 Tento článek poskytuje pokyny pro kontrolu stavu hardwaru rozšířeného úložiště Datacenter a nasazení centra Azure Stack.
 
-Než začnete, zkontrolujte a postupujte podle kroků v části [aktualizace firmwaru pro rozšířené úložiště](extended-storage-firmware-updates.md).
+Než začnete, zkontrolujte a postupujte podle kroků v části [aktualizace firmwaru pro rozšířené úložiště]().
 
 Poslední krok před odesláním systému se vypíná. Postupujte podle kroků v Úvodní příručka.
 
@@ -110,4 +110,4 @@ Pokud chcete získat nápovědu k problémům, obraťte se na podpora Microsoftu
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Aktualizovat firmware](extended-storage-firmware-updates.md)
+- [Aktualizovat firmware]()

@@ -5,12 +5,12 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
 ms.date: 01/06/2020
-ms.openlocfilehash: 73e58c69295afc1a1bb106ea078e753647daa08d
-ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
+ms.openlocfilehash: a67881f2dd4be5e4dce5fb967c88484c27025624
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97965490"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98255227"
 ---
 # <a name="configure-firewalls-for-azure-stack-hci"></a>Konfigurace bran firewall pro Azure Stack HCI
 
@@ -29,7 +29,7 @@ Další informace najdete v části Azure Stack připojení ke službě HCI v [A
 Toto téma popisuje, jak volitelně použít vysoce uzamčenou konfiguraci brány firewall k blokování všech přenosů do všech cílů kromě těch, které jsou uvedeny na seznamu povolených.
 
    >[!IMPORTANT]
-   > Pokud je odchozí připojení omezeno externí firemní bránou firewall nebo proxy server, ujistěte se, že adresy URL uvedené v následující tabulce nejsou blokované. Související informace najdete v části "konfigurace sítě" v tématu [Přehled agenta serverů s podporou ARC Azure](https://docs.microsoft.com/azure/azure-arc/servers/agent-overview#networking-configuration).
+   > Pokud je odchozí připojení omezeno externí firemní bránou firewall nebo proxy server, ujistěte se, že adresy URL uvedené v následující tabulce nejsou blokované. Související informace najdete v části "konfigurace sítě" v tématu [Přehled agenta serverů s podporou ARC Azure](/azure/azure-arc/servers/agent-overview#networking-configuration).
 
 
 Jak vidíte níže, Azure Stack HCL přistupuje k Azure pomocí více než jedné brány firewall potenciálně.
@@ -37,7 +37,7 @@ Jak vidíte níže, Azure Stack HCL přistupuje k Azure pomocí více než jedn�
 :::image type="content" source="./media/configure-firewalls/firewalls-diagram.png" alt-text="Diagram zobrazuje Azure Stack HCL přístup k koncovým bodům značek Service prostřednictvím portu 443 (HTTPS) bran firewall." lightbox="./media/configure-firewalls/firewalls-diagram.png":::
 
 ## <a name="working-with-service-tags"></a>Práce s visačkami služeb
-*Značka služby* představuje skupinu IP adres z dané služby Azure. Společnost Microsoft spravuje IP adresy, které jsou součástí značky služby, a automaticky aktualizuje označení služby jako IP adresy, aby byly aktualizace minimální. Další informace najdete v tématu [značky služby virtuální sítě](https://docs.microsoft.com/azure/virtual-network/service-tags-overview).
+*Značka služby* představuje skupinu IP adres z dané služby Azure. Společnost Microsoft spravuje IP adresy, které jsou součástí značky služby, a automaticky aktualizuje označení služby jako IP adresy, aby byly aktualizace minimální. Další informace najdete v tématu [značky služby virtuální sítě](/azure/virtual-network/service-tags-overview).
 
 ## <a name="required-endpoint-daily-access-after-azure-registration"></a>Denní přístup k požadovanému koncovému bodu (po registraci Azure)
 Azure udržuje správné známé IP adresy pro služby Azure, které jsou organizované pomocí značek služeb. Azure publikuje týdenní soubor JSON všech IP adres pro každou službu. IP adresy se často nemění, ale mění se několik časů za rok. V následující tabulce jsou uvedeny koncové body značek služby, které operační systém potřebuje k přístupu.

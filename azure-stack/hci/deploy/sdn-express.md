@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/16/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: ba28d5904e58d84a913777fe80c5aa05a8ecdffe
-ms.sourcegitcommit: 6a99a188bbad491e7d2817de0b9500a27797107e
+ms.openlocfilehash: 968782c4fd5ac0f4e057815c526fbde8f90164af
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97658275"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98254836"
 ---
 # <a name="deploy-an-sdn-infrastructure-using-sdn-express"></a>Nasazení infrastruktury SDN pomocí SDN Express
 
@@ -21,9 +21,9 @@ V tomto tématu nasadíte koncovou infrastrukturu SDN (Software Defined Network)
 
 Skripty podporují postupné nasazení, kde můžete nasadit jenom síťový adaptér a dosáhnout tak základní sady funkcí s minimálními požadavky na síť. Síťový adaptér můžete nasadit také pomocí Průvodce vytvořením clusteru v centru pro správu systému Windows. K nasazení jiných komponent SDN, jako je SLB a Gateway, je ale nutné použít skripty SDN Express.
 
-Infrastrukturu SDN můžete nasadit taky pomocí System Center Virtual Machine Manager (VMM). Další informace najdete v tématu [Správa prostředků SDN v prostředcích infrastruktury nástroje VMM](https://docs.microsoft.com/system-center/vmm/network-sdn).
+Infrastrukturu SDN můžete nasadit taky pomocí System Center Virtual Machine Manager (VMM). Další informace najdete v tématu [Správa prostředků SDN v prostředcích infrastruktury nástroje VMM](/system-center/vmm/network-sdn).
 
-## <a name="before-you-begin"></a>Před zahájením
+## <a name="before-you-begin"></a>Než začnete
 
 Než začnete s nasazením SDN, naplánujte a nakonfigurujte svoji fyzickou a hostitelskou infrastrukturu sítě. Odkázat na následující články:
 
@@ -62,7 +62,7 @@ Zajistěte, aby na všech hostitelských serverech byl nainstalován operační 
     SDNExpress\scripts\SDNExpress.ps1 -ConfigurationDataFile MultiNodeSampleConfig.psd1 -Verbose
     ```
 
-1. Po vytvoření virtuálních počítačů síťového adaptéru nakonfigurujte dynamické aktualizace DNS pro název clusteru síťového adaptéru na serveru DNS. Další informace najdete v kroku 3 [požadavky pro nasazení síťového adaptéru](https://docs.microsoft.com/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller).
+1. Po vytvoření virtuálních počítačů síťového adaptéru nakonfigurujte dynamické aktualizace DNS pro název clusteru síťového adaptéru na serveru DNS. Další informace najdete v kroku 3 [požadavky pro nasazení síťového adaptéru](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller).
 
 ## <a name="next-steps"></a>Další kroky
 

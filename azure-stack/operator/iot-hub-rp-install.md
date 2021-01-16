@@ -1,5 +1,5 @@
 ---
-title: Postup instalace IoT Hub v centru Azure Stack
+title: Jak nainstalovat IoT Hub v Azure Stack Hubu
 description: Naučte se instalovat poskytovatele prostředků IoT Hub v centru Azure Stack.
 author: yiyiguo
 ms.author: yiygu
@@ -7,14 +7,14 @@ ms.service: azure-stack
 ms.topic: how-to
 ms.date: 1/6/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 13bac36ffd7d771d1b5504067bfe1d679cdda5e6
-ms.sourcegitcommit: 0e3296fb27b9dabbc2569bf85656c4c7b1d58ba9
+ms.openlocfilehash: 47d06bc7363a9ce8d4de8971bf26c38bfdb16bcc
+ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93049808"
+ms.lasthandoff: 01/16/2021
+ms.locfileid: "98256111"
 ---
-# <a name="how-to-install-iot-hub-on-azure-stack-hub"></a>Postup instalace IoT Hub v centru Azure Stack
+# <a name="how-to-install-iot-hub-on-azure-stack-hub"></a>Jak nainstalovat IoT Hub v Azure Stack Hubu
 
 [!INCLUDE [preview-banner](../includes/iot-hub-preview.md)]
 
@@ -29,7 +29,7 @@ Pokud vaše centrum Azure Stack má přístup k Azure Marketplace, postupujte po
 Pokud chcete stáhnout IoT Hub pro připojené nasazení, proveďte následující kroky:
 
 1. Přihlaste se ke Azure Stack portálu pro správu centra. 
-2. Na levé straně vyberte **Správa Marketplace** a pak vyberte **poskytovatelé prostředků** a pak klikněte na **+ Přidat z Azure** .
+2. Na levé straně vyberte **Správa Marketplace** a pak vyberte **poskytovatelé prostředků** a pak klikněte na **+ Přidat z Azure**.
 
     [![Hledání RP Marketplace](media/iot-hub-rp-install/marketplace-rp-add-from-azure.png)](media/iot-hub-rp-install/marketplace-rp-add-from-azure.png#lightbox)
 
@@ -63,11 +63,11 @@ Pokud chcete stáhnout IoT Hub pro odpojené nebo částečně připojené nasaz
 
 Na stránce **správy Marketplace** postupujte podle těchto kroků a nainstalujte balíček IoT Hub:
 
-1. Klikněte na řádek **IoT Hub** a **Spusťte instalaci** .
+1. Klikněte na řádek **IoT Hub** a **Spusťte instalaci**.
 
     [![IoT Hub RP čeká na instalaci.](../operator/media/iot-hub-rp-install/install1.png)](../operator/media/iot-hub-rp-install/install1.png#lightbox)
 
-2. Klikněte na **požadavky na instalaci** .
+2. Klikněte na **požadavky na instalaci**.
 
     [![Požadavky na instalaci IoT Hub RP](../operator/media/iot-hub-rp-install/install2.png)](../operator/media/iot-hub-rp-install/install2.png#lightbox)
 
@@ -105,11 +105,11 @@ Na stránce **správy Marketplace** postupujte podle těchto kroků a nainstaluj
 
 Poskytovatel prostředků IoT Hub se úspěšně nainstaloval. Začněte tím, že provedete následující kroky:
 
-1. V případě potřeby postupujte podle pokynů k [Vytvoření plánu, nabídek a předplatného](azure-stack-plan-offer-quota-overview.md).
+1. V případě potřeby postupujte podle pokynů k [Vytvoření plánu, nabídek a předplatného](./service-plan-offer-subscription-overview.md).
 
 2. Pokud předplatné už existuje, aktualizujte přidruženou nabídku/plán tak, aby zahrnovala službu **Microsoft. Devices** . Přejít na **plán**  ->  **zvolit plán aktualizace**  ->  **služby a kvóty**
 
-3. Přidejte **službu Microsoft. Devices** a klikněte na **Uložit** .
+3. Přidejte **službu Microsoft. Devices** a klikněte na **Uložit**.
 
     [![Přidání služby IoT Hub do plánu](../operator/media/iot-hub-rp-install/pd2.png)](../operator/media/iot-hub-rp-install/pd2.png#lightbox)
 
