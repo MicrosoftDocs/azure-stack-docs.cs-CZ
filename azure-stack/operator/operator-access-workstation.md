@@ -3,16 +3,16 @@ title: Pracovní stanice pro přístup k operátorovi centra Azure Stack
 description: Přečtěte si, jak stáhnout a nakonfigurovat pracovní stanici pro přístup k operátorovi centra Azure Stack.
 author: ashika789
 ms.topic: article
-ms.date: 11/04/2020
+ms.date: 1/15/2021
 ms.author: patricka
 ms.reviewer: asganesh
-ms.lastreviewed: 11/04/2020
-ms.openlocfilehash: f65235e83e0086ad340efbabc311966a0aa6d621
-ms.sourcegitcommit: 5f3adb99b40fa4473955fa408e7ff63d5e1b439f
+ms.lastreviewed: 1/15/2021
+ms.openlocfilehash: 011a75dcdbe8818af568eb5cc6bb6123a4f11c4e
+ms.sourcegitcommit: 48a46142ea7bccd6c8a609e188dd7f3f6444f3c4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98105107"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98561957"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Pracovní stanice pro přístup k operátorovi centra Azure Stack 
 
@@ -82,7 +82,7 @@ V následující tabulce je uveden předinstalovaný software na virtuálním po
 | [Microsoft Edge pro firmy](https://www.microsoft.com/edge/business/)                                            | \[Systémová_jednotka \] \Program Files (x86) \Microsoft\Edge\Application                                                                                        |
 | [AZ modules](./powershell-install-az-module.md)                         | \[Systémová_jednotka \] \ProgramFiles\WindowsPowerShell\Modules                                         |  
 | [PowerShell 7](https://devblogs.microsoft.com/powershell/announcing-PowerShell-7-0/)| \[Systémová_jednotka \] \Program Files\PowerShell\7                                                                       |
-| [Rozhraní příkazového řádku Azure (CLI)](/cli/azure/?view=azure-cli-latest) | \[Systémová_jednotka \] \Program Files (x86) \Microsoft SDKs\Azure\CLI2 |
+| [Rozhraní příkazového řádku Azure Command-Line (CLI)](/cli/azure/?view=azure-cli-latest) | \[Systémová_jednotka \] \Program Files (x86) \Microsoft SDKs\Azure\CLI2 |
 | [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)   | \[Systémová_jednotka \] \Program Files (x86) \microsoft Průzkumník služby Azure Storage                                                                       |
 | [AzCopy](/azure/storage/common/storage-use-azcopy-v10)                             | \[Systémová_jednotka \] \vmsoftware\ azcopy_windows_amd64_10.3.4                                         |
 | [AzureStack – nástroje](https://github.com/Azure/AzureStack-Tools/tree/az)                  | \[Systémová_jednotka \] \VMSoftware\AzureStack-Tools                                                    |
@@ -203,13 +203,13 @@ New-OAW
 
 V následující tabulce je uveden seznam definic pro každý parametr.
 
-| Parametr   | Požadováno/volitelné  | Description       |
+| Parametr   | Požadováno/volitelné  | Popis       |
 |-------------|--------------------|-------------------|
-| LocalAdministratorPassword | Povinné | Heslo pro účet místního správce virtuálního počítače AdminUser. |
-| IPAddress                  | Povinné | Statická adresa IPv4 pro konfiguraci protokolu TCP/IP na virtuálním počítači.                                                |
-| SubnetMask                 | Povinné | Maska podsítě IPv4 pro konfiguraci protokolu TCP/IP na virtuálním počítači.                                                   |
-| DefaultGateway             | Povinné | Adresa IPv4 výchozí brány pro konfiguraci protokolu TCP/IP na virtuálním počítači.                                    |
-| DNS                        | Povinné | Servery DNS pro konfiguraci protokolu TCP/IP na virtuálním počítači.                                                          |
+| LocalAdministratorPassword | Vyžadováno | Heslo pro účet místního správce virtuálního počítače AdminUser. |
+| IPAddress                  | Vyžadováno | Statická adresa IPv4 pro konfiguraci protokolu TCP/IP na virtuálním počítači.                                                |
+| SubnetMask                 | Vyžadováno | Maska podsítě IPv4 pro konfiguraci protokolu TCP/IP na virtuálním počítači.                                                   |
+| DefaultGateway             | Vyžadováno | Adresa IPv4 výchozí brány pro konfiguraci protokolu TCP/IP na virtuálním počítači.                                    |
+| DNS                        | Vyžadováno | Servery DNS pro konfiguraci protokolu TCP/IP na virtuálním počítači.                                                          |
 | ImageFilePath              | Volitelné | Cesta k souboru OAW. vhdx, kterou poskytla společnost Microsoft. Výchozí hodnota je **OAW. vhdx** ve stejné nadřazené složce tohoto skriptu. |
 | VirtualMachineName         | Volitelné | Název, který se má přiřadit k virtuálnímu počítači. Pokud se dá předpona pro pojmenování najít v DeploymentData.jssouboru, použije se jako výchozí název. V opačném případě se jako výchozí název použije **AzSOAW** . Pokud chcete přepsat výchozí hodnotu, můžete zadat jiný název. |
 | VirtualMachineMemory       | Volitelné | Paměť, která se má přiřadit k virtuálnímu počítači. Výchozí hodnota je **4 GB**.                            |

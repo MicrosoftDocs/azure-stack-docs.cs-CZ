@@ -3,16 +3,16 @@ title: Použití ASDK k ověření zálohy Azure Stack
 description: Naučte se používat ASDK k ověření zálohování integrovaných systémů Azure Stack.
 author: PatAltimore
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 1/15/2020
 ms.author: patricka
 ms.reviewer: hectorl
-ms.lastreviewed: 03/11/2020
-ms.openlocfilehash: 0829174ab080ebc482e99490b7a5af5c2e0f2806
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.lastreviewed: 1/15/2020
+ms.openlocfilehash: d04116cb3eeb74eda7241c35c377d34df97dde28
+ms.sourcegitcommit: 48a46142ea7bccd6c8a609e188dd7f3f6444f3c4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873040"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98561974"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>Použití ASDK k ověření zálohy Azure Stack
 Po nasazení Azure Stack a zřízení prostředků uživatelů (například nabídek, plánů, kvót a předplatných) byste měli [povolit Azure Stack zálohování infrastruktury](../operator/azure-stack-backup-enable-backup-console.md). Plánování a spouštění pravidelných záloh infrastruktury zajistí, že data správy infrastruktury nebudou ztracena v případě závažného selhání hardwaru nebo služby.
@@ -24,7 +24,7 @@ Zálohy infrastruktury Azure Stack obsahují důležitá data o cloudu, která s
 
 Ověřování záloh v ASDK se podporuje v následujících scénářích:
 
-|Scénář|Účel|
+|Scenario|Účel|
 |-----|-----|
 |Ověří zálohy infrastruktury z integrovaného řešení.|Krátkodobé ověření, že jsou data v záloze platná.|
 |Přečtěte si kompletní pracovní postup obnovení.|Pomocí ASDK ověříte celé prostředí pro zálohování a obnovení.|
@@ -32,7 +32,7 @@ Ověřování záloh v ASDK se podporuje v následujících scénářích:
 
 Následující scénář **není** podporován při ověřování záloh na ASDK:
 
-|Scénář|Účel|
+|Scenario|Účel|
 |-----|-----|
 |ASDK sestavení pro sestavení zálohování a obnovení.|Obnoví zálohovaná data z předchozí verze ASDK na novější verzi.|
 |     |     |
@@ -162,7 +162,7 @@ Po přihlášení jako operátor Azure Stack [nainstalujte Azure Stack PowerShel
 
 ```powershell
 $decryptioncertpassword = Read-Host -AsSecureString -Prompt "Password for the decryption certificate"
-Restore-AzsBackup -ResourceId "<BackupID>" `
+Restore-AzsBackup -Name "<BackupID>" `
  -DecryptionCertPath "<path to decryption certificate with file name (.pfx)>" `
  -DecryptionCertPassword $decryptioncertpassword
 ```

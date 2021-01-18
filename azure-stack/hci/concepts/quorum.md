@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: d60ec2edb4247c72d35e69e199bf3fc28259e2ce
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 0503e9a97a2ca2b15447dbd837eeac9162b84654
+ms.sourcegitcommit: 48a46142ea7bccd6c8a609e188dd7f3f6444f3c4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572119"
+ms.lasthandoff: 01/18/2021
+ms.locfileid: "98561991"
 ---
 # <a name="understanding-cluster-and-pool-quorum-on-azure-stack-hci"></a>Principy kvora clusteru a fondu v Azure Stack HCI
 
@@ -43,9 +43,9 @@ Následující tabulka obsahuje přehled výsledků kvora clusteru na jeden scé
 
 ### <a name="cluster-quorum-recommendations"></a>Doporučení kvora clusteru
 
-- Pokud máte dva uzly, **vyžaduje**se určující kopie.
-- Pokud máte tři nebo čtyři uzly, **důrazně doporučujeme**umístění určující.
-- Pokud máte přístup k Internetu, použijte ** [disk s kopií cloudu](/windows-server/failover-clustering/deploy-cloud-witness)**
+- Pokud máte dva uzly, **vyžaduje** se určující kopie.
+- Pokud máte tři nebo čtyři uzly, **důrazně doporučujeme** umístění určující.
+- Pokud máte přístup k Internetu, použijte **[disk s kopií cloudu](/windows-server/failover-clustering/deploy-cloud-witness)**
 - Pokud používáte IT prostředí s dalšími počítači a sdílenými složkami, použijte určující sdílenou složku.
 
 ## <a name="how-cluster-quorum-works"></a>Princip kvora clusteru
@@ -59,11 +59,11 @@ Existují dva způsoby, jak může cluster *Celkový počet hlasů* označit jak
 1. Nejdřív to *může projít tím* , že přidá *svědka* s dalšími hlasovacími možnostmi. To vyžaduje nastavení uživatele.
 2. Nebo může přejít *dolů* tak, že vynulová jeden hlas uzlu unlucky (provede se automaticky podle potřeby).
 
-Pokaždé, když se přestanou uzly úspěšně ověřit, definice *většiny* se aktualizuje *tak, aby*byly v rámci jenom těch pozůstalých. To umožňuje, aby cluster ztratil jeden uzel, potom další, a tak dále. Tento koncept *celkového počtu hlasů* , který se přizpůsobuje po úspěšném selhání, se označuje jako ***dynamické kvorum***.
+Pokaždé, když se přestanou uzly úspěšně ověřit, definice *většiny* se aktualizuje *tak, aby* byly v rámci jenom těch pozůstalých. To umožňuje, aby cluster ztratil jeden uzel, potom další, a tak dále. Tento koncept *celkového počtu hlasů* přizpůsobených po sobě jdoucích selhání se říká ***dynamické kvorum** _.
 
 ### <a name="dynamic-witness"></a>Dynamický určující disk
 
-Dynamický určující disk přepíná hlas určujícího prvku, aby bylo zajištěno, že *Celkový počet hlasů* je lichý. Pokud je k dispozici lichý počet hlasů, svědk nemá žádný hlas. Pokud je k dispozici sudý počet hlasů, má určující prvek nějaký hlas. Dynamický určující disk významně snižuje riziko, že cluster přestane být v důsledku selhání určujícího disku. Cluster rozhodne, zda má být použit hlas určující, na základě počtu hlasovacích uzlů, které jsou v clusteru k dispozici.
+Dynamický určující disk přepíná hlas určujícího prvku, aby se zajistilo, že _total počet hlasů * je lichý. Pokud je k dispozici lichý počet hlasů, svědk nemá žádný hlas. Pokud je k dispozici sudý počet hlasů, má určující prvek nějaký hlas. Dynamický určující disk významně snižuje riziko, že cluster přestane být v důsledku selhání určujícího disku. Cluster rozhodne, zda má být použit hlas určující, na základě počtu hlasovacích uzlů, které jsou v clusteru k dispozici.
 
 Dynamické kvorum funguje s dynamickým určujícím prostředkem způsobem popsaným níže.
 
@@ -71,7 +71,7 @@ Dynamické kvorum funguje s dynamickým určujícím prostředkem způsobem pops
 
 - Pokud máte **sudý** počet uzlů a žádný určující disk, *jeden uzel získá svůj hlas na nulu*. Například jenom tři ze čtyř uzlů získá hlasy, takže *Celkový počet hlasů* je tři a dva zbývající objekty s hlasy se považují za většinu.
 - Pokud máte **lichý** počet uzlů a žádný určující disk, *získají hlasy všichni*.
-- V případě, že máte **sudý** počet uzlů plus určující určující *, aby*bylo celkem liché.
+- V případě, že máte **sudý** počet uzlů plus určující určující *, aby* bylo celkem liché.
 - Pokud máte **lichý** počet uzlů plus určující disk, *svědk nehlasuje*.
 
 Dynamické kvorum umožňuje dynamicky přiřadit hlas k uzlu, aby nedošlo ke ztrátě většiny hlasů a aby bylo možné cluster spustit s jedním uzlem (označovaným jako poslední člověk Man). Pojďme jako příklad využít cluster se čtyřmi uzly. Předpokládat, že kvorum vyžaduje 3 hlasy.
@@ -89,11 +89,11 @@ Výše uvedený scénář se vztahuje na obecný cluster, u kterého není povol
 ### <a name="examples"></a>Příklady
 
 #### <a name="two-nodes-without-a-witness"></a>Dva uzly bez určujícího disku.
-Hlas jednoho uzlu je nulový, takže *většina* hlasů je určena celkem **1 hlasů**. Pokud uzel bez hlasovacího práva neočekávaně skončí, zůstane u něj 1/1 a cluster se zachová. Pokud dojde k neočekávanému výpadku hlasovacího uzlu, zůstane u něj 0/1 a cluster se ukončí. Pokud je hlasovací uzel řádně vypnutý, hlas se přenese do druhého uzlu a cluster se zachová. ***To je důvod, proč je důležité nakonfigurovat určující disk.***
+Hlas jednoho uzlu je nulový, takže *většina* hlasů je určena celkem **1 hlasů**. Pokud uzel bez hlasovacího práva neočekávaně skončí, zůstane u něj 1/1 a cluster se zachová. Pokud dojde k neočekávanému výpadku hlasovacího uzlu, zůstane u něj 0/1 a cluster se ukončí. Pokud je hlasovací uzel řádně vypnutý, hlas se přenese do druhého uzlu a cluster se zachová. **_To je důvod, proč je důležité nakonfigurovat určující disk._* _
 
 ![Vysvětlené kvorum v případě se dvěma uzly bez určujícího disku](media/quorum/2-node-no-witness.png)
 
-- Může zachována jedna selhání serveru: **50%**.
+- Může zamezit jednomu selhání serveru: _ * padesát% pravděpodobnost * *.
 - Může zachována jedna selhání serveru a pak jiný: **ne**.
 - Může zamezit dvěma selháními serveru najednou: **ne**.
 
@@ -159,7 +159,7 @@ Clustering s podporou převzetí služeb při selhání podporuje tři typy kopi
 
 - **[Sdílená složka cloudu](/windows-server/failover-clustering/deploy-cloud-witness)** – služba BLOB Storage v Azure je přístupná pro všechny uzly clusteru. Udržuje informace o clusteringu v souboru. log, ale neukládá kopii databáze clusteru.
 - **Určující sdílená složka** – sdílená složka SMB, která je nakonfigurovaná na souborovém serveru se systémem Windows Server. Udržuje informace o clusteringu v souboru. log, ale neukládá kopii databáze clusteru.
-- **Disk s kopií** clusteru – malý clusterový disk, který je ve skupině úložišť k dispozici. Tento disk je vysoce dostupný a může převzetí služeb při selhání mezi uzly. Obsahuje kopii databáze clusteru.  ***Disk s kopií clusteru není u prostory úložiště s přímým přístupem podporován***.
+- **Disk s kopií** clusteru – malý clusterový disk, který je ve skupině úložišť k dispozici. Tento disk je vysoce dostupný a může převzetí služeb při selhání mezi uzly. Obsahuje kopii databáze clusteru.  **_Disk s kopií clusteru není podporován prostory úložiště s přímým přístupem_* _.
 
 ## <a name="pool-quorum-overview"></a>Přehled kvora fondu
 
@@ -179,7 +179,7 @@ Následující tabulka obsahuje přehled výsledků kvora fondu na jeden scéná
 
 ## <a name="how-pool-quorum-works"></a>Jak funguje kvorum fondu
 
-Když dojde k selhání jednotek nebo když některá z podmnožiny jednotek ztratí kontakt s jinou podmnožinou, musí jednotky se systémem ověřit, že představují *většinu* fondu, aby zůstaly online. Pokud to nedokáže ověřit, přejde do režimu offline. Fond je entita, která přejde do režimu offline nebo zůstane online na základě toho, jestli má dostatek disků pro kvorum (50% + 1). Vlastníkem prostředku fondu (aktivní uzel clusteru) může být + 1.
+Když jednotky selžou nebo když některá z podmnožiny jednotek ztratí kontakt s jinou podmnožinou, musí jednotky se systémem ověřit, že představují _majority * fondu, aby zůstaly online. Pokud to nedokáže ověřit, přejde do režimu offline. Fond je entita, která přejde do režimu offline nebo zůstane online na základě toho, jestli má dostatek disků pro kvorum (50% + 1). Vlastníkem prostředku fondu (aktivní uzel clusteru) může být + 1.
 
 Ale kvorum fondu funguje jinak než kvorum clusteru, a to následujícími způsoby:
 
@@ -213,8 +213,8 @@ Každá z těchto 24 jednotek má jeden hlas a druhý uzel má také jeden hlas 
 ![Kvorum fondu 3](media/quorum/pool-3.png)
 
 - Může zachována jedna selhání serveru: **Ano**.
-- Může zacházet s jedním selháním serveru, další: * * závisí * * (nedokáže se předržet, pokud oba uzly tři a čtyři rozcházejí dolů), ale mohou zachovány všechny ostatní scénáře.
-- Může zacházet se dvěma selháními serveru najednou: * * závisí * * (nedaří se předržet, pokud oba uzly tři a čtyři rozcházejí dolů), ale mohou zachovány všechny ostatní scénáře.
+- Může zacházet s jednou chybou serveru a potom jiným: **závisí** (nemůže se předržet, pokud oba uzly tři a čtyři rozcházejí dolů), ale může zamezit všechny ostatní scénáře.
+- Může zacházet se dvěma selháními serveru najednou: **závisí** (nemůže se předržet, pokud oba uzly tři a čtyři rozcházejí dolů), ale může zacházet ze všech ostatních scénářů.
 
 ### <a name="pool-quorum-recommendations"></a>Doporučení kvora fondu
 
