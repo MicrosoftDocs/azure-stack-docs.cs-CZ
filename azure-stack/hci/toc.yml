@@ -44,12 +44,12 @@
           href: deploy/create-cluster-powershell.md
     - name: Nasazení úloh
       items:
-        - name: Nasazení infrastruktury virtuálních klientských počítačů
-          href: deploy/deploy-vdi.md
-        - name: Nasazení SQL Server
-          href: deploy/deploy-sql-server-workload.md
-        - name: Nasadit důvěryhodnou podnikovou virtualizaci
-          href: deploy/deploy-trusted-enterprise-virtualization.md
+        - name: Infrastruktura virtuálního klienta
+          href: deploy/virtual-desktop-infrastructure.md
+        - name: SQL Server
+          href: deploy/sql-server.md
+        - name: Důvěryhodná podniková virtualizace
+          href: deploy/trusted-enterprise-virtualization.md
 - name: Spravovat
   items:
     - name: Správa virtuálních počítačů

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 1d83ef1d43dbe974ead7a5d80bb42939a311af7a
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: 9cf3339398516688865f7aab3a696562f4974699
+ms.sourcegitcommit: 0983c1f90734b7ea5e23ae614eeaed38f9cb3c9a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255788"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98571327"
 ---
 # <a name="how-to-manage-event-hubs-on-azure-stack-hub"></a>Správa Event Hubs v centru Azure Stack
 
@@ -42,7 +42,7 @@ Výběr **kvót** na hlavní stránce zobrazuje seznam používaných kvót, vč
 
 Další informace o typech kvót definovaných pro Event Hubs najdete v tématu [typy kvót](azure-stack-quota-types.md#event-hubs-quota-types) .
 
-## <a name="alerts"></a>Upozornění
+## <a name="alerts"></a>Výstrahy
 
 Poskytovatel prostředků Event Hubs podporuje následující výstrahy:
    
@@ -50,8 +50,8 @@ Poskytovatel prostředků Event Hubs podporuje následující výstrahy:
 |----------|-------|------|-----------|
 | Výkon | | | |
 | | EventHub-CpuUsage | Upozornění | Průměr% využití CPU Event Hubs clusteru za posledních 6 hodin je větší než 50%. |
-| | EventHub-MemoryUsage | Upozornění | Průměr% datového disku (E:) využití clusteru Event Hubs za posledních 6 hodin je větší než 50%. |
-| | EventHub-DiskUsage | Upozornění | Průměr% volného místa na disku Event Hubs clusteru za posledních 6 hodin je menší než 50%. |
+| | EventHub-MemoryUsage | Upozornění | Průměr% volného místa na disku Event Hubs clusteru za posledních 6 hodin je menší než 50%. |
+| | EventHub-DiskUsage | Upozornění | Průměr% datového disku (E:) využití clusteru Event Hubs za posledních 6 hodin je větší než 50%. |
 | Využití/kvóta | | | |
 | | EventHub-QuotaExceeded | Upozornění | Během posledních šesti hodin došlo k chybě překročení kvóty. |
 | | EventHub-NamespaceCreditUsage | Upozornění | Součet využití kreditu z oboru názvů za posledních šest hodin je větší než 10000,0. |

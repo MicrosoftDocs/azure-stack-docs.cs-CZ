@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Naučte se, jak tyto tajné klíče otočit z centra Azure Stack.
 author: BryanLa
 ms.topic: how-to
-ms.date: 01/07/2021
+ms.date: 01/19/2021
 ms.reviewer: fiseraci
 ms.author: bryanla
-ms.lastreviewed: 01/07/2021
+ms.lastreviewed: 01/19/2021
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: 229b7b3995340298b7162de7ae051d0f742e86cf
-ms.sourcegitcommit: 51ce5ba6cf0a377378d25dac63f6f2925339c23d
+ms.openlocfilehash: d7c75bc9864e564736b03477a3c37140e752d850
+ms.sourcegitcommit: 0983c1f90734b7ea5e23ae614eeaed38f9cb3c9a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210950"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98571344"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Obměna tajných klíčů ve službě Azure Stack Hub
 
@@ -67,6 +67,7 @@ Další informace o monitorování a nápravě výstrah najdete [v tématu monit
 > - **Tajné kódy, jako jsou zabezpečené klíče a řetězce** , musí správce provést ručně. Sem patří hesla uživatele a účtu správce a [hesla přepínače sítě](azure-stack-customer-defined.md).
 > - **Tajným klíčům s hodnotou přidat poskytovatele prostředků (RP)** se zabývá samostatné doprovodné materiály:
 >    - [App Service v Azure Stack Hubu](app-service-rotate-certificates.md)
+>    - [Event Hubs v Azure Stack Hubu](event-hubs-rp-rotate-secrets.md)
 >    - [IoT Hub v Azure Stack Hubu](iot-hub-rp-rotate-secrets.md)
 >    - [MySQL v centru Azure Stack](azure-stack-mysql-resource-provider-maintain.md#secrets-rotation)
 >    - [SQL v centru Azure Stack](azure-stack-sql-resource-provider-maintain.md#secrets-rotation)
@@ -117,7 +118,7 @@ Před otočením externích tajných klíčů:
 3. Uložte zálohu do certifikátů používaných k otočení v umístění zabezpečené zálohy. Pokud se vaše otočení spustí a pak se nepovede, nahraďte certifikáty ve sdílené složce záložními kopiemi a teprve potom znovu spusťte otočení. Uchovávejte záložní kopie v umístění zabezpečené zálohy.
 4. Vytvořte sdílenou složku, ke které máte přístup z virtuálních počítačů s ERCS. Sdílená složka musí být čitelná a zapisovatelné pro **CloudAdmin** identitu.
 5. Otevřete konzolu PowerShellu ISE z počítače, ke kterému máte přístup ke sdílené složce. Přejděte do sdílené složky, kde vytvoříte adresáře, kam chcete umístit své externí certifikáty.
-6. Stáhněte si **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** do síťové sdílené složky a spusťte skript. Skript vytvoří strukturu složek, která bude vyhovovat **_.\Certificates\AAD_*_ nebo _*_.\Certificates\ADFS_*_, a to v závislosti na vašem poskytovateli identity. Vaše struktura složky musí začínat* složkou \\ certifikátů _** následovaný pouze složkou **\\ AAD** nebo **\\ ADFS** . Všechny zbývající podadresáře jsou obsaženy v předchozí struktuře. Příklad:
+6. Stáhněte si **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** do síťové sdílené složky a spusťte skript. Skript vytvoří strukturu složek, která bude vyhovovat **_.\Certificates\AAD_*_ nebo _*_.\Certificates\ADFS_*_, a to v závislosti na vašem poskytovateli identity. Vaše struktura složky musí začínat* složkou \\ certifikátů _** následovaný pouze složkou **\\ AAD** nebo **\\ ADFS** . Všechny zbývající podadresáře jsou obsaženy v předchozí struktuře. Například:
     - Sdílená složka = **\\\\\<IPAddress>\\\<ShareName>**
     - Kořenová složka certifikátu pro Azure AD Provider = **\\ Certificates\AAD**
     - Úplná cesta = **\\ \\ \<IPAddress> \\ \<ShareName> \Certificates\AAD**
@@ -324,11 +325,11 @@ K otočení interních tajných kódů proveďte následující kroky:
 
 | Parametr | Typ | Vyžadováno | Pozice | Výchozí | Popis |
 |--|--|--|--|--|--|
-| `PfxFilesPath` | Řetězec  | Nepravda  | Jmenovanou  | Žádné  | Cesta ke sdílené složce adresáře **\Certificates** obsahující všechny certifikáty koncového bodu externí sítě. Vyžaduje se pouze při otáčení externích tajných klíčů. Koncový adresář musí být **\Certificates**. |
-| `CertificatePassword` | SecureString | Nepravda  | Jmenovanou  | Žádné  | Heslo pro všechny certifikáty, které jsou k dispozici v-PfXFilesPath. Požadovaná hodnota, pokud je k dispozici PfxFilesPath při otočení externích tajných klíčů. |
-| `Internal` | Řetězec | Nepravda | Jmenovanou | Žádné | Vnitřní příznak musí být použit v případě, že operátor centra Azure Stack chce otočit tajné tajné klíče interní infrastruktury. |
-| `PathAccessCredential` | PSCredential | Nepravda  | Jmenovanou  | Žádné  | Přihlašovací údaje PowerShellu pro sdílenou složku adresáře **\Certificates** obsahující všechny certifikáty koncového bodu externí sítě. Vyžaduje se pouze při otáčení externích tajných klíčů.  |
-| `ReRun` | Přepínací parametr | Nepravda  | Jmenovanou  | Žádné  | Po neúspěšném pokusu se musí použít neustále se střídání tajných klíčů. |
+| `PfxFilesPath` | Řetězec  | Ne  | Jmenovanou  | Žádné  | Cesta ke sdílené složce adresáře **\Certificates** obsahující všechny certifikáty koncového bodu externí sítě. Vyžaduje se pouze při otáčení externích tajných klíčů. Koncový adresář musí být **\Certificates**. |
+| `CertificatePassword` | SecureString | Ne  | Jmenovanou  | Žádné  | Heslo pro všechny certifikáty, které jsou k dispozici v-PfXFilesPath. Požadovaná hodnota, pokud je k dispozici PfxFilesPath při otočení externích tajných klíčů. |
+| `Internal` | Řetězec | Ne | Jmenovanou | Žádné | Vnitřní příznak musí být použit v případě, že operátor centra Azure Stack chce otočit tajné tajné klíče interní infrastruktury. |
+| `PathAccessCredential` | PSCredential | Ne  | Jmenovanou  | Žádné  | Přihlašovací údaje PowerShellu pro sdílenou složku adresáře **\Certificates** obsahující všechny certifikáty koncového bodu externí sítě. Vyžaduje se pouze při otáčení externích tajných klíčů.  |
+| `ReRun` | Přepínací parametr | Ne  | Jmenovanou  | Žádné  | Po neúspěšném pokusu se musí použít neustále se střídání tajných klíčů. |
 
 ### <a name="syntax"></a>Syntax
 

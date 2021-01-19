@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.author: caoyang
 ms.reviewer: xiaofmao
 ms.lastreviewed: 09/22/2020
-ms.openlocfilehash: 80caef7369a3cf5ebe79338bc907fa9b31d1a759
-ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
+ms.openlocfilehash: 0f03d1209587bcf27dec2a309b7cec4abc67bf32
+ms.sourcegitcommit: 0983c1f90734b7ea5e23ae614eeaed38f9cb3c9a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97737908"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98571310"
 ---
 # <a name="sql-resource-provider-1193x-release-notes"></a>Poznámky k verzi 1.1.93. x poskytovatele prostředků SQL
 
@@ -42,6 +42,8 @@ Doporučuje se použít 1.1.93.1 poskytovatele prostředků SQL po upgradu centr
 
 ## <a name="known-issue"></a>Známý problém
 Pokud se použije nesprávná AzureRmContext, nasazení verze 1.1.93.0 se nemusí zdařit. Doporučuje se upgradovat na verzi 1.1.93.1 přímo. Pokud jste už úspěšně provedli upgrade na 1.1.93.0, můžete 1.1.93.1 verzi bezpečně přeskočit.
+
+Při opětovném nasazení poskytovatele prostředků SQL v době, kdy byla stejná verze již nasazena (například když je již nasazen poskytovatel prostředků SQL 1.1.93.1 a je znovu nasazena stejná verze), bude zastaven virtuální počítač, který je hostitelem poskytovatele prostředků SQL. Pokud chcete tento problém vyřešit, přejděte na portál pro správu a vyhledejte a restartujte virtuální počítač s názvem sqlvm \<version\> ve skupině prostředků s názvem System. \<region\> . sqladapter.
 
 ## <a name="next-steps"></a>Další kroky
 

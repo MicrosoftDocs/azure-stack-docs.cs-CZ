@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.author: caoyang
 ms.reviewer: xiaofmao
 ms.lastreviewed: 09/22/2020
-ms.openlocfilehash: 2312219d67741b9485a6070c00418762e50fac73
-ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
+ms.openlocfilehash: 225c765642dc48b299c899d71eb0d0ce13d4852d
+ms.sourcegitcommit: 0983c1f90734b7ea5e23ae614eeaed38f9cb3c9a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97737827"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98571361"
 ---
 # <a name="mysql-resource-provider-1193x-release-notes"></a>Poznámky k verzi 1.1.93. x poskytovatele prostředků MySQL
 
@@ -42,6 +42,8 @@ Doporučuje se použít poskytovatele prostředků MySQL 1.1.93.1 po upgradu cen
 
 ## <a name="known-issues"></a>Známé problémy
 Pokud se použije nesprávná AzureRmContext, nasazení verze 1.1.93.0 se nemusí zdařit. Doporučuje se upgradovat na verzi 1.1.93.1 přímo. Pokud jste už úspěšně provedli upgrade na 1.1.93.0, můžete 1.1.93.1 verzi bezpečně přeskočit.
+
+Při opětovném nasazení poskytovatele prostředků MySQL v době, kdy byla stejná verze již nasazena (například když je již nasazen poskytovatel prostředků MySQL 1.1.93.1 a je znovu nasazena stejná verze), bude zastaven virtuální počítač, který je hostitelem poskytovatele prostředků MySQL. Pokud chcete tento problém vyřešit, přejděte na portál pro správu a vyhledejte a restartujte virtuální počítač s názvem mysqlvm \<version\> ve skupině prostředků s názvem System. \<region\> . mysqladapter.
 
 ## <a name="next-steps"></a>Další kroky
 

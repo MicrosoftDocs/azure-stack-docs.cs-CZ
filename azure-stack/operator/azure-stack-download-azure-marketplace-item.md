@@ -8,12 +8,12 @@ ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/16/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: dec5c65f39bec2f459abba9adba25c4c097aff04
-ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
+ms.openlocfilehash: 9560e9e2fcf5d7b01ca44b409d14a7827cac4060
+ms.sourcegitcommit: 0983c1f90734b7ea5e23ae614eeaed38f9cb3c9a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208076"
+ms.lasthandoff: 01/19/2021
+ms.locfileid: "98571395"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Stažení položek z Marketplace do centra Azure Stack
 
@@ -128,7 +128,7 @@ Po registraci Azure Stack můžete ignorovat následující zprávu, která se z
    Zobrazí se výzva k zadání přihlašovacích údajů k účtu Azure a možná budete muset použít dvojúrovňové ověřování v závislosti na konfiguraci vašeho účtu.
 
    > [!NOTE]
-   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí `Add-AzRmAccount` : `RemoveAzAccount -Scope Process` .
+   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí `Add-AzAccount` : `Remove-AzAccount -Scope Process` .
 
 3. Pokud máte více předplatných, spusťte následující příkaz a vyberte ten, který jste použili pro registraci:
 
@@ -187,7 +187,7 @@ Po registraci Azure Stack můžete ignorovat následující zprávu, která se z
 
 1. V počítači s připojením k Internetu otevřete konzolu PowerShellu jako správce.
 
-2. Přihlaste se ke příslušnému klientovi Azure Cloud a AzureAD Directory pomocí účtu Azure, který jste použili k registraci centra Azure Stack. Pokud chcete účet přidat, v PowerShellovém běhu `Add-AzureRMureRmAccount` :
+2. Přihlaste se ke příslušnému klientovi Azure Cloud a AzureAD Directory pomocí účtu Azure, který jste použili k registraci centra Azure Stack. Pokud chcete účet přidat, v PowerShellovém běhu `Add-AzureRMAccount` :
 
    ```powershell  
    Login-AzureRMAccount -Environment AzureCloud -Tenant '<mydirectory>.onmicrosoft.com'
@@ -196,7 +196,7 @@ Po registraci Azure Stack můžete ignorovat následující zprávu, která se z
    Zobrazí se výzva k zadání přihlašovacích údajů k účtu Azure a možná budete muset použít dvojúrovňové ověřování v závislosti na konfiguraci vašeho účtu.
 
    > [!NOTE]
-   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí `Add-AzureRMRmAccount` : `Remove-AzureRMAccount -Scope Process` .
+   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí `Add-AzureRMAccount` : `Remove-AzureRMAccount -Scope Process` .
 
 3. Pokud máte více předplatných, spusťte následující příkaz a vyberte ten, který jste použili pro registraci:
 
