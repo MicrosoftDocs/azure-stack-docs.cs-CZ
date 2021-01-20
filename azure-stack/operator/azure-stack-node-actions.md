@@ -3,16 +3,16 @@ title: Akce uzlů jednotek škálování ve službě Azure Stack Hub
 description: Seznamte se s akcemi uzlu jednotky škálování, včetně zapnutí, vypnutí, zakázání, obnovení a zobrazení stavu uzlu v integrovaných systémech Azure Stack hub.
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/19/2020
+ms.date: 1/19/2021
 ms.author: patricka
 ms.reviewer: thoroet
-ms.lastreviewed: 11/19/2020
-ms.openlocfilehash: dc98263b16a72e6b9809e7ef3bc0c286b627749d
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.lastreviewed: 1/19/2021
+ms.openlocfilehash: 5bececf48222c9dc7401df7cb84d83f375c93d75
+ms.sourcegitcommit: 01abc9d81ced31bd727626195148b4e00cc2d62e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869759"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98584282"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Akce uzlů jednotek škálování ve službě Azure Stack Hub
 
@@ -41,6 +41,8 @@ Zobrazení stavu jednotky škálování:
    - IP adresa řadiče pro správu základní desky (BMC).
    - Celkový počet jader
    - Celková velikost paměti.
+   
+    Akce uzlu mohou také vyvolat očekávané výstrahy na portálu pro správu. 
 
 ![stav jednotky škálování](media/azure-stack-node-actions/multinodeactions.png)
 
@@ -61,8 +63,6 @@ Centrum Azure Stack může zobrazit stav provozního uzlu, který se **přidáv�
 K tomu může dojít, když se mezipaměť role poskytovatele prostředků infrastruktury po operaci neaktualizovala. 
 
 Před použitím následujících kroků zajistěte, aby aktuálně neprobíhala žádná operace. Aktualizujte koncový bod tak, aby odpovídal vašemu prostředí.
-
-
 
 ### <a name="az-modules"></a>[AZ modules](#tab/az1)
 
@@ -143,7 +143,7 @@ V nepravděpodobném případě, že akce zastavení nefunguje, zkuste operaci z
 
 Další informace najdete v tématu [stop-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/stop-azsscaleunitnode).
 
-## <a name="start"></a>Start
+## <a name="start"></a>Spustit
 
 Akce **Spustit** zapne uzel. Je to stejné jako při stisknutí tlačítka napájení.
 

@@ -3,16 +3,16 @@ title: Nasazení webové aplikace v C# ASP.NET do virtuálního počítače v ce
 description: Nasaďte webovou aplikaci v C# ASP.NET do virtuálního počítače v Azure Stackovém centru.
 author: mattbriggs
 ms.topic: overview
-ms.date: 12/2/2020
+ms.date: 1/19/2021
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 1ff00f354f9ab451bbf9557c1d63b01980d78875
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.lastreviewed: 1/19/2021
+ms.openlocfilehash: 9ae951565b8715248c63f255c738fe30cb20a3a3
+ms.sourcegitcommit: 01abc9d81ced31bd727626195148b4e00cc2d62e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525404"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98584308"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack-hub"></a>Nasazení webové aplikace v C# ASP.NET do virtuálního počítače v centru Azure Stack
 
@@ -39,7 +39,7 @@ Tento článek používá aplikaci C# 6,0, která používá ASP.NET Core 2,2 sp
 
 1. Stáhněte [nasazení webu v 3.6](https://www.microsoft.com/download/details.aspx?id=43717). Nainstalujte ji ze souboru MSI a pak povolte všechny funkce.
 
-1. Nainstalujte na server hostující sadu .NET Core 2,2. Pokyny najdete v tématu [instalační program .NET Core](https://dotnet.microsoft.com/download/dotnet-core/2.2). Ujistěte se, že používáte stejnou verzi .NET Core jak na vývojovém počítači, tak i na cílovém serveru.
+1. Nainstalujte na server hostující sadu .NET Core 5,0. Pokyny najdete v tématu [instalační program .NET Core](https://dotnet.microsoft.com/download/dotnet/5.0). Ujistěte se, že používáte stejnou verzi .NET Core jak na vývojovém počítači, tak i na cílovém serveru.
 
 1. Na portálu centra Azure Stack otevřete porty, které jsou uvedené v nastavení sítě pro váš virtuální počítač.
 
@@ -128,7 +128,7 @@ Vytvořte cíl publikování na VIRTUÁLNÍm počítači v centru Azure Stack.
 1. Přejít na nový server. Měla by se zobrazit vaše spuštěná webová aplikace.
 
     ```http  
-        mywebapp.local.cloudapp.azurestack.external
+    mywebapp.local.cloudapp.azurestack.external
     ```
 
 ## <a name="next-steps"></a>Další kroky

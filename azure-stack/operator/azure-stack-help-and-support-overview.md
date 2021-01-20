@@ -3,16 +3,16 @@ title: Pomoc a podpora centra Azure Stack
 description: Získejte podporu pro Centrum Microsoft Azure Stack.
 author: PatAltimore
 ms.topic: article
-ms.date: 02/26/2020
+ms.date: 01/19/2021
 ms.author: patricka
 ms.reviewer: shisab
-ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: b29bade546862c783d0ba8e10f242b4e8a828fcb
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.lastreviewed: 01/19/2021
+ms.openlocfilehash: 88414f6e4198c7db04307eb4d508ee5acd9dfbe9
+ms.sourcegitcommit: 01abc9d81ced31bd727626195148b4e00cc2d62e
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255924"
+ms.lasthandoff: 01/20/2021
+ms.locfileid: "98584317"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Pomoc a podpora centra Azure Stack
 
@@ -32,7 +32,7 @@ V horní části **okna Help + support** byste se měli vyzkoušet jako první, 
 
 ![Samoobslužná podpora ve službě Azure Stack hub](media/azure-stack-help-and-support/get-support-tiles.png)
 
-- **Dokumentace:** [Dokumentace k operátorovi centra Azure Stack](index.yml) zahrnuje koncepty, témata s postupy a kurzy, které ukazují, jak nabízet služby Azure Stack hub. Mezi tyto služby patří virtuální počítače, databáze SQL, webové aplikace a další.
+- **Dokumentace:** [Dokumentace k operátorovi centra Azure Stack](index.yml) zahrnuje koncepty, pokyny a kurzy, které ukazují, jak nabízet služby Azure Stack hub. Mezi tyto služby patří virtuální počítače, databáze SQL, webové aplikace a další.
 
 - **Přečtěte si o fakturaci**. Získejte tipy na [používání a fakturaci](azure-stack-billing-and-chargeback.md).
 
@@ -55,6 +55,22 @@ V pravém horním rohu portálu pro správu vyberte **help** (otazník) a pak kl
 Můžete se také obrátit na fóra MSDN a diskutovat o problémech nebo pořídit online školení a vylepšit své vlastní dovednosti.
 
 ![Získat odbornou pomoc pro centrum Azure Stack](media/azure-stack-help-and-support/get-support-cards.png)
+
+### <a name="information-for-a-support-request"></a>Informace o žádosti o podporu
+
+Chcete-li zrychlit možnosti podpory, získáte následující informace:
+
+ - Máte hardwarový partner Azure Stack hub?
+ - Kolik uzlů centra Azure Stack máte ve vašem systému?
+ - Jaká je aktuální úroveň oprav pro váš systém?
+ - Jaké číslo buildu je váš systém aktuálně spuštěný?
+ - Jaký je název oblasti cloudu?
+ - Je systém připojen nebo odpojen?
+ - Kdy tento problém začal?
+ - Můžete zadat přesně čas, kdy se poslední záloha nezdařila?
+ - Pro jaké role se zálohování nedaří?
+ - Provedli jste nějaké nedávné změny? Například jste provedli aktualizaci, provedli změnu hardwaru nebo použili aktualizaci OEM?
+ - Máte k dispozici protokoly k tomu, abyste mohli problém prozkoumat?
 
 ### <a name="get-up-to-speed-with-azure-stack-hub"></a>Získejte rychlý přehled pomocí centra Azure Stack
 
