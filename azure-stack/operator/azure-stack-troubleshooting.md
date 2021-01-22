@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Naučte se řešit potíže s centrem Azure Stack, včetně problémů s virtuálními počítači, úložištěm a App Service.
 author: PatAltimore
 ms.topic: article
-ms.date: 12/10/2020
+ms.date: 01/20/2021
 ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 12/10/2020
-ms.openlocfilehash: ff3164e16262ecfd4cdf84bbdb5fbb24942fc6ab
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: 1706f028aff293f85ea5a0c1fb882a5d332d7196
+ms.sourcegitcommit: dd34ae1c6207aafb5218c31658123e913f51bf7c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255703"
+ms.lasthandoff: 01/22/2021
+ms.locfileid: "98672870"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Řešení potíží v centru Azure Stack
 
@@ -203,7 +203,7 @@ Proces aktualizace a aktualizace centra Azure Stack slouží k tomu, aby operát
 
 1. Postupujte podle kroků pro nápravu v upozornění na selhání vytvořeného při selhání aktualizace.
 
-2. Pokud jste tento problém nedokázali vyřešit, vytvořte [lístek podpory centra Azure Stack](./azure-stack-help-and-support-overview.md). Ujistěte se, že máte [shromážděné protokoly](./diagnostic-log-collection.md#send-logs-now) pro časové období, kdy k problému došlo.
+2. Pokud jste tento problém nedokázali vyřešit, vytvořte [lístek podpory centra Azure Stack](./azure-stack-help-and-support-overview.md). Ujistěte se, že máte [shromážděné protokoly](./diagnostic-log-collection.md#send-logs-now) pro časové období, kdy k problému došlo. Pokud se aktualizace nezdaří, buď s kritickou výstrahou, nebo s upozorněním, je důležité zkontrolovat selhání a kontaktovat služby zákaznické podpory Microsoftu jako směrované v této výstraze, aby jednotka škálování nezůstala po dlouhou dobu ve stavu selhání. Po delší dobu se jednotka škálování v neúspěšném stavu aktualizace může zpomalit další problémy, které je obtížnější vyřešit později.
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>Běžné problémy s opravou a aktualizacemi centra Azure Stack
 

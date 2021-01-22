@@ -44,6 +44,8 @@
           href: deploy/create-cluster-powershell.md
     - name: Nasazení úloh
       items:
+        - name: Firemní pobočka a hraniční zařízení
+          href: deploy/branch-office-edge.md
         - name: Infrastruktura virtuálního klienta
           href: deploy/virtual-desktop-infrastructure.md
         - name: SQL Server
@@ -180,7 +182,7 @@
           href: concepts/utility-applications.md
         - name: Shromažďování dat
           href: concepts/data-collection.md
-- name: Referenční informace
+- name: Reference
   items:
     - name: Příkazy Azure CLI pro registraci Azure
       href: /cli/azure/ext/stack-hci/stack-hci
