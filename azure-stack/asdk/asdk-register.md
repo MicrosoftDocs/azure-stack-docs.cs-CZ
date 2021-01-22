@@ -3,26 +3,26 @@ title: Registrace ASDKu s využitím Azure
 description: Naučte se, jak zaregistrovat Azure Stack Development Kit (ASDK) s Azure a povolit syndikaci a vytváření sestav o využití na webu Marketplace.
 author: PatAltimore
 ms.topic: article
-ms.date: 11/14/2020
+ms.date: 1/20/2021
 ms.author: patricka
 ms.reviewer: misainat
-ms.lastreviewed: 11/14/2020
-ms.openlocfilehash: 4448c3bd20c352699fe260ab891c2e8c7fdc57af
-ms.sourcegitcommit: 502df315764bbc4ff6d3de50b957dfd4a6c0043a
+ms.lastreviewed: 1/20/2021
+ms.openlocfilehash: d5ef14d0e5674c8eefac6b4b4b0877aed8541207
+ms.sourcegitcommit: c87d1e26a4f96be4651f63fbf5ea3d98d6f14832
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98130237"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98659387"
 ---
 # <a name="register-the-asdk-with-azure"></a>Registrace ASDKu s využitím Azure
 
-Instalaci Azure Stack Development Kit (ASDK) můžete zaregistrovat v Azure a stáhnout z Azure položky Marketplace a nastavovat pro ně sestavy obchodních dat zpět společnosti Microsoft. K podpoře úplných funkcí Azure Stack, včetně syndikace webu Marketplace, se vyžaduje registrace. K otestování důležitých Azure Stackch funkcí, jako jsou syndikace na webu Marketplace a vytváření sestav využití, je nutná registrace. Po registraci Azure Stack se využití oznamuje službě Azure Commerce. Můžete ji zobrazit v rámci předplatného, které jste použili k registraci. ASDK uživatelé se ale neúčtují za použití sestav.
+Instalaci Azure Stack Development Kit (ASDK) můžete zaregistrovat v Azure a stáhnout z Azure položky Marketplace a nastavovat pro ně sestavy obchodních dat zpět společnosti Microsoft. K podpoře kompletních funkcí centra Azure Stack, včetně syndikace webu Marketplace, se vyžaduje registrace. K otestování důležitých Azure Stackch funkcí centra, jako je syndikace webu Marketplace a vytváření sestav využití, je nutná registrace. Po registraci centra Azure Stack se využívání oznamuje službě Azure Commerce. Můžete ji zobrazit v rámci předplatného, které jste použili k registraci. ASDK uživatelé se ale neúčtují za použití sestav.
 
 Pokud ASDK nezaregistrujete, může se zobrazit výstražné upozornění **vyžadované při aktivaci** , které vás upozorní na registraci vaší ASDK. Jde o očekávané chování.
 
 ## <a name="prerequisites"></a>Požadavky
 
-Než použijete tyto pokyny k registraci ASDK s Azure, ujistěte se, že jste nainstalovali Azure Stack PowerShell a stáhli Azure Stack nástroje, jak je popsáno v článku o [konfiguraci po nasazení](asdk-post-deploy.md) .
+Než použijete tyto pokyny k registraci ASDK s Azure, ujistěte se, že jste nainstalovali prostředí PowerShell centra Azure Stack a stáhli jste nástroje Azure Stack hub, jak je popsáno v článku o [konfiguraci po nasazení](asdk-post-deploy.md) .
 
 V počítači, který se používá k registraci ASDK v Azure, musí být také nastaven režim jazyka PowerShell na **FullLanguage** . Chcete-li ověřit, zda je aktuální jazykový režim nastaven na hodnotu Full, otevřete okno prostředí PowerShell se zvýšenými oprávněními a spusťte následující příkazy prostředí PowerShell:
 
@@ -32,7 +32,7 @@ $ExecutionContext.SessionState.LanguageMode
 
 Ujistěte se, že výstup vrátí **FullLanguage**. Pokud se vrátí jiný jazykový režim, musí se registrace spustit v jiném počítači nebo v režimu jazyka nastaveném na **FullLanguage** , než budete pokračovat.
 
-Účet služby Azure AD použitý k registraci vyžaduje přístup k předplatnému Azure a má oprávnění k vytváření aplikací identity a instančních objektů v adresáři přidruženém k tomuto předplatnému. Doporučujeme, abyste se Azure Stack s Azure zaregistrovali tak, že [vytvoříte účet služby, který se použije pro registraci, a](../operator/azure-stack-registration-role.md) nepoužijete přihlašovací údaje globálního správce.
+Účet služby Azure AD použitý k registraci vyžaduje přístup k předplatnému Azure a má oprávnění k vytváření aplikací identity a instančních objektů v adresáři přidruženém k tomuto předplatnému. Doporučujeme, abyste registraci centra Azure Stack s Azure zaregistrovali tak, že místo použití přihlašovacích údajů globálního správce [vytvoříte účet služby, který se má použít pro registraci](../operator/azure-stack-registration-role.md) .
 
 ## <a name="register-the-asdk"></a>Zaregistrovat ASDK
 
@@ -45,16 +45,16 @@ Pomocí těchto kroků zaregistrujete ASDK s Azure.
 
 ### <a name="az-modules"></a>[AZ modules](#tab/az1)
 
-1. Otevřete konzolu PowerShellu jako správce.  
+1. Otevřete příkazový řádek PowerShell se zvýšenými oprávněními.  
 
-2. Spusťte následující příkazy PowerShellu k registraci instalace ASDK pomocí Azure. Přihlaste se k ID předplatného Azure pro fakturaci i k místní instalaci ASDK. Pokud ještě nemáte ID předplatného Azure, můžete [si tady vytvořit bezplatný účet Azure](https://azure.microsoft.com/free/?b=17.06). Registrace Azure Stack nevzniká žádné náklady na vaše předplatné Azure.<br><br>Pokud spustíte rutinu **set-AzsRegistration** , nastavte pro registraci jedinečný název. Parametr **registrace** má výchozí hodnotu **AzureStackRegistration**. Pokud však použijete stejný název na více než jedné instanci Azure Stack, skript se nezdaří.
+2. Spusťte následující rutiny PowerShellu k registraci instalace ASDK pomocí Azure. Přihlaste se k ID předplatného Azure pro fakturaci i k místní instalaci ASDK. Pokud ještě nemáte ID předplatného Azure, můžete [si tady vytvořit bezplatný účet Azure](https://azure.microsoft.com/free/?b=17.06). Při registraci centra Azure Stack se neúčtují žádné náklady na vaše předplatné Azure.<br><br>Pokud spustíte rutinu **set-AzsRegistration** , nastavte pro registraci jedinečný název. Parametr **registrace** má výchozí hodnotu **AzureStackRegistration**. Pokud však použijete stejný název na více než jedné instanci centra Azure Stack, skript se nezdaří.
 
     ```powershell  
     # Add the Azure cloud subscription environment name. 
     # Supported environment names are AzureCloud, AzureChinaCloud, or AzureUSGovernment depending which Azure subscription you're using.
     Add-AzAccount -EnvironmentName "<environment name>"
     
-    # Register the Azure Stack resource provider in your Azure subscription
+    # Register the Azure Stack Hub resource provider in your Azure subscription
     Register-AzResourceProvider -ProviderNamespace Microsoft.AzureStack
     
     # Import the registration module that was downloaded with the GitHub tools
@@ -63,7 +63,7 @@ Pomocí těchto kroků zaregistrujete ASDK s Azure.
     # If you have multiple subscriptions, run the following command to select the one you want to use:
     # Get-AzSubscription -SubscriptionID "<subscription ID>" | Select-AzSubscription
     
-    # Register Azure Stack
+    # Register Azure Stack Hub
     $AzureContext = Get-AzContext
     $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
     $RegistrationName = "<unique-registration-name>"
@@ -79,29 +79,29 @@ Pomocí těchto kroků zaregistrujete ASDK s Azure.
 
 ### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm1)
 
-1. Otevřete konzolu PowerShellu jako správce.  
+1. Otevřete příkazový řádek PowerShell se zvýšenými oprávněními.  
 
-2. Spusťte následující příkazy PowerShellu k registraci instalace ASDK pomocí Azure. Přihlaste se k ID předplatného Azure pro fakturaci i k místní instalaci ASDK. Pokud ještě nemáte ID předplatného Azure, můžete [si tady vytvořit bezplatný účet Azure](https://azure.microsoft.com/free/?b=17.06). Registrace Azure Stack nevzniká žádné náklady na vaše předplatné Azure.<br><br>Pokud spustíte rutinu **set-AzsRegistration** , nastavte pro registraci jedinečný název. Parametr **registrace** má výchozí hodnotu **AzureStackRegistration**. Pokud však použijete stejný název na více než jedné instanci Azure Stack, skript se nezdaří.
+2. Spusťte následující příkazy PowerShellu k registraci instalace ASDK pomocí Azure. Přihlaste se k ID předplatného Azure pro fakturaci i k místní instalaci ASDK. Pokud ještě nemáte ID předplatného Azure, můžete [si tady vytvořit bezplatný účet Azure](https://azure.microsoft.com/free/?b=17.06). Při registraci centra Azure Stack se neúčtují žádné náklady na vaše předplatné Azure.<br><br>Pokud spustíte rutinu **set-AzsRegistration** , nastavte pro registraci jedinečný název. Parametr **registrace** má výchozí hodnotu **AzureStackRegistration**. Pokud však použijete stejný název na více než jedné instanci centra Azure Stack, skript se nezdaří.
 
     ```powershell  
     # Add the Azure cloud subscription environment name. 
     # Supported environment names are AzureCloud, AzureChinaCloud, or AzureUSGovernment depending which Azure subscription you're using.
-    Add-AzureRMAccount -EnvironmentName "<environment name>"
+    Add-AzureRmAccount -EnvironmentName "<environment name>"
     
-    # Register the Azure Stack resource provider in your Azure subscription
-    Register-AzureRMResourceProvider -ProviderNamespace Microsoft.AzureStack
+    # Register the Azure Stack Hub resource provider in your Azure subscription
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
     
     # Import the registration module that was downloaded with the GitHub tools
-    Import-Module C:\AzureStack-Tools-AzureRM-master\Registration\RegisterWithAzure.psm1
+    Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
     
     # If you have multiple subscriptions, run the following command to select the one you want to use:
-    # Get-AzureRMSubscription -SubscriptionID "<subscription ID>" | Select-AzureRMSubscription
+    # Get-AzureRmSubscription -SubscriptionID "<subscription ID>" | Select-AzureRmSubscription
     
-    # Register Azure Stack
-    $AzureContext = Get-AzureRMContext
+    # Register Azure Stack Hub
+    $AzureContext = Get-AzureRmContext
     $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
     $RegistrationName = "<unique-registration-name>"
-    Set-AzureRMsRegistration `
+    Set-AzsRegistration  `
     -PrivilegedEndpointCredential $CloudAdminCred `
     -PrivilegedEndpoint AzS-ERCS01 `
     -BillingModel Development `
@@ -113,20 +113,18 @@ Pomocí těchto kroků zaregistrujete ASDK s Azure.
 
 ---
 
-
-
 ![Vaše prostředí je teď zaregistrované.](media/asdk-register/1.PNG)
 
 ## <a name="register-in-disconnected-environments"></a>Registrovat v odpojených prostředích
 
-Pokud zaregistrujete Azure Stack v odpojeném prostředí (bez připojení k Internetu), musíte získat registrační token z prostředí Azure Stack a pak tento token použít na počítači, který se může připojit k Azure a zaregistrovat a vytvořit prostředek aktivace pro prostředí ASDK.
+Pokud registrujete Azure Stack hub v odpojeném prostředí (bez připojení k Internetu), musíte získat registrační token z prostředí služby Azure Stack hub a potom tento token použít na počítači, který se může připojit k Azure a zaregistrovat se a vytvořit prostředek aktivace pro prostředí ASDK.
 
  > [!IMPORTANT]
- > Než použijete tyto pokyny k registraci Azure Stack, ujistěte se, že jste nainstalovali PowerShell pro Azure Stack a stáhli Azure Stack nástroje, jak je popsáno v článku o [konfiguraci po nasazení](asdk-post-deploy.md) na hostitelském počítači ASDK i v počítači s přístupem k Internetu, který se používá pro připojení k Azure a registraci.
+ > Než použijete tyto pokyny k registraci centra Azure Stack, ujistěte se, že jste nainstalovali PowerShell pro Azure Stack hub a stáhli Azure Stack nástroje centra, jak je popsáno v článku věnovaném [konfiguraci po nasazení](asdk-post-deploy.md) na hostitelském počítači ASDK i v počítači s přístupem k Internetu, který se používá pro připojení k Azure a registraci.
 
-### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Získání registračního tokenu z Azure Stackho prostředí
+### <a name="get-a-registration-token-from-the-azure-stack-hub-environment"></a>Získání registračního tokenu z prostředí Azure Stack hub
 
-Na hostitelském počítači ASDK spusťte PowerShell jako správce a přejděte do složky **registrace** v **AzureStack-Tools-AZ** Directory vytvořené při stažení nástrojů Azure Stack. Pomocí následujících příkazů PowerShellu Importujte modul **RegisterWithAzure. psm1** a pak pomocí rutiny **Get-AzsRegistrationToken** Získejte registrační token:  
+Na hostitelském počítači ASDK spusťte PowerShell jako správce a přejděte do složky **registrace** v **AzureStack-Tools-AZ** Directory vytvořené při stažení nástrojů centra Azure Stack. Pomocí následujících příkazů PowerShellu Importujte modul **RegisterWithAzure. psm1** a pak pomocí rutiny **Get-AzsRegistrationToken** Získejte registrační token:  
 
 ### <a name="az-modules"></a>[AZ modules](#tab/az2)
 
@@ -150,15 +148,15 @@ Na hostitelském počítači ASDK spusťte PowerShell jako správce a přejděte
 
   ```powershell  
   # Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\AzureStack-Tools-AzureRM-master\Registration\RegisterWithAzure.psm1
+  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
   # Create registration token
   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
   # File path to save the token. This example saves the file as C:\RegistrationToken.txt.
   $FilePathForRegistrationToken = "$env:SystemDrive\RegistrationToken.txt"
-  $RegistrationToken = Get-AzureRMsRegistrationToken -PrivilegedEndpointCredential $CloudAdminCred `
+  $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $CloudAdminCred `
   -UsageReportingEnabled:$false `
-  -PrivilegedEndpoint AzureRMS-ERCS01 `
+  -PrivilegedEndpoint AzS-ERCS01 `
   -BillingModel Development `
   -MarketplaceSyndicationEnabled:$false `
   -TokenOutputFilePath $FilePathForRegistrationToken
@@ -182,7 +180,7 @@ Na počítači připojeném k Internetu pomocí následujících příkazů Powe
   # If you have multiple subscriptions, run the following command to select the one you want to use:
   # Get-AzSubscription -SubscriptionID "<subscription ID>" | Select-AzSubscription
 
-  # Register the Azure Stack resource provider in your Azure subscription
+  # Register the Azure Stack Hub resource provider in your Azure subscription
   Register-AzResourceProvider -ProviderNamespace Microsoft.AzureStack
 
   # Import the registration module that was downloaded with the GitHub tools
@@ -207,17 +205,17 @@ Na počítači připojeném k Internetu pomocí následujících příkazů Powe
   # If you have multiple subscriptions, run the following command to select the one you want to use:
   # Get-AzureRMSubscription -SubscriptionID "<subscription ID>" | Select-AzureRMSubscription
 
-  # Register the Azure Stack resource provider in your Azure subscription
+  # Register the Azure Stack Hub resource provider in your Azure subscription
   Register-AzureRMResourceProvider -ProviderNamespace Microsoft.AzureStack
 
   # Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\AzureStack-Tools-AzureRM-master\Registration\RegisterWithAzure.psm1
+  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
   # Register with Azure
   # This example uses the C:\RegistrationToken.txt file.
   $registrationToken = Get-Content -Path "$env:SystemDrive\RegistrationToken.txt"
   $RegistrationName = "<unique-registration-name>"
-  Register-AzureRMsEnvironment -RegistrationToken $registrationToken `
+  Register-AzsEnvironment -RegistrationToken $registrationToken `
   -RegistrationName $RegistrationName
   ```
 
@@ -235,7 +233,7 @@ Alternativně můžete použít rutinu **Get-Content** k ukázání na soubor, k
   # If you have multiple subscriptions, run the following command to select the one you want to use:
   # Get-AzSubscription -SubscriptionID "<subscription ID>" | Select-AzSubscription
 
-  # Register the Azure Stack resource provider in your Azure subscription
+  # Register the Azure Stack Hub resource provider in your Azure subscription
   Register-AzResourceProvider -ProviderNamespace Microsoft.AzureStack
 
   # Import the registration module that was downloaded with the GitHub tools
@@ -258,22 +256,22 @@ Alternativně můžete použít rutinu **Get-Content** k ukázání na soubor, k
   # If you have multiple subscriptions, run the following command to select the one you want to use:
   # Get-AzureRMSubscription -SubscriptionID "<subscription ID>" | Select-AzureRMSubscription
 
-  # Register the Azure Stack resource provider in your Azure subscription
+  # Register the Azure Stack Hub resource provider in your Azure subscription
   Register-AzureRMResourceProvider -ProviderNamespace Microsoft.AzureStack
 
   # Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\AzureStack-Tools-AzureRM-master\Registration\RegisterWithAzure.psm1
+  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
   # Register with Azure 
   # This example uses the C:\RegistrationToken.txt file.
   $registrationToken = Get-Content -Path "$env:SystemDrive\RegistrationToken.txt"
-  Register-AzureRMsEnvironment -RegistrationToken $registrationToken `
+  Register-AzsEnvironment -RegistrationToken $registrationToken `
   -RegistrationName $RegistrationName
   ```
 
 ---
 
-Po dokončení registrace by se měla zobrazit zpráva podobná **této: vaše Azure Stack prostředí je teď zaregistrované v Azure.**
+Po dokončení registrace by se měla zobrazit zpráva podobná: **vaše prostředí Azure Stack hub je teď zaregistrované v Azure.**
 
 > [!IMPORTANT]
 > Nezavírejte **okno** prostředí PowerShell.
@@ -304,16 +302,16 @@ Aktivační klíč získáte tak, že spustíte následující příkazy PowerSh
   $RegistrationResourceName = "<unique-registration-name>"
   # File path to save the activation key. This example saves the file as C:\ActivationKey.txt.
   $KeyOutputFilePath = "$env:SystemDrive\ActivationKey.txt"
-  $ActivationKey = Get-AzureRMsActivationKey -RegistrationName $RegistrationResourceName `
+  $ActivationKey = Get-AzsActivationKey -RegistrationName $RegistrationResourceName `
   -KeyOutputFilePath $KeyOutputFilePath
   ```
 
 ---
 
 
-### <a name="create-an-activation-resource-in-azure-stack"></a>Vytvoření prostředku aktivace v Azure Stack
+### <a name="create-an-activation-resource-in-azure-stack-hub"></a>Vytvoření prostředku aktivace v centru Azure Stack
 
-Vraťte se do prostředí Azure Stack se souborem nebo textem z aktivačního klíče vytvořeným z **Get-AzsActivationKey**. Spuštěním následujících příkazů PowerShellu vytvořte v Azure Stack prostředek aktivace pomocí tohoto aktivačního klíče:   
+Vraťte se do prostředí Azure Stack hub se souborem nebo textem z aktivačního klíče vytvořeným z **Get-AzsActivationKey**. Spusťte následující příkazy PowerShellu k vytvoření prostředku aktivace v Azure Stackovém centru pomocí tohoto aktivačního klíče:   
 
 ### <a name="az-modules"></a>[AZ modules](#tab/az6)
 
@@ -334,12 +332,12 @@ Vraťte se do prostředí Azure Stack se souborem nebo textem z aktivačního kl
 
   ```Powershell
   # Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\AzureStack-Tools-Master\Registration\RegisterWithAzure.psm1
+  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
   
   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
   $ActivationKey = "<activation key>"
-  New-AzureRMsActivationResource -PrivilegedEndpointCredential $CloudAdminCred `
-  -PrivilegedEndpoint AzureRMS-ERCS01 `
+  New-AzsActivationResource -PrivilegedEndpointCredential $CloudAdminCred `
+  -PrivilegedEndpoint AzS-ERCS01 `
   -ActivationKey $ActivationKey
   ```
 
@@ -368,13 +366,13 @@ Alternativně můžete použít rutinu **Get-Content** k ukázání na soubor, k
 
   ```Powershell
   # Import the registration module that was downloaded with the GitHub tools
-  Import-Module C:\zureRMureStack-Tools-AzureRM-master\Registration\RegisterWithAzure.psm1
+  Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
   # This example uses the C:\ActivationKey.txt file.
   $ActivationKey = Get-Content -Path "$env:SystemDrive\Activationkey.txt"
-  New-AzureRMsActivationResource -PrivilegedEndpointCredential $CloudAdminCred `
-  -PrivilegedEndpoint AzureRMS-ERCS01 `
+  New-AzsActivationResource -PrivilegedEndpointCredential $CloudAdminCred `
+  -PrivilegedEndpoint AzS-ERCS01 `
   -ActivationKey $ActivationKey
   ```
 
@@ -385,15 +383,15 @@ Po dokončení aktivace by se měla zobrazit zpráva podobná: **vašemu prostř
 
 ## <a name="verify-the-registration-was-successful"></a>Ověření úspěšné registrace
 
-Pomocí dlaždice **Správa oblastí** můžete ověřit, že byla registrace Azure Stack úspěšná. Tato dlaždice je k dispozici na výchozím řídicím panelu na portálu pro správu.
+Pomocí dlaždice **Správa oblastí** můžete ověřit, zda byla registrace centra Azure Stack úspěšná. Tato dlaždice je k dispozici na výchozím řídicím panelu na portálu pro správu.
 
-1. Přihlaste se k portálu správce Azure Stack `https://adminportal.local.azurestack.external` .
+1. Přihlaste se k portálu pro správu centra Azure Stack `https://adminportal.local.azurestack.external` .
 
 2. Z řídicího panelu vyberte **Správa oblastí**.
 
-    [![Dlaždice správy oblastí na portálu Azure Stack správce](media/asdk-register/admin1sm.png "Dlaždice správy oblastí")](media/asdk-register/admin1.png#lightbox)
+    [![Dlaždice správy oblastí na portálu pro správu centra Azure Stack](media/asdk-register/admin1sm.png "Dlaždice správy oblastí")](media/asdk-register/admin1.png#lightbox)
 
-3. Vyberte **Vlastnosti**. Toto okno zobrazuje stav a podrobnosti vašeho prostředí. Stav lze **zaregistrovat** nebo **není zaregistrován**. Pokud je zaregistrované, zobrazí se také ID předplatného Azure, které jste použili k registraci Azure Stack, spolu se skupinou prostředků registrace a názvem.
+3. Vyberte **Vlastnosti**. Toto okno zobrazuje stav a podrobnosti vašeho prostředí. Stav lze **zaregistrovat** nebo **není zaregistrován**. Pokud je zaregistrované, zobrazí se také ID předplatného Azure, které jste použili k registraci centra Azure Stack, spolu se skupinou prostředků registrace a názvem.
 
 ## <a name="move-a-registration-resource"></a>Přesunutí prostředku registrace
 Přesunutí prostředku registrace mezi skupinami prostředků v rámci stejného předplatného **je** podporováno. Další informace o přesouvání prostředků do nové skupiny prostředků najdete v tématu [Přesunutí prostředků do nové skupiny prostředků nebo předplatného](/azure/azure-resource-manager/resource-group-move-resources).

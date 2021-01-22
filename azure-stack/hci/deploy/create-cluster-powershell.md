@@ -3,15 +3,15 @@ title: Vytvoření clusteru Azure Stack HCI pomocí prostředí Windows PowerShe
 description: Naučte se vytvořit cluster pro Azure Stack HCI pomocí prostředí Windows PowerShell.
 author: v-dasis
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 01/20/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: fa020531067f74fba2609296672e347d6804cb6b
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: 4228b025eaa0067b0819bd84eee522d013d69475
+ms.sourcegitcommit: c87d1e26a4f96be4651f63fbf5ea3d98d6f14832
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97010885"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98659370"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>Vytvoření clusteru Azure Stack HCI pomocí prostředí Windows PowerShell
 
@@ -459,5 +459,3 @@ Teď, když jste hotovi, stále existují některé důležité úkoly, které j
 
 - Zaregistrujte svůj cluster v Azure. Viz [Správa registrace Azure](../manage/manage-azure-registration.md).
 - Proveďte konečné ověření clusteru. Viz [ověření clusteru Azure Stack HCI](validate.md)
-- Zřizování virtuálních počítačů. Přečtěte si téma [Správa virtuálních počítačů v Azure Stack HCL pomocí prostředí PowerShell](../manage/vm-powershell.md).
-- Cluster můžete také vytvořit pomocí centra pro správu systému Windows. Další informace najdete v tématu [Vytvoření clusteru Azure Stack HCI pomocí centra pro správu systému Windows](create-cluster.md).

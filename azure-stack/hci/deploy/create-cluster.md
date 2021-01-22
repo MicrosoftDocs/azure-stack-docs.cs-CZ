@@ -3,15 +3,15 @@ title: Vytvoření clusteru Azure Stack HCI pomocí centra Windows Admin Center
 description: Zjistěte, jak vytvořit serverový cluster pro Azure Stack HCI pomocí centra pro správu Windows.
 author: v-dasis
 ms.topic: how-to
-ms.date: 01/13/2021
+ms.date: 01/20/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: a81b684e86f9d13105c39607f9be1c6a1d56eaf0
-ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
+ms.openlocfilehash: 0d92840b8a98d612c971895cd3cc9f39815eed75
+ms.sourcegitcommit: c87d1e26a4f96be4651f63fbf5ea3d98d6f14832
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208045"
+ms.lasthandoff: 01/21/2021
+ms.locfileid: "98659404"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Vytvoření clusteru Azure Stack HCI pomocí centra Windows Admin Center
 
@@ -152,9 +152,6 @@ Další informace o RDMA a sítích hostitele Hyper-V pro Azure Stack HCI najdet
 
         :::image type="content" source="media/cluster/create-cluster-virtual-switches.png" alt-text="Průvodce vytvořením clusteru – virtuální přepínače" lightbox="media/cluster/create-cluster-virtual-switches.png":::
 
-    > [!NOTE]
-    > Pokud chystáte nasazení síťového adaptéru pro SDN (v **kroku 5: SDN** průvodce), budete potřebovat virtuální přepínač. Takže pokud se sem nerozhodnete vytvořit virtuální přepínač a nevytvářet ho mimo průvodce, průvodce neimplementuje síťový adaptér.
-
     Následující tabulka uvádí, které konfigurace virtuálních přepínačů jsou podporovány a povoleny pro různé konfigurace síťových adaptérů:
 
     | Možnost | adaptéry 1-2 | 3 adaptéry | seskupené adaptéry |
@@ -235,5 +232,3 @@ Pokud po nějaké době řešení clusteru neproběhne úspěšně, můžete ve 
 
 - Zaregistrujte svůj cluster v Azure. Viz [Správa registrace Azure](../manage/manage-azure-registration.md).
 - Proveďte konečné ověření clusteru. Viz [ověření clusteru Azure Stack HCI](validate.md)
-- Zřizování virtuálních počítačů. Přečtěte si téma [Správa virtuálních počítačů v Azure Stack HCI pomocí centra pro správu systému Windows](../manage/vm.md).
-- Cluster můžete nasadit také pomocí prostředí PowerShell. Přečtěte si téma [vytvoření Azure Stack clusteru HCI pomocí prostředí PowerShell](create-cluster-powershell.md).
