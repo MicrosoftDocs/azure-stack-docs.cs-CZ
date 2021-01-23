@@ -3,15 +3,15 @@ title: Vytvoření clusteru Azure Stack HCI pomocí prostředí Windows PowerShe
 description: Naučte se vytvořit cluster pro Azure Stack HCI pomocí prostředí Windows PowerShell.
 author: v-dasis
 ms.topic: how-to
-ms.date: 01/20/2021
+ms.date: 01/22/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 4228b025eaa0067b0819bd84eee522d013d69475
-ms.sourcegitcommit: c87d1e26a4f96be4651f63fbf5ea3d98d6f14832
+ms.openlocfilehash: f45a77b43178b38d659d9e51b1abf2cbaeae87f8
+ms.sourcegitcommit: ea4bb7bf0ba1bd642c769013a0280f24e71550bc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98659370"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98717977"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>Vytvoření clusteru Azure Stack HCI pomocí prostředí Windows PowerShell
 
@@ -57,7 +57,9 @@ Nejprve se připojíme ke každému serveru, připojíte se k doméně (stejná 
 
 Abyste se mohli připojit k serverům, musíte nejdřív mít připojení k síti, připojit se ke stejné doméně nebo plně důvěryhodné doméně a mít k těmto serverům oprávnění místního správce.
 
-Otevřete PowerShell a použijte plně kvalifikovaný název domény nebo IP adresu serveru, ke kterému se chcete připojit. Po spuštění následujícího příkazu na každém serveru (Server1, Server2, Server3, Server4) se zobrazí výzva k zadání hesla:
+Otevřete PowerShell a použijte plně kvalifikovaný název domény nebo IP adresu serveru, ke kterému se chcete připojit. Po spuštění následujícího příkazu na každém serveru se zobrazí výzva k zadání hesla. 
+
+V tomto příkladu předpokládáme, že servery byly pojmenované Server1, Server2, Server3 a Server4:
 
    ```powershell
    Enter-PSSession -ComputerName "Server1" -Credential "Server1\Administrator"
@@ -134,7 +136,7 @@ Pak restartujte všechny servery:
 
 ```powershell
 $ServerList = "Server1", "Server2", "Server3", "Server4"
-Restart-Computer -ComputerName $ServerList
+Restart-Computer -ComputerName $ServerList -WSManAuthentication Kerberos
 ```
 
 ## <a name="step-2-configure-networking"></a>Krok 2: konfigurace sítě
@@ -146,32 +148,13 @@ Tento krok nakonfiguruje různé prvky sítě ve vašem prostředí.
 Je nutné zakázat všechny sítě odpojené nebo nepoužívané pro správu, úložiště nebo provoz úloh (například virtuální počítače). Zde zjistíte, jak identifikovat nepoužívané sítě:
 
 ```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
-Get-NetAdapter -CimSession $Servers | Where-Object Status -eq Disconnected
+$ServerList = "Server1", "Server2", "Server3", "Server4"
+Get-NetAdapter -CimSession $ServerList | Where-Object Status -eq Disconnected
 ```
 A tady je postup, jak je zakázat:
 
 ```powershell
-Get-NetAdapter -CimSession $Servers | Where-Object Status -eq Disconnected | Disable-NetAdapter -Confirm:$False
-```
-
-### <a name="assign-virtual-network-adapters"></a>Přiřazení virtuálních síťových adaptérů
-
-Dále přiřadíte virtuální síťové adaptéry (virtuální síťové adaptéry) pro správu a zbytek provozu, jak je uvedeno v následujícím příkladu. Je nutné nakonfigurovat alespoň jeden síťový adaptér pro správu clusteru.
-
-```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
-$vSwitchName="vSwitch"
-Rename-VMNetworkAdapter -ManagementOS -Name $vSwitchName -NewName Management -ComputerName $Servers
-Add-VMNetworkAdapter -ManagementOS -Name SMB01 -SwitchName $vSwitchName -CimSession $Servers
-Add-VMNetworkAdapter -ManagementOS -Name SMB02 -SwitchName $vSwitchName -Cimsession $Servers
-```
-
-A ověřte, že byly úspěšně přidány a přiřazeny:
-
-```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
-Get-VMNetworkAdapter -CimSession $Servers -ManagementOS
+Get-NetAdapter -CimSession $ServerList | Where-Object Status -eq Disconnected | Disable-NetAdapter -Confirm:$False
 ```
 
 ### <a name="create-virtual-switches"></a>Vytvořit virtuální přepínače
@@ -181,29 +164,51 @@ Pro každý uzel serveru v clusteru je nutný virtuální přepínač. V násled
 Všechny síťové adaptéry musí být u síťových adaptérů pro seskupování identické.
 
 ```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
+$ServerList = "Server1", "Server2", "Server3", "Server4"
 $vSwitchName="vSwitch"
 ```
 
 A vytvořte virtuální přepínač:
 
 ```powershell
-Invoke-Command -ComputerName $Servers -ScriptBlock {New-VMSwitch -Name $using:vSwitchName -EnableEmbeddedTeaming $TRUE -EnableIov $true -NetAdapterName (Get-NetAdapter | Where-Object Status -eq Up ).InterfaceAlias}
+Invoke-Command -ComputerName $ServerList -ScriptBlock {New-VMSwitch -Name $using:vSwitchName -EnableEmbeddedTeaming $TRUE -EnableIov $true -NetAdapterName (Get-NetAdapter | Where-Object Status -eq Up ).InterfaceAlias}
 ```
 
 Nyní ověřte, zda byl přepínač úspěšně vytvořen:
 
 ```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
-Get-VMSwitch -CimSession $Servers | Select-Object Name, IOVEnabled, IOVS*
-Get-VMSwitchTeam -CimSession $Servers
+$ServerList = "Server1", "Server2", "Server3", "Server4"
+Get-VMSwitch -CimSession $ServerList | Select-Object Name, IOVEnabled, IOVS*
+Get-VMSwitchTeam -CimSession $ServerList
+```
+
+### <a name="assign-virtual-network-adapters"></a>Přiřazení virtuálních síťových adaptérů
+
+Dále přiřadíte virtuální síťové adaptéry (virtuální síťové adaptéry) pro správu a zbytek provozu, jak je uvedeno v následujícím příkladu. Je nutné nakonfigurovat alespoň jeden síťový adaptér pro správu clusteru.
+
+```powershell
+$ServerList = "Server1", "Server2", "Server3", "Server4"
+$vSwitchName="vSwitch"
+Rename-VMNetworkAdapter -ManagementOS -Name $vSwitchName -NewName Management -ComputerName $ServerList
+Add-VMNetworkAdapter -ManagementOS -Name SMB01 -SwitchName $vSwitchName -CimSession $ServerList
+Add-VMNetworkAdapter -ManagementOS -Name SMB02 -SwitchName $vSwitchName -Cimsession $ServerList
+```
+
+A ověřte, že byly úspěšně přidány a přiřazeny:
+
+```powershell
+$ServerList = "Server1", "Server2", "Server3", "Server4"
+Get-VMNetworkAdapter -CimSession $ServerList -ManagementOS
 ```
 
 ### <a name="configure-ip-addresses-and-vlans"></a>Konfigurace IP adres a sítí VLAN
 
 Můžete nakonfigurovat jednu nebo dvě podsítě. Pokud chcete zabránit přetěžování propojení přepínačů, je vhodné, aby dvě podsítě byly preferovány. Například provoz úložiště protokolu SMB zůstane v podsíti, která je vyhrazená pro jeden fyzický přepínač.
 
-### <a name="obtain-network-interface-information"></a>Získat informace o síťovém rozhraní
+> [!NOTE]
+> Při konfiguraci IP adres může být připojení během několika minut přerušeno, protože při získávání nové IP adresy můžete být připojeni k jednomu z virtuálních adaptérů.
+
+#### <a name="obtain-network-interface-information"></a>Získat informace o síťovém rozhraní
 
 Než budete moct nastavit IP adresy pro síťové karty, budete nejdřív potřebovat nějaké informace, třeba index rozhraní ( `ifIndex` ), `Interface Alias` a `Address Family` . Napište je pro každý uzel serveru, jak je budete potřebovat později.
 
@@ -211,19 +216,19 @@ Spusťte následující příkazy:
 
 ```powershell
 $ServerList = "Server1", "Server2", "Server3", "Server4"
-Get-NetIPInterface -ComputerName $ServerList
+Get-NetIPInterface -CimSession $ServerList
 ```
 
 #### <a name="configure-one-subnet"></a>Konfigurace jedné podsítě
 
 ```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
+$ServerList = "Server1", "Server2", "Server3", "Server4"
 $StorNet="172.16.1."
 $StorVLAN=1
 $IP=1 #starting IP Address
 
 #Configure IP Addresses
-foreach ($Server in $Servers){
+foreach ($Server in $ServerList){
     New-NetIPAddress -IPAddress ($StorNet+$IP.ToString()) -InterfaceAlias "vEthernet (SMB01)" -CimSession $Server -PrefixLength 24
     $IP++
     New-NetIPAddress -IPAddress ($StorNet+$IP.ToString()) -InterfaceAlias "vEthernet (SMB02)" -CimSession $Server -PrefixLength 24
@@ -231,17 +236,16 @@ foreach ($Server in $Servers){
 }
 
 #Configure VLANs
-Set-VMNetworkAdapterVlan -VMNetworkAdapterName SMB01 -VlanId $StorVLAN -Access -ManagementOS -CimSession $Servers
-Set-VMNetworkAdapterVlan -VMNetworkAdapterName SMB02 -VlanId $StorVLAN -Access -ManagementOS -CimSession $Servers
+Set-VMNetworkAdapterVlan -VMNetworkAdapterName SMB01 -VlanId $StorVLAN -Access -ManagementOS -CimSession $ServerList
 #Restart each host vNIC adapter so that the Vlan is active.
-Restart-NetAdapter "vEthernet (SMB01)" -CimSession $Servers
-Restart-NetAdapter "vEthernet (SMB02)" -CimSession $Servers
+Restart-NetAdapter "vEthernet (SMB01)" -CimSession $ServerList
+Restart-NetAdapter "vEthernet (SMB02)" -CimSession $ServerList
 ```
 
 #### <a name="configure-two-subnets"></a>Konfigurace dvou podsítí
 
 ```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
+$ServerList = "Server1", "Server2", "Server3", "Server4"
 $StorNet1="172.16.1."
 $StorNet2="172.16.2."
 $StorVLAN1=1
@@ -249,15 +253,15 @@ $StorVLAN2=2
 $IP=1 #starting IP Address
 
 #Configure IP Addresses
-foreach ($Server in $Servers){
+foreach ($Server in $ServerList){
     New-NetIPAddress -IPAddress ($StorNet1+$IP.ToString()) -InterfaceAlias "vEthernet (SMB01)" -CimSession $Server -PrefixLength 24
     New-NetIPAddress -IPAddress ($StorNet2+$IP.ToString()) -InterfaceAlias "vEthernet (SMB02)" -CimSession $Server -PrefixLength 24
     $IP++
 }
 
 #Configure VLANs
-Set-VMNetworkAdapterVlan -VMNetworkAdapterName SMB01 -VlanId $StorVLAN1 -Access -ManagementOS -CimSession $Servers
-Set-VMNetworkAdapterVlan -VMNetworkAdapterName SMB02 -VlanId $StorVLAN2 -Access -ManagementOS -CimSession $Servers
+Set-VMNetworkAdapterVlan -VMNetworkAdapterName SMB01 -VlanId $StorVLAN1 -Access -ManagementOS -CimSession $ServerList
+Set-VMNetworkAdapterVlan -VMNetworkAdapterName SMB02 -VlanId $StorVLAN2 -Access -ManagementOS -CimSession $ServerList
 #Restart each host vNIC adapter so that the Vlan is active.
 Restart-NetAdapter "vEthernet (SMB01)" -CimSession $Servers
 Restart-NetAdapter "vEthernet (SMB02)" -CimSession $Servers
@@ -266,12 +270,12 @@ Restart-NetAdapter "vEthernet (SMB02)" -CimSession $Servers
 #### <a name="verify-vlan-ids-and-subnets"></a>Ověření ID sítě VLAN a podsítí
 
 ```powershell
-$Servers = "Server1", "Server2", "Server3", "Server4"
+$ServerList = "Server1", "Server2", "Server3", "Server4"
 #verify ip config
-Get-NetIPAddress -CimSession $servers -InterfaceAlias vEthernet* -AddressFamily IPv4 | Sort-Object -Property PSComputername | ft pscomputername,interfacealias,ipaddress -AutoSize -GroupBy PSComputerName
+Get-NetIPAddress -CimSession $ServerList -InterfaceAlias vEthernet* -AddressFamily IPv4 | Sort-Object -Property PSComputername | ft pscomputername,interfacealias,ipaddress -AutoSize -GroupBy PSComputerName
 
 #Verify that the VlanID is set
-Get-VMNetworkAdapterVlan -ManagementOS -CimSession $servers | Sort-Object -Property Computername | Format-Table ComputerName,AccessVlanID,ParentAdapter -AutoSize -GroupBy ComputerName
+Get-VMNetworkAdapterVlan -ManagementOS -CimSession $ServerList | Sort-Object -Property Computername | Format-Table ComputerName,AccessVlanID,ParentAdapter -AutoSize -GroupBy ComputerName
 ```
 
 ## <a name="step-3-prep-for-cluster-setup"></a>Krok 3: Příprava pro instalaci clusteru
@@ -300,9 +304,6 @@ Get-ClusterNetwork
 
 Než povolíte Prostory úložiště s přímým přístupem, zajistěte, aby byly jednotky prázdné. Spuštěním následujícího skriptu odeberte všechny staré oddíly nebo jiná data.
 
-> [!WARNING]
-> Tento skript trvale odebere všechna data z jiných jednotek, než je spouštěcí jednotka systému Azure Stack HCI.
-
 ```powershell
 # Fill in these variables with your values
 $ServerList = "Server1", "Server2", "Server3", "Server4"
@@ -329,7 +330,7 @@ Invoke-Command ($ServerList) {
 V tomto kroku se ujistíte, že uzly serveru jsou správně nakonfigurované, aby se vytvořil cluster. `Test-Cluster`Rutina se používá ke spouštění testů pro ověření, jestli je konfigurace vhodná pro fungování jako v rámci sblíženého clusteru. Následující příklad používá `-Include` parametr s konkrétní kategorií testů, které jsou zadány. Tím se zajistí, že se do ověření zahrne správné testy.
 
 ```powershell
-Test-Cluster -Cluster –Node "Server1", "Server2", "Server3", "Server4" –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
+Test-Cluster –Node $ServerList –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
 ```
 
 ## <a name="step-4-create-the-cluster"></a>Krok 4: Vytvoření clusteru
@@ -342,18 +343,27 @@ Při vytváření clusteru se zobrazí upozornění, že `"There were issues whi
 > Pokud servery používají statické IP adresy, upravte následující příkaz tak, aby odrážel statickou IP adresu, a to tak, že přidáte následující parametr a zadáte IP adresu: `–StaticAddress <X.X.X.X>;` .
 
 ```powershell
- New-Cluster –Name "Cluster1" –Node "Server1", "Server2", "Server3", "Server4" –NoStorage
+$ClusterName="cluster1" New-Cluster -Name $ClusterName –Node $ServerList –nostorage
 ```
 
 Je teď váš cluster vytvořený.
 
-Po vytvoření clusteru může trvat nějakou dobu, než se název clusteru replikuje napříč vaší doménou, zejména pokud byly servery pracovní skupiny nově přidané do služby Active Directory. I když se cluster může zobrazit v centru pro správu systému Windows, nemusí být k dispozici, aby se mohl ještě připojit.
+Po vytvoření clusteru může trvat nějakou dobu, než se název clusteru replikuje přes DNS napříč vaší doménou, zejména pokud byly servery pracovní skupiny nově přidané do služby Active Directory. I když se cluster může zobrazit v centru pro správu systému Windows, nemusí být k dispozici, aby se mohl ještě připojit.
+
+Dobrá kontrola, aby se zajistilo, že všechny prostředky clusteru jsou online:
+
+```powershell
+Get-Cluster -Name $ClusterName | Get-ClusterResource
+```
 
 Pokud po nějaké době řešení clusteru neproběhne úspěšně, můžete ve většině případů připojit pomocí názvu jednoho z clusterovaných serverů místo názvu clusteru.
 
 ## <a name="step-5-set-up-sites-stretched-cluster"></a>Krok 5: nastavení lokalit (roztaženého clusteru)
 
-Tato úloha platí pouze v případě, že vytváříte roztaženého clusteru mezi dvěma lokalitami.
+Tato úloha platí pouze v případě, že vytváříte roztaženého clusteru mezi dvěma lokalitami. 
+
+> [!NOTE]
+> Pokud jste předem nastavili služby a lokality služby Active Directory, nemusíte vytvářet lokality ručně, jak je popsáno níže.
 
 ### <a name="step-51-create-sites"></a>Krok 5,1: vytvoření webů
 
@@ -436,7 +446,7 @@ U roztaženého clusteru `Enable-ClusterStorageSpacesDirect` provede rutina tak�
 Následující příkaz povolí Prostory úložiště s přímým přístupem. Můžete také zadat popisný název pro fond úložiště, jak je znázorněno zde:
 
 ```powershell
-$session = New-CimSession -Cluster "Cluster1" | Enable-ClusterStorageSpacesDirect -PoolFriendlyName "Cluster1 Storage Pool"
+Enable-ClusterStorageSpacesDirect -PoolFriendlyName "$ClusterName Storage Pool" -CimSession $ClusterName
 ```
 
 Chcete-li zobrazit fondy úložiště, použijte tento příkaz:
@@ -445,7 +455,7 @@ Chcete-li zobrazit fondy úložiště, použijte tento příkaz:
 Get-StoragePool -CimSession $session
 ```
 
-! Nyní jste vytvořili clustery bez jakýchkoli kostí.
+! Teď jste vytvořili cluster.
 
 ## <a name="after-you-create-the-cluster"></a>Po vytvoření clusteru
 

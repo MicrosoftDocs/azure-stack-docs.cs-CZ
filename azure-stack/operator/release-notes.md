@@ -7,12 +7,12 @@ ms.date: 01/22/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 08877d386e2b890f3b3bdca043e716ae644f60a7
-ms.sourcegitcommit: 925351b77490364b3d52746f788c4c1b93343631
+ms.openlocfilehash: 8bcc605632b47ec2bfa384b9a0fe174902ad9b20
+ms.sourcegitcommit: ea4bb7bf0ba1bd642c769013a0280f24e71550bc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98705228"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98718011"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -133,7 +133,7 @@ Vzhledem k tomu, že jsou opravy hotfix centra Azure Stack kumulativní, doporu�
 
 Pokud se následně uvolní nějaké opravy hotfix 2008, měli byste po instalaci 2008 nainstalovat tyto opravy:
 
-- [1.2008.20.102 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4595075)
+- [1.2008.23.108 opravy hotfix centra Azure Stack](https://support.microsoft.com/topic/c0d203fd-7585-4c8d-8ea5-ae13897e352e)
 ::: moniker-end
 
 ::: moniker range="azs-2005"

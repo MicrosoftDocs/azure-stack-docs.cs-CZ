@@ -4,13 +4,13 @@ description: Toto téma popisuje aplikace nástrojů od partnerů Microsoftu, kt
 author: burcuerdemir
 ms.author: burcue
 ms.topic: conceptual
-ms.date: 12/18/2020
-ms.openlocfilehash: ec7623243c09ffc93036ada1927cbe62acad0b9d
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.date: 01/22/2021
+ms.openlocfilehash: 79490100adaef813af6b8df05779620b315765b3
+ms.sourcegitcommit: ea4bb7bf0ba1bd642c769013a0280f24e71550bc
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98254955"
+ms.lasthandoff: 01/23/2021
+ms.locfileid: "98717994"
 ---
 # <a name="utility-applications-for-azure-stack-hci"></a>Pomocné aplikace pro Azure Stack HCI
 
@@ -31,6 +31,7 @@ Zálohování virtuálního počítače Altaro je oceněné řešení zálohová
 
 - Seznam aplikací: [zálohování a replikace virtuálního počítače pro Hyper-V a VMware](https://www.altaro.com/vm-backup/)
 - Podpora aplikací: [Podpora Altaro pro Azure Stack HCI](https://www.altaro.com/news/single/News-Altaro-applies-its-expertise-in-Hyper-V-backup-to-support-Microsoft.php)
+- Podpora replikace: [replikace Altaro WAN-Optimized](https://www.altaro.com/vm-backup/wan-optimized-replication.php)
 
 :::image type="content" source="./media/utility-applications/veeam-logo.png" alt-text="Logo společnosti Veeam" border="false":::
 
@@ -38,6 +39,7 @@ Veeam Backup & replikace je jedno řešení pro jednoduchou, spolehlivou a flexi
 
 - Seznam aplikací: [replikace Veeam Backup &](https://www.veeam.com/vm-backup-recovery-replication-software.html)
 - Podpora aplikací: [Podpora Veeam pro Azure Stack HCI](https://www.veeam.com/kb4047)
+- [Podpora replikace pro virtuální počítače Hyper-V](https://www.veeam.com/vm-advanced-replication.html?ad=in-text-link)
 
 :::image type="content" source="./media/utility-applications/commvault-logo.png" alt-text="Logo společnosti CommVault" border="false":::
 
@@ -45,6 +47,7 @@ CommVault je kompletní platforma pro správu dat, která umožňuje ukládat, c
 
 - Výpis aplikace: [Microsoft Azure Stack](https://www.commvault.com/supported-technologies/microsoft/azurestack)
 - Podpora aplikací: [Azure Stack HCI](https://documentation.commvault.com/11.21/essential/132799_microsoft_azure_stack_hci.html)
+- [CommVault Backup a obnovení teď podporuje Microsoft Azure Stack HCL.](https://www.commvault.com/blogs/commvault-backup-and-recovery-now-supports-microsoft-azure-stack-hci)
 
 :::image type="content" source="./media/utility-applications/veritas-logo.png" alt-text="Logo společnosti Veritas" border="false":::
 
@@ -52,6 +55,7 @@ Veritas Backup Exec je snadno použitelné řešení pro zálohování a obnoven
 
 - Seznam aplikací: [Backup Exec](https://www.veritas.com/protection/backup-exec)
 - Podpora aplikací: [ochrana Azure Stack HCL pomocí programu Backup Exec](https://www.veritas.com/support/en_US/article.100048860)
+- [Podpora programu Veritas Backup Exec pro Microsoft Azure](https://www.veritas.com/protection/backup-exec/azure)
 
 :::image type="content" source="./media/utility-applications/datadog-logo.png" alt-text="Logo společnosti Datadag" border="false":::
 
