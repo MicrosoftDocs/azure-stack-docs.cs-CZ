@@ -3,16 +3,16 @@ title: Poznámky k verzi centra Azure Stack
 description: Poznámky k verzi pro integrované systémy Azure Stack hub, včetně aktualizací a oprav chyb.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/22/2021
+ms.date: 01/25/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 8bcc605632b47ec2bfa384b9a0fe174902ad9b20
-ms.sourcegitcommit: ea4bb7bf0ba1bd642c769013a0280f24e71550bc
+ms.openlocfilehash: 196313ed569a701dae9cc558ff1438d9d9df1241
+ms.sourcegitcommit: 82f7d16bc5f4224678edbbda0ba3441c8e07ca0b
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98718011"
+ms.lasthandoff: 01/25/2021
+ms.locfileid: "98763154"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -225,7 +225,7 @@ Opravy hotfix centra Azure Stack se vztahují pouze na integrované systémy Azu
 
 Verze 2005 centra Azure Stack se musí použít ve verzi 2002 s následujícími opravami hotfix:
 
-- [1.2002.63.167 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4595072)
+- [1.2002.65.171 opravy hotfix centra Azure Stack](https://support.microsoft.com/topic/d743db84-df31-496b-b37c-6e5618b4cc8f)
 
 ### <a name="after-successfully-applying-the-2005-update"></a>Po úspěšné instalaci aktualizace 2005
 
@@ -233,7 +233,7 @@ Od verze 2005 se při aktualizaci na novou hlavní verzi (například 1.2002. x 
 
 Pokud se následně uvolní nějaké opravy hotfix 2005, měli byste po instalaci 2005 nainstalovat tyto opravy:
 
-- [1.2005.25.92 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4595074)
+- [1.2005.28.98 opravy hotfix centra Azure Stack](https://support.microsoft.com/topic/ecf727b1-3dc1-4070-ace8-1291cc437389)
 ::: moniker-end
 
 ::: moniker range="azs-2002"
@@ -362,7 +362,7 @@ Verze 2002 centra Azure Stack se musí použít ve verzi 1910 s následujícími
 Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix.
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [1.2002.63.167 opravy hotfix centra Azure Stack](https://support.microsoft.com/help/4595072)
+- [1.2002.65.171 opravy hotfix centra Azure Stack](https://support.microsoft.com/topic/d743db84-df31-496b-b37c-6e5618b4cc8f)
 ::: moniker-end
 
 <!------------------------------------------------------------>
