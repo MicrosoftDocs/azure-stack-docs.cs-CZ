@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 01/22/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: f45a77b43178b38d659d9e51b1abf2cbaeae87f8
-ms.sourcegitcommit: ea4bb7bf0ba1bd642c769013a0280f24e71550bc
+ms.openlocfilehash: 2099d7e9dcd2d01f949d54ad5bd59ce06ecaccbc
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98717977"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772199"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>Vytvoření clusteru Azure Stack HCI pomocí prostředí Windows PowerShell
 
@@ -37,9 +37,11 @@ Pokud vás zajímá testování Azure Stack HCI, ale mají omezený nebo žádn�
 Než začnete, ujistěte se, že jste:
 
 - Přečtěte si téma [požadavky na systém Azure Stack HCI](../concepts/system-requirements.md).
+- Přečtěte si [požadavky na fyzickou síť](../concepts/physical-network-requirements.md) a [požadavky na hostitele](../concepts/host-network-requirements.md) pro Azure Stack HCI.
 - Nainstalujte do každého serveru v clusteru Azure Stack operační systém HCI. Viz [nasazení operačního systému Azure Stack HCI](operating-system.md).
 - Mít účet, který je členem místní skupiny Administrators na každém serveru.
 - Mít práva ve službě Active Directory k vytváření objektů.
+- Pro roztažené clustery nastavte ve službě Active Directory vaše dvě weby předem.
 
 ## <a name="using-windows-powershell"></a>Použití Windows PowerShellu
 
@@ -141,7 +143,9 @@ Restart-Computer -ComputerName $ServerList -WSManAuthentication Kerberos
 
 ## <a name="step-2-configure-networking"></a>Krok 2: konfigurace sítě
 
-Tento krok nakonfiguruje různé prvky sítě ve vašem prostředí.
+Tento krok nakonfiguruje různé síťové prvky, jako jsou virtuální přepínače a síťové adaptéry, ve vašem prostředí. Podporují se síťové adaptéry RDMA (oba iWARP a RoCE).
+
+Další informace o RDMA a sítích hostitele Hyper-V pro Azure Stack HCI najdete v tématu [požadavky na síť hostitele](../concepts/host-network-requirements.md).
 
 ### <a name="disable-unused-networks"></a>Zakázat nepoužívané sítě
 
@@ -461,7 +465,7 @@ Get-StoragePool -CimSession $session
 
 Teď, když jste hotovi, stále existují některé důležité úkoly, které je potřeba provést:
 
-- Nastavte určující cluster. Viz [Nastavení určujícího clusteru](witness.md).
+- Nastavte určující cluster. Viz [Nastavení určujícího clusteru](../manage/witness.md).
 - Vytvořte si svazky. Viz [vytvoření svazků](../manage/create-volumes.md).
 - U roztaženého clusteru vytvořte svazky a nastavte replikaci pomocí repliky úložiště. Přečtěte si téma [vytvoření svazků a nastavení replikace pro roztažené clustery](../manage/create-stretched-volumes.md).
 

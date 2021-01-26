@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/11/2020
-ms.openlocfilehash: 641615aafd8531cf31e326a2f829b0bf5f5c7a12
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.date: 01/22/2021
+ms.openlocfilehash: 02c9a76a92a0876a36d00bfad80ee3da0f6aa86d
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98254751"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772180"
 ---
 # <a name="what-is-the-deployment-process-for-azure-stack-hci"></a>Jaký proces nasazení se používá pro Azure Stack HCI?
 
@@ -50,7 +50,7 @@ Vytvořte cluster s podporou převzetí služeb při selhání pomocí [centra p
 
 ### <a name="3-set-up-a-cluster-witness"></a>3. nastavení určujícího clusteru
 
-[Nastavení prostředku určujícího zdroje](witness.md) je pro všechny clustery povinné. Clustery se dvěma uzly potřebují určující určující, aby jeden server v režimu offline nezpůsobí, že druhý uzel nebude k dispozici také. Clustery se třemi a vyššími uzly potřebují určující, aby bylo možné vydržet dva servery, které jsou neúspěšné nebo offline. 
+[Nastavení prostředku určujícího zdroje](../manage/witness.md) je pro všechny clustery povinné. Clustery se dvěma uzly potřebují určující určující, aby jeden server v režimu offline nezpůsobí, že druhý uzel nebude k dispozici také. Clustery se třemi a vyššími uzly potřebují určující, aby bylo možné vydržet dva servery, které jsou neúspěšné nebo offline. 
 
 ### <a name="4-register-with-azure"></a>4. Zaregistrujte se do Azure
 

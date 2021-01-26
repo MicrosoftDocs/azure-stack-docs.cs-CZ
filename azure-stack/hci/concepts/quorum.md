@@ -4,13 +4,13 @@ description: Principy kvora clusteru a fondu v Prostory úložiště s přímým
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 0503e9a97a2ca2b15447dbd837eeac9162b84654
-ms.sourcegitcommit: 48a46142ea7bccd6c8a609e188dd7f3f6444f3c4
+ms.date: 01/22/2021
+ms.openlocfilehash: cd352017027b7e122b39e1d16c867d5b2e3576fc
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98561991"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772217"
 ---
 # <a name="understanding-cluster-and-pool-quorum-on-azure-stack-hci"></a>Principy kvora clusteru a fondu v Azure Stack HCI
 
@@ -33,10 +33,10 @@ Následující tabulka obsahuje přehled výsledků kvora clusteru na jeden scé
 
 | Uzly serveru | Může zachována jedna selhání uzlu serveru. | Může zachována jedna chyba uzlu serveru, pak další | Může předržel dvě souběžné selhání uzlů serveru. |
 |--------------|-------------------------------------|---------------------------------------------------|----------------------------------------------------|
-| 2            | 50/50                               | Ne                                                | Ne                                                 |
-| 2 + určující kopie  | Ano                                 | Ne                                                | Ne                                                 |
-| 3            | Ano                                 | 50/50                                             | Ne                                                 |
-| 3 + určující kopie  | Ano                                 | Ano                                               | Ne                                                 |
+| 2            | 50/50                               | No                                                | No                                                 |
+| 2 + určující kopie  | Ano                                 | No                                                | No                                                 |
+| 3            | Ano                                 | 50/50                                             | No                                                 |
+| 3 + určující kopie  | Ano                                 | Ano                                               | No                                                 |
 | 4            | Ano                                 | Ano                                               | 50/50                                              |
 | 4. disk s kopií clusteru  | Ano                                 | Ano                                               | Ano                                                |
 | 5 a vyšší  | Ano                                 | Ano                                               | Ano                                                |
@@ -169,11 +169,11 @@ Následující tabulka obsahuje přehled výsledků kvora fondu na jeden scéná
 
 | Uzly serveru | Může zachována jedna selhání uzlu serveru. | Může zachována jedna chyba uzlu serveru, pak další | Může předržel dvě souběžné selhání uzlů serveru. |
 |--------------|-------------------------------------|---------------------------------------------------|----------------------------------------------------|
-| 2            | Ne                                  | Ne                                                | Ne                                                 |
-| 2 + určující kopie  | Ano                                 | Ne                                                | Ne                                                 |
-| 3            | Ano                                 | Ne                                                | Ne                                                 |
-| 3 + určující kopie  | Ano                                 | Ne                                                | Ne                                                 |
-| 4            | Ano                                 | Ne                                                | Ne                                                 |
+| 2            | Ne                                  | No                                                | No                                                 |
+| 2 + určující kopie  | Ano                                 | No                                                | No                                                 |
+| 3            | Ano                                 | No                                                | No                                                 |
+| 3 + určující kopie  | Ano                                 | No                                                | No                                                 |
+| 4            | Ano                                 | No                                                | No                                                 |
 | 4. disk s kopií clusteru  | Ano                                 | Ano                                               | Ano                                                |
 | 5 a vyšší  | Ano                                 | Ano                                               | Ano                                                |
 
@@ -227,4 +227,4 @@ Každá z těchto 24 jednotek má jeden hlas a druhý uzel má také jeden hlas 
 Další informace najdete v následujících článcích:
 
 - [Konfigurace a Správa kvora](/windows-server/failover-clustering/manage-cluster-quorum)
-- [Nastavení určujícího clusteru](../deploy/witness.md)
+- [Nastavení určujícího clusteru](../manage/witness.md)

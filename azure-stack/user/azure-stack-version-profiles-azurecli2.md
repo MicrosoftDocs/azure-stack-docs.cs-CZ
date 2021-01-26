@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/16/2020
-ms.openlocfilehash: fe68722e2cabea2cc863bbd6fb6d8414eb91031c
-ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
+ms.openlocfilehash: 8ffab5fa1ffff5012edfbce3da69f35a753ff72e
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98243574"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772286"
 ---
 # <a name="install-azure-cli-on-azure-stack-hub"></a>Instalace rozhraní příkazového řádku Azure CLI do centra Azure Stack
 
@@ -53,7 +53,7 @@ V této části se dozvíte, jak nastavit rozhraní příkazového řádku, poku
       | Hodnota | Příklad | Popis |
       | --- | --- | --- |
       | Název prostředí | AzureStackUser | Použijte `AzureStackUser`  pro uživatelské prostředí. Pokud jste operátor, zadejte `AzureStackAdmin` . |
-      | Správce prostředků koncový bod | `https://management.contoso.onmicrosoft.com` | **ResourceManagerUrl** v ASDK je: `https://management.contoso.onmicrosoft.com/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
+      | Správce prostředků koncový bod | `https://management.contoso.onmicrosoft.com` | **ResourceManagerUrl** v ASDK je: `https://management.local.azurestack.external/` **ResourceManagerUrl** v integrovaných systémech je: `https://management.<region>.<fqdn>/` Pokud máte dotaz týkající se integrovaného systémového koncového bodu, obraťte se na svého operátora cloudu. |
       | Koncový bod úložiště | local.contoso.onmicrosoft.com | `local.azurestack.external` je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
       | Přípona trezoru klíčů | . vault.contoso.onmicrosoft.com | `.vault.local.azurestack.external` je pro rozhraní ASDK. Pro integrovaný systém použijte pro svůj systém koncový bod.  |
       | ID prostředku grafu služby Active Directory koncového bodu | https://graph.windows.net/ | Identifikátor prostředku služby Azure Active Directory. |
@@ -116,7 +116,7 @@ V této části se dozvíte, jak nastavit rozhraní příkazového řádku, poku
           az cloud list --output table
       ```
 
-Měli byste vidět, že je vaše prostředí uvedené  a je aktivní `true` . Příklad:
+Měli byste vidět, že je vaše prostředí uvedené  a je aktivní `true` . Například:
 
 ```azurecli  
 IsActive    Name               Profile

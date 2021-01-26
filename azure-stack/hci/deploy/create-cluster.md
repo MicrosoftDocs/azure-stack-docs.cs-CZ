@@ -3,15 +3,15 @@ title: Vytvoření clusteru Azure Stack HCI pomocí centra Windows Admin Center
 description: Zjistěte, jak vytvořit serverový cluster pro Azure Stack HCI pomocí centra pro správu Windows.
 author: v-dasis
 ms.topic: how-to
-ms.date: 01/20/2021
+ms.date: 01/22/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 0d92840b8a98d612c971895cd3cc9f39815eed75
-ms.sourcegitcommit: c87d1e26a4f96be4651f63fbf5ea3d98d6f14832
+ms.openlocfilehash: 7b745ec5f521be3ed520b41a4eb5d788799ad20b
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98659404"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772310"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Vytvoření clusteru Azure Stack HCI pomocí centra Windows Admin Center
 
@@ -231,4 +231,5 @@ Pokud po nějaké době řešení clusteru neproběhne úspěšně, můžete ve 
 ## <a name="next-steps"></a>Další kroky
 
 - Zaregistrujte svůj cluster v Azure. Viz [Správa registrace Azure](../manage/manage-azure-registration.md).
+- Nastavte určující kopii. Viz [Nastavení určujícího clusteru](../manage/witness.md).
 - Proveďte konečné ověření clusteru. Viz [ověření clusteru Azure Stack HCI](validate.md)

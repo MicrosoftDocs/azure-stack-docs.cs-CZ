@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/11/2020
-ms.openlocfilehash: 2d2c122a2fd8a9e0be5d3ffd942f85f310845f2d
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.date: 01/22/2021
+ms.openlocfilehash: 6527623ba5b42f40eb24cd6269f5d45bbccb0d25
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343172"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772236"
 ---
 # <a name="quickstart-create-an-azure-stack-hci-cluster-and-register-it-with-azure"></a>Rychlý Start: Vytvoření clusteru Azure Stack HCI a jeho registrace do Azure
 
@@ -46,7 +46,7 @@ Průvodce vytvořením clusteru má pět oddílů, z nichž každý obsahuje ně
 2. **Sítě.** V této části Průvodce se ověří, že jsou povolené správné síťové adaptéry a že je zakázané, které nepoužíváte. Vyberte adaptéry pro správu, nastavte konfiguraci virtuálního přepínače a definujte síť tím, že zadáte IP adresy.
 3. **Clustering.** V této části se ověří, že vaše servery mají konzistentní konfiguraci a jsou vhodné pro clusteringu, a vytvoří vlastní cluster.
 4. **Pamì.** V dalším kroku vyčistíte a zkontrolujete jednotky, ověříte úložiště a povolíte Prostory úložiště s přímým přístupem.
-5. **Sdn.** Můžete přeskočit oddíl 5, protože pro tento cluster nebudeme používat softwarově definované sítě (SDN).
+5. **SDN** Můžete přeskočit oddíl 5, protože pro tento cluster nebudeme používat softwarově definované sítě (SDN).
 
 Pokud jste v průvodci povolili protokol CredSSP, budete ho chtít pro účely zabezpečení zakázat na každém serveru.
 
@@ -58,7 +58,7 @@ Pokud jste v průvodci povolili protokol CredSSP, budete ho chtít pro účely z
 
 ## <a name="set-up-a-cluster-witness"></a>Nastavení určujícího clusteru
 
-Nastavení prostředku určujícího zdroje je povinné, aby v případě, že bude jeden ze serverů v clusteru přepnut do režimu offline, nezpůsobí, že druhý uzel nebude k dispozici také. V tomto rychlém startu použijeme sdílenou složku SMB, která se nachází na jiném serveru jako určující. Můžete chtít použít cloudové sdílené složky Azure, pokud jsou všechny uzly serveru v clusteru spolehlivé připojení k Internetu. Další informace o možnostech určující sdílené složky najdete v tématu [Nastavení určujícího clusteru](witness.md).
+Nastavení prostředku určujícího zdroje je povinné, aby v případě, že bude jeden ze serverů v clusteru přepnut do režimu offline, nezpůsobí, že druhý uzel nebude k dispozici také. V tomto rychlém startu použijeme sdílenou složku SMB, která se nachází na jiném serveru jako určující. Můžete chtít použít cloudové sdílené složky Azure, pokud jsou všechny uzly serveru v clusteru spolehlivé připojení k Internetu. Další informace o možnostech určující sdílené složky najdete v tématu [Nastavení určujícího clusteru](../manage/witness.md).
 
 1. V centru pro správu systému Windows vyberte ze šipky nahoru v horním rozevíracím seznamu položku **Správce clusteru** .
 1. V části **připojení clusteru** vyberte cluster.
