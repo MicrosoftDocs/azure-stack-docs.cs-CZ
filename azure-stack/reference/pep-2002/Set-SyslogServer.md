@@ -1,25 +1,25 @@
 ---
 title: Set-SyslogServer
-description: Referenční informace pro Azure Stack privilegovaného koncového bodu prostředí PowerShell – Close-PrivilegedEndpoint
+description: Reference pro Azure Stack s privilegovaným koncovým bodem Set-SyslogServer PowerShellu
 author: mattbriggs
 ms.topic: reference
 ms.date: 04/27/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: 328862a4d6d598781a88597ea1d03fbaf50a4885
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: 3d6cb57660485d715a1136bdffa94682bc4dee2c
+ms.sourcegitcommit: 2ac64ac431411b673e655465939d3c95cc94c55d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742685"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98810924"
 ---
 # <a name="set-syslogserver"></a>Set-SyslogServer
 
 ## <a name="synopsis"></a>Stručný obsah
 Nastaví koncový bod serveru syslog.
 
-## <a name="syntax"></a>Syntaxe
+## <a name="syntax"></a>Syntax
 
 ```
 Set-SyslogServer [-Remove] [[-ServerName] <Object>] [-NoEncryption] [-SkipCertificateCheck] [-UseUDP]
