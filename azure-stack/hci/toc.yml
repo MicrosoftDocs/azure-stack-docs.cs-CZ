@@ -28,10 +28,6 @@
       href: deploy/operating-system.md
     - name: Vytvoření clusteru
       href: deploy/create-cluster.md
-    - name: Nastavení určujícího clusteru
-      href: deploy/witness.md
-    - name: Nasazení infrastruktury SDN
-      href: deploy/sdn-express.md
     - name: Migrace na nový hardware
       href: deploy/migrate-cluster-new-hardware.md
     - name: Migrace na stejný hardware
@@ -96,6 +92,8 @@
           href: manage/update-cluster.md
         - name: Monitorování clusteru
           href: manage/monitor-cluster.md
+        - name: Nastavení určujícího clusteru
+          href: manage/witness.md
         - name: Použití brány firewall Datacenter
           href: manage/use-datacenter-firewall.md
         - name: Použití DISKSPD k testování úloh
@@ -114,6 +112,10 @@
           href: manage/validate-qos.md
         - name: Řešení CredSSP
           href: manage/troubleshoot-credssp.md
+    - name: Správa SDN
+      items:
+        - name: Nasazení infrastruktury SDN
+          href: manage/sdn-express.md
     - name: Správa služeb Azure
       items:
         - name: Registrace centra pro správu Windows pomocí Azure
@@ -184,7 +186,7 @@
           href: concepts/utility-applications.md
         - name: Shromažďování dat
           href: concepts/data-collection.md
-- name: Reference
+- name: Referenční informace
   items:
     - name: Příkazy Azure CLI pro registraci Azure
       href: /cli/azure/ext/stack-hci/stack-hci
@@ -232,7 +234,7 @@
       href: /windows-server/networking/sdn
     - name: System Center
       href: /system-center/
-- name: Zdroje a prostředky
+- name: Zdroje
   items:
     - name: Stránka produktu Azure Stack HCL
       href: 'https://azure.com/hci'

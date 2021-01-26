@@ -5,13 +5,13 @@ ms.topic: how-to
 author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
-ms.date: 01/12/2021
-ms.openlocfilehash: 7f77855945ecfb31e223db46be8b2e2e3a012c16
-ms.sourcegitcommit: 502df315764bbc4ff6d3de50b957dfd4a6c0043a
+ms.date: 01/22/2021
+ms.openlocfilehash: 4b6e7537a1111ed2e38d1783acf7197a4249b2ac
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98130284"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772107"
 ---
 # <a name="manage-azure-stack-hci-clusters-using-windows-admin-center"></a>Správa clusterů Azure Stack HCI pomocí centra pro správu Windows
 
@@ -97,7 +97,7 @@ Pro cluster se dá použít několik obecných nastavení. Tady je místo, kde m
    - **Disk s kopií clusteru** – pro použití prostředku disku jako určujícího disku (nepoužívá se pro roztažené clustery)
    - **Určující sdílená složka** – pro použití sdílené složky jako určujícího umístění
 
-        Podrobné informace o tom, jak nastavit určující disk, najdete v tématu [Nastavení určujícího clusteru](../deploy/witness.md). Viz také [Principy kvora clusteru a fondu v Azure Stack HCI](../concepts/quorum.md).
+        Podrobné informace o tom, jak nastavit určující disk, najdete v tématu [Nastavení určujícího clusteru](witness.md). Viz také [Principy kvora clusteru a fondu v Azure Stack HCI](../concepts/quorum.md).
 
         :::image type="content" source="media/manage-cluster/cluster-settings-witness.png" alt-text="Sdílená obrazovka clusteru" lightbox="media/manage-cluster/cluster-settings-witness.png":::
 

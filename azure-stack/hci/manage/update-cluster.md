@@ -4,13 +4,13 @@ description: Jak použít aktualizace operačního systému a firmwaru Azure Sta
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 10/27/2020
-ms.openlocfilehash: 001cf81721423aad770093c0fe5cf92ec6b66af8
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.date: 01/25/2020
+ms.openlocfilehash: 751551b827ef5d3c871f0224bfa60d9f79fc5d45
+ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97010817"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98772011"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>Aktualizace Azure Stackch clusterů HCI
 
@@ -24,14 +24,32 @@ Toto téma se zaměřuje na operační systém a aktualizace softwaru. Pokud pot
 
 Centrum pro správu Windows usnadňuje aktualizaci clusteru a instalaci operačního systému a řešení pomocí jednoduchého uživatelského rozhraní. Pokud jste si zakoupili integrovaný systém od hardwarového partnera Microsoftu, můžete k tomu snadno získat nejnovější ovladače, firmware a další aktualizace přímo z centra pro správu Windows, a to tak, že nainstalujete příslušné rozšíření partnerské aktualizace. Pokud jste hardware nekoupili jako integrovaný systém, může být nutné provést aktualizace firmwaru a ovladačů samostatně, a to podle doporučení dodavatele hardwaru.
 
-Centrum pro správu systému Windows zkontroluje, jestli je cluster správně nakonfigurovaný tak, aby běžel Cluster-Aware aktualizace, a v případě potřeby se zobrazí dotaz, jestli chcete pro vás nakonfigurovat funkci aktualizace pro clustery (CAU), včetně instalace role clusteru CAU a povolení požadovaných pravidel brány firewall.
+Pomocí těchto kroků nainstalujete aktualizace:
 
 1. Když se připojíte ke clusteru, řídicí panel centra pro správu systému Windows vás upozorní, pokud má jeden nebo více serverů aktualizace připravené k instalaci, a poskytne odkaz na aktualizaci nyní. Alternativně můžete vybrat **aktualizace** z nabídky **nástroje** vlevo.
-1. Chcete-li použít nástroj Cluster-Aware aktualizace v centru pro správu systému Windows, je nutné povolit zprostředkovatele CredSSP (Credential Security Service Provider) a zadat explicitní přihlašovací údaje. Až se zobrazí dotaz, jestli by se měl povolit CredSSP, klikněte na **Ano**.
-1. Zadejte své uživatelské jméno a heslo a klikněte na **pokračovat**.
-1. Zobrazí se všechny dostupné aktualizace. Kliknutím na možnost **ověřit dostupné aktualizace** seznam aktualizujte.
-1. Vyberte aktualizace, které chcete nainstalovat, a klikněte na **použít všechny aktualizace**. Tím se aktualizace nainstalují na každý server v clusteru. Pokud je potřeba restartování, role clusteru, jako jsou virtuální počítače, se nejprve přesunou na jiný server, aby se zabránilo jakémukoli přerušení.
-1. Pokud chcete zvýšit zabezpečení, zakažte zprostředkovatele CredSSP hned po dokončení instalace aktualizací:
+
+2. Pokud aktualizujete cluster poprvé, centrum pro správu systému Windows zkontroluje, jestli je cluster správně nakonfigurovaný tak, aby běžel Cluster-Aware aktualizace, a v případě potřeby se zobrazí dotaz, jestli chcete pro vás nakonfigurovat funkci aktualizace pro clustery (CAU), včetně instalace role clusteru CAU a povolení požadovaných pravidel brány firewall. Chcete-li zahájit proces aktualizace, **klikněte na tlačítko Začínáme.**
+
+   :::image type="content" source="media/update-cluster/add-cau-role.png" alt-text="Centrum pro správu Windows automaticky nakonfiguruje cluster tak, aby běžel Cluster-Aware aktualizace." lightbox="media/update-cluster/add-cau-role.png":::
+
+   > [!NOTE]
+   > Chcete-li použít nástroj Cluster-Aware aktualizace v centru pro správu systému Windows, je nutné povolit zprostředkovatele CredSSP (Credential Security Service Provider) a zadat explicitní přihlašovací údaje. Pokud se zobrazí dotaz, jestli by se měl povolit CredSSP, klikněte na **Ano**. Zadejte své uživatelské jméno a heslo a klikněte na **pokračovat**.
+
+3. Zobrazí se stav aktualizace clusteru. Kliknutím na **Vyhledat aktualizace** získáte seznam aktualizací operačního systému, které jsou k dispozici pro každý server v clusteru. Možná budete muset zadat přihlašovací údaje správce. Pokud nejsou k dispozici žádné aktualizace operačního systému, klikněte na tlačítko **Další: aktualizace hardwaru** a pokračujte krokem 7.
+
+4. Vyberte **Další: nainstalovat** , chcete-li pokračovat v instalaci aktualizací operačního systému, nebo klikněte na tlačítko **Přeskočit** a vylučte je. 
+
+   :::image type="content" source="media/update-cluster/operating-system-updates.png" alt-text="Klikněte na tlačítko Další: nainstalovat, chcete-li pokračovat v instalaci aktualizací operačního systému, nebo klikněte na tlačítko Přeskočit a vylučte je." lightbox="media/update-cluster/operating-system-updates.png":::
+
+5. Výběrem **instalovat** nainstalujete aktualizace operačního systému na každý server v clusteru. Zobrazí se změna stavu aktualizace na instalovat aktualizace. Pokud některá z aktualizací vyžaduje restart, servery se v jednu chvíli restartují a přesunou se role clusterů, jako jsou třeba virtuální počítače mezi servery, aby se předešlo výpadkům.
+
+   :::image type="content" source="media/update-cluster/install-os-updates.png" alt-text="Kliknutím na instalovat nainstalujete aktualizace operačního systému na každý server v clusteru." lightbox="media/update-cluster/install-os-updates.png":::
+
+6. Po dokončení aktualizací operačního systému se stav aktualizace změní na úspěch. Klikněte na tlačítko **Další: aktualizace hardwaru** a pokračujte na obrazovku aktualizace hardwaru.
+
+7. Centrum pro správu systému Windows zkontroluje v clusteru nainstalovaná rozšíření, která podporují konkrétní serverový hardware. Klikněte na **Další: instalovat** a nainstalujte aktualizace hardwaru na každém serveru v clusteru. Nejsou-li nalezeny žádné přípony ani aktualizace, klikněte na tlačítko **konec**.
+
+8. Pokud chcete zvýšit zabezpečení, zakažte zprostředkovatele CredSSP hned po dokončení instalace aktualizací:
     - V centru pro správu systému Windows v části **všechna připojení** vyberte první server v clusteru a pak vyberte **připojit**.
     - Na stránce **Přehled** vyberte **Zakázat CredSSP** a potom v místním okně **vypnout zprostředkovatele CredSSP** vyberte **Ano**.
 
@@ -203,4 +221,4 @@ Související informace najdete v tématu také:
 
 - [Aktualizace pro clustery (CAU)](/windows-server/failover-clustering/cluster-aware-updating)
 - [Aktualizuje se firmware jednotky v Prostory úložiště s přímým přístupem](/windows-server/storage/update-firmware)
-- [Ověření Azure Stack clusteru HCI](../deploy/validate.md)
+- [Ověření clusteru Azure Stack HCI](../deploy/validate.md)
