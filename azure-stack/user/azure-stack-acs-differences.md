@@ -8,12 +8,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviwer: jiahan
 ms.lastreviewed: 08/12/2020
-ms.openlocfilehash: e49092e87f8e6801343ae0550aff4c71dd40408b
-ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
+ms.openlocfilehash: d242658388e97512f3130a381b2793e57832f397
+ms.sourcegitcommit: 0765de47f4a73e09192d34739e40c750b6e7abaf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98103065"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98915202"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Úložiště centra Azure Stack: rozdíly a požadavky
 
@@ -23,7 +23,7 @@ Tento článek shrnuje známé rozdíly v úložištích Azure Stack centra od s
 
 ## <a name="cheat-sheet-storage-differences"></a>Tahák list: rozdíly v úložišti
 
-| Příznak | Azure (Global) | Azure Stack Hub |
+| Funkce | Azure (Global) | Azure Stack Hub |
 | --- | --- | --- |
 |File Storage|Podporuje cloudové sdílené složky SMB. | Zatím se nepodporuje.
 |Šifrování služby Azure Storage pro neaktivní neaktivní data|256 šifrování AES. Podpora šifrování pomocí klíčů spravovaných zákazníkem v Key Vault.|BitLocker 128-bit AES Encryption. Šifrování pomocí klíčů spravovaných zákazníkem se nepodporuje.
@@ -44,6 +44,7 @@ Tento článek shrnuje známé rozdíly v úložištích Azure Stack centra od s
 |Snímek objektu BLOB|Maximální počet snímků jednoho objektu BLOB není omezený.|Maximální počet snímků jednoho objektu BLOB je 1 000.
 |Ověřování Azure AD pro úložiště|Ve verzi Preview. |Zatím se nepodporuje.
 |Neměnné objekty blob|Obecné k dispozici. |Podporováno při použití verze 2008 nebo novější.
+|Rozhraní API služby Batch pro Blob Storage|Ve verzi Preview. |Zatím se nepodporuje.
 |Pravidla brány firewall a virtuální sítě pro úložiště|Obecné k dispozici. |Zatím se nepodporuje.|
 
 Existují také rozdíly v metrikách úložiště:

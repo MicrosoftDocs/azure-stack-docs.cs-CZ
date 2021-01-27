@@ -121,7 +121,7 @@
               href: ../operator/azure-stack-create-service-principals.md?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Použití služeb
           items:
-            - name: Compute
+            - name: Výpočetní prostředky
               items:
                 - name: Přehled
                   href: azure-stack-compute-overview.md
@@ -219,6 +219,8 @@
               items:
                 - name: Přehled
                   href: iot-hub-overview.md
+                - name: Připojení zařízení IoT Edge
+                  href: iot-hub-connect-iot-edge-device.md
             - name: Azure Monitor
               href: azure-stack-metrics-azure-data.md
               items:
