@@ -7,12 +7,12 @@ ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 6284e771a4b0e326ab5c6296b0a2c09dffe791d0
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: af366bbb7ae12dfc71451f4faa477dbd6d185e60
+ms.sourcegitcommit: dc11aabd3b97c505c5b3cecd3bdb2d5c8e8496aa
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874196"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98981219"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Nasazení clusteru Kubernetes s modulem AKS v centru Azure Stack
 
@@ -48,7 +48,7 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
 
 4.  Vyhledejte `customCloudProfile` adresu URL portálu tenanta a poskytněte ji. Například `https://portal.local.azurestack.external`. 
 
-5. Přidejte, `"identitySystem":"adfs"` Pokud používáte AD FS. Příklad:
+5. Přidejte, `"identitySystem":"adfs"` Pokud používáte AD FS. Třeba
 
     ```JSON  
         "customCloudProfile": {
@@ -64,7 +64,7 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
 
 7.  V nástroji `masterProfile` nastavte následující pole:
 
-    | Pole | Popis |
+    | Pole | Description |
     | --- | --- |
     | Pole dnsprefix | Zadejte jedinečný řetězec, který bude sloužit k identifikaci názvu hostitele virtuálních počítačů. Například název založený na názvu skupiny prostředků. |
     | count |  Zadejte počet hlavních serverů, které chcete pro nasazení nasadit. Minimální pro nasazení HA je 3, ale 1 je povolená pro nasazení bez vysoké dostupnosti. |
@@ -73,9 +73,9 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
 
 8.  V nástroji `agentPoolProfiles` Update:
 
-    | Pole | Popis |
+    | Pole | Description |
     | --- | --- |
-    | count | Zadejte počet agentů, které chcete pro nasazení. Maximální počet uzlů, které se mají použít na předplatné, je 50. Pokud nasazujete více než jeden cluster na předplatné, zajistěte, aby celkový počet agentů nepřesahuje 50. Ujistěte se, že jste používali položky konfigurace zadané v [ukázkovém souboru JSON modelu rozhraní API](https://github.com/Azure/aks-engine/blob/master/examples/azure-stack/kubernetes-azurestack.json).  |
+    | count | Zadejte počet agentů, které chcete pro nasazení. Maximální počet uzlů, které se mají použít na předplatné, je 50. Pokud nasazujete více než jeden cluster na předplatné, zajistěte, aby celkový počet agentů nepřesahuje 50. Ujistěte se, že jste používali položky konfigurace zadané v [ukázkovém souboru JSON modelu rozhraní API](https://aka.ms/aksengine-json-example).  |
     | vmSize | Zadejte [velikost podporovanou Azure Stack hub](./azure-stack-vm-sizes.md), například `Standard_D2_v2` . |
     | distribuce | Zadejte `aks-ubuntu-16.04`. |
 
@@ -84,7 +84,7 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
 
 9.  V nástroji `linuxProfile` Update:
 
-    | Pole | Popis |
+    | Pole | Description |
     | --- | --- |
     | adminUsername | Zadejte uživatelské jméno správce virtuálního počítače. |
     | protokoly | Zadejte veřejný klíč, který se bude používat pro ověřování SSH s virtuálními počítači. Použijte `ssh-rsa` a pak klíč. Pokyny k vytvoření veřejného klíče najdete v tématu [vytvoření klíče SSH pro Linux](create-ssh-key-on-windows.md). |
@@ -113,7 +113,7 @@ Pokračujte v nasazení clusteru:
 
 1.  Přečtěte si dostupné parametry pro modul AKS v části Azure Stack centra [CLI](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cli-flags).
 
-    | Parametr | Příklad | Popis |
+    | Parametr | Příklad | Description |
     | --- | --- | --- |
     | Azure – ENV | AzureStackCloud | K indikaci AKS Engine, že vaše cílová platforma je Azure Stack použití centra `AzureStackCloud` . |
     | Identita – systém | službou | Nepovinný parametr. Pokud používáte federované služby Active Directory (AD FS), zadejte svoje řešení pro správu identit. |

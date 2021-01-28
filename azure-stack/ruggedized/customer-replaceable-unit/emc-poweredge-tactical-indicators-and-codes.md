@@ -1,29 +1,26 @@
 ---
-title: Taktické a značky a kódy pro EMC PowerEdge
-description: Další informace o ukazatelích a kódech taktické EMC PowerEdge
-author: PatAltimore
+title: Indikátory a kódy
+description: Další informace o ukazatelích a kódech
+author: justinha
 ms.topic: how-to
-ms.date: 11/13/2020
-ms.author: patricka
-ms.reviewer: ''
+ms.date: 01/28/2021
+ms.author: justinha
+ms.reviewer: thoroet
 ms.lastreviewed: ''
-ms.openlocfilehash: 8a820d02ef1832343ba5110a244793c70b73aed3
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 7aff7f648bb74a428a9f21ae61ece770f0ad841b
+ms.sourcegitcommit: dc11aabd3b97c505c5b3cecd3bdb2d5c8e8496aa
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910274"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98981253"
 ---
-# <a name="dell-emc-poweredge-tactical-indicators-and-codes"></a>Dell EMC PowerEdge – indikátory a kódy taktické
+# <a name="indicators-and-codes"></a>Indikátory a kódy
 
 Funkce popsané v této části jsou stejné jako u hostitele životního cyklu hardwaru a na serverech uzlů škálování jednotky.
 
 ## <a name="system-information-label"></a>Popisek systémových informací
 
 Následující obrázek ukazuje popisek systémové informace, který je na předním panelu.
-
-
-Obrázek 10. Chování INDIKÁTORu
 
 ![Popisek systémových informací pro chování indikátoru LED.](media/image-75.png)
 
@@ -53,21 +50,20 @@ Obrázek 11. Levý ovládací panel
 
 Následující tabulka popisuje funkce na levém panelu.
 
-Tabulka 5. Stav a indikátory stavu ovládacího panelu PowerEdge vlevo
 
-|    <br>Položka       |    <br>Indikátor nebo tlačítko                       |    <br>Ikona                                |    <br>Popis                                                                                                  |
+|    <br>Položka       |    <br>Indikátor nebo tlačítko                       |    <br>Ikona                                |    <br>Description                                                                                                  |
 |-------------------|--------------------------------------------------|--------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
-|    <br>1          |    <br>Indikátory LED stavu                     |    <br>–                                 |    <br>Určuje stav systému. Další informace najdete v tématu indikátory LED pro stav PowerEdge na stránce 61.    |
+|    <br>1          |    <br>Indikátory LED stavu                     |    <br>–                                 |    <br>Určuje stav systému.     |
 |    <br>2 a 3    |    <br>Indikátory stavu systému a ID systému    | ![Ikona stavu systému](media/image-77.png) |    <br>Určuje stav systému.                                                                                 |
 
-V následující tabulce jsou uvedeny indikátory LED pro stav PowerEdge.
+V následující tabulce jsou uvedeny indikátory LED stavu.
 
 > [!NOTE]
 > Indikátory LED stavu jsou vždy vypnuté a při výskytu chyby se změní jenom na plnou žlutou žlutou.
 
-Tabulka 6: Indikátory LED stavu pro PowerEdge
 
-| <br>Ikona | <br>Popis           | <br>Podmínka                                                                                                                                                                       | <br>Nápravná opatření                                                                                                                                                                                                                                                                                                    |
+
+| <br>Ikona | <br>Description           | <br>Podmínka                                                                                                                                                                       | <br>Nápravná opatření                                                                                                                                                                                                                                                                                                    |
 |----------|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |          | <br>Indikátor jednotky       | <br>Indikátor změní plnou žlutou žlutou, pokud dojde k chybě jednotky.                                                                                                                      | 1. Zkontrolujte protokol událostí systému, abyste zjistili, jestli má jednotka chybu.<br>2. Spusťte příslušný test online diagnostiky.<br>3. restartujte systém a spusťte Embedded Diagnostics (ePSA).<br>4. Pokud jsou jednotky nakonfigurované v poli RAID, restartujte systém a zadejte program konfiguračního nástroje pro konfiguraci hostitelského adaptéru. |
 |          | <br>Indikátor teploty | <br>Indikátor změní plnou žlutou, pokud systém dojde k tepelné chybě (například okolní teplota je mimo rozsah nebo dojde k selhání ventilátoru).                 | Zajistěte, aby neexistovaly žádné z následujících podmínek:<br>* Chladicí ventilátor byl odebrán nebo se nezdařil. <br>* Systémové pokrytí, vzduchový Shroud, modul pro vyplňování paměti nebo znaková závorka pro zálohování se odeberou.<br>* Okolní teplota je příliš vysoká.<br>* Externí tok toků je zablokován.                                                 |
@@ -95,4 +91,4 @@ Tabulka 7 Kódy indikátorů AC PSU
 | Blikající oranžová                | Označuje problém s PSU.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | Neosvětlené               | Napájení není připojeno k PSU.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | Blikající zelená                | Při aktualizaci firmwaru PSU se popisovač PSU blikající zeleně. <br>Neodpojujte napájecí kabel nebo odpojte PSU při aktualizaci firmwaru. Pokud je aktualizace firmwaru přerušena, PSUs nefunguje.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Blikání zelených a vypnutých  | Po připojení PSU se obslužná rutina PSU blikající zeleně o frekvenci 4 Hz a vypne se. To znamená, že PSU nesouhlasí s ohledem na efektivitu, sadu funkcí, stav nebo podporované napětí. <br><br>Pokud jsou nainstalovány dvě PSUs, musí mít PSUs stejný typ popisku; například jmenovka s rozšířeným výkonem (EPP). Kombinování PSUs z předchozích generací serverů PowerEdge není podporované, i když PSUs má stejné hodnocení napájení. Výsledkem je stav neshody PSU nebo selhání zapnutí systému. <br>Při opravě PSU neshody nahraďte pouze PSU blikajícím indikátorem. Výměna PSU, aby mohl spárovat pár, může způsobit chybový stav a <br>neočekávané vypnutí systému. Chcete-li přejít z vysoké výstupní konfigurace na nízkou výstupní konfiguraci nebo naopak, je nutné vypnout systém. <br>AC PSUs podporuje vstupní napětí 240 V a 120 V s výjimkou Titan PSUs, která podporuje pouze 240 V. Pokud dvě totožná PSUs obdrží různá vstupní napětí, můžou vycházet z různých příkonů a aktivovat neshodu. <br>Pokud se používají dva PSUs, musí být stejného typu a mít stejný maximální výstupní výkon. <br>Kombinování AC a DC PSUs není podporované a Trigger se neshoduje. |
+| Blikání zelených a vypnutých  | Po připojení PSU se obslužná rutina PSU blikající zeleně o frekvenci 4 Hz a vypne se. To znamená, že PSU nesouhlasí s ohledem na efektivitu, sadu funkcí, stav nebo podporované napětí. <br><br>Pokud jsou nainstalovány dvě PSUs, musí mít PSUs stejný typ popisku; například jmenovka s rozšířeným výkonem (EPP). Kombinace PSUs z předchozích generací serverů není podporovaná, i když PSUs má stejné hodnocení napájení. Výsledkem je stav neshody PSU nebo selhání zapnutí systému. <br>Při opravě PSU neshody nahraďte pouze PSU blikajícím indikátorem. Výměna PSU, aby mohl spárovat pár, může způsobit chybový stav a <br>neočekávané vypnutí systému. Chcete-li přejít z vysoké výstupní konfigurace na nízkou výstupní konfiguraci nebo naopak, je nutné vypnout systém. <br>AC PSUs podporuje vstupní napětí 240 V a 120 V s výjimkou Titan PSUs, která podporuje pouze 240 V. Pokud dvě totožná PSUs obdrží různá vstupní napětí, můžou vycházet z různých příkonů a aktivovat neshodu. <br>Pokud se používají dva PSUs, musí být stejného typu a mít stejný maximální výstupní výkon. <br>Kombinování AC a DC PSUs není podporované a Trigger se neshoduje. |

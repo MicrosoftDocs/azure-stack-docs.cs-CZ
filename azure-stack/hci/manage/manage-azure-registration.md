@@ -1,16 +1,16 @@
 ---
 title: Správa registrace Azure pro Azure Stack HCI
-description: Jak spravovat registraci Azure pro Azure Stack HCI a pochopit stav registrace pomocí prostředí PowerShell.
+description: Jak spravovat registraci Azure pro Azure Stack HCI, pochopit stav registrace a zrušit registraci clusteru, až budete připraveni vyřadit z provozu.
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 12/10/2020
-ms.openlocfilehash: a81a1973d7324371cb42b23ca7905d39492401cf
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.date: 01/27/2021
+ms.openlocfilehash: c16216a52b0955277bc6d30725f88d0555908685
+ms.sourcegitcommit: dc11aabd3b97c505c5b3cecd3bdb2d5c8e8496aa
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98254428"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98981174"
 ---
 # <a name="manage-azure-registration"></a>Správa registrace v Azure
 
@@ -18,9 +18,19 @@ ms.locfileid: "98254428"
 
 Po vytvoření clusteru Azure Stack HCI musíte [cluster zaregistrovat pomocí ARC Azure](../deploy/register-with-azure.md). Po registraci clusteru pravidelně synchronizuje informace mezi místním clusterem a cloudem. V tomto tématu se dozvíte, jak pochopit stav registrace, udělit Azure Active Directory oprávnění a zrušit registraci clusteru, až budete připraveni vyřadit z provozu.
 
-## <a name="understanding-registration-status"></a>Princip stavu registrace
+## <a name="understanding-registration-status-using-windows-admin-center"></a>Principy stavu registrace pomocí centra pro správu Windows
 
-Chcete-li pochopit stav registrace, použijte `Get-AzureStackHCI` rutinu prostředí PowerShell a `ClusterStatus` `RegistrationStatus` vlastnosti, a `ConnectionStatus` . Například po instalaci operačního systému Azure Stack HCI před vytvořením nebo připojením ke clusteru se v této `ClusterStatus` Vlastnosti zobrazuje stav není dosud:
+Když se připojíte ke clusteru pomocí centra pro správu Windows, zobrazí se řídicí panel, který zobrazuje stav připojení Azure. **Připojeno** znamená, že cluster už je zaregistrovaný v Azure a během posledního dne se úspěšně synchronizuje do cloudu.
+
+   :::image type="content" source="media/manage-azure-registration/registration-status.png" alt-text="Na řídicím panelu centra pro správu systému Windows se vždy zobrazí stav připojení clusteru" lightbox="media/manage-azure-registration/registration-status.png":::
+
+Další informace můžete získat tak, že v levém dolním rohu nabídky **nástroje** na levé straně **vyberete** Další informace a pak vyberete **Azure Stack registraci HCI**.
+
+   :::image type="content" source="media/manage-azure-registration/azure-stack-hci-registration.png" alt-text="Pokud chcete získat další informace, vyberte nastavení > nástroje > Azure Stack registraci HCI." lightbox="media/manage-azure-registration/azure-stack-hci-registration.png":::
+
+## <a name="understanding-registration-status-using-powershell"></a>Principy stavu registrace pomocí prostředí PowerShell
+
+Chcete-li pochopit stav registrace pomocí prostředí Windows PowerShell, použijte `Get-AzureStackHCI` rutinu prostředí PowerShell a `ClusterStatus` `RegistrationStatus` vlastnosti, a `ConnectionStatus` . Například po instalaci operačního systému Azure Stack HCI před vytvořením nebo připojením ke clusteru se v této `ClusterStatus` Vlastnosti zobrazuje stav není dosud:
 
 :::image type="content" source="media/manage-azure-registration/1-get-azurestackhci.png" alt-text="Stav registrace Azure před vytvořením clusteru":::
 
@@ -40,7 +50,7 @@ Pokud je toto maximální období překročené, zobrazí se `ConnectionStatus` 
 
 Kromě vytvoření prostředku Azure v rámci vašeho předplatného se při registraci Azure Stack HCI v tenantovi Azure Active Directory vytvoří identita aplikace, která se v tomto tenantovi podobá uživateli. Tato identita aplikace zdědí název clusteru. Tato identita podle potřeby jedná jménem cloudové služby Azure Stack HCI v rámci vašeho předplatného.
 
-Pokud je uživatel, který `Register-AzureStackHCI` je spuštěný jako správce Azure Active Directory nebo má delegovaná dostatečná oprávnění, dojde k tomu automaticky a nevyžaduje se žádná další akce. V takovém případě může správce Azure Active Directory pro dokončení registrace potřebovat schválení. Správce může buď výslovně udělit souhlas s aplikací, nebo může delegovat oprávnění, abyste mohli udělit souhlas aplikaci:
+Pokud uživatel, který registruje cluster, je správcem Azure Active Directory nebo má delegovaná dostatečná oprávnění, dojde k tomu automaticky a nevyžaduje se žádná další akce. V takovém případě může správce Azure Active Directory pro dokončení registrace potřebovat schválení. Správce může buď výslovně udělit souhlas s aplikací, nebo může delegovat oprávnění, abyste mohli udělit souhlas aplikaci:
 
 :::image type="content" source="media/manage-azure-registration/aad-permissions.png" alt-text="Azure Active Directory oprávnění a diagramu identity" border="false":::
 
@@ -66,7 +76,7 @@ https://azurestackhci-usage.trafficmanager.net/AzureStackHCI.Census.Sync
 https://azurestackhci-usage.trafficmanager.net/AzureStackHCI.Billing.Sync
 ```
 
-Hledání od správce Azure Active Directory může nějakou dobu trvat, takže `Register-AzureStackHCI` rutina ukončí a ponechá registraci ve stavu čeká na schválení správce, tj. částečně dokončená. Po udělení souhlasu jednoduše znovu spusťte `Register-AzureStackHCI` registraci a dokončete ji.
+Hledání od správce Azure Active Directory může nějakou dobu trvat, takže `Register-AzStackHCI` rutina ukončí a ponechá registraci ve stavu čeká na schválení správce, tj. částečně dokončená. Po udělení souhlasu jednoduše znovu spusťte `Register-AzStackHCI` registraci a dokončete ji.
 
 ## <a name="azure-active-directory-user-permissions"></a>Azure Active Directory uživatelských oprávnění
 
@@ -87,7 +97,7 @@ To umožní každému uživateli registrovat aplikace. Uživatel ale bude i nad�
 
 ### <a name="option-2-assign-cloud-application-administration-role"></a>Možnost 2: přiřazení role správce cloudové aplikace
 
-Přiřaďte uživateli integrovanou roli Azure AD správa cloudové aplikace. To umožní uživateli registrovat clustery bez nutnosti dalšího souhlasu správce služby AD.
+Přiřaďte uživateli integrovanou roli Azure AD správa cloudové aplikace. To umožní uživateli zaregistrovat a zrušit registraci clusterů bez nutnosti dalšího souhlasu správce služby AD.
 
 ### <a name="option-3-create-a-custom-ad-role-and-consent-policy"></a>Možnost 3: Vytvoření vlastní role AD a zásad pro vyjádření souhlasu
 
@@ -147,17 +157,34 @@ Nejvíce omezující možnost je vytvořit vlastní roli AD s vlastní zásadou 
 
    6. Pomocí [těchto pokynů](/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=/azure/active-directory/roles/context/ugr-context)přiřaďte novou vlastní roli AD uživateli, který bude registrovat Azure Stack cluster HCI pomocí Azure.
 
-## <a name="unregister-azure-stack-hci-with-azure"></a>Zrušení registrace Azure Stack HCL v Azure
+## <a name="unregister-azure-stack-hci-using-windows-admin-center"></a>Zrušení registrace Azure Stack HCL pomocí centra pro správu Windows
 
-Až budete připraveni vyřadit z provozu cluster HCI Azure Stack, použijte `Unregister-AzStackHCI` rutinu pro zrušení registrace. Tím se zastaví všechny funkce monitorování, podpory a fakturace prostřednictvím ARC Azure. Prostředek Azure, který představuje cluster a identitu aplikace Azure Active Directory, se odstraní, ale skupina prostředků ne, protože by mohla obsahovat jiné nesouvisející prostředky.
+Až budete připraveni vyřadit z provozu cluster Azure Stack HCI, stačí se ke clusteru připojit pomocí centra pro správu Windows a vybrat **Nastavení** v dolní části nabídky **nástroje** na levé straně. Pak vyberte **Azure Stack registrace rozhraní HCI** a klikněte na tlačítko **zrušit registraci** . Proces zrušení registrace automaticky vyčistí prostředek Azure, který představuje cluster, skupinu prostředků Azure (Pokud se skupina vytvořila během registrace a neobsahuje žádné další prostředky) a identitu aplikace Azure AD. Tím se zastaví všechny funkce monitorování, podpory a fakturace prostřednictvím ARC Azure.
 
-Pokud spouštíte `Unregister-AzStackHCI` rutinu na uzlu clusteru, použijte tuto syntaxi a zadejte ID předplatného Azure a také název prostředku pro Azure Stack clusteru HCI, který chcete zrušit registraci:
+   > [!NOTE]
+   > Zrušení registrace Azure Stack clusteru HCI vyžaduje správce Azure Active Directory nebo jiného uživatele, který má delegovaná dostatečná oprávnění. Viz [Azure Active Directory oprávnění uživatele](#azure-active-directory-user-permissions).
+
+## <a name="unregister-azure-stack-hci-using-powershell"></a>Zrušení registrace Azure Stack HCL pomocí PowerShellu
+
+Pomocí rutiny můžete také `Unregister-AzStackHCI` zrušit registraci clusteru Azure Stack HCI. Rutinu můžete spustit buď na uzlu clusteru, nebo v počítači pro správu.
+
+Možná budete muset nainstalovat nejnovější verzi `Az.StackHCI` modulu. Může se zobrazit výzva "jste si jisti, že chcete nainstalovat moduly z" PSGallery "?" na které byste měli odpovědět ano (Y).
+
+```PowerShell
+Install-Module -Name Az.StackHCI
+```
+
+### <a name="unregister-from-a-cluster-node"></a>Zrušení registrace uzlu clusteru
+
+Pokud spouštíte `Unregister-AzStackHCI` rutinu na serveru v clusteru, použijte tuto syntaxi a zadejte ID předplatného Azure a také název prostředku pro Azure Stack clusteru HCI, který chcete zrušit.
 
 ```PowerShell
 Unregister-AzStackHCI -SubscriptionId "e569b8af-6ecc-47fd-a7d5-2ac7f23d8bfe" -ResourceName HCI001
 ```
 
 Zobrazí se výzva k návštěvě microsoft.com/devicelogin na jiném zařízení (například na počítači nebo telefonu), zadejte kód a přihlaste se k ověřování pomocí Azure.
+
+### <a name="unregister-from-a-management-pc"></a>Zrušení registrace na počítači pro správu
 
 Pokud spouštíte rutinu z počítače pro správu, budete také muset zadat název serveru v clusteru:
 
@@ -167,9 +194,14 @@ Unregister-AzStackHCI -ComputerName ClusterNode1 -SubscriptionId "e569b8af-6ecc-
 
 Automaticky se otevře okno interaktivní přihlášení do Azure. Přesné výzvy, které vidíte, se budou lišit v závislosti na nastavení zabezpečení (například dvojúrovňové ověřování). Podle pokynů se přihlaste.
 
+## <a name="cleaning-up-after-a-cluster-that-was-not-properly-unregistered"></a>Vyčištění po neregistraci clusteru, který nebyl správně zaregistrován
+
+Pokud uživatel zničí Azure Stack clusteru HCI bez zrušení jeho registrace, například při opakovaném vytvoření bitové kopie hostitelských serverů nebo při odstraňování uzlů virtuálních clusterů, budou artefakty v Azure zůstat v Azure. Ty jsou neškodné a neúčtují se ani nepoužívají prostředky, ale můžou Azure Portal. Pokud je chcete vyčistit, můžete je ručně odstranit.
+
+Pokud chcete odstranit prostředek Azure Stack HCL, přejděte na jeho stránku v Azure Portal a vyberte **Odstranit** z panelu akcí v horní části. Zadáním názvu prostředku potvrďte odstranění a pak vyberte **Odstranit**. Pokud chcete odstranit identitu aplikace Azure AD, přejděte do **Azure AD**, pak na **Registrace aplikací** a najdete ji v části **všechny aplikace**. Vyberte možnost **Odstranit** a potvrdit.
+
 ## <a name="next-steps"></a>Další kroky
 
 Související informace najdete v tématu také:
 
 - [Připojení Azure Stack HCl k Azure](../deploy/register-with-azure.md)
-- [Monitorování Azure Stack HCI pomocí Azure Monitoru](azure-monitor.md)

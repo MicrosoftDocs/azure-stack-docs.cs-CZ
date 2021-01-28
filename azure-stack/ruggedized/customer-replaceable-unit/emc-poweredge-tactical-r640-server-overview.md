@@ -1,54 +1,49 @@
 ---
-title: Server EMC PowerEdge taktické R640 – přehled
-description: Další informace o serveru EMC PowerEdge taktické R640
-author: PatAltimore
+title: Přehled serveru
+description: Přečtěte si o robustním serveru pro Azure Stack centrum.
+author: justinha
 ms.topic: how-to
-ms.date: 11/13/2020
-ms.author: patricka
-ms.reviewer: ''
+ms.date: 01/28/2021
+ms.author: justinha
+ms.reviewer: thoroet
 ms.lastreviewed: ''
-ms.openlocfilehash: 13ce0e654a4cc7059ffe3f463190d56aa36fd583
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: a922c99121157c03705784dd99b8abf97fbec507
+ms.sourcegitcommit: dc11aabd3b97c505c5b3cecd3bdb2d5c8e8496aa
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910444"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98981270"
 ---
-# <a name="dell-emc-poweredge-tactical-r640-server-overview"></a>Server Dell EMC PowerEdge taktické R640 – přehled
+# <a name="server-overview"></a>Přehled serveru
 
-Tato část je přehled komponent serveru Dell EMC PowerEdge taktické R640.
+Tato část je přehled součástí serveru.
 
 ## <a name="chassis-front-view"></a>Přední pohled na skříň
 
-Na následujícím obrázku je příklad serveru PowerEdge taktické R640, 2U serveru.
+Na následujícím obrázku vidíte Server 2U.
 
-Obrázek 3: Taktické R640 pro PowerEdge – HLH a SU – pohled na přední skříň
 
-![Diagram, který zobrazuje přední skříň serveru PowerEdge taktické R640.](media/image-60.png)
+![Diagram, který zobrazuje přední skříň serveru.](media/image-60.png)
 
-Následující tabulka popisuje funkce front-taktické R640 \' s PowerEdge.
+Následující tabulka popisuje funkce v předním panelu.
 
-Tabulka 1. Funkce front-end R640 pro PowerEdge taktické
-
-| Porty, panely a sloty  | Popis                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Porty, panely a sloty  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Levý ovládací panel        | Obsahuje indikátor stavu systému a ID systému, indikátor stavu a iDRAC rychlé synchronizace 2 (bezdrátové sítě). <br>**Poznámka:** Indikátor rychlé synchronizace iDRAC 2 je k dispozici pouze v některých konfiguracích. <br>Indikátor stavu: slouží k identifikaci všech neúspěšných hardwarových součástí. K dispozici je až pět stavových diod LED a celkový stav INDIKÁTORu stavu systému (stav skříně a ID systému). Další informace najdete v tématu indikátory LED pro stav PowerEdge na stránce 61. <br>Rychlá synchronizace 2 (bezdrátová): označuje systém s povolenou rychlou synchronizací. Funkce Rychlá synchronizace je volitelná. Tato funkce umožňuje správu systému pomocí mobilních zařízení. Tato funkce agreguje inventář hardwaru nebo firmwaru a různé informace o diagnostice a chybách na úrovni systému, které se dají použít při řešení potíží se systémem.  |
+| Levý ovládací panel        | Obsahuje indikátor stavu systému a ID systému, indikátor stavu a iDRAC rychlé synchronizace 2 (bezdrátové sítě). <br>**Poznámka:** Indikátor rychlé synchronizace iDRAC 2 je k dispozici pouze v některých konfiguracích. <br>Indikátor stavu: slouží k identifikaci všech neúspěšných hardwarových součástí. K dispozici je až pět stavových diod LED a celkový stav INDIKÁTORu stavu systému (stav skříně a ID systému). <br>Rychlá synchronizace 2 (bezdrátová): označuje systém s povolenou rychlou synchronizací. Funkce Rychlá synchronizace je volitelná. Tato funkce umožňuje správu systému pomocí mobilních zařízení. Tato funkce agreguje inventář hardwaru nebo firmwaru a různé informace o diagnostice a chybách na úrovni systému, které se dají použít při řešení potíží se systémem.  |
 | Port VGA                  | Umožňuje připojit zobrazovací zařízení k systému.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | Ovládací panel vpravo       | Obsahuje tlačítko napájení, port USB, port iDRAC Direct Micro a indikátor stavu iDRAC Direct.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
 ## <a name="chassis-back-view"></a>Pohled na pozadí skříně
 
-Následující obrázek ukazuje komponenty back-R640 pro PowerEdge taktické.
+Následující obrázek ukazuje součásti back-šasi.
 
-Obrázek 4. Taktické R640 HLH – zobrazení šasi pro back-
 
-![Diagram, který zobrazuje back-taktické serveru PowerEdge R640.](media/image-61.png)
+![Diagram, který ukazuje back-skříni serveru.](media/image-61.png)
 
-Následující tabulka popisuje funkce na panelu back-taktické R640 pro PowerEdge.
+Následující tabulka popisuje funkce na zadním panelu.
 
-Tabulka 2. Funkce zadního panelu pro PowerEdge taktické R640
 
-| Porty, panely a sloty       | Ikona                      | Popis                                                                                                                                                                                                                                                                 |
+| Porty, panely a sloty       | Ikona                      | Description                                                                                                                                                                                                                                                                 |
 |-------------------------------|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Pevné disky                   | –                       | Operační systém a úložiště dat pro uzly serveru HLH a SU.                                                                                                                                                                                                                        |
 | Modul nadřízeného                   | –                       | Spouštěcí řešení optimalizovaného úložiště (vedoucí), které se používá k instalaci operačního systému nebo hypervisoru.                                                                                                                                                                                 |
@@ -62,32 +57,26 @@ Tabulka 2. Funkce zadního panelu pro PowerEdge taktické R640
 
 ## <a name="right-control-panel"></a>Ovládací panel vpravo
 
-Následující obrázek ukazuje ovládací panel PowerEdge taktické R640 Right.
+Následující obrázek znázorňuje pravé ovládací panely.
 
-Obrázek 5. Ovládací panel PowerEdge taktické R640 vpravo
-
-![Diagram, který zobrazuje tlačítko napájení a porty U S B v Ovládacích panelech.](media/image-67.png)
+![Diagram, který zobrazuje tlačítko napájení a porty USB v Ovládacích panelech.](media/image-67.png)
 
 Následující tabulka popisuje ovládací prvky a indikátory na pravém panelu.
 
-Tabulka 3. Ovládací prvky a indikátory taktické pravého ovládacího panelu PowerEdge R640
 
-| Položka  | Indikátor nebo tlačítko  | Ikona                      | Popis                                                                                                                                                                                               |
+| Položka  | Indikátor nebo tlačítko  | Ikona                      | Description                                                                                                                                                                                               |
 |-------|----------------------|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1     | Tlačítko napájení         |   :::image type="icon" source="media/image-68.png":::  | Určuje, zda je systém zapnutý nebo vypnutý. Kliknutím na tlačítko napájení ručně zapněte nebo vypněte systém.  **Poznámka:** K bezproblémovému vypnutí operačního systému kompatibilního se standardem ACPI stiskněte tlačítko napájení.  |
 | 2     | Port USB             | :::image type="icon" source="media/image-70.png":::    | Port USB je 4 – PIN kód, který odpovídá 2,0. Tento port umožňuje připojit zařízení USB k systému.                                                                                                         |
 | 3     | Přímý LED iDRAC     | –                       | Indikátory LED iDRAC přímého světla, které označují, že port iDRAC Direct je aktivně připojen k zařízení.                                                                                        |
 | 4     | Port iDRAC Direct    |   :::image type="icon" source="media/image-65.png"::: | Port iDRAC Direct je kompatibilní s rozhraním USB 2,0. Tento port vám umožní získat přístup k funkcím iDRAC Direct.                                                                                              |
 
-## <a name="inside-the-poweredge-tactical-r640"></a>V rámci PowerEdge taktické R640
+## <a name="inside-the-server"></a>Uvnitř serveru
 
-Následující obrázek ukazuje interní součásti nástroje PowerEdge taktické R640.
-
-Obrázek 6. V rámci PowerEdge taktické R640 HLH
+Na následujících obrázcích jsou uvedeny interní součásti serveru.
 
 ![Diagram, který zobrazuje pohled na horní stranu interních součástí serveru R640 HLH.](media/image-71.png)
 
-Obrázek 7. V rámci PowerEdge taktické R640 SU
 
 ![Diagram, který zobrazuje pohled na horní stranu interního serveru součásti R640 SU.](media/image-72.png)
 
@@ -95,14 +84,12 @@ Obrázek 7. V rámci PowerEdge taktické R640 SU
 
 Následující obrázek znázorňuje rozložení základní desky.
 
-Obrázek 8. Rozložení základní desky pro PowerEdge taktické R640
 
 ![Diagram, který zobrazuje informace o službě R640 a rozložení základní desky.](media/image-73.png)
 
-## <a name="memory"></a>Paměť
+## <a name="memory"></a>Memory (Paměť)
 
-Následující obrázek ukazuje informace o paměti pro PowerEdge taktické R640.
+Následující obrázek ukazuje informace o paměti.
 
-Obrázek 9: Informace o paměti pro PowerEdge taktické R640
 
 ![Diagram, který zobrazuje informace o paměti R640.](media/image-74.png)

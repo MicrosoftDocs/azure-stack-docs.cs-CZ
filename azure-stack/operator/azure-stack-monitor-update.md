@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: cc3b37e6ac230133254cbb6e9f5e5487b31a26c4
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 769de4eb2c86c1fa17dd4a575611816b3ef0e9d9
+ms.sourcegitcommit: dc11aabd3b97c505c5b3cecd3bdb2d5c8e8496aa
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870252"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98981236"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>Monitorování aktualizací služby Azure Stack Hub pomocí privilegovaného koncového bodu
 
@@ -61,7 +61,7 @@ Můžete také zjistit, jestli jsou rutiny k dispozici programově pomocí dotaz
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName 
    ```
-   Například:
+   Příklad:
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName
    

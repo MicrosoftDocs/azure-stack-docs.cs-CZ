@@ -132,7 +132,7 @@
                   items:
                     - name: Plánování kapacity
                       href: ../operator/event-hubs-rp-capacity-planning.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                    - name: Předpoklady
+                    - name: Požadavky
                       href: ../operator/event-hubs-rp-prerequisites.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Instalace
                       href: ../operator/event-hubs-rp-install.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -140,7 +140,7 @@
                   items:
                     - name: Plánování kapacity
                       href: ../operator/iot-hub-rp-manage.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json#capacity-management
-                    - name: Předpoklady
+                    - name: Požadavky
                       href: ../operator/iot-hub-rp-prerequisites.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Instalace
                       href: ../operator/iot-hub-rp-install.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -380,7 +380,7 @@
                   href: ../operator/event-hubs-rp-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Plánování kapacity
                   href: ../operator/event-hubs-rp-capacity-planning.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                - name: Předpoklady
+                - name: Požadavky
                   href: ../operator/event-hubs-rp-prerequisites.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Instalace
                   href: ../operator/event-hubs-rp-install.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -490,7 +490,7 @@
               href: operator/azure-stack-backup-back-up-azure-stack-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Osvědčené postupy pro zálohování
               href: operator/azure-stack-backup-best-practices-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-        - name: Získat podporu
+        - name: Získání podpory
           items:
             - name: Portál podpory & pro pomoc
               items:
@@ -510,7 +510,7 @@
               href: ../operator/azure-stack-troubleshooting.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Odkaz na odkaz na podporu
               href: operator/aks-refer-table-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: Průvodce nahraditelnými jednotkami zákazníka pro taktické Cloud zařízení
+            - name: Nahraditelné jednotky zákazníkem
               items:
                 - name: Zpracování preventivních opatření
                   href: customer-replaceable-unit/handling-precautions.md
@@ -554,9 +554,9 @@
                   href: customer-replaceable-unit/verify-scale-unit-node-disk-health.md
                 - name: Hardwarový diagram centra Azure Stack
                   href: customer-replaceable-unit/azure-stack-hub-hardware-diagram.md
-                - name: Server EMC PowerEdge taktické R640 – přehled
+                - name: Přehled serveru
                   href: customer-replaceable-unit/emc-poweredge-tactical-r640-server-overview.md
-                - name: Taktické a značky a kódy pro EMC PowerEdge
+                - name: Indikátory a kódy
                   href: customer-replaceable-unit/emc-poweredge-tactical-indicators-and-codes.md
                 - name: Přístup k rozhraní iDRAC přes přímé připojení USB
                   href: customer-replaceable-unit/access-idrac-over-usb-connection.md
@@ -572,7 +572,7 @@
           href: ../user/index.yml
         - name: Azure Stack PowerShell
           href: /powershell/azure/azure-stack/overview
-    - name: Prostředky
+    - name: Zdroje informací
       items:
         - name: Školení a certifikace
           href: ../operator/azure-stack-train-and-cert.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -695,7 +695,7 @@
                   href: ../operator/azure-stack-create-service-principals.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fuser%2ftoc.json
             - name: Použití služeb
               items:
-                - name: Výpočetní prostředky
+                - name: Compute
                   items:
                     - name: Přehled
                       href: ../user/azure-stack-compute-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -713,7 +713,7 @@
                       href: ../user/vm-update-management.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Požadavky na SQL Server VM
                       href: ../user/azure-stack-sql-server-vm-considerations.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                - name: Úložiště
+                - name: Storage
                   items:
                     - name: Přehled
                       href: ../user/azure-stack-storage-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
