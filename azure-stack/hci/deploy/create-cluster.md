@@ -3,15 +3,15 @@ title: Vytvoření clusteru Azure Stack HCI pomocí centra Windows Admin Center
 description: Zjistěte, jak vytvořit serverový cluster pro Azure Stack HCI pomocí centra pro správu Windows.
 author: v-dasis
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 01/27/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 7b745ec5f521be3ed520b41a4eb5d788799ad20b
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.openlocfilehash: 12f2152099c935977fd42c4b63989854ca0faf88
+ms.sourcegitcommit: 27ffc5f41de3de17ff2395e44c6c5debef50bcc2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98772310"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98925864"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Vytvoření clusteru Azure Stack HCI pomocí centra Windows Admin Center
 
@@ -37,6 +37,7 @@ Před spuštěním Průvodce vytvořením clusteru se ujistěte, že jste proved
 - Nainstalujte do každého serveru v clusteru Azure Stack operační systém HCI. Viz [nasazení operačního systému Azure Stack HCI](operating-system.md).
 - Mít účet, který je členem místní skupiny Administrators na každém serveru.
 - Nainstalujte centrum pro správu Windows na počítač nebo server pro správu. Viz téma [Instalace centra pro správu systému Windows](/windows-server/manage/windows-admin-center/deploy/install).
+- Pokud používáte integrovaný systém od hardwarového partnera Microsoftu, ujistěte se, že máte nainstalovanou nejnovější verzi rozšíření pro dodavatele v centru pro správu Windows, abyste mohli využít integrované aktualizace hardwaru a firmwaru.
 - Pro roztažené clustery nastavte ve službě Active Directory vaše dvě weby předem. Ale nedělejte si starosti, průvodce je může nastavit i pro vás.
 
 Pokud používáte centrum pro správu systému Windows na serveru (místo místního počítače), použijte účet, který je členem skupiny Správci brány, nebo místní skupinu Administrators na serveru centra pro správu systému Windows.
@@ -52,12 +53,13 @@ Tady jsou hlavní kroky v Průvodci vytvořením clusteru:
 
 Po dokončení průvodce nastavte určující cluster, zaregistrujte se v Azure a vytvořte svazky (které také nastaví replikaci mezi lokalitami při vytváření roztaženého clusteru).
 
-Před spuštěním průvodce se ujistěte, že máte nainstalovanou nejnovější rozšíření centra pro správu Windows, zejména rozšíření pro vytváření clusteru. Postupujte následovně:
+Než začnete s průvodcem, ujistěte se, že máte nainstalované nejnovější rozšíření, zejména rozšíření pro vytváření clusterů pro centrum pro správu systému Windows a jakákoli rozšíření partnera. Postupujte následovně:
 
 1. Otevřete centrum pro správu systému Windows a v pravém horním rohu klikněte na nastavení (ikona ozubeného kolečka).
 1. V části **Nastavení** vyberte **Rozšíření**.
 1. Vyberte **vytvořit cluster** a pak klikněte na **nainstalovat**.
 1. Vyberte **Správce clusterů** a klikněte na **nainstalovat** i v době, kdy jste na něm.
+1. Vyberte všechna příslušná rozšíření dodavatelů hardwaru a nainstalujte je.
 
 Nyní jste připraveni, a pojďme začít:
 
