@@ -4,13 +4,13 @@ description: Jak spravovat registraci Azure pro Azure Stack HCI, pochopit stav r
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 01/27/2021
-ms.openlocfilehash: c16216a52b0955277bc6d30725f88d0555908685
-ms.sourcegitcommit: dc11aabd3b97c505c5b3cecd3bdb2d5c8e8496aa
+ms.date: 01/28/2021
+ms.openlocfilehash: a187730ed43c6c4a57bbe2d1f81d39085d8b94a1
+ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98981174"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050089"
 ---
 # <a name="manage-azure-registration"></a>Správa registrace v Azure
 
@@ -168,7 +168,7 @@ Až budete připraveni vyřadit z provozu cluster Azure Stack HCI, stačí se ke
 
 Pomocí rutiny můžete také `Unregister-AzStackHCI` zrušit registraci clusteru Azure Stack HCI. Rutinu můžete spustit buď na uzlu clusteru, nebo v počítači pro správu.
 
-Možná budete muset nainstalovat nejnovější verzi `Az.StackHCI` modulu. Může se zobrazit výzva "jste si jisti, že chcete nainstalovat moduly z" PSGallery "?" na které byste měli odpovědět ano (Y).
+Možná budete muset nainstalovat nejnovější verzi `Az.StackHCI` modulu. Může se vám zobrazit výzva, **že chcete nainstalovat moduly z ' PSGallery '?** na kterou byste měli odpovědět **Ano** (Y).
 
 ```PowerShell
 Install-Module -Name Az.StackHCI

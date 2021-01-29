@@ -4,19 +4,19 @@ description: Jak zaregistrovat bránu centra pro správu Windows v Azure
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 01/25/2021
-ms.openlocfilehash: c2067387d7b03252e7a2cc93aeddcb68dbd4bc83
-ms.sourcegitcommit: 2ac64ac431411b673e655465939d3c95cc94c55d
+ms.date: 01/28/2021
+ms.openlocfilehash: d98cb4f0531903d27d97d9fb055c7ae2db35a65e
+ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98810959"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050055"
 ---
 # <a name="register-windows-admin-center-with-azure"></a>Registrace centra pro správu Windows pomocí Azure
 
 > Platí pro Azure Stack HCL v20H2; Windows Server 2019
 
-Pokud chcete používat služby Azure s centrem pro správu systému Windows, musíte nejdřív nainstalovat centrum pro správu Windows na počítač pro správu a dokončit jednorázovou registraci brány centra pro správu Windows. Je to předpoklad pro registraci clusteru v Azure a měl by se provádět na stejném počítači pro správu, který plánujete použít k dokončení procesu [registrace clusteru](../deploy/register-with-azure.md) .
+Pokud chcete používat služby Azure s centrem pro správu systému Windows, musíte nejdřív nainstalovat centrum pro správu Windows na počítač pro správu a dokončit jednorázovou registraci brány centra pro správu Windows. Je to předpoklad pro registraci clusteru v Azure a měl by se provádět na stejném počítači pro správu, kterého plánujete použít k dokončení procesu [registrace clusteru](../deploy/register-with-azure.md) , a to pomocí stejného ID předplatného Azure a ID tenanta.
 
 ## <a name="complete-the-gateway-registration-process-using-windows-admin-center"></a>Dokončete proces registrace brány pomocí centra pro správu systému Windows.
 
@@ -34,7 +34,7 @@ Pokud chcete používat služby Azure s centrem pro správu systému Windows, mu
 
    Měla by se zobrazit následující zpráva: "přihlásili jste se k aplikaci centra pro správu Windows na vašem zařízení." Zavřete okno prohlížeče a vraťte se na původní registrační stránku.
 
-4. Připojte se k Azure Active Directory tím, že poskytnete ID vašeho Azure Active Directory (tenant). Pokud jste postupovali podle předchozích kroků, pole ID bude předem vyplněné. Pokud vám vaše organizace neposkytla existující ID, ponechte **Azure Active Directory aplikaci** nastavenou na **vytvořit novou** . Pokud už ID máte, klikněte na **použít existující** a zobrazí se prázdné pole, kde můžete zadat ID poskytnuté vaším správcem. Po zadání svého ID centrum pro správu systému Windows ověří, že se našel účet s tímto ID. Pokud máte existující ID, ale nevíte, co je, postupujte podle [těchto kroků](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) a načtěte ho.
+4. Připojte se k Azure Active Directory tím, že poskytnete ID vašeho Azure Active Directory (tenant). Pokud už máte ID tenanta Azure a následovali jste výše uvedené kroky, pole ID může být předem vyplněné. Pokud vám vaše organizace neposkytla existující ID, ponechte **Azure Active Directory aplikaci** nastavenou na **vytvořit novou** . Pokud už ID máte, klikněte na **použít existující** a zobrazí se prázdné pole, kde můžete zadat ID poskytnuté vaším správcem. Po zadání svého ID centrum pro správu systému Windows ověří, že se našel účet s tímto ID. Pokud máte existující ID, ale nevíte, co je, postupujte podle [těchto kroků](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) a načtěte ho.
 
    :::image type="content" source="media/register-wac/connect-to-aad.png" alt-text="Připojte se k Azure Active Directory tím, že zadáte stávající ID Azure Active Directory (tenant) nebo vytvoříte nový." lightbox="media/register-wac/connect-to-aad.png":::
 

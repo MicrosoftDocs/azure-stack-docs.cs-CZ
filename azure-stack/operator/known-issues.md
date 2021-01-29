@@ -7,12 +7,12 @@ ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 161869d04e036e5265ebceb5cab9e193091baa37
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 46eb22c06a6c4a0c6b23a49ff8f3bfb7d16ca96a
+ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935136"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050106"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Známé problémy centra Azure Stack
 
@@ -85,6 +85,12 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 
 - Platí: Tento problém se vztahuje na všechny podporované verze. 
 - Příčina: při povolování **spřažení relace** na nástroji pro vyrovnávání zatížení se 2 řazená kolekce členů použije místo privátních IP adres přiřazených k virtuálním počítačům IP adresa PA (IP adresa fyzické adresy). Ve scénářích, kdy se provoz směrovaného na nástroj pro vyrovnávání zatížení dorazí přes síť VPN, nebo pokud je povolené, aby se všechny virtuální počítače klienta (zdrojové IP adresy) nacházely na stejném uzlu a spřažení relace, veškerý provoz se směruje na jeden back-end virtuální počítač.
+- Výskyt: běžné
+
+#### <a name="ipv6-button-visible-in-frontend-ip-configuration"></a>Tlačítko IPv6 zobrazené v konfiguraci IP adresy front-endu 
+
+- Platí: Tento problém se týká verze 2008. 
+- Příčina: tlačítko IPv6 je zobrazené a povolené při vytváření konfigurace IP adresy front-endu veřejného nástroje pro vyrovnávání zatížení. Jedná se o problém s kosmetickým rozhraním na portálu. Protokol IPv6 **není v** Azure Stackovém centru podporován. 
 - Výskyt: běžné
 
 <!-- ## Compute -->
@@ -164,7 +170,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Náprava: Pokud chcete veřejnou IP adresu vrátit do úspěšného stavu, změňte hodnotu **IdleTimeoutInMinutes** u pravidla vyrovnávání zatížení, které odkazuje na veřejnou IP adresu zpátky na původní hodnotu (výchozí hodnota je 4 minuty).
 - Výskyt: běžné
 
-## <a name="compute"></a>Výpočetní prostředky
+## <a name="compute"></a>Compute
 
 ### <a name="issues-deploying-virtual-machine-scale-set-with-standard_ds2_v2-size-using-the-portal"></a>Problémy s nasazením sady škálování virtuálních počítačů s Standard_DS2_v2 velikostí pomocí portálu
 
@@ -353,7 +359,7 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
   - [Okruhy ExpressRoute](azure-stack-connect-expressroute.md)
   - [Zadat vlastní zásady IPsec/IKE](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-## <a name="compute"></a>Výpočetní prostředky
+## <a name="compute"></a>Compute
 
 ### <a name="cannot-create-a-virtual-machine-scale-set-with-standard_ds2_v2-vm-size-on-portal"></a>Nejde vytvořit sadu škálování virtuálního počítače s Standard_DS2_v2 velikostí virtuálního počítače na portálu.
 
