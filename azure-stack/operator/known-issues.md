@@ -3,16 +3,16 @@ title: Známé problémy centra Azure Stack
 description: Přečtěte si o známých problémech v Azure Stackch vydáních centra.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/16/2020
+ms.date: 01/28/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 46eb22c06a6c4a0c6b23a49ff8f3bfb7d16ca96a
-ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
+ms.openlocfilehash: af4187ecf610543c693aff742b1e74b8d5bef84c
+ms.sourcegitcommit: 659114a3fb90c962316eb4cddab53d2d2da35b03
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050106"
+ms.locfileid: "99065518"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Známé problémy centra Azure Stack
 
@@ -87,10 +87,16 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: při povolování **spřažení relace** na nástroji pro vyrovnávání zatížení se 2 řazená kolekce členů použije místo privátních IP adres přiřazených k virtuálním počítačům IP adresa PA (IP adresa fyzické adresy). Ve scénářích, kdy se provoz směrovaného na nástroj pro vyrovnávání zatížení dorazí přes síť VPN, nebo pokud je povolené, aby se všechny virtuální počítače klienta (zdrojové IP adresy) nacházely na stejném uzlu a spřažení relace, veškerý provoz se směruje na jeden back-end virtuální počítač.
 - Výskyt: běžné
 
-#### <a name="ipv6-button-visible-in-frontend-ip-configuration"></a>Tlačítko IPv6 zobrazené v konfiguraci IP adresy front-endu 
+#### <a name="ipv6-button-visible-in-frontend-ip-configuration"></a>Tlačítko IPv6 zobrazené v konfiguraci IP adresy front-endu
 
-- Platí: Tento problém se týká verze 2008. 
-- Příčina: tlačítko IPv6 je zobrazené a povolené při vytváření konfigurace IP adresy front-endu veřejného nástroje pro vyrovnávání zatížení. Jedná se o problém s kosmetickým rozhraním na portálu. Protokol IPv6 **není v** Azure Stackovém centru podporován. 
+- Platí: Tento problém se týká verze 2008.
+- Příčina: při vytváření konfigurace protokolu IP front-endu veřejného nástroje pro vyrovnávání zatížení je tlačítko IPv6 viditelné a povolené. Jedná se o problém s kosmetickým rozhraním na portálu. Protokol IPv6 není v Azure Stackovém centru podporován.
+- Výskyt: běžné
+
+#### <a name="backend-port-and-frontend-port-need-to-be-the-same-when-floating-ip-is-enabled"></a>Port back-endu a port front-endu musí být stejný, pokud je povolená plovoucí IP adresa.
+
+- Platí: Tento problém se vztahuje na všechny verze. 
+- Příčina: když je povolená plovoucí IP adresa, musí se port front-end i back-end port shodovat s pravidlem vyrovnávání zatížení. Toto chování je úmyslné.
 - Výskyt: běžné
 
 <!-- ## Compute -->
