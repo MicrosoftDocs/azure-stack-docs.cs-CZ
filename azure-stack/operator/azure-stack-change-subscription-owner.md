@@ -7,12 +7,12 @@ ms.date: 11/16/2020
 ms.author: patricka
 ms.reviewer: shnatara
 ms.lastreviewed: 11/16/2020
-ms.openlocfilehash: c5438aaf928efeee0b71470e0965c6b18b5a7c0a
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 3fff35c139a8527cdc502156227cf7715d07a9ad
+ms.sourcegitcommit: 899c219b8fd433c852d816d6c50293e8195d9895
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97871280"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99099246"
 ---
 # <a name="change-the-billing-owner-for-an-azure-stack-hub-user-subscription"></a>Změna majitele fakturace pro předplatné uživatele centra Azure Stack
 
@@ -62,7 +62,7 @@ Set-AzsUserSubscription -InputObject $subscription
 
 [!include[Remove Account](../includes/remove-account-az.md)]
 
-### <a name="az-modules"></a>[AZ modules](#tab/azurerm)
+### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm)
 
 ```powershell
 # Set up AzureRMure Stack Hub admin environment

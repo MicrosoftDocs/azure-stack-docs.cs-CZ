@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 307a24fdf42ce5e007f74a9cf0072b5124d247b2
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 22327cfb7761513eb18337e1e45e9c6d34482235
+ms.sourcegitcommit: 899c219b8fd433c852d816d6c50293e8195d9895
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97871425"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99099263"
 ---
 # <a name="azure-stack-hub-datacenter-integration-walkthrough"></a>Názorný postup pro integraci centra Azure Stack hub
 
@@ -66,7 +66,7 @@ Microsoft nebo partner řešení Azure Stack hub vám pomůže vyhodnotit vaše 
 -   Jaké řešení velikosti budete potřebovat?
 -   Jaké jsou požadavky na napájení a chlazení?
 
-[Capacity Planner centra Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) slouží k prozkoumání a analýze nejlepší hardwarové kapacity a konfigurace podle vašich potřeb. 
+[Capacity Planner centra Azure Stack](https://download.microsoft.com/download/4/a/2/4a2bd10c-58a0-4ee7-8c3f-55b526ce7e75/AzureStackHubCapacityPlanner_v2005.01.xlsm) slouží k prozkoumání a analýze nejlepší hardwarové kapacity a konfigurace podle vašich potřeb. 
 
 ## <a name="ordering"></a>Řazení
 Vaše organizace se zavazuje k zakoupení centra Azure Stack, zaznamenání smluv a nákupních objednávek a poskytuje požadavky na integraci do poskytovatele řešení.
