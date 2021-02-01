@@ -10,12 +10,12 @@ ms.reviewer: avishwan
 ms.lastreviewed: 11/19/2020
 ms.custom: contperf-fy20q4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 7888d23390706a098f814f4cc674d030662c9915
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 8710e70a961519c772f3242c275406253c6bb5ce
+ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97869555"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99227446"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Registrace centra Azure Stack s Azure
 
@@ -295,7 +295,7 @@ Připojená prostředí mají přístup k Internetu a k Azure. V těchto prostř
 
 1. Pokud chcete zaregistrovat poskytovatele prostředků centra Azure Stack v Azure, spusťte PowerShell ISE jako správce a použijte následující rutiny PowerShellu s parametrem **Environment** nastaveným na příslušný typ předplatného Azure (viz níže uvedené parametry).
 
-2. Přidejte účet Azure, který jste použili k registraci centra Stack AzureRMure. Pokud chcete účet přidat, spusťte rutinu **Add-AzureRMAccount** . Zobrazí se výzva k zadání přihlašovacích údajů k účtu Azure a možná budete muset použít dvojúrovňové ověřování na základě konfigurace vašeho účtu.
+2. Přidejte účet Azure, který jste použili k registraci centra Azure Stack. Pokud chcete účet přidat, spusťte rutinu **Add-AzureRMAccount** . Zobrazí se výzva k zadání přihlašovacích údajů k účtu Azure a možná budete muset použít dvojúrovňové ověřování na základě konfigurace vašeho účtu.
 
    ```powershell  
    Connect-AzureRMAccount -Environment "<environment name>"

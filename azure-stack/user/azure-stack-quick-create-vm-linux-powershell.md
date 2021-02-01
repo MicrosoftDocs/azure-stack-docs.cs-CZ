@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 11/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: 8b12dafed031c8f69ddb4ef6d9f475487da4b1b2
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 6e2f6728b2c27c7571ac34bdf01499c1300c0675
+ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518105"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99227374"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack-hub"></a>Rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí prostředí PowerShell v centru Azure Stack
 
@@ -21,7 +21,7 @@ Virtuální počítač s Ubuntu serverem 16,04 LTS můžete vytvořit pomocí ce
 * Nainstalujte webový server NGINX a zobrazte výchozí domovskou stránku.
 * Vyčistit nepoužívané prostředky.
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 * Image Linux na tržišti Azure Stack hub. Tržiště centra Azure Stack ve výchozím nastavení nemá image Linux. Použijte operátor centra Azure Stack, který obsahuje bitovou kopii Ubuntu serveru 16,04 LTS, kterou potřebujete. Operátor může použít pokyny v tématu [stažení položek Marketplace z Azure do centra Azure Stack](../operator/azure-stack-download-azure-marketplace-item.md).
 
@@ -572,7 +572,7 @@ Set-AzureRMCurrentStorageAccount `
 
 # Create a storage container to store the VM image
 $containerName = 'osdisks'
-$container = New-AzureRMureStorageContainer `
+$container = New-AzureStorageContainer `
   -Name $containerName `
   -Permission Blob
 

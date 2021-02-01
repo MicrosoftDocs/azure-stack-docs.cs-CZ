@@ -5,13 +5,13 @@ ms.topic: how-to
 author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
-ms.date: 01/06/2021
-ms.openlocfilehash: 77f1800323f57721d3f6f70050841e4adf0fd4c5
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.date: 01/29/2021
+ms.openlocfilehash: 0d8aa3cc6418c8e64b7a8dc97290757c8be41856
+ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98254734"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99227414"
 ---
 # <a name="add-or-remove-servers-for-an-azure-stack-hci-cluster"></a>Přidání nebo odebrání serverů pro Azure Stack clusteru HCI
 
@@ -21,7 +21,7 @@ Můžete snadno přidat nebo odebrat servery z clusteru v Azure Stack HCI. Mějt
 
 Kdykoli přidáte nebo odeberete server, musíte také provést ověření clusteru, abyste zajistili, že cluster funguje normálně. To platí pro nestret a roztažené clustery.
 
-## <a name="obtain-oem-hardware"></a>Získat hardware výrobce OEM
+## <a name="before-you-begin"></a>Než začnete
 
 Prvním krokem je získání nového hardwaru HCL od původního výrobce OEM. Pokud přidáváte nový serverový hardware pro použití ve vašem clusteru, vždy si přečtěte dokumentaci k poskytované výrobci OEM.
 
@@ -29,11 +29,13 @@ Prvním krokem je získání nového hardwaru HCL od původního výrobce OEM. P
 1. Povolte porty fyzických přepínačů a v případě potřeby upravte seznamy řízení přístupu (ACL) a identifikátory sítě VLAN.
 1. Nakonfigurujte správnou IP adresu v řadiči pro správu základní desky (BMC) a použijte všechna nastavení systému BIOS podle pokynů výrobce OEM.
 1. Použijte aktuální standardní hodnotu firmwaru pro všechny komponenty pomocí nástrojů poskytovaných výrobcem OEM.
-1. Spusťte ověřovací testy OEM, abyste zajistili stejnorodost s existujícími servery clusteru.
+1. Spusťte ověřovací testy OEM a zajistěte tak stejnorodost hardwaru u stávajících clusterovaných serverů.
+1. Nainstalujte operační systém Azure Stack HCI na nový server. Podrobné informace najdete v tématu [nasazení Azure Stack HCI](../deploy/operating-system.md).
+1. Připojte Server k doméně clusteru.
 
 ## <a name="add-a-server-to-a-cluster"></a>Přidání serveru do clusteru
 
-Po správném vystavení serveru použijte centrum pro správu systému Windows k připojení serveru k vašemu clusteru.
+K připojení serveru k vašemu clusteru použijte centrum pro správu systému Windows.
 
 :::image type="content" source="media/manage-cluster/add-server.png" alt-text="Obrazovka Přidat server" lightbox="media/manage-cluster/add-server.png":::
 

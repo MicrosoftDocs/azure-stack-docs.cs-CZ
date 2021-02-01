@@ -3,16 +3,16 @@ title: Rozhraní API pro využití prostředků poskytovatele centra Azure Stack
 description: Referenční informace k rozhraní API pro využití prostředků, které načítá informace o využití centra Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 02/01/2021
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: b327d7e194de672787c3a7e120857d6c2775a1a1
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 13eb197cee1da34f5e4e2b934ed05e26446b4970
+ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544934"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99227394"
 ---
 # <a name="provider-resource-usage-api"></a>Rozhraní API využití prostředků poskytovatele
 
@@ -26,17 +26,17 @@ Pojem *zprostředkovatel* se vztahuje na správce služeb a na všechny delegova
 
 Požadavek získá podrobnosti o spotřebě pro požadovaná předplatná a pro požadovaný časový rámec. Tělo žádosti není k dispozici.
 
-Toto rozhraní API pro použití je poskytovatele API, takže volajícímu musí být v předplatném poskytovatele přiřazená role **vlastník** , **Přispěvatel** nebo **Čtenář** .
+Toto rozhraní API pro použití je poskytovatele API, takže volajícímu musí být v předplatném poskytovatele přiřazená role **vlastník**, **Přispěvatel** nebo **Čtenář** .
 
 | Metoda | Identifikátor URI žádosti |
 | --- | --- |
 | GET |`https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&subscriberId={sub1.1}&api-version=2015-06-01-preview&continuationToken={token-value}` |
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argumenty
 
 | Argument | Popis |
 | --- | --- |
-| `armendpoint` |Azure Resource Manager koncový bod vašeho prostředí centra Azure Stack. Azure Stack konvence centra je název koncového bodu Azure Resource Manager ve formátu `https://adminmanagement.{domain-name}` . Například pro Azure Stack Development Kit (ASDK), pokud je název domény *Local. azurestack. external* , pak je koncový bod správce prostředků `https://adminmanagement.local.azurestack.external` . |
+| `armendpoint` |Azure Resource Manager koncový bod vašeho prostředí centra Azure Stack. Azure Stack konvence centra je název koncového bodu Azure Resource Manager ve formátu `https://adminmanagement.{domain-name}` . Například pro Azure Stack Development Kit (ASDK), pokud je název domény *Local. azurestack. external*, pak je koncový bod správce prostředků `https://adminmanagement.local.azurestack.external` . |
 | `subId` |ID předplatného uživatele, který provádí volání. |
 | `reportedStartTime` |Počáteční čas dotazu. Hodnota pro `DateTime` by měla být v koordinovaném světovým čase (UTC) a na začátku hodiny, například 13:00. U denní agregace nastavte tuto hodnotu na půlnoc UTC. Formát je řídicí. ISO 8601; Například, v `2015-06-16T18%3a53%3a11%2b00%3a00Z` případě, že dvojtečka je uvozena na `%3a` a znaménkem plus je uvozena tak, aby byla přičtena k `%2b` identifikátoru URI. |
 | `reportedEndTime` |Koncový čas dotazu. U tohoto argumentu platí i omezení, která platí pro `reportedStartTime` . Hodnota pro `reportedEndTime` nemůže být v budoucnosti nebo aktuální datum. Pokud je, výsledek je nastaven na "zpracování není dokončeno". |
@@ -114,13 +114,13 @@ Informace o použití pro odstraněné odběry můžete shromažďovat voláním
 
 | Metoda | Identifikátor URI žádosti |
 | --- | --- |
-| GET | `https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&api-version=2015-06-01-preview` |
+| GET | `https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&api-version=2015-06-01-preview` |
 
 #### <a name="return-usage-for-deleted-or-active-tenant"></a>Vrátit využití pro odstraněné nebo aktivní tenanta
 
 | Metoda | Identifikátor URI žádosti |
 | --- | --- |
-| GET |`https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&subscriberId={subscriber-id}&api-version=2015-06-01-preview` |
+| GET |`https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&subscriberId={subscriber-id}&api-version=2015-06-01-preview` |
 
 ## <a name="next-steps"></a>Další kroky
 

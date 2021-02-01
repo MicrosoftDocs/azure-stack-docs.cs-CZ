@@ -3,15 +3,15 @@ title: Vytvoření clusteru Azure Stack HCI pomocí prostředí Windows PowerShe
 description: Naučte se vytvořit cluster pro Azure Stack HCI pomocí prostředí Windows PowerShell.
 author: v-dasis
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 02/01/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 2099d7e9dcd2d01f949d54ad5bd59ce06ecaccbc
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.openlocfilehash: ca2a9448b787a93e297d4bc666a37d81e4d02b28
+ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98772199"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99227357"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>Vytvoření clusteru Azure Stack HCI pomocí prostředí Windows PowerShell
 
@@ -147,9 +147,11 @@ Tento krok nakonfiguruje různé síťové prvky, jako jsou virtuální přepín
 
 Další informace o RDMA a sítích hostitele Hyper-V pro Azure Stack HCI najdete v tématu [požadavky na síť hostitele](../concepts/host-network-requirements.md).
 
-### <a name="disable-unused-networks"></a>Zakázat nepoužívané sítě
+### <a name="disable-unused-network-adapters"></a>Zakázat nepoužívané síťové adaptéry
 
-Je nutné zakázat všechny sítě odpojené nebo nepoužívané pro správu, úložiště nebo provoz úloh (například virtuální počítače). Zde zjistíte, jak identifikovat nepoužívané sítě:
+Musíte zakázat všechny odpojené sítě a adaptéry, které se nepoužívají pro správu, úložiště nebo provoz úloh, jako jsou virtuální počítače. To zahrnuje síťové adaptéry používané pro správu bez periferních zařízení, jako jsou řadiče pro správu základní desky (BMC).
+
+Zde zjistíte, jak identifikovat nepoužívané sítě:
 
 ```powershell
 $ServerList = "Server1", "Server2", "Server3", "Server4"

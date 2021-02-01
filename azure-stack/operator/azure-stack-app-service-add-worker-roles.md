@@ -3,16 +3,16 @@ title: Přidání pracovníků a infrastruktury v App Service v centru Azure Sta
 description: Podrobné pokyny pro škálování Azure App Service v centru Azure Stack
 author: bryanla
 ms.topic: article
-ms.date: 11/15/2020
+ms.date: 1/29/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 11/15/2020
-ms.openlocfilehash: 3265b77fc6a26a4e43b82d0997ec3e883a29f9da
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.lastreviewed: 1/29/2020
+ms.openlocfilehash: fe13c43859a3eaabb64b327953159ae67a5f2cee
+ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518088"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99227442"
 ---
 # <a name="add-workers-and-infrastructure-in-azure-app-service-on-azure-stack-hub"></a>Přidání pracovních procesů a infrastruktury do služby Azure App Service ve službě Azure Stack Hub
 
@@ -76,8 +76,8 @@ Azure App Service v centru Azure Stack nasadí všechny role pomocí Virtual Mac
     
     ##### Scale out the AppService Role instances ######
     
-    # Set context to AzureRMureStack admin.
-    Login-AzureRMAccount -EnvironmentName AzureRMureStackAdmin
+    # Set context to AzureStackAdmin admin.
+    Login-AzureRMAccount -EnvironmentName AzureStackAdmin
                                                     
     ## Name of the Resource group where AppService is deployed.
     $AppServiceResourceGroupName = "AppService.local"
