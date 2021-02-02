@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 769de4eb2c86c1fa17dd4a575611816b3ef0e9d9
-ms.sourcegitcommit: dc11aabd3b97c505c5b3cecd3bdb2d5c8e8496aa
+ms.openlocfilehash: fd7c1740d96ecea92bd4414ae1b4481e38594202
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98981236"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99245972"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>Monitorování aktualizací služby Azure Stack Hub pomocí privilegovaného koncového bodu
 
@@ -27,7 +27,7 @@ Následující nové rutiny PowerShellu pro správu aktualizací jsou součást�
 | | |
 
 ## <a name="verify-the-cmdlets-are-available"></a>Ověřte, jestli jsou dostupné rutiny.
-Vzhledem k tomu, že rutiny jsou nové v balíčku aktualizace 1710 pro centrum Azure Stack, musí se proces aktualizace 1710 dostat do určitého bodu, než bude k dispozici možnost monitorování. Rutiny jsou obvykle dostupné, pokud stav na portálu pro správu označuje, že aktualizace 1710 je v kroku **restartovat úložiště hostitelé** . Konkrétně proběhne aktualizace rutiny během **kroku: krok 2,6 – aktualizace seznamu povolených PrivilegedEndpoint**.
+Vzhledem k tomu, že rutiny jsou nové v balíčku aktualizace 1710 pro centrum Azure Stack, musí se proces aktualizace 1710 dostat do určitého bodu, než bude k dispozici možnost monitorování. Rutiny jsou obvykle dostupné, pokud stav na portálu pro správu označuje, že aktualizace 1710 je v kroku **restartovat úložiště hostitelé** . Konkrétně proběhne aktualizace rutiny během **kroku: krok 2,6-Update PrivilegedEndpoint povolených**.
 
 Můžete také zjistit, jestli jsou rutiny k dispozici programově pomocí dotazu na seznam příkazů z privilegovaného koncového bodu. K provedení tohoto dotazu spusťte následující příkazy z hostitele životního cyklu hardwaru nebo z pracovní stanice privilegovaného přístupu. Také se ujistěte, že je privilegovaným koncovým bodem důvěryhodný hostitel. Další informace najdete v části Krok 1 [přístupu k privilegovanému koncovému bodu](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint).
 

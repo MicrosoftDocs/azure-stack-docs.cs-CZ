@@ -7,12 +7,12 @@ ms.date: 01/29/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 508a64729213d633324e3af0e200c74dfcb56db5
-ms.sourcegitcommit: e56b0eaf92c633d5d782bfdf17ce521fa88a7256
+ms.openlocfilehash: 63a7a8104c772a23a349d9e1888818b4c59aa298
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99227452"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247655"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -421,5 +421,5 @@ Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix
 ::: moniker-end
 
 ::: moniker range="<azs-2002"
-Do Galerie TechNet můžete získat přístup ke [starším verzím poznámky k verzi centra Azure Stack](https://aka.ms/azsarchivedrelnotes). Tyto archivované dokumenty jsou k dispozici pouze pro referenční účely a neznamenají podporu těchto verzí. Informace o podpoře centra Azure Stack najdete v tématu [zásady obsluhy centra Azure Stack](azure-stack-servicing-policy.md). Pokud potřebujete další pomoc, obraťte se na službu zákaznické podpory společnosti Microsoft.
+Do obsahu na levé straně můžete získat přístup ke starším verzím poznámek k verzi centra Azure Stack, a to v části [**prostředky > archiv poznámek k verzi**](./relnotearchive/release-notes-1910.md). Tyto archivované články jsou k dispozici pouze pro referenční účely a neznamenají podporu těchto verzí. Informace o podpoře centra Azure Stack najdete v tématu [zásady obsluhy centra Azure Stack](azure-stack-servicing-policy.md). Pokud potřebujete další pomoc, obraťte se na službu zákaznické podpory společnosti Microsoft.
 ::: moniker-end

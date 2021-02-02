@@ -124,7 +124,7 @@
                   items:
                     - name: Plánování kapacity
                       href: ../operator/event-hubs-rp-capacity-planning.md?toc=/azure-stack/tca/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                    - name: Předpoklady
+                    - name: Požadavky
                       href: ../operator/event-hubs-rp-prerequisites.md?toc=/azure-stack/tca/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Instalace
                       href: ../operator/event-hubs-rp-install.md?toc=/azure-stack/tca/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -356,7 +356,7 @@
                   href: ../operator/event-hubs-rp-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Plánování kapacity
                   href: ../operator/event-hubs-rp-capacity-planning.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                - name: Předpoklady
+                - name: Požadavky
                   href: ../operator/event-hubs-rp-prerequisites.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Instalace
                   href: ../operator/event-hubs-rp-install.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -440,7 +440,7 @@
               href: operator/azure-stack-backup-back-up-azure-stack-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Osvědčené postupy pro zálohování
               href: operator/azure-stack-backup-best-practices-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-        - name: Získat podporu
+        - name: Získání podpory
           items:
             - name: Portál podpory & pro pomoc
               items:
@@ -464,7 +464,7 @@
       items:
         - name: Azure Stack PowerShell
           href: /powershell/azure/azure-stack/overview
-    - name: Prostředky
+    - name: Zdroje informací
       items:
         - name: Školení a certifikace
           href: ../operator/azure-stack-train-and-cert.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -607,7 +607,7 @@
                       href: ../user/azure-stack-sql-server-vm-considerations.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Virtuální počítače GPU
                       href: azure-stack-gpu.md
-                - name: Úložiště
+                - name: Storage
                   items:
                     - name: Přehled
                       href: ../user/azure-stack-storage-overview.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -734,35 +734,39 @@
                   href: ../user/azure-stack-dev-start-howto-vm-nodejs.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Nasazení základních vzorů
           items:
-            - name: Partnerský vztah virtuální sítě
+            - name: Modely sítě
               items:
-                - name: VNet peering s FortiGate
-                  href: ../user/azure-stack-network-howto-vnet-to-vnet.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                - name: Partnerský vztah virtuální sítě s virtuálními počítači
+                - name: Použití síťová virtuální zařízení třetích stran (Fortinet FortiGate síťové virtuální zařízení)
+                  items:
+                    - name: Konektivita VNet-to-VNet s FortiGate
+                      href: ../user/azure-stack-network-howto-vnet-to-vnet.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Nastavit VPN na Prem
+                      href: ../user/azure-stack-network-howto-vnet-to-onprem.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Připojení virtuální sítě k virtuální síti mezi Azure Stackmi instancemi centra
+                      href: ../user/azure-stack-network-howto-vnet-to-vnet-stacks.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Použití služby RRAS
+              items:
+                - name: Připojení VNet-to-VNet ke službě RRAS
                   href: ../user/azure-stack-network-howto-vnet-peering.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: Nastavit VPN na Prem
-              href: ../user/azure-stack-network-howto-vnet-to-onprem.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: Připojení virtuální sítě k virtuální síti
-              href: ../user/azure-stack-network-howto-vnet-to-vnet-stacks.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: Rozšiřování datacentra
-              href: ../user/azure-stack-network-howto-extend-datacenter.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: F5 pro vyrovnávání zatížení
-              href: ../user/network-howto-f5.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: Připojení k úložišti iSCSI
-              href: ../user/azure-stack-network-howto-iscsi-storage.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: Nastavení tunelů
-              items:
-                - name: Nastavení více sítí VPN typu Site-to-site
+                - name: Nastavení více tunelů VPN typu Site-to-site
                   href: ../user/network-howto-vpn-tunnel.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Vytvoření tunelu VPN (GRE)
                   href: ../user/network-howto-vpn-tunnel-gre.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Vytvoření tunelu VPN (IPSEC)
                   href: ../user/network-howto-vpn-tunnel-ipsec.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: F5 pro vyrovnávání zatížení
+              href: ../user/network-howto-f5.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Připojit k externímu úložišti
+              items:
+                - name: Připojení k úložišti iSCSI
+                  href: ../user/azure-stack-network-howto-iscsi-storage.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Rozšiřování datacentra
+                  href: ../user/azure-stack-network-howto-extend-datacenter.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Backup a obnovení
               items:
-                - name: Zálohování virtuálního počítače v MDC pomocí CommVault
+                - name: Zálohování virtuálního počítače v rozbočovači Azure Stack robustním pomocí CommVault
                   href: ../user/azure-stack-network-howto-backup-commvault.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                - name: Zálohování účtů úložiště na MDC
+                - name: Zálohování účtů úložiště v Azure Stackovém centru je robustní
                   href: ../user/azure-stack-network-howto-backup-storage.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Kopírovat prostředky předplatného
                   href: ../user/azure-stack-network-howto-backup-replicator.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json

@@ -3,16 +3,16 @@ title: Další informace Azure Stack vývojové nástroje pro úložiště centr
 description: Pokyny, jak začít s používáním nástrojů pro vývoj úložiště Azure Stack hub
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.topic: conceptual
 ms.reviewer: jiahan
 ms.lastreviewed: 08/12/2020
-ms.openlocfilehash: 452a572dfccaaa4c33a2630bd8459f89ba8b26d6
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: aa2f5374a91208a27f73bc2978a21e9d00c72777
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873839"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247570"
 ---
 # <a name="get-started-with-azure-stack-hub-storage-development-tools"></a>Začínáme s nástroji pro vývoj pro úložiště Azure Stack hub
 
@@ -259,7 +259,7 @@ Následující kurzy k Azure Queue Storage se vztahují na centra Azure Stack. P
 * [Používání úložiště Queue z Pythonu](/azure/storage/queues/storage-python-how-to-use-queue-storage)
 * [Používání úložiště Queue z Ruby](/azure/storage/queues/storage-ruby-how-to-use-queue-storage)
 
-## <a name="table-storage"></a>Úložiště Table
+## <a name="table-storage"></a>Table Storage
 
 Následující kurzy k Azure Table Storage se vztahují na centra Azure Stack. Poznamenejte si konkrétní požadavek na příponu koncového bodu pro Azure Stack hub popsaný v části předchozí [Příklady](#examples) .
 

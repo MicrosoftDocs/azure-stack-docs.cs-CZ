@@ -3,16 +3,16 @@ title: Použití uživatelského portálu Azure Stack hub
 description: Naučte se, jak získat přístup k portálu User Portal a používat ho v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 24734f5e5696a66174287b151b05eb2a67a38ba7
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 79757f734f76c620e8be4f47d73ab647a1accfee
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873805"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247876"
 ---
 # <a name="use-the-azure-stack-hub-user-portal"></a>Použití uživatelského portálu Azure Stack hub
 
@@ -61,7 +61,7 @@ Pokud potřebujete Rady, jak používat dostupné služby, můžou vám být k d
 
       Dokumentaci k Azure můžete použít jako obecné referenční informace ke službě, ale musíte si být vědomi těchto rozdílů. Projistěte, aby se v dokumentaci na dlaždici úvodních **kurzů** v dokumentaci k Azure seznámila.
 
-## <a name="get-support"></a>Získat podporu
+## <a name="get-support"></a>Získání podpory
 
 Pokud potřebujete podporu, požádejte o pomoc svoji organizaci nebo poskytovatele služeb.
 

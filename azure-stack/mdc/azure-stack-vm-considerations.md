@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: 924819805bd0626e68d9e4cb5bcaa7735b44fa90
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: 37e5004bd31ba37546abeee67feafe280b39a48e
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255567"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99246278"
 ---
 # <a name="azure-stack-vm-features---modular-data-center-mdc"></a>Funkce Azure Stack VM – modulární datové centrum (MDC)
 
@@ -28,7 +28,7 @@ Virtuální počítače s Azure Stack poskytují škálovatelné výpočetní pr
 
 ## <a name="vm-differences"></a>Rozdíly virtuálních počítačů
 
-| Příznak | Azure (Global) | Azure Stack |
+| Funkce | Azure (Global) | Azure Stack |
 | --- | --- | --- |
 | Image virtuálních počítačů | Azure Marketplace obsahuje obrázky, které můžete použít k vytvoření virtuálního počítače. Pokud chcete zobrazit seznam imagí, které jsou k dispozici v Azure Marketplace, zobrazte stránku [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) . | Ve výchozím nastavení nejsou k dispozici žádné obrázky na webu Azure Stack Marketplace. Správce cloudu Azure Stack musí publikovat nebo stahovat image na webu Azure Stack Marketplace, aby je mohli uživatelé používat. |
 | Velikosti virtuálních počítačů | Azure podporuje širokou škálu velikostí virtuálních počítačů. Další informace o dostupných velikostech a možnostech najdete v tématech velikosti virtuálních počítačů s [Windows](/azure/virtual-machines/sizes) a [velikosti virtuálních počítačů Linux](/azure/virtual-machines/linux/sizes) . | Azure Stack podporuje podmnožinu velikostí virtuálních počítačů, které jsou k dispozici v Azure. Pokud chcete zobrazit seznam podporovaných velikostí, přečtěte si část [velikosti virtuálních počítačů](#vm-sizes) v tomto článku. |

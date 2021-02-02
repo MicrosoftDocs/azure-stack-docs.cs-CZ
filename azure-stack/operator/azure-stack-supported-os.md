@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Seznamte se s hostovanými operačními systémy, které se dají použít v Azure Stack hub.
 author: sethmanheim
 ms.topic: article
-ms.date: 12/15/2020
+ms.date: 02/01/2021
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 3d535893b75cdaf49b4003fce2382ab092b328fe
-ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
+ms.openlocfilehash: 336a4d27adf5f0ab52fffc6b624ce84f7fd0b53c
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97620581"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99245904"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Podporované hostované operační systémy ve službě Azure Stack Hub
 
@@ -50,9 +50,17 @@ Distribuce systému Linux uvedené jako dostupné na webu centra Azure Stack zah
 
 | Distribuce | Popis | Publisher | Tržiště centra Azure Stack |
 | --- | --- | --- | --- |
-| CentOS-based 6,9 | 64bitová | Neautorizovaný Wave | Ano |
+| CentOS-based 8,0 | 64bitová | Neautorizovaný Wave | Ano |
+| CentOS-based 7,8 | 64bitová | Neautorizovaný Wave | Ano |
+| CentOS-based 7,7 LVM | 64bitová | Neautorizovaný Wave | Ano |
+| CentOS-based 7,7 | 64bitová | Neautorizovaný Wave | Ano |
+| CentOS-based 7,6 | 64bitová | Neautorizovaný Wave | Ano |
 | CentOS-based 7,5 | 64bitová | Neautorizovaný Wave | Ano |
+| CentOS-based 7,5 LVM | 64bitová | Neautorizovaný Wave | Ano |
+| CentOS-based 7,4 | 64bitová | Neautorizovaný Wave | Ano |
 | Distribuce založené na CentOS 7.3 | 64bitová | Neautorizovaný Wave | Ano |
+| CentOS-based 6,9 | 64bitová | Neautorizovaný Wave | Ano |
+| CentOS-based 6,10 | 64bitová | Neautorizovaný Wave | Ano |
 | ClearLinux | 64bitová | ClearLinux.org | Ano |
 | CoreOS Linux (stabilní) |  64bitová | CoreOS | Ano |
 | Debian 8 "Jessie" | 64bitová | credativ |  Ano |
@@ -64,6 +72,7 @@ Distribuce systému Linux uvedené jako dostupné na webu centra Azure Stack zah
 | Ubuntu 14,04 – LTS | 64bitová | Canonical | Ano |
 | Ubuntu 16,04 – LTS | 64bitová | Canonical | Ano |
 | Ubuntu 18,04 – LTS | 64bitová | Canonical | Ano |
+| Ubuntu Server 20,04 LTS | 64bitová | Canonical | Ano |
 
 Informace o podpoře Red Hat Enterprise Linux najdete v tématu [Red Hat a Azure Stack hub: nejčastější dotazy](https://access.redhat.com/articles/3413531).
 

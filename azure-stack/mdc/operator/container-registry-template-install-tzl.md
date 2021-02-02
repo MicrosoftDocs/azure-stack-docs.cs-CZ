@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: cba936293c5771737c2022a24acd9c7202ff78c1
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: b1c59b99aaf44503c29e73afbf038207dc457f63
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872105"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99246312"
 ---
 # <a name="add-a-container-registry-to-azure-stack-hub"></a>Přidání registru kontejneru do centra Azure Stack
 
@@ -167,7 +167,7 @@ Instalace šablony registru kontejnerů vyžaduje vytvoření několika prostře
 3. Označte image, která se má cílit na nově nasazený registr kontejnerů Docker.
 4. Nahrajte image do nového cílového registru.
 
-Například:
+Příklad:
 
 ```powershell  
 PS C:\> docker pull mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0

@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: f63f0d550a841902e1d7c27d9c7688a8b5373149
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: b627b3f34b585189492cb3c3c3dfdef6965d5c61
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910580"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247400"
 ---
 # <a name="update-the-container-registry-in-azure-stack-hub"></a>Aktualizace registru kontejneru v Azure Stackovém centru
 
@@ -35,7 +35,7 @@ Uživatelé centra Azure Stack můžou aktualizovat svoje nasazení registrů ko
 
 > ![Snímek obrazovky zobrazující stránku přidat z Azure s výsledky hledání pro zobrazení ' AKS Base Ubu '.](./media/container-registry-template-updating-tzl/image1.png)
 
-### <a name="user"></a>Uživatel
+### <a name="user"></a>User
 
 1.  Zkontrolujte SKLADOVOU položku základní image AKS, která se použila k nasazení šablony registru kontejnerů, a to tak, že přejdete na záznam nasazení ve skupině prostředků a vyberete **vstupy**.
 

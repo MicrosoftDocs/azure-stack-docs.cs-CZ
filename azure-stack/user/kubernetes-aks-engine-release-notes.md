@@ -3,16 +3,16 @@ title: Poznámky k verzi modulu Azure Kubernetes Service (AKS) v centru Azure St
 description: Seznamte se s kroky, které je třeba provést s aktualizací pro AKS Engine v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/28/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/28/2020
-ms.openlocfilehash: b4c5a2f6af605cc390a990df874bceae691006d3
-ms.sourcegitcommit: edb60c948b445537e9411d6261c6c78359b71d0b
+ms.openlocfilehash: 9bc1e73213743f1457a16bcce3a9ff4e69d370ef
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91810639"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247672"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Poznámky k verzi pro modul AKS v centru Azure Stack
 ::: moniker range=">=azs-2002"
@@ -101,7 +101,7 @@ V souboru JSON modelu rozhraní API zadejte hodnoty verze a verze v `orchestrato
     -   "orchestratorVersion": "1.16.14"
 ```
 
-## <a name="whats-new"></a>Co je nového
+## <a name="whats-new"></a>Novinky
 
 - Aktualizace VHD Azure Stack Linux na 2020.09.14 #[3828](https://github.com/Azure/aks-engine/pull/3828)
 - Přidá podporu pro K8s v 1.17.11 v Azure Stack [#3702](https://github.com/Azure/aks-engine/pull/3702)
@@ -123,7 +123,7 @@ V souboru JSON modelu rozhraní API zadejte hodnoty verze a verze v `orchestrato
 > [!NOTE]  
 > Podpora kontejnerů Windows a Azure CNI je dostupná ve verzi Private Preview. Pokud se chcete připojit k verzi Preview, můžete požádat o přístup: [https://aka.ms/ash-k8s-win-azurecni](https://aka.ms/ash-k8s-win-azurecni)
 
-## <a name="reference"></a>Referenční informace
+## <a name="reference"></a>Reference
 
 Toto je kompletní sada poznámek k verzi pro Azure a centrum Azure Stack v kombinaci:
 
@@ -203,7 +203,7 @@ Aktuální verzi a verzi upgradu najdete v následující tabulce pro Azure Stac
 | 1.15.4 | 1.15.10 |
 | 1.15.5 | 1.15.10 |
 
-## <a name="whats-new"></a>Co je nového 
+## <a name="whats-new"></a>Novinky 
 
 -   Podpora pro Kubernetes verze 1.15.10 ([ \# 2834](https://github.com/Azure/aks-engine/issues/2834)). Při nasazování nového clusteru Nezapomeňte zadat v souboru JSON modelu rozhraní API (a.k.s. definiční soubor clusteru) číslo verze vydání a číslo dílčí verze. Můžete najít příklad: [kubernetes-azurestack.jsv](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json):
 
@@ -246,7 +246,7 @@ Aktuální verzi a verzi upgradu najdete v následující tabulce pro Azure Stac
 
 -  Vzhledem k tomu, že nástroj AKS je sdílená úložiště zdrojového kódu napříč Azure a centra Azure Stack. Prozkoumání velkého množství zpráv k vydání verze a žádostí o přijetí změn vás bude domnívat, že nástroj podporuje jiné verze Kubernetes a platformy operačního systému nad rámec výše uvedené výše, ignorujte je a jako oficiální průvodce pro tuto aktualizaci použijte tabulku verzí výše.
 
-## <a name="reference"></a>Referenční informace
+## <a name="reference"></a>Reference
 
 Následuje seznam některých opravených chyb a také kompletní sada poznámek k verzi z 0.44.0 do 0.48.0. Všimněte si, že druhý seznam bude zahrnovat položky centra Azure a Azure Stack.
 
@@ -264,7 +264,7 @@ Následuje seznam některých opravených chyb a také kompletní sada poznámek
 
 -   Aktualizace pro použití jedné omsagent YAML pro všechny verze k8s, aby nedocházelo k ručním chybám a snadné údržbě ([ \# 2692](https://github.com/Azure/aks-engine/issues/2692))
 
-### <a name="release-notes"></a>Zpráva k vydání verze
+### <a name="release-notes"></a>Poznámky k verzi
 
 Toto je kompletní sada poznámek k verzi pro Azure a centrum Azure Stack v kombinaci.
 

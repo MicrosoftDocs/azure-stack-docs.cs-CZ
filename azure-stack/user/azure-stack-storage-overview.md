@@ -3,15 +3,15 @@ title: Úvod do úložiště centra Azure Stack
 description: Přečtěte si o Azure Stack služby úložiště hub.
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: c9b8d2bbe30cedcd84759fbb5cd9a51b0a03c51a
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 3c02ef69ce2359c050e381d4dec027c28f157765
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873822"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247553"
 ---
 # <a name="introduction-to-azure-stack-hub-storage"></a>Úvod do úložiště centra Azure Stack
 
@@ -43,7 +43,7 @@ ms.locfileid: "97873822"
 
 Pro uživatele s velkým množstvím nestrukturovaných dat objektů, které se mají uložit v cloudu, nabízí úložiště objektů BLOB efektivní a škálovatelné řešení. Úložiště objektů blob můžete použít k ukládání obsahu, jako je například:
 
-- Dokumenty
+- dokumenty.
 - Sociální data, jako jsou fotografie, videa, hudba nebo blogy
 - Zálohy souborů, počítačů, databází a zařízení
 - Obrázky a text pro webové aplikace
@@ -66,7 +66,7 @@ Každý objekt blob se organizuje do kontejneru. Kontejnery také nabízejí pra
 
     Objekty blob stránky jsou optimalizované tak, aby představovaly disky IaaS a podporovaly náhodné zápisy o velikosti až 1 TB. IaaS disk, který je připojen k virtuálnímu počítači centra Azure Stack, je VHD uložený jako objekt blob stránky.
 
-### <a name="table-storage"></a>Úložiště Table
+### <a name="table-storage"></a>Table Storage
 
 Moderní aplikace často vyžadují úložiště dat s větší škálovatelností a flexibilitou než předchozí generace softwaru. Table Storage nabízí vysoce dostupné, široce škálovatelné úložiště, aby se vaše aplikace mohla automaticky škálovat tak, aby splňovala požadavky uživatelů. Table Storage je úložiště NoSQLch klíčů a atributů od Microsoftu – má návrh bez schématu, takže se liší od tradičních relačních databází. S úložištěm dat bez schématu je snadné přizpůsobit data podle potřeb vaší aplikace. Úložiště tabulek je snadno použitelné, takže vývojáři můžou rychle vytvářet aplikace.
 

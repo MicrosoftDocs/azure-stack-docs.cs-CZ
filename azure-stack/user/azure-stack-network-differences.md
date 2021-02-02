@@ -2,17 +2,17 @@
 title: Rozdíly v sítích centra Azure Stack
 description: Přečtěte si o rozdílech a ohledech při práci se sítěmi v centru Azure Stack.
 author: mattbriggs
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: e93197f1906aba53097d5d7123ccc2e85aec0622
-ms.sourcegitcommit: 0e2c814cf2c154ea530a4e51d71aaf0835fb2b5a
+ms.openlocfilehash: b16c65554be272d4aacc89959fe2e0d71561c363
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97918690"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247910"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Rozdíly a požadavky pro sítě Azure Stack hub
 
@@ -29,8 +29,8 @@ Tento článek obsahuje přehled jedinečných důležitých informací o sítí
 |  | Zóny DNS na předplatné | 100 (výchozí)<br>Lze zvýšit na vyžádání. | 100 |
 |  | Sady záznamů DNS na zónu | 5000 (výchozí)<br>Lze zvýšit na vyžádání. | 5000 |
 |  | Názvové servery pro delegování zóny | Azure poskytuje čtyři názvové servery pro každou vytvořenou zónu uživatele (tenanta). | Centrum Azure Stack poskytuje dva názvové servery pro každou vytvořenou zónu uživatele (tenanta). |
-| Brána Azure Firewall | Služba zabezpečení sítě | Azure Firewall je spravovaná cloudová služba síťového zabezpečení, která chrání vaše prostředky ve virtuálních sítích Azure. | Zatím se nepodporuje. |
-| Virtual Network | Partnerský vztah virtuální sítě | Propojit dvě virtuální sítě ve stejné oblasti prostřednictvím páteřní sítě Azure. | Podporované, protože verze 2008 [Virtual Network partnerský vztah](virtual-network-peering.md) |
+| Azure Firewall | Služba zabezpečení sítě | Azure Firewall je spravovaná cloudová služba síťového zabezpečení, která chrání vaše prostředky ve virtuálních sítích Azure. | Zatím se nepodporuje. |
+| Virtual Network | Peering virtuálních sítí | Propojit dvě virtuální sítě ve stejné oblasti prostřednictvím páteřní sítě Azure. | Podporované, protože verze 2008 [Virtual Network partnerský vztah](virtual-network-peering.md) |
 |  | IPv6 adresy | Adresu IPv6 můžete přiřadit jako součást [Konfigurace síťového rozhraní](/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions). | Podporovaný je jenom protokol IPv4. |
 |  | Plán DDoS Protection | Podporováno | Zatím se nepodporuje. |
 |  | Konfigurace IP adres sady škálování | Podporováno | Zatím se nepodporuje. |

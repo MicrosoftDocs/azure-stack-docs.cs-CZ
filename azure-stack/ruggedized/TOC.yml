@@ -695,7 +695,7 @@
                   href: ../operator/azure-stack-create-service-principals.md?bc=%2fazure-stack%2fbreadcrumb%2ftoc.json&toc=%2fazure-stack%2fuser%2ftoc.json
             - name: Použití služeb
               items:
-                - name: Compute
+                - name: Výpočetní prostředky
                   items:
                     - name: Přehled
                       href: ../user/azure-stack-compute-overview.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
@@ -739,6 +739,8 @@
                           href: ../user/azure-stack-vpn-gateway-about-vpn-gateways.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                         - name: Konfigurace zásad připojení IPSec/IKE
                           href: ../user/azure-stack-vpn-s2s.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Peering virtuálních sítí
+                      href: ../user/virtual-network-peering.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Připojení k Azure pomocí ExpressRoute
                       href: ../operator/azure-stack-connect-expressroute.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                     - name: Nastavení služby VPN Gateway
@@ -836,30 +838,34 @@
                   href: ../user/azure-stack-dev-start-howto-vm-nodejs.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Nasazení základních vzorů
           items:
-            - name: Partnerský vztah virtuální sítě
+            - name: Modely sítě
               items:
-                - name: VNet peering s FortiGate
-                  href: ../user/azure-stack-network-howto-vnet-to-vnet.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                - name: Partnerský vztah virtuální sítě s virtuálními počítači
+                - name: Použití síťová virtuální zařízení třetích stran (Fortinet FortiGate síťové virtuální zařízení)
+                  items:
+                    - name: Konektivita VNet-to-VNet s FortiGate
+                      href: ../user/azure-stack-network-howto-vnet-to-vnet.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Nastavit VPN na Prem
+                      href: ../user/azure-stack-network-howto-vnet-to-onprem.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                    - name: Připojení virtuální sítě k virtuální síti mezi Azure Stackmi instancemi centra
+                      href: ../user/azure-stack-network-howto-vnet-to-vnet-stacks.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Použití služby RRAS
+              items:
+                - name: Připojení VNet-to-VNet ke službě RRAS
                   href: ../user/azure-stack-network-howto-vnet-peering.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: Nastavit VPN na Prem
-              href: ../user/azure-stack-network-howto-vnet-to-onprem.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: Připojení virtuální sítě k virtuální síti
-              href: ../user/azure-stack-network-howto-vnet-to-vnet-stacks.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: Rozšiřování datacentra
-              href: ../user/azure-stack-network-howto-extend-datacenter.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: F5 pro vyrovnávání zatížení
-              href: ../user/network-howto-f5.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: Připojení k úložišti iSCSI
-              href: ../user/azure-stack-network-howto-iscsi-storage.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
-            - name: Nastavení tunelů
-              items:
-                - name: Nastavení více sítí VPN typu Site-to-site
+                - name: Nastavení více tunelů VPN typu Site-to-site
                   href: ../user/network-howto-vpn-tunnel.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Vytvoření tunelu VPN (GRE)
                   href: ../user/network-howto-vpn-tunnel-gre.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: Vytvoření tunelu VPN (IPSEC)
                   href: ../user/network-howto-vpn-tunnel-ipsec.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: F5 pro vyrovnávání zatížení
+              href: ../user/network-howto-f5.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Připojit k externímu úložišti
+              items:
+                - name: Připojení k úložišti iSCSI
+                  href: ../user/azure-stack-network-howto-iscsi-storage.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                - name: Rozšiřování datacentra
+                  href: ../user/azure-stack-network-howto-extend-datacenter.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: Backup a obnovení
               items:
                 - name: Zálohování virtuálního počítače v rozbočovači Azure Stack robustním pomocí CommVault

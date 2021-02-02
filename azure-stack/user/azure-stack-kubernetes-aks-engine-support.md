@@ -3,16 +3,16 @@ title: Zásady podpory pro modul AKS v centru Azure Stack
 description: Toto téma obsahuje zásady podpory pro modul AKS v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/0102020
-ms.openlocfilehash: aebc9506d99e52c5ace6400128c70c43e2ae5b64
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 0322d72f3cd28a8e499b2a900d57e4e9d2e9bce4
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874094"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99246720"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack-hub"></a>Zásady podpory pro modul AKS v centru Azure Stack
 

@@ -3,16 +3,16 @@ title: Řešení známých problémů s virtuálním počítačem v centru Azure
 description: Naučte se řešit známé problémy s virtuálním počítačem v centru Azure Stack.
 author: mattbriggs
 ms.topic: troubleshooting
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/09/2020
-ms.openlocfilehash: d752b31ac5076255ae4368904145a50d5a3c09ff
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 45fcd2857a7da8820f1f588d864873e0e5f41467
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867158"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99246584"
 ---
 # <a name="known-issues-vms-on-azure-stack-hub"></a>Známé problémy: virtuální počítače v centru Azure Stack
 

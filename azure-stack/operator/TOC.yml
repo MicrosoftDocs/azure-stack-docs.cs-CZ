@@ -43,7 +43,7 @@
           href: azure-stack-capacity-planner.md
     - name: Integrace datových center
       items:
-        - name: Návod
+        - name: Názorný postup
           href: azure-stack-customer-journey.md
         - name: Obecné aspekty
           href: azure-stack-datacenter-integration.md
@@ -299,7 +299,7 @@
               href: azure-stack-app-service-capacity-planning.md
             - name: Nejčastější dotazy k fakturaci App Service
               href: app-service-billing-faq.md
-            - name: Předpoklady
+            - name: Požadavky
               href: azure-stack-app-service-before-you-get-started.md
             - name: Nasazení App Service
               href: azure-stack-app-service-deploy.md
@@ -333,7 +333,7 @@
               href: event-hubs-rp-overview.md
             - name: Plánování kapacity
               href: event-hubs-rp-capacity-planning.md
-            - name: Předpoklady
+            - name: Požadavky
               href: event-hubs-rp-prerequisites.md
             - name: Instalace
               href: event-hubs-rp-install.md
@@ -485,7 +485,7 @@
           href: azure-stack-backup-best-practices.md
         - name: Odkaz na zálohování
           href: azure-stack-backup-reference.md
-    - name: Získat podporu
+    - name: Získání podpory
       items:
         - name: Pracovní stanice pro přístup k operátoru
           href: operator-access-workstation.md
@@ -521,8 +521,56 @@
       href: ../asdk/index.yml
     - name: Dokumentace k hybridnímu cloudu Azure
       href: /hybrid
-- name: Prostředky
+- name: Zdroje informací
   items:
+    - name: Archiv poznámek k verzi
+      items:
+        - name: "Zpráva k\_vydání verze 1910"
+          href: ./relnotearchive/release-notes-1910.md
+        - name: známé problémy 1910
+          href: ./relnotearchive/known-issues-1910.md
+        - name: zpráva k vydání verze 1908
+          href: ./relnotearchive/release-notes-1908.md
+        - name: známé problémy 1908
+          href: ./relnotearchive/known-issues-1908.md
+        - name: zpráva k vydání verze 1907
+          href: ./relnotearchive/release-notes-1907.md
+        - name: známé problémy 1907
+          href: ./relnotearchive/known-issues-1907.md
+        - name: "Zpráva k\_vydání verze 1906"
+          href: ./relnotearchive/release-notes-1906.md
+        - name: známé problémy 1906
+          href: ./relnotearchive/known-issues-1906.md
+        - name: Poznámky k verzi 1905
+          href: ./relnotearchive/release-notes-1905.md
+        - name: známé problémy 1905
+          href: ./relnotearchive/known-issues-1905.md
+        - name: zpráva k vydání verze 1904
+          href: ./relnotearchive/release-notes-1904.md
+        - name: známé problémy 1904
+          href: ./relnotearchive/known-issues-1904.md
+        - name: zpráva k vydání verze 1903
+          href: ./relnotearchive/release-notes-known-issues-1903.md
+        - name: "Zpráva k\_vydání verze 1902"
+          href: ./relnotearchive/release-notes-known-issues-1902.md
+        - name: zpráva k vydání verze 1901
+          href: ./relnotearchive/release-notes-known-issues-1901.md
+        - name: zpráva k vydání verze 1811
+          href: ./relnotearchive/release-notes-known-issues-1811.md
+        - name: zpráva k vydání verze 1809
+          href: ./relnotearchive/release-notes-known-issues-1809.md
+        - name: zpráva k vydání verze 1808
+          href: ./relnotearchive/release-notes-known-issues-1808.md
+        - name: zpráva k vydání verze 1807
+          href: ./relnotearchive/release-notes-known-issues-1807.md
+        - name: zpráva k vydání verze 1805
+          href: ./relnotearchive/release-notes-known-issues-1805.md
+        - name: zpráva k vydání verze 1804
+          href: ./relnotearchive/release-notes-known-issues-1804.md
+        - name: zpráva k vydání verze 1803
+          href: ./relnotearchive/release-notes-known-issues-1803.md
+        - name: Zpráva k vydání verze 1802
+          href: ./relnotearchive/release-notes-known-issues-1802.md
     - name: Školení a certifikace
       href: azure-stack-train-and-cert.md
     - name: Mapa cest centra Azure Stack

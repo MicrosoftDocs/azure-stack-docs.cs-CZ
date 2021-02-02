@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: 6cac7624a99ccd430f64243586c773238ec8c4c2
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 8bc77528bec5fdb22e2ea83b45cc4eedc3b7984c
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872071"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99246372"
 ---
 # <a name="update-the-container-registry-in-azure-stack-hub---modular-data-center-mdc"></a>Aktualizace registru kontejneru v centra Azure Stack – modulární datové centrum (MDC)
 
@@ -35,7 +35,7 @@ Uživatelé centra Azure Stack můžou aktualizovat svoje nasazení registrů ko
 
   ![Základní obrázek AKS](./media/container-registry-template-updating-tzl/aks-base-image.png)
 
-### <a name="user"></a>Uživatel
+### <a name="user"></a>User
 
 1.  Zkontrolujte SKLADOVOU položku základní image AKS, která se použila k nasazení šablony registru kontejnerů, a to tak, že přejdete na záznam nasazení ve skupině prostředků a vyberete **vstupy**.
 

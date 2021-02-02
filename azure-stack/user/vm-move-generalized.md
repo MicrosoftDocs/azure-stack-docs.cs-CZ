@@ -3,16 +3,16 @@ title: Přesunout zobecněný virtuální počítač z místního počítače do
 description: Naučte se, jak přesunout zobecněný virtuální počítač z místního počítače do centra Azure Stack.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: 105beaa0805fe0aea1aacfce8bd22f3bd01714b1
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 8e26ed6e67fd8ad6269c95b22e4f2e1879b96300
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97872870"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247859"
 ---
 # <a name="move-a-generalized-vm-from-on-premises-to-azure-stack-hub"></a>Přesunout zobecněný virtuální počítač z místního počítače do centra Azure Stack
 

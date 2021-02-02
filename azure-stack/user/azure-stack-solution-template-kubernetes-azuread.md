@@ -3,16 +3,16 @@ title: Nasazení Kubernetes do centra Azure Stack pomocí Azure Active Directory
 description: Naučte se, jak nasadit Kubernetes do centra Azure Stack pomocí Azure Active Directory (Azure AD).
 author: mattbriggs
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: 528e87523022b266c68f86a7f1b4ebadfa686adc
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: b7d29513341fafc83a0143de8c7c70c1cbde479f
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873958"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247791"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-azure-active-directory"></a>Nasazení Kubernetes do centra Azure Stack pomocí Azure Active Directory
 
@@ -65,7 +65,7 @@ Nastavte instanční objekt v Azure. Instanční objekt poskytuje aplikaci pří
 
     b. Pro **vypršení platnosti** vyberte možnost **nikdy nevyprší platnost** .
 
-    c. Vyberte **Add** (Přidat). Poznamenejte si řetězec klíče. Při vytváření clusteru budete potřebovat řetězec klíče. Na klíč se odkazuje jako na **tajný klíč klienta instančního objektu**.
+    c. Vyberte **Přidat**. Poznamenejte si řetězec klíče. Při vytváření clusteru budete potřebovat řetězec klíče. Na klíč se odkazuje jako na **tajný klíč klienta instančního objektu**.
 
 ## <a name="give-the-service-principal-access"></a>Poskytnutí přístupu k instančnímu objektu
 

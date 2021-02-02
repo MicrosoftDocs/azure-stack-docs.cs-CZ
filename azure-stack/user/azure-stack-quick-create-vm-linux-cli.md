@@ -3,15 +3,15 @@ title: Vytvoření virtuálního počítače se systémem Linux pomocí rozhran�
 description: Vytvořte virtuální počítač se systémem Linux pomocí rozhraní příkazového řádku Azure v centru Azure Stack.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: e778d01920921358ac8e0de186818d5a04d997a5
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: bb986fa7fbe1bf47d1548fdc5881f2bf60d65851
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873975"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247893"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-cli-in-azure-stack-hub"></a>Rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí rozhraní příkazového řádku Azure v centru Azure Stack
 

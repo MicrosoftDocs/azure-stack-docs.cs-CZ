@@ -3,16 +3,16 @@ title: Spuštění virtuálního počítače s Windows na rozbočovači Azure St
 description: Přečtěte si, jak spustit virtuální počítač s Windows na rozbočovači Azure Stack.
 author: mattbriggs
 ms.topic: how-to
-ms.date: 12/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 3/9/2020
-ms.openlocfilehash: 2c2ff4007e92f6263e6b59ac61cb15d303b347d0
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 5bbad22a6a0998cd56fd3fefc309c14f665b2faa
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873703"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99247536"
 ---
 # <a name="run-a-windows-virtual-machine-on-azure-stack-hub"></a>Spuštění virtuálního počítače s Windows na rozbočovači Azure Stack
 
@@ -50,7 +50,7 @@ Síťové komponenty zahrnují následující prostředky:
 
 -   **Virtuální síť:** Každý virtuální počítač je nasazený do virtuální sítě, která se dá rozdělit do několika podsítí.
 
--   **Síťové rozhraní (NIC):** Síťové rozhraní umožňuje virtuálnímu počítači komunikovat s virtuální sítí. Pokud pro virtuální počítač potřebujete více síťových rozhraní, uvědomte si, že pro jednotlivé  [velikosti virtuálních počítačů](./azure-stack-vm-sizes.md)je definován maximální počet síťových adaptérů.
+-   **Síťové rozhraní (nic)**. Síťové rozhraní umožňuje virtuálnímu počítači komunikovat s virtuální sítí. Pokud pro virtuální počítač potřebujete více síťových rozhraní, uvědomte si, že pro jednotlivé  [velikosti virtuálních počítačů](./azure-stack-vm-sizes.md)je definován maximální počet síťových adaptérů.
 
 -   **Veřejná IP adresa/VIP**. Veřejná IP adresa je potřeba ke komunikaci s VIRTUÁLNÍm počítačem – například prostřednictvím vzdálené plochy (RDP). Veřejná IP adresa může být dynamická nebo statická. Ve výchozím nastavení je dynamická.
 

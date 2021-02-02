@@ -3,16 +3,16 @@ title: Přidání požadavků modulu Azure Kubernetes Services (AKS) do webu slu
 description: Přečtěte si, jak přidat požadavky na modul AKS do tržiště centra Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 09/16/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: 4cbb253b88f86f18c69c7528b6beabb58d277d14
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 12532ba9e38c37bdf3253a5e33576ca63116f1e0
+ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899444"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99246159"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Přidání požadavků modulu Azure Kubernetes Services (AKS) do tržiště centra Azure Stack
 
@@ -47,7 +47,7 @@ Do Marketplace přidejte následující položku:
 
 1. Přihlaste se k portálu pro správu `https://adminportal.local.azurestack.external` .
 
-1. Vyberte **všechny služby**a potom v kategorii **Správa** vyberte **Správa Marketplace**.
+1. Vyberte **všechny služby** a potom v kategorii **Správa** vyberte **Správa Marketplace**.
 
 1. Vyberte **+ Přidat z Azure**.
 
