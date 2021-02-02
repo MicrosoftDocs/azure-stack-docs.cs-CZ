@@ -3,23 +3,21 @@ title: Nasazení infrastruktury SDN pomocí SDN Express
 description: Naučte se nasazovat infrastrukturu SDN pomocí nástroje SDN Express.
 author: v-dasis
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 02/01/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: ec4c348242910eaf78831b59659bd5943f9cb854
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.openlocfilehash: b8431b7e2cf2cad3d238386619839a760b722042
+ms.sourcegitcommit: d74f6d8630783de49667956f39cac67e1968a89d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98781944"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99473187"
 ---
 # <a name="deploy-an-sdn-infrastructure-using-sdn-express"></a>Nasazení infrastruktury SDN pomocí SDN Express
 
 > Platí pro Azure Stack HCI, verze 20H2
 
-V tomto tématu nasadíte koncovou infrastrukturu SDN (Software Defined Network) pomocí skriptů SDN Express PowerShell. Infrastruktura zahrnuje síťový adaptér s vysokou dostupností (HA), vysoce dostupný software Load Balancer (SLB) a bránu s vysokou dostupností.  
-
-Skripty podporují postupné nasazení, kde můžete nasadit jenom síťový adaptér a dosáhnout tak základní sady funkcí s minimálními požadavky na síť. Síťový adaptér můžete nasadit také pomocí Průvodce vytvořením clusteru v centru pro správu systému Windows. K nasazení jiných komponent SDN, jako je SLB a Gateway, je ale nutné použít skripty SDN Express.
+V tomto tématu nasadíte koncovou infrastrukturu SDN (Software Defined Network) pomocí skriptů SDN Express PowerShell. Infrastruktura může zahrnovat vysoce dostupný síťový adaptér (HA), vysoce dostupný software Load Balancer (SLB) a bránu s vysokou dostupností.  Skripty podporují postupné nasazení, kde můžete nasadit jenom síťový adaptér a dosáhnout tak základní sady funkcí s minimálními požadavky na síť. 
 
 Infrastrukturu SDN můžete nasadit taky pomocí System Center Virtual Machine Manager (VMM). Další informace najdete v tématu [Správa prostředků SDN v prostředcích infrastruktury nástroje VMM](/system-center/vmm/network-sdn).
 
@@ -37,7 +35,37 @@ Nemusíte nasazovat všechny součásti SDN. V části [dvoufázové nasazení](
 
 Zajistěte, aby na všech hostitelských serverech byl nainstalován operační systém Azure Stack HCI. Postup najdete v tématu [nasazení operačního systému Azure Stack HCI](../deploy/operating-system.md) .
 
-## <a name="run-the-sdn-express-scripts"></a>Spuštění skriptů SDN Express
+## <a name="requirements"></a>Požadavky
+
+Úspěšné nasazení SDN musí splňovat následující požadavky:
+
+- Na všech hostitelských serverech musí být povolená technologie Hyper-V.
+- Všechny hostitelské servery musí být připojené ke službě Active Directory.
+- Je nutné vytvořit virtuální přepínač.
+- Fyzická síť musí být nakonfigurovaná pro podsítě a sítě VLAN, které jsou definované v konfiguračním souboru.
+- Soubor VHDX zadaný v konfiguračním souboru musí být dosažitelný z počítače nasazení, ve kterém je spuštěný skript SDN Express.
+
+## <a name="create-the-vdx-file"></a>Vytvoření souboru VDX
+
+SDN používá soubor VHDX, který obsahuje Azure Stack systému HCI jako zdroj pro vytváření virtuálních počítačů SDN (VM). Verze operačního systému v souboru VHDX se musí shodovat s verzí, kterou používají hostitelé Hyper-V.
+
+Pokud jste stáhli a nainstalovali operační systém HCI Azure Stack z ISO, můžete tento disk VHDX vytvořit pomocí tohoto `Convert-WindowsImage` nástroje, jak je popsáno v [centru skriptů](https://gallery.technet.microsoft.com/scriptcenter/Convert-WindowsImageps1-0fe23a8f).
+
+Následující příklad ukazuje příklad použití `Convert-WindowsImage` :
+
+ ```powershell
+$wimpath = "d:\sources\install.wim"
+$vhdpath = "c:\temp\WindowsServerDatacenter.vhdx"
+$Edition = 4   # 4 = Full Desktop, 3 = Server Core
+
+import-module ".\convert-windowsimage.ps1"
+
+Convert-WindowsImage -SourcePath $wimpath -Edition $Edition -VHDPath $vhdpath -SizeBytes 500GB -DiskLayout UEFI
+```
+
+## <a name="download-the-github-repository"></a>Stáhnout úložiště GitHub
+
+Soubory skriptu migrace SDN na webu GitHub. Prvním krokem je získat potřebné soubory a složky do počítače pro nasazení.
 
 1. Přejít na úložiště GitHubu [SDN Express](https://github.com/microsoft/SDN) .
 
@@ -48,15 +76,27 @@ Zajistěte, aby na všech hostitelských serverech byl nainstalován operační 
 
 1. Extrahujte soubor ZIP a zkopírujte `SDNExpress` složku do složky počítače nasazení `C:\` .
 
+## <a name="edit-the-configuration-file"></a>Úprava konfiguračního souboru
+
+`MultiNodeSampleConfig.psd1`Datový soubor konfigurace PowerShellu obsahuje všechny parametry a nastavení, které jsou potřebné pro skript SDN Express jako vstup pro různé parametry a nastavení konfigurace. Tento soubor obsahuje konkrétní informace o tom, co je potřeba vyplnit, na základě toho, jestli nasazujete jenom součást síťového adaptéru, nebo taky Nástroj pro vyrovnávání zatížení softwaru a součásti brány.
+
+Podrobné informace najdete v tématu [plánování infrastruktury softwarově definované sítě](../concepts/plan-software-defined-networking-infrastructure.md) .
+
+Pojďme začít:
+
 1. Přejděte do složky `C:\SDNExpress\scripts`.
 
-1. Spusťte `SDNExpress.ps1` soubor skriptu. Tento skript používá jako vstup soubor nasazení prostředí PowerShell (PSD) pro různá nastavení konfigurace. `README.md`Pokyny ke spuštění skriptu najdete v souboru.  
+1. Otevřete `MultiNodeSampleConfig.psd1` soubor ve svém oblíbeném textovém editoru.
 
-1. Jako zdroj pro vytváření virtuálních počítačů SDN použijte VHDX, který obsahuje Azure Stack operační systém HCI. Pokud jste stáhli a nainstalovali operační systém HCI Azure Stack z ISO, můžete tento disk VHDX vytvořit pomocí tohoto `convert-windowsimage` nástroje, jak je popsáno v dokumentaci.
+1. Změňte konkrétní hodnoty parametrů tak, aby vyhovovaly vaší infrastruktuře.
 
-1. Upravte soubor tak, že `SDNExpress\scripts\MultiNodeSampleConfig.psd1` změníte konkrétní hodnoty tak, aby odpovídaly vaší infrastruktuře, včetně názvů hostitelů, názvů domén, uživatelských jmen a hesel a informací o síti pro sítě, které jsou uvedené v tématu [plánování infrastruktury softwarově definované sítě](../concepts/plan-software-defined-networking-infrastructure.md) . Tento soubor obsahuje konkrétní informace o tom, co je potřeba vyplnit, na základě toho, jestli nasazujete jenom součást síťového adaptéru, nebo taky Nástroj pro vyrovnávání zatížení softwaru a součásti brány.
+## <a name="run-the-deployment-script"></a>Spuštění zaváděcího skriptu
 
-1. Spusťte následující skript z uživatelského účtu s přihlašovacími údaji správce na hostitelích Hyper-V:
+Skript SDN Express nasadí infrastrukturu SDN. Po dokončení skriptu je vaše infrastruktura připravená k použití pro nasazení úloh.
+
+1. V tomto `README.md` souboru najdete nejnovější informace o tom, jak spustit skript nasazení.  
+
+1. Z uživatelského účtu s přihlašovacími údaji správce pro hostitelské servery clusteru spusťte následující příkaz:
 
     ```powershell
     SDNExpress\scripts\SDNExpress.ps1 -ConfigurationDataFile MultiNodeSampleConfig.psd1 -Verbose

@@ -121,7 +121,7 @@
               href: ../operator/azure-stack-create-service-principals.md?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Použití služeb
           items:
-            - name: Výpočetní prostředky
+            - name: Compute
               items:
                 - name: Přehled
                   href: azure-stack-compute-overview.md
@@ -305,8 +305,9 @@
         - name: Nasazení modulu IoT pro GPU
           href: gpu-deploy-sample-module.md
     - name: Nasazení základních vzorů
-      href: deploy-foundational-patterns.md
       items:
+        - name: Nasazení základních vzorů
+          href: deploy-foundational-patterns.md
         - name: Modely sítě
           items:
             - name: Použití síťová virtuální zařízení třetích stran (Fortinet FortiGate síťové virtuální zařízení)
@@ -373,7 +374,7 @@
       href: ../asdk/index.yml
     - name: Dokumentace k hybridnímu cloudu Azure
       href: /hybrid
-- name: Zdroje a prostředky
+- name: Zdroje informací
   items:
     - name: Mapa cest centra Azure Stack
       href: 'https://azure.microsoft.com/updates/?query=azure%20stack%20hub'
