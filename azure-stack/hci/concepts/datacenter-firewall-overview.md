@@ -1,22 +1,22 @@
 ---
-title: Přehled brány firewall Datacenter v Azure Stack HCI
-description: V tomto tématu se dozvíte, jak používat bránu firewall datového centra v Azure Stack HCI.
+title: Přehled brány firewall Datacenter v Azure Stack HCI a Windows Server
+description: V tomto tématu se dozvíte, jak používat bránu firewall datového centra v Azure Stack HCI a Windows Server.
 author: khdownie
 ms.author: v-kedow
 ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/17/2020
-ms.openlocfilehash: 34efe18aee4a62481d81a5e9a810a0a71d97b063
-ms.sourcegitcommit: 40d3f3f0ac088d1590d1fb64ca05ac1dabf4e00c
+ms.date: 02/02/2021
+ms.openlocfilehash: 78ed83e5be35bacb51d6e03d88d7662663117f61
+ms.sourcegitcommit: 0e58c5cefaa81541d9280c0e8a87034989358647
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94874953"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99510886"
 ---
 # <a name="what-is-datacenter-firewall"></a>Co je datacentrum firewall?
 
-> Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019
+> Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019; Windows Server 2016
 
 Firewall Datacenter je síťová vrstva, 5 – n-tice (protokol, čísla zdrojového a cílového portu, zdrojová a cílová IP adresa), stavová, brána firewall pro více tenantů softwarově definované sítě (SDN). Brána firewall Datacenter chrání datové toky východní i západní a Jižní sítě napříč síťovou vrstvou virtuálních sítí a tradičními sítěmi VLAN.
 
@@ -62,5 +62,5 @@ Brána firewall Datacenter nabízí pro klienty tyto výhody:
 
 Související informace najdete v tématu také:
 
-- [Použití brány firewall Datacenter pro Software-Defined sítě v Azure Stack HCI](../manage/use-datacenter-firewall.md)
-- [SDN ve Azure Stack HCI](software-defined-networking.md)
+- [Použití brány firewall Datacenter pro Software-Defined sítě v Azure Stack HCI a Windows Server](../manage/use-datacenter-firewall.md)
+- [SDN v Azure Stack HCI a Windows Server](software-defined-networking.md)

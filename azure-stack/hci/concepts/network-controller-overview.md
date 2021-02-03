@@ -1,22 +1,22 @@
 ---
-title: Přehled síťového adaptéru v Azure Stack HCI
-description: V tomto tématu se dozvíte víc o síťovém adaptéru pro softwarově definované sítě v Azure Stack HCI.
+title: Přehled síťového adaptéru v Azure Stack HCI a Windows Server
+description: V tomto tématu se dozvíte víc o síťovém adaptéru pro softwarově definované sítě v Azure Stack HCI a Windows Server.
 author: khdownie
 ms.author: v-kedow
 ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/8/2020
-ms.openlocfilehash: f8c559ff409cb6344f20ffa85a60983724ae5b17
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.date: 02/02/2021
+ms.openlocfilehash: e73d76657ec8f92ced5397f1b5d251cffbe59b9d
+ms.sourcegitcommit: 0e58c5cefaa81541d9280c0e8a87034989358647
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255040"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99510869"
 ---
 # <a name="what-is-network-controller"></a>Co je síťový adaptér?
 
-> Platí pro Azure Stack HCI, verze 20H2; Windows Server 2019
+> Platí pro Azure Stack HCI, verze 20H2; Windows Server 2019; Windows Server 2016
 
 Síťový adaptér je základem správy softwarově definovaných sítí (SDN). Je to vysoce škálovatelná role serveru, která poskytuje centralizovaný, programovatelný bod automatizace pro správu, konfiguraci, monitorování a odstraňování potíží infrastruktury virtuální sítě.
 
@@ -76,11 +76,10 @@ Další informace o trasách definovaných uživatelem najdete v tématu [použi
 
 - Síťový adaptér při zajištění vysoké dostupnosti a škálovatelnosti spoléhá na Service Fabric. Service Fabric poskytuje platformu distribuovaných systémů pro vytváření škálovatelných, spolehlivých a snadno spravovaných aplikací. [Přečtěte si další informace o síťovém adaptéru jako Service Fabric aplikaci](/windows-server/networking/sdn/technologies/network-controller/network-controller-high-availability#network-controller-as-a-service-fabric-application).
 
-
 ## <a name="next-steps"></a>Další kroky
 
 Související informace najdete v tématu také:
 
 - [Plánování nasazení síťového adaptéru](network-controller.md)
 - [Nasazení síťového adaptéru pomocí Windows PowerShellu](https://github.com/microsoft/SDN/tree/master/SDNExpress/scripts)
-- [SDN ve Azure Stack HCI](software-defined-networking.md)
+- [SDN v Azure Stack HCI a Windows Server](software-defined-networking.md)

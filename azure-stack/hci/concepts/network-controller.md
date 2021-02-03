@@ -1,22 +1,22 @@
 ---
 title: Plánování nasazení síťového adaptéru
-description: Toto téma popisuje, jak naplánovat nasazení síťového adaptéru prostřednictvím centra pro správu Windows na sadu virtuálních počítačů s operačním systémem Azure Stack HCI.
+description: Toto téma popisuje, jak naplánovat nasazení síťového adaptéru prostřednictvím centra pro správu systému Windows na sadu virtuálních počítačů (VM).
 author: AnirbanPaul
 ms.author: anpaul
 ms.topic: conceptual
-ms.date: 10/7/2020
-ms.openlocfilehash: 3ac17ca9cd54c2ec387ceb39cbda76f7cb539305
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.date: 02/02/2021
+ms.openlocfilehash: bfea9216cefdc64c7749f8b49d5ecc3a422e5130
+ms.sourcegitcommit: 0e58c5cefaa81541d9280c0e8a87034989358647
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255074"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99510784"
 ---
 # <a name="plan-to-deploy-network-controller"></a>Plánování nasazení síťového adaptéru
 
->Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019
+>Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019; Windows Server 2016
 
-Plánování nasazení síťového adaptéru prostřednictvím centra pro správu Windows vyžaduje sadu virtuálních počítačů, na kterých běží operační systém Azure Stack HCI. Síťový adaptér je vysoce dostupná a škálovatelná role serveru, která vyžaduje minimálně tři virtuální počítače pro zajištění vysoké dostupnosti ve vaší síti.
+Plánování nasazení síťového adaptéru prostřednictvím centra pro správu Windows vyžaduje sadu virtuálních počítačů s operačním systémem Azure Stack HCI nebo Windows Server. Síťový adaptér je vysoce dostupná a škálovatelná role serveru, která vyžaduje minimálně tři virtuální počítače pro zajištění vysoké dostupnosti ve vaší síti.
 
    >[!NOTE]
    > K nasazení síťového adaptéru doporučujeme použít vlastní vyhrazené virtuální počítače.
@@ -56,12 +56,10 @@ Uzly clusteru síťového adaptéru můžete nasadit ve stejné podsíti nebo v 
 Další informace najdete v tématu [Konfigurace dynamické registrace DNS pro síťový adaptér](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller).
 
 ## <a name="next-steps"></a>Další kroky
-Teď jste připraveni nasadit síťový adaptér na virtuální počítače s operačním systémem.
+Teď jste připraveni nasadit síťový adaptér na virtuální počítače.
 
-Další informace najdete v následujících tématech:
+## <a name="see-also"></a>Viz také
 - [Vytvoření clusteru Azure Stack HCI](../deploy/create-cluster.md)
-- [Nasazení síťového adaptéru pomocí Windows PowerShellu](https://github.com/microsoft/SDN/tree/master/SDNExpress/scripts)
-
-## <a name="see-also"></a>Viz také:
-- [Síťový adaptér](/windows-server/networking/sdn/technologies/network-controller/network-controller)
+- [Nasazení infrastruktury SDN pomocí SDN Express](../manage/sdn-express.md)
+- [Přehled síťového adaptéru](network-controller-overview.md)
 - [Vysoká dostupnost síťového adaptéru](/windows-server/networking/sdn/technologies/network-controller/network-controller-high-availability)

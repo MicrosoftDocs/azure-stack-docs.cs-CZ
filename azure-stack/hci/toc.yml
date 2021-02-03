@@ -94,8 +94,6 @@
           href: manage/monitor-cluster.md
         - name: Nastavení určujícího clusteru
           href: manage/witness.md
-        - name: Použití brány firewall Datacenter
-          href: manage/use-datacenter-firewall.md
         - name: Použití DISKSPD k testování úloh
           href: manage/diskspd-overview.md
         - name: Přidat nebo odebrat servery
@@ -114,6 +112,8 @@
       items:
         - name: Nasazení infrastruktury SDN
           href: manage/sdn-express.md
+        - name: Použití brány firewall Datacenter
+          href: manage/use-datacenter-firewall.md
         - name: Správa virtuálních sítí tenantů
           href: manage/tenant-virtual-networks.md
     - name: Správa služeb Azure

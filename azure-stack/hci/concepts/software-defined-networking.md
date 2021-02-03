@@ -1,28 +1,28 @@
 ---
-title: Softwarově definované sítě (SDN) v Azure Stack HCI
+title: Softwarově definované sítě (SDN) v Azure Stack HCI a Windows Server
 description: Softwarově definované sítě (SDN) poskytují způsob, jak centrálně konfigurovat a spravovat sítě a síťové služby, jako je přepínání, směrování a vyrovnávání zatížení ve vašem datovém centru.
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 01/22/2021
-ms.openlocfilehash: ee4046837b012f5ea55a85db418e2af35f84a7ee
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.date: 02/02/2021
+ms.openlocfilehash: d67f16b65e13c700360bd85096dd1454745772c0
+ms.sourcegitcommit: 0e58c5cefaa81541d9280c0e8a87034989358647
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98772259"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99510716"
 ---
-# <a name="software-defined-networking-sdn-in-azure-stack-hci"></a>Softwarově definované sítě (SDN) v Azure Stack HCI
+# <a name="software-defined-networking-sdn-in-azure-stack-hci-and-windows-server"></a>Softwarově definované sítě (SDN) v Azure Stack HCI a Windows Server
 
-> Platí pro Azure Stack HCI, verze 20H2; Windows Server 2019
+> Platí pro Azure Stack HCI, verze 20H2; Windows Server 2019; Windows Server 2016
 
 Softwarově definované sítě (SDN) poskytují způsob, jak centrálně konfigurovat a spravovat sítě a síťové služby, jako je přepínání, směrování a vyrovnávání zatížení ve vašem datovém centru. Pomocí SDN můžete dynamicky vytvářet, zabezpečovat a připojovat síť, aby splňovala požadavky vašich aplikací na vývoj. Provozování celosvětově škálovatelných Datacenter pro služby, jako je Microsoft Azure, což efektivně provádí desítky tisíců síťových změn každý den, je možné jenom z důvodu SDN.
 
 Prvky virtuální sítě, jako je [virtuální přepínač Hyper-v](/windows-server/virtualization/hyper-v-virtual-switch/hyper-v-virtual-switch), [virtualizace sítě Hyper-v](/windows-server/networking/sdn/technologies/hyper-v-network-virtualization/hyper-v-network-virtualization), [Vyrovnávání zatížení softwaru](/windows-server/networking/sdn/technologies/network-function-virtualization/software-load-balancing-for-sdn)a [Brána služby RAS](/windows-server/networking/sdn/technologies/network-function-virtualization/ras-gateway-for-sdn) , jsou navržené tak, aby byly integrálními prvky vaší infrastruktury Sdn. Můžete také použít stávající zařízení kompatibilní s technologií SDN a dosáhnout tak hlubší integrace mezi úlohami spuštěnými ve virtuálních sítích a fyzickou sítí.
 
-Existují tři hlavní komponenty SDN na Azure Stack HCI a můžete zvolit, který chcete nasadit: síťový adaptér, Load Balancer softwaru a bránu.
+Existují tři hlavní komponenty SDN a můžete zvolit, který chcete nasadit: síťový adaptér, Load Balancer softwaru a bránu.
 
    > [!NOTE]
    > SDN není v roztaženém clusteru (více lokalit) podporován.
@@ -38,7 +38,7 @@ Nasazení síťového adaptéru umožňuje následující funkce:
 - Připojte virtuální zařízení k virtuálním sítím.
 - Nakonfigurujte zásady QoS (Quality of Service) pro virtuální počítače připojené k virtuální síti nebo k tradiční síti založené na síti VLAN.
 
-Po vytvoření clusteru Azure Stack HCI doporučujeme nasadit [síťový adaptér pomocí SDN Express](../manage/sdn-express.md) .
+K nasazení [síťového adaptéru doporučujeme použít službu SDN Express](../manage/sdn-express.md).
 
 ## <a name="software-load-balancing"></a>Vyrovnávání zatížení softwaru
 
@@ -59,5 +59,4 @@ Brány používají [Border Gateway Protocol](/windows-server/remote/remote-acce
 Související informace najdete v tématu také:
 
 - [Plánování infrastruktury softwarově definované sítě](plan-software-defined-networking-infrastructure.md)
-- [SDN v systému Windows Server – přehled](/windows-server/networking/sdn/software-defined-networking)
 - [Nasazení infrastruktury SDN pomocí SDN Express](../manage/sdn-express.md)

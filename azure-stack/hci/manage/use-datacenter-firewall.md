@@ -1,22 +1,22 @@
 ---
-title: Použití brány firewall Datacenter pro SDN ve Azure Stack HCI
-description: V tomto tématu se naučíte používat bránu firewall datového centra pro Software-Defined sítě v Azure Stack HCI.
+title: Použití brány firewall Datacenter pro SDN ve Azure Stack HCI a Windows serveru
+description: V tomto tématu se naučíte používat bránu firewall datového centra pro Software-Defined sítě v Azure Stack HCL, Windows Server 2019 a Windows Server 2016.
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/17/2020
-ms.openlocfilehash: 833780947bd698a0e39709668715372bd8508e90
-ms.sourcegitcommit: 40d3f3f0ac088d1590d1fb64ca05ac1dabf4e00c
+ms.date: 02/02/2021
+ms.openlocfilehash: 8c150de090bd1f863a29109ddae9d6e4bb104dfc
+ms.sourcegitcommit: 0e58c5cefaa81541d9280c0e8a87034989358647
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94881213"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99510699"
 ---
-# <a name="use-datacenter-firewall-for-software-defined-networking-in-azure-stack-hci"></a>Použití brány firewall Datacenter pro Software-Defined sítě v Azure Stack HCI
+# <a name="use-datacenter-firewall-for-software-defined-networking-in-azure-stack-hci-and-windows-server"></a>Použití brány firewall Datacenter pro Software-Defined sítě v Azure Stack HCI a Windows Server
 
-> Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019
+> Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019; Windows Server 2016
 
 Toto téma obsahuje pokyny pro konfiguraci seznamů řízení přístupu (ACL) pro správu toku přenosů dat pomocí [brány firewall Datacenter](../concepts/datacenter-firewall-overview.md) pro softwarově definované sítě (SDN) v Azure Stack HCL pomocí prostředí Windows PowerShell. Povolíte a nakonfigurujete bránu firewall Datacenter vytvořením seznamů řízení přístupu, které se aplikují na podsíť nebo síťové rozhraní. V ukázkových skriptech v tomto tématu se používají příkazy prostředí Windows PowerShell exportované z modulu **NetworkController** . Ke konfiguraci a správě seznamů ACL můžete použít také centrum pro správu systému Windows.
 
@@ -207,7 +207,7 @@ New-NetworkControllerAccessControlList -ResourceId "Subnet-192-168-0-0" -Propert
 
 ## <a name="add-an-acl-to-a-network-interface"></a>Přidat seznam řízení přístupu k síťovému rozhraní
 
-Jakmile vytvoříte seznam ACL a přiřadíte ho k virtuální podsíti, možná budete chtít přepsat výchozí seznam ACL ve virtuální podsíti s konkrétním seznamem ACL pro jednotlivá síťová rozhraní. V takovém případě použijete místo virtuální sítě konkrétní seznamy ACL přímo na síťová rozhraní připojená k sítím VLAN. Pokud máte nastavené seznamy ACL ve virtuální podsíti připojené k síťovému rozhraní, uplatní se oba seznamy ACL a určí prioritu seznamů ACL síťového rozhraní nad rámec seznamů ACL virtuální podsítě.
+Jakmile vytvoříte seznam ACL a přiřadíte ho k virtuální podsíti, možná budete chtít přepsat výchozí seznam ACL ve virtuální podsíti s konkrétním seznamem ACL pro jednotlivá síťová rozhraní. Počínaje systémem Windows Server 2019 Datacenter můžete použít určité seznamy ACL přímo na síťová rozhraní připojená k logickým sítím SDN a navíc k virtuálním sítím SDN. Pokud máte nastavené seznamy ACL ve virtuální podsíti připojené k síťovému rozhraní, budou se použít oba seznamy řízení přístupu (ACL) a seznamy ACL pro síťové rozhraní se budou upřednostňovat nad rámec seznamů ACL virtuální podsítě.
 
 V tomto příkladu ukážeme, jak přidat seznam ACL k virtuální síti.
 
@@ -259,7 +259,7 @@ V tomto příkladu vám ukážeme, jak odebrat seznam ACL ze síťového rozhran
 
 ## <a name="firewall-auditing"></a>Auditování brány firewall
 
-Auditování brány firewall je nová možnost pro bránu firewall datového centra, která zaznamenává jakýkoliv tok zpracovaný pravidly brány firewall SDN. Zaznamenávají se všechny seznamy ACL s povoleným protokolováním. Soubory protokolu musí být v syntaxi, která je konzistentní s [protokoly toku služby Azure Network Watcher](/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Tyto protokoly je možné použít pro diagnostiku nebo archivaci pro pozdější analýzu.
+V systému Windows Server 2019 je auditování brány firewall novou funkcí pro bránu firewall datového centra, která zaznamenává libovolný tok zpracovaný pravidly brány firewall SDN. Zaznamenávají se všechny seznamy ACL s povoleným protokolováním. Soubory protokolu musí být v syntaxi, která je konzistentní s [protokoly toku služby Azure Network Watcher](/azure/network-watcher/network-watcher-nsg-flow-logging-overview). Tyto protokoly je možné použít pro diagnostiku nebo archivaci pro pozdější analýzu.
 
 Tady je ukázkový skript, který povolí auditování brány firewall na hostitelských serverech. Aktualizujte proměnné na začátku a spusťte ji na Azure Stack clusteru HCI se nasazeným [síťovým adaptérem](../concepts/network-controller-overview.md) :
 
@@ -412,4 +412,4 @@ Související informace najdete v tématu také:
 
 - [Přehled brány firewall Datacenter](../concepts/datacenter-firewall-overview.md)
 - [Přehled síťového adaptéru](../concepts/network-controller-overview.md)
-- [SDN ve Azure Stack HCI](../concepts/software-defined-networking.md)
+- [SDN v Azure Stack HCI a Windows Server](../concepts/software-defined-networking.md)

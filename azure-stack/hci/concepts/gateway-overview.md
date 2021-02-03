@@ -1,22 +1,22 @@
 ---
-title: Přehled brány RAS v Azure Stack HCI
-description: V tomto tématu se dozvíte o bráně RAS pro softwarově definované sítě v Azure Stack HCI.
+title: Přehled brány RAS v Azure Stack HCI a Windows Server
+description: V tomto tématu se dozvíte o bráně RAS pro softwarově definované sítě v Azure Stack HCI a Windows Server.
 author: khdownie
 ms.author: v-kedow
 ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/8/2020
-ms.openlocfilehash: a7f05f7e07960e83681a13c92f4653b0993668de
-ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
+ms.date: 02/02/2021
+ms.openlocfilehash: d0658ab5d000f42a2cc9309a1a298eb62048b980
+ms.sourcegitcommit: 0e58c5cefaa81541d9280c0e8a87034989358647
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91858889"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99510852"
 ---
 # <a name="what-is-ras-gateway-for-software-defined-networking"></a>Co je brána služby RAS pro softwarově definované sítě?
 
-> Platí pro Azure Stack HCI, verze 20H2; Windows Server 2019
+> Platí pro Azure Stack HCI, verze 20H2; Windows Server 2019; Windows Server 2016
 
 Brána služby Remote Access Service (RAS) je směrovač podporující protokol BGP (software-based Border Gateway Protocol), který je určený pro poskytovatele cloudových služeb (CSP) a podniky hostující virtuální sítě s více klienty pomocí virtualizace sítě Hyper-V (HNV). Bránu RAS můžete použít ke směrování síťového provozu mezi virtuální sítí a jinou sítí, a to buď místně, nebo vzdáleně.
 
@@ -70,4 +70,4 @@ Související informace najdete v tématu také:
 - [Architektura nasazení brány služby RAS](/windows-server/networking/sdn/technologies/network-function-virtualization/ras-gateway-deployment-architecture)
 - [Přehled síťového adaptéru](network-controller-overview.md)
 - [Plánování nasazení síťového adaptéru](network-controller.md)
-- [SDN ve Azure Stack HCI](software-defined-networking.md)
+- [SDN v Azure Stack HCI a Windows Server](software-defined-networking.md)

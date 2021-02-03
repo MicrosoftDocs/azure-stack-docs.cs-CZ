@@ -1,24 +1,24 @@
 ---
-title: Software Load Balancer (SLB) pro SDN v Azure Stack HCI
-description: V tomto tématu se dozvíte o Load Balancer softwaru pro softwarově definované sítě v Azure Stack HCI.
+title: Software Load Balancer (SLB) pro SDN v Azure Stack HCI a Windows Server
+description: V tomto tématu se dozvíte o Load Balancer softwaru pro softwarově definované sítě v Azure Stack HCI a Windows Server.
 author: khdownie
 ms.author: v-kedow
 ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/8/2020
-ms.openlocfilehash: 35cf6d997a7200b762b8da052e5e30038f288bdc
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.date: 02/02/2021
+ms.openlocfilehash: cabd243daa8ea427ca7a1684f1db9be4770c214f
+ms.sourcegitcommit: 0e58c5cefaa81541d9280c0e8a87034989358647
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98254989"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99510767"
 ---
 # <a name="what-is-software-load-balancer-slb-for-sdn"></a>Co je software Load Balancer \( SLB \) pro Sdn?
 
-> Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019
+> Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019; Windows Server 2016
 
-Poskytovatelé cloudových služeb (CSP) a podniky, které nasazují [software definované sítě (SDN) v Azure Stack HCI](software-defined-networking.md) , můžou k rovnoměrné distribuci síťového provozu klientů a klientů tenanta mezi prostředky virtuální sítě použít software Load BALANCER (SLB). SLB umožňuje více serverům hostovat stejnou úlohu, což zajišťuje vysokou dostupnost a škálovatelnost.
+Poskytovatelé cloudových služeb (CSP) a podniky, které nasazují [software definované sítě (SDN)](software-defined-networking.md) , můžou používat software Load BALANCER (SLB) k rovnoměrné distribuci síťových přenosů klienta a zákazníka klienta mezi prostředky virtuální sítě. SLB umožňuje více serverům hostovat stejnou úlohu, což zajišťuje vysokou dostupnost a škálovatelnost.
 
 Load Balancer softwaru obsahuje následující funkce:
 
@@ -206,4 +206,4 @@ Související informace najdete v tématu také:
 
 - [Přehled síťového adaptéru](network-controller-overview.md)
 - [Nasazení síťového adaptéru pomocí Windows PowerShellu](https://github.com/microsoft/SDN/tree/master/SDNExpress/scripts)
-- [SDN ve Azure Stack HCI](software-defined-networking.md)
+- [SDN v Azure Stack HCI a Windows Server](software-defined-networking.md)

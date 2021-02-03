@@ -1,22 +1,22 @@
 ---
-title: Přehled reflektorů směrování protokolu BGP v Azure Stack HCI
-description: V tomto tématu se dozvíte o odrážejících tras protokolu BGP pro softwarově definované sítě v Azure Stack HCI.
+title: Přehled reflektorů tras protokolu BGP v Azure Stack HCI a Windows Server
+description: V tomto tématu se dozvíte o odrážejících tras protokolu BGP pro softwarově definované sítě v Azure Stack HCI a Windows Server.
 author: khdownie
 ms.author: v-kedow
 ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/8/2020
-ms.openlocfilehash: ca130c60e8cf08484001f606c4d0f84d786ca16b
-ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
+ms.date: 02/02/2021
+ms.openlocfilehash: 836931b0efa6c3629123602c141ec5ea35f8aa40
+ms.sourcegitcommit: 0e58c5cefaa81541d9280c0e8a87034989358647
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91858885"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99510835"
 ---
 # <a name="what-is-route-reflector"></a>Co je reflektor směrování?
 
-> Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019
+> Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019; Windows Server 2016
 
 [Služba vzdáleného přístupu (RAS) obsahuje bránu protokolu BGP (Remote Access Service](gateway-overview.md) ), která je k dispozici jako alternativa k celé TOPOLOGII protokolu BGP, která je vyžadována pro synchronizaci směrování mezi směrovači. Border Gateway Protocol Reflektor trasy v nasazení softwarově definované sítě je logická entita, která je umístěná na rovině ovládacího prvku mezi bránami služby RAS a [síťovým adaptérem](network-controller-overview.md). Nejedná se však o zapojení do směrování roviny dat.
 
