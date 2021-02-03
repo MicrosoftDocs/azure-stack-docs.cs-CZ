@@ -8,12 +8,12 @@ ms.date: 06/16/2020
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 06/16/2020
-ms.openlocfilehash: 6ee19c12e1a80e8c41c5c33d9c2b613d86fbc104
-ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
+ms.openlocfilehash: 3fdd8701fa61476caa3a6db3e3c5ce8789d1fd09
+ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98243489"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99495478"
 ---
 # <a name="azure-stack-hub-administration-basics---ruggedized"></a>Základy správy centra Azure Stack – robustní
 
@@ -53,13 +53,13 @@ Tyto služby vyžadují další konfiguraci, abyste je mohli zpřístupnit uživ
 
 ### <a name="service-roadmap"></a>Plán služby
 
-Centrum Azure Stack bude dál přidávat podporu pro služby Azure. Plánovaný plán najdete v tématu [centrum Azure Stack: rozšíření Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) White Paper. Můžete také monitorovat [příspěvky na blogu centra Azure Stack](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) pro nová oznámení.
+Centrum Azure Stack bude dál přidávat podporu pro služby Azure. Plánovaný plán najdete v tématu [centrum Azure Stack: rozšíření Azure](https://azure.microsoft.com/resources/videos/azure-friday-azure-stack-an-extension-of-azure/) White Paper. Můžete také monitorovat [příspěvky na blogu centra Azure Stack](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) pro nová oznámení.
 
 ## <a name="what-account-should-i-use"></a>Jaký účet mám použít?
 
 Při správě centra Azure Stack je potřeba vědět o několika ohledech. To platí hlavně v nasazeních, která používají Windows Server Active Directory Federation Services (AD FS) (AD FS) jako zprostředkovatele identity místo Azure Active Directory (Azure AD).
 
-| **Účet** | **Azure** | **AD FS** |
+| **Zohledňují** | **Azure** | **AD FS** |
 |---|---|---|
 | Místní správce (.\Administrator) |   |
 | Globální správce Azure AD | Používá se během instalace. <br> Vlastník výchozího zprostředkovatele | Neužívá se. |
@@ -106,7 +106,7 @@ Tady je seznam každodenních, týdenních a měsíčních úloh pro operátor:
 4. Zkontroluje stav systému Isilon a události v OneFS.
 5. Ověřte Isilonou kapacitu.
 
-# <a name="weekly"></a>[Týdně](#tab/weekly)
+# <a name="weekly"></a>[Každý týden](#tab/weekly)
 
 1. Podívejte se na kapacitu.
 2. Spusťte `isi status –verbose` v Avocent připojení.

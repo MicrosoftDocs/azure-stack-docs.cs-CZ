@@ -7,12 +7,12 @@ ms.date: 04/02/2020
 ms.author: patricka
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2019
-ms.openlocfilehash: 89cb7fe7ee0f8e19c2774d5ebfef988ec0933e03
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 56b0025de1eee074eb0d6fbcdff8228cdbb9ac4e
+ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97871017"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99495546"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>Požadavky na plánování integrace Datacenter pro integrované systémy centra Azure Stack
 
@@ -82,7 +82,7 @@ Musíte si představit, jak chcete naplánovat obor názvů centra Azure Stack, 
 
 Následující tabulka shrnuje tato rozhodnutí o pojmenovávání domén.
 
-| Název | Popis |
+| Název | Description |
 | -------- | ------------- |
 |Název oblasti | Název první oblasti centra Azure Stack. Tento název se používá jako součást plně kvalifikovaného názvu domény pro veřejné virtuální IP adresy (VIP), které Azure Stack hub spravuje. Obvykle by název oblasti představoval identifikátor fyzického umístění, jako je například umístění datového centra.<br><br>Název oblasti se musí skládat jenom z písmen a číslic mezi 0-9. Nejsou povoleny žádné speciální znaky (například `-` , `#` atd.).| 
 | Název externí domény | Název zóny DNS (Domain Name System) pro koncové body s externími VIP adresami. Používá se v plně kvalifikovaném názvu domény pro tyto veřejné virtuální IP adresy. | 
@@ -129,7 +129,7 @@ V případě hybridního připojení je důležité zvážit, jaký typ nasazen�
 
 Následující tabulka shrnuje scénáře hybridního připojení s případy pro profesionály, nevýhody a použití.
 
-| Scénář | Metoda připojení | Výhody | Nevýhody | Vhodné pro |
+| Scenario | Metoda připojení | Výhody | Nevýhody | Vhodné pro |
 | -- | -- | --| -- | --|
 | Centrum Azure Stack pro jednoho tenanta, nasazení v intranetu | Odchozí NAT | Lepší šířka pásma pro rychlejší přenos. Jednoduchá implementace; nevyžadují se žádné brány. | Provoz není šifrovaný; žádná izolace ani šifrování mimo zásobník. | Podniková nasazení, kde jsou všichni klienti stejně důvěryhodní.<br><br>Podniky, které mají okruh Azure ExpressRoute do Azure. |
 | Centrum Azure Stack pro více tenantů, nasazení v intranetu | Site-to-site VPN | Provoz z virtuální sítě VNet do cíle je zabezpečený. | Šířka pásma je omezená tunelovým propojením VPN typu Site-to-site.<br><br>Vyžaduje bránu ve virtuální síti a v zařízení VPN v cílové síti. | Podniková nasazení, kde musí být určitý klientský provoz zabezpečený z jiných tenantů. |
@@ -156,7 +156,7 @@ V rámci řešení centra Azure Stack je hostitel životního cyklu hardwaru po�
 
 Následující tabulka shrnuje seznam aktuálně dostupných možností.
 
-| Oblast | Řešení externích monitorování |
+| Plošný | Řešení externích monitorování |
 | -- | -- |
 | Software centra Azure Stack | [Sada Management Pack centra Azure Stack pro Operations Manager](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/)<br>[Modul plug-in Nagios](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)<br>Volání rozhraní API založených na REST | 
 | Fyzické servery (BMC přes IPMI) | Hardware výrobce OEM Operations Manager Management Pack dodavatele<br>Řešení poskytované dodavatelem hardwaru OEM<br>Moduly plug-in Nagios dodavatele hardwaru.<br>Řešení monitorování podporované partnerem OEM (zahrnuté) | 
@@ -201,7 +201,7 @@ Chcete-li replikovat data do sekundárního umístění a orchestrovat převzet�
 ## <a name="learn-more"></a>Další informace
 
 - Informace o případech použití, nákupu, partnerech a dodavatelích hardwarových výrobců OEM najdete na stránce produktu [Azure Stack hub](https://azure.microsoft.com/overview/azure-stack/) .
-- Informace o plánu a geografické dostupnosti pro integrované systémy Azure Stack hub najdete v dokumentu White Paper: [Azure Stack hub: rozšíření Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Informace o plánu a geografické dostupnosti pro integrované systémy Azure Stack hub najdete v dokumentu White Paper: [Azure Stack hub: rozšíření Azure](https://azure.microsoft.com/resources/videos/azure-friday-azure-stack-an-extension-of-azure/). 
 
 ## <a name="next-steps"></a>Další kroky
 [Modely připojení nasazení centra Azure Stack](azure-stack-connection-models.md)

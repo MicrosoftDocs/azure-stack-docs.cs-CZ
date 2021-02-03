@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: patricka
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 82317b5212775f37b25ff465a4ea3b4ba085b585
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 6812ac4b0841e44b760ce3397c5a06b2051e0036
+ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97871068"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99495512"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Rozhodnutí týkající se plánování nasazení spojené s Azure pro integrované systémy centra Azure Stack
 Až se rozhodnete, [jak budete Azure Stack hub integrovat do svého hybridního cloudového prostředí](azure-stack-connection-models.md), můžete dokončit rozhodnutí o nasazení Azure Stack centra.
@@ -55,7 +55,7 @@ S využitím modelu fakturace s průběžnými platbami podle aktuálního využ
 
 Pokud se chystáte použít předplatné CSP, Projděte si následující tabulku a určete, které předplatné CSP chcete použít, protože správný přístup závisí na konkrétním scénáři CSP:
 
-|Scénář|Možnosti domény a předplatného|
+|Scenario|Možnosti domény a předplatného|
 |-----|-----|
 |Jste přímý poskytovatel **CSP** nebo **nepřímo zprostředkovatel CSP** a budete pracovat s centrem Azure Stack.|Použijte předplatné CSL (Common Service Layer).<br>     nebo<br>Vytvořte tenanta Azure AD s popisným názvem v partnerském centru. &lt;Vaše organizace například>CSPAdmin s předplatným CSP Azure, které je k němu přidružené.|
 |Jste **nepřímým prodejcem CSP** a budete pracovat s centrem Azure Stack.|Požádejte svého nepřímý poskytovatel CSP, aby vytvořil tenanta Azure AD pro vaši organizaci s předplatným CSP Azure, které je k němu přidruženo pomocí partnerského centra.|
@@ -67,7 +67,7 @@ Fakturace kapacity vyžaduje předplatné Azure smlouva Enterprise (EA) pro regi
 
 ## <a name="learn-more"></a>Další informace
 - Informace o případech použití, nákupu, partnerech a dodavatelích hardwarových výrobců OEM najdete na stránce produktu [Azure Stack hub](https://azure.microsoft.com/overview/azure-stack/) .
-- Informace o plánu a geografické dostupnosti pro integrované systémy Azure Stack hub najdete v dokumentu White Paper: [Azure Stack hub: rozšíření Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Informace o plánu a geografické dostupnosti pro integrované systémy Azure Stack hub najdete v dokumentu White Paper: [Azure Stack hub: rozšíření Azure](https://azure.microsoft.com/resources/videos/azure-friday-azure-stack-an-extension-of-azure/). 
 - Pokud se chcete dozvědět víc o Microsoft Azure Stackovém balení a cenách centra, [Stáhněte si soubor. PDF](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
 ## <a name="next-steps"></a>Další kroky

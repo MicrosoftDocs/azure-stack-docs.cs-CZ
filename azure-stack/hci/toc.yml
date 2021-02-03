@@ -132,6 +132,10 @@
           href: manage/use-azure-backup.md
         - name: Použít síťový adaptér Azure
           href: manage/use-azure-network-adapter.md
+    - name: Správa SDN
+      items:
+        - name: Logické sítě klientů
+          href: manage/tenant-logical-networks.md
 - name: Koncepty
   items:
     - name: Úložiště a clustery

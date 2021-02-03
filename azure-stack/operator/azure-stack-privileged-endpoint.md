@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/28/2020
 ms.custom: conteperfq4
-ms.openlocfilehash: 18c1935c1e683fab1a2cda8886a45648ee69fbf4
-ms.sourcegitcommit: 52c934f5eeb5fcd8e8f2ce3380f9f03443d1e445
+ms.openlocfilehash: 4e1a00be9f4adadee5d1bf1e647c455773211b61
+ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97974281"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99495529"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Použití privilegovaného koncového bodu v centru Azure Stack
 
@@ -43,7 +43,7 @@ IP adresu můžete najít také na portálu pro správu centra Azure Stack. Otev
 `en-US`Při spuštění privilegovaného koncového bodu budete muset nastavit aktuální nastavení jazykové verze, jinak rutiny, jako je Test-AzureStack nebo Get-AzureStackLog, nebudou fungovat podle očekávání.
 
 > [!NOTE]
-> Z bezpečnostních důvodů vyžadujeme, abyste se připojili ke službě PEP jenom z posíleného virtuálního počítače, který běží na hostiteli životního cyklu hardwaru, nebo z vyhrazeného a zabezpečeného počítače, jako je například [pracovní stanice privilegovaného přístupu](/windows-server/identity/securing-privileged-access/privileged-access-workstations). Původní konfigurace hostitele životního cyklu hardwaru nesmí být upravena z původní konfigurace (včetně instalace nového softwaru) nebo používaná pro připojení k PEP.
+> Z bezpečnostních důvodů vyžadujeme, abyste se připojili ke službě PEP jenom z posíleného virtuálního počítače, který běží na hostiteli životního cyklu hardwaru, nebo z vyhrazeného a zabezpečeného počítače, jako je například [pracovní stanice privilegovaného přístupu](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model). Původní konfigurace hostitele životního cyklu hardwaru nesmí být upravena z původní konfigurace (včetně instalace nového softwaru) nebo používaná pro připojení k PEP.
 
 1. Vytvořte vztah důvěryhodnosti.
 
@@ -191,8 +191,8 @@ Ukončení relace koncového bodu:
 
    | Parametr | Popis | Typ | Vyžadováno |
    |---------|---------|---------|---------|
-   | *TranscriptsPathDestination* | Cesta k externímu sdílení souborů definovaná jako "fileshareIP\sharefoldername" | Řetězec | Ano|
-   | *Přihlašovací údaj* | Přihlašovací údaje pro přístup ke sdílené složce souborů | SecureString |   Ano |
+   | *TranscriptsPathDestination* | Cesta k externímu sdílení souborů definovaná jako "fileshareIP\sharefoldername" | Řetězec | Yes|
+   | *Přihlašovací údaj* | Přihlašovací údaje pro přístup ke sdílené složce souborů | SecureString |   Yes |
 
 
 Po úspěšném přenosu souborů protokolu přepisu do sdílené složky se automaticky odstraní z PEP. 
@@ -251,5 +251,5 @@ Token odpovědi je pak zašifrovaný pomocí certifikátu podepsaného svým dr�
 
 ## <a name="next-steps"></a>Další kroky
 
-- [Diagnostické nástroje centra Azure Stack](./azure-stack-diagnostic-log-collection-overview.md)
+- [Diagnostické nástroje centra Azure Stack](./diagnostic-log-collection.md)
 - [Referenční informace k privilegovanému koncovému bodu centra Azure Stack](../reference/pep-2002/index.md)

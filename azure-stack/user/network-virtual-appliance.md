@@ -7,12 +7,12 @@ ms.date: 11/22/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: bb5d62b4e5302762b4feddfd7afd7b7a39002187
-ms.sourcegitcommit: 8526f642ef859b0006c3991d966f93608a87288a
+ms.openlocfilehash: f247e8c604b9b1060f4cc011acdbd9786b487ab1
+ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98243319"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99495495"
 ---
 # <a name="troubleshoot-network-virtual-appliance-problems"></a>Řešení potíží se síťovými virtuálními zařízení
 
@@ -23,7 +23,7 @@ Tento článek vám pomůže ověřit základní požadavky na platformu Azure S
 Dodavatel síťové virtuální zařízení poskytuje technickou podporu pro síťové virtuální zařízení a jeho integraci s platformou centra Azure Stack.
 
 > [!NOTE]
-> Pokud máte potíže s připojením nebo směrováním, které zahrnuje síťové virtuální zařízení, měli byste [se obrátit přímo na dodavatele síťové virtuální zařízení](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) .
+> Pokud máte potíže s připojením nebo směrováním, které zahrnuje síťové virtuální zařízení, měli byste [se obrátit přímo na dodavatele síťové virtuální zařízení](https://mskb.pkisolutions.com/kb/2984655) .
 
 Pokud tento článek neřeší váš problém síťové virtuální zařízení pomocí centra Azure Stack, vytvořte [lístek podpory Azure Stack centra](../operator/azure-stack-manage-basics.md#where-to-get-support).
 
@@ -44,7 +44,7 @@ Pokud tento článek neřeší váš problém síťové virtuální zařízení 
 
 ## <a name="check-the-minimum-configuration-requirements-for-nvas-on-azure"></a>Ověřit minimální požadavky na konfiguraci pro síťová virtuální zařízení v Azure
 
-Každý síťové virtuální zařízení musí splňovat základní požadavky na konfiguraci pro správné fungování v Azure Stackovém centru. V této části se dozvíte o krocích při ověřování těchto základních konfigurací. Další informace získáte [od dodavatele síťové virtuální zařízení](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+Každý síťové virtuální zařízení musí splňovat základní požadavky na konfiguraci pro správné fungování v Azure Stackovém centru. V této části se dozvíte o krocích při ověřování těchto základních konfigurací. Další informace získáte [od dodavatele síťové virtuální zařízení](https://mskb.pkisolutions.com/kb/2984655).
 
 > [!IMPORTANT]
 > Pokud pakety používají tunel S2S, jsou dále zapouzdřeny pomocí dalších hlaviček. Tento zapouzdření zvyšuje celkovou velikost každého paketu.
@@ -135,7 +135,7 @@ Některé operační systémy na úrovni hosta můžou mít zavedeny zásady br�
    netstat -an | grep -i listen
    ```
 
-1. Vyhledejte porty TCP používané softwarem síťové virtuální zařízení, který je uvedený ve výsledcích. Pokud je nevidíte, nakonfigurujte aplikaci na síťové virtuální zařízení a virtuálním počítači tak, aby naslouchaly a reagovaly na provoz, který dosahuje těchto portů. [Požádejte o pomoc dodavatele síťové virtuální zařízení](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+1. Vyhledejte porty TCP používané softwarem síťové virtuální zařízení, který je uvedený ve výsledcích. Pokud je nevidíte, nakonfigurujte aplikaci na síťové virtuální zařízení a virtuálním počítači tak, aby naslouchaly a reagovaly na provoz, který dosahuje těchto portů. [Požádejte o pomoc dodavatele síťové virtuální zařízení](https://mskb.pkisolutions.com/kb/2984655).
 
 ## <a name="check-nva-performance"></a>Kontrolovat výkon síťové virtuální zařízení
 
@@ -147,7 +147,7 @@ Během špičky procesoru Zjistěte, který proces na virtuálním počítači h
 
 Možná budete muset změnit velikost virtuálního počítače na větší velikost SKU nebo pro sadu škálování virtuálního počítače zvýšit počet instancí.
 
-Pokud potřebujete pomoc, [obraťte se na dodavatele síťové virtuální zařízení](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+Pokud potřebujete pomoc, [obraťte se na dodavatele síťové virtuální zařízení](https://mskb.pkisolutions.com/kb/2984655).
 
 ### <a name="validate-vm-network-statistics"></a>Ověřit statistiku sítě virtuálních počítačů
 
@@ -183,7 +183,7 @@ Pokud nevidíte pakety do trasování virtuálních počítačů back-endu, je p
 
 Pokud vidíte, že se pakety přidávají, ale bez odpovědi, může být nutné vyřešit problém s aplikací nebo bránou firewall virtuálního počítače.
 
-Pokud potřebujete pomoc, [obraťte se na dodavatele síťové virtuální zařízení](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines).
+Pokud potřebujete pomoc, [obraťte se na dodavatele síťové virtuální zařízení](https://mskb.pkisolutions.com/kb/2984655).
 
 ### <a name="create-a-support-ticket"></a>Vytvoření lístku podpory
 
