@@ -7,12 +7,12 @@ ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/28/2020
-ms.openlocfilehash: 9bc1e73213743f1457a16bcce3a9ff4e69d370ef
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 35fbcf51430d063110f4f14ae1203f79df6cf739
+ms.sourcegitcommit: af2bec84471795c0f3ac62dcaf1347a64e529906
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99247672"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99554118"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Poznámky k verzi pro modul AKS v centru Azure Stack
 ::: moniker range=">=azs-2002"
@@ -94,7 +94,7 @@ Aktuální verzi a verzi upgradu najdete v následující tabulce pro Azure Stac
 | 1.15.12, 1.16.8, 1.16.9 | 1.16.14 |
 | 1.16.8, 1.16.9, 1.16.14 | 1.17.11 |
 
-V souboru JSON modelu rozhraní API zadejte hodnoty verze a verze v `orchestratorProfile` části, například pokud plánujete nasadit Kubernetes 1.16.14, musí být nastavené tyto dvě hodnoty (viz příklad [kubernetes-azurestack.jsv](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json)):
+V souboru JSON modelu rozhraní API zadejte hodnoty verze a verze v `orchestratorProfile` části, například pokud plánujete nasadit Kubernetes 1.16.14, musí být nastavené tyto dvě hodnoty (viz příklad [kubernetes-azurestack.jsv](https://aka.ms/aksengine-json-example-raw)):
 
 ```json  
     -   "orchestratorRelease": "1.16",
@@ -205,7 +205,7 @@ Aktuální verzi a verzi upgradu najdete v následující tabulce pro Azure Stac
 
 ## <a name="whats-new"></a>Novinky 
 
--   Podpora pro Kubernetes verze 1.15.10 ([ \# 2834](https://github.com/Azure/aks-engine/issues/2834)). Při nasazování nového clusteru Nezapomeňte zadat v souboru JSON modelu rozhraní API (a.k.s. definiční soubor clusteru) číslo verze vydání a číslo dílčí verze. Můžete najít příklad: [kubernetes-azurestack.jsv](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json):
+-   Podpora pro Kubernetes verze 1.15.10 ([ \# 2834](https://github.com/Azure/aks-engine/issues/2834)). Při nasazování nového clusteru Nezapomeňte zadat v souboru JSON modelu rozhraní API (a.k.s. definiční soubor clusteru) číslo verze vydání a číslo dílčí verze. Můžete najít příklad: [kubernetes-azurestack.jsv](https://aka.ms/aksengine-json-example-raw):
 
     - `"orchestratorRelease": "1.15`,
 

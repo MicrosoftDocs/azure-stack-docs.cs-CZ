@@ -7,12 +7,12 @@ ms.date: 01/28/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: af4187ecf610543c693aff742b1e74b8d5bef84c
-ms.sourcegitcommit: 659114a3fb90c962316eb4cddab53d2d2da35b03
+ms.openlocfilehash: 220569fd3763654f69809cc8316aca2a54e3f7ef
+ms.sourcegitcommit: af2bec84471795c0f3ac62dcaf1347a64e529906
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99065518"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99554156"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Známé problémy centra Azure Stack
 
@@ -531,5 +531,5 @@ Chcete-li získat přístup k archivovaným známým problémům pro starší ve
 ::: moniker-end
 
 ::: moniker range="<azs-2002"
-Ke [známým problémům centra Azure Stack můžete přistupovat v Galerii TechNet](https://aka.ms/azsarchivedrelnotes). Tyto archivované dokumenty jsou k dispozici pouze pro referenční účely a neznamenají podporu těchto verzí. Informace o podpoře centra Azure Stack najdete v tématu [zásady obsluhy centra Azure Stack](azure-stack-servicing-policy.md). Pokud potřebujete další pomoc, obraťte se na službu zákaznické podpory společnosti Microsoft.
+Ke starším verzím centra Azure Stack můžete získat přístup k známým problémům v obsahu na levé straně v části [**prostředky > archivu poznámek k verzi**](./relnotearchive/known-issues-1910.md). Tyto archivované články jsou k dispozici pouze pro referenční účely a neznamenají podporu těchto verzí. Informace o podpoře centra Azure Stack najdete v tématu [zásady obsluhy centra Azure Stack](azure-stack-servicing-policy.md). Pokud potřebujete další pomoc, obraťte se na službu zákaznické podpory společnosti Microsoft.
 ::: moniker-end
