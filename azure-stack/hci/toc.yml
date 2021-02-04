@@ -114,6 +114,8 @@
           href: manage/sdn-express.md
         - name: Použití brány firewall Datacenter
           href: manage/use-datacenter-firewall.md
+        - name: Správa logických sítí tenanta
+          href: manage/tenant-logical-networks.md
         - name: Správa virtuálních sítí tenantů
           href: manage/tenant-virtual-networks.md
     - name: Správa služeb Azure
@@ -132,10 +134,6 @@
           href: manage/use-azure-backup.md
         - name: Použít síťový adaptér Azure
           href: manage/use-azure-network-adapter.md
-    - name: Správa SDN
-      items:
-        - name: Logické sítě klientů
-          href: manage/tenant-logical-networks.md
 - name: Koncepty
   items:
     - name: Úložiště a clustery

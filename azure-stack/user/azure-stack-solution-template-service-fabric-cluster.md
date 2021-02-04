@@ -7,12 +7,12 @@ ms.date: 11/20/2020
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 11/20/2020
-ms.openlocfilehash: cf8d4d7ea8e1a88bb8d162bb2c5fc5e4bc41d21a
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 8196ac3bd4a945a3f620e83c9cdf44b189add3f4
+ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518309"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99534211"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack-hub"></a>Nasazení clusteru Service Fabric v centru Azure Stack
 
@@ -22,7 +22,7 @@ Další informace o práci s Service Fabric najdete v tématu Přehled [scéná�
 
 Cluster Service Fabric v centru Azure Stack nepoužívá poskytovatele prostředků Microsoft. ServiceFabric. Místo toho se v centru Azure Stack Service Fabric cluster používá sada škálování virtuálních počítačů s předinstalovaným softwarem pomocí [Konfigurace požadovaného stavu (DSC)](/powershell/scripting/dsc/overview/overview).
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 K nasazení Service Fabric clusteru se vyžadují tyto požadavky:
 1. **Certifikát clusteru**  
@@ -100,7 +100,7 @@ Pomocí následujícího skriptu vytvořte Key Vault a přidejte do něj *certif
    #==============================================================================
    
    Add-AzEnvironment -Name AzureStack -ARMEndpoint $armEndpoint
-   Login-AzAccount -Environment AzureStack -TenantId $tenantId
+   Connect-AzAccount -Environment AzureStack -TenantId $tenantId
    
    $rgName = "sfvaultrg"
    Write-Host "Creating Resource Group..." -ForegroundColor Yellow
@@ -227,7 +227,7 @@ Ke clusteru Service Fabric můžete přistupovat pomocí Service Fabric Explorer
 ### <a name="use-service-fabric-explorer"></a>Použít Service Fabric Explorer
 1.  Zajistěte, aby prohlížeč měl přístup k vašemu klientskému certifikátu správce a mohl by se ověřit do vašeho clusteru Service Fabric.  
 
-    a. Otevřete Internet Explorer a přejít na certifikáty obsahu **Možnosti Internetu**  >  **Content**  >  **Certificates**.
+    a. Otevřete Internet Explorer a přejít na certifikáty obsahu **Možnosti Internetu**  >    >  .
   
     b. V části certifikáty vyberte **importovat** a spusťte *Průvodce importem certifikátu* a potom klikněte na **Další**. Na stránce *importovat soubor* klikněte na **Procházet** a vyberte **certifikát klienta správce** , který jste zadali pro šablonu Azure Resource Manager.
         
@@ -267,7 +267,7 @@ Ke clusteru Service Fabric můžete přistupovat pomocí Service Fabric Explorer
 
 1. Po dokončení instalace nakonfigurujte proměnné prostředí systému, aby se zajistilo, že jsou rutiny Service Fabric dostupné z PowerShellu.  
     
-    a. Otevřete **Ovládací panely**  >  **systém a zabezpečení**  >  **System** a pak vyberte **Upřesnit nastavení systému**.  
+    a. Otevřete **Ovládací panely**  >  **systém a zabezpečení**  >  a pak vyberte **Upřesnit nastavení systému**.  
     
       ![Ovládací panely](media/azure-stack-solution-template-service-fabric-cluster/image15.png) 
 

@@ -7,12 +7,12 @@ ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/16/2020
-ms.openlocfilehash: db85757fd898d0b75ace50c8fe78ecaa31722bc2
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 1ca64f3d6084ca4f28967070c344b286e858cb9d
+ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518037"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99534075"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Vytvoření a publikování položky Marketplace pro vlastní Azure Stack centra
 
@@ -22,7 +22,7 @@ Každá položka publikovaná na tržišti centra Azure Stack používá formát
 
 Příklady v tomto článku ukazují, jak vytvořit jednu nabídku tržiště virtuálního počítače typu Windows nebo Linux.
 
-### <a name="prerequisites"></a>Předpoklady
+### <a name="prerequisites"></a>Požadavky
 
 Než vytvoříte položku Marketplace pro virtuální počítače, udělejte toto:
 
@@ -161,7 +161,7 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
     ```powershell
     $ArmEndpoint = "https://adminmanagement.local.azurestack.external"
     Add-AzEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
-    Add-AzAccount -EnvironmentName "AzureStackAdmin"
+    Connect-AzAccount -EnvironmentName "AzureStackAdmin"
     ```
 
 4. Spusťte následující skript pro import prostředku do Galerie:
@@ -184,7 +184,7 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
    - `https://galleryartifacts.adminhosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
    - `https://galleryartifacts.hosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
 
-6. Položku Marketplace můžete odebrat pomocí rutiny **Remove-AzGalleryItem** . Například:
+6. Položku Marketplace můžete odebrat pomocí rutiny **Remove-AzGalleryItem** . Příklad:
 
    ```powershell
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
@@ -227,7 +227,7 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
    - `https://galleryartifacts.adminhosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
    - `https://galleryartifacts.hosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
 
-6. Položku Marketplace můžete odebrat pomocí rutiny **Remove-AzGalleryItem** . Například:
+6. Položku Marketplace můžete odebrat pomocí rutiny **Remove-AzGalleryItem** . Příklad:
 
    ```powershell
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
@@ -244,22 +244,22 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
 
 | Name | Požaduje se | Typ | Omezení | Popis |
 | --- | --- | --- | --- | --- |
-| Název |X |Řetězec |[A-za-Z0-9] + | |
-| Publisher |X |Řetězec |[A-za-Z0-9] + | |
-| Verze |X |Řetězec |[SemVer v2](https://semver.org/) | |
+| Název |× |Řetězec |[A-za-Z0-9] + | |
+| Publisher |× |Řetězec |[A-za-Z0-9] + | |
+| Verze |× |Řetězec |[SemVer v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>Metadata
 
-| Name | Požaduje se | Typ | Omezení | Popis |
+| Name | Požaduje se | Typ | Omezení | Description |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |Řetězec |Doporučení 80 znaků |Portál nemusí správně zobrazit název položky, pokud je delší než 80 znaků. |
-| PublisherDisplayName |X |Řetězec |Doporučení 30 znaků |Portál nemusí správně zobrazit název vašeho vydavatele, pokud je delší než 30 znaků. |
-| PublisherLegalName |X |Řetězec |Maximálně 256 znaků | |
-| Shrnutí |X |Řetězec |60 až 100 znaků | |
-| LongSummary |X |Řetězec |140 až 256 znaků |Ještě neplatí v Azure Stack hub. |
-| Popis |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 až 5 000 znaků | |
+| DisplayName |× |Řetězec |Doporučení 80 znaků |Portál nemusí správně zobrazit název položky, pokud je delší než 80 znaků. |
+| PublisherDisplayName |× |Řetězec |Doporučení 30 znaků |Portál nemusí správně zobrazit název vašeho vydavatele, pokud je delší než 30 znaků. |
+| PublisherLegalName |× |Řetězec |Maximálně 256 znaků | |
+| Souhrn |× |Řetězec |60 až 100 znaků | |
+| LongSummary |× |Řetězec |140 až 256 znaků |Ještě neplatí v Azure Stack hub. |
+| Description |× |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 až 5 000 znaků | |
 
-### <a name="images"></a>Image
+### <a name="images"></a>Obrázky
 
 Tržiště používá následující ikony:
 
@@ -279,19 +279,19 @@ Každá položka Marketplace by měla být označena kategorií, která identifi
 
 Každá položka na webu Marketplace může obsahovat různé odkazy na další obsah. Odkazy jsou zadány jako seznam názvů a identifikátorů URI:
 
-| Name | Požaduje se | Typ | Omezení | Popis |
+| Name | Požaduje se | Typ | Omezení | Description |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |Řetězec |Maximálně 64 znaků. | |
-| Identifikátor URI |X |Identifikátor URI | | |
+| DisplayName |× |Řetězec |Maximálně 64 znaků. | |
+| Identifikátor URI |× |Identifikátor URI | | |
 
 ### <a name="additional-properties"></a>Další vlastnosti
 
 Kromě předchozích metadat mohou autoři na webu Marketplace poskytovat vlastní data párů klíč/hodnota v následujícím tvaru:
 
-| Name | Požaduje se | Typ | Omezení | Popis |
+| Name | Požaduje se | Typ | Omezení | Description |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |Řetězec |Maximálně 25 znaků. | |
-| Hodnota |X |Řetězec |Maximálně 30 znaků. | |
+| DisplayName |× |Řetězec |Maximálně 25 znaků. | |
+| Hodnota |× |Řetězec |Maximálně 30 znaků. | |
 
 ### <a name="html-sanitization"></a>Upravení HTML
 

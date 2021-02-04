@@ -6,18 +6,18 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: sethm
 ms.lastreviewed: 11/20/2020
-ms.openlocfilehash: b30a99182f1c8c1392ae73ec0e70bc06b35a343f
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: e503bb3124e0b85ceb2816c6cd18af8580eaa61c
+ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518292"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99533990"
 ---
 # <a name="allow-apps-to-access-azure-stack-hub-key-vault-secrets"></a>Dovolit aplikacím přístup k tajným klíčům centra Azure Stack Key Vault
 
 Kroky v tomto článku popisují, jak spustit ukázkovou aplikaci **HelloKeyVault** , která načte klíče a tajné klíče z trezoru klíčů v centru Azure Stack.
 
-## <a name="prerequisites"></a>Předpoklady
+## <a name="prerequisites"></a>Požadavky
 
 Pokud se připojujete [prostřednictvím sítě VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn), můžete nainstalovat následující požadavky z [Azure Stack Development Kit](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp)nebo z externího klienta se systémem Windows:
 
@@ -73,7 +73,7 @@ $TenantID = Get-AzsDirectoryTenantId `
   -EnvironmentName AzureStackUser
 
 # Sign in to the user portal.
-Add-AzAccount `
+Connect-AzAccount `
   -EnvironmentName "AzureStackUser" `
   -TenantId $TenantID `
 

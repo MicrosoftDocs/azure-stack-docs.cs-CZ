@@ -7,12 +7,12 @@ ms.date: 11/17/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 11/17/2020
-ms.openlocfilehash: 81cefb08d6fd0d1fc773221d52393c8a3ae6fddf
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 7db231e1bca513bf3755f8e9c078fb40d00cfa09
+ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517884"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99533837"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Přidat tenanta pro využití a fakturace do centra Azure Stack
 
@@ -54,11 +54,11 @@ Aktualizujte svou registraci pomocí nového zákaznického předplatného. Azur
 1. Otevřete prostředí Windows PowerShell v příkazovém řádku se zvýšenými oprávněními a spusťte příkaz:  
 
    ```powershell
-   Add-AzAccount
+   Connect-AzAccount
    ```
 
    >[!NOTE]
-   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo pokud chcete jednoduše přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí rutiny **Add-AzAccount**: `Remove-AzAccount-Scope Process` .
+   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete jednoduše přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí **Connect-AzAccount**: `Remove-AzAccount-Scope Process` .
 
 2. Zadejte svoje přihlašovací údaje Azure.
 3. V relaci PowerShellu spusťte příkaz:
@@ -87,7 +87,7 @@ V následující části jsou popsány parametry pro rutinu **New-AzResource** :
    ```
 
    >[!NOTE]
-   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo pokud chcete jednoduše přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí rutiny **Add-AzAccount**: `Remove-AzAccount-Scope Process` .
+   > Pokud vaše relace vyprší, vaše heslo se změnilo nebo chcete jednoduše přepnout účty, spusťte následující rutinu ještě před přihlášením pomocí **Connect-AzAccount**: `Remove-AzAccount-Scope Process` .
 
 2. Zadejte svoje přihlašovací údaje Azure.
 3. V relaci PowerShellu spusťte příkaz:

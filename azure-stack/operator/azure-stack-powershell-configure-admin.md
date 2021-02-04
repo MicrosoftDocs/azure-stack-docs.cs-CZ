@@ -3,16 +3,16 @@ title: Připojení k centru Azure Stack pomocí PowerShellu
 description: Přečtěte si, jak se připojit k centru Azure Stack pomocí PowerShellu.
 author: mattbriggs
 ms.topic: article
-ms.date: 11/19/2020
+ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 11/19/2020
-ms.openlocfilehash: 791923d3b2deacdc886dfcc0167736bd7214f9b8
-ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
+ms.lastreviewed: 2/1/2021
+ms.openlocfilehash: ab38cc4b00da140a529df43ac49789d7eab80327
+ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97697618"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99534177"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell"></a>Připojení k centru Azure Stack pomocí PowerShellu
 
@@ -46,7 +46,7 @@ Chcete-li nakonfigurovat prostředí operátora centra Azure Stack pomocí prost
 
     # After signing in to your environment, Azure Stack Hub cmdlets
     # can be easily targeted at your Azure Stack Hub instance.
-    Add-AzAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantId
+    Connect-AzAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantId
 ```
 ### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm1)
 
@@ -84,7 +84,7 @@ Připojte se k prostředí operátora centra Azure Stack pomocí PowerShellu s A
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
 
   # Sign in to your environment.
-  Login-AzAccount -EnvironmentName "AzureStackAdmin"
+  Connect-AzAccount -EnvironmentName "AzureStackAdmin"
   ```
 
 ### <a name="azurerm-modules"></a>[Moduly AzureRM](#tab/azurerm2)
