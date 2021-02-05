@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: dcf7240b3f62758fc1468890fcd4ce19ccb89bd8
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: defa5328f41ee394aefe2130d3678a1ad4f3831d
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874604"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99571190"
 ---
 # <a name="replacing-a-network-daughter-card"></a>Výměna síťové dceřiné karty
 
@@ -26,7 +26,7 @@ K nahrazení síťové dceřiné karty nebo karet použijte následující postu
 
 3.  Opakování
 
-    -   Požadované znalosti pro práci s uzly jednotek škálování v cloudovém zařízení taktické
+    -   Požadované znalosti pro práci s uzly jednotek škálování v robustním cloudovém zařízení
 
     -   Požaduje se znalost pro práci s hostitelem životního cyklu hardwaru na stránce 5, pokud pracujete s hostitelem životního cyklu hardwaru.
 

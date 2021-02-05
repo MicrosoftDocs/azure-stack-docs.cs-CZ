@@ -3,16 +3,16 @@ title: Připojení ohraničení a integrace sítě pro integrované systémy cen
 description: Naučte se plánovat připojení k síti datacenter v datových centrech v integrovaných systémech Azure Stack hub.
 author: PatAltimore
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 01/14/2021
 ms.author: patricka
 ms.reviewer: wamota
-ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: 1377f04a9c746a41ed1965a2798a1dbfd3b0db21
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.lastreviewed: 01/14/2021
+ms.openlocfilehash: 091b6e5d1ac4c097c39e425cb6b15da4db96a7a1
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97871544"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99570646"
 ---
 # <a name="border-connectivity"></a>Připojení k okraji 
 Plánování integrace sítě je důležitou podmínkou pro úspěšné nasazení, provoz a správu integrovaných systémů integrovaného centra Azure Stack. Plánování připojení k okraji začíná tím, že zvolíte, jestli chcete používat dynamické směrování s protokolem BGP (Border Gateway Protocol). To vyžaduje, abyste přiřadili 16bitové číslo autonomního systému (ASN), veřejný nebo soukromý nebo pomocí statického směrování.
@@ -50,17 +50,7 @@ Statické směrování platí jenom pro odchozí připojení mezi přepínači p
 
 <sup>\*\*\*</sup> Síť pro správu přepínače je povinná a je možné ji přidat odděleně ze sítě infrastruktury přepínače.
 
-## <a name="transparent-proxy"></a>Transparentní proxy server
-Pokud vaše datacentrum vyžaduje, aby všechny přenosy používaly proxy server, musíte nakonfigurovat *transparentní proxy server* tak, aby zpracovával veškerý provoz z racku, aby ho mohl zpracovat podle zásad, což rozděluje přenos mezi zónami v síti.
-
-> [!IMPORTANT]
-> Řešení centra Azure Stack nepodporuje normální webové proxy servery.  
-
-Transparentní proxy server (označovaný také jako zachycení, vložený nebo vynucený proxy server) zachycuje normální komunikaci v síťové vrstvě bez nutnosti jakékoli speciální konfigurace klienta. Klienti nemusí vědět o existenci proxy serveru.
-
-![Transparentní proxy server](media/azure-stack-border-connectivity/transparent-proxy.svg)
-
-Zachycení provozu SSL není [podporované](azure-stack-firewall.md#ssl-interception) a může při přístupu k koncovým bodům způsobit selhání služby. Maximální podporovaný časový limit pro komunikaci s koncovými body vyžadovanými pro identitu je 60 s se 3 opakovanými pokusy.
-
 ## <a name="next-steps"></a>Další kroky
-[Integrace DNS](azure-stack-integrate-dns.md)
+
+- [Integrace DNS](azure-stack-integrate-dns.md)
+- [Transparentní proxy server pro centrum Azure Stack](azure-stack-transparent-proxy.md)

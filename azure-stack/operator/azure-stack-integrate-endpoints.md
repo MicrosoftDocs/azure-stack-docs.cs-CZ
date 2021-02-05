@@ -7,12 +7,12 @@ ms.date: 09/24/2020
 ms.author: patricka
 ms.reviewer: wamota
 ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: 989a20216fd5613fa1269009e5c6dc7b918b8300
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 23e97f1e91b9ee9a6a76ee6037514bb9c17636b4
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870798"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99570612"
 ---
 # <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>Publikování služby Azure Stack hub ve vašem datovém centru
 
@@ -69,7 +69,7 @@ Po přidání [hostitele rozšíření](azure-stack-extension-host-prepare.md)ne
 
 ## <a name="ports-and-urls-outbound"></a>Porty a adresy URL (odchozí)
 
-Centrum Azure Stack podporuje jenom transparentní proxy servery. V nasazení pomocí transparentního odchozího připojení proxy k tradičnímu proxy server musíte pro odchozí komunikaci použít porty a adresy URL v následující tabulce.
+Centrum Azure Stack podporuje jenom transparentní proxy servery. V nasazení pomocí transparentního odchozího připojení proxy k tradičnímu proxy server musíte pro odchozí komunikaci použít porty a adresy URL v následující tabulce. Další informace o konfiguraci transparentních proxy serverů najdete v tématu [transparentní proxy server pro Azure Stack hub](azure-stack-transparent-proxy.md).
 
 Zachycení provozu SSL není [podporované](azure-stack-firewall.md#ssl-interception) a může při přístupu k koncovým bodům způsobit selhání služby. Maximální podporovaný časový limit pro komunikaci s koncovými body vyžadovanými pro identitu je 60 s.
 

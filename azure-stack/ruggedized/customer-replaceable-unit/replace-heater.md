@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 028ad9442961708820f905b73037eb55a11af72a
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 9474c198f7a22dbca0b6fefe8998c7eb208796b7
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910529"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99571309"
 ---
 # <a name="replacing-the-heater"></a>Výměna topení
 
@@ -20,7 +20,7 @@ Než odeberete starou ohřívací a nainstalujete nové topení, přečtěte si 
 
 ## <a name="unpacking-and-taking-inventory-of-the-heater"></a>Rozbalení a pořizování inventáře topení 
 
-Taktické 1U topení – v2 (topení) se obvykle dodává jako předem nainstalovaná dílčí součást systému taktické pro Cloud zařízení. Při samostatném odeslání se topení dodává do standardního komerčního poštovního kartonu s ochranným obalovým materiálem. 
+Robustní 1U topení – v2 (topení) se obvykle dodává jako předem nainstalovaná dílčí součást systému robustního cloudového zařízení. Při samostatném odeslání se topení dodává do standardního komerčního poštovního kartonu s ochranným obalovým materiálem. 
 
 Z krabice pro expedici pečlivě odeberte topení. V případě, že topení obsahuje všechny klíčové komponenty nainstalované v rámci lodní krabice. Topení je obvykle součástí tranzitního případu a je integrováno do celé skupiny zařízení v tranzitním případě. Ponechejte lodní krabicový a obalový materiál, aby bylo možné kdykoli znovu dodávat topení do budoucna. I když je topení robustní, zajistěte, aby byla jednotka správně zabalena k expedici. 
 
@@ -75,7 +75,7 @@ Topení je připojené k tranzitnímu případu, který je schopný v držení j
 
     ![Odložení sestavení filtru.](media/image-89.png)
 
-1. Vyžádejte si karty vydaných verzí z taktické 1U – v2, dokud se neuvolní, a pak přesunete kryt směrem ven z skříňového stojanu v pod. 
+1. Vyžádejte si karty vydaných verzí pryč z robustního vytápěcího topení – v2 až do vydaných verzí a pak přesunete kryt směrem ven z skříňky skříně v pod. 
 
     ![Diagram znázorňující karty vydání](media/image-90.png)
 
@@ -83,7 +83,7 @@ Topení je připojené k tranzitnímu případu, který je schopný v držení j
 
     ![Diagram, který ukazuje odebrání plenum.](media/image-91.png)
 
-1. V přední části případu odeberte ze souboru ZIP vazbu v taktické 1U topení-v2. V případě potřeby použijte šikmé ořezávání. 
+1. V přední části případu odeberte poštovní vazbu z robustního topení v 1U – v2. V případě potřeby použijte šikmé ořezávání. 
 
     ![Diagram, který zobrazuje vymezovač pro zip a střední konektor pro zvýrazněný senzor vstupu teploty.](media/image-92.png)
 
@@ -105,12 +105,12 @@ Topení je připojené k tranzitnímu případu, který je schopný v držení j
 
 1. Odpojte ze zadních plenum kabelů sítě Ethernet a potom odeberte všechny kabely připojené k serveru uzlů management server nebo spodní jednotky škálování. 
 
-1. V opačném případě zapněte šest popruhů Velcro a vyžádejte si kabely z Velcro. 
+1. V opačném případě vyžádáte šest Velcro popruhů a přetáhnete tyto kabely z Velcro. 
 
-    ![Diagram, který zobrazuje umístění šesti Velcro popruhů na konci případu.](media/image-98.png)
+    ![Diagram, který zobrazuje umístění šesti Velcroových pruhů na konci případu.](media/image-98.png)
 
 
-1. V případě, že je Velcro odpojený, odeberte kabely z závorek pro uložení kabelů. 
+1. V opačném případě je po vyjmutí Velcro odpojena kabely z závorek pro uložení kabelů. 
 
 1. Umožněte všem kabelům zavěsit a opustit plenum. Kabely pro zavěšení nejsou zobrazeny na následujícím obrázku. 
 
@@ -126,7 +126,7 @@ Topení je připojené k tranzitnímu případu, který je schopný v držení j
     ![Diagram znázorňující plenum, který se vypíná od levé strany.](media/image-101.png)
 
 
-1. V opačném případě odpojte napájecí kabely serveru od taktické 1U-v2 a umožněte jejich zablokování volně. 
+1. V opačném případě odpojte napájecí kabely serveru od robustního topení v 1U – v2 a umožněte jejich zablokování volně. 
 
     ![Diagram, který zobrazuje umístění napájecích kabelů serveru na zadní straně případu.](media/image-102.png)
 
@@ -235,19 +235,19 @@ Topení je připojené k tranzitnímu případu, který je schopný v držení j
 > [!WARNING]
 > Pokud chcete zabránit poškození vybavení a osobní újmy, buďte opatrní při zdvihání pod. Nejlepších výsledků dosáhnete, když použijete nebo zdvihací vybavení dvou osob, které omezí osobní škodu nebo škodu na komponenty nebo pod. 
 
-1. Na přední straně pod sebou posuňte novou vazbu zip, přestože smyčka v dolní části taktické 1U topení-v2, ale nevytvoří PSČ. 
+1. Na přední straně pod sebou posuňte novou vazbu zip, přestože smyčka v dolní části robustního topení v 1U-v2, ale nehlasuje na místě. 
 
     ![Diagram, který zobrazuje smyčku na spodní straně topení.](media/image-119.png)
 
 
-1. Na přední straně pod sebou vložte taktické 1U-v2, a to tak, že ho posuňte z přední části do back. Zajistěte, aby poštovní směrovací číslo neklesl. 
+1. Na přední straně pod sebou vložte robustní rozhraní 1U-v2, a to tak, že ho posuňte v z přední části do back. Zajistěte, aby poštovní směrovací číslo neklesl. 
 
-1. Na přední straně pod sebou nainstalujte dva překrytí 2.064 palců mezi stojanem a taktické 1U-v2. 
+1. Na přední straně pod sebou nainstalujte dva překrytí dvou. 064 palců mezi stojanem a robustního topení v 1U – v2. 
 
     ![Diagram, který zobrazuje umístění překrytí na přední straně pod.](media/image-120.png)
 
 
-1. Na zadní straně pod sebou nainstalujte dvě. 064 palců překrytí mezi stojanem a taktické 1U-v2. 
+1. Na zadní straně pod sebou nainstalujte dvě. 064 palců překrytí mezi stojanem a robustního topení v 1U – v2. 
 
     ![Diagram, který zobrazuje umístění překrytí na zadní straně pod.](media/image-121.png)
 
@@ -269,19 +269,19 @@ Topení je připojené k tranzitnímu případu, který je schopný v držení j
     ![Diagram, který zobrazuje dva šrouby pro zadní a připojené servery.](media/image-124.png)
 
 
-1. Na zadní straně pod sebou nainstalujte taktické 1U topení-v2 čtyři zadní šrouby 10-32, zamkněte pračky a ploché pračky. Aplikujte na šroubové vlákna a threadlocker s nízkou silou a točivý momentujte na 27 palců až libry. 
+1. Na zadní straně pod sebou nainstalujte robustní topení v 1U-v2 čtyř zadních šrouby 10-32, zamykací pračky a ploché pračky. Aplikujte na šroubové vlákna a threadlocker s nízkou silou a točivý momentujte na 27 palců až libry. 
 
     ![Diagram, který zobrazuje čtyři šrouby pro znovu připojené topení.](media/image-125.png)
 
 
-1. Na zadní straně pod sebou odeberte dvě překrytí z taktické 1U topení-v2 a umístěte je do sady topení pro budoucí použití. 
+1. Na zadní straně pod sebou odeberte dvě překrytí v rámci robustního topení v 1U-v2 a umístěte je do sady topení pro budoucí použití. 
 
-1. Na přední straně pod sebou odeberte dvě překrytí z taktické 1U-v2 a umístěte je do sady topení pro budoucí použití. 
+1. Na přední straně pod sebou odeberte dvě překrytí v rámci robustního topení v 1U-v2 a umístěte je do sady topení pro budoucí použití. 
 
-1. Na zadní straně pod sebou nainstalujte šest 4-40 šroubů, které připojovat plenum pant k taktické 1U-v2. Aplikujte na šroubové vlákna a threadlocker s nízkou pevností a točivý moment pro šrouby na 4,5 palce až libry. 
+1. Na zadní straně pod sebou nainstalujte šest 4-40 šroubů, které přikládají pant plenum k robustnímu topení v 1U – v2. Aplikujte na šroubové vlákna a threadlocker s nízkou pevností a točivý moment pro šrouby na 4,5 palce až libry. 
 
     > [!NOTE]
-    > Umístěte penaltu elektrostatického vypouštění (ESD) nebo ESD pěnou přes taktické 1U-v2 otvor, aby se zabránilo poškození cizího objektu topení. 
+    > Umístěte penaltu s elektrostatickém odpadem (ESD) nebo ESD pěnou přes robustní procesory 1U – v2, aby se zabránilo poškození cizího objektu topení. 
 
 1. Na zadní straně pod sebou Nainstalujte levou vnitřní lanovou dráhu. Při stisknutí hranaté závorky směrem nahoru k stojanu můžete plně posílit šrouby pro plný 6-32 a potom točivý šrouby do 9 palcích. 
 
@@ -305,7 +305,7 @@ Topení je připojené k tranzitnímu případu, který je schopný v držení j
 
 1. Točivý moment od matice až 16 palců po librách 
 
-1. Na zadní straně pod sebou znovu připojte dva napájecí kabely serveru a pak čtyři taktické napájení v počítačích 1U do jejich původního umístění. 
+1. Na zadní straně pod sebou znovu připojte dva napájecí kabely serveru a potom čtyři robustní napájecí kabely 1U-v2 do jejich původního umístění. 
 
 1. Na zadní straně pod, propojení by se mělo sestavovat a za kuličkou, pokud se spojení nepřesouvá do požadované pozice. 
 
@@ -321,7 +321,7 @@ Topení je připojené k tranzitnímu případu, který je schopný v držení j
     ![Diagram, který zobrazuje umístění pro stisknutí a zapojení do plenum.](media/image-128.png)
 
 
-1. Na zadní straně pod sebou předá šest kabelů Ethernet (dvě modré CAT 6 a čtyři černá po MB/s) v případě, že se zařadí do závorek, a roztáhněte šest Velcro popruhů kolem kabelů. 
+1. Na zadní straně pod sebou předá šest kabelů Ethernet (dvě modré CAT 6 a čtyři černá po MB/s) v případě, že se zařazovací závorky donutí a rozvine šest Velcro popruhů kolem kabelů. 
 
 1. Na přední straně pod sebou nainstalujte konektor micro na vstupní teplotní senzor serveru. Měli byste slyšet zvukové kliknutí. 
 

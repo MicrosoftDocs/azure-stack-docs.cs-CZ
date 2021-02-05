@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: e53d81e7606c6440ce535726199af31a1dbfd950
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 26f3343da26adc541c87eacb046ca078a6a32c31
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910648"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99571230"
 ---
 # <a name="replacing-a-failed-external-storage-disk"></a>Výměna neúspěšného disku externího úložiště
 
@@ -26,7 +26,7 @@ K nahrazení neúspěšného externího disku použijte následující postup.
 
 3.  Opakování
 
-    -   Požadované znalosti pro práci s uzly jednotek škálování v cloudovém zařízení taktické, pokud pracujete s uzlem jednotky škálování
+    -   Povinné znalosti pro práci s uzly jednotek škálování v robustním cloudovém zařízení, pokud pracujete s uzlem jednotky škálování
 
     -   Požadované znalosti pro práci s hostitelem životního cyklu hardwaru, pokud pracujete s hostitelem životního cyklu hardwaru
 

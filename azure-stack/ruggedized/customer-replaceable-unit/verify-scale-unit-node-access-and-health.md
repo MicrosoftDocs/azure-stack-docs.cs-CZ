@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 74addf295c35099e90e3a7fe4fd95aad34e47361
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 299b7da3ad514092c86f1855b9261fda0d76ac5d
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910631"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99570995"
 ---
 # <a name="verifying-scale-unit-node-access-and-health"></a>Ověření přístupu k uzlu jednotky škálování a stavu
 
@@ -31,13 +31,13 @@ Přihlaste se k pracovní stanici privilegovaného přístupu, spusťte portál 
 
     Vyberte dlaždici **Správa oblastí** a vyberte **vlastnosti**. Posuňte se do dolní části podokna a vyhledejte IP adresy v poli **IP adresy privilegovaného koncového bodu** . Poznamenejte si je, jak může být potřeba později v tomto postupu, nebo bude potřeba podpora v případě jakýchkoli problémů.
 
-    [![Snímek obrazovky zobrazující stránku pro správu s zvýrazněným oddílem privilegovaného koncového bodu I P adresy.](media/image-18-inline.png)](media/image-18-expanded.png)
+    [![Snímek obrazovky zobrazující stránku pro správu s zvýrazněným oddílem privilegovaného koncového bodu I P adresy.](media/image-18-inline.png)](media/image-18-expanded.png#lightbox)
     
 4.  Projděte si všechny aktuální výstrahy.
 
     V části **Správa oblastí** vyberte **výstrahy** a zkontrolujte aktuální výstrahy. Pokud jsou k dispozici nějaké neočekávané výstrahy, ověřte u technologie Dell Technologies podporu, že je lze vymazat nebo bezpečně ignorovat.
     
-    [ ![ Snímek obrazovky zobrazující stránku vlastnosti s zvýrazněným oddílem název](media/image-19-inline.png)](media/image-19-expanded.png)]
+    [![Snímek obrazovky zobrazující stránku vlastnosti s zvýrazněným oddílem název](media/image-19-inline.png)](media/image-19-expanded.png#lightbox)
     
 5.  Identifikujte uzly jednotek škálování.
 
@@ -47,11 +47,11 @@ Přihlaste se k pracovní stanici privilegovaného přístupu, spusťte portál 
     
     1.  Chcete-li získat značku služby uzlu, vyberte odkaz IP adresa **řadiče pro správu základní desky** , který otevře webové rozhraní iDRAC serveru na nové kartě nebo v okně.
 
-        [![Snímek obrazovky zobrazující stránku Nodes se zvýrazněným sloupcem BMC](media/image-20-inline.png)](media/image-20-expanded.png) 
+        [![Snímek obrazovky zobrazující stránku Nodes se zvýrazněným sloupcem BMC](media/image-20-inline.png)](media/image-20-expanded.png#lightbox) 
     
     1.  Přihlaste se k rozhraní iDRAC a ověřte tag služby uzlu v podokně **Systémové informace** .
     
     1.  Tento postup opakujte pro každý uzel a korelujte tyto značky služeb s plánovaným nahrazením hardwaru, abyste zjistili, který uzel nebo uzly je potřeba obsluhovat.
 
-        [![Snímek obrazovky, který zobrazuje "řídicí panel" se zvýrazněnou značkou služby](media/image-21-inline.png)](media/image-21-expanded.png)
+        [![Snímek obrazovky, který zobrazuje "řídicí panel" se zvýrazněnou značkou služby](media/image-21-inline.png)](media/image-21-expanded.png#lightbox)
     

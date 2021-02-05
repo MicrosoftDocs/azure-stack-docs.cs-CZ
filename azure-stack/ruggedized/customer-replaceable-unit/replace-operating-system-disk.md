@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 36050d42a012ffc40db98ab506b1ef81086e609a
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 8ab8cd77a9ce3641a65eeb60460305830d524462
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867634"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99571173"
 ---
 # <a name="replacing-an-operating-system-disk"></a>Výměna disku s operačním systémem
 
@@ -24,7 +24,7 @@ Následující postup použijte k nahrazení neúspěšného disku operačního 
 
 2.  Kontrola zpracování opatření.
 
-3.  V případě, že pracujete s uzlem jednotky škálování, je nutné znát znalosti pro práci s uzly jednotek škálování v taktické cloudovém zařízení.
+3.  V případě, že pracujete s uzlem jednotky škálování, je nutné znát znalosti pro práci s uzly jednotek škálování v robustním cloudovém zařízení.
 
 4.  Dokončila se ověřování přístupu k uzlu jednotky škálování a stavu.
 

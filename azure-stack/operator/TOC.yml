@@ -67,9 +67,12 @@
               href: azure-stack-configure-dns.md
             - name: Konfigurovat časový server
               href: azure-stack-configure-time.md
-            - name: Integrace brány firewall
-              href: azure-stack-firewall.md
+            - name: Brána firewall nebo proxy server
               items:
+                - name: Integrace brány firewall
+                  href: azure-stack-firewall.md
+                - name: Transparentní proxy server
+                  href: azure-stack-transparent-proxy.md
                 - name: Publikování koncových bodů
                   href: azure-stack-integrate-endpoints.md
                 - name: Hostitel rozšíření

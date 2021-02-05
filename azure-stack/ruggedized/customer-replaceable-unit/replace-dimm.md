@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 3665ac12c42cac7a87ae9c69f4fc450b4f76cf3d
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 66b2bc606aefd07d693d8fc86b042f321550271b
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867821"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99571281"
 ---
 # <a name="replacing-a-dimm"></a>Výměna DIMM
 
@@ -26,7 +26,7 @@ K nahrazení modulu DIMM použijte následující postup.
 
 3.  Opakování
 
-    -   Požadované znalosti pro práci s uzly jednotek škálování v cloudovém zařízení taktické, pokud pracujete s uzlem jednotky škálování
+    -   Povinné znalosti pro práci s uzly jednotek škálování v robustním cloudovém zařízení, pokud pracujete s uzlem jednotky škálování
 
     -   Požadované znalosti pro práci s hostitelem životního cyklu hardwaru, pokud pracujete s hostitelem životního cyklu hardwaru
 

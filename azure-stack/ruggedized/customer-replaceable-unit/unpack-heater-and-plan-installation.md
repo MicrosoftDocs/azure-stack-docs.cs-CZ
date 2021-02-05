@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 6fc9e5cb22f1153874090bd57d48cbbbcca63482
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: d8dd3d2b3cd2bc63f1f15a1cf5c44b82c0ede44e
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97867600"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99571207"
 ---
 # <a name="unpack-the-heater-and-plan-the-heater-installation"></a>Rozbalení topení a naplánování instalace topení
 
@@ -20,7 +20,7 @@ Než začnete vyměnit topení, přečtěte si následující oddíly.
 
 ## <a name="unpacking-and-taking-inventory-of-the-heater"></a>Rozbalení a pořizování inventáře topení
 
-Taktické 1U topení--v2 (topení) se obvykle dodává jako předem nainstalovaná dílčí součást systému cloudových zařízení taktické.
+Robustní topení v 1U--v2 (topení) se obvykle dodává jako předem nainstalovaná dílčí součást systému robustního cloudového zařízení.
 Při samostatném odeslání se topení dodává do standardního komerčního poštovního kartonu s ochranným obalovým materiálem.
 
 Z krabice pro expedici pečlivě odeberte topení. V případě, že topení obsahuje všechny klíčové komponenty nainstalované v rámci lodní krabice. Topení je obvykle součástí tranzitního případu a je integrováno do celé skupiny zařízení v tranzitním případě. Ponechejte lodní krabicový a obalový materiál, aby bylo možné kdykoli znovu dodávat topení do budoucna. I když je topení robustní, zajistěte, aby byla jednotka správně zabalena k expedici.

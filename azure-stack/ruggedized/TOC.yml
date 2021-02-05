@@ -555,9 +555,9 @@
                 - name: Hardwarový diagram centra Azure Stack
                   href: customer-replaceable-unit/azure-stack-hub-hardware-diagram.md
                 - name: Přehled serveru
-                  href: customer-replaceable-unit/emc-poweredge-tactical-r640-server-overview.md
+                  href: customer-replaceable-unit/r640-server-overview.md
                 - name: Indikátory a kódy
-                  href: customer-replaceable-unit/emc-poweredge-tactical-indicators-and-codes.md
+                  href: customer-replaceable-unit/indicators-and-codes.md
                 - name: Přístup k rozhraní iDRAC přes přímé připojení USB
                   href: customer-replaceable-unit/access-idrac-over-usb-connection.md
                 - name: Instalovat firmware přes rozhraní iDRAC

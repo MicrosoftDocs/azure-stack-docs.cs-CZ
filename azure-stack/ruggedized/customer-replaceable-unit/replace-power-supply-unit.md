@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 03f2f79a1d849edb65da0097eb4135146ae7a16e
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 09e417e0ab42dc0add297cf774fa4052579c5e13
+ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97874468"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99571139"
 ---
 # <a name="replacing-a-power-supply-unit"></a>Výměna jednotky zdroje napájení
 
@@ -26,7 +26,7 @@ K nahrazení jednotky zdroje napájení (PSU) použijte následující postup.
 
 3.  Opakování
 
-    -   Požadované znalosti pro práci s uzly jednotek škálování v cloudovém zařízení taktické, pokud pracujete s uzlem jednotky škálování
+    -   Povinné znalosti pro práci s uzly jednotek škálování v robustním cloudovém zařízení, pokud pracujete s uzlem jednotky škálování
 
     -   Požadované znalosti pro práci s hostitelem životního cyklu hardwaru, pokud pracujete s hostitelem životního cyklu hardwaru
 
