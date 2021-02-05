@@ -4,13 +4,13 @@ description: Jak použít aktualizace operačního systému a firmwaru Azure Sta
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 01/25/2020
-ms.openlocfilehash: 751551b827ef5d3c871f0224bfa60d9f79fc5d45
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.date: 02/05/2021
+ms.openlocfilehash: 2ed1a6c2443f7222a873c412e991b4a39b253309
+ms.sourcegitcommit: ec19e8455b5cb90a071afb03ec1446b0a9aafb99
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98772011"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99588644"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>Aktualizace Azure Stackch clusterů HCI
 
@@ -24,6 +24,9 @@ Toto téma se zaměřuje na operační systém a aktualizace softwaru. Pokud pot
 
 Centrum pro správu Windows usnadňuje aktualizaci clusteru a instalaci operačního systému a řešení pomocí jednoduchého uživatelského rozhraní. Pokud jste si zakoupili integrovaný systém od hardwarového partnera Microsoftu, můžete k tomu snadno získat nejnovější ovladače, firmware a další aktualizace přímo z centra pro správu Windows, a to tak, že nainstalujete příslušné rozšíření partnerské aktualizace. Pokud jste hardware nekoupili jako integrovaný systém, může být nutné provést aktualizace firmwaru a ovladačů samostatně, a to podle doporučení dodavatele hardwaru.
 
+   > [!WARNING]
+   > Pokud zahájíte proces aktualizace pomocí centra pro správu systému Windows, pokračujte v používání Průvodce až do dokončení aktualizace. Nepokoušejte se používat nástroj Cluster-Aware Update nebo aktualizovat cluster pomocí prostředí PowerShell po částečně dokončení procesu aktualizace v centru pro správu systému Windows. Pokud chcete použít PowerShell k provádění aktualizací místo centra pro správu systému Windows, přeskočte dopředu a [aktualizujte cluster pomocí PowerShellu](#update-a-cluster-using-powershell).
+
 Pomocí těchto kroků nainstalujete aktualizace:
 
 1. Když se připojíte ke clusteru, řídicí panel centra pro správu systému Windows vás upozorní, pokud má jeden nebo více serverů aktualizace připravené k instalaci, a poskytne odkaz na aktualizaci nyní. Alternativně můžete vybrat **aktualizace** z nabídky **nástroje** vlevo.
@@ -36,6 +39,9 @@ Pomocí těchto kroků nainstalujete aktualizace:
    > Chcete-li použít nástroj Cluster-Aware aktualizace v centru pro správu systému Windows, je nutné povolit zprostředkovatele CredSSP (Credential Security Service Provider) a zadat explicitní přihlašovací údaje. Pokud se zobrazí dotaz, jestli by se měl povolit CredSSP, klikněte na **Ano**. Zadejte své uživatelské jméno a heslo a klikněte na **pokračovat**.
 
 3. Zobrazí se stav aktualizace clusteru. Kliknutím na **Vyhledat aktualizace** získáte seznam aktualizací operačního systému, které jsou k dispozici pro každý server v clusteru. Možná budete muset zadat přihlašovací údaje správce. Pokud nejsou k dispozici žádné aktualizace operačního systému, klikněte na tlačítko **Další: aktualizace hardwaru** a pokračujte krokem 7.
+
+   > [!IMPORTANT]
+   > Pokud při aktualizaci opustíte obrazovku Updates (aktualizace), může dojít k neočekávanému chování, jako je například oddíl historie stránky aktualizace, dokud se aktuální spuštění nedokončí. V případě, že chcete aplikaci v průběhu aktualizace dál používat, doporučujeme otevřít Centrum pro správu Windows na nové kartě nebo v okně prohlížeče.
 
 4. Vyberte **Další: nainstalovat** , chcete-li pokračovat v instalaci aktualizací operačního systému, nebo klikněte na tlačítko **Přeskočit** a vylučte je. 
 
