@@ -3,21 +3,21 @@ title: Konfigurace nastavení služby VPN Gateway pro centrum Azure Stack
 description: Přečtěte si o a nakonfigurujte nastavení bran VPN pro centrum Azure Stack.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 178164148e9d7de069c4ab12dc3042899b83d16d
-ms.sourcegitcommit: 8790b8a4ecf4421409534df5ff510d537cc000da
+ms.openlocfilehash: 465c07d1f943a0a3abad8a8fc2d900444b366112
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97801942"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975924"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>Konfigurace nastavení služby VPN Gateway pro centrum Azure Stack
 
 Brána sítě VPN je typem brány virtuální sítě, která odesílá šifrovaný provoz mezi vaší virtuální sítí v centru Azure Stack a vzdálenou bránou VPN. Vzdálená brána VPN se může nacházet v Azure, v zařízení v datovém centru nebo v zařízení na jiné lokalitě. Pokud je mezi dvěma koncovými body síťové připojení, můžete mezi těmito dvěma sítěmi vytvořit zabezpečené připojení VPN typu Site-to-Site (S2S).
 
-Připojení brány VPN se spoléhá na konfiguraci více prostředků, z nichž každá obsahuje konfigurovatelné nastavení. Tento článek popisuje prostředky a nastavení vztahující se k bráně VPN pro virtuální síť, kterou vytvoříte v modelu nasazení Správce prostředků. Popisy a diagramy topologie pro každé řešení připojení najdete v [o VPN Gateway pro Azure Stack hub](azure-stack-vpn-gateway-about-vpn-gateways.md).
+Připojení brány VPN se spoléhá na konfiguraci více prostředků, z nichž každá obsahuje konfigurovatelné nastavení. Tento článek popisuje prostředky a nastavení vztahující se k bráně VPN pro virtuální síť, kterou vytvoříte v modelu nasazení Správce prostředků. Popisy a diagramy topologie pro každé řešení připojení najdete v v [vytváření bran sítě VPN pro centrum Azure Stack](azure-stack-vpn-gateway-about-vpn-gateways.md).
 
 ## <a name="vpn-gateway-settings"></a>Nastavení služby VPN Gateway
 
@@ -29,8 +29,8 @@ Když vytvoříte bránu virtuální sítě, musíte se ujistit, že je typ brá
 
 ```powershell
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
--Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
--VpnType RouteBased
+   -Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
+   -VpnType RouteBased
 ```
 
 ### <a name="gateway-skus"></a>Skladové položky brány
@@ -63,8 +63,8 @@ Následující příklad prostředí PowerShell Určuje `-GatewaySku` parametr j
 
 ```powershell
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
--Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard `
--GatewayType Vpn -VpnType RouteBased
+   -Location 'West US' -IpConfigurations $gwipconfig -GatewaySku Standard `
+   -GatewayType Vpn -VpnType RouteBased
 ```
 
 ### <a name="connection-types"></a>Typy připojení
@@ -75,8 +75,8 @@ V následujícím příkladu PowerShellu se vytvoří připojení S2S, které vy
 
 ```powershell
 New-AzVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
--Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
--ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
+   -Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
+   -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
 ```
 
 ### <a name="vpn-types"></a>Typy sítě VPN
@@ -99,8 +99,8 @@ Následující příklad prostředí PowerShell Určuje `-VpnType` jako **RouteB
 
 ```powershell
 New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
--Location 'West US' -IpConfigurations $gwipconfig `
--GatewayType Vpn -VpnType RouteBased
+   -Location 'West US' -IpConfigurations $gwipconfig `
+   -GatewayType Vpn -VpnType RouteBased
 ```
 
 ### <a name="gateway-requirements"></a>Požadavky na bránu
@@ -144,7 +144,7 @@ Tento příklad PowerShellu vytvoří novou bránu místní sítě:
 
 ```powershell
 New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
--Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
+   -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 
 Někdy je potřeba upravit nastavení místní síťové brány; například když přidáte nebo upravíte rozsah adres nebo pokud se změní IP adresa zařízení VPN. Další informace najdete v tématu [Úprava nastavení místní síťové brány pomocí PowerShellu](/azure/vpn-gateway/vpn-gateway-modify-local-network-gateway).

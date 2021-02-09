@@ -3,16 +3,16 @@ title: Připojení centra Azure Stack k Azure pomocí ExpressRoute
 description: Naučte se, jak propojit virtuální sítě v Azure Stack hub k virtuálním sítím v Azure pomocí ExpressRoute.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: f736f95105b12bdb51fe452c2749e6331c390065
-ms.sourcegitcommit: 81e2d627c9dc4cc365deb4a0e0674b5ab3a7efbf
+ms.openlocfilehash: ef84604b46f2968be4c8d3b84f190a22e270cb21
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92297916"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975958"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Připojení služby Azure Stack Hub k Azure s využitím Azure ExpressRoute
 
@@ -34,7 +34,7 @@ V tomto článku se předpokládá, že:
 * Máte základní znalosti centra Azure Stack.
 * Máte základní znalosti o sítích.
 
-### <a name="prerequisites"></a>Předpoklady
+### <a name="prerequisites"></a>Požadavky
 
 Pokud chcete připojit Azure Stack hub a Azure pomocí ExpressRoute, musíte splnit následující požadavky:
 
@@ -87,11 +87,11 @@ Pro vytvoření požadovaných síťových prostředků v centru Azure Stack pro
 
 2. Na portálu vyberte **+ vytvořit prostředek**.
 
-3. V části **Azure Marketplace**vyberte **sítě**.
+3. V části **Azure Marketplace** vyberte **sítě**.
 
-4. V části **Doporučené**vyberte **virtuální síť**.
+4. V části **Doporučené** vyberte **virtuální síť**.
 
-5. V části **vytvořit virtuální síť**zadejte do příslušných polí hodnoty uvedené v následující tabulce:
+5. V části **vytvořit virtuální síť** zadejte do příslušných polí hodnoty uvedené v následující tabulce:
 
    |Pole  |Hodnota  |
    |---------|---------|
@@ -102,15 +102,15 @@ Pro vytvoření požadovaných síťových prostředků v centru Azure Stack pro
 
 6. V poli **předplatné** by se mělo zobrazovat předplatné, které jste vytvořili dříve. Zbývající pole:
 
-    * V části **Skupina prostředků**vyberte **vytvořit novou** , pokud chcete vytvořit novou skupinu prostředků, nebo pokud ji už máte, vyberte **použít existující**.
+    * V části **Skupina prostředků** vyberte **vytvořit novou** , pokud chcete vytvořit novou skupinu prostředků, nebo pokud ji už máte, vyberte **použít existující**.
     * Ověřte výchozí **umístění**.
     * Klikněte na **Vytvořit**.
     * Volitelné Klikněte na **Připnout na řídicí panel**.
 
 #### <a name="create-the-gateway-subnet"></a>Vytvoření podsítě brány
 
-1. V části **virtuální síť**vyberte **Tenant1VNet1**.
-1. V části **NASTAVENÍ** vyberte **Podsítě**.
+1. V části **virtuální síť** vyberte **Tenant1VNet1**.
+1. V části **Nastavení** vyberte **podsítě**.
 1. Vyberte **+ podsíť brány** a přidejte tak podsíť brány do virtuální sítě.
 1. Ve výchozím nastavení je název této podsítě nastavený na **GatewaySubnet**. Podsítě brány jsou zvláštním případem a musí používat tento název k tomu, aby fungovaly správně.
 1. Ověřte, zda je **Rozsah adres** **10.1.0.0/24**.
@@ -119,13 +119,13 @@ Pro vytvoření požadovaných síťových prostředků v centru Azure Stack pro
 #### <a name="create-the-virtual-network-gateway"></a>Vytvoření brány virtuální sítě
 
 1. V uživatelském portálu centra Azure Stack klikněte na **+ vytvořit prostředek**.
-1. V části **Azure Marketplace**vyberte **sítě**.
+1. V části **Azure Marketplace** vyberte **sítě**.
 1. V seznamu síťových prostředků vyberte **bránu virtuální sítě**.
 1. Do pole **název** zadejte **gw1**.
 1. Vyberte **virtuální síť**.
 1. V rozevíracím seznamu vyberte **Tenant1VNet1** .
-1. Vyberte **Veřejná IP adresa**, pak **Zvolte veřejná IP adresa**a pak klikněte na **vytvořit novou**.
-1. Do pole **název** zadejte **gw1-PIP**a pak klikněte na **OK**.
+1. Vyberte **Veřejná IP adresa**, pak **Zvolte veřejná IP adresa** a pak klikněte na **vytvořit novou**.
+1. Do pole **název** zadejte **gw1-PIP** a pak klikněte na **OK**.
 1. Jako **Typ VPN** by ve výchozím nastavení měla být vybraná možnost **Založená na trasách**. Toto nastavení zachovejte.
 1. Ověřte, že nastavení **Předplatné** a **Umístění** jsou správná. Klikněte na **Vytvořit**.
 
@@ -134,7 +134,7 @@ Pro vytvoření požadovaných síťových prostředků v centru Azure Stack pro
 Prostředek brány místní sítě identifikuje vzdálenou bránu na druhém konci připojení VPN. V tomto příkladu je vzdáleným koncem připojení dílčí rozhraní sítě LAN směrovače ExpressRoute. U tenanta 1 v předchozím diagramu je Vzdálená adresa 10.60.3.255.
 
 1. Přihlaste se k portálu User Portal centra Azure Stack a vyberte **+ vytvořit prostředek**.
-1. V části **Azure Marketplace**vyberte **sítě**.
+1. V části **Azure Marketplace** vyberte **sítě**.
 1. V seznamu prostředků vyberte **bránu místní sítě**.
 1. Do pole **název** zadejte **ER-router-GS**.
 1. Pro pole **IP adresa** se podívejte na předchozí obrázek. IP adresa dílčího rozhraní ExpressRoute směrovače sítě LAN pro klienta 1 je 10.60.3.255. Ve svém vlastním prostředí zadejte IP adresu odpovídajícího rozhraní vašeho směrovače.
@@ -146,28 +146,28 @@ Prostředek brány místní sítě identifikuje vzdálenou bránu na druhém kon
    > [!IMPORTANT]
    > V tomto příkladu se předpokládá, že používáte statické trasy pro připojení VPN typu Site-to-site mezi bránou centra Azure Stack a směrovačem ExpressRoute.
 
-1. Ověřte, jestli je vaše **předplatné**, **Skupina prostředků**a **umístění** správné. Potom vyberte **Vytvořit**.
+1. Ověřte, jestli je vaše **předplatné**, **Skupina prostředků** a **umístění** správné. Potom vyberte **Vytvořit**.
 
 #### <a name="create-the-connection"></a>Vytvoření připojení
 
 1. Na portálu Azure Stack hub User Portal vyberte **+ vytvořit prostředek**.
-1. V části **Azure Marketplace**vyberte **sítě**.
+1. V části **Azure Marketplace** vyberte **sítě**.
 1. V seznamu prostředků vyberte **Připojení**.
-1. V části **základy**vyberte **Typ připojení** **site-to-Site (IPSec)** .
-1. Vyberte **předplatné**, **skupinu prostředků**a **umístění**. Klikněte na **OK**.
-1. V části **Nastavení**vyberte **Brána virtuální sítě**a pak vyberte **gw1**.
-1. Vyberte **Brána místní sítě**a pak vyberte **ER router GS**.
+1. V části **základy** vyberte **Typ připojení** **site-to-Site (IPSec)** .
+1. Vyberte **předplatné**, **skupinu prostředků** a **umístění**. Klikněte na **OK**.
+1. V části **Nastavení** vyberte **Brána virtuální sítě** a pak vyberte **gw1**.
+1. Vyberte **Brána místní sítě** a pak vyberte **ER router GS**.
 1. Do pole **název připojení** zadejte **ConnectToAzure**.
 1. Do pole **sdílený klíč (PSK)** zadejte **abc123** a pak vyberte **OK**.
-1. V části **Souhrn**vyberte **OK**.
+1. V části **Souhrn** vyberte **OK**.
 
 #### <a name="get-the-virtual-network-gateway-public-ip-address"></a>Získat veřejnou IP adresu brány virtuální sítě
 
 Po vytvoření brány virtuální sítě můžete získat veřejnou IP adresu brány. Tuto adresu si poznamenejte pro případ, že ji pro nasazení budete potřebovat později. V závislosti na vašem nasazení se tato adresa používá jako **interní IP adresa**.
 
 1. V uživatelském portálu Azure Stack centra vyberte **všechny prostředky**.
-1. V části **všechny prostředky**vyberte v příkladu bránu virtuální sítě, která je **gw1** .
-1. V části **Brána virtuální sítě**vyberte **Přehled** ze seznamu prostředků. Případně můžete vybrat **vlastnosti**.
+1. V části **všechny prostředky** vyberte v příkladu bránu virtuální sítě, která je **gw1** .
+1. V části **Brána virtuální sítě** vyberte **Přehled** ze seznamu prostředků. Případně můžete vybrat **vlastnosti**.
 1. IP adresa, kterou chcete zaznamenat, je uvedena v části **Veřejná IP adresa**. Pro příklad konfigurace je tato adresa 192.68.102.1.
 
 #### <a name="create-a-virtual-machine-vm"></a>Vytvořit virtuální počítač
@@ -175,24 +175,24 @@ Po vytvoření brány virtuální sítě můžete získat veřejnou IP adresu br
 K otestování přenosů dat přes připojení VPN potřebujete virtuální počítače pro posílání a přijímání dat ve virtuální síti centra Azure Stack. Vytvořte virtuální počítač a nasaďte ho do podsítě virtuálních počítačů pro virtuální síť.
 
 1. Na portálu Azure Stack hub User Portal vyberte **+ vytvořit prostředek**.
-1. V části **Azure Marketplace**vyberte **COMPUTE**.
+1. V části **Azure Marketplace** vyberte **COMPUTE**.
 1. V seznamu imagí virtuálních počítačů vyberte Image **Windows Server 2016 Datacenter Eval** .
 
    >[!NOTE]
    >Pokud bitová kopie použitá pro tento článek není k dispozici, požádejte svého operátora centra Azure Stack, aby poskytoval jinou bitovou kopii Windows serveru.
 
-1. V části **vytvořit virtuální počítač**vyberte **základy**a jako **název**zadejte **VM01** .
+1. V části **vytvořit virtuální počítač** vyberte **základy** a jako **název** zadejte **VM01** .
 1. Zadejte platné uživatelské jméno a heslo. Tento účet použijete pro přihlášení k virtuálnímu počítači po jeho vytvoření.
-1. Zadejte **předplatné**, **skupinu prostředků**a **umístění**. Vyberte **OK**.
-1. V části **zvolit velikost**vyberte velikost virtuálního počítače pro tuto instanci a pak vyberte **Vybrat**.
-1. V části **Nastavení**potvrďte, že:
+1. Zadejte **předplatné**, **skupinu prostředků** a **umístění**. Vyberte **OK**.
+1. V části **zvolit velikost** vyberte velikost virtuálního počítače pro tuto instanci a pak vyberte **Vybrat**.
+1. V části **Nastavení** potvrďte, že:
 
    * Virtuální síť je **Tenant1VNet1**.
    * Podsíť je nastavená na **10.1.1.0/24**.
 
    Použijte výchozí nastavení a klikněte na **OK**.
 
-1. V části **Souhrn**Zkontrolujte konfiguraci virtuálního počítače a pak klikněte na **OK**.
+1. V části **Souhrn** Zkontrolujte konfiguraci virtuálního počítače a pak klikněte na **OK**.
 
 Chcete-li přidat další klienty, opakujte postup, který jste provedli v těchto částech:
 
@@ -595,7 +595,7 @@ Pokud chcete zjistit, kolik přenosů prochází přes vaše připojení, najdet
 1. Přihlaste se k portálu User Portal centra Azure Stack a vyberte **všechny prostředky**.
 1. Přejděte do skupiny prostředků pro vaši VPN Gateway a vyberte typ objektu **připojení** .
 1. Vyberte připojení **ConnectToAzure** ze seznamu.
-1. V **Connections**části  >  **Přehled**připojení vidíte statistiku pro **data v** nástroji a **data odchozí**. Měly by se zobrazit některé nenulové hodnoty.
+1. V části  >  **Přehled** připojení vidíte statistiku pro **data v** nástroji a **data odchozí**. Měly by se zobrazit některé nenulové hodnoty.
 
 ## <a name="next-steps"></a>Další kroky
 
