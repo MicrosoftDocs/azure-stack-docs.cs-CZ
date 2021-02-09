@@ -3,16 +3,16 @@ title: Vymazat data uživatelů portálu na vyžádání z centra Azure Stack
 description: Naučte se, jak pomocí Azure Stack uživatelů centra vymazat data uživatelů portálu.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.reviewer: troettinger
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 3821eced3f37902b20f13ee4d918b2ff2ea8aca9
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: f85f5a06699b11d5316a889c045a33376304a0f0
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545087"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975890"
 ---
 # <a name="clear-portal-user-data-from-azure-stack-hub"></a>Vymaže data uživatelů portálu z centra Azure Stack.
 
@@ -25,7 +25,7 @@ Odebrání uživatelských nastavení portálu by se mělo provádět jenom po o
 > [!NOTE]
 > Některá uživatelská data mohou v protokolech událostí stále existovat po provedení pokynů v tomto článku v části systém. Tato data můžou trvat několik dní, než se protokoly automaticky převádějí.
 
-## <a name="requirements"></a>Požadavky
+## <a name="prerequisites"></a>Požadavky
 
 - [Nainstalujte PowerShell pro centrum Azure Stack](powershell-install-az-module.md).
 - [Stáhněte si nejnovější nástroje Azure Stack hub](azure-stack-powershell-download.md) z GitHubu.

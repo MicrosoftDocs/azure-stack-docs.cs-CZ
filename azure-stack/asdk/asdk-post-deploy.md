@@ -7,12 +7,12 @@ ms.date: 12/03/2020
 ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 12/03/2020
-ms.openlocfilehash: f2e039e2b0934e17a4335753e787c6cdf3808644
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 11e79a4d998f012a58c7f3b0ab8ecb928c861851
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873312"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975856"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>Konfigurace po nasazení pro ASDK
 
@@ -197,7 +197,7 @@ Pokud dojde k selhání, získáte nápovědu pomocí kroků pro řešení potí
 
 ## <a name="enable-multi-tenancy"></a>Povolení víceklientské architektury
 
-Pro nasazení, která používají Azure AD, musíte pro instalaci ASDK [Povolit víceklientské](../operator/azure-stack-enable-multitenancy.md#enable-multi-tenancy) prostředí.
+Pro nasazení, která používají Azure AD, musíte pro instalaci ASDK [Povolit víceklientské](../operator/azure-stack-enable-multitenancy.md) prostředí.
 
 > [!NOTE]
 > Pokud se k přihlášení na portál Azure Stack používá účet správce nebo uživatelské účty z jiných domén, než je ta, která se používá k registraci Azure Stack, musí být název domény, který se používá k registraci Azure Stack, připojený k adrese URL portálu. Pokud je například Azure Stack zaregistrován v fabrikam.onmicrosoft.com a uživatelský účet přihlášení je admin@contoso.com , adresa URL použitá pro přihlášení k portálu User Portal by byla: https \: //Portal.Local.azurestack.external/Fabrikam.onmicrosoft.com.

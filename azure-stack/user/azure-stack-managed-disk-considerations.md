@@ -7,12 +7,12 @@ ms.date: 11/22/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: b1cadf68de1c072b7dcc8b2f0f5f7c02736eebd7
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: fd1f827ec9108d1412df544c94044aabf600224a
+ms.sourcegitcommit: d542b68b299b73e045f30916afb6018e365e9db6
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518224"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99975873"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Azure Stack spravované disky centra: rozdíly a požadavky
 
@@ -358,7 +358,7 @@ Po použití aktualizace 1808 nebo novější je nutné před použitím spravov
 - Pokud bylo předplatné vytvořeno před aktualizací 1808, postupujte podle následujících kroků a aktualizujte předplatné. V opačném případě může nasazení virtuálních počítačů v tomto předplatném selhat s chybovou zprávou "vnitřní chyba ve Správci disků".
    1. V uživatelském portálu centra Azure Stack klikněte na **předplatná** a vyhledejte předplatné. Klikněte na **poskytovatelé prostředků**, potom klikněte na **Microsoft. COMPUTE** a pak klikněte na **znovu registrovat**.
    2. V rámci stejného předplatného, přejít na **Access Control (IAM)** a ověřte, že je v seznamu uveden **Azure Stack disk spravovaný** centrem.
-- Pokud používáte víceklientské prostředí, požádejte svého operátora cloudu (který může být ve vaší organizaci nebo od poskytovatele služeb) a překonfigurujte každý adresář hosta podle kroků v [tomto článku](../operator/azure-stack-enable-multitenancy.md#register-azure-stack-hub-with-the-guest-directory). V opačném případě může dojít k selhání nasazení virtuálních počítačů v rámci předplatného přidružených k tomuto adresáři hosta s chybovou zprávou "vnitřní chyba ve Správci disků".
+- Pokud používáte víceklientské prostředí, požádejte svého operátora cloudu (který může být ve vaší organizaci nebo od poskytovatele služeb) a překonfigurujte každý adresář hosta podle kroků v části [Konfigurace víceklientské architektury v centru Azure Stack](../operator/azure-stack-enable-multitenancy.md#configure-guest-directory). V opačném případě může dojít k selhání nasazení virtuálních počítačů v rámci předplatného přidružených k tomuto adresáři hosta s chybovou zprávou "vnitřní chyba ve Správci disků".
 
 ## <a name="next-steps"></a>Další kroky
 
