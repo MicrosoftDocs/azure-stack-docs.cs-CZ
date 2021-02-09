@@ -3,16 +3,16 @@ title: Přidání vlastní image virtuálního počítače do centra Azure Stack
 description: Přečtěte si, jak přidat nebo odebrat vlastní image virtuálního počítače do centra Azure Stack.
 author: sethmanheim
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: 496d706b6ed930087207b24047d3409f29a53e53
-ms.sourcegitcommit: 8122672409954815e472a5b251bb7319fab8f951
+ms.openlocfilehash: 6b80ea5a25ab83eb5b62842fe1c21e7e698ab51a
+ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92060119"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99850934"
 ---
 # <a name="add-and-remove-a-custom-vm-image-to-azure-stack-hub"></a>Přidání a odebrání vlastní image virtuálního počítače do centra Azure Stack
 
@@ -44,17 +44,17 @@ Přidejte image virtuálního počítače jako operátor Azure Stackového centr
 
    [![Výběr COMPUTE](./media/azure-stack-add-vm-image/dash-small.png)](./media/azure-stack-add-vm-image/dash.png#lightbox)
 
-3. Vyberte **image virtuálních počítačů**a pak vyberte **Přidat**.
+3. Vyberte **image virtuálních počítačů** a pak vyberte **Přidat**.
 
    [![Přidání image virtuálního počítače](./media/azure-stack-add-vm-image/tca4-small.png)](./media/azure-stack-add-vm-image/tca4.png#lightbox)
 
-4. V části **vytvořit image**zadejte identifikátor URI objektu BLOB pro **vydavatele**, **nabídku**, **SKU**, **verzi**a disk s operačním systémem. Pak vyberte **vytvořit** a začněte vytvářet image virtuálního počítače.
+2. V části **vytvořit image** zadejte identifikátor URI objektu BLOB pro **vydavatele**, **nabídku**, **SKU**, **verzi** a disk s operačním systémem. Pak vyberte **vytvořit** a začněte vytvářet image virtuálního počítače.
 
    [![Vlastní uživatelské rozhraní pro zkušební načtení image](./media/azure-stack-add-vm-image/tca5-small.png)](./media/azure-stack-add-vm-image/tca5.png#lightbox)
 
    Po úspěšném vytvoření image se stav image virtuálního počítače změní na **úspěch**.
 
-5. Když přidáte obrázek, je k dispozici pouze pro šablony založené na Azure Resource Manager a nasazení prostředí PowerShell. Pokud chcete uživatelům zpřístupnit Image jako položku Marketplace, publikujte položku Marketplace pomocí kroků v článku [Vytvoření a publikování položky Marketplace](azure-stack-create-and-publish-marketplace-item.md). Nezapomeňte si poznamenat hodnoty **vydavatele**, **nabídky**, **SKU**a **verze** . Budete je potřebovat, když upravíte šablonu Správce prostředků a Manifest.jsna vlastní. azpkg.
+3. Když přidáte obrázek, je k dispozici pouze pro šablony založené na Azure Resource Manager a nasazení prostředí PowerShell. Pokud chcete uživatelům zpřístupnit Image jako položku Marketplace, publikujte položku Marketplace pomocí kroků v článku [Vytvoření a publikování položky Marketplace](azure-stack-create-and-publish-marketplace-item.md). Nezapomeňte si poznamenat hodnoty **vydavatele**, **nabídky**, **SKU** a **verze** . Budete je potřebovat, když upravíte šablonu Správce prostředků a Manifest.jsna vlastní. azpkg.
 
 ### <a name="powershell"></a>[PowerShell](#tab/image-add-ps)
 
@@ -87,7 +87,7 @@ Přidejte image virtuálního počítače jako operátor Azure Stackového centr
      Segment názvu **SKU** image virtuálního počítače, který uživatelé používají při nasazování image virtuálního počítače. Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
    - **znění**  
      Příklad: `1.0.0`  
-     Verze image virtuálního počítače, kterou uživatelé používají při nasazování image virtuálního počítače Tato verze je ve formátu ** \# . \# . \# **. Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
+     Verze image virtuálního počítače, kterou uživatelé používají při nasazování image virtuálního počítače Tato verze je ve formátu **\# . \# . \#**. Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
    - **osType**  
      Příklad: `Linux`  
      **OsType** obrázku musí být buď **Windows** , nebo **Linux**.  
@@ -97,7 +97,7 @@ Přidejte image virtuálního počítače jako operátor Azure Stackového centr
 
      Další informace najdete v referenčních informacích k prostředí PowerShell pro rutinu [Add-AzsPlatformimage](/powershell/module/azs.compute.admin/add-azsplatformimage) .
 
-4. Když přidáte obrázek, je k dispozici pouze pro šablony založené na Azure Resource Manager a nasazení prostředí PowerShell. Pokud chcete uživatelům zpřístupnit Image jako položku Marketplace, publikujte položku Marketplace pomocí kroků v článku [Vytvoření a publikování položky Marketplace](azure-stack-create-and-publish-marketplace-item.md). Nezapomeňte si poznamenat hodnoty **vydavatele**, **nabídky**, **SKU**a **verze** . Budete je potřebovat, když upravíte šablonu Správce prostředků a Manifest.jsna vlastní. azpkg.
+4. Když přidáte obrázek, je k dispozici pouze pro šablony založené na Azure Resource Manager a nasazení prostředí PowerShell. Pokud chcete uživatelům zpřístupnit Image jako položku Marketplace, publikujte položku Marketplace pomocí kroků v článku [Vytvoření a publikování položky Marketplace](azure-stack-create-and-publish-marketplace-item.md). Nezapomeňte si poznamenat hodnoty **vydavatele**, **nabídky**, **SKU** a **verze** . Budete je potřebovat, když upravíte šablonu Správce prostředků a Manifest.jsna vlastní. azpkg.
 
 ---
 
@@ -111,9 +111,9 @@ Pokud chcete odebrat image virtuálního počítače jako operátor centra Azure
 
 1. Otevřete portál Azure Stack centrum pro [správu](https://portal.azure.com/signin/index).
 
-2. Pokud má image virtuálního počítače přidruženou položku Marketplace, vyberte **Správa Marketplace**a pak vyberte položku virtuálního počítače, kterou chcete odstranit.
+2. Pokud má image virtuálního počítače přidruženou položku Marketplace, vyberte **Správa Marketplace** a pak vyberte položku virtuálního počítače, kterou chcete odstranit.
 
-3. Pokud image virtuálního počítače nemá přidruženou položku Marketplace, přejděte do části **všechny služby > compute > image virtuálních počítačů**a potom vyberte tři tečky (**...**) vedle image virtuálního počítače.
+3. Pokud image virtuálního počítače nemá přidruženou položku Marketplace, přejděte do části **všechny služby > compute > image virtuálních počítačů** a potom vyberte tři tečky (**...**) vedle image virtuálního počítače.
 
 4. Vyberte **Odstranit**.
 
@@ -147,7 +147,7 @@ Pokud chcete odebrat image virtuálního počítače jako operátor centra Azure
      Segment názvu **SKU** image virtuálního počítače, který uživatelé používají při nasazování image virtuálního počítače. Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
    - **znění**  
      Příklad: `1.0.0`  
-     Verze image virtuálního počítače, kterou uživatelé používají při nasazování image virtuálního počítače Tato verze je ve formátu ** \# . \# . \# **. Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
+     Verze image virtuálního počítače, kterou uživatelé používají při nasazování image virtuálního počítače Tato verze je ve formátu **\# . \# . \#**. Do tohoto pole nezahrnujte mezeru ani jiné speciální znaky.  
 
      Další informace o rutině **Remove-AzsPlatformImage** najdete v [dokumentaci k modulu operátora centra Azure Stack](/powershell/azure/azure-stack/overview)Microsoft PowerShellu.
 

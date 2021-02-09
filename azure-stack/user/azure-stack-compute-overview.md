@@ -3,16 +3,16 @@ title: Úvod k virtuálním počítačům centra Azure Stack
 description: Přečtěte si o Azure Stackch virtuálních počítačích centra.
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2020
-ms.openlocfilehash: ff462a8fbdb2de67e58f15248aaffa79f0abb695
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 70bbb35b8433e8542fc58303f1e8cc56c28c84d7
+ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545749"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99850801"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Úvod k virtuálním počítačům centra Azure Stack
 
@@ -20,13 +20,13 @@ Centrum Azure Stack nabízí virtuálním počítačům (VM) jako typ škálovat
 
 Virtuální počítač centra Azure Stack poskytuje flexibilitu virtualizace bez nutnosti spravovat clustery nebo jednotlivé počítače. Přesto ale budete muset virtuální počítač udržovat i tak, že provádíte úlohy, jako je konfigurace, opravy a aktualizace, a instalace softwaru, který na něm běží.
 
-Virtuální počítače centra Azure Stack můžete použít několika způsoby. Například:
+Virtuální počítače centra Azure Stack můžete použít několika způsoby. Příklad:
 
-- **Vývoj a testování** : virtuální počítače centra Azure Stack umožňují vytvořit počítač s konkrétní konfigurací, která je nutná k vytváření kódu a testování aplikace.
+- **Vývoj a testování**: virtuální počítače centra Azure Stack umožňují vytvořit počítač s konkrétní konfigurací, která je nutná k vytváření kódu a testování aplikace.
 
-- **Aplikace v cloudu** : vzhledem k tomu, že poptávka po vaší aplikaci může kolísat, může být ekonomicky vhodná pro její spuštění na virtuálním počítači v Azure Stackovém centru. Platíte za další virtuální počítače, když je potřebujete, a když je neuděláte, můžete je vypnout.
+- **Aplikace v cloudu**: vzhledem k tomu, že poptávka po vaší aplikaci může kolísat, může být ekonomicky vhodná pro její spuštění na virtuálním počítači v Azure Stackovém centru. Platíte za další virtuální počítače, když je potřebujete, a když je neuděláte, můžete je vypnout.
 
-- **Rozšířené datové centrum** : virtuální počítače ve virtuální síti centra Azure Stack se můžou připojit k síti vaší organizace nebo k Azure.
+- **Rozšířené datové centrum**: virtuální počítače ve virtuální síti centra Azure Stack se můžou připojit k síti vaší organizace nebo k Azure.
 
 Virtuální počítače, které vaše aplikace používá, umožňují horizontální navýšení nebo navýšení kapacity, aby vyhovovaly vašim potřebám.
 
@@ -57,7 +57,7 @@ Vaše předplatné má nastavené výchozí limity kvót, které mohou mít vliv
 
 ### <a name="operating-system-disks-and-images"></a>Disky a image operačních systémů
 
-Virtuální počítače v centru Azure Stack jsou omezené na formát virtuálního pevného disku (VHD/VHDX) generace 1. Virtuální pevné disky se dají použít k uložení operačního systému počítače (OS) a dat. Virtuální pevné disky se používají také pro bitové kopie, které slouží k instalaci operačního systému. Centrum Azure Stack poskytuje Marketplace pro použití s různými verzemi a typy operačních systémů. Image z Marketplace se identifikují jako vydavatel obrázku, nabídka, SKU a verze (obvykle se jedná o nejnovější verzi, která je určená jako **nejnovější** ).
+Virtuální počítače v centru Azure Stack jsou omezené na formát virtuálního pevného disku (VHD/VHDX) generace 1. Virtuální pevné disky se dají použít k uložení operačního systému počítače (OS) a dat. Virtuální pevné disky se používají také pro bitové kopie, které slouží k instalaci operačního systému. Centrum Azure Stack poskytuje Marketplace pro použití s různými verzemi a typy operačních systémů. Image z Marketplace se identifikují jako vydavatel obrázku, nabídka, SKU a verze (obvykle se jedná o nejnovější verzi, která je určená jako **nejnovější**).
 
 Následující tabulka ukazuje, jak najít informace pro obrázek:
 
@@ -73,11 +73,11 @@ Můžete zvolit nahrávání a používání vlastní image. V takovém případ
 
 Rozšíření virtuálních počítačů poskytují vašim VIRTUÁLNÍm počítačům další možnosti prostřednictvím konfigurace po nasazení a automatizovaných úloh. Tyto běžné úkoly můžete provádět pomocí rozšíření:
 
-- **Spustit vlastní skripty** : rozšíření vlastních skriptů vám pomůže nakonfigurovat úlohy na virtuálním počítači spuštěním skriptu, když se zřídí virtuální počítač.
+- **Spustit vlastní skripty**: rozšíření vlastních skriptů vám pomůže nakonfigurovat úlohy na virtuálním počítači spuštěním skriptu, když se zřídí virtuální počítač.
 
-- **Nasazení a Správa konfigurací** : rozšíření konfigurace požadovaného stavu prostředí PowerShell pomáhá nastavit DSC na virtuálním počítači pro správu konfigurací a prostředí.
+- **Nasazení a Správa konfigurací**: rozšíření konfigurace požadovaného stavu prostředí PowerShell pomáhá nastavit DSC na virtuálním počítači pro správu konfigurací a prostředí.
 
-- **Shromažďování diagnostických dat** : rozšíření Azure Diagnostics pomáhá nakonfigurovat virtuální počítač pro shromažďování diagnostických dat, která lze použít k monitorování stavu aplikace.
+- **Shromažďování diagnostických dat**: rozšíření Azure Diagnostics pomáhá nakonfigurovat virtuální počítač pro shromažďování diagnostických dat, která lze použít k monitorování stavu aplikace.
 
 ### <a name="related-resources"></a>Související prostředky
 
@@ -85,11 +85,11 @@ Prostředky v následující tabulce používá virtuální počítač, musí ex
 
 |Prostředek|Povinné|Popis|
 |---------|---------|---------|
-|Skupina prostředků|Yes|Virtuální počítač musí být součástí skupiny prostředků.|
+|Skupina prostředků|Ano|Virtuální počítač musí být součástí skupiny prostředků.|
 |Účet úložiště|Ne|Virtuální počítač nepotřebuje účet úložiště k ukládání virtuálních pevných disků, pokud se používá služba Managed disks. |
-|Virtuální síť|Yes|Virtuální počítač musí být členem virtuální sítě.|
+|Virtuální síť|Ano|Virtuální počítač musí být členem virtuální sítě.|
 |Veřejná IP adresa|Ne|Virtuální počítač může mít přiřazenou veřejnou IP adresu pro umožnění vzdáleného přístupu.|
-|Síťové rozhraní|Yes|Virtuální počítač potřebuje síťové rozhraní ke komunikaci v síti.|
+|Síťové rozhraní|Ano|Virtuální počítač potřebuje síťové rozhraní ke komunikaci v síti.|
 |Datové disky|Ne|Virtuální počítač může zahrnovat datové disky pro rozšíření možností úložiště.|
 
 ## <a name="create-your-first-vm"></a>Vytvoření prvního virtuálního počítače

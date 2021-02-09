@@ -3,16 +3,16 @@ title: Nasazení clusteru Kubernetes s modulem AKS na rozbočovači Azure Stack
 description: Postup nasazení clusteru Kubernetes na rozbočovači Azure Stack z virtuálního počítače klienta, na kterém běží modul AKS.
 author: mattbriggs
 ms.topic: article
-ms.date: 2/1/2021
+ms.date: 2/5/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 38628b6fba6136149cb6ef7e7ce818e2e2039d11
-ms.sourcegitcommit: af2bec84471795c0f3ac62dcaf1347a64e529906
+ms.lastreviewed: 2/5/2021
+ms.openlocfilehash: 3343dc1a4fddbac0e01d0b63fcc8f434084237f0
+ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99554124"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99850844"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Nasazení clusteru Kubernetes s modulem AKS v centru Azure Stack
 
@@ -29,7 +29,7 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
 1.  Začněte použitím souboru modelu rozhraní API centra Azure Stack pro [Linux](https://aka.ms/aksengine-json-example-raw) nebo pro [Windows](https://aka.ms/aksengine-json-example-raw-win) a vytvořte místní kopii pro vaše nasazení. Z počítače jste nainstalovali modul AKS, spusťte:
 
     ```bash
-    curl -o kubernetes-azurestack.json https://aka.ms/aksengine-json-example-raw
+    curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/v0.55.4/examples/azure-stack/kubernetes-azurestack.json
     ```
 
     > [!NOTE]  
@@ -46,7 +46,7 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
 
 3.  V kubernetes-azurestack.jsv souboru vyhledejte orchestratorRelease a orchestratorVersion. Vyberte jednu z podporovaných verzí Kubernetes. Například pro `orchestratorRelease` použití 1,14 nebo 1,15 a pro `orchestratorVersion` použití 1.14.7 nebo 1.15.10. Zadejte `orchestratorRelease` jako x. XX a orchestratorVersion jako x. xx. x. Seznam aktuálních verzí najdete v tématu [podporované verze modulu AKS](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions) .
 
-4.  Vyhledejte `customCloudProfile` adresu URL portálu tenanta a poskytněte ji. Například `https://portal.local.azurestack.external`. 
+4.  Vyhledejte `customCloudProfile` adresu URL portálu tenanta a poskytněte ji. Například, `https://portal.local.azurestack.external`. 
 
 5. Přidejte, `"identitySystem":"adfs"` Pokud používáte AD FS. Třeba
 
@@ -60,7 +60,7 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
     > [!NOTE]  
     > Pokud pro svůj systém identit používáte Azure AD, nemusíte přidávat pole **identitySystem** .
 
-6. Vyhledejte `portalURL` adresu URL portálu tenanta a poskytněte ji. Například `https://portal.local.azurestack.external`.
+6. Vyhledejte `portalURL` adresu URL portálu tenanta a poskytněte ji. Například, `https://portal.local.azurestack.external`.
 
 7.  V nástroji `masterProfile` nastavte následující pole:
 

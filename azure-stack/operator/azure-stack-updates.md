@@ -3,16 +3,16 @@ title: Správa aktualizací
 description: Naučte se spravovat aktualizace v centru Azure Stack.
 author: sethmanheim
 ms.topic: how-to
-ms.date: 09/25/2020
+ms.date: 02/08/2021
 ms.author: sethm
 ms.lastreviewed: 07/16/2020
 ms.reviewer: niy
-ms.openlocfilehash: e769999ce24e1571b93c94a707c62df757460705
-ms.sourcegitcommit: bf7b1a394ede397dba2b75f90bdf953b3ff2f2be
+ms.openlocfilehash: 163485eddb18f0fdc1400aa61fee6b944c397cbf
+ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91367219"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99850861"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Správa aktualizací ve službě Azure Stack Hub
 
@@ -33,7 +33,7 @@ Existují tři typy balíčků aktualizací pro integrované systémy:
 
     Balíčky **Express** Update mají rozsah a neaktualizují základní fyzické hostitelské operační systémy.
 
-- **Azure Stack opravy hotfix centra**. Microsoft poskytuje [pro centra Azure Stack opravy hotfix](azure-stack-servicing-policy.md#hotfixes) , které řeší konkrétní problém, který je často preventivní nebo časově citlivý. Každá oprava hotfix je vydána spolu s odpovídajícím článkem znalostní báze Microsoft Knowledge Base, který podrobně popisuje problém, příčinu a řešení. Můžete stahovat a instalovat opravy hotfix stejně jako běžné úplné balíčky aktualizací pro centrum Azure Stack. Opravy hotfix jsou kumulativní a můžou se instalovat během několika minut.
+- **Azure Stack opravy hotfix centra**. Microsoft poskytuje [pro centra Azure Stack opravy hotfix](azure-stack-servicing-policy.md#hotfixes) , které řeší konkrétní problém, který je často preventivní nebo časově citlivý. Jednotlivé opravy hotfix jsou vydané s odpovídajícím článkem znalostní báze Microsoft Knowledge Base, který podrobně popisuje opravy v tomto balíčku. Můžete stahovat a instalovat opravy hotfix stejně jako běžné úplné balíčky aktualizací pro centrum Azure Stack. Opravy hotfix jsou kumulativní a můžou se instalovat během několika minut.
 
    Počínaje verzí Build 2005 se při aktualizaci na novou hlavní verzi (například 1.2002. x na 1.2005. x) automaticky nainstalují nejnovější opravy hotfix (pokud nějaké jsou) v nové hlavní verzi. Od tohoto okamžiku předem, pokud byla vydána oprava hotfix pro sestavení, měli byste ji nainstalovat.
 
@@ -45,7 +45,7 @@ Tři typy aktualizací jsou vydány s následujícími tempo:
 
 - **Azure Stack aktualizace softwaru centra**. Společnost Microsoft vydává několik plných a expresních balíčků aktualizací softwaru za rok.
 
-- **Azure Stack opravy hotfix centra**. Opravy hotfix jsou časově citlivé verze, které mohou být vydány kdykoli. Pokud provádíte upgrade z jedné hlavní verze na jinou (například 1.2002. x na 1.2005. x), nejnovější opravy hotfix (pokud jsou nějaké) v nové hlavní verzi se automaticky nainstalují.
+- **Azure Stack opravy hotfix centra**. Opravy hotfix jsou časově citlivé verze, které mohou být vydány kdykoli. Pokud provádíte upgrade z jedné hlavní verze na jinou (například 1.2002. x na 1.2005. x), nejnovější opravy hotfix, pokud byly vydány pro tuto novou hlavní verzi, se nainstalují automaticky.
 
 - **Hardware výrobce OEM – aktualizace poskytované dodavatelem** Výrobci hardwaru OEM vydávají své aktualizace podle potřeby.
 
@@ -59,11 +59,11 @@ Oznámení aktualizací se liší v několika faktorech, například připojení
 
     V okně **aktualizace** pro Azure Stack, které jsou připojené k Internetu, se zobrazí upozornění aktualizace pro aktualizace softwaru společnosti Microsoft a opravy hotfix. Pokud se okno **aktualizace** nezobrazí, restartujte virtuální počítač řadiče pro správu infrastruktury.
 
-    Pokud vaše instance není připojená a chcete být upozorněni na každou verzi opravy hotfix, přihlaste se k odběru informačního kanálu [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) nebo [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) .
+    Pokud vaše instance není připojená a chcete být upozorněni na každou verzi opravy hotfix, přihlaste se k odběru [informačního kanálu RSS](https://azurestackhubdocs.azurewebsites.net/xml/hotfixes.rss).
 
 - **Výrobce OEM – aktualizace poskytované dodavatelem**
 
-    Aktualizace OEM závisí na výrobci. Budete muset vytvořit komunikační kanál s vaším výrobcem OEM, abyste si mohli uvědomit o aktualizacích od výrobce OEM, které je potřeba použít. Další informace o výrobci OEM a procesu aktualizace OEM najdete v tématu [použití aktualizací pro výrobce OEM (Original Equipment Manufacturer) v Azure Stack](azure-stack-update-oem.md).
+    Aktualizace OEM závisí na výrobci. Musíte vytvořit komunikační kanál s vaším výrobcem OEM, abyste si mohli uvědomit o aktualizacích od výrobce OEM, které je potřeba použít. Další informace o výrobci OEM a procesu aktualizace OEM najdete v tématu [použití aktualizací pro výrobce OEM (Original Equipment Manufacturer) v Azure Stack](azure-stack-update-oem.md).
 
 ### <a name="major-version-to-major-version"></a>Hlavní verze na hlavní verzi
 
