@@ -1,22 +1,22 @@
 ---
-title: Správa registrace Azure pro Azure Stack HCI
-description: Jak spravovat registraci Azure pro Azure Stack HCI, pochopit stav registrace a zrušit registraci clusteru, až budete připraveni vyřadit z provozu.
+title: Správa registrace clusteru HCI Azure Stack v Azure
+description: Jak spravovat registraci Azure pro Azure Stack clustery HCI, pochopit stav registrace a zrušit registraci clusteru, až budete připraveni vyřadit z provozu.
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 01/28/2021
-ms.openlocfilehash: a187730ed43c6c4a57bbe2d1f81d39085d8b94a1
-ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
+ms.date: 02/09/2021
+ms.openlocfilehash: 9156e5b67a679a93561bfc6449016178c04a1019
+ms.sourcegitcommit: 69c700a456091adc31e4a8d78e7a681dfb55d248
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050089"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100013230"
 ---
-# <a name="manage-azure-registration"></a>Správa registrace v Azure
+# <a name="manage-cluster-registration-with-azure"></a>Správa registrace clusteru v Azure
 
 > Platí pro Azure Stack HCI v20H2
 
-Po vytvoření clusteru Azure Stack HCI musíte [cluster zaregistrovat pomocí ARC Azure](../deploy/register-with-azure.md). Po registraci clusteru pravidelně synchronizuje informace mezi místním clusterem a cloudem. V tomto tématu se dozvíte, jak pochopit stav registrace, udělit Azure Active Directory oprávnění a zrušit registraci clusteru, až budete připraveni vyřadit z provozu.
+Po vytvoření clusteru Azure Stack HCI musíte [v Azure zaregistrovat centrum pro správu Windows](register-windows-admin-center.md) a pak [cluster zaregistrovat v Azure](../deploy/register-with-azure.md). Po registraci clusteru pravidelně synchronizuje informace mezi místním clusterem a cloudem. V tomto tématu se dozvíte, jak pochopit stav registrace, udělit Azure Active Directory oprávnění a zrušit registraci clusteru, až budete připraveni vyřadit z provozu.
 
 ## <a name="understanding-registration-status-using-windows-admin-center"></a>Principy stavu registrace pomocí centra pro správu Windows
 
@@ -162,7 +162,7 @@ Nejvíce omezující možnost je vytvořit vlastní roli AD s vlastní zásadou 
 Až budete připraveni vyřadit z provozu cluster Azure Stack HCI, stačí se ke clusteru připojit pomocí centra pro správu Windows a vybrat **Nastavení** v dolní části nabídky **nástroje** na levé straně. Pak vyberte **Azure Stack registrace rozhraní HCI** a klikněte na tlačítko **zrušit registraci** . Proces zrušení registrace automaticky vyčistí prostředek Azure, který představuje cluster, skupinu prostředků Azure (Pokud se skupina vytvořila během registrace a neobsahuje žádné další prostředky) a identitu aplikace Azure AD. Tím se zastaví všechny funkce monitorování, podpory a fakturace prostřednictvím ARC Azure.
 
    > [!NOTE]
-   > Zrušení registrace Azure Stack clusteru HCI vyžaduje správce Azure Active Directory nebo jiného uživatele, který má delegovaná dostatečná oprávnění. Viz [Azure Active Directory oprávnění uživatele](#azure-active-directory-user-permissions).
+   > Zrušení registrace Azure Stack clusteru HCI vyžaduje správce Azure Active Directory nebo jiného uživatele, který má delegovaná dostatečná oprávnění. Viz [Azure Active Directory oprávnění uživatele](#azure-active-directory-user-permissions). Pokud je vaše centrum pro správu systému Windows registrováno pro jiné ID Azure Active Directory (tenant) a ID aplikace, než bylo použito pro prvotní registraci clusteru, může dojít k potížím při pokusu o zrušení registrace clusteru pomocí centra pro správu systému Windows. Pokud k tomu dojde, postupujte podle níže uvedených pokynů prostředí PowerShell.
 
 ## <a name="unregister-azure-stack-hci-using-powershell"></a>Zrušení registrace Azure Stack HCL pomocí PowerShellu
 
@@ -204,4 +204,5 @@ Pokud chcete odstranit prostředek Azure Stack HCL, přejděte na jeho stránku 
 
 Související informace najdete v tématu také:
 
+- [Registrace centra pro správu Windows pomocí Azure](register-windows-admin-center.md)
 - [Připojení Azure Stack HCl k Azure](../deploy/register-with-azure.md)

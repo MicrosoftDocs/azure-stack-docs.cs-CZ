@@ -5,15 +5,15 @@ author: mattbriggs
 ms.author: mabrigg
 ms.service: azure-stack
 ms.topic: reference
-ms.date: 2/1/2021
+ms.date: 2/8/2021
 ms.reviewer: kivenkat
-ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: 84c218c36b370c5b0be2cbe415ae3f3f10a6397f
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.lastreviewed: /8/2021
+ms.openlocfilehash: 7091ebff9fae07b1e5eb97f54a33889bc73eda7b
+ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99247094"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100009226"
 ---
 # <a name="graphics-processing-unit-gpu-virtual-machine-vm-on-azure-stack-hub"></a>Virtuální počítač GPU (Graphics Processing Unit) na rozbočovači Azure Stack
 
@@ -26,11 +26,17 @@ V období veřejné verze Preview si můžete vybrat ze tří modelů GPU. Jsou 
 - [NVv4 (AMD MI25)](/azure/virtual-machines/nvv4-series)
 - [NCasT4_v3](/azure/virtual-machines/nct4-v3-series)
 
+::: moniker range=">=azs-2005"
 > [!IMPORTANT]  
-> Podpora GPU centra Azure Stack je v současné době ve verzi Public Preview. Chcete-li se zúčastnit verze Preview, vyplňte formulář na adrese [aka.MS/azurestackhubgpupreview](https://aka.ms/azurestackhubgpupreview).
+> Podpora Azure Stack centra GPU je ve verzi Public Preview pro verze 2005 a 2008 Azure Stack centra.  
 > Tato verze Preview se poskytuje bez smlouvy o úrovni služeb a nedoporučuje se pro úlohy v produkčním prostředí. Některé funkce se nemusí podporovat nebo mohou mít omezené možnosti.
 > Další informace najdete v [dodatečných podmínkách použití pro verze Preview v Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+::: moniker-end
 
+::: moniker range="<=azs-2002"
+> [!WARNING]  
+> Virtuální počítače GPU nejsou v této verzi podporované. Budete muset upgradovat na Azure Stack hub 2005 nebo novější. Kromě toho musí mít hardware centra Azure Stack fyzické GPU.
+::: moniker-end
 ## <a name="ncv3"></a>NCv3
 
 Virtuální počítače řady NCv3-Series využívají grafické procesory NVIDIA Tesla V100. Zákazníci můžou využít těchto aktualizovaných GPU pro tradiční úlohy HPC, jako je modelování zásobníku, sekvence DNA, analýza bílkovin, simulace Monte Carlo a další. 
@@ -50,6 +56,11 @@ Virtuální počítače řady NVv4-Series využívají GPU technologie [AMD Rade
 | Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 | 
 
 ## <a name="ncast4_v3"></a>NCasT4_v3
+
+::: moniker range=">=azs-2005"
+> [!IMPORTANT]
+> Tyto velikosti virtuálních počítačů se nedají nasadit pomocí uživatelského rozhraní portálu (UI). Můžete použít PowerShell, Azure CLI nebo šablony Azure Resource Manager.
+::: moniker-end
 
 | Velikost | Virtuální procesory | Paměť: GiB | GPU | Paměť GPU: GiB | Max. datových disků | Maximální počet síťových karet | 
 | --- | --- | --- | --- | --- | --- | --- |

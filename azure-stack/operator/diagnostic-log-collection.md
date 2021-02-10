@@ -3,32 +3,31 @@ title: Shromažďování protokolů diagnostiky
 description: Přečtěte si o shromažďování protokolů diagnostiky.
 author: PatAltimore
 ms.topic: article
-ms.date: 10/30/2020
+ms.date: 02/03/2021
 ms.author: patricka
 ms.reviewer: shisab
-ms.lastreviewed: 12/08/2020
-ms.openlocfilehash: c8913bd91b7d931baf47f249dd214dd6eea71e4a
-ms.sourcegitcommit: 6efe456173ce77d52789144709195b6291d0d707
+ms.lastreviewed: 02/03/2021
+ms.openlocfilehash: ad5f0a7f6028249dba3d63490cdc3c91d7a45e72
+ms.sourcegitcommit: 69c700a456091adc31e4a8d78e7a681dfb55d248
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97950735"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100013213"
 ---
 # <a name="diagnostic-log-collection"></a>Shromažďování protokolů diagnostiky
 
-Centrum Azure Stack je kolekce komponent Windows i místních služeb Azure, které vzájemně spolupracuje. Všechny tyto komponenty a služby generují svou vlastní sadu protokolů. Vzhledem k tomu, že podpora Microsoftu používá tyto protokoly k identifikaci a řešení problémů, nabízíme shromažďování protokolů diagnostiky. Shromažďování diagnostických protokolů vám pomůže rychle shromáždit a sdílet diagnostické protokoly s podpora Microsoftu.
+Můžete sdílet diagnostické protokoly vytvořené pomocí centra Azure Stack. Tyto protokoly jsou vytvářeny součástmi systému Windows a místními službami Azure. Podpora Microsoftu můžou pomocí protokolů opravovat nebo identifikovat problémy s instancí centra Azure Stack.
 
-> [!IMPORTANT]
-> Aby bylo možné použít shromažďování protokolů diagnostiky, je nutné zaregistrovat centrum Azure Stack. Pokud jste nezaregistrovali Azure Stack centrum, sdílejte protokoly pomocí [privilegovaného koncového bodu (PEP)](azure-stack-get-azurestacklog.md) . 
+Chcete-li začít se shromažďováním protokolů diagnostiky centra Azure Stack, je nutné svou instanci zaregistrovat. Pokud jste nezaregistrovali Azure Stack centrum, sdílejte protokoly pomocí [privilegovaného koncového bodu (PEP)](azure-stack-get-azurestacklog.md) . 
 
 ::: moniker range=">= azs-2005"
 
-Centrum Azure Stack má několik způsobů, jak shromažďovat, ukládat a odesílat diagnostické protokoly do podpora Microsoftu. V závislosti na připojení k Azure jsou k disviset tyto možnosti shromažďování a odesílání protokolů:
+Existují různé způsoby, jak odesílat diagnostické protokoly do podpora Microsoftu. V závislosti na vašem připojení k Azure máte tyto možnosti:
 * [Proaktivní odesílání protokolů (doporučeno)](#send-logs-proactively)
 * [Poslat protokoly hned](#send-logs-now)
 * [Místní uložení protokolů](#save-logs-locally)
 
-Vývojový diagram níže ukazuje, kterou možnost použít k odesílání diagnostických protokolů v každém případě. Pokud se centrum Azure Stack může připojit k Azure, doporučujeme povolit **proaktivní shromažďování protokolů**, které při vyvolání kritické výstrahy automaticky nahraje diagnostické protokoly do objektu BLOB úložiště se spravovaným Microsoftem v Azure. Můžete také shromažďovat protokoly na vyžádání pomocí příkazu **Odeslat protokoly nyní**. Pokud je rozbočovač Azure Stack od Azure odpojený, můžete **ukládat protokoly místně**. 
+Vývojový diagram ukazuje, kterou možnost použít k odesílání diagnostických protokolů. Pokud se centrum Azure Stack připojuje k Azure, povolte **shromažďování proaktivních protokolů**. Proaktivní shromažďování protokolů automaticky nahrává protokoly diagnostiky do objektu BLOB úložiště řízeného Microsoftem v Azure, když se aktivuje kritická výstraha. Protokoly můžete shromažďovat také na vyžádání pomocí příkazu **Odeslat protokoly nyní**. U Azure Stackového centra, které běží v odpojeném prostředí, nebo pokud máte problémy s připojením, vyberte možnost **ukládat protokoly místně**.
 
 ![Vývojový diagram ukazuje, jak teď odesílat protokoly do Microsoftu.](media/azure-stack-help-and-support/send-logs-now-flowchart.png)
 
@@ -36,11 +35,24 @@ Vývojový diagram níže ukazuje, kterou možnost použít k odesílání diagn
 
 ## <a name="send-logs-proactively"></a>Proaktivní odesílání protokolů
 
-Proaktivní shromažďování protokolů automaticky shromažďuje a odesílá diagnostické protokoly z centra Azure Stack do Microsoftu před otevřením případu podpory. Tyto protokoly jsou shromažďovány pouze v případě, že je vyvolána [Výstraha o stavu systému](#proactive-diagnostic-log-collection-alerts) a že k nim přistupovali pouze podpora Microsoftu v kontextu případu podpory.
+Proaktivní shromažďování protokolů automaticky shromažďuje a odesílá diagnostické protokoly z centra Azure Stack do Microsoftu před otevřením případu podpory. Tyto protokoly jsou shromažďovány pouze v případě, že je vyvolána výstraha o stavu systému a že k nim přistupovali pouze podpora Microsoftu v kontextu případu podpory.
 
 ::: moniker range=">= azs-2008"
 
-Od centra Azure Stack verze 2008 používá aktivní kolekce protokolů Vylepšený algoritmus, který zachycuje protokoly i v případě chybových stavů, které nejsou viditelné pro operátora. Tím se zajistěte, aby byly správné diagnostické informace shromažďovány ve správnou dobu bez nutnosti zásahu operátoru. Podpora Microsoftu může zahájit řešení potíží a vyřešit problémy dřív v některých případech. Počáteční vylepšení algoritmu se soustředí na operace oprav a aktualizace. Doporučuje se povolit proaktivní kolekce protokolů, protože se optimalizují víc operací a zvyšují se výhody.
+Od centra Azure Stack verze 2008 používá aktivní kolekce protokolů Vylepšený algoritmus, který zachycuje protokoly i v případě chybových stavů, které nejsou viditelné pro operátora. Tím se zajistěte, aby byly správné diagnostické informace shromažďovány ve správnou dobu bez nutnosti zásahu operátoru. Podpora Microsoftu může zahájit řešení potíží a vyřešit problémy dřív v některých případech. Počáteční vylepšení algoritmu se soustředí na operace oprav a aktualizace.
+
+Centrum Azure Stack shromažďuje protokoly pro výstrahy a jiné události skrytého selhání, které nejsou pro vás viditelné.
+
+Rozbočovač Azure Stack proaktivně shromažďuje protokoly pro:
+
+- Aktualizace se nezdařila.
+- Aktualizace vyžaduje pozornost.
+
+Když událost aktivuje tyto výstrahy, Azure Stack centrum proaktivně odesílá protokoly společnosti Microsoft.
+
+Azure Stack centrum navíc odesílá protokoly do Microsoftu, které aktivovaly jiné události selhání. Tyto události nejsou pro vás viditelné.
+
+Doporučuje se povolit proaktivní kolekce protokolů, protože se optimalizují víc operací a zvyšují se výhody.
 
 ::: moniker-end
 
@@ -63,50 +75,18 @@ Veškerá data, která byla dříve shromážděna s vaším souhlasem, nebudou 
 
 Protokoly shromážděné pomocí **proaktivní kolekce protokolů** se odesílají do účtu úložiště Azure spravovaného a řízeného Microsoftem. K těmto protokolům může společnost Microsoft přihlašovat v rámci případu podpory a zlepšit stav centra Azure Stack.
 
-### <a name="proactive-diagnostic-log-collection-alerts"></a>Výstrahy shromažďování proaktivní diagnostického protokolu
-
-Pokud je povoleno, v případě, že je aktivována jedna z následujících událostí, odešle protokol proaktivní kolekce protokolů.
-
-Například **Chyba aktualizace** je výstraha, která spouští proaktivní shromažďování protokolů diagnostiky. Pokud je tato možnost povolena, diagnostické protokoly budou aktivně zachyceny během chyby aktualizace, což může pomoct podpora Microsoftu řešení problému. Diagnostické protokoly jsou shromažďovány pouze v případě, že se vyvolá výstraha pro **aktualizaci** .
-
-| Název výstrahy | FaultIdType |
-|---|---|
-|Nejde se připojit ke vzdálené službě | UsageBridge.NetworkError|
-|Aktualizace se nezdařila | Urp.UpdateFailure |
-|Infrastruktura nebo závislosti poskytovatele prostředků úložiště nejsou k dispozici. |    StorageResourceProviderDependencyUnavailable |
-|Uzel není připojený k řadiči.| ServerHostNotConnectedToController |  
-|Selhání publikování trasy | SlbMuxRoutePublicationFailure |
-|Interní úložiště dat poskytovatele prostředků úložiště není dostupné. |    StorageResourceProvider. DataStoreConnectionFail |
-|Selhání úložného zařízení | Microsoft. Health. typ FaultType. VirtualDisks. odpojilo se |
-|Kontroler stavu nemůže získat přístup k účtu úložiště. | Microsoft. Health. typ FaultType. StorageError |
-|Připojení k fyzickému disku bylo ztraceno. | Microsoft. Health. typ FaultType. fyzický disk. LostCommunication |
-|Služba BLOB Service není spuštěná na uzlu. | StorageService. blob. Service. is. not. Running. on. Node-Critical |
-|Role infrastruktury není v pořádku. | Microsoft. Health. typ FaultType. GenericExceptionFault |
-|Chyby služby Table service | StorageService. Table. Service. Errors – kritický |
-|Sdílená složka je větší než 80% využití. | Microsoft. Health. typ FaultType. sdílené složky. Capacity. Warning. |
-|Uzel jednotky škálování je offline | FRP. Prezenční signál. PhysicalNode |
-|Instance role infrastruktury není dostupná. | FRP. Prezenční signál. InfraVM |
-|Instance role infrastruktury není dostupná.  | FRP. Prezenční signál. NonHaVm |
-|Role infrastruktury, Správa adresářů, ohlásila chyby synchronizace času. | DirectoryServiceTimeSynchronizationError |
-|Blížící se vypršení platnosti externího certifikátu | CertificateExpiration. ExternalCert. Warning |
-|Blížící se vypršení platnosti externího certifikátu | CertificateExpiration. ExternalCert. Critical |
-|Pro konkrétní třídu a velikost nejde zřídit virtuální počítače kvůli nedostatečné kapacitě paměti | AzureStack. ComputeController. VmCreationFailure. LowMemory |
-|Nedostupný uzel pro umístění virtuálního počítače | AzureStack. ComputeController. HostUnresponsive |
-|Zálohování nebylo úspěšné.  | AzureStack. BackupController. BackupFailedGeneralFault |
-|Naplánované zálohování bylo přeskočeno z důvodu konfliktu s neúspěšnými operacemi.    | AzureStack. BackupController. BackupSkippedWithFailedOperationFault |
-
 ## <a name="send-logs-now"></a>Poslat protokoly hned
 
 > [!TIP]
 > Šetřete čas pomocí [interaktivního odesílání protokolů](#send-logs-proactively) , místo aby se teď odesílaly protokoly.
 
-Možnost Odeslat protokoly je teď možností, kde ručně shromáždíte a nahrajete diagnostické protokoly z centra Azure Stack, obvykle před otevřením případu podpory.
+Možnost Odeslat protokoly je nyní možnost, kde ručně shromáždíte a nahrajete diagnostické protokoly z centra Azure Stack, obvykle před otevřením případu podpory.
 
 Existují dva způsoby, jak můžete ručně odeslat protokoly diagnostiky do podpora Microsoftu:
 * [Portál pro správu (doporučeno)](#send-logs-now-with-the-administrator-portal)
 * [PowerShell](#send-logs-now-with-powershell)
 
-Pokud je centrum Azure Stack připojené k Azure, doporučujeme používat portál pro správu, protože to je nejjednodušší způsob, jak odesílat protokoly přímo Microsoftu. Pokud portál není k dispozici, měli byste místo toho odesílat protokoly pomocí PowerShellu.
+Pokud je centrum Azure Stack připojené k Azure, doporučujeme používat portál pro správu, protože to je nejjednodušší způsob, jak odesílat protokoly přímo Microsoftu. Pokud portál není k dispozici, měli byste odesílat protokoly pomocí PowerShellu.
 
 ### <a name="send-logs-now-with-the-administrator-portal"></a>Posílání protokolů teď pomocí portálu pro správu
 
@@ -117,7 +97,7 @@ Pokud chcete odesílat protokoly hned pomocí portálu pro správu:
 1. Vyberte místní časové pásmo.
 1. Vyberte **shromáždit a nahrát**.
 
-Pokud jste odpojeni z Internetu nebo chcete ukládat pouze protokoly místně, použijte k odeslání protokolů metodu [Get-AzureStackLog](azure-stack-get-azurestacklog.md) .
+Pokud jste odpojeni z Internetu nebo chcete ukládat pouze protokoly místně, použijte k posílání protokolů metodu [Get-AzureStackLog](azure-stack-get-azurestacklog.md) .
 
 ### <a name="send-logs-now-with-powershell"></a>Poslat protokoly hned pomocí PowerShellu
 
@@ -195,7 +175,7 @@ Pokud používáte metodu **Odeslat protokoly** a chcete místo portálu pro spr
   ```
 
 > [!NOTE]
-> Pokud jste odpojeni z Internetu nebo chcete ukládat pouze místní protokoly, použijte k odeslání protokolů metodu [Get-AzureStackLog](azure-stack-get-azurestacklog.md) . 
+> Pokud nejste připojení k Internetu, nebo chcete ukládat jenom protokoly místně, použijte k odesílání protokolů metodu [Get-AzureStackLog](azure-stack-get-azurestacklog.md) . 
 
 ### <a name="how-the-data-is-handled"></a>Způsob zpracování dat
 
@@ -205,7 +185,9 @@ Tím, že inicializujete shromažďování diagnostických protokolů z centra A
 
 ## <a name="save-logs-locally"></a>Místní uložení protokolů
 
-Když se Azure Stack rozbočovač odpojí od Azure, můžete protokoly Uložit do místní sdílené složky SMB (Server Message Block). V okně **Nastavení** zadejte cestu a uživatelské jméno a heslo, které mají oprávnění k zápisu do sdílené složky. Během případu podpory vám podpora Microsoftu poskytne podrobné pokyny, jak přenést tyto místní protokoly. Pokud portál správce není k dispozici, můžete použít [příkaz Get-AzureStackLog](azure-stack-get-azurestacklog.md) k místnímu uložení protokolů.
+Když se Azure Stack rozbočovač odpojí od Azure, můžete protokoly Uložit do místní sdílené složky SMB (Server Message Block). Můžete například spustit odpojené prostředí. Pokud se normálně připojujete, ale dochází k problémům s připojením, můžete ukládat protokoly místně a pomáhat s odstraňováním potíží.
+
+ V okně **Nastavení** zadejte cestu a uživatelské jméno a heslo, které mají oprávnění k zápisu do sdílené složky. Během případu podpory vám podpora Microsoftu poskytne podrobné pokyny, jak přenést tyto místní protokoly. Pokud portál správce není k dispozici, můžete použít [příkaz Get-AzureStackLog](azure-stack-get-azurestacklog.md) k místnímu uložení protokolů.
 
 ![Snímek obrazovky s možnostmi shromažďování diagnostických protokolů](media/azure-stack-help-and-support/save-logs-locally.png)
 
@@ -221,7 +203,7 @@ V následující tabulce jsou uvedeny požadavky pro prostředí s omezenými ne
 |----|---|
 | Připojení s nízkou šířkou pásma a vysokou latencí | Nahrávání protokolu bude trvat delší dobu, než se dokončí. |
 | Sdílené připojení | Nahrávání může mít vliv i na ostatní aplikace nebo uživatele sdílející síťové připojení. |
-| Připojení účtované podle objemu dat | Od poskytovatele internetových služeb může docházet k dodatečnému využití sítě. |
+| Připojení účtované podle objemu dat | Od poskytovatele internetových služeb může být další poplatek za využití sítě. |
 
 ## <a name="view-log-collection"></a>Zobrazit kolekci protokolů
 

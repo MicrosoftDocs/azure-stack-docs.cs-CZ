@@ -3,16 +3,16 @@ title: Vytvoření virtuálního počítače pomocí šablony komunity
 description: Naučte se používat Azure Stack Development Kit (ASDK) k vytvoření virtuálního počítače pomocí předdefinované šablony a vlastní šablony GitHubu.
 author: sethmanheim
 ms.topic: tutorial
-ms.date: 06/15/2020
+ms.date: 02/09/2021
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: dc666d486f0b36a043ba8da969312879ad785e50
-ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
+ms.openlocfilehash: 25619c88f0550b839e711cd059cf1aa25412b972
+ms.sourcegitcommit: 69c700a456091adc31e4a8d78e7a681dfb55d248
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84813827"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100013302"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>Kurz: Vytvoření virtuálního počítače pomocí šablony komunity
 
@@ -57,37 +57,27 @@ Tato šablona nainstaluje následující součásti:
 > [!IMPORTANT]
 > Image virtuálního počítače s Ubuntu (Ubuntu Server 16,04 LTS, v tomto příkladu) už musí být před provedením těchto kroků přidaná na web centra Azure Stack.
 
-1. Vyberte **+ vytvořit prostředek**, pak **vlastní**a pak **template Deployment**.
+1. Vyberte **+ vytvořit prostředek**, pak **vlastní** a pak **template Deployment**.
 
-    ![Vytvoření šablony](media/azure-stack-create-vm-template/1.PNG)
+   [![Vytvoření šablony](media/azure-stack-create-vm-template/vm-template-1.png)](media/azure-stack-create-vm-template/vm-template-1-expanded.png#lightbox)
 
-2. Vyberte **Upravit šablonu**.
+2. Zadejte název šablony, která se má načíst. v tomto příkladu je to **101-VM-Linux-minikube**. Pak vyberte **Upravit šablonu**.
 
-    ![Úprava šablony](media/azure-stack-create-vm-template/2.PNG)
+    [![Úprava šablony](media/azure-stack-create-vm-template/vm-template-2.png)](media/azure-stack-create-vm-template/vm-template-2-expanded.png#lightbox)
 
-3. Vyberte **šablonu pro rychlý Start**.
+3. Vyberte **šablonu pro rychlý Start**. Pak z dostupných šablon vyberte z rozevíracího seznamu **Vybrat šablonu** **101-VM-Linux-minikube** a pak klikněte na **OK**.
 
-    ![Šablona pro rychlý start](media/azure-stack-create-vm-template/3.PNG)
+    [![Šablona pro rychlý start](media/azure-stack-create-vm-template/vm-template-3.png)](media/azure-stack-create-vm-template/vm-template-3-expanded.png#lightbox)
 
-4. V rozevíracím seznamu **Vyberte šablonu** vyberte **101-VM-Linux-minikube** z dostupných šablon a pak klikněte na **OK**.
+4. Pokud chcete provést úpravy JSON šablony, můžete to udělat. Pokud ne, nebo po dokončení vyberte **Uložit** a zavřete dialogové okno **Upravit šablonu** .
 
-    ![Vybrat šablonu](media/azure-stack-create-vm-template/4.PNG)
+5. Vyberte **parametry**, vyplňte nebo podle potřeby upravte pole k dispozici a pak klikněte na **OK**.
 
-5. Pokud chcete provést úpravy JSON šablony, můžete to udělat. Pokud ne, nebo po dokončení vyberte **Uložit** a zavřete dialogové okno **Upravit šablonu** .
+6. Zvolte předplatné, které chcete použít, a pak vytvořte nebo zvolte existující název skupiny prostředků. Pak vyberte **vytvořit** a spusťte tak nasazení šablony.
 
-    ![Uložení šablony](media/azure-stack-create-vm-template/5.PNG)
+    [![Zvolit předplatné](media/azure-stack-create-vm-template/vm-template-4.png)](media/azure-stack-create-vm-template/vm-template-4-expanded.png#lightbox)
 
-6. Vyberte **parametry**, vyplňte nebo podle potřeby upravte pole k dispozici a pak klikněte na **OK**.
-
-    ![Parametry](media/azure-stack-create-vm-template/6.PNG)
-
-7. Zvolte předplatné, které chcete použít, a pak vytvořte nebo zvolte existující název skupiny prostředků. Pak vyberte **vytvořit** a spusťte tak nasazení šablony.
-
-    ![Zvolit předplatné](media/azure-stack-create-vm-template/7.PNG)
-
-8. Nasazení skupiny prostředků trvá několik minut, než se vytvoří vlastní virtuální počítač založený na šablonách. Stav instalace můžete monitorovat prostřednictvím oznámení a z vlastností skupiny prostředků.
-
-    ![Nasazení](media/azure-stack-create-vm-template/8.PNG)
+7. Nasazení skupiny prostředků trvá několik minut, než se vytvoří vlastní virtuální počítač založený na šablonách. Stav instalace můžete monitorovat prostřednictvím oznámení a z vlastností skupiny prostředků.
 
     >[!NOTE]
     > Po dokončení nasazení se virtuální počítač spustí.
@@ -98,11 +88,11 @@ Teď, když byl virtuální počítač se systémem Linux úspěšně vytvořen,
 
 1. Po dokončení nasazení vyberte **připojit** a ZOBRAZTE veřejnou IP adresu, která se bude používat pro připojení k virtuálnímu počítači se systémem Linux.
 
-    ![Připojit](media/azure-stack-create-vm-template/9.PNG)
+    [![Síti](media/azure-stack-create-vm-template/vm-template-5.png)](media/azure-stack-create-vm-template/vm-template-5-expanded.png#lightbox)
 
 2. Z příkazového řádku se zvýšenými oprávněními spusťte **mstsc.exe** a otevřete připojení ke vzdálené ploše a připojte se k veřejné IP adrese virtuálního počítače se systémem Linux zjištěné v předchozím kroku. Po zobrazení výzvy k přihlášení k xRDP použijte přihlašovací údaje, které jste zadali při vytváření virtuálního počítače.
 
-    ![Remote](media/azure-stack-create-vm-template/10.PNG)
+    ![Vzdálené](media/azure-stack-create-vm-template/10.PNG)
 
 3. Otevřete emulátor terminálu a zadáním následujících příkazů spusťte Minikube:
 

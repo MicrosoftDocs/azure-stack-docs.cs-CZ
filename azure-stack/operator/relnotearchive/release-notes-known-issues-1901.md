@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/27/2019
-ms.openlocfilehash: fe321ff69f3ef17f590dd026886e29ed3100d107
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: d3225284c8352771042742f8c8d94e4ae01abe2c
+ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248085"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100009243"
 ---
 # <a name="azure-stack-1901-update"></a>Aktualizace Azure Stack 1901
 
@@ -259,7 +259,7 @@ Níže jsou uvedené známé problémy po instalaci této verze buildu.
 
 <!-- ### Health and monitoring -->
 
-### <a name="compute"></a>Výpočetní prostředky
+### <a name="compute"></a>Compute
 
 - Při vytváření nového virtuálního počítače s Windows se může zobrazit následující chyba:
 
@@ -276,7 +276,7 @@ Níže jsou uvedené známé problémy po instalaci této verze buildu.
    - Pokud bylo předplatné vytvořeno před aktualizací 1808, může při nasazení virtuálního počítače s Managed Disks dojít k chybě s interní chybovou zprávou. Pokud chcete chybu vyřešit, postupujte podle těchto kroků u každého předplatného:
       1. Na portálu tenanta klikněte na **předplatná** a vyhledejte předplatné. Vyberte **poskytovatelé prostředků**, vyberte **Microsoft. COMPUTE** a potom klikněte na **znovu registrovat**.
       2. V rámci stejného předplatného, přejít na **Access Control (IAM)** a ověřte, že je v seznamu uvedeno **rozhraní AzureStack-DiskRP-Client** .
-   - Pokud jste nakonfigurovali víceklientské prostředí, může se při nasazování virtuálních počítačů v rámci předplatného, které je přidružené k adresáři hosta, selhat chyba s interní chybovou zprávou. Pokud chcete chybu vyřešit, postupujte podle těchto kroků v [tomto článku](../azure-stack-enable-multitenancy.md#register-azure-stack-hub-with-the-guest-directory) a překonfigurujte všechny adresáře hostů.
+   - Pokud jste nakonfigurovali víceklientské prostředí, může se při nasazování virtuálních počítačů v rámci předplatného, které je přidružené k adresáři hosta, selhat chyba s interní chybovou zprávou. Pokud chcete chybu vyřešit, postupujte podle těchto kroků v [tomto článku](../azure-stack-enable-multitenancy.md#register-a-guest-directory) a překonfigurujte všechny adresáře hostů.
 
 - Virtuální počítač Ubuntu 18,04 vytvořený s povoleným autorizací SSH vám neumožní používat klíče SSH k přihlášení. Alternativním řešením je použít pro rozšíření pro Linux přístup k virtuálnímu počítači k implementaci klíčů SSH po zřízení nebo použití ověřování na základě hesla.
 

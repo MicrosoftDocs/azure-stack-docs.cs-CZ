@@ -7,12 +7,12 @@ ms.date: 02/03/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: ea286718f2f4c0fcd2bdf935d5e12d462d07856f
-ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
+ms.openlocfilehash: 6360c0127c53e8c5e7c8686050208f3e6f537f56
+ms.sourcegitcommit: 69c700a456091adc31e4a8d78e7a681dfb55d248
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99533922"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100013263"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -133,7 +133,7 @@ Vzhledem k tomu, že jsou opravy hotfix centra Azure Stack kumulativní, doporu�
 
 Pokud se následně uvolní nějaké opravy hotfix 2008, měli byste po instalaci 2008 nainstalovat tyto opravy:
 
-- [1.2008.25.114 opravy hotfix centra Azure Stack](https://support.microsoft.com/topic/87ee234e-7f33-4342-bc0a-5779dbb33263)
+- [1.2008.25.114 opravy hotfix centra Azure Stack](hotfix-1-2008-25-114.md)
 ::: moniker-end
 
 ::: moniker range="azs-2005"
@@ -233,7 +233,7 @@ Od verze 2005 se při aktualizaci na novou hlavní verzi (například 1.2002. x 
 
 Pokud se následně uvolní nějaké opravy hotfix 2005, měli byste po instalaci 2005 nainstalovat tyto opravy:
 
-- [1.2005.29.100 opravy hotfix centra Azure Stack](https://support.microsoft.com/topic/10c1b6e2-7bf7-4f71-8204-f1b12e2f744a)
+- [1.2005.29.100 opravy hotfix centra Azure Stack](hotfix-1-2005-29-100.md)
 ::: moniker-end
 
 ::: moniker range="azs-2002"

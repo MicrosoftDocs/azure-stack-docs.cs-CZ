@@ -112,7 +112,7 @@
       items:
         - name: Nasazení infrastruktury SDN
           href: manage/sdn-express.md
-        - name: Použití brány firewall Datacenter
+        - name: Použití brány firewall Datacenter s prostředím PowerShell
           href: manage/use-datacenter-firewall.md
         - name: Správa logických sítí tenanta
           href: manage/tenant-logical-networks.md
@@ -238,7 +238,7 @@
       href: /windows-server/networking/sdn
     - name: System Center
       href: /system-center/
-- name: Zdroje informací
+- name: Zdroje a prostředky
   items:
     - name: Stránka produktu Azure Stack HCL
       href: 'https://azure.com/hci'

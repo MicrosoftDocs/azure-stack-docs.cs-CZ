@@ -16,12 +16,12 @@ ms.date: 10/02/2018
 ms.author: sethm
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7d7ba1e7e3b6686002d24df2e286af81ddda5ce7
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 3574c55568db86c96d22d43fdf1bb08ac79c061e
+ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248053"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100009192"
 ---
 # <a name="azure-stack-1808-update"></a>Aktualizace Azure Stack 1808
 
@@ -231,7 +231,7 @@ Níže jsou uvedené známé problémy po instalaci této verze buildu.
 - Operátor Azure Stack, pokud obdržíte výstrahu o nedostatku paměti a virtuální počítače klienta se nepodaří nasadit s **chybou vytvoření virtuálního počítače infrastruktury**, je možné, že Azure Stack razítko není dostupné paměti. [Capacity Planner Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) použijte k tomu, abyste nejlépe pochopili kapacitu dostupnou pro vaše úlohy.
 
 
-### <a name="compute"></a>Výpočetní prostředky
+### <a name="compute"></a>Compute
 
 <!-- 3099544 IS, ASDK --> 
 - Když vytváříte nový virtuální počítač pomocí portálu Azure Stack a vyberete velikost virtuálního počítače, zobrazí se sloupec USD/měsíc s **nedostupnou** zprávou. Tento sloupec by se neměl zobrazovat; zobrazení sloupce s cenami virtuálních počítačů není v Azure Stack podporováno.
@@ -244,7 +244,7 @@ Níže jsou uvedené známé problémy po instalaci této verze buildu.
       2. V rámci stejného předplatného, přejít na **Access Control (IAM)** a ověřte, že je v seznamu uvedeno **Azure Stack spravovaný disk** .
    2. Pokud jste nakonfigurovali víceklientské prostředí, může se při nasazování virtuálních počítačů v rámci předplatného, které je přidružené k adresáři hostovaného uživatele, zdařit chyba a zobrazí se interní chybová zpráva. K vyřešení této chyby použijte následující postup:
       1. Použijte [opravu Hotfix 1808 Azure Stack](https://support.microsoft.com/help/4465859).
-      2. Postupujte podle kroků v [tomto článku](../azure-stack-enable-multitenancy.md#register-azure-stack-hub-with-the-guest-directory) a změňte konfiguraci každého adresáře hostů.
+      2. Postupujte podle kroků v [tomto článku](../azure-stack-enable-multitenancy.md#register-a-guest-directory) a změňte konfiguraci každého adresáře hostů.
 
 <!-- 2869209 IS, ASDK --> 
 - Při použití [rutiny **Add-AzsPlatformImage**](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0&preserve-view=true)musíte použít parametr **-OsUri** jako identifikátor URI účtu úložiště, kam se disk nahrává. Pokud použijete místní cestu k disku, rutina se nezdařila s následující chybou: *dlouhodobá operace se nezdařila se stavem selhalo*. 

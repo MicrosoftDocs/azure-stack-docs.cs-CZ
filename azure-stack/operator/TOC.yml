@@ -12,6 +12,12 @@
           href: release-notes-security-updates.md
         - name: "Poznámky k\_verzi"
           href: release-notes.md
+        - name: Opravy hotfix
+          items:
+            - name: Oprava hotfix 1.2005.29.100
+              href: hotfix-1-2005-29-100.md
+            - name: Oprava hotfix 1.2008.25.114
+              href: hotfix-1-2008-25-114.md
         - name: Známé problémy
           href: known-issues.md
 - name: Rychlé starty
@@ -524,7 +530,7 @@
       href: ../asdk/index.yml
     - name: Dokumentace k hybridnímu cloudu Azure
       href: /hybrid
-- name: Zdroje informací
+- name: Zdroje a prostředky
   items:
     - name: Archiv poznámek k verzi
       items:
