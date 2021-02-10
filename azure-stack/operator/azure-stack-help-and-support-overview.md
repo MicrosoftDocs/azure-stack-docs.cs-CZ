@@ -7,12 +7,12 @@ ms.date: 01/19/2021
 ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 01/19/2021
-ms.openlocfilehash: 88414f6e4198c7db04307eb4d508ee5acd9dfbe9
-ms.sourcegitcommit: 01abc9d81ced31bd727626195148b4e00cc2d62e
+ms.openlocfilehash: fbe9221e61de46c2af28bf50268d0e23b20d2844
+ms.sourcegitcommit: 69c700a456091adc31e4a8d78e7a681dfb55d248
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98584317"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100013247"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Pomoc a podpora centra Azure Stack
 
@@ -83,7 +83,7 @@ Tato sada kurzů je přizpůsobená v závislosti na tom, jestli používáte AS
 Diagnostické protokoly můžete společnosti Microsoft odeslat dvěma způsoby:
 
 - [Odeslat protokoly interaktivně](./diagnostic-log-collection.md#send-logs-proactively): Pokud je tato možnost povolená, spustí se shromažďování protokolů konkrétními upozorněními na stav.
-- [Odeslat protokoly nyní](./diagnostic-log-collection.md#send-logs-now): jako časový rámec pro shromažďování protokolů můžete zvolit konkrétní posuvné okno.
+- [Odeslat protokoly nyní](./diagnostic-log-collection.md#send-logs-now-with-the-administrator-portal): jako časový rámec pro shromažďování protokolů můžete zvolit konkrétní posuvné okno.
 
 ![Snímek obrazovky, který ukazuje, jak spustit shromažďování diagnostických protokolů.](media/azure-stack-help-and-support/banner-enable-automatic-log-collection.png)
 

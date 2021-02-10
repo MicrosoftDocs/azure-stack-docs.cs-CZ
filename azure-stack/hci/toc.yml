@@ -113,7 +113,7 @@
         - name: Nasazení infrastruktury SDN
           href: manage/sdn-express.md
         - name: Použití brány firewall Datacenter s prostředím PowerShell
-          href: manage/use-datacenter-firewall.md
+          href: manage/use-datacenter-firewall-powershell.md
         - name: Správa logických sítí tenanta
           href: manage/tenant-logical-networks.md
         - name: Správa virtuálních sítí tenantů
