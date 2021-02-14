@@ -7,12 +7,12 @@ ms.date: 11/13/2020
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 96a4e944b6b86c8b5db314141fd3473a8512d518
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: b17bf72931d5e80f9cfebe6df54655856695dba2
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98256196"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487982"
 ---
 # <a name="privileged-access-workstation-and-privileged-endpoint-access"></a>Přístup k pracovní stanici privilegovaného přístupu a privilegovanému koncovému bodu
 
@@ -42,7 +42,7 @@ V PRIVILEGOVANÝM přístupem otevřete relaci PowerShellu se zvýšenými oprá
 
 Chcete-li zavřít relaci privilegovaného koncového bodu, spusťte následující příkaz:
 
-## <a name="further-reading"></a>Další materiály
+## <a name="further-reading"></a>Další čtení
 
 Další informace o připojení a práci s privilegovaným koncovým bodem najdete v tématu [použití privilegovaného koncového bodu v](../../operator/azure-stack-privileged-endpoint.md) 
  [centru](../../operator/azure-stack-privileged-endpoint.md)Azure Stack.

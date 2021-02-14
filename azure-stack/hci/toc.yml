@@ -204,6 +204,8 @@
       href: /python/api/azure-mgmt-azurestackhci/azure.mgmt.azurestackhci?view=azure-python
     - name: Azure Stack balíček HCI JavaScriptu
       href: /javascript/api/overview/azure/azurestack/stackhci?view=azure-node-latest
+    - name: Odkaz na Azure Stack HCI REST API
+      href: /rest/api/stackhci
     - name: Obory názvů .NET pro Azure Stack HCI
       href: /dotnet/api/overview/azure/stackhci/management
     - name: Příkazy prostředí PowerShell technologie Hyper-V
@@ -238,7 +240,7 @@
       href: /windows-server/networking/sdn
     - name: System Center
       href: /system-center/
-- name: Zdroje a prostředky
+- name: Zdroje informací
   items:
     - name: Stránka produktu Azure Stack HCL
       href: 'https://azure.com/hci'

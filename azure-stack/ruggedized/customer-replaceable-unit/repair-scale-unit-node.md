@@ -3,16 +3,16 @@ title: Zapnout a opravit uzel jednotky škálování
 description: Zjistěte, jak zapnout a opravit uzel jednotky škálování.
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/05/2021
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: d05c696f62aad4d9305137edab777d69b6442814
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: 0a2aa54234b5dccc8f1ce3425906425064463910
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97909918"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100488118"
 ---
 # <a name="powering-on-and-repairing-a-scale-unit-node"></a>Zapnutí a oprava uzlu jednotky škálování
 
@@ -37,7 +37,7 @@ Chcete-li opravit a přenést uzel jednotek škálování zpátky do produkční
     
     
     > [!NOTE]
-    > Pokud se postup opravy nedokončí za tři hodiny, nebo dojde k problému, otevřete případ s podporou technologií Dell, kteří mohou podpora Microsoftu řešit další řešení potíží.
+    > Pokud se postup opravy nedokončí za tři hodiny nebo dojde k problému, otevřete případ s podpora Microsoftu pro další řešení potíží.
     
     Po dokončení procesu opravy se uzel vrátí do **běžícího provozního stavu**.
     

@@ -3,16 +3,16 @@ title: Výměna síťové dceřiné karty
 description: Informace o tom, jak nahradit kartu síťovou dceřinou síť
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/05/2021
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: defa5328f41ee394aefe2130d3678a1ad4f3831d
-ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
+ms.openlocfilehash: 2d63631cf1c5300c617f3a7164d1681d2edd7bc4
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99571190"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487897"
 ---
 # <a name="replacing-a-network-daughter-card"></a>Výměna síťové dceřiné karty
 
@@ -26,7 +26,7 @@ K nahrazení síťové dceřiné karty nebo karet použijte následující postu
 
 3.  Opakování
 
-    -   Požadované znalosti pro práci s uzly jednotek škálování v robustním cloudovém zařízení
+    -   Požadované znalosti pro práci s uzly jednotky škálování v Azure Stackovém centru jsou robustní
 
     -   Požaduje se znalost pro práci s hostitelem životního cyklu hardwaru na stránce 5, pokud pracujete s hostitelem životního cyklu hardwaru.
 
@@ -54,7 +54,7 @@ K nahrazení síťové dceřiné karty nebo karet použijte následující postu
     
 3.  Nahraďte síťové dceřiné karty nebo karty.
 
-    Postupujte podle pokynů pro nahrazení síťové dceřiné karty v [R640 instalace a ruční služby Dell EMC PowerEdge](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) pro uzly jednotek škálování nebo hostitele životního cyklu.
+    Použijte [proces nahrazení síťové dceřiné karty sítě](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) pro uzly jednotek škálování nebo hostitele životního cyklu.
     
 4.  Zapněte uzel.
 

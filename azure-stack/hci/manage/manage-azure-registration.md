@@ -4,13 +4,13 @@ description: Jak spravovat registraci Azure pro Azure Stack clustery HCI, pochop
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 02/09/2021
-ms.openlocfilehash: 9156e5b67a679a93561bfc6449016178c04a1019
-ms.sourcegitcommit: 69c700a456091adc31e4a8d78e7a681dfb55d248
+ms.date: 02/10/2021
+ms.openlocfilehash: 7128ddae1a1b67e0085806ecd988f475c9bf8708
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100013230"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487455"
 ---
 # <a name="manage-cluster-registration-with-azure"></a>Správa registrace clusteru v Azure
 
@@ -162,7 +162,7 @@ Nejvíce omezující možnost je vytvořit vlastní roli AD s vlastní zásadou 
 Až budete připraveni vyřadit z provozu cluster Azure Stack HCI, stačí se ke clusteru připojit pomocí centra pro správu Windows a vybrat **Nastavení** v dolní části nabídky **nástroje** na levé straně. Pak vyberte **Azure Stack registrace rozhraní HCI** a klikněte na tlačítko **zrušit registraci** . Proces zrušení registrace automaticky vyčistí prostředek Azure, který představuje cluster, skupinu prostředků Azure (Pokud se skupina vytvořila během registrace a neobsahuje žádné další prostředky) a identitu aplikace Azure AD. Tím se zastaví všechny funkce monitorování, podpory a fakturace prostřednictvím ARC Azure.
 
    > [!NOTE]
-   > Zrušení registrace Azure Stack clusteru HCI vyžaduje správce Azure Active Directory nebo jiného uživatele, který má delegovaná dostatečná oprávnění. Viz [Azure Active Directory oprávnění uživatele](#azure-active-directory-user-permissions). Pokud je vaše centrum pro správu systému Windows registrováno pro jiné ID Azure Active Directory (tenant) a ID aplikace, než bylo použito pro prvotní registraci clusteru, může dojít k potížím při pokusu o zrušení registrace clusteru pomocí centra pro správu systému Windows. Pokud k tomu dojde, postupujte podle níže uvedených pokynů prostředí PowerShell.
+   > Zrušení registrace Azure Stack clusteru HCI vyžaduje správce Azure Active Directory nebo jiného uživatele, který má delegovaná dostatečná oprávnění. Viz [Azure Active Directory oprávnění uživatele](#azure-active-directory-user-permissions). Pokud je vaše brána centra pro správu Windows registrovaná v jiném Azure Active Directory (tenant), než se použila k prvotnímu registraci clusteru, může při pokusu o zrušení registrace clusteru pomocí centra pro správu systému Windows dojít k potížím. Pokud k tomu dojde, postupujte podle níže uvedených pokynů prostředí PowerShell.
 
 ## <a name="unregister-azure-stack-hci-using-powershell"></a>Zrušení registrace Azure Stack HCL pomocí PowerShellu
 
@@ -199,6 +199,24 @@ Automaticky se otevře okno interaktivní přihlášení do Azure. Přesné výz
 Pokud uživatel zničí Azure Stack clusteru HCI bez zrušení jeho registrace, například při opakovaném vytvoření bitové kopie hostitelských serverů nebo při odstraňování uzlů virtuálních clusterů, budou artefakty v Azure zůstat v Azure. Ty jsou neškodné a neúčtují se ani nepoužívají prostředky, ale můžou Azure Portal. Pokud je chcete vyčistit, můžete je ručně odstranit.
 
 Pokud chcete odstranit prostředek Azure Stack HCL, přejděte na jeho stránku v Azure Portal a vyberte **Odstranit** z panelu akcí v horní části. Zadáním názvu prostředku potvrďte odstranění a pak vyberte **Odstranit**. Pokud chcete odstranit identitu aplikace Azure AD, přejděte do **Azure AD**, pak na **Registrace aplikací** a najdete ji v části **všechny aplikace**. Vyberte možnost **Odstranit** a potvrdit.
+
+Pomocí prostředí PowerShell můžete také odstranit prostředek Azure Stack HCI:
+
+```PowerShell
+Remove-AzResource -ResourceId "HCI001"
+```
+
+Možná budete muset nainstalovat `Az.Resources` modul:
+
+```PowerShell
+Install-Module -Name Az.Resources
+```
+
+Pokud se skupina prostředků vytvořila během registrace a neobsahuje žádné další prostředky, můžete ji také odstranit:
+
+```PowerShell
+Remove-AzResourceGroup -Name "HCI001-rg"
+```
 
 ## <a name="next-steps"></a>Další kroky
 

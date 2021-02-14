@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 01/28/2020
-ms.openlocfilehash: 17e8758dfea300f6bc3e02609877dfed8f780383
-ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
+ms.date: 02/10/2020
+ms.openlocfilehash: 3711a0e11bac59f00ce51027ea9544f6858dd297
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050021"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487319"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Připojení Azure Stack HCl k Azure
 
@@ -34,11 +34,11 @@ Dokud nevytvoříte cluster Azure Stack HCI, nebudete moct s Azure registrovat. 
 Pro nejjednodušší možnosti registrace požádejte správce Azure AD, aby registraci dokončil buď pomocí centra pro správu Windows, nebo pomocí PowerShellu.
 
    > [!IMPORTANT]
-   > Pokud plánujete zaregistrovat cluster pomocí centra pro správu Windows, musíte nejdřív [zaregistrovat bránu centra pro správu Windows](../manage/register-windows-admin-center.md) s Azure pomocí stejného ID předplatného Azure a ID tenanta, které plánujete použít pro registraci clusteru.
+   > Pokud chcete zaregistrovat Azure Stack clusteru HCI pomocí centra pro správu Windows, musíte nejdřív [zaregistrovat centrum pro správu Windows v Azure](../manage/register-windows-admin-center.md) pomocí stejného ID Azure Active Directory (tenant), které plánujete použít pro registraci clusteru.
 
 ### <a name="internet-access"></a>Přístup k internetu
 
-Azure Stack HCI se musí pravidelně připojovat k veřejnému cloudu Azure. Pokud je odchozí připojení omezené externí podnikovou bránou firewall nebo proxy server, musí být nakonfigurovaná tak, aby umožňovala odchozí přístup k portu 443 (HTTPS) na omezeném počtu dobře známých IP adres Azure. Informace o tom, jak připravit brány firewall, najdete v tématu [Konfigurace bran firewall pro Azure Stack HCI](../concepts/configure-firewalls.md).
+Azure Stack HCI se musí pravidelně připojovat k veřejnému cloudu Azure. Pokud je odchozí připojení omezené externí podnikovou bránou firewall nebo proxy server, musí být nakonfigurovaná tak, aby umožňovala odchozí přístup k portu 443 (HTTPS) na omezeném počtu dobře známých IP adres Azure. Informace o tom, jak připravit brány firewall a nastavit proxy server, najdete v tématu [Konfigurace bran firewall pro Azure Stack HCI](../concepts/configure-firewalls.md).
 
    > [!NOTE]
    > Proces registrace se pokusí kontaktovat Galerie prostředí PowerShell a ověří, zda máte nejnovější verzi nezbytných modulů prostředí PowerShell, například AZ a AzureAD. I když je Galerie prostředí PowerShell hostována v Azure, aktuálně nemá značku služby. Pokud nemůžete spustit výše uvedenou rutinu z počítače pro správu, který má odchozí přístup k Internetu, doporučujeme stáhnout moduly a ručně je přenést do uzlu clusteru, kde budete `Register-AzStackHCI` příkaz spouštět. Případně můžete [moduly nainstalovat v odpojeném scénáři](/powershell/scripting/gallery/how-to/working-with-local-psrepositories?view=powershell-7.1#installing-powershellget-on-a-disconnected-system).
@@ -106,10 +106,10 @@ K dokončení procesu registrace budete také potřebovat příslušná Azure Ac
 
 Nejjednodušší způsob, jak zaregistrovat Azure Stack clusteru HCI, je použití centra pro správu systému Windows. Mějte na paměti, že uživatel musí mít [Azure Active Directory oprávnění](../manage/manage-azure-registration.md#azure-active-directory-app-permissions), jinak se proces registrace nedokončí. místo toho se ukončí a ponechá registraci čeká na schválení správcem.
 
-1. Než začnete s registrací, musíte nejdřív [zaregistrovat bránu centra pro správu Windows](../manage/register-windows-admin-center.md) pomocí Azure, pokud jste to ještě neudělali.
+1. Před zahájením procesu registrace musíte nejdřív [zaregistrovat centrum pro správu Windows v Azure](../manage/register-windows-admin-center.md), pokud jste to ještě neudělali.
 
    > [!IMPORTANT]
-   > Při registraci centra pro správu Windows v Azure je důležité použít stejné ID předplatného Azure a ID tenanta, které plánujete použít pro vlastní registraci clusteru. ID tenanta Azure AD představuje konkrétní instanci služby Azure AD obsahující účty a skupiny, zatímco ID předplatného Azure představuje smlouvu k používání prostředků Azure, pro které se účtují poplatky. ID tenanta zjistíte tak, že přejdete na [Portal.Azure.com](https://portal.azure.com) a vyberete **Azure Active Directory**. Vaše ID tenanta se zobrazí v části **informace o tenantovi**. Pokud chcete získat ID předplatného Azure, přejděte na **odběry** a zkopírujte nebo vložte své ID ze seznamu.
+   > Při registraci centra pro správu Windows v Azure je důležité použít stejné ID Azure Active Directory (tenant), které plánujete použít pro vlastní registraci clusteru. ID tenanta Azure AD představuje konkrétní instanci služby Azure AD obsahující účty a skupiny, zatímco ID předplatného Azure představuje smlouvu k používání prostředků Azure, pro které se účtují poplatky. ID tenanta zjistíte tak, že přejdete na [Portal.Azure.com](https://portal.azure.com) a vyberete **Azure Active Directory**. Vaše ID tenanta se zobrazí v části **informace o tenantovi**. Pokud chcete získat ID předplatného Azure, přejděte na **odběry** a zkopírujte nebo vložte své ID ze seznamu.
 
 2. Otevřete centrum pro správu systému Windows a v levém dolním rohu nabídky **nástroje** vyberte **Nastavení** . Pak vyberte **Azure Stack registraci HCI** z dolní části nabídky **Nastavení** . Pokud váš cluster ještě není zaregistrovaný v Azure, pak **stav registrace** nebude **zaregistrovaný**. Pokračujte kliknutím na tlačítko **registr** .
 

@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 01/13/2021
-ms.openlocfilehash: c4280a9b120530b84bbaac9f7f963a695c0eaf99
-ms.sourcegitcommit: 649540e30e1018b409f4b1142bf2cb392c9e8b0d
+ms.date: 02/10/2021
+ms.openlocfilehash: 66156b01796c483f509b5b0787ca947f85fa6a1a
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208025"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487863"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Přehled řešení Azure Stack HCI
 
@@ -76,7 +76,7 @@ Můžete se také přihlásit k odběru dalších hybridních služeb Azure:
 - **Azure Backup** k ochraně dat mimo lokalitu a k ochraně před ransomwarem.
 - **Azure Update Management** pro posouzení aktualizací a nasazení aktualizací pro virtuální počítače s Windows běžící v Azure a v místním prostředí.
 - **Síťový adaptér Azure** pro připojení prostředků v místním prostředí k virtuálním počítačům v Azure prostřednictvím sítě VPN typu Point-to-site.
-- **Azure File Sync** k synchronizaci souborového serveru s cloudem.
+- **Synchronizace souborů Azure** k synchronizaci souborového serveru s cloudem.
 
 Další informace najdete v tématu [propojení Windows serveru s Azure Hybrid Services](/windows-server/manage/windows-admin-center/azure/index).
 
@@ -103,6 +103,15 @@ Začněte tím, že budete potřebovat:
 - Pokud plánujete používat softwarově definované sítě (SDN), budete potřebovat virtuální pevný disk (VHD) pro Azure Stack operační systém HCI pro vytváření virtuálních počítačů síťového adaptéru (viz [Plánování nasazení síťového adaptéru](concepts/network-controller.md)).
 
 Další informace najdete v tématu [požadavky na systém](concepts/system-requirements.md). Informace o požadavcích na Azure Stack HCL pro službu Azure Kubernetes najdete v tématu [AKS požadavky na Azure Stack HCL](../aks-hci/overview.md#what-you-need-to-get-started).
+
+## <a name="availability"></a>Dostupnost
+
+|Aspekt|Podrobnosti|
+|----|:----|
+|Stav vydaných verzí:|Obecná dostupnost (GA)|
+|Stanov|[Účtuje se z předplatného Azure.](concepts/billing.md)|
+|Požadované role a oprávnění:|**Azure Active Directory správce** nebo delegovaná oprávnění|
+|||
 
 ## <a name="hardware-partners"></a>Hardwarové partneři
 

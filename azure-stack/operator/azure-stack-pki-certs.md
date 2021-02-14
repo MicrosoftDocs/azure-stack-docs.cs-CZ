@@ -7,12 +7,12 @@ ms.date: 08/19/2020
 ms.author: patricka
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: 8304ef3fe981545ac05de64b335c1edabdf32651
-ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
+ms.openlocfilehash: 2368c38e5fc06b36e11eb19069092b4e8a999406
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97965524"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487812"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Požadavky na certifikáty infrastruktury veřejných klíčů (PKI) služby Azure Stack Hub
 
@@ -28,7 +28,7 @@ Centrum Azure Stack má síť s veřejnou infrastrukturou, která používá ext
 ## <a name="certificate-requirements"></a>Požadavky na certifikáty
 Následující seznam popisuje požadavky obecného vystavení, zabezpečení a formátování certifikátu:
 
-- Certifikáty se musí vydávat buď z interní certifikační autority, nebo z veřejné certifikační autority. Pokud se používá Veřejná certifikační autorita, musí být součástí základní image operačního systému v rámci programu Microsoft Trusted root Authority. Úplný seznam najdete v tématu [program důvěryhodných kořenových certifikátů společnosti Microsoft: účastníci](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+- Certifikáty se musí vydávat buď z interní certifikační autority, nebo z veřejné certifikační autority. Pokud se používá Veřejná certifikační autorita, musí být součástí základní image operačního systému v rámci programu Microsoft Trusted root Authority. Úplný seznam najdete v tématu [seznam účastníků – důvěryhodný kořenový program společnosti Microsoft](/security/trusted-root/participants-list).
 - Vaše infrastruktura centra Azure Stack musí mít síťový přístup k umístění seznamu odvolaných certifikátů (CRL) certifikační autority publikovaného v certifikátu. Tento seznam odvolaných certifikátů musí být koncovým bodem HTTP.
 ::: moniker range="< azs-1903"
 - Při střídání certifikátů v předběžně 1903 sestaveních musí být certifikáty vystavené ze stejné interní certifikační autority, která se používá k podepisování certifikátů poskytovaných při nasazení nebo kterékoli veřejné certifikační autority.

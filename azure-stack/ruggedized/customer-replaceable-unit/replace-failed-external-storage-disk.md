@@ -1,22 +1,22 @@
 ---
-title: Výměna neúspěšného disku externího úložiště
-description: Informace o tom, jak nahradit neúspěšný disk externího úložiště
+title: Výměna datové jednotky, která selhala
+description: Informace o tom, jak nahradit datovou jednotku, která selhala
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/05/2021
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: 26f3343da26adc541c87eacb046ca078a6a32c31
-ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
+ms.openlocfilehash: a5b7796794a0444a434fdb9a628ff04b93adcc03
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99571230"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100488101"
 ---
-# <a name="replacing-a-failed-external-storage-disk"></a>Výměna neúspěšného disku externího úložiště
+# <a name="replacing-a-failed-data-drive"></a>Výměna datové jednotky, která selhala
 
-K nahrazení neúspěšného externího disku použijte následující postup.
+K nahrazení datové jednotky, která selhala, použijte následující postup.
 
 ## <a name="prerequisites"></a>Požadavky
 
@@ -48,8 +48,7 @@ K nahrazení neúspěšného externího disku použijte následující postup.
 
 2.  Ověřte model disku.
 
-    Ověřte, jestli je nový diskový model uvedený jako podporovaný v [integrovaném systému pro 14Gou podporu Microsoft Azure Stack pro centra pro podporu](https://www.dell.com/support/home/product-support/product/cloud-for-microsoft-azure-stack14g/docs#q%3Dsupport%20matrix%26sort%3Ddate%20descending%26f%3Alang%3D%5Ben%5D) 
-     [](https://www.dell.com/support/home/product-support/product/cloud-for-microsoft-azure-stack14g/docs#q%3Dsupport%20matrix%26sort%3Ddate%20descending%26f%3Alang%3D%5Ben%5D).
+    Ověřte, že je nový diskový model uvedený v [matici podpory](https://www.dell.com/support/home/product-support/product/cloud-for-microsoft-azure-stack14g/docs#q%3Dsupport%20matrix%26sort%3Ddate%20descending%26f%3Alang%3D%5Ben%5D)jako podporovaný.
     Pokud disk není v matrici podpory, musíte požádat o další náhradu.
     
     > [!CAUTION]
@@ -57,9 +56,9 @@ K nahrazení neúspěšného externího disku použijte následující postup.
         
     Chcete-li zkontrolovat model, vyhledejte popisek a ověřte, zda je komponenta v matici podpory.
     
-3.  Nahraďte neúspěšný disk externího úložiště.
+3.  Nahraďte datovou jednotku, která selhala.
 
-    Postupujte podle procesu nahrazení nosné jednotky na diskové jednotce v [příručce pro instalaci Dell EMC PowerEdge R640 a ruční služby](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) pro uzly jednotek škálování nebo hostitele životního cyklu hardwarových zařízení.
+    Dodržujte [proces nahrazení nosné jednotky](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4) u uzlů jednotek škálování nebo hostitelů životního cyklu hardwaru.
     
     Také je nutné Přečtěte si relevantní části týkající se odebrání diskové jednotky z a instalace diskové jednotky do operátoru diskové jednotky nebo adaptéru diskové jednotky.
     

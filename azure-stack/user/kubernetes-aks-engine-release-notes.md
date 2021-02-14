@@ -3,16 +3,16 @@ title: Poznámky k verzi modulu Azure Kubernetes Service (AKS) v centru Azure St
 description: Seznamte se s kroky, které je třeba provést s aktualizací pro AKS Engine v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 2/1/2021
+ms.date: 2/11/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/28/2020
-ms.openlocfilehash: 35fbcf51430d063110f4f14ae1203f79df6cf739
-ms.sourcegitcommit: af2bec84471795c0f3ac62dcaf1347a64e529906
+ms.lastreviewed: 2/11/2021
+ms.openlocfilehash: fd8453c55be6222badd577666293653a45f67273
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99554118"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100488033"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Poznámky k verzi pro modul AKS v centru Azure Stack
 ::: moniker range=">=azs-2002"
@@ -76,6 +76,7 @@ V této aktualizaci jsou k dispozici nové verze těchto verzí:
 
 -   Správce clusteru Kubernetes bude muset stáhnout novou verzi AKS-Engine 0.51.0. Přečtěte si pokyny v následujícím článku, [nainstalujte modul AKS v systému Linux do centra Azure Stack](./azure-stack-kubernetes-aks-engine-deploy-linux.md). Můžete postupovat podle stejného procesu, který používáte k první instalaci clusteru. Tato aktualizace přepíše předchozí binární soubor. Pokud jste například použili skript get-akse.sh, postupujte podle kroků uvedených v této části [instalace do připojeného prostředí](./azure-stack-kubernetes-aks-engine-deploy-linux.md#install-in-a-connected-environment). Stejný postup platí v případě, že instalujete nástroj do systému Windows, článek [nainstaluje modul AKS ve Windows do centra Azure Stack](./azure-stack-kubernetes-aks-engine-deploy-windows.md).
 
+
 ## <a name="aks-engine-and-azure-stack-version-mapping"></a>Mapování AKS Engine a verze Azure Stack
 
 | Verze centra Azure Stack | Verze stroje AKS |
@@ -100,6 +101,16 @@ V souboru JSON modelu rozhraní API zadejte hodnoty verze a verze v `orchestrato
     -   "orchestratorRelease": "1.16",
     -   "orchestratorVersion": "1.16.14"
 ```
+
+## <a name="aks-engine-and-corresponding-image-mapping"></a>Modul AKS a odpovídající mapování obrázků
+
+| Modul AKS | Základní obrázek AKS | Verze Kubernetes | Poznámky |
+|---|---|---|---|
+| v 0.43.1 | AKS Base Ubuntu 16,04-LTS image distribuce, říjen 2019 (2019.10.24) | 1.15.5, 1.15.4, 1.14.8, 1.14.7 |  |
+| v 0.48.0 | AKS Base Ubuntu 16,04-LTS image distribuce, březen 2020 (2020.03.19) | 1.15.10, 1.14.7 |  |
+| v 0.51.0 | AKS Base Ubuntu 16,04-LTS image distribuce, květen 2020 (2020.05.13), AKS Base Windows Image (17763.1217.200513) | 1.15.12, 1.16.8, 1.16.9 | Ukázky modelů rozhraní API ([Linux](https://github.com/Azure/aks-engine/blob/v0.51.0/examples/azure-stack/kubernetes-azurestack.json), [Windows](https://github.com/Azure/aks-engine/blob/v0.51.0/examples/azure-stack/kubernetes-windows.json)) |
+| v 0.55.0 | AKS Base Ubuntu 16,04-LTS image distribuce, srpen 2020 (2020.08.24), AKS Base Windows Image (17763.1397.200820) | 1.15.12, 1.16.14, 1.17.11 | Ukázky modelů rozhraní API ([Linux](https://github.com/Azure/aks-engine/blob/v0.55.0/examples/azure-stack/kubernetes-azurestack.json), [Windows](https://github.com/Azure/aks-engine/blob/v0.55.0/examples/azure-stack/kubernetes-windows.json)) |
+| v 0.55.4 | AKS Base Ubuntu 16,04-LTS image distribuce, září 2020 (2020.09.14), AKS Base Windows Image (17763.1397.200820) | 1.15.12, 1.16.14, 1.17.11 | Ukázky modelů rozhraní API ([Linux](https://github.com/Azure/aks-engine/blob/v0.55.0/examples/azure-stack/kubernetes-azurestack.json), [Windows](https://github.com/Azure/aks-engine/blob/v0.55.0/examples/azure-stack/kubernetes-windows.json) |
 
 ## <a name="whats-new"></a>Novinky
 

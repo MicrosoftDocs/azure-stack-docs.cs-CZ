@@ -3,16 +3,16 @@ title: Požadované znalosti pro práci s hostitelem životního cyklu hardwaru
 description: Přečtěte si o požadovaných znalostech pro práci s hostitelem životního cyklu hardwaru
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/05/2021
 ms.author: patricka
 ms.reviewer: ''
 ms.lastreviewed: ''
-ms.openlocfilehash: a53d2410c9b4ff7494877a39ec6e4c5405261f19
-ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
+ms.openlocfilehash: 3d3e650e9b6b1b6c37e2f265aa5c049246600c2f
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99571156"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487778"
 ---
 # <a name="required-knowledge-for-working-with-the-hardware-lifecycle-host"></a>Požadované znalosti pro práci s hostitelem životního cyklu hardwaru
 
@@ -47,17 +47,4 @@ Spolupracujte se zákazníkem, abyste získali přihlašovací údaje k následu
 
 Pokud se nepřipojujete přímo k serveru pomocí příkazového košíku, budete k získání přístupu k virtuálnímu rozhraní KVM potřebovat přihlašovací údaje účtu iDRAC.
 
-## <a name="dell-emc-poweredge-r640-installation-and-service-manual"></a>Dell EMC PowerEdge R640 – ruční instalace a služba
-
-Podrobnosti o fyzickém nahrazení příslušného hardwaru najdete v tématu věnovaném postupům pro nahrazení R640 FRU v [](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4)systému PowerEdge v 
- [příručce pro instalaci a službu Dell EMC PowerEdge R640](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/dell-emc-poweredge-r640-overview?guid=guid-f39be9ba-158c-45e3-b8b1-f07bb750d6d4).
-Přejděte do části [instalace a odebrání systémových součástí](https://www.dell.com/support/manuals/us/en/04/poweredge-r640/per640_ism_pub/installing-and-removing-system-components?guid=guid-5a5943c4-fe26-4faa-a10c-2afa4c1993ff&lang=en-us) .
-
-## <a name="microsoft-azure-stack-hub-ruggedized-cloud-appliance-service-manual"></a>Ruční Ruční služba cloudového zařízení ve službě Microsoft Azure Stack hub
-
-Ruční služba cloudového zařízení služby Microsoft Azure Stack hub obsahuje pokyny pro odebrání hostitele životního cyklu hardwaru.
-
-## <a name="dell-emc-poweredge-idrac"></a>Dell EMC PowerEdge iDRAC
-
-Musíte pochopit, jak můžete procházet a používat webové rozhraní Dell EMC PowerEdge iDRAC.
 

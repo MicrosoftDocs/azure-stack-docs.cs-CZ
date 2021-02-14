@@ -4,21 +4,24 @@ description: Jak zaregistrovat bránu centra pro správu Windows v Azure
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 01/28/2021
-ms.openlocfilehash: d98cb4f0531903d27d97d9fb055c7ae2db35a65e
-ms.sourcegitcommit: b461597917b768412036bf852c911aa9871264b2
+ms.date: 02/10/2021
+ms.openlocfilehash: 0b80a1e607823385d06a5255244373ca3be1af98
+ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050055"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100487880"
 ---
 # <a name="register-windows-admin-center-with-azure"></a>Registrace centra pro správu Windows pomocí Azure
 
 > Platí pro Azure Stack HCL v20H2; Windows Server 2019
 
-Pokud chcete používat služby Azure s centrem pro správu systému Windows, musíte nejdřív nainstalovat centrum pro správu Windows na počítač pro správu a dokončit jednorázovou registraci brány centra pro správu Windows. Je to předpoklad pro registraci clusteru v Azure a měl by se provádět na stejném počítači pro správu, kterého plánujete použít k dokončení procesu [registrace clusteru](../deploy/register-with-azure.md) , a to pomocí stejného ID předplatného Azure a ID tenanta.
+Pokud chcete používat služby Azure s centrem pro správu systému Windows, musíte nejdřív [nainstalovat centrum pro správu Windows](/windows-server/manage/windows-admin-center/deploy/install) na počítač pro správu a dokončit jednorázovou registraci brány centra pro správu Windows. Je to předpoklad pro [registraci clusteru](../deploy/register-with-azure.md) v Azure.
 
-## <a name="complete-the-gateway-registration-process-using-windows-admin-center"></a>Dokončete proces registrace brány pomocí centra pro správu systému Windows.
+   > [!IMPORTANT]
+   > Zaregistrujte centrum pro správu Windows na stejném počítači pro správu, který plánujete použít k registraci clusteru, a to pomocí stejného Azure Active Directory (tenant) ID.
+
+## <a name="complete-the-registration-process"></a>Dokončení procesu registrace
 
 1. Spusťte Centrum pro správu Windows a v pravém horním rohu klikněte na ikonu ozubeného kolečka pro **Nastavení** . tím přejdete na stránku svého účtu. Pak v nabídce **Brána** vlevo vyberte **Azure** a pak klikněte na **zaregistrovat**.
 
