@@ -3,15 +3,15 @@ title: Migrace na Azure Stack HCI na stejném hardwaru
 description: Naučte se migrovat cluster pro Azure Stack HCL na stejném hardwaru.
 author: v-dasis
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 02/12/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 35c1de7da10fbecbf6b861a23cdebb752502ca44
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.openlocfilehash: 593be52321230f3fc1ae4329f8f2284cf964298a
+ms.sourcegitcommit: 5a8b6dfdf75df1aa9474e062ec3a91ca1b8e58bb
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98772268"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100524938"
 ---
 # <a name="migrate-to-azure-stack-hci-on-same-hardware"></a>Migrace na Azure Stack HCI na stejném hardwaru
 
@@ -215,15 +215,9 @@ Další informace o tom, jak vytvořit cluster pomocí prostředí PowerShell, n
 
 ## <a name="refs-volumes"></a>Svazky ReFS
 
-Při migraci ze systému Windows Server 2016 jsou podporovány odolné svazky systému souborů (ReFS), ale tyto svazky nevyužívají následující vylepšení výkonu v Azure Stack HCI:
+Pokud provádíte migraci ze systému Windows Server 2016, jsou podporovány odolné svazky systému souborů (ReFS), ale tyto svazky nevyužívají vylepšení výkonu v Azure Stack HCI z použití svazků parity (mapy) s možností zrcadlení. Toto vylepšení vyžaduje vytvoření nového svazku ReFS pomocí `New-Volume` rutiny PowerShellu.
 
-- Zrcadlení – urychlené parity
-- Nepoužívat protokol mapy
-
-Tato vylepšení vyžadují vytvoření nového svazku ReFS pomocí `New-Volume` rutiny.
-
-> [!NOTE]
-> Pro zrcadlené svazky s paritou systému Windows Server 2016 nebyly k dispozici komprimace ReFS, takže se tyto svazky znovu připojí, ale budou méně provedeny v porovnání s vytvořením nového svazku mapy v Azure Stack clusteru HCI.
+U svazků MAP Windows Server 2016 není komprimace ReFS dostupná, takže se tyto svazky znovu připojí, ale při vytváření nového svazku mapy v Azure Stack clusteru HCI se nejedná o méně provádět porovnání.
 
 ## <a name="import-the-vms"></a>Import virtuálních počítačů
 
