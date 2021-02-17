@@ -5,16 +5,16 @@ author: AnirbanPaul
 ms.author: anpaul
 ms.topic: how-to
 ms.date: 02/01/2021
-ms.openlocfilehash: 6af08615a25ed93f62f526d92ead7511699c8439
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: fb90a8f9df28ed8fd67330c42ae1e3d2f3aa445c
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248069"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562923"
 ---
 # <a name="manage-tenant-virtual-networks"></a>Správa virtuálních sítí tenantů
 
->Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019; Windows Server 2016
+>Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019, Windows Server 2016
 
 Toto téma obsahuje podrobné pokyny, jak pomocí centra pro správu systému Windows vytvářet, aktualizovat a odstraňovat virtuální sítě virtualizace sítě Hyper-V (HNV) po nasazení softwarově definované sítě (SDN).
 

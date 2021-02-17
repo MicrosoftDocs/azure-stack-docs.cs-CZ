@@ -3,16 +3,16 @@ title: Fakturace a vrácení peněz zákazníka v centru Azure Stack
 description: Přečtěte si, jak se uživatelům centra Azure Stack fakturovat za využití prostředků a jak se k fakturačním informacím dostanete pro účely analýzy a vrácení peněz.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 02/16/2021
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: 066538eb3bccb6e9e296a394400f2d1de0583f93
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.openlocfilehash: 478014ac48ccc060281f8feab2271f1c5af1ed79
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414091"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562565"
 ---
 # <a name="usage-and-billing-in-azure-stack-hub"></a>Využití a fakturace v centru Azure Stack
 
@@ -34,7 +34,7 @@ Následující obrázek ukazuje klíčové komponenty v kanálu použití:
 
 ## <a name="what-usage-information-can-i-find-and-how"></a>Jaké informace o využití můžu najít a jak?
 
-Poskytovatelé prostředků Azure Stack hub (například výpočetní prostředky, úložiště a síť) generují data o využití v hodinových intervalech pro každé předplatné. Data o využití obsahují informace o použitém prostředku, jako je název prostředku, použité předplatné a využité množství. Další informace o zdrojích ID měřičů najdete v tématu [Nejčastější dotazy k rozhraní API pro využití](azure-stack-usage-related-faq.md).
+Poskytovatelé prostředků Azure Stack hub (například výpočetní prostředky, úložiště a síť) generují data o využití v hodinových intervalech pro každé předplatné. Data o využití obsahují informace o používaném prostředku. například název prostředku, použitý odběr a použité množství. Další informace o zdrojích ID měřičů najdete v tématu [Nejčastější dotazy k rozhraní API pro využití](azure-stack-usage-related-faq.md).
 
 Po shromáždění dat o využití se tato [zpráva oznamuje službě Azure](azure-stack-usage-reporting.md) za účelem vygenerování faktury, kterou si můžete prohlédnout na fakturačním portálu Azure.
 

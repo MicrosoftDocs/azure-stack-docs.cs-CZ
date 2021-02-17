@@ -362,6 +362,10 @@
                   href: event-hubs-rp-rotate-secrets.md
                 - name: Oznámení o aktualizacích služby
                   href: 'https://techcommunity.microsoft.com/t5/Event-Hubs-Blog/bg-p/EventHubs'
+            - name: "Poznámky k\_verzi"
+              items:
+                - name: 'Poznámky k verzi 1.2012.1.0 [únor 2021]'
+                  href: event-hubs-rp-release-1-2012-10.md
             - name: Odebrat
               href: event-hubs-rp-remove.md
         - name: IoT Hub v Azure Stack Hubu
@@ -530,7 +534,7 @@
       href: ../asdk/index.yml
     - name: Dokumentace k hybridnímu cloudu Azure
       href: /hybrid
-- name: Zdroje a prostředky
+- name: Zdroje informací
   items:
     - name: Archiv poznámek k verzi
       items:

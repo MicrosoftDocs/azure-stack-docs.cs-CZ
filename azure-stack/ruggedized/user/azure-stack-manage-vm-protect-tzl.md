@@ -11,22 +11,22 @@ ms.workload: tzl
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 02/16/2021
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: c57e421140dfea9eac949b5dcf97cc90745ab861
-ms.sourcegitcommit: d719f148005e904fa426a001a687e80730c91fda
+ms.openlocfilehash: a31b5b4498911b008ec471beca24905466efee4b
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97910955"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562965"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub---ruggedized"></a>Ochrana virtuálních počítačů nasazených v Azure Stackm centru – robustní
 
 Tento článek slouží jako vodítko pro vývoj plánu ochrany virtuálních počítačů, které uživatelé nasazují v Azure Stack hub.
 
-Pro zajištění ochrany před únikem informací a neplánovanými výpadky implementujte plán ochrany dat a zotavení po havárii pro aplikace založené na virtuálních počítačích v centru Azure Stack. Implementovaný plán ochrany bude záviset na požadavcích firmy a návrhu aplikace. Tento plán by měl postupovat podle rozhraní, které vaše organizace zavedla v \' komplexní strategii pro provozní kontinuitu a zotavení po havárii (BC/Dr). Základní informace o požadavcích BC/DR pro centrum Azure Stack najdete v článku Azure Stack: požadavky na provozní kontinuitu a zotavení po havárii.
+Pro zajištění ochrany před únikem informací a neplánovanými výpadky implementujte plán ochrany dat a zotavení po havárii pro aplikace založené na virtuálních počítačích v centru Azure Stack. Implementovaný plán ochrany bude záviset na požadavcích firmy a návrhu aplikace. Tento plán by měl postupovat podle rozhraní, které vaše organizace zavedla v \' komplexní strategii pro provozní kontinuitu a zotavení po havárii (BC/Dr). Základní informace o požadavcích BC/DR pro centrum Azure Stack najdete v článku [Azure Stack: požadavky na provozní kontinuitu a zotavení po havárii](https://azure.microsoft.com/resources/azure-stack-considerations-for-business-continuity-and-disaster-recovery/).
 
 ## <a name="application-recovery-objectives"></a>Cíle obnovení aplikace
 
@@ -84,9 +84,9 @@ Important considerations for your Azure Stack deployment: -->
 
 V tomto článku najdete obecné pokyny pro ochranu virtuálních počítačů, které jsou nasazené v Azure Stack. Informace o použití služeb Azure k ochraně virtuálních počítačů uživatele najdete v tématu:
 
-- [Důležité informace týkající se provozní kontinuity a zotavení po havárii](https://aka.ms/azurestackbcdrconsiderationswp)
+- [Důležité informace týkající se provozní kontinuity a zotavení po havárii](https://azure.microsoft.com/resources/azure-stack-considerations-for-business-continuity-and-disaster-recovery/)
 
 ### <a name="partner-products"></a>Partnerské produkty
 
-- [Datový list ekosystému Azure Stack pro integraci Datacenter](https://aka.ms/azurestackbcdrpartners)
+- [Datový list ekosystému Azure Stack pro integraci Datacenter](https://azure.microsoft.com/resources/azure-stack-datacenter-integration-partners/)
 - Další informace o partnerských produktech, které nabízejí ochranu virtuálního počítače v Azure Stack, najdete v tématu [Ochrana aplikací a dat v Azure Stack](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/).

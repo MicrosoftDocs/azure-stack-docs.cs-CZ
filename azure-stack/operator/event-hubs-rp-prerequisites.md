@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 2b3fcfb0325689de08e77a9fbf599d023ba26a4c
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.openlocfilehash: b4286074828a0cea911ed6ccd977b6b0690e7eb1
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343509"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562974"
 ---
 # <a name="prerequisites-for-installing-event-hubs-on-azure-stack-hub"></a>Předpoklady pro instalaci Event Hubs v centru Azure Stack
 
@@ -23,7 +23,7 @@ Aby bylo možné nainstalovat Event Hubs do centra Azure Stack, je nutné prové
 > Tyto požadavky předpokládají, že jste už nasadili aspoň Azure Stack integrovaný systém centra pro 4 uzly. Event Hubs poskytovatel prostředků není podporován na Azure Stack Development Kit (ASDK).
 
 > [!IMPORTANT]
-> Event Hubs vyžaduje verzi buildu centra Azure Stack 2002 nebo vyšší. Všimněte si, že Azure Stack sestavení centra jsou přírůstková. Například pokud máte nainstalovanou verzi 1910, musíte nejdřív upgradovat na [2002](./release-notes.md?view=azs-2002&preserve-view=true#2002-build-reference)a pak na 2005. To znamená, že nemůžete přeskočit sestavení mezi.
+> Event Hubs vyžaduje verzi buildu centra Azure Stack 2005 nebo vyšší. Všimněte si, že Azure Stack sestavení centra jsou přírůstková. Například pokud máte nainstalovanou verzi 1910, musíte nejdřív upgradovat na [2002](./release-notes.md?view=azs-2002&preserve-view=true#2002-build-reference)a pak na 2005. To znamená, že nemůžete přeskočit sestavení mezi.
 
 ## <a name="common-prerequisites"></a>Společné požadavky
 

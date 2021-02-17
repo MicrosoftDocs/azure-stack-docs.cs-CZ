@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2019
+ms.date: 02/16/2021
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: 1b2cb6f4fce27c85fb8aad90ee7445d85ff4aceb
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 544142e2945b1bfac30fb20480acb191ad67c546
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939556"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100563002"
 ---
 # <a name="local-azure-stack-billing-meters"></a>Měřiče fakturace místních Azure Stack
 
@@ -103,7 +103,7 @@ V tomto článku jsou uvedené měřiče Azure Stack pro účtování. Použití
 **Jednotka**: odchozí data v GB  
 **Poznámky**: Služba front odchozího přenosu dat v GB
 
-## <a name="compute"></a>Výpočetní prostředky
+## <a name="compute"></a>Compute
 
 **ID měřiče**: FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5  
 **Název měřiče**: počet hodin základního virtuálního počítače  

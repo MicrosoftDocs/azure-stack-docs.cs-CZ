@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2020
+ms.date: 02/16/2021
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 07/29/2020
-ms.openlocfilehash: f546c1ad783ded0aa686ebdcb7e08f1427bea91e
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: b3c3f352fbcb6848a2e41f2e9c3f666ba1e3c570
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96939643"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562506"
 ---
 # <a name="analyze-azure-stack-usage-with-local-usage-meters"></a>Analýza využití Azure Stack místními měřiči využití
 
@@ -38,7 +38,7 @@ Toto rozhraní API pro použití je poskytovatele API, takže volajícímu musí
 | --- | --- |
 | GET |`https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&subscriberId={sub1.1}&api-version=2015-06-01-preview&continuationToken={token-value}` |
 
-### <a name="arguments"></a>Arguments
+### <a name="arguments"></a>Argumenty
 
 | Argument | Popis |
 | --- | --- |

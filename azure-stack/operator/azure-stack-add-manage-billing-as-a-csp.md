@@ -3,16 +3,16 @@ title: Správa využití centra Azure Stack a fakturace jako poskytovatel Cloud 
 description: Naučte se registrovat Azure Stack hub jako poskytovatele Cloud Solution Provider (CSP) a přidat zákazníky k fakturaci.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 02/16/2021
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 0c3e82753835adfb70be13f43a14c20701881885
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.openlocfilehash: 5d7a6dc3f0087f50fa97a0e6f61eee30037f54cc
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414074"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562545"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>Správa využití a fakturace pro centra Azure Stack jako poskytovatele Cloud Solution Provider
 

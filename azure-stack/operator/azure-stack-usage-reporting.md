@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 02/16/2021
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: e11eedc6cade8b3546182d2abf66a0dbb7e1c91a
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.openlocfilehash: de13461f9ba2b5985b6c6500d59b047fdfc2d2b0
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414210"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562526"
 ---
 # <a name="report-azure-stack-hub-usage-data-to-azure"></a>Sestava Azure Stack data o využití centra do Azure
 

@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 11/18/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 11/18/2019
-ms.openlocfilehash: ff1a6258e682d3230ea7968a97b9e392991ca72b
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: a51a0f53b6df1ec88623f274dec30a68bfaa47c0
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107118"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100563028"
 ---
 # <a name="how-to-update-an-azure-stack-hub-resource-provider"></a>Postup aktualizace poskytovatele prostředků centra Azure Stack
 
 > [!IMPORTANT]
-> Než budete pokračovat, přečtěte si nejnovější poznámky k verzi poskytovatele prostředků, abyste se seznámili s novými funkcemi, opravami a všemi známými problémy, které by mohly mít vliv na nasazení. Zpráva k vydání verze může také určit minimální verzi centra Azure Stack požadovaná pro poskytovatele prostředků.
+> Než budete pokračovat, přečtěte si nejnovější poznámky k verzi poskytovatele prostředků, abyste se seznámili s novými funkcemi, opravami a všemi známými problémy, které by mohly mít vliv na nasazení. Zpráva k vydání verze může také určit minimální verzi centra Azure Stack požadovaná pro poskytovatele prostředků. Pokud jste ještě nikdy nenainstalovali poskytovatele prostředků, přečtěte si místo toho pokyny poskytovatele prostředků a pokyny k prvotní instalaci.
 
 Poskytovatelé prostředků nainstalovanou z Marketplace budou vyžadovat pravidelnou obsluhu. Obsluha se provádí pomocí aktualizací služby, které poskytuje společnost Microsoft pravidelně. Aktualizace mohou zahrnovat nové funkce i opravy.  
 

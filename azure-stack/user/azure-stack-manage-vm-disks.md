@@ -7,12 +7,12 @@ ms.date: 11/22/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: fec078689ca640c66eeec338e3c3a52cd5169287
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 2b5f985f5a7ea6537a56f48f87cf77edf711fde5
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518394"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562761"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack-hub"></a>Vytvoření úložiště disku virtuálního počítače v centru Azure Stack
 
@@ -20,7 +20,7 @@ Tento článek popisuje, jak pomocí portálu Azure Stack hub vytvořit virtuál
 
 ## <a name="overview"></a>Přehled
 
-Od verze 1808 centrum Azure Stack podporuje na virtuálních počítačích použití spravovaných disků a nespravovaných disků, jako je operační systém (OS) i datový disk. Před verzí 1808 jsou podporovány pouze nespravované disky.
+Centrum Azure Stack podporuje na virtuálních počítačích použití spravovaných disků a nespravovaných disků, jako je operační systém (OS) i datový disk.
 
 [Spravované disky](/azure/virtual-machines/windows/managed-disks-overview) zjednodušují správu disků pro virtuální počítače Azure IaaS tím, že spravují účty úložiště přidružené k DISKŮM virtuálních počítačů. Stačí zadat velikost disku, kterou potřebujete, a Azure Stack rozbočovač vytvoří a spravuje disk za vás.
 
@@ -56,19 +56,16 @@ Po vytvoření virtuálního počítače můžete portál použít k těmto akc�
 
 Každý nespravovaný disk, který přidáte do samostatného kontejneru, vložte.
 
-> [!NOTE]  
-> Disky vytvořené a spravované pomocí Azure se nazývají [spravované disky](/azure/virtual-machines/windows/managed-disks-overview).
-
 ### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>Vytvoření a připojení nového datového disku pomocí portálu
 
-1. Na portálu vyberte **všechny služby** a pak **virtuální počítače**.
-   ![Příklad: řídicí panel virtuálních počítačů](media/azure-stack-manage-vm-disks/vm-dashboard.png)
+1. Na portálu vyberte **všechny služby** a pak **výpočetní** prostředí a pak **virtuální počítače**.
+   [![Příklad: řídicí panel virtuálních počítačů](media/azure-stack-manage-vm-disks/vm-dashboard-small.png)](media/azure-stack-manage-vm-disks/vm-dashboard.png#lightbox)
 
 2. Vyberte virtuální počítač, který byl dříve vytvořen.
    ![Snímek obrazovky, který zobrazuje vybraný virtuální počítač.](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
 3. Pro virtuální počítač vyberte **disky** a pak **přidat datový disk**.
-   ![Snímek obrazovky, který ukazuje, jak připojit nový disk k virtuálnímu počítači.](media/azure-stack-manage-vm-disks/Attach-disks.png)
+   [![Snímek obrazovky, který ukazuje, jak připojit nový disk k virtuálnímu počítači.](media/azure-stack-manage-vm-disks/attach-disks-small.png)](media/azure-stack-manage-vm-disks/attach-disks.png#lightbox)
 
 4. Pro datový disk:
    * Zadejte **logickou jednotku (LUN)**. Logická jednotka (LUN) musí být platné číslo.
@@ -104,7 +101,7 @@ Každý nespravovaný disk, který přidáte do samostatného kontejneru, vložt
 
 6. Když Azure Stack hub vytvoří disk a připojí ho k virtuálnímu počítači, nový disk se zobrazí v nastavení disku virtuálního počítače v části **datové disky**.
 
-   ![Příklad: zobrazení disku](media/azure-stack-manage-vm-disks/view-data-disk.png)
+   [![Příklad: zobrazení disku](media/azure-stack-manage-vm-disks/view-data-disk-small.png)](media/azure-stack-manage-vm-disks/view-data-disk.png#lightbox)
 
 ### <a name="add-a-data-disk-from-a-storage-account"></a>Přidání datového disku z účtu úložiště
 
@@ -114,7 +111,7 @@ Další informace o práci s účty úložiště v centru Azure Stack najdete v 
 2. Vyberte **kontejner** , do kterého chcete uložit datový disk. V okně **kontejnery** můžete vytvořit nový kontejner, pokud chcete. Pak můžete změnit umístění nového disku na vlastní kontejner. Pokud pro každý disk použijete samostatný kontejner, rozšíříte umístění datového disku, který zvyšuje výkon.
 3. Zvolením **možnosti vybrat** uložte výběr.
 
-    ![Snímek obrazovky, který ukazuje, jak vybrat kontejner.](media/azure-stack-manage-vm-disks/select-container.png)
+    [![Snímek obrazovky, který ukazuje, jak vybrat kontejner.](media/azure-stack-manage-vm-disks/select-container-small.png)](media/azure-stack-manage-vm-disks/select-container.png#lightbox)
 
 ## <a name="attach-an-existing-data-disk-to-a-vm"></a>Připojit existující datový disk k virtuálnímu počítači
 

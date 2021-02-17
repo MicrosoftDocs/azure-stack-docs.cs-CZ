@@ -5,16 +5,16 @@ author: AnirbanPaul
 ms.author: anpaul
 ms.topic: how-to
 ms.date: 02/02/2021
-ms.openlocfilehash: e45ca61a09bd989645998a2e8993f29176d1b9cf
-ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
+ms.openlocfilehash: 5cf88e5befd551eb7789388807c9c1e4df671dc9
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99500966"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562955"
 ---
 # <a name="manage-tenant-logical-networks"></a>Správa logických sítí tenanta
 
->Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019; Windows Server 2016
+>Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019, Windows Server 2016
 
 Toto téma obsahuje podrobné pokyny k vytváření, aktualizaci a odstraňování logických sítí po nasazení síťového adaptéru pomocí centra pro správu systému Windows. Logická síť softwarově definované sítě (SDN) je tradiční síť založená na síti VLAN.
 

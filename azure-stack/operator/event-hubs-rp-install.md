@@ -9,16 +9,16 @@ ms.date: 09/02/2020
 ms.reviewer: jfggdl
 ms.lastreviewed: 09/02/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 975ab63a6af9f895f01d4607f998bca9fc52cebf
-ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
+ms.openlocfilehash: 7f20866236099dadc7e6ca3e3c201572f51069ca
+ms.sourcegitcommit: 34babe5abf1bceee718011b5c5c25f75e1b03b0c
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97343814"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100562481"
 ---
 # <a name="how-to-install-event-hubs-on-azure-stack-hub"></a>Postup instalace Event Hubs v centru Azure Stack
 
-V tomto článku se dozvíte, jak stáhnout a nainstalovat poskytovatele prostředků Event Hubs a zpřístupnit ho zákazníkům pro předplatné.
+V tomto článku se dozvíte, jak stáhnout a nainstalovat poskytovatele prostředků Event Hubs a zpřístupnit ho zákazníkům pro předplatné. Než budete pokračovat, musíte taky dokončit [Event Hubs požadavky na instalaci](event-hubs-rp-prerequisites.md) .
 
 ## <a name="download-packages"></a>Stáhnout balíčky
 
