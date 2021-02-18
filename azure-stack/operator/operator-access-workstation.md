@@ -3,16 +3,16 @@ title: Pracovní stanice pro přístup k operátorovi centra Azure Stack
 description: Přečtěte si, jak stáhnout a nakonfigurovat pracovní stanici pro přístup k operátorovi centra Azure Stack.
 author: ashika789
 ms.topic: article
-ms.date: 1/15/2021
+ms.date: 02/17/2021
 ms.author: patricka
 ms.reviewer: asganesh
-ms.lastreviewed: 1/15/2021
-ms.openlocfilehash: 011a75dcdbe8818af568eb5cc6bb6123a4f11c4e
-ms.sourcegitcommit: 48a46142ea7bccd6c8a609e188dd7f3f6444f3c4
+ms.lastreviewed: 02/17/2021
+ms.openlocfilehash: 91ed23e40743de4236623322f9f830032d1793ac
+ms.sourcegitcommit: dfce5d143318150d2cab563dc0ee328c777bf5f3
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98561957"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100636641"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Pracovní stanice pro přístup k operátorovi centra Azure Stack 
 
@@ -48,7 +48,7 @@ param(
     $DownloadedOAWZipFilePath
 )
 
-$expectedHash = '73E16995B79433E79F9EFA9A292443296D112B24B4D86A060FCB4C9403B8D014'
+$expectedHash = '6E412551C7921A6FA4E9D64812A4D3770EB1B1257E2BE55B8426E5EFBCB2C001'
 $actualHash = (Get-FileHash -Path $DownloadedOAWZipFilePath).Hash
 
 Write-Host "Expected hash: $expectedHash"
@@ -82,7 +82,7 @@ V následující tabulce je uveden předinstalovaný software na virtuálním po
 | [Microsoft Edge pro firmy](https://www.microsoft.com/edge/business/)                                            | \[Systémová_jednotka \] \Program Files (x86) \Microsoft\Edge\Application                                                                                        |
 | [AZ modules](./powershell-install-az-module.md)                         | \[Systémová_jednotka \] \ProgramFiles\WindowsPowerShell\Modules                                         |  
 | [PowerShell 7](https://devblogs.microsoft.com/powershell/announcing-PowerShell-7-0/)| \[Systémová_jednotka \] \Program Files\PowerShell\7                                                                       |
-| [Rozhraní příkazového řádku Azure Command-Line (CLI)](/cli/azure/?view=azure-cli-latest) | \[Systémová_jednotka \] \Program Files (x86) \Microsoft SDKs\Azure\CLI2 |
+| [Rozhraní příkazového řádku Azure (CLI)](/cli/azure/?view=azure-cli-latest) | \[Systémová_jednotka \] \Program Files (x86) \Microsoft SDKs\Azure\CLI2 |
 | [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)   | \[Systémová_jednotka \] \Program Files (x86) \microsoft Průzkumník služby Azure Storage                                                                       |
 | [AzCopy](/azure/storage/common/storage-use-azcopy-v10)                             | \[Systémová_jednotka \] \vmsoftware\ azcopy_windows_amd64_10.3.4                                         |
 | [AzureStack – nástroje](https://github.com/Azure/AzureStack-Tools/tree/az)                  | \[Systémová_jednotka \] \VMSoftware\AzureStack-Tools                                                    |
@@ -96,7 +96,7 @@ V následující tabulce je uveden předinstalovaný software na virtuálním po
    'C:\Version\Get-Version.ps1'
    ```
 
-   Například:
+   Příklad:
 
    ![Snímek obrazovky s rutinou prostředí PowerShell pro kontrolu verze virtuálního počítače s OAW](./media/operator-access-workstation/check-hardware-lifecycle-host-version.png)
 
@@ -203,7 +203,7 @@ New-OAW
 
 V následující tabulce je uveden seznam definic pro každý parametr.
 
-| Parametr   | Požadováno/volitelné  | Popis       |
+| Parametr   | Požadováno/volitelné  | Description       |
 |-------------|--------------------|-------------------|
 | LocalAdministratorPassword | Vyžadováno | Heslo pro účet místního správce virtuálního počítače AdminUser. |
 | IPAddress                  | Vyžadováno | Statická adresa IPv4 pro konfiguraci protokolu TCP/IP na virtuálním počítači.                                                |
@@ -234,15 +234,15 @@ SkipNetworkConfiguration     | Volitelné | Přeskočí konfiguraci sítě pro v
    'C:\Version\Get-Version.ps1'
    ```
 
-   Například:
+   Příklad:
 
    ![Snímek obrazovky s rutinou prostředí PowerShell pro kontrolu verze hostitele životního cyklu životnosti hardwaru](./media/operator-access-workstation/check-operator-access-workstation-vm-version.png)
 
 ## <a name="transfer-files-between-the-hlh-and-oaw"></a>Přenos souborů mezi HLH a OAW
 
-Pokud potřebujete přenášet soubory mezi HLH a OAW, vytvořte sdílenou složku SMB pomocí rutiny [New-SmbShare](/powershell/module/smbshare/new-smbshare?view=win10-ps) . New-SmbShare zpřístupňuje složku systému souborů vzdáleným klientům jako sdílenou složku protokolu SMB (Server Message Block). Například:
+Pokud potřebujete přenášet soubory mezi HLH a OAW, vytvořte sdílenou složku SMB pomocí rutiny [New-SmbShare](/powershell/module/smbshare/new-smbshare?view=win10-ps) . New-SmbShare zpřístupňuje složku systému souborů vzdáleným klientům jako sdílenou složku protokolu SMB (Server Message Block). Příklad:
 
-Pokud chcete odstranit sdílenou složku, kterou vytvořila Tato rutina, použijte rutinu [Remove-SmbShare](/powershell/module/smbshare/remove-smbshare?view=win10-ps) . Například:
+Pokud chcete odstranit sdílenou složku, kterou vytvořila Tato rutina, použijte rutinu [Remove-SmbShare](/powershell/module/smbshare/remove-smbshare?view=win10-ps) . Příklad:
 
 ## <a name="remove-the-oaw-vm"></a>Odebrání virtuálního počítače s OAW
 
@@ -259,7 +259,7 @@ Následující skript odebere virtuální počítač OAW, který se používá p
 
    Kde \<name\> je název virtuálního počítače, který se má odebrat. Ve výchozím nastavení je název **AzSOAW**.
 
-   Například:
+   Příklad:
 
    ```powershell
    Remove-OAW.ps1 -VirtualMachineName AzSOAW
