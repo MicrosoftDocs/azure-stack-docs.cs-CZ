@@ -302,6 +302,8 @@
               href: azure-stack-dev-start-howto-vm-nodejs.md
         - name: Vytvoření akce GitHubu – přihlášení
           href: ci-cd-github-action-login-cli.md
+        - name: Vytvoření akce GitHubu – nasazení webové aplikace
+          href: ci-cd-github-action-webapp.md
         - name: Nasazení modulu IoT pro GPU
           href: gpu-deploy-sample-module.md
     - name: Nasazení základních vzorů

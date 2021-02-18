@@ -3,16 +3,16 @@ title: Poznámky k verzi centra Azure Stack
 description: Poznámky k verzi pro integrované systémy Azure Stack hub, včetně aktualizací a oprav chyb.
 author: sethmanheim
 ms.topic: article
-ms.date: 02/03/2021
+ms.date: 02/17/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 6360c0127c53e8c5e7c8686050208f3e6f537f56
-ms.sourcegitcommit: 69c700a456091adc31e4a8d78e7a681dfb55d248
+ms.openlocfilehash: 441e764231e9ce85de69d7cd4020325883fde7ec
+ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100013263"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100648078"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -126,6 +126,9 @@ Azure Stack centrum pravidelně vydává opravy hotfix. Před aktualizací na 20
 Další informace najdete v našich [zásadách obsluhy](azure-stack-servicing-policy.md).
 
 Opravy hotfix centra Azure Stack se vztahují pouze na integrované systémy Azure Stack hub. Nepokoušejte se instalovat opravy hotfix na ASDK.
+
+> [!TIP]
+> Pokud chcete být upozorňováni na každou verzi opravy hotfix, přihlaste se k odběru [**informačního kanálu RSS**](https://azurestackhubdocs.azurewebsites.net/xml/hotfixes.rss) , abyste byli informováni o jednotlivých vydáních oprav hotfix.
 
 ### <a name="after-successfully-applying-the-2008-update"></a>Po úspěšné instalaci aktualizace 2008
 

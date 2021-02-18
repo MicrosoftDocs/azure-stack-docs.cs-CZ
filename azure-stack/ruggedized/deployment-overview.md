@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2020
+ms.date: 02/17/2021
 ms.author: patricka
 ms.reviewer: asganesh
-ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: e6fccf96e44a481a0e1e0c5bb300ec238937f86b
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.lastreviewed: 02/17/2021
+ms.openlocfilehash: 4d61fc75cd7db67f113369981fe0fa4742178dd5
+ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98256179"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100648061"
 ---
 # <a name="azure-stack-hub-ruggedized-deployment-overview"></a>Přehled robustního nasazení centra Azure Stack
 
@@ -52,7 +52,7 @@ Každé SU pod sebou obsahuje dva Azure Stack hub robustní servery R640 SU. Jed
 
 V následující tabulce jsou uvedeny některé z podmínek, které jsou použity v této příručce.
 
-|Pojem   | Definice |
+|Označení   | Definice |
 |-------|------------|
 |Hostitel životního cyklu hardwaru (HLH)| HLH je fyzický server, který se používá k počátečnímu zavádění nasazení, a také průběžnou správu hardwaru, podporu a zálohování infrastruktury Azure Stack hub. HLH spouští Windows Server 2019 s desktopovým prostředím a rolí Hyper-V. Server slouží k hostování nástrojů pro správu hardwaru, nástrojů pro správu přepínačů, Azure Stack nástrojů centra partnerů a virtuálního počítače pro nasazení. |
 |Virtuální počítač pro nasazení (DVM)|  DVM je virtuální počítač, který se vytvoří v HLH po dobu trvání nasazení softwaru Azure Stack hub. DVM spouští modul orchestrace softwaru Azure Stack hub s názvem Enterprise Cloud Engine (EHK) pro instalaci a konfiguraci Azure Stack infrastruktury centra prostředků infrastruktury na všech serverech centra Azure Stack škály, které jsou v síti.|
@@ -63,31 +63,36 @@ V následující tabulce jsou uvedeny některé z podmínek, které jsou použit
 |Nulu    |V kontextu služby Azure Stack hub je jako fyzický robustní kontejner navržený tak, aby je mohl přenášet dvě osoby, které obsahují držáky racku a tlumiče pérování k ochraně Azure Stack hub robustního hardwaru od fyzického zatížení v životním prostředí. Zahrnuje případ front-end přenosů, které se dají nainstalovat a zapečetit pro přenos hardwaru. Kompletní řešení s minimální konfigurací zahrnuje tři lusky.|
 
 
-## <a name="deployment-overflow"></a>Přetečení nasazení
+## <a name="deployment-workflow"></a>Pracovní postup nasazení
 
-V nejvyšší úrovni se proces robustního nasazení centra Azure Stack skládá z následujících kroků.
+Proces nasazení MDC se na vysoké úrovni skládá z fází popsaných v následujících oddílech.
 
-1. Plánovací fáze:
-   1. Plánování pro napájení Datacenter a chlazení.
-   1. Plánování konfigurace logické sítě Azure Stackho centra
-   1. Plánování integrace sítě Datacenter.
-   1. Plánování pro integraci identity a zabezpečení
-   1. Plánování certifikátů PKI.
-1. Přípravná fáze:
-   1. Rozbalení a shromáždění inventáře.
-   1. Připojení k napájení a zapnutí řešení.
-   1. Ověřuje se stav fyzického hardwaru.
-1. Fáze provádění:
-   1. Konfiguruje se hostitel životního cyklu hardwaru.
-   1. Konfigurace síťových přepínačů.
-   1. Integrace sítě Datacenter.
-   1. Konfigurace nastavení fyzického hardwaru.
-   1. Nasazuje se infrastruktura prostředků infrastruktury Azure Stack hub.
-   1. Integrace identit datacentra
-   1. Instalace doplňků pro rozšířené funkce.
-1. Fáze ověření:
-   1. Ověření stavu po nasazení.
-   1. Probíhá registrace centra Azure Stack s Microsoftem.
-   1. Operátor centra Azure Stack ruky.
-   
-Všechna výše uvedená témata jsou podrobněji vysvětlena v tomto průvodci.
+### <a name="planning-phase"></a>Plánovací fáze
+1. Plánování výkonu datového centra.
+1. Plánování konfigurace logické sítě Azure Stackho centra
+1. Plánování [integrace sítě Datacenter](../operator/azure-stack-network.md).
+1. Plánování pro integraci [identity](../operator/azure-stack-identity-overview.md) .
+1. Plánování pro integraci [zabezpečení](../operator/azure-stack-security-foundations.md)
+1. Plánování [certifikátů PKI](../operator/azure-stack-pki-certs.md).
+
+### <a name="preparation-phase"></a>Přípravná fáze
+1. Shromažďování inventáře.
+1. Připojení k napájení a zapnutí řešení.
+1. Ověřuje se stav systému TVK.
+1. Ověřování monitorování požáru a výstrahy stavu systému.
+1. Ověřuje se stav fyzického hardwaru.
+
+### <a name="execution-phase--separately-for-each-of-the-three-pods"></a>Fáze provádění – samostatně pro každé tři lusky
+1. Konfiguruje se hostitel životního cyklu hardwaru.
+1. Konfigurace síťových přepínačů.
+1. Integrace sítě Datacenter.
+1. Konfigurace nastavení fyzického hardwaru.
+1. Konfigurace úložiště Isilon
+1. Nasazuje se infrastruktura prostředků infrastruktury Azure Stack hub.
+1. Integrace identit datacentra
+1. Instalace doplňků pro rozšířené funkce.
+
+### <a name="validation-phase--separately-for-each-of-the-three-pods"></a>Fáze ověření – samostatně pro každé tři lusky
+1. Ověření stavu po nasazení.
+1. Probíhá registrace centra Azure Stack s Microsoftem.
+1. Azure Stack zákazníka centra.

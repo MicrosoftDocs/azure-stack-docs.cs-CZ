@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Přečtěte si o zásadách obsluhy centra Azure Stack a o tom, jak zachovat integrovaný systém v podporovaném stavu.
 author: sethmanheim
 ms.topic: article
-ms.date: 12/15/2020
+ms.date: 02/17/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: baa622bf9d80d0896dfb3431e1363e4a8a780567
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: 95686f1fc9ae56cefe2063c03e8e80d0e156af83
+ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255750"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100648027"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Zásady obsluhy centra Azure Stack
 
@@ -27,7 +27,7 @@ Společnost Microsoft vydává úplné balíčky aktualizací i balíčky oprav 
 
 Balíčky aktualizací oprav hotfix jsou hostovány ve stejném zabezpečeném koncovém bodu Azure. Můžete si je stáhnout pomocí vložených odkazů v každé z příslušných článků o opravě hotfix KB. například [Azure Stack 1.1809.12.114ování v centru pro opravy](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Podobně jako u úplných, měsíčních aktualizačních balíčků můžou operátory centra Azure Stack stahovat soubory. XML a. zip a importovat je pomocí postupu v části [použití aktualizací v centru Azure Stack](azure-stack-apply-updates.md). U operátorů centra Azure Stack s připojenými jednotkami škálování se tyto opravy hotfix automaticky zobrazí na portálu pro správu a **k dispozici je aktualizace** zprávy.
 
-Pokud vaše jednotka škálování není připojená a chcete být upozorněni na každou verzi opravy hotfix, přihlaste se k odběru informačního kanálu [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) nebo [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) v každé vydané verzi.
+Pokud vaše jednotka škálování není připojená a chcete být upozorněni na každou verzi opravy hotfix, přihlaste se k odběru [informačního kanálu RSS](https://azurestackhubdocs.azurewebsites.net/xml/hotfixes.rss) , abyste byli informováni o jednotlivých vydáních oprav hotfix.
 
 ## <a name="update-package-types"></a>Aktualizace typů balíčků
 
@@ -82,7 +82,7 @@ U poskytovatelů prostředků Azure Stack hub je důležité poznamenat, že je 
 
 Další informace o kompatibilitě poskytovatele prostředků najdete v poznámkách k verzi pro konkrétního poskytovatele prostředků.
 
-## <a name="get-support"></a>Získat podporu
+## <a name="get-support"></a>Získání podpory
 
 Centrum Azure Stack se řídí stejným procesem podpory jako Azure. Podnikoví zákazníci mohou postupovat podle postupu popsaného v tématu [Postup vytvoření žádosti o podporu Azure](/azure/azure-supportability/how-to-create-azure-support-request). Pokud jste zákazníkem poskytovatele Cloud Solution Provider (CSP), požádejte o podporu svého CSP. Další informace najdete v nejčastějších dotazech k [podpoře Azure](https://azure.microsoft.com/support/faq/).
 

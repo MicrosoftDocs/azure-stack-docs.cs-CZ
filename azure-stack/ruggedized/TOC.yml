@@ -267,7 +267,7 @@
             - name: Výměna hardwaru
               items:
                 - name: Akce uzlu
-                  href: ../operator/azure-stack-node-actions.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: operator/azure-stack-node-actions-tzl.md
         - name: "Zabezpečení a\_dodržování předpisů"
           items:
             - name: Konfigurace zabezpečení

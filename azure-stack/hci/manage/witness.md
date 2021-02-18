@@ -3,100 +3,129 @@ title: Nastavení určujícího clusteru
 description: Přečtěte si, jak nastavit určující disk clusteru.
 author: v-dasis
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 02/17/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: cb964bafae7dd9252b386c30a12251e89fc8ead5
-ms.sourcegitcommit: e772df8ac78c86d834a68d1a8be83b7f738019b7
+ms.openlocfilehash: 32d0f717e987d757f5315cfe048c75300ae9c776
+ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98781948"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100647907"
 ---
 # <a name="set-up-a-cluster-witness"></a>Nastavení určujícího clusteru
 
 > Platí pro Azure Stack HCI, verze 20H2; Windows Server 2019
 
-Nastavení prostředku určujícího disku je pro všechny clustery povinné a po vytvoření clusteru je potřeba nastavit hned. Clustery se dvěma uzly potřebují určující určující, aby jeden server v režimu offline nezpůsobí, že druhý uzel nebude k dispozici také. Clustery se třemi a vyššími uzly potřebují určující, aby bylo možné vydržet dva servery, které jsou neúspěšné nebo offline.  
+Nastavení prostředku určujícího disku se pro všechny clustery důrazně doporučuje a po vytvoření clusteru by se mělo nastavit hned. Clustery se dvěma uzly potřebují určující určující, aby jeden server v režimu offline nezpůsobí, že druhý uzel nebude k dispozici také. Clustery se třemi a vyššími uzly potřebují určující, aby bylo možné vydržet dva servery, které jsou neúspěšné nebo offline.  
 
-Můžete buď použít sdílenou složku SMB jako určující disk, nebo použít cloudovou kopii Azure. Doporučuje se sdílené složky Azure v cloudu, za předpokladu, že všechny uzly serveru v clusteru mají spolehlivé připojení k Internetu. Další informace najdete v tématu [nasazení určujícího cloudu pro cluster s podporou převzetí služeb při selhání](/windows-server/failover-clustering/deploy-cloud-witness).
+Můžete buď použít sdílenou složku SMB, jako určující kopii nebo cloudovou kopii Azure. Doporučuje se sdílené složky Azure v cloudu, za předpokladu, že všechny uzly serveru v clusteru mají spolehlivé připojení k Internetu. Tento článek popisuje vytvoření sdílené složky v cloudu.
 
-Pro určující sdílené složky sdílení souborů platí požadavky na souborový server. Další informace najdete v části [požadavky na systém](../concepts/system-requirements.md) .
+## <a name="before-you-begin"></a>Než začnete
 
-## <a name="set-up-a-witness-using-windows-admin-center"></a>Nastavení určujícího disku pomocí centra pro správu Windows
+Než budete moct vytvořit disk s kopií cloudu, musíte mít účet a předplatné Azure a zaregistrovat Azure Stack cluster HCI v Azure. Další informace najdete v následujících článcích:
+
+- [Vytvoření účtu Azure](https://docs.microsoft.com/dotnet/azure/create-azure-account)
+- Pokud je to možné, [vytvořte další předplatné Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription) .
+- [Připojení Azure Stack HCl k Azure](../deploy/register-with-azure.md)
+
+Pro určující sdílené složky jsou požadavky na souborový server. Další informace najdete v části [požadavky na systém](../concepts/system-requirements.md) .
+
+## <a name="create-an-azure-storage-account"></a>Vytvoření účtu úložiště Azure
+
+Tato část popisuje, jak vytvořit účet služby Azure Storage. Tento účet se používá k uložení souboru objektu BLOB v Azure, který se používá pro arbitráž pro konkrétní cluster. Stejný účet služby Azure Storage můžete použít ke konfiguraci určujícího cloudu pro více clusterů.
+
+1. Přihlaste se na [Azure Portal](https://portal.azure.com).
+1. V domovské nabídce Azure Portal v části **služby Azure** vyberte **účty úložiště**. Pokud tato ikona chybí, vyberte **vytvořit prostředek** a vytvořte nejprve prostředek *účtů úložiště* .
+
+    :::image type="content" source="media/witness/cloud-witness-home.png" alt-text="Azure Portal domovskou obrazovku" lightbox="media/witness/cloud-witness-home.png":::
+
+1. Na stránce **účty úložiště** vyberte **Nový**.
+
+    :::image type="content" source="media/witness/cloud-witness-create.png" alt-text="Nový účet úložiště Azure" lightbox="media/witness/cloud-witness-create.png":::
+
+1. Na stránce **vytvořit účet úložiště** proveďte následující:
+    1. Vyberte **předplatné** Azure, na které se má účet úložiště použít.
+    1. Vyberte **skupinu prostředků** Azure, na kterou se má účet úložiště použít.
+    1. Zadejte **název účtu úložiště**.
+    <br>Názvy účtů úložiště musí mít délku 3 až 24 znaků a můžou obsahovat jenom číslice a malá písmena. Tento název musí být taky jedinečný v rámci Azure.
+    1. Vyberte **umístění** , které je nejblíže vašemu fyzickému.
+    1. **Výkon** – vyberte **Standard**.
+    1. Jako **druh účtu** vyberte **úložiště pro obecné účely**.
+    1. V případě **replikace** vyberte **místně redundantní úložiště (LRS)**.
+    1. Po dokončení klikněte na tlačítko **zkontrolovat + vytvořit**.
+
+    :::image type="content" source="media/witness/cloud-witness-create-storage-account.png" alt-text="Účet úložiště Azure pro vytvoření" lightbox="media/witness/cloud-witness-create-storage-account.png":::
+
+1. Ujistěte se, že účet úložiště projde ověřením, a pak zkontrolujte nastavení účtu. Jakmile budete hotovi, klikněte na **Vytvořit**.
+
+    :::image type="content" source="media/witness/cloud-witness-validation.png" alt-text="Ověřování účtu Azure Storage" lightbox="media/witness/cloud-witness-validation.png":::
+
+1. Může to trvat několik sekund, než se nasazování účtu v Azure dostanou. Po dokončení nasazení klikněte na **Přejít k prostředku**.
+
+    :::image type="content" source="media/witness/cloud-witness-deployment.png" alt-text="Nasazení účtu úložiště Azure" lightbox="media/witness/cloud-witness-deployment.png":::
+
+## <a name="copy-the-access-key-and-endpoint-url"></a>Zkopírování přístupového klíče a adresy URL koncového bodu
+
+Když vytvoříte účet úložiště Azure, proces automaticky vytvoří dva přístupové klíče, primární klíč (klíč1) a sekundární klíč (key2). Při prvním vytváření určujícího cloudu se používá **klíč1** . Adresa URL koncového bodu se také generuje automaticky.
+
+Disk s kopií cloudu Azure používá pro úložiště soubor objektů BLOB s vygenerovaným koncovým bodem ve formátu *storage_account_name. blob. Core. Windows. NET* jako koncový bod. 
+
+> [!NOTE]  
+> Disk s kopií cloudu Azure používá k navázání komunikace se službou Azure Blob Service protokol HTTPS (výchozí port 443). Zajistěte, aby byl port HTTPS dostupný.
+
+### <a name="copy-the-account-name-and-access-key"></a>Zkopírování názvu účtu a přístupového klíče
+
+1. V Azure Portal v části **Nastavení** vyberte **přístupové klíče**.
+1. Chcete-li zobrazit klíčové informace, vyberte možnost **Zobrazit** klíče.
+1. Klikněte na ikonu kopírování a vložení napravo od polí **název účtu úložiště** a **klíč1** a vložte jednotlivé textové řetězce do poznámkového bloku nebo jiného textového editoru.
+
+    :::image type="content" source="media/witness/cloud-witness-access-keys.png" alt-text="Přístupové klíče k účtu úložiště Azure" lightbox="media/witness/cloud-witness-access-keys.png":::
+
+### <a name="copy-the-endpoint-url-optional"></a>Zkopírovat adresu URL koncového bodu (volitelné)
+
+Adresa URL koncového bodu je volitelná a nemusí být potřebná pro disk s kopií cloudu.
+
+1. V Azure Portal vyberte možnost **vlastnosti**.
+1. Chcete-li zobrazit informace o koncovém bodu, vyberte možnost **Zobrazit klíče** .
+1. V části **BLOB Service** klikněte na ikonu kopírování a vložení napravo od pole **BLOB Service** a vložte textový řetězec do poznámkového bloku nebo jiného textového editoru.
+
+    :::image type="content" source="media/witness/cloud-witness-blob-service.png" alt-text="Koncový bod objektu blob Azure" lightbox="media/witness/cloud-witness-blob-service.png":::
+
+## <a name="create-a-cloud-witness-using-windows-admin-center"></a>Vytvoření určujícího cloudu pomocí centra pro správu Windows
+
+Nyní jste připraveni vytvořit instanci určujícího clusteru pomocí centra pro správu systému Windows.
 
 1. V centru pro správu systému Windows vyberte ze šipky nahoru v horním rozevíracím seznamu položku **Správce clusteru** .
 1. V části **připojení clusteru** vyberte cluster.
 1. V části **nástroje** vyberte **Nastavení**.
 1. V pravém podokně vyberte **určující**.
 1. Jako **Typ určující kopie** vyberte jednu z následujících možností:
-      - **Disk s kopií cloudu** – zadejte název svého účtu služby Azure Storage, přístupový klíč a adresu URL koncového bodu, jak je popsáno níže.
+      - **Disk s kopií cloudu** – zadejte název svého účtu služby Azure Storage, přístupový klíč a adresu URL koncového bodu, jak je popsáno výše.
       - **Určující sdílená složka** – zadejte cestu sdílení souborů (//server/share).
+1. V případě určujícího cloudu pro následující pole vložte textové řetězce, které jste zkopírovali dříve, pro:
+    1. **Azure storage account name**
+    1. **Přístupový klíč k Azure Storage**
+    1. **Koncový bod služby Azure**
+
+    :::image type="content" source="media/witness/cloud-witness-1.png" alt-text="Přístupové klíče pro disk s kopií cloudu" lightbox="media/witness/cloud-witness-1.png":::
+
+1. Jakmile budete hotoví, klikněte na **Uložit**. Může chvíli trvat, než se informace rozšíří do Azure.
 
 > [!NOTE]
 > Třetí možnost, **určující disk** není vhodná pro použití v roztaženém clusteru.
 
-## <a name="create-an-azure-storage-account-to-use-as-a-cloud-witness"></a>Vytvoření účtu Azure Storage pro použití jako určujícího cloudu
+## <a name="create-a-cloud-witness-using-windows-powershell"></a>Vytvoření určujícího cloudu pomocí Windows PowerShellu
 
-Tato část popisuje, jak vytvořit účet úložiště a jak zobrazit a zkopírovat adresy URL koncových bodů a přístupové klíče pro tento účet.
+Alternativně můžete vytvořit instanci určujícího clusteru pro cluster pomocí prostředí PowerShell.
 
-Pokud chcete konfigurovat disk s kopií cloudu, musíte mít platný účet Azure Storage, který se dá použít k uložení souboru objektu BLOB (používá se pro arbitráž). Disk s kopií cloudu vytvoří známý kontejner **MSFT-Cloud-určující disk** v účtu úložiště Microsoft. Disk s kopií cloudu zapisuje jeden soubor objektu BLOB s odpovídajícím jedinečným ID clusteru, který se používá jako název souboru objektu BLOB v tomto kontejneru **MSFT-Cloud-určující** . To znamená, že můžete použít stejný účet Microsoft Azure Storage ke konfiguraci určujícího cloudu pro více různých clusterů.
-
-Když použijete stejný účet Azure Storage ke konfiguraci určujícího cloudu pro více různých clusterů, vytvoří se automaticky jeden kontejner protokolu **MSFT-Cloud-určující** . Tento kontejner bude obsahovat soubor s jedním objektem blob na cluster.
-
-> [!NOTE]  
-> Disk s kopií cloudu používá k navázání komunikace se službou Azure Blob Service protokol HTTPS (výchozí port 443). Zajistěte, aby byl port HTTPS přístupný prostřednictvím síťového proxy serveru.
-
-### <a name="to-create-an-azure-storage-account"></a>Vytvoření účtu služby Azure Storage
-
-1. Přihlaste se na [Azure Portal](https://portal.azure.com).
-1. V nabídce centra vyberte nový-> data + úložiště-> účet úložiště.
-1. Na stránce Vytvořit účet úložiště udělejte toto:
-    1. Zadejte název účtu úložiště.
-    <br>Názvy účtů úložiště musí mít délku 3 až 24 znaků a můžou obsahovat jenom číslice a malá písmena. Název účtu úložiště musí být v rámci Azure taky jedinečný.
-    1. Jako **druh účtu** vyberte **obecné účely**.
-    <br>Účet úložiště BLOB nelze použít pro diskovou kopii cloudu.
-    1. **Výkon** – vyberte **Standard**.
-    <br>Pro disk s kopií cloudu nejde použít Azure Premium Storage.
-    1. V případě **replikace** vyberte **místně redundantní úložiště (LRS)** .
-    <br>Clustering s podporou převzetí služeb při selhání používá jako arbitrážní bod soubor objektu blob, který při čtení dat vyžaduje určité záruky konzistence. Proto musíte pro typ **replikace** vybrat **místně redundantní úložiště** .
-
-### <a name="view-and-copy-storage-access-keys-for-your-azure-storage-account"></a>Zobrazení a zkopírování přístupových klíčů k úložišti pro Azure Storage účet
-
-Když vytváříte účet Microsoft Azure Storage, je přidružen ke dvěma přístupovým klíčům, které se automaticky generují – primární přístupový klíč a sekundární přístupový klíč. Při prvním vytváření sdílené složky cloudu použijte **Primární přístupový klíč**. Neexistuje žádné omezení týkající se klíče, který se má použít pro disk s kopií cloudu.  
-
-#### <a name="to-view-and-copy-storage-access-keys"></a>Zobrazení a zkopírování přístupových klíčů k úložišti
-
-V Azure Portal přejděte na svůj účet úložiště, klikněte na **všechna nastavení** a potom klikněte na **přístupové klíče** , abyste mohli zobrazit, kopírovat a znovu vygenerovat přístupové klíče k účtu. Okno Přístupové klíče také obsahuje předem nakonfigurované připojovací řetězce s využitím primárního a sekundárního klíče, které můžete zkopírovat a používat ve svých aplikacích.
-
-:::image type="content" source="media/witness/cloud-witness-1.png" alt-text="Přístupové klíče pro disk s kopií cloudu" lightbox="media/witness/cloud-witness-1.png":::
-
-### <a name="view-and-copy-endpoint-url-links"></a>Zobrazení a kopírování odkazů na adresu URL koncového bodu
-
-Při vytváření účtu úložiště se generují následující adresy URL ve formátu: `https://<Storage Account Name>.<Storage Type>.<Endpoint>`  
-
-Disk s kopií cloudu vždycky jako typ úložiště používá **objekt BLOB** . Azure jako koncový bod používá **. Core.Windows.NET** . Při konfiguraci sdílené složky cloudu je možné ji nakonfigurovat s jiným koncovým bodem podle vašeho scénáře (například Microsoft Azure Datacenter v Číně má jiný koncový bod).  
-
-> [!NOTE]  
-> Adresa URL koncového bodu je generována automaticky prostředkem určujícím cloudu a není nutná žádná další konfigurace pro adresu URL.  
-
-#### <a name="to-view-and-copy-endpoint-url-links"></a>Zobrazení a zkopírování odkazů na adresu URL koncového bodu
-
-V Azure Portal přejděte na svůj účet úložiště, klikněte na **všechna nastavení** a potom klikněte na **vlastnosti** . zobrazí se a zkopírují se adresy URL koncových bodů.  
-
-:::image type="content" source="media/witness/cloud-witness-2.png" alt-text="Adresa URL koncového bodu sdílené složky cloudu" lightbox="media/witness/cloud-witness-2.png":::  
-
-## <a name="set-up-a-witness-using-windows-powershell"></a>Nastavení určujícího disku pomocí Windows PowerShellu
-
-Pokud chcete nastavit určující cluster pomocí PowerShellu, spusťte jednu z následujících rutin.
-
-Pomocí následující rutiny vytvořte sdílenou složku Azure v cloudu:
+K vytvoření sdílené složky Azure v cloudu použijte následující rutinu. Zadejte název účtu Azure Storage a přístupová práva k klíčům, jak je popsáno výše:
 
 ```powershell
 Set-ClusterQuorum –Cluster "Cluster1" -CloudWitness -AccountName "AzureStorageAccountName" -AccessKey "AzureStorageAccountAccessKey"
 ```
 
-Pomocí následující rutiny vytvořte určující sdílenou složku:
+Pomocí následující rutiny vytvořte určující sdílenou složku. Zadejte cestu ke sdílené složce na souborovém serveru:
 
 ```powershell
 Set-ClusterQuorum -FileShareWitness "\\fileserver\share" -Credential (Get-Credential)
@@ -106,4 +135,4 @@ Set-ClusterQuorum -FileShareWitness "\\fileserver\share" -Credential (Get-Creden
 
 - Další informace o kvoru clusteru najdete v tématu [Principy kvora clusteru a fondu v Azure Stack HCI](../concepts/quorum.md).
 
-- Další informace o vytváření a správě účtů Azure Storage najdete v tématu [o účtech Azure Storage](/azure/storage/common/storage-account-create).
+- Další informace o vytváření a správě účtů Azure Storage najdete v tématu [Vytvoření účtu úložiště](https://docs.microsoft.com/azure/storage/common/storage-account-create).
