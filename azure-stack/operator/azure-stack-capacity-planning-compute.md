@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: bfe8dfae9cd0190b998167a27a95254ee7bc8cbb
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.openlocfilehash: ee3ecd2bd9d513386f1f5546237204552eb0fc34
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "101840350"
+ms.locfileid: "102116865"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Kapacita výpočetní kapacity centra Azure Stack
 
@@ -58,7 +58,7 @@ Výsečový graf můžete zkontrolovat na portálu pro správu, který zobrazuje
 Použitá paměť se skládá z několika součástí. Následující komponenty využívají paměť v části použití výsečového grafu:  
 
 - **Využití nebo rezervace operačního systému hostitele:** Paměť využívaná operačním systémem (OS) na hostiteli, tabulkách stránky virtuální paměti, procesy, které jsou spuštěny v hostitelském operačním systému, a mezipaměti prostorů s přímým přístupem. Vzhledem k tomu, že tato hodnota závisí na paměti používané různými procesy technologie Hyper-V běžícími na hostiteli, může to kolísat.
-- **Služby infrastruktury:** Virtuální počítače infrastruktury, které tvoří centrum Azure Stack. Od verze 1904 Azure Stack centra se jedná o 31 virtuálních počítačů, které zabírají 242 GB + (4 GB × počet uzlů) paměti. Využití paměti komponent služby infrastruktury se může při práci se změnou škálovatelnosti a odolnosti pro naši službu infrastruktury změnit.
+- **Služby infrastruktury:** Virtuální počítače infrastruktury, které tvoří centrum Azure Stack. Od verze 2008 Azure Stack centra se jedná o 31 virtuálních počítačů, které zabírají 258 GB + (4 GB × počet uzlů) paměti. Využití paměti komponent služby infrastruktury se může při práci se změnou škálovatelnosti a odolnosti pro naši službu infrastruktury změnit.
 - **Rezerva odolnosti:** Centrum Azure Stack vyhrazuje část paměti, která umožňuje dostupnost tenanta během jednoho selhání hostitele a také během opravy a aktualizace, aby bylo umožněno úspěšné migrace virtuálních počítačů za provozu.
 - **Virtuální počítače tenanta:** Klientské virtuální počítače vytvořené Azure Stack centrum uživatelů. Navíc k běžícím virtuálním počítačům je paměť spotřebovaná všemi virtuálními počítači, které se proložily v prostředcích infrastruktury. To znamená, že virtuální počítače ve stavu "vytvoření" nebo "selhání" nebo virtuální počítače, které se vypnou z hosta, budou spotřebovávat paměť. Virtuální počítače, které se nastavily pomocí možnosti zastavit navráceno z portálu nebo PowerShellu nebo CLI, ale nebudou spotřebovávat paměť z centra Azure Stack.
 - **Přidat poskytovatele prostředků (RPS) s hodnotou:** Virtuální počítače nasazené pro hodnotu – přidejte RPs jako SQL, MySQL, App Service atd.
@@ -77,7 +77,7 @@ Rezerva odolnosti = H + R * (N-1) * H) + V * (N-2)
 > -    R = rezerva operačního systému pro režijní náklady na operační systém, který je .15 v tomto vzorci<sup>2</sup>
 > -    V = největší virtuální počítač v jednotce škálování
 
-<sup>1</sup> Azure Stack režie infrastruktury centra = 242 GB + (4 GB x # uzlů). K hostování infrastruktury centra Azure Stack se používá přibližně 31 virtuálních počítačů a v celkovém počtu se spotřebují přibližně 242 GB + (4 GB x # z uzlů) paměti a 146 virtuálních jader. Pro tento počet virtuálních počítačů je nutné, aby splňovaly potřebné oddělení služeb pro splnění požadavků na zabezpečení, škálovatelnost, údržbu a opravy. Tato interní struktura služby umožňuje budoucí zavádění nových služeb infrastruktury, když se vyvíjí.
+<sup>1</sup> Azure Stack režie infrastruktury centra = 258 GB + (4 GB x # uzlů). Pro hostování infrastruktury centra Azure Stack se používají přibližně 32 virtuálních počítačů a v celkovém množství spotřebují asi 242 GB + (4 GB x # z uzlů) paměti a 146 virtuálních jader. Pro tento počet virtuálních počítačů je nutné, aby splňovaly potřebné oddělení služeb pro splnění požadavků na zabezpečení, škálovatelnost, údržbu a opravy. Tato interní struktura služby umožňuje budoucí zavádění nových služeb infrastruktury, když se vyvíjí.
 
 <sup>2</sup> rezerva operačního systému pro režii = 15% (. 15) paměti uzlu. Hodnota rezervovaného operačního systému je odhad a bude se lišit v závislosti na kapacitě fyzické paměti serveru a celkové režii operačního systému.
 

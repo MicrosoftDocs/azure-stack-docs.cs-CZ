@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 01/26/2021
 ms.author: v-susbo
 ms.reviewer: ''
-ms.openlocfilehash: 728f23954d99f6e8cd9373467ed8d104a457e636
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.openlocfilehash: 7bed9a767728525ae1e40ce4f0e607cc6f034055
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "101873680"
+ms.locfileid: "102116797"
 ---
 # <a name="monitor-aks-on-azure-stack-hci-clusters"></a>Monitorování AKS v Azure Stack clusterech HCI
 
@@ -19,16 +19,12 @@ K dispozici jsou dva typy řešení monitorování a protokolování pro AKS na 
 
 | Řešení  | Konektivita Azure  | Podpora a služba  | Náklady | Nasazení |
 | ------- |  ------------  | ---------  | --------------  | ---------------- |
-| Azure Monitor | Vyžaduje připojení AKS v Azure Stack clusteru HCI k Azure pomocí ARC Azure pro Kubernetes. | Plně podporované a obsluhované Microsoftem | Vyžaduje registraci ke službě Azure Monitor. |  Použití ARC Azure pro [monitorování clusterů](#monitor-clusters-using-azure-monitor) |
-| Místní monitorování a protokolování | Nevyžaduje připojení Azure | Podporuje se jako open source software od Microsoftu (žádná smlouva o podpoře ani SLA), komunita a/nebo externí dodavatelé.  | Závislé na dodavateli | Řízené zákazníky, viz [monitorování clusterů pomocí místního monitorování](#monitor-clusters-using-on-premises-monitoring) |
+| Azure Monitor | Vyžaduje připojení AKS v Azure Stack clusteru HCI k Azure pomocí ARC Azure pro Kubernetes. | Plně podporované a obsluhované Microsoftem | Vyžaduje registraci ke službě Azure Monitor. |  Použití ARC Azure pro [monitorování clusterů](https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-overview) |
+| Místní monitorování a protokolování | Nevyžaduje připojení Azure | Podporuje se jako open source software od Microsoftu (žádná smlouva o podpoře ani SLA), komunita a/nebo externí dodavatelé.  | Závislé na dodavateli | Řízené zákazníky, viz [monitorování clusterů pomocí místního monitorování](#use-on-premises-monitoring) |
 
-## <a name="monitor-clusters-using-azure-monitor"></a>Monitorování clusterů pomocí Azure Monitor
-Pokud chcete použít Azure Monitor s AKS v Azure Stack clusterech HCI, postupujte podle kroků v následujících tématech: 
+Pokud chcete použít Azure Monitor s AKS v Azure Stack clusterech HCI, přečtěte si téma [přehled Azure monitor](https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-overview). 
 
-- [Připojení clusteru k Azure pomocí ARC Azure pro Kubernetes](./connect-to-arc.md)  
-- [Povolení Azure Monitor v clusteru Kubernetes s povoleným ARC Azure](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-enable-arc-enabled-clusters) 
-
-## <a name="monitor-clusters-using-on-premises-monitoring"></a>Monitorování clusterů pomocí místního monitorování
+## <a name="use-on-premises-monitoring"></a>Použití místního monitorování
 
 Monitorování stavu, výkonu a využití prostředků v uzlech řídicích rovin a zatížení v clusteru je klíčové při spouštění aplikací v produkčním prostředí. Informace o tom, jak nastavit řešení pro místní monitorování, najdete v tématu [instalace Prometheus a Grafana](https://github.com/microsoft/AKS-HCI-Apps/tree/main/Monitoring). Toto řešení monitorování zahrnuje následující dva nástroje: 
 

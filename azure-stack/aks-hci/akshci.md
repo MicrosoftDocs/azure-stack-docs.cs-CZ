@@ -5,12 +5,12 @@ author: jessicaguan
 ms.topic: reference
 ms.date: 2/12/2021
 ms.author: jeguan
-ms.openlocfilehash: 8d6b3410fb6fe6a00d602eeda97e172f1bac4062
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.openlocfilehash: 511b3ad0dcf791550f40136a73f47114e9784bbe
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "101873663"
+ms.locfileid: "102116746"
 ---
 # <a name="akshci"></a>AksHci 
 
@@ -39,7 +39,7 @@ Příkazy pro interakci se službou Azure Kubernetes v Azure Stack HCI
 | [Remove-akshcicluster](remove-akshcicluster.md) | Odstraní spravovaný cluster Kubernetes. |
 | [restart – akshci](restart-akshci.md) | Restartujte službu Azure Kubernetes na Azure Stack HCI a odeberte všechny nasazené clustery Kubernetes. |
 | [Set-akshciclusternodecount](set-akshciclusternodecount.md) | Škálujte počet uzlů řídicí plochy nebo uzlů pracovních uzlů v clusteru. |
-| [Set-akshciconfig](Sset-akshciconfig.md) | Nastaví nebo aktualizuje nastavení konfigurace pro hostitele služby Azure Kubernetes. |
+| [Set-akshciconfig](set-akshciconfig.md) | Nastaví nebo aktualizuje nastavení konfigurace pro hostitele služby Azure Kubernetes. |
 | [Odinstalace – akshci](uninstall-akshci.md) | Odeberte službu Azure Kubernetes v Azure Stack HCL. |
 | [Odinstalace – akshciadauth](uninstall-akshciadauth.md) | Odeberte ověřování služby Active Directory. |
 | [Update – akshci](update-akshci.md) | Aktualizujte hostitele služby Azure Kubernetes na nejnovější verzi Kubernetes. |

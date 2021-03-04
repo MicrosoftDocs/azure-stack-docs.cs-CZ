@@ -27,7 +27,7 @@
       href: deploy-linux-application.md
 - name: Koncepty
   items:
-    - name: Koncepty Azure Kubernetes on Azure Stack HCL
+    - name: Clustery a úlohy
       href: kubernetes-concepts.md
     - name: Požadavky na systém
       href: system-requirements.md
@@ -51,8 +51,12 @@
           href: ad-sso.md
         - name: Šifrování tajných kódů etcd
           href: encrypt-secrets.md
-    - name: Monitorování AKS v Azure Stack clusterech HCI
-      href: monitor-logging.md
+    - name: Monitorování a protokolování
+      items:
+        - name: Použití Azure Monitor pro kontejnery
+          href: 'https://docs.microsoft.com/azure/azure-monitor/containers/container-insights-overview'
+        - name: Místní monitorování
+          href: monitor-logging.md
     - name: Použití kontejnerů s Windows Serverem
       items:
         - name: Příprava uzlů Windows pro skupinový účet spravované služby

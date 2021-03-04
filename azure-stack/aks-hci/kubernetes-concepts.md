@@ -5,14 +5,14 @@ author: daschott
 ms.author: daschott
 ms.topic: conceptual
 ms.date: 12/02/2020
-ms.openlocfilehash: 9870f2921be561a8fef66f1bfc530b5c18f494b4
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: 93c0103cc13fdffbee7ba0d16aea9c33474565ba
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96612637"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102116763"
 ---
-# <a name="kubernetes-core-concepts-for-azure-kubernetes-service-on-azure-stack-hci"></a>Základní koncepty Kubernetes pro Azure Kubernetes Service v Azure Stack HCI
+# <a name="clusters-and-workloads-for-azure-kubernetes-service-on-azure-stack-hci"></a>Clustery a úlohy pro službu Azure Kubernetes v Azure Stack HCL
 
 > Platí pro: AKS on Azure Stack HCI, AKS runtime na Windows serveru 2019 Datacenter
 

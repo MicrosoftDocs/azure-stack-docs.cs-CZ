@@ -5,12 +5,12 @@ author: jessicaguan
 ms.topic: quickstart
 ms.date: 02/12/2021
 ms.author: jeguan
-ms.openlocfilehash: f14f3550e7a6d51ffd51a521bc6f155186b4c0c0
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.openlocfilehash: 291dd37ec08b6fe724dfdecd064454b8d96fd5f3
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "101839721"
+ms.locfileid: "102116695"
 ---
 # <a name="quickstart-set-up-an-azure-kubernetes-service-host-on-azure-stack-hci-using-powershell"></a>Rychlý Start: nastavení hostitele služby Azure Kubernetes na Azure Stack HCI pomocí prostředí PowerShell
 
@@ -186,7 +186,7 @@ Get-AksHciCredential -name clustergroup-management
 
 ## <a name="get-logs"></a>Získání protokolů
 
-Pokud chcete získat protokoly ze všech lusků, spusťte příkaz [Get-akshcilogs](./get-akshcilogs) . Tento příkaz vytvoří výstupní složku zip s názvem `akshcilogs` v cestě `c:\%workingdirectory%\%AKS HCI release number%\%filename%` (například `c:\AksHci\0.9.6.0\akshcilogs.zip` ).
+Pokud chcete získat protokoly ze všech lusků, spusťte příkaz [Get-akshcilogs](./get-akshcilogs.md) . Tento příkaz vytvoří výstupní složku zip s názvem `akshcilogs` v cestě `c:\%workingdirectory%\%AKS HCI release number%\%filename%` (například `c:\AksHci\0.9.6.0\akshcilogs.zip` ).
 
 ```powershell
 Get-AksHciLogs

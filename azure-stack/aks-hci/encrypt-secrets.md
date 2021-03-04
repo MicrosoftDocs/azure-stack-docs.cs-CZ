@@ -4,14 +4,14 @@ description: Naučte se šifrovat tajné klíče etcd v AKS na Azure Stack HCI.
 author: aabhathipsay
 ms.topic: how-to
 ms.date: 02/02/2021
-ms.author: aaabhathipsay
+ms.author: aabha
 ms.reviewer: ''
-ms.openlocfilehash: d79d6657197237b5806e419d94fbfb75a31a986c
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.openlocfilehash: 82d40c2f97171196b90171e3dda850990bf2fbab
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "101873656"
+ms.locfileid: "102116712"
 ---
 # <a name="encrypt-etcd-secrets-on-aks-on-azure-stack-hci-clusters"></a>Šifrování etcd tajných kódů v AKS v Azure Stack clusterech HCI
 
@@ -22,7 +22,7 @@ Tajný kód v Kubernetes je objekt, který obsahuje malé množství citlivých 
 
 ## <a name="enable-encryption-of-etcd-secrets"></a>Povolit šifrování tajných kódů etcd
 
-Pomocí `-enableSecretsEncryption` parametru příkazu [New-AksHciCluster](./new-akshcicluster) Povolte šifrování tajných kódů etcd a automatizujte střídání šifrovacího klíče, jak je znázorněno níže: 
+Pomocí `-enableSecretsEncryption` parametru příkazu [New-AksHciCluster](./new-akshcicluster.md) Povolte šifrování tajných kódů etcd a automatizujte střídání šifrovacího klíče, jak je znázorněno níže: 
 
 ```powershell
 New-AksHciCluster -name mynewcluster -enableSecretsEncryption

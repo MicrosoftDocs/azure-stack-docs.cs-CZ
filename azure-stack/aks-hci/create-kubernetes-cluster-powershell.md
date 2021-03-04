@@ -5,12 +5,12 @@ author: jessicaguan
 ms.topic: quickstart
 ms.date: 2/10/2021
 ms.author: jeguan
-ms.openlocfilehash: 42d9318b40dc19e77858641364a246209275e5cd
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.openlocfilehash: 68539a77907bb0c5eef4809882c562525b93e983
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "101839840"
+ms.locfileid: "102116729"
 ---
 # <a name="quickstart-create-kubernetes-clusters-on-azure-stack-hci-using-windows-powershell"></a>Rychlý Start: vytvoření clusterů Kubernetes ve Azure Stack HCI pomocí prostředí Windows PowerShell
 
@@ -27,7 +27,7 @@ V tomto rychlém startu se dozvíte, jak pomocí prostředí Windows PowerShell 
 
 Po instalaci hostitele služby Azure Kubernetes jste připraveni nasadit cluster Kubernetes.
 
-Otevřete PowerShell jako správce a spusťte následující příkaz [New-AksHciCluster](./new-akshcicluster) .
+Otevřete PowerShell jako správce a spusťte následující příkaz [New-AksHciCluster](./new-akshcicluster.md) .
 
 ```powershell
 New-AksHciCluster -name mycluster
@@ -43,7 +43,7 @@ Get-AksHciCluster
 
 ## <a name="step-2-scale-a-kubernetes-cluster"></a>Krok 2: škálování clusteru Kubernetes
 
-Pokud potřebujete škálovat cluster nahoru nebo dolů, můžete změnit počet uzlů řídicích ploch, pracovních uzlů Linux nebo pracovních uzlů systému Windows pomocí příkazu [set-AksHciClusterNodeCount](./set-akshciclusternodecount) .
+Pokud potřebujete škálovat cluster nahoru nebo dolů, můžete změnit počet uzlů řídicích ploch, pracovních uzlů Linux nebo pracovních uzlů systému Windows pomocí příkazu [set-AksHciClusterNodeCount](./set-akshciclusternodecount.md) .
 
 Chcete-li změnit velikost uzlů řídicích rovin, spusťte následující příkaz.
 
@@ -73,11 +73,11 @@ Chcete-li provést aktualizaci na nejnovější verzi Kubernetes, spusťte násl
 Update-AksHciCluster -name mycluster -kubernetesVersion <k8s version>
 ```
 
-Spuštěním tohoto příkazu bez zadání verze Kubernetes se upgraduje cluster na nejnovější verzi. Pokud chcete upgradovat na jinou verzi, která není nejnovější, použijte [příkaz Update-AksHciCluster](./update-akshcicluster) s `-kubernetesVersion` parametrem a požadovanou verzí jako hodnotu (tj. v 1.18.8).
+Spuštěním tohoto příkazu bez zadání verze Kubernetes se upgraduje cluster na nejnovější verzi. Pokud chcete upgradovat na jinou verzi, která není nejnovější, použijte [příkaz Update-AksHciCluster](./update-akshcicluster.md) s `-kubernetesVersion` parametrem a požadovanou verzí jako hodnotu (tj. v 1.18.8).
 
 ## <a name="step-4-access-your-clusters-using-kubectl"></a>Krok 4: přístup ke clusterům pomocí kubectl
 
-Pokud chcete získat přístup ke clusterům Kubernetes pomocí kubectl, spusťte příkaz [Get-AksHciCredential](./get-akshcicredential) . Tato akce použije zadaný soubor kubeconfig clusteru jako výchozí soubor kubeconfig pro kubectl.
+Pokud chcete získat přístup ke clusterům Kubernetes pomocí kubectl, spusťte příkaz [Get-AksHciCredential](./get-akshcicredential.md) . Tato akce použije zadaný soubor kubeconfig clusteru jako výchozí soubor kubeconfig pro kubectl.
 
 ```powershell
 Get-AksHciCredential -name mycluster
@@ -93,7 +93,7 @@ Remove-AksHciCluster -name mycluster
 
 ## <a name="get-logs"></a>Získání protokolů
 
-Pokud chcete získat protokoly ze všech lusků, spusťte příkaz [Get-AksHciLogs](./get-akshcilogs) . Tento příkaz vytvoří výstupní složku zip `akshcilogs.zip` s názvem v pracovním adresáři. Úplná cesta ke `akshcilogs.zip` složce bude výstup po spuštění příkazu níže.
+Pokud chcete získat protokoly ze všech lusků, spusťte příkaz [Get-AksHciLogs](./get-akshcilogs.md) . Tento příkaz vytvoří výstupní složku zip `akshcilogs.zip` s názvem v pracovním adresáři. Úplná cesta ke `akshcilogs.zip` složce bude výstup po spuštění příkazu níže.
 
 ```powershell
 Get-AksHciLogs

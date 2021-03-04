@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.author: BryanLa
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
-ms.openlocfilehash: f30a8b82a07aafed80fc75329516bd3b3d91df04
-ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
+ms.openlocfilehash: 78573a16d9fc376d7903badfd28bda9366ca1ddb
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100009039"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102116984"
 ---
 # <a name="azure-app-service-and-azure-functions-on-azure-stack-hub-overview"></a>Přehled Azure App Service a Azure Functions v Azure Stackovém centru
 
@@ -33,7 +33,7 @@ Tady jsou některé klíčové funkce a funkce Azure App Service:
 App Service nabízí několik typů aplikací, z nichž každá je určena k hostování konkrétního typu úlohy:
 
 - [Web Apps](/azure/app-service/overview) hostování webů, webových aplikací a rozhraní REST API.
-- [Azure Functions v1](/azure/azure-functions) pro hostování řízených událostí a úloh bez serveru.
+- [Azure Functions v1](/azure/azure-functions/functions-versions) pro hostování řízených událostí a úloh bez serveru.
 
 *Aplikace Word odkazuje* na prostředky hostování vyhrazené pro spuštění úlohy. *Webová aplikace* jako příklad, pravděpodobně jste zvyklí vzít webovou aplikaci za výpočetní prostředky i kód aplikace, který společně doručí funkce prohlížeči. V Azure App Service je webová aplikace výpočetním prostředkem, který centrum Azure Stack poskytuje pro hostování kódu vaší aplikace.
 

@@ -160,7 +160,9 @@
           href: concepts/physical-network-requirements.md
         - name: Požadavky na síť hostitele
           href: concepts/host-network-requirements.md
-        - name: Softwarově definované sítě (SDN)
+    - name: Softwarově definované sítě (SDN)
+      items:
+        - name: Přehled SDN
           href: concepts/software-defined-networking.md
         - name: Plánování infrastruktury SDN
           href: concepts/plan-software-defined-networking-infrastructure.md

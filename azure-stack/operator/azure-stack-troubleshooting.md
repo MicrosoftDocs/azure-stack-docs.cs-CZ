@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Naučte se řešit potíže s centrem Azure Stack, včetně problémů s virtuálními počítači, úložištěm a App Service.
 author: PatAltimore
 ms.topic: article
-ms.date: 01/20/2021
+ms.date: 02/12/2021
 ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 12/10/2020
-ms.openlocfilehash: 1706f028aff293f85ea5a0c1fb882a5d332d7196
-ms.sourcegitcommit: dd34ae1c6207aafb5218c31658123e913f51bf7c
+ms.openlocfilehash: b84efb235478a3c3543bf5f1d1ada338f44de442
+ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98672870"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102116950"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Řešení potíží v centru Azure Stack
 
@@ -218,6 +218,14 @@ Proces aktualizace a aktualizace centra Azure Stack slouží k tomu, aby operát
 **Náprava**: Tento problém můžete obejít tak, že znovu kliknete na **nainstalovat** . Pokud potíže potrvají, doporučujeme ručně odeslat balíček aktualizace pomocí oddílu [instalovat aktualizace](azure-stack-apply-updates.md?#install-updates-and-monitor-progress) .
 
 **Výskyt**: běžné
+
+### <a name="update-failed-check-and-enforce-external-key-protectors-on-csvs"></a>Aktualizace se nezdařila: Ověřte a vynutili ochranu externích klíčů na CSV
+
+**Platí**: Tento problém se vztahuje na všechny podporované verze.
+
+**Příčina**: heslo řadiče pro správu základní desky (BMC) není správně nastavené.
+
+**Náprava**: [aktualizujte přihlašovací údaje řadiče pro správu základní desky](/azure-stack/operator/azure-stack-rotate-secrets.md#update-the-bmc-credential) a obnovte aktualizaci.
 
 ### <a name="warnings-and-errors-reported-while-update-is-in-progress"></a>Upozornění a chyby nahlášené během aktualizace probíhá
 
