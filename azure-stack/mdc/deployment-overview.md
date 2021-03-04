@@ -16,12 +16,12 @@ ms.date: 02/17/2021
 ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 02/17/2021
-ms.openlocfilehash: ad0a80f28b26e3c7da71860670feefd7efc15a0f
-ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
+ms.openlocfilehash: 60ff62282f9fadf3b2475cffe057f10a8bbe8b3b
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100647789"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839653"
 ---
 # <a name="mdc-requirements-overview"></a>Přehled požadavků na MDC
 
@@ -39,9 +39,7 @@ Tato příručka se zaměřuje na nasazení základních komponent centra Micros
 
 ## <a name="introduction"></a>Úvod
 
-MDC je integrovaná nabídka pro Azure Stack hub na úrovni Standard 40-chodidla zásobník pro expedici v metalu. Kontejner zahrnuje jednotku řízení klimatu, systém osvětlení a výstrahy. Základní komponenty centra Azure Stack jsou nainstalovány jako tři nezávislé lusky: pod 1, Rack 1 a stojan 2, pod 2, Rack 1 a stojan 2 a pod 3, stojan 1 a Rack 2.
-
-Každé z nich se skládá ze dvou 42U stojanů. Objekt pod zahrnuje přepínače Top-of-Rack, přepínače Edge a přepínač řadiče pro správu základní desky (BMC). Každý pod navíc zahrnuje hostitele životního cyklu hardwaru (HLH) a koncentrátor sériového portu. Základní výpočetní kapacitu a úložnou kapacitu nabízí Azure Stack jednotky škálování centra (SU), které se skládají z osmi serverů R840 (REA). Další kapacitu úložiště poskytuje Isilon uzly úložiště 48. Fyzická konfigurace všech lusků je shodná.
+MDC je integrovaná nabídka pro Azure Stack hub na úrovni Standard 40-chodidla zásobník pro expedici v metalu. Kontejner zahrnuje jednotku řízení klimatu, systém osvětlení a výstrahy. Základní komponenty centra Azure Stack se instalují jako lusky.
 
 ## <a name="terminology"></a>Terminologie
 
@@ -54,9 +52,9 @@ V následující tabulce jsou uvedeny některé z podmínek, které jsou použit
 |Sada nástrojů pro partnery centra Azure Stack|    Kolekce softwarových nástrojů, které slouží k zaznamenání vstupních parametrů specifických pro konkrétní zákazníky a zahájení instalace a konfigurace centra Azure Stack. Zahrnuje list nasazení, což je grafické rozhraní (GUI), které se používá k zachytávání a ukládání konfigurovatelných parametrů pro instalaci centra Azure Stack. Zahrnuje taky nástroj Generátor konfigurace sítě, který používá vstupy na listech nasazení k vytváření konfiguračních souborů sítě pro všechna fyzická síťová zařízení v řešení.|
 |Balíček rozšíření OEM    |Balíček firmwaru, ovladačů zařízení a nástrojů pro správu hardwaru ve specializovaném formátu, který se používá Azure Stack hub během počátečního nasazení a aktualizace.|
 |Koncentrátor sériového portu    |V každém z nich je nainstalované fyzické zařízení, které poskytuje síťový přístup k sériovým portům síťových přepínačů pro účely nasazení a správy.|
-|Jednotka škálování    |Základní součást centra Azure Stack, která poskytuje výpočetní prostředky a prostředky úložiště pro Azure Stack infrastruktury a zatížení prostředků infrastruktury. Každý pod zahrnuje osm serverů MDC R840 označovaných také jako uzly.|
-|Úložiště Isilon |    Komponenta centra Azure Stack, která je specifická pro řešení MDC. Isilon poskytuje další objekty BLOB a úložiště souborů pro úlohy centra Azure Stack. Každý pod zahrnuje 48 uzlů úložiště Isilon.|
-|Nulu    |V kontextu MDC je pod nezávislou logickou jednotkou, která se skládá ze dvou propojených fyzických stojanů. Kompletní řešení zahrnuje tři lusky nainstalované v jednom kontejneru.|
+|Jednotka škálování    |Základní součást centra Azure Stack, která poskytuje výpočetní prostředky a prostředky úložiště pro Azure Stack infrastruktury a zatížení prostředků infrastruktury.|
+|Úložiště Isilon |    Komponenta centra Azure Stack, která je specifická pro řešení MDC. Isilon poskytuje další objekty BLOB a úložiště souborů pro úlohy centra Azure Stack. |
+|Nulu    |V kontextu MDC je pod nezávislou logickou jednotkou, která se skládá ze dvou propojených fyzických stojanů.|
 
 ## <a name="deployment-workflow"></a>Pracovní postup nasazení
 

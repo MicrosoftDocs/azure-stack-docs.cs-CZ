@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2019
-ms.openlocfilehash: b232bf2efb690ddc0a351d762e6866a75ced4a81
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: 67c6331111e18ec04f3084b4c34a971120733569
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011361"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839976"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Odebrat poskytovatele prostředků SQL
 
@@ -34,6 +34,10 @@ Při odebrání poskytovatele prostředků SQL se odstraní přidružené plány
 2. Získejte kopii instalačního balíčku poskytovatele prostředků SQL a potom spusťte samočinný extrahování, který extrahuje obsah do dočasného adresáře.
 
 3. Otevřete nové okno konzoly PowerShellu se zvýšenými oprávněními a přejděte do adresáře, do kterého jste extrahovali instalační soubory poskytovatele prostředků SQL.
+
+> [!IMPORTANT]
+> Důrazně doporučujeme, abyste před spuštěním skriptu vymazat mezipaměť pomocí procesu Clear **-AzureRmContext-Scope CurrentUser** a **clear-AzureRmContext-Scope** .
+
 
 4. Spusťte skript DeploySqlProvider.ps1 pomocí následujících parametrů:
 

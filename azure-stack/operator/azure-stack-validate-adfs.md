@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: bryanla
 ms.reviewer: jerskine
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: 0b032929496646de763336a630f22782bd03091c
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: cdbd069fee0584f78a4a62b7910428f47e8966d1
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545677"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840248"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack-hub"></a>Ověřit integraci AD FS pro centrum Azure Stack
 
@@ -24,7 +24,7 @@ Pomocí nástroje pro kontrolu připravenosti centra Azure Stack (AzsReadinessCh
 Kontrola připravenosti ověřuje:
 
 * *Federační metadata* obsahují platné elementy XML pro federaci.
-* Je možné načíst *certifikát AD FS SSL* a vytvořit řetěz důvěryhodnosti. V případě razítka musí AD FS důvěřovat řetězu certifikátů SSL. Certifikát musí být podepsaný stejnou *certifikační autoritou* , která se používá pro certifikáty nasazení Azure Stack hub nebo partnera důvěryhodné kořenové autority. Úplný seznam partnerů důvěryhodných kořenových autorit najdete na [webu TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+* Je možné načíst *certifikát AD FS SSL* a vytvořit řetěz důvěryhodnosti. V případě razítka musí AD FS důvěřovat řetězu certifikátů SSL. Certifikát musí být podepsaný stejnou *certifikační autoritou* , která se používá pro certifikáty nasazení Azure Stack hub nebo partnera důvěryhodné kořenové autority. Úplný seznam partnerů důvěryhodných kořenových autorit najdete v tématu [seznam účastníků – důvěryhodný kořenový program společnosti Microsoft](/security/trusted-root/participants-list).
 * *Podpisový certifikát AD FS* je důvěryhodný a nemá blízko vypršení platnosti.
 
 Další informace o integraci centrálního centra Azure Stack najdete v tématu věnovaném [integraci služby Azure Stack hub Datacenter-identity](azure-stack-integrate-identity.md).
@@ -117,9 +117,9 @@ V následujících příkladech jsou uvedeny pokyny k běžným chybám ověřen
 Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
 ```
 
-**Příčina** : prostředí PowerShell AUTOLOAD se nepodařilo správně načíst modul pro kontrolu připravenosti.
+**Příčina**: prostředí PowerShell AUTOLOAD se nepodařilo správně načíst modul pro kontrolu připravenosti.
 
-**Řešení** : explicitně importujte modul pro kontrolu připravenosti. Zkopírujte a vložte následující kód do PowerShellu a aktualizujte ho `<version>` číslem aktuálně nainstalované verze.
+**Řešení**: explicitně importujte modul pro kontrolu připravenosti. Zkopírujte a vložte následující kód do PowerShellu a aktualizujte ho `<version>` číslem aktuálně nainstalované verze.
 
 ```powershell
 Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force

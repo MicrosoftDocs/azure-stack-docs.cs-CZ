@@ -1,42 +1,45 @@
 ---
-title: Vytváření svazků v Azure Stack HCI
-description: Postup vytváření svazků v Azure Stack HCI pomocí centra pro správu Windows a PowerShellu
+title: Vytváření svazků v Azure Stackch v clusterech HCI a Windows Server
+description: Postup vytváření svazků v Azure Stackch HCI a clusterech Windows serveru pomocí centra pro správu Windows a PowerShellu.
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 02/04/2021
-ms.openlocfilehash: 9bb0ff34863f8262d5919e5eae6f735709097bf5
-ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
+ms.date: 02/17/2021
+ms.openlocfilehash: f5c585bd612cb25b32df22c342988bbad17d08ee
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99570731"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839775"
 ---
-# <a name="create-volumes-in-azure-stack-hci"></a>Vytváření svazků v Azure Stack HCI
+# <a name="create-volumes-in-azure-stack-hci-and-windows-server-clusters"></a>Vytváření svazků v Azure Stackch v clusterech HCI a Windows Server
 
-> Platí pro: Azure Stack HCI, verze 20H2
+> Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019, Windows Server 2016
 
-Toto téma popisuje, jak vytvořit svazky v Azure Stack clusteru HCI pomocí centra pro správu Windows a prostředí Windows PowerShell, jak pracovat se soubory na svazcích a jak povolit odstranění duplicitních dat a kompresi na svazcích. Informace o tom, jak vytvářet svazky a nastavit replikaci pro roztažené clustery, najdete v tématu [Vytvoření roztaženého svazku](create-stretched-volumes.md).
+Toto téma popisuje, jak vytvořit svazky v clusteru pomocí centra pro správu Windows a prostředí Windows PowerShell, jak pracovat se soubory na svazcích a jak povolit odstraňování duplicitních dat a kompresi, kontrolní součet integrity nebo šifrování BitLockerem na svazcích. Informace o tom, jak vytvářet svazky a nastavit replikaci pro roztažené clustery, najdete v tématu [Vytvoření roztaženého svazku](create-stretched-volumes.md).
 
-## <a name="create-a-three-way-mirror-volume"></a>Vytvoření trojrozměrného zrcadlového svazku
+> [!TIP]
+> Pokud jste to ještě neudělali, podívejte se nejprve na [svazky plánu](../concepts/plan-volumes.md) .
 
-Postup vytvoření trojrozměrného zrcadlového svazku pomocí centra pro správu systému Windows:
+## <a name="create-a-two-way-or-three-way-mirror-volume"></a>Vytvoření obousměrného nebo trojrozměrného svazku zrcadlení
+
+Postup vytvoření obousměrného nebo trojrozměrného svazku zrcadlení pomocí centra pro správu systému Windows:
 
 1. V centru pro správu Windows se připojte ke clusteru a potom v podokně **nástroje** vyberte **svazky** .
-2. Na stránce **svazky** vyberte kartu **inventář** a pak vyberte **vytvořit svazek**.
-3. V podokně **vytvořit svazek** zadejte název svazku a možnost **odolnosti** nechte jako **Třícestný zrcadlový** svazek.
-4. V části **Velikost na HDD** zadejte velikost svazku. Například 5 TB (terabajty).
-5. Vyberte **Vytvořit**.
+1. Na stránce **svazky** vyberte kartu **inventář** a pak vyberte **vytvořit**.
+1. V podokně **vytvořit svazek** zadejte název svazku.
+1. V části **odolnost** vyberte v závislosti na počtu serverů v clusteru **dvoucestné zrcadlení** nebo **Třícestný zrcadlový svazek** .
+1. V části **Velikost na HDD** zadejte velikost svazku. Například 5 TB (terabajty).
+1. V části **Další možnosti** můžete zapnout funkci odstranění duplicitních dat a kompresi nebo šifrování BitLockeru pomocí zaškrtávacích políček.
+1. Vyberte **Vytvořit**.
 
-V závislosti na velikosti může vytvoření svazku trvat několik minut. Oznámení v pravém horním rohu vám umožní zjistit, kdy se svazek vytvoří. Nový svazek se zobrazí v seznamu inventáře.
+   :::image type="content" source="media/create-volumes/create-mirror-volume.png" alt-text="Centrum pro správu systému Windows můžete použít k vytvoření obousměrného nebo trojrozměrného svazku s možností zrcadlení." lightbox="media/create-volumes/create-mirror-volume.png":::
 
-Podívejte se na rychlé video o vytváření trojrozměrného zrcadlového svazku.
-
-> [!VIDEO https://www.youtube-nocookie.com/embed/o66etKq70N8]
+V závislosti na velikosti může vytvoření svazku trvat několik minut. Oznámení v pravém horním rohu vám umožní zjistit, kdy se svazek vytvoří. Nový svazek se pak zobrazí v seznamu inventáře.
 
 ## <a name="create-a-mirror-accelerated-parity-volume"></a>Vytvoření svazku parity s akcelerovaným zrcadlením
 
-Zrcadlově akcelerovaná parita (mapa) snižuje nároky na pevný disk. Například trojrozměrné zrcadlení svazek by znamenalo, že pro každých 10 terabajtů velikosti budete potřebovat 30 terabajtů jako nároků. Pokud chcete snížit nároky na nároky, vytvořte svazek s paritou podporující zrcadlení. Tím se snižuje nároky z 30 terabajtů na pouhých 22 terabajtů, a to i na 4 servery, a to díky zrcadlení nejaktivnějších 20 procent dat a používání parity, což je více místa na disku pro uložení zbytku. Tento poměr paritního a zrcadleného prostředí můžete upravit, aby se zajistil výkon a kompromisy s kapacitou, které jsou pro vaše zatížení nejvhodnější. Například 90 procentuální parita a 10% zrcadlení vychází z nižšího výkonu, ale zjednodušuje nároky ještě více.
+Zrcadlově akcelerovaná parita (mapa) snižuje nároky na pevný disk. Například trojrozměrné zrcadlení svazek by znamenalo, že pro každých 10 terabajtů velikosti budete potřebovat 30 terabajtů jako nároků. Pokud chcete snížit nároky na nároky, vytvořte svazek s paritou podporující zrcadlení. Tím se sníží nároky z 30 terabajtů na jenom 22 terabajtů, a to i na 4 servery, a to díky zrcadlení nejaktivnějších 20 procent dat a používání parity, což je více místa na disku pro uložení zbytku. Tento poměr paritního a zrcadleného prostředí můžete upravit, aby se zajistil výkon a kompromisy s kapacitou, které jsou pro vaše zatížení nejvhodnější. Například 90 procentuální parita a 10% zrcadlení vychází z nižšího výkonu, ale zjednodušuje nároky ještě více.
 
   >[!NOTE]
   >Zrcadlené svazky s paritou vyžadují odolný systém souborů (ReFS).
@@ -44,15 +47,12 @@ Zrcadlově akcelerovaná parita (mapa) snižuje nároky na pevný disk. Napřík
 Vytvoření svazku s paritou podporující zrcadlení v centru pro správu systému Windows:
 
 1. V centru pro správu Windows se připojte ke clusteru a potom v podokně **nástroje** vyberte **svazky** .
-2. Na stránce svazky vyberte kartu **inventář** a pak vyberte **vytvořit svazek**.
-3. V podokně **vytvořit svazek** zadejte název svazku.
-4. V případě **odolnosti** vyberte možnost **zrcadlově urychlené parity**.
-5. V části **procento parity** vyberte procento parity.
-6. Vyberte **Vytvořit**.
-
-Podívejte se na rychlé video o tom, jak vytvořit zrcadlený svazek parity.
-
-> [!VIDEO https://www.youtube-nocookie.com/embed/R72QHudqWpE]
+1. Na stránce svazky vyberte kartu **inventář** a pak vyberte **vytvořit**.
+1. V podokně **vytvořit svazek** zadejte název svazku.
+1. V případě **odolnosti** vyberte možnost **zrcadlově urychlené parity**.
+1. V části **procento parity** vyberte procento parity.
+1. V části **Další možnosti** můžete zapnout funkci odstranění duplicitních dat a kompresi nebo šifrování BitLockeru pomocí zaškrtávacích políček.
+1. Vyberte **Vytvořit**.
 
 ## <a name="open-volume-and-add-files"></a>Otevřít svazek a přidat soubory
 
@@ -68,10 +68,6 @@ Chcete-li otevřít svazek a přidat soubory do svazku v centru pro správu syst
 5. Přejděte na cestu ke svazku. Tady můžete procházet soubory ve svazku.
 6. Vyberte **nahrát** a pak vyberte soubor, který se má nahrát.
 7. Pomocí tlačítka **zpět** v prohlížeči se vraťte do podokna **nástroje** v centru pro správu Windows.
-
-Podívejte se na rychlé video o tom, jak otevřít svazek a přidat soubory.
-
-> [!VIDEO https://www.youtube-nocookie.com/embed/j59z7ulohs4]
 
 ## <a name="turn-on-deduplication-and-compression"></a>Zapnutí odstraňování duplicit a komprimace
 
@@ -118,9 +114,12 @@ New-Volume -FriendlyName "Volume3" -FileSystem CSVFS_ReFS -StoragePoolFriendlyNa
 
 V nasazeních se třemi typy jednotek může jeden svazek zahrnovat vrstvy SSD a HDD, které se na každé z nich nacházejí částečně. Stejně tak v nasazení se čtyřmi nebo více servery může jeden svazek kombinovat zrcadlení a duální paritu na každé straně.
 
-Aby vám usnadnila vytváření takových svazků, Azure Stack HCL poskytuje výchozí šablony vrstev s názvem **MirrorOn *** Free * a **NestedMirrorOn *** Free * (pro výkon) a **ParityOn *** Free * a **NestedParityOn *** Free * (pro kapacitu), *kde je* na discích typu HDD nebo SSD. Šablony reprezentují vrstvy úložiště na základě typů médií a zapouzdřují definice pro trojrozměrné zrcadlení na rychlejších diskových jednotkách (Pokud je k dispozici) a duální parita na pomalejších jednotkách kapacity (Pokud je k dispozici).
+Chcete-li vytvořit takové svazky, Azure Stack HCI a Windows Server 2019, poskytněte výchozí šablony vrstev s názvem **MirrorOn *** Free * a **NestedMirrorOn *** Free * (pro výkon) a **ParityOn *** Free * a **NestedParityOn *** na discích * (pro kapacitu), kde typu *média* je pevný disk nebo SSD. Šablony reprezentují vrstvy úložiště na základě typů médií a zapouzdřují definice pro trojrozměrné zrcadlení na rychlejších diskových jednotkách (Pokud je k dispozici) a duální parita na pomalejších jednotkách kapacity (Pokud je k dispozici).
 
-Můžete je zobrazit spuštěním rutiny **Get-StorageTier** na jakémkoli serveru v clusteru.
+   > [!NOTE]
+   > V clusterech s Windows serverem 2016 se systémem Prostory úložiště s přímým přístupem byly výchozí šablony vrstev jednoduše nazývány **výkonem** a **kapacitou**.
+
+Vrstvy úložiště můžete zobrazit spuštěním rutiny **Get-StorageTier** na jakémkoli serveru v clusteru.
 
 ```PowerShell
 Get-StorageTier | Select FriendlyName, ResiliencySettingName, PhysicalDiskRedundancy
@@ -147,7 +146,7 @@ Pokud chcete vytvořit více než jeden svazek, opakujte postup podle potřeby.
 
 ### <a name="nested-resiliency-volumes"></a>Vnořené svazky odolné proti chybám
 
-Vnořená odolnost se vztahuje pouze na clustery se dvěma servery. vnořenou odolnost nelze použít, pokud má cluster tři nebo více serverů. Vnořená odolnost umožňuje clusteru se dvěma servery vydržet několik selhání hardwaru současně bez ztráty dostupnosti úložiště, což umožňuje uživatelům, aplikacím a virtuálním počítačům i nadále běžet bez přerušení. Další informace najdete v tématu [plánování svazků: výběr typu odolnosti](../concepts/plan-volumes.md#choosing-the-resiliency-type).
+Vnořená odolnost se vztahuje pouze na clustery se dvěma servery, které používají Azure Stack HCI nebo Windows Server 2019; vnořenou odolnost nelze použít, pokud má cluster tři nebo více serverů, nebo Pokud cluster používá systém Windows Server 2016. Vnořená odolnost umožňuje clusteru se dvěma servery vydržet několik selhání hardwaru současně bez ztráty dostupnosti úložiště, což umožňuje uživatelům, aplikacím a virtuálním počítačům i nadále běžet bez přerušení. Další informace najdete v tématu [plánování svazků: výběr typu odolnosti](../concepts/plan-volumes.md#choosing-the-resiliency-type).
 
 #### <a name="create-nested-storage-tiers"></a>Vytváření vnořených vrstev úložiště
 
@@ -179,7 +178,7 @@ New-Volume -StoragePoolFriendlyName S2D* -FriendlyName MyParityNestedVolume -Sto
 
 ### <a name="storage-tier-summary-table"></a>Tabulka souhrnu úrovně úložiště
 
-Následující tabulky shrnují vrstvy úložiště, které jsou/je možné vytvořit v Azure Stack HCI.
+V následujících tabulkách najdete souhrn vrstev úložiště, které jsou/můžou být vytvořené v Azure Stack HCI a Windows Server 2019.
 
 **NumberOfNodes: 2**
 
@@ -219,6 +218,5 @@ Následující tabulky shrnují vrstvy úložiště, které jsou/je možné vytv
 Související témata a další úlohy správy úložišť najdete zde:
 
 - [Přehled Prostorů úložiště s přímým přístupem](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
-- [Plánování svazků](../concepts/plan-volumes.md)
 - [Rozšiřování svazků](extend-volumes.md)
 - [Odstranit svazky](delete-volumes.md)

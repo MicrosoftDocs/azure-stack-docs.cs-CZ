@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 8d1d6c6da0e11278b2b7ce796ca3dffd77385e81
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: bfe8dfae9cd0190b998167a27a95254ee7bc8cbb
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97871497"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840350"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Kapacita výpočetní kapacity centra Azure Stack
 
@@ -43,7 +43,7 @@ Pokud je dosaženo limitu škálování virtuálního počítače, vrátí se n�
 
 ## <a name="consideration-for-batch-deployment-of-vms"></a>Zvážení dávkového nasazení virtuálních počítačů
 
-Ve verzích starších než a včetně 2002 2-5 virtuálních počítačů na dávku s mezerou 5 minut v rozsahu mezi dávkami, které poskytovaly spolehlivé nasazení virtuálních počítačů, aby se dosáhlo rozsahu 700 virtuálních počítačů. Ve verzi 2005 centra Azure Stack je možné spolehlivě zřizovat virtuální počítače na velikostech dávek 40 a 5 minut mezi nasazeními Batch.
+Ve verzích starších než a včetně 2002 2-5 virtuálních počítačů na dávku s mezerou 5 minut v rozsahu mezi dávkami, které poskytovaly spolehlivé nasazení virtuálních počítačů, aby se dosáhlo rozsahu 700 virtuálních počítačů. Ve verzi 2005 centra Azure Stack je možné spolehlivě zřizovat virtuální počítače na velikostech dávek 40 a 5 minut mezi nasazeními Batch. Operace zahájení, zastavení a zrušení přidělení a aktualizace by se měly provádět na velikosti dávky 30, přičemž mezi každou dávkou zůstane 5 minut.
 
 ## <a name="azure-stack-hub-memory"></a>Paměť centra Azure Stack
 

@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.author: bryanla
 ms.reviewer: caoyang
 ms.lastreviewed: 12/07/2020
-ms.openlocfilehash: 0d123679c0394d740876df2fcc78f7347049c61c
-ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
+ms.openlocfilehash: e66bdd376a5055e78c261bed5980ee4772f078fb
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97737826"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840333"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Nasazení poskytovatele prostředků MySQL do centra Azure Stack
 
@@ -52,7 +52,7 @@ Aby bylo možné nasadit poskytovatele prostředků MySQL Azure Stack hub, je nu
 
 - Ujistěte se, že jsou splněné předpoklady pro integraci Datacenter:
 
-    |Požadavek|Referenční informace|
+    |Požadavek|Reference|
     |-----|-----|
     |Podmíněné předávání DNS je nastaveno správně.|[Integrace centrálního centra Azure Stack – DNS](azure-stack-integrate-dns.md)|
     |Příchozí porty pro poskytovatele prostředků jsou otevřené.|[Integrace Datacenter centra Azure Stack – publikování koncových bodů](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
@@ -118,7 +118,7 @@ Po dokončení všech požadovaných součástí můžete skript **DeployMySqlPr
 Pokud chcete nasadit poskytovatele prostředků MySQL, otevřete **nové** okno prostředí PowerShell se zvýšenými oprávněními (ne PowerShell ISE) a přejděte do adresáře, do kterého jste extrahovali binární soubory poskytovatele prostředků MySQL. 
 
 > [!IMPORTANT]
-> Důrazně doporučujeme, abyste před spuštěním aktualizačního skriptu vymazali mezipaměť **clear-AzureRmContext-Scope CurrentUser** a **clear-AzureRmContext-Scope** .
+> Důrazně doporučujeme, abyste před spuštěním skriptu nasazení nebo aktualizace pomocí procesu Clear- **AzureRmContext-Scope CurrentUser** a **clear-AzureRmContext-Scope** vymazali mezipaměť.
 
 Spusťte skript **DeployMySqlProvider.ps1** , který dokončí následující úkoly:
 

@@ -8,12 +8,12 @@ ms.date: 11/16/2020
 ms.lastreviewed: 11/16/2020
 ms.custom: contperf-fy20q4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: bd66c181aaafafeb34a2da1e56c4ab01ce27b9f1
-ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
+ms.openlocfilehash: 57ab28cbc548c8b5b8329fb7c9c8c73aee3b7d93
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97697708"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840724"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>Použití identity aplikace pro přístup k prostředkům Azure Stack hub
 
@@ -83,7 +83,7 @@ Skripty musí být spuštěné v konzole PowerShellu se zvýšenými oprávněn�
 
 Při vytváření přihlašovacích údajů certifikátu musí být splněné tyto požadavky:
 
- - V případě produkčního prostředí se certifikát musí vystavit buď z interní certifikační autority, nebo z veřejné certifikační autority. Při použití veřejné autority musíte jako součást programu důvěryhodné kořenové certifikační autority uvést autoritu v základní imagi operačního systému. Úplný seznam můžete najít v [programu Microsoft Trusted Root Certificate Program: účastníci](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca). Příklad vytvoření testovacího certifikátu podepsaného svým držitelem se zobrazí také později během [aktualizace přihlašovacích údajů certifikátu](#update-a-certificate-credential). 
+ - V případě produkčního prostředí se certifikát musí vystavit buď z interní certifikační autority, nebo z veřejné certifikační autority. Při použití veřejné autority musíte jako součást programu důvěryhodné kořenové certifikační autority uvést autoritu v základní imagi operačního systému. Úplný seznam najdete v tématu [seznam účastníků – důvěryhodný kořenový program společnosti Microsoft](/security/trusted-root/participants-list). Příklad vytvoření testovacího certifikátu podepsaného svým držitelem se zobrazí také později během [aktualizace přihlašovacích údajů certifikátu](#update-a-certificate-credential). 
  - Zprostředkovatel kryptografických služeb musí být zadaný jako zprostředkovatel klíče zprostředkovatele kryptografických služeb (CSP) pro starší verze společnosti Microsoft.
  - Formát certifikátu musí být v souboru PFX, protože jsou vyžadovány veřejné i privátní klíče. Servery Windows používají soubory. pfx, které obsahují soubor s veřejným klíčem (soubor certifikátu TLS/SSL) a přidružený soubor privátního klíče.
  - Vaše infrastruktura centra Azure Stack musí mít síťový přístup k umístění seznamu odvolaných certifikátů (CRL) certifikační autority publikovaného v certifikátu. Tento seznam odvolaných certifikátů musí být koncovým bodem HTTP.

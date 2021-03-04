@@ -8,12 +8,12 @@ ms.date: 12/07/2020
 ms.lastreviewed: 12/07/2020
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: 9a88620fa333bd55a99796f4de292555f6cfd159
-ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
+ms.openlocfilehash: 7f3813d241b01e46f4a0eac639e3e6c78d74e50f
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97737857"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840316"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Nasazení poskytovatele prostředků SQL Server v centru Azure Stack
 
@@ -49,7 +49,7 @@ Aby bylo možné nasadit poskytovatele prostředků SQL centra Azure Stack, je p
 
 - Ujistěte se, že jsou splněné předpoklady pro integraci Datacenter:
 
-    |Požadavek|Referenční informace|
+    |Požadavek|Reference|
     |-----|-----|
     |Podmíněné předávání DNS je nastaveno správně.|[Integrace centrálního centra Azure Stack – DNS](azure-stack-integrate-dns.md)|
     |Příchozí porty pro poskytovatele prostředků jsou otevřené.|[Integrace Datacenter centra Azure Stack – příchozí porty a protokoly](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
@@ -115,7 +115,7 @@ Po dokončení všech požadovaných součástí spusťte skript **DeploySqlProv
 Pokud chcete nasadit poskytovatele prostředků SQL, otevřete **nové** okno prostředí PowerShell se zvýšenými oprávněními (ne PowerShell ISE) a přejděte do adresáře, do kterého jste extrahovali binární soubory poskytovatele prostředků SQL. 
 
 > [!IMPORTANT]
-> Důrazně doporučujeme, abyste před spuštěním aktualizačního skriptu vymazali mezipaměť **clear-AzureRmContext-Scope CurrentUser** a **clear-AzureRmContext-Scope** .
+> Důrazně doporučujeme, abyste před spuštěním skriptu Deploy nebo Update vymazali mezipaměť pomocí operace Clear **-AzureRmContext-Scope CurrentUser** a **clear-AzureRmContext-Scope** .
 
 Spusťte skript DeploySqlProvider.ps1, který dokončí následující úkoly:
 

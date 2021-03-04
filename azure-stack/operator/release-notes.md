@@ -3,16 +3,16 @@ title: Poznámky k verzi centra Azure Stack
 description: Poznámky k verzi pro integrované systémy Azure Stack hub, včetně aktualizací a oprav chyb.
 author: sethmanheim
 ms.topic: article
-ms.date: 02/17/2021
+ms.date: 02/18/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 441e764231e9ce85de69d7cd4020325883fde7ec
-ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
+ms.openlocfilehash: 0d1b3f65f36e3aae5095fc3535f5df6290cb51f7
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100648078"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840826"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -87,7 +87,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
 - Bylo implementováno interní monitorování pro síťový adaptér a agenty hostitele SLB, takže služby budou automaticky opraveny, pokud někdy vstoupí do stavu Zastaveno.
-- Active Directory Federation Services (AD FS) (AD FS) nyní načte nový podpisový certifikát tokenu grafice zákazník ho otočí na svém vlastním serveru AD FS. Aby bylo možné využít tuto novou funkci pro už nakonfigurované systémy, musí být AD FS integrace nakonfigurována znovu. Další informace najdete v tématu [integrace AD FS identity s vaším centrem Azure Stack hub](azure-stack-integrate-identity.md).
+- Active Directory Federation Services (AD FS) (AD FS) nyní získá nový podpisový certifikát tokenu poté, co ho zákazník na svém vlastním serveru AD FS. Aby bylo možné využít tuto novou funkci pro už nakonfigurované systémy, musí být AD FS integrace nakonfigurována znovu. Další informace najdete v tématu [integrace AD FS identity s vaším centrem Azure Stack hub](azure-stack-integrate-identity.md).
 - Změny v procesu spuštění a vypnutí u instancí rolí infrastruktury a jejich závislosti na uzlech jednotek škálování. Tím se zvyšuje spolehlivost při spuštění a vypnutí centra Azure Stack.
 - Sada **AzSScenarios** nástroje **test-AzureStack** Validation Tool se aktualizovala tak, aby poskytovatelé cloudových služeb mohli úspěšně spouštět tuto sadu s ověřováním službou Multi-Factor Authentication u všech zákaznických účtů.
 - Vylepšená spolehlivost výstrah přidáním logiky potlačení za 29 zákaznických výstrah během operací životního cyklu.
@@ -103,7 +103,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
   Všimněte si, že tyto změny jsou přidány na úrovni hostitele systému Azure Stack hub. Obraťte se na výrobce OEM, aby bylo možné provést požadované změny v přepínačích sítě v horní části racku. Tato změna mandátu se dá provést buď před aktualizací verze 2008, nebo po aktualizaci na 2008. Další informace najdete v [dokumentaci k integraci sítě](azure-stack-network.md).
 
-- Velikosti virtuálních počítačů podporující GPU **NCas_v4 (NVIDIA T4)** se v tomto sestavení nahradily **NCasT4_v3** velikosti virtuálních počítačů, aby byly konzistentní s Azure. Všimněte si, že tyto prvky ještě nejsou zobrazené na portálu a dají se použít jenom prostřednictvím šablon Azure datamanageru.
+- Velikosti virtuálních počítačů podporující GPU **NCas_v4 (NVIDIA T4)** se v tomto sestavení nahradily **NCasT4_v3** velikosti virtuálních počítačů, aby byly konzistentní s Azure. Všimněte si, že tyto prvky ještě nejsou na portálu viditelné a dají se použít jenom prostřednictvím Azure Resource Manager šablon.
 
 ### <a name="fixes"></a>Opravy
 
@@ -136,7 +136,7 @@ Vzhledem k tomu, že jsou opravy hotfix centra Azure Stack kumulativní, doporu�
 
 Pokud se následně uvolní nějaké opravy hotfix 2008, měli byste po instalaci 2008 nainstalovat tyto opravy:
 
-- [1.2008.25.114 opravy hotfix centra Azure Stack](hotfix-1-2008-25-114.md)
+- [1.2008.26.116 opravy hotfix centra Azure Stack](hotfix-1-2008-26-116.md)
 ::: moniker-end
 
 ::: moniker range="azs-2005"
@@ -189,7 +189,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 
 - Odeberou se akce, které se mají zastavit, vypnout a restartovat instanci role infrastruktury na portálu pro správu. V poskytovateli prostředků infrastruktury se odebraly taky odpovídající rozhraní API. Následující rutiny PowerShellu v modulu Správce RM a AZ Preview pro Azure Stack hub už nefungují: **stop-AzsInfrastructureRoleInstance**, **Disable-InfrastructureRoleInstance** a **restart-InfrastructureRoleInstance**. Tyto rutiny se odeberou z dalšího správce AZ Module Release for Azure Stack hub.
 - Centrum Azure Stack 2005 teď podporuje [App Service na Azure Stack hub 2020 (verze 87. x)](app-service-release-notes-2020-Q2.md).
-- Nastavení šifrování uživatele vyžadované pro monitorování hardwaru bylo změněno z DES na AES, aby se zvýšilo zabezpečení. Obraťte se na svého hardwarového partnera, kde se dozvíte, jak změnit nastavení v řadiči pro správu základní desky (BMC). Po provedení změny v řadiči pro správu základní desky může být potřeba znovu spustit rutinu **set-BmcCredential** pomocí koncového bodu privilegovaná. Další informace najdete v tématu [otočení tajných kódů v centru Azure Stack](azure-stack-rotate-secrets.md) .
+- Nastavení šifrování uživatele vyžadované pro monitorování hardwaru bylo změněno z DES na AES, aby se zvýšilo zabezpečení. Obraťte se na svého hardwarového partnera, kde se dozvíte, jak změnit nastavení v řadiči pro správu základní desky (BMC). Po provedení změny v řadiči pro správu základní desky může být nutné znovu spustit příkaz **set-BmcCredential** pomocí privilegovaného koncového bodu. Další informace najdete v tématu [otočení tajných kódů v centru Azure Stack](azure-stack-rotate-secrets.md) .
 
 ### <a name="fixes"></a>Opravy
 
@@ -228,7 +228,7 @@ Opravy hotfix centra Azure Stack se vztahují pouze na integrované systémy Azu
 
 Verze 2005 centra Azure Stack se musí použít ve verzi 2002 s následujícími opravami hotfix:
 
-- [1.2002.65.171 opravy hotfix centra Azure Stack](https://support.microsoft.com/topic/d743db84-df31-496b-b37c-6e5618b4cc8f)
+- [1.2002.66.173 opravy hotfix centra Azure Stack](hotfix-1-2002-66-173.md)
 
 ### <a name="after-successfully-applying-the-2005-update"></a>Po úspěšné instalaci aktualizace 2005
 
@@ -236,7 +236,7 @@ Od verze 2005 se při aktualizaci na novou hlavní verzi (například 1.2002. x 
 
 Pokud se následně uvolní nějaké opravy hotfix 2005, měli byste po instalaci 2005 nainstalovat tyto opravy:
 
-- [1.2005.29.100 opravy hotfix centra Azure Stack](hotfix-1-2005-29-100.md)
+- [1.2005.30.102 opravy hotfix centra Azure Stack](hotfix-1-2005-30-102.md)
 ::: moniker-end
 
 ::: moniker range="azs-2002"
@@ -336,7 +336,7 @@ Další informace o typech sestavení aktualizací najdete v tématu [Správa ak
 - Opravili jsme problém, kdy image virtuálních počítačů s Windows z MALOOBCHODNÍho kanálu nemohla aktivovat svou licenci pomocí AVMA.
 - Opravili jsme problém, kdy se virtuální počítače nepodaří vytvořit, pokud se počet virtuálních jader vyžadovaných virtuálním počítačem rovnal fyzickým jádrům uzlu. Virtuálním počítačům teď umožníme mít virtuální jádra větší nebo menší než fyzické jádra uzlu.
 - Opravili jsme problém, kdy nepovolujeme, aby byl typ licence nastavený na hodnotu null, aby se přepnuly obrázky s průběžnými platbami na BYOL.
-- Opravili jsme problém, aby bylo možné přidat rozšíření do sady škálování virtuálního počítače.
+- Opravili jsme problém, aby bylo možné přidat rozšíření do sady škálování virtuálních počítačů.
 
 ## <a name="security-updates"></a>Aktualizace zabezpečení
 
@@ -365,7 +365,7 @@ Verze 2002 centra Azure Stack se musí použít ve verzi 1910 s následujícími
 Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix.
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [1.2002.65.171 opravy hotfix centra Azure Stack](https://support.microsoft.com/topic/d743db84-df31-496b-b37c-6e5618b4cc8f)
+- [1.2002.66.173 opravy hotfix centra Azure Stack](hotfix-1-2002-66-173.md)
 ::: moniker-end
 
 <!------------------------------------------------------------>

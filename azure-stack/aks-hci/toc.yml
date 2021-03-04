@@ -21,6 +21,8 @@
           href: create-kubernetes-cluster-powershell.md
 - name: Kurzy
   items:
+    - name: Nasazení aplikací .NET
+      href: deploy-windows-application.md
     - name: Použití kontejnerů Linux
       href: deploy-linux-application.md
 - name: Koncepty
@@ -29,16 +31,30 @@
       href: kubernetes-concepts.md
     - name: Požadavky na systém
       href: system-requirements.md
+    - name: Sítě
+      href: concepts-networking.md
 - name: Návody
   items:
+    - name: Vyhodnotit na virtuálním počítači Azure
+      href: 'https://github.com/Azure/aks-hci/blob/main/eval/readme.md'
     - name: Připojení ke službě Azure ARC pro Kubernetes
       href: connect-to-arc.md
     - name: Přizpůsobení aplikací pro clustery Kubernetes se smíšeným operačním systémem
       href: adapt-apps-mixed-os-clusters.md
+    - name: Konfigurace sítě
+      items:
+        - name: Konfigurace nastavení proxy serveru
+          href: proxy.md
+    - name: Zabezpečení a ověřování
+      items:
+        - name: Použití jednotného přihlašování služby Active Directory
+          href: ad-sso.md
+        - name: Šifrování tajných kódů etcd
+          href: encrypt-secrets.md
+    - name: Monitorování AKS v Azure Stack clusterech HCI
+      href: monitor-logging.md
     - name: Použití kontejnerů s Windows Serverem
       items:
-        - name: Nasazení aplikací .NET
-          href: deploy-windows-application.md
         - name: Příprava uzlů Windows pro skupinový účet spravované služby
           href: prepare-windows-nodes-gmsa.md
         - name: Použít trvalý svazek
@@ -59,6 +75,8 @@
   items:
     - name: "Poznámky k\_verzi"
       href: 'https://aka.ms/aks-hci-relnotes/'
+    - name: PowerShell
+      href: AksHci.md
     - name: Známé problémy
       href: known-issues.md
     - name: Plány Azure do budoucna

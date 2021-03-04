@@ -3,16 +3,16 @@ title: Instalace prostředí PowerShell AZ Module pro Azure Stack hub
 description: Přečtěte si, jak nainstalovat PowerShell pro centrum Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 12/10/2020
+ms.date: 02/18/2021
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 12/10/2020
-ms.openlocfilehash: 9a5e00c873e348046c10e5a8e7dd5ccc9ea915f2
-ms.sourcegitcommit: d91d44762383790a0bcfc4a85f43050c8528d5d2
+ms.lastreviewed: 02/18/2021
+ms.openlocfilehash: 031a1695f8ba11db5a8787ef1b38c40763614b88
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97069831"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840860"
 ---
 # <a name="install-powershell-az-module-for-azure-stack-hub"></a>Instalace prostředí PowerShell AZ Module pro Azure Stack hub
 
@@ -35,7 +35,7 @@ Prostředí PowerShellu kompatibilní s centrem Azure Stack AZ moduls můžete n
 
 AZ modules se podporuje v Azure Stackovém centru s aktualizací Update 2002 nebo novějším a s nainstalovanými aktuálními opravami hotfix. Další informace najdete v [poznámkách k verzi centra Azure Stack](release-notes.md) .
 
-Azure PowerShell AZ modules Work s prostředím PowerShell 5,1 nebo vyšším ve Windows nebo PowerShell Core 6. x a novějším na všech platformách. Měli byste nainstalovat [nejnovější verzi prostředí PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core) , která je k dispozici pro váš operační systém. Azure PowerShell nemá žádné další požadavky při spuštění v prostředí PowerShell Core.
+Azure PowerShell AZ modules Work s prostředím PowerShell 5,1 nebo vyšším ve Windows nebo PowerShell Core 6. x a novějším na všech platformách. Měli byste nainstalovat [nejnovější verzi prostředí PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core) , která je k dispozici pro váš operační systém. Azure PowerShell nemá žádné jiné požadavky při spuštění v prostředí PowerShell Core.
 
 Pokud chcete zkontrolovat verzi PowerShellu, spusťte následující příkaz:
 
@@ -72,15 +72,23 @@ Před instalací požadované verze se ujistěte, že jste odinstalovali všechn
 
 Azure Stack AZ Module bude pracovat Azure Stack hub 2002 nebo novější. Kromě toho Azure Stack AZ Module bude pracovat s prostředím PowerShell 5,1 nebo vyšším na počítači s Windows, nebo PowerShell 6. x nebo vyšší na platformě Linux nebo macOS. Upřednostňovanou metodou instalace je použití rutin PowerShellGet. Tato metoda funguje stejně jako na podporovaných platformách.
 
-Z relace PowerShellu spusťte následující příkaz:
+1. Spuštěním následujícího příkazu z relace PowerShellu aktualizujte PowerShellGet na minimálně verzi 2.2.3.
 
-```powershell  
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    ```powershell  
+    Install-Module PowerShellGet -MinimumVersion 2.2.3 -Force
+    ```
 
-Install-Module -Name Az.BootStrapper -Force -AllowPrerelease
-Install-AzProfile -Profile 2019-03-01-hybrid -Force
-Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
-```
+2. Zavřete relaci PowerShellu a pak otevřete novou relaci PowerShellu, aby se mohla aktualizace projevit.
+
+3. Z relace PowerShellu spusťte následující příkaz:
+
+    ```powershell  
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    
+    Install-Module -Name Az.BootStrapper -Force -AllowPrerelease
+    Install-AzProfile -Profile 2019-03-01-hybrid -Force
+    Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
+    ```
 
 > [!Note]  
 > 2.0.0 pro modul centra Azure Stack je zásadní změna. Podrobnosti najdete [v tématu Migrace z AzureRM na adresu Azure PowerShell AZ in Azure Stack hub](migrate-azurerm-az.md) .

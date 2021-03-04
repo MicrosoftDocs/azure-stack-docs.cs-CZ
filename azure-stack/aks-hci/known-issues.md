@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 09/22/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 36c2d735f3652f4f195b4b9e1dda30fe8bce858c
-ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
+ms.openlocfilehash: 5865c7cfea0231c811199ff4abbc05011e4d0a66
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96557000"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840044"
 ---
 # <a name="known-issues-for-azure-kubernetes-service-on-azure-stack-hci-public-preview"></a>Známé problémy služby Azure Kubernetes v Azure Stack HCI Public Preview
 Tento článek popisuje známé problémy s verzí Public Preview služby Azure Kubernetes v Azure Stack HCL.
@@ -85,3 +85,6 @@ az connectedk8s delete
 
 ## <a name="when-setting-up-an-azure-kubernetes-service-host-using-windows-admin-center-setup-may-fail-if-file-explorer-is-open"></a>Při nastavování hostitele služby Azure Kubernetes pomocí centra pro správu Windows může selhat instalace, pokud je Průzkumník souborů otevřený.
 Pokud je v adresáři **C:\Program Files\AksHci** otevřený Průzkumník souborů a když se přihlásíte ke kroku "zkontrolovat + vytvořit", může se při vytváření selhat chyba "proces nezískal přístup k souboru" C:\Program Files\AksHci\wssdcloudagent.exe ". Důvodem je to, že je používán jiným procesem. Chcete-li se této chybě vyhnout, ukončete Průzkumníka souborů nebo přejděte do jiného adresáře a teprve potom se vraťte do tohoto kroku. 
+
+## <a name="cannot-connect-windows-admin-center-to-azure-as-create-new-azure-app-id-fails"></a>Centrum pro správu Windows se nedá připojit k Azure, protože se nepodaří vytvořit nové ID aplikace Azure.
+Pokud nemůžete připojit centrum pro správu Windows k Azure, protože v bráně nemůžete automaticky vytvářet a používat ID aplikace Azure, vytvořte ID aplikace Azure a přiřaďte mu správná oprávnění na portálu. Pak vyberte **použít existující v bráně**. Další informace najdete v [připojení brány k Azure.](/windows-server/manage/windows-admin-center/azure/azure-integration)

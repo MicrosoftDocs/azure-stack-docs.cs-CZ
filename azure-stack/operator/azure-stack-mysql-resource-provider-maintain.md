@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 7372cea4544a2cdb4b0d0e6ed54d07253d6d782c
-ms.sourcegitcommit: 1465bca8b7f87ea6f24faf47e86c2ba497943b28
+ms.openlocfilehash: 593ea0ca882b5aa7d57ff5a3267d35519be3b6f2
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98103082"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840061"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Operace údržby poskytovatele prostředků MySQL v centru Azure Stack
 
@@ -51,7 +51,7 @@ Chcete-li aktualizovat definice Defenderu, můžete upravit a spustit následuj�
 
 ```powershell
 # Set credentials for the local admin on the resource provider VM.
-$vmLocalAdminPass = ConvertTo-SecureString "<local admin user password>" -AsPlainText -Force
+$vmLocalAdminPass = ConvertTo-SecureString '<local admin user password>' -AsPlainText -Force
 $vmLocalAdminUser = "<local admin user name>"
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential `
     ($vmLocalAdminUser, $vmLocalAdminPass)
@@ -252,11 +252,11 @@ Ve výchozím nastavení je na virtuálním počítači adaptéru poskytovatele 
    
    ![Přejít na nastavení diagnostiky](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-diagnostics-settings.png)
 
-4. Přidejte **Microsoft-AzureStack-DatabaseAdapter/Operational \* !* _ shromažďovat protokoly provozních událostí poskytovatele prostředků MySQL.
+4. Přidejte **Microsoft-AzureStack-DatabaseAdapter/Operational \* !** pro shromáždění protokolů provozních událostí poskytovatele prostředků MySQL.
 
    ![Přidat protokoly událostí](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-event-logs.png)
 
-5. Pokud chcete povolit shromažďování protokolů IIS, zaškrtněte _ *IIS protokoly** a **protokoly chybných žádostí**.
+5. Chcete-li povolit shromažďování protokolů služby IIS, zaškrtněte **protokoly služby IIS** a **protokoly neúspěšných požadavků**.
 
    ![Přidat protokoly IIS](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-iis-logs.png)
 

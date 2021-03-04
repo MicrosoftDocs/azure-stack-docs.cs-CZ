@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2019
-ms.openlocfilehash: 3f8a0615f18ddf9ba4a98c2af2b947c49cfdd550
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: de9085ee201fd472a0ffd71cb97f519f66fe3621
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97873261"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839670"
 ---
 # <a name="download-and-extract-the-asdk"></a>Stažení a extrahování ASDK
 Až ověříte, že váš hostitelský počítač pro vývojovou sadu splňuje základní požadavky na instalaci Azure Stack Development Kit (ASDK), je dalším krokem stažení a extrakce balíčku pro nasazení ASDK, který získá Cloudbuilder. vhdx.
@@ -24,7 +24,7 @@ Až ověříte, že váš hostitelský počítač pro vývojovou sadu splňuje z
    - Musí být nainstalovaná [verze .NET Framework 4,6 (nebo novější)](https://dotnet.microsoft.com/download/dotnet-framework-runtime/net46) .
 
 2. [Přejděte na stránku](https://azure.microsoft.com/overview/azure-stack/try/?v=try) Začínáme, kde si můžete stáhnout ASDK, zadejte podrobnosti a pak klikněte na **Odeslat**.
-3. Stáhněte a spusťte [kontrolu nasazení skriptu pro](https://go.microsoft.com/fwlink/?LinkId=828735&clcid=0x409) kontrolu požadovaných součástí ASDK. Tento samostatný skript projde kontrolami požadavků provedenými instalačním programem pro ASDK. Poskytuje způsob, jak potvrdit, že splňujete požadavky na hardware a software před stažením většího balíčku pro ASDK.
+3. Stáhněte a spusťte [kontrolu nasazení skriptu pro](https://github.com/Azure/AzureStack-Tools/blob/master/Deployment/asdk-prechecker.ps1) kontrolu požadovaných součástí ASDK. Tento samostatný skript projde kontrolami požadavků provedenými instalačním programem pro ASDK. Poskytuje způsob, jak potvrdit, že splňujete požadavky na hardware a software před stažením většího balíčku pro ASDK.
 4. V části **Stáhnout software** klikněte na **Azure Stack Development Kit**.
 
    > [!NOTE]

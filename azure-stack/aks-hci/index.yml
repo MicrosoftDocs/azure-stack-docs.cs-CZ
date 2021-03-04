@@ -8,18 +8,18 @@ metadata:
   author: jasongerend
   ms.author: jgerend
   ms.date: 09/22/2020
-  ms.openlocfilehash: 808debaa0953bc19939bc1ffbf02c96688496bca
-  ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+  ms.openlocfilehash: 8e000bd1fe847c9d35b2ed680102a33424c86d6a
+  ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
   ms.translationtype: MT
   ms.contentlocale: cs-CZ
-  ms.lasthandoff: 12/04/2020
-  ms.locfileid: "96612280"
+  ms.lasthandoff: 03/04/2021
+  ms.locfileid: "101840095"
 landingContent:
 - title: O službě Azure Kubernetes
   linkLists:
   - linkListType: overview
     links:
-    - text: Co je služba Azure Kubernetes v Azure Stack HCI?
+    - text: Co je Azure Kubernetes Service v Azure Stack HCI?
       url: overview.md
   - linkListType: concept
     links:
@@ -47,12 +47,16 @@ landingContent:
     links:
     - text: Použití kontejnerů Linux
       url: deploy-linux-application.md
+    - text: Nasazení aplikací .NET
+      url: deploy-windows-application.md
   - linkListType: how-to-guide
     links:
     - text: Přizpůsobení aplikací pro clustery Kubernetes se smíšeným operačním systémem
       url: adapt-apps-mixed-os-clusters.md
-    - text: Nasazení aplikací pro Windows
-      url: deploy-windows-application.md
+    - text: Použití přihlašovacích údajů jednotného přihlašování služby Active Directory
+      url: ad-sso.md
+    - text: Konfigurace nastavení proxy serveru
+      url: proxy.md
     - text: Příprava uzlů Windows pro podporu gMSA
       url: prepare-windows-nodes-gmsa.md
     - text: Použít trvalé svazky
@@ -63,3 +67,5 @@ landingContent:
     links:
     - text: Připojení ke službě Azure ARC pro Kubernetes
       url: connect-to-arc.md
+    - text: Monitorování AKS v Azure Stack clusterech HCI
+      url: monitor-logging.md

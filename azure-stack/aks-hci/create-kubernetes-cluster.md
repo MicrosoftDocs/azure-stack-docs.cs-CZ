@@ -3,14 +3,14 @@ title: Rychlý Start k vytvoření clusteru Kubernetes pomocí centra pro správ
 description: Naučte se vytvořit cluster Kubernetes pomocí centra pro správu Windows.
 author: davannaw-msft
 ms.topic: quickstart
-ms.date: 12/02/2020
+ms.date: 02/02/2021
 ms.author: dawhite
-ms.openlocfilehash: 7a9c1bf5d89348175b7ac25a149fe01f384964a2
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: cd786e95b91656839593e409906c256171f206aa
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96612399"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839874"
 ---
 # <a name="quickstart-create-a-kubernetes-cluster-on-azure-stack-hci-using-windows-admin-center"></a>Rychlý Start: Vytvoření clusteru Kubernetes na Azure Stack HCI pomocí centra pro správu Windows
 

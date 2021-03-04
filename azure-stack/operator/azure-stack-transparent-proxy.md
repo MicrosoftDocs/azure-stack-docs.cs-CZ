@@ -3,16 +3,16 @@ title: Transparentní proxy server pro integrované systémy Azure Stack hub
 description: Přehled transparentní vlastnosti v systémech integrovaných na rozbočovači Azure Stack.
 author: PatAltimore
 ms.topic: conceptual
-ms.date: 01/25/2021
+ms.date: 02/24/2021
 ms.author: patricka
 ms.reviewer: sranthar
 ms.lastreviewed: 01/25/2021
-ms.openlocfilehash: 974f40364b4eed13bd7440b35596597312c98624
-ms.sourcegitcommit: 283b1308142e668749345bf24b63d40172559509
+ms.openlocfilehash: a7fc47edf63a83e1ee05c46b03d8533787b1983c
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99577283"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840690"
 ---
 # <a name="transparent-proxy-for-azure-stack-hub"></a>Transparentní proxy server pro centrum Azure Stack
 
@@ -42,10 +42,11 @@ Společnost Microsoft spolupracuje s předními dodavateli proxy v oboru za úč
 
 Konfiguraci vzorku ohraničení najdete v části [příklad konfigurace ohraničení](#example-border-configuration) v tomto článku.
 
-Zkontrolujte následující dokumenty pro ověřené transparentní konfigurace proxy serveru pomocí centra Azure Stack: 
+Projděte si následující dokumenty pro ověřování transparentních proxy konfigurací pomocí centra Azure Stack:
 
 - [Konfigurace transparentního proxy brány zabezpečení kontrolního bodu](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk171559)
 - [Konfigurace transparentního proxy serveru Sophos XG firewallu](https://community.sophos.com/xg-firewall/f/recommended-reads/124106/xg-firewall-integration-with-azure-stack-hub)
+- [Integrace Citrix ADC, Citrix Secure Web Gateway pomocí centra Azure Stack](https://www.citrix.com/blogs/2021/02/19/integrating-citrix-adc-citrix-secure-web-gateway-with-azure-stack-hub/)
 
 Ve scénářích, kdy se při průchodu explicitního proxy serveru vyžaduje odchozí přenos z centra Azure Stack, poskytuje zařízení s funkcí Sophos a Checkpoint funkci s duálním režimem, která umožňuje konkrétní rozsah provozu prostřednictvím transparentního režimu, zatímco jiné rozsahy je možné nakonfigurovat tak, aby prošly explicitním režimem. Pomocí této funkce je možné nakonfigurovat tato proxy zařízení tak, aby se prostřednictvím transparentního proxy serveru odesílaly jenom přenosy infrastruktury, zatímco veškerý provoz klienta se odesílá prostřednictvím explicitního režimu.
 
@@ -56,7 +57,7 @@ Ve scénářích, kdy se při průchodu explicitního proxy serveru vyžaduje od
 
 Řešení je založené na směrování na základě zásad (PBR), které používá sadu kritérií, která implementuje seznam řízení přístupu (ACL). Seznam ACL zařadí provoz, který je směrován na IP adresu dalšího směrování zařízení proxy, implementovaných na mapě tras, místo normálního směrování, které je založené pouze na cílové IP adrese. Konkrétní síťový provoz infrastruktury pro porty 80 a 443 je směrován z hraničních zařízení do transparentního nasazení proxy serveru. Transparentní proxy server dělá filtrování adres URL a *žádný povolený* provoz je vyřazený.
 
-Následující konfigurační ukázka je určena pro Cisco Nexus 9508 šasi. 
+Následující konfigurační ukázka je určena pro Cisco Nexus 9508 šasi.
 
 V tomto scénáři jsou zdrojové sítě infrastruktury, které vyžadují přístup k Internetu, následující:
 

@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2
-ms.openlocfilehash: 7c3c33371e50df0dabb7db9fc8c0204fc3caaa83
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.openlocfilehash: 03a4f928c5759f72d78ca09816593d70b1dcc76f
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011140"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840010"
 ---
 # <a name="remove-the-mysql-resource-provider-in-azure-stack-hub"></a>Odebrání poskytovatele prostředků MySQL v centru Azure Stack
 
@@ -32,6 +32,10 @@ Při odebrání poskytovatele prostředků MySQL se odstraní přidružené plá
   
 2. Získejte kopii instalačního balíčku poskytovatele prostředků MySQL a potom spusťte samočinný extrahování, který extrahuje obsah do dočasného adresáře.
 3. Otevřete nové okno konzoly PowerShellu se zvýšenými oprávněními a přejděte do adresáře, do kterého jste extrahovali instalační soubory poskytovatele prostředků MySQL.
+
+> [!IMPORTANT]
+> Důrazně doporučujeme, abyste před spuštěním skriptu vymazat mezipaměť pomocí procesu Clear **-AzureRmContext-Scope CurrentUser** a **clear-AzureRmContext-Scope** .
+
 4. Spusťte skript DeployMySqlProvider.ps1 pomocí následujících parametrů:
     - **Odinstalace**: Odebere poskytovatele prostředků a všechny přidružené prostředky.
     - **PrivilegedEndpoint**: IP adresa nebo název DNS privilegovaného koncového bodu.

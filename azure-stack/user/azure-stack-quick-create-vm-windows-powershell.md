@@ -3,17 +3,17 @@ title: Vytvoření virtuálního počítače s Windows serverem pomocí PowerShe
 description: Vytvořte virtuální počítač s Windows serverem pomocí PowerShellu v centru Azure Stack.
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 11/22/2020
+ms.date: 02/18/2021
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 11/22/2020
+ms.lastreviewed: 02/18/2021
 ms.custom: conteperfq4
-ms.openlocfilehash: c83c65102d77314a0b2c486dd20eedf5fdd421d4
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 7df01aeab1ef8df1e6ea8593d4f25c741f6afc24
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518071"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840792"
 ---
 # <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack-hub"></a>Rychlý Start: Vytvoření virtuálního počítače s Windows serverem pomocí PowerShellu v Azure Stackovém centru
 
@@ -313,7 +313,7 @@ $VirtualMachine = Set-AzVMSourceImage `
 $VirtualMachine = Set-AzVMOSDisk `
   -VM $VirtualMachine `
   -CreateOption FromImage | `
-  Set-AzVMBootDiagnostics -ResourceGroupName $ResourceGroupName `
+  Set-AzVMBootDiagnostic -ResourceGroupName $ResourceGroupName `
   -StorageAccountName $StorageAccountName -Enable |`
   Add-AzVMNetworkInterface -Id $nic.Id
 

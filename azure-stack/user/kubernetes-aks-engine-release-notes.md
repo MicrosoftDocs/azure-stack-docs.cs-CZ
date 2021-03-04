@@ -3,16 +3,16 @@ title: Poznámky k verzi modulu Azure Kubernetes Service (AKS) v centru Azure St
 description: Seznamte se s kroky, které je třeba provést s aktualizací pro AKS Engine v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 2/11/2021
+ms.date: 02/23/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 2/11/2021
-ms.openlocfilehash: fd8453c55be6222badd577666293653a45f67273
-ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
+ms.lastreviewed: 02/23/2021
+ms.openlocfilehash: a9f1217777fbdf5a6efd752388a15b4573d2d851
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100488033"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101840809"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Poznámky k verzi pro modul AKS v centru Azure Stack
 ::: moniker range=">=azs-2002"
@@ -132,7 +132,7 @@ V souboru JSON modelu rozhraní API zadejte hodnoty verze a verze v `orchestrato
 -   Vzhledem k tomu, že nástroj AKS je sdílená úložiště zdrojového kódu napříč Azure a centra Azure Stack. Prozkoumání velkého množství zpráv k vydání verze a žádostí o přijetí změn vám umožní se domnívat, že nástroj podporuje jiné verze Kubernetes a platformy operačního systému nad rámec výše uvedeného, ignorujte je a jako oficiální průvodce pro tuto aktualizaci použijte tabulku verze výše.
 
 > [!NOTE]  
-> Podpora kontejnerů Windows a Azure CNI je dostupná ve verzi Private Preview. Pokud se chcete připojit k verzi Preview, můžete požádat o přístup: [https://aka.ms/ash-k8s-win-azurecni](https://aka.ms/ash-k8s-win-azurecni)
+> Podpora kontejnerů Windows a Azure CNI je dostupná ve verzi Public Preview. Pokud se chcete připojit k verzi Preview, můžete požádat o přístup: [https://aka.ms/ash-k8s-win-azurecni](https://aka.ms/ash-k8s-win-azurecni)
 
 ## <a name="reference"></a>Reference
 

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/02/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: e7a407e587918a6ee9648c51c2c218ab51e7132f
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: 96e1996cbf22e354b960b1a46a8848543942b0cc
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96612348"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839857"
 ---
 # <a name="connect-an-azure-kubernetes-service-on-azure-stack-hci-cluster-to-azure-arc-for-kubernetes"></a>Připojení služby Azure Kubernetes na Azure Stack clusteru HCI do Azure ARC pro Kubernetes
 
@@ -33,7 +33,7 @@ Ověřte, že máte připravené tyto požadavky:
 
 * Pro nasazení agentů Kubernetes s podporou ARC budete potřebovat soubor kubeconfig pro přístup ke clusteru a roli Správce clusteru v clusteru.
 * Musí být nainstalovaná služba Azure Kubernetes v Azure Stack modul prostředí HCL pro rozhraní HCI.
-* Pro instalaci rozšíření CLI s povoleným Kubernetes rozhraním Azure se vyžaduje Azure CLI verze 2.3 + +. Nainstalujte rozhraní příkazového [řádku Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). Můžete také aktualizovat na nejnovější verzi, abyste měli jistotu, že máte Azure CLI verze 2.3 +.
+* Pro instalaci rozšíření CLI s povoleným rozšířením Azure Arc se vyžaduje Azure CLI verze 2.3 +. Nainstalujte rozhraní příkazového [řádku Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). Můžete také aktualizovat na nejnovější verzi, abyste měli jistotu, že máte Azure CLI verze 2.3 +.
 * Předplatné Azure, na kterém jste vlastníkem nebo přispěvatelem. 
 * Spusťte příkazy v tomto dokumentu v okně pro správu prostředí PowerShell.
 
@@ -141,20 +141,20 @@ Dále připojíme náš cluster Kubernetes k Azure s použitím instančního ob
 Odkažte na nově vytvořený instanční objekt a spusťte příkaz, který je `Install-AksHciArcOnboarding` k dispozici v modulu Aks-Hci PowerShellu.
 
 ```PowerShell
-Install-AksHciArcOnboarding -clusterName $clusterName -resourcegroup $resourceGroup -location $location -subscriptionid $subscriptionId -clientid $appId -clientsecret $password -tenantid $tenant
+Install-AksHciArcOnboarding -name $clusterName -resourcegroup $resourceGroup -location $location -subscriptionid $subscriptionId -clientid $appId -clientsecret $password -tenantid $tenant
 ```
 ## <a name="verify-connected-cluster"></a>Ověřit připojený cluster
 
 Prostředek clusteru Kubernetes můžete zobrazit na [Azure Portal](https://portal.azure.com/). Jakmile otevřete portál v prohlížeči, přejděte do skupiny prostředků a prostředku Kubernetes s podporou ARC Azure, který je založený na názvech prostředků a názvech skupin prostředků používaných dříve v `Install-AksHciArcOnboarding` příkazu PowerShellu.
 
 > [!NOTE]
-> Po připojení clusteru trvá přibližně 5 až 10 minut, než se na stránce Přehled v prostředku Kubernetes s povoleným Azure Portal prostředkem Azure ARC na ploše zobrazí stránka s přehledem.
+> Po připojení clusteru trvá přibližně 5 až 10 minut pro metadata clusteru (verze clusteru, verze agenta, počet uzlů) na plochu na stránce Přehled prostředku Kubernetes s podporou ARC Azure v Azure Portal.
 
 Pokud chcete odstranit cluster nebo připojit cluster, pokud se nachází za odchozím proxy server, navštivte téma [připojení clusteru Kubernetes s povoleným ARC Azure](/azure/azure-arc/kubernetes/connect-cluster).
 
 ## <a name="azure-arc-agents-for-kubernetes"></a>Agenti Azure ARC pro Kubernetes
 
-Kubernetes s povoleným obloukem Azure nasadí několik operátorů do `azure-arc` oboru názvů. Tato nasazení a lusky můžete zobrazit tady:
+Kubernetes s podporou ARC Azure nasadí několik operátorů do `azure-arc` oboru názvů. Tato nasazení a lusky můžete zobrazit `kubectl` níže. 
 
 ```console
 kubectl -n azure-arc get deployments,pods
@@ -167,7 +167,7 @@ Kubernetes s povoleným ARC Azure se skládá z několika agentů (operátorů),
 * `deployment.apps/metrics-agent`: shromažďuje metriky jiných agentů ARC, aby se zajistilo, že tito agenti vykazují optimální výkon.
 * `deployment.apps/cluster-metadata-operator`: shromažďuje metadata clusteru – verze clusteru, počet uzlů a verzi agenta Azure ARC.
 * `deployment.apps/resource-sync-agent`: synchronizuje výše uvedená metadata clusteru do Azure.
-* `deployment.apps/clusteridentityoperator`: Kubernetes s podporou Azure ARC aktuálně podporuje identitu přiřazenou systémem. clusteridentityoperator udržuje certifikát MSI (Managed Service identity), který používají jiní agenti pro komunikaci s Azure.
+* `deployment.apps/clusteridentityoperator`: Kubernetes s podporou ARC Azure aktuálně podporuje identitu přiřazenou systémem. clusteridentityoperator udržuje certifikát MSI (Managed Service identity), který používají jiní agenti pro komunikaci s Azure.
 * `deployment.apps/flux-logs-agent`: shromažďuje protokoly z operátorů toku nasazených jako součást konfigurace správy zdrojového kódu.
 
 ## <a name="next-steps"></a>Další kroky

@@ -3,89 +3,35 @@ title: Rychlý Start k vytváření clusterů Kubernetes v Azure Stack HCI pomoc
 description: Naučte se vytvářet Kubernetes clustery na Azure Stack HCL pomocí Windows PowerShellu.
 author: jessicaguan
 ms.topic: quickstart
-ms.date: 12/02/2020
+ms.date: 2/10/2021
 ms.author: jeguan
-ms.openlocfilehash: 6a215308e5eab1fa7991f912f1cd4aaff2391f5e
-ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
+ms.openlocfilehash: 42d9318b40dc19e77858641364a246209275e5cd
+ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96612433"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "101839840"
 ---
 # <a name="quickstart-create-kubernetes-clusters-on-azure-stack-hci-using-windows-powershell"></a>Rychlý Start: vytvoření clusterů Kubernetes ve Azure Stack HCI pomocí prostředí Windows PowerShell
 
 > Platí pro: AKS on Azure Stack HCI, AKS runtime na Windows serveru 2019 Datacenter
 
-V tomto rychlém startu se dozvíte, jak pomocí prostředí Windows PowerShell vytvořit cluster Kubernetes na Azure Stack HCI. Pak se dozvíte, jak škálovat cluster Kubernetes a upgradovat verzi Kubernetes vašeho clusteru. Pokud chcete místo toho použít Centrum pro správu systému Windows, přečtěte si téma [nastavení služby Azure Kubernetes v Azure Stack HCI pomocí centra pro správu systému Windows](setup.md).
+V tomto rychlém startu se dozvíte, jak pomocí prostředí Windows PowerShell vytvořit cluster Azure Kubernetes na Azure Stack HCI. Pak se dozvíte, jak škálovat cluster Kubernetes a upgradovat verzi Kubernetes vašeho clusteru. Pokud chcete místo toho použít Centrum pro správu systému Windows, přečtěte si téma [nastavení služby Azure Kubernetes v Azure Stack HCI pomocí centra pro správu systému Windows](setup.md).
 
 ## <a name="before-you-begin"></a>Než začnete
 
  - Ujistěte se, že jste nastavili Azure Stack hostitele Kubernetes. Pokud to neuděláte, přečtěte si téma [rychlý Start: nastavení hostitele služby Azure Kubernetes na Azure Stack HCL pomocí PowerShellu](./setup-powershell.md).
- - Ujistěte se, že máte nainstalovaný nejnovější modul prostředí PowerShell Aks-Hci. Pokud ne, přečtěte si téma [Stažení a instalace modulu AksHci prostředí PowerShell](./setup-powershell.md#step-1-download-and-install-the-akshci-powershell-module).
+ - Ujistěte se, že máte nainstalovaný nejnovější modul prostředí PowerShell Aks-Hci. Pokud to neuděláte, přečtěte si téma [Stažení a instalace modulu AksHci PowerShellu](./setup-powershell.md#step-1-download-and-install-the-akshci-powershell-module).
 
 ## <a name="step-1-create-a-kubernetes-cluster"></a>Krok 1: Vytvoření clusteru Kubernetes
 
 Po instalaci hostitele služby Azure Kubernetes jste připraveni nasadit cluster Kubernetes.
 
-Otevřete PowerShell jako správce a spusťte následující příkaz.
+Otevřete PowerShell jako správce a spusťte následující příkaz [New-AksHciCluster](./new-akshcicluster) .
 
-   ```powershell
-   New-AksHciCluster -clusterName <String>
-                    [-kubernetesVersion <String>]
-                    [-controlPlaneNodeCount <int>]
-                    [-linuxNodeCount <int>]
-                    [-windowsNodeCount <int>]
-                    [-controlPlaneVmSize <VmSize>]
-                    [-loadBalancerVmSize <VmSize>]
-                    [-linuxNodeVmSize <VmSize>]
-                    [-windowsNodeVmSize <VmSize>]
-   ```
-
-### <a name="example"></a>Příklad
-
-   ```powershell
-   New-AksHciCluster -clusterName mynewcluster -kubernetesVersion v1.18.8 -controlPlaneNodeCount 1 -linuxNodeCount 1 -windowsNodeCount 0 
-   ```
-
-### <a name="required-parameters"></a>Požadované parametry
-
-`-clusterName`
-
-Alfanumerický název clusteru Kubernetes.
-
-### <a name="optional-parameters"></a>Volitelné parametry
-
-`-kubernetesVersion`
-
-Verze Kubernetes, kterou chcete nasadit. Výchozí hodnota je v 1.18.8. Pokud chcete získat seznam dostupných verzí, spusťte příkaz `Get-AksHciKubernetesVersion` .
-
-`-controlPlaneNodeCount`
-
-Počet uzlů v rovině ovládacího prvku. Výchozí hodnota je 1.
-
-`-linuxNodeCount`
-
-Počet uzlů Linux v clusteru Kubernetes. Výchozí hodnota je 1.
-
-`-windowsNodeCount`
-
-Počet uzlů Windows v clusteru Kubernetes. Výchozí hodnota je 0. Uzly systému Windows můžete nasadit pouze v případě, že používáte Kubernetes v 1.18.8.
-
-`-controlPlaneVmSize`
-
-Velikost virtuálního počítače roviny ovládacího prvku. Výchozí hodnota je Standard_A2_v2. Pokud chcete získat seznam dostupných velikostí virtuálních počítačů, spusťte příkaz `Get-AksHciVmSize` .
-
-`-loadBalancerVmSize`
-
-Velikost virtuálního počítače nástroje pro vyrovnávání zatížení. Výchozí hodnota je Standard_A2_V2. Pokud chcete získat seznam dostupných velikostí virtuálních počítačů, spusťte příkaz `Get-AksHciVmSize` .
-
-`-linuxNodeVmSize`
-
-Velikost virtuálního počítače uzlu se systémem Linux. Výchozí hodnota je Standard_K8S3_v1. Pokud chcete získat seznam dostupných velikostí virtuálních počítačů, spusťte příkaz `Get-AksHciVmSize` .
-
-`-windowsNodeVmSize`
-
-Velikost virtuálního počítače uzlu Windows Výchozí hodnota je Standard_K8S3_v1. Pokud chcete získat seznam dostupných velikostí virtuálních počítačů, spusťte příkaz `Get-AksHciVmSize` .
+```powershell
+New-AksHciCluster -name mycluster
+```
 
 ### <a name="check-your-deployed-clusters"></a>Kontrolovat nasazené clustery
 
@@ -97,119 +43,57 @@ Get-AksHciCluster
 
 ## <a name="step-2-scale-a-kubernetes-cluster"></a>Krok 2: škálování clusteru Kubernetes
 
-Pokud potřebujete škálovat cluster nahoru nebo dolů, můžete změnit počet uzlů řídicích ploch, pracovních uzlů Linux nebo pracovních uzlů systému Windows.
+Pokud potřebujete škálovat cluster nahoru nebo dolů, můžete změnit počet uzlů řídicích ploch, pracovních uzlů Linux nebo pracovních uzlů systému Windows pomocí příkazu [set-AksHciClusterNodeCount](./set-akshciclusternodecount) .
 
 Chcete-li změnit velikost uzlů řídicích rovin, spusťte následující příkaz.
 
 ```powershell
-Set-AksHciClusterNodeCount –clusterName <String>
-                           -controlPlaneNodeCount <int>
+Set-AksHciClusterNodeCount –name mycluster -controlPlaneNodeCount 3
 ```
 
 Chcete-li škálovat pracovní uzly, spusťte následující příkaz.
 
 ```powershell
-Set-AksHciClusterNodeCount –clusterName <String>
-                           -linuxNodeCount <int>
-                           -windowsNodeCount <int>
+Set-AksHciClusterNodeCount –name mycluster -linuxNodeCount 3 -windowsNodeCount 1
 ```
 
 Uzel roviny ovládacího prvku a pracovní uzly musí být škálované nezávisle.
 
-### <a name="example"></a>Příklad
-
-```powershell
-Set-AksHciClusterNodeCount –clusterName mynewcluster -controlPlaneNodeCount 3
-```
-
-```powershell
-Set-AksHciClusterNodeCount –clusterName mynewcluster -linuxNodeCount 2 -windowsNodeCount 2 
-```
-
 ## <a name="step-3-upgrade-kubernetes-version"></a>Krok 3: upgrade verze Kubernetes
 
-Pokud chcete zobrazit seznam dostupných verzí Kubernetes, spusťte následující příkaz.
+Pokud chcete zjistit, jestli jsou pro cluster Kubernetes dostupné nějaké upgrady, spusťte následující příkaz.
 
 ```powershell
-Get-AksHciKubernetesVersion
+Get-AksHciClusterUpgrades -name mycluster
 ```
 
-Chcete-li provést aktualizaci na další verzi Kubernetes, spusťte následující příkaz.
+Chcete-li provést aktualizaci na nejnovější verzi Kubernetes, spusťte následující příkaz.
 
 ```powershell
-Update-AksHciCluster -clusterName <String>
-                     [-patch]
-```
-Každá verze Kubernetes má hlavní vydanou verzi, dílčí verzi a verzi opravy. Například ve verzi v 1.18.6 je 1 hlavní verze, 18 je podverze a 6 je verze opravy. V průběhu času bude AKS-HCI podporovat jednu hlavní verzi, tři podverze a dvě opravy na dílčí verzi, a to celkem 6 podporovaných verzí. Pro tuto verzi Preview ale podporujeme celkem 4 verze 1.16.10, v 1.16.15, v 1.17.11, v 1.18.8. 
-
-Pokud je při `patch` spuštění parametru přidán `Update-AksHciCluster` , příkaz provede upgrade na další verzi opravy (pokud existuje) pro dílčí verzi. Když se příkaz spustí bez parametru `patch` , je výchozím prostředím upgradu další podverze. Aby to bylo snazší, následující tabulka obsahuje všechna možná prostředí aktualizace:
-
-| Aktuální verze           | Kubernetes aktualizované verze bez-patch         | Kubernetes aktualizované verze pomocí-patch
-| ---------------------------- | ------------ | -------------------------------- |
-| v 1.16.10           |     v 1.17.11      | v 1.16.15
-| v 1.16.15            | v 1.17.11 | upgrade přidaných na místo
-| v 1.17.11           |  v 1.18.8          | upgrade přidaných na místo
-| v 1.18.8             | upgrade přidaných na místo   | upgrade přidaných na místo
-
-V části přidaný upgrade aktualizace se aktualizují všechny doplňky Kubernetes, jako je například CSI, které pro vás spravuje AKS-HCI. Tento upgrade nemění verzi operačního systému uzlu. Nemění také verzi Kubernetes.
-
-### <a name="example---upgrade-kubernetes-version-to-the-next-minor-version"></a>Příklad: upgrade verze Kubernetes na další dílčí verzi
-
-```powershell
-Update-AksHciCluster -clusterName mynewcluster
+Update-AksHciCluster -name mycluster -kubernetesVersion <k8s version>
 ```
 
-### <a name="example---upgrade-kubernetes-version-to-the-next-patch-version"></a>Příklad: upgrade verze Kubernetes na další verzi patch
-
-```powershell
-Update-AksHciCluster -clusterName mynewcluster -patch
-```
-
+Spuštěním tohoto příkazu bez zadání verze Kubernetes se upgraduje cluster na nejnovější verzi. Pokud chcete upgradovat na jinou verzi, která není nejnovější, použijte [příkaz Update-AksHciCluster](./update-akshcicluster) s `-kubernetesVersion` parametrem a požadovanou verzí jako hodnotu (tj. v 1.18.8).
 
 ## <a name="step-4-access-your-clusters-using-kubectl"></a>Krok 4: přístup ke clusterům pomocí kubectl
 
-Pokud chcete získat přístup ke clusterům Kubernetes pomocí kubectl, spusťte následující příkaz. Tato akce použije zadaný soubor kubeconfig clusteru jako výchozí soubor kubeconfig pro kubectl.
+Pokud chcete získat přístup ke clusterům Kubernetes pomocí kubectl, spusťte příkaz [Get-AksHciCredential](./get-akshcicredential) . Tato akce použije zadaný soubor kubeconfig clusteru jako výchozí soubor kubeconfig pro kubectl.
 
 ```powershell
-Get-AksHciCredential -clusterName <String>
-                     [-outputLocation <String>]
+Get-AksHciCredential -name mycluster
 ```
-
-### <a name="example"></a>Příklad
-
-```powershell
-Get-AksHciCredential -clusterName mynewcluster
-```
-
-### <a name="required-parameters"></a>Povinné parametry
-
-`clusterName`
-
-Název clusteru.
-
-### <a name="optional-parameters"></a>Volitelné parametry
-
-`outputLocation`
-
-Umístění chcete stáhnout kubeconfig. Výchozí je `%USERPROFILE%\.kube`.
 
 ## <a name="delete-a-kubernetes-cluster"></a>Odstranění clusteru Kubernetes
 
 Pokud potřebujete odstranit cluster Kubernetes, spusťte následující příkaz.
 
 ```powershell
-Remove-AksHciCluster -clusterName
-```
-
-### <a name="example"></a>Příklad
-
-```powershell
-Remove-AksHciCluster -clusterName mynewcluster
+Remove-AksHciCluster -name mycluster
 ```
 
 ## <a name="get-logs"></a>Získání protokolů
 
-Pokud chcete získat protokoly ze všech lusků, spusťte následující příkaz. Tento příkaz vytvoří výstupní složku zip s názvem `akshcilogs` v cestě `C:\wssd\akshcilogs` .
+Pokud chcete získat protokoly ze všech lusků, spusťte příkaz [Get-AksHciLogs](./get-akshcilogs) . Tento příkaz vytvoří výstupní složku zip `akshcilogs.zip` s názvem v pracovním adresáři. Úplná cesta ke `akshcilogs.zip` složce bude výstup po spuštění příkazu níže.
 
 ```powershell
 Get-AksHciLogs
