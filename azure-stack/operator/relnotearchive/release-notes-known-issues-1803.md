@@ -16,12 +16,12 @@ ms.date: 07/11/2018
 ms.author: brenduns
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6f15453ce20988929728a9d326ab5f7bf901beca
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 69af9b142f4fb198075dd751274caa3a10a96744
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248086"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187125"
 ---
 # <a name="azure-stack-1803-update"></a>Aktualizace Azure Stack 1803
 
@@ -69,14 +69,14 @@ Tato aktualizace obsahuje následující vylepšení a opravy pro Azure Stack.
 - **Přístup k Marketplace** : teď můžete otevřít web Azure Stack Marketplace pomocí možnosti [+ Nová](https://ms.portal.azure.com/#create/hub) v rámci portálů pro správu a uživatele stejným způsobem jako na portálech Azure.
  
 <!-- 2202621 --> 
-- **Azure monitor** -Azure Stack přidá [Azure monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) na portály pro správu a uživatele. To zahrnuje nové Průzkumníka pro metriky a protokoly aktivit. Pro přístup k tomuto Azure Monitor z externích sítí musí být port **13012** otevřený v konfiguracích brány firewall. Další informace o portech vyžadovaných nástrojem Azure Stack najdete v tématu [Azure Stack Integration Datacenter – publikování koncových bodů](../azure-stack-integrate-endpoints.md).
+- **Azure monitor** -Azure Stack přidá [Azure monitor](/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) na portály pro správu a uživatele. To zahrnuje nové Průzkumníka pro metriky a protokoly aktivit. Pro přístup k tomuto Azure Monitor z externích sítí musí být port **13012** otevřený v konfiguracích brány firewall. Další informace o portech vyžadovaných nástrojem Azure Stack najdete v tématu [Azure Stack Integration Datacenter – publikování koncových bodů](../azure-stack-integrate-endpoints.md).
 
    V rámci této změny se teď v části **Další služby** zobrazují *protokoly auditu* jako *protokoly aktivit*. Tato funkce je teď konzistentní s Azure Portal. 
 
 <!-- 1664791 --> 
 - **Řídké soubory** – když přidáte nový obrázek do Azure Stack nebo přidáte obrázek prostřednictvím syndikace webu Marketplace, obrázek se převede na zhuštěný soubor. Obrázky přidané před použitím Azure Stack verze 1803 nelze převést. Místo toho je nutné pomocí syndikace na webu Marketplace znovu odeslat tyto image, abyste mohli tuto funkci využít. 
  
-   Řídké soubory jsou efektivním formátem, který slouží ke snížení využití úložného prostoru a zlepšení vstupně-výstupních operací. ? Další informace najdete v tématu [fsutil sparse](https://docs.microsoft.com/windows-server/administration/windows-commands/fsutil-sparse) pro Windows Server. 
+   Řídké soubory jsou efektivním formátem, který slouží ke snížení využití úložného prostoru a zlepšení vstupně-výstupních operací. ? Další informace najdete v tématu [fsutil sparse](/windows-server/administration/windows-commands/fsutil-sparse) pro Windows Server. 
 
 ### <a name="fixed-issues"></a>Opravené problémy
 
@@ -99,7 +99,7 @@ Tato aktualizace obsahuje následující vylepšení a opravy pro Azure Stack.
 - Data o využití pro virtuální počítače se teď oddělují v hodinových intervalech. To je konzistentní s Azure. 
 
 <!--  2253274 --> 
-- Problém, ve kterém se v portálech pro správu a uživatele nedokáže načíst okno nastavení pro podsítě virtuální sítě. Jako alternativní řešení pomocí PowerShellu a rutiny [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0&preserve-view=true) tyto informace můžete zobrazit a spravovat.
+- Problém, ve kterém se v portálech pro správu a uživatele nedokáže načíst okno nastavení pro podsítě virtuální sítě. Jako alternativní řešení pomocí PowerShellu a rutiny [Get-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?preserve-view=true&view=azurermps-5.5.0) tyto informace můžete zobrazit a spravovat.
 
 - Když vytvoříte virtuální počítač, zpráva při výběru velikosti pro velikost virtuálního počítače už nebude *zobrazovat ceny* .
 
@@ -178,7 +178,7 @@ Níže jsou uvedené známé problémy po instalaci pro Build  **20180323,2**.
 
 
 #### <a name="compute"></a>Výpočetní prostředky
-- Nastavení škálování pro sady škálování virtuálních počítačů nejsou na portálu k dispozici. Jako alternativní řešení můžete použít [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Kvůli rozdílům v verzi PowerShellu musíte použít `-Name` parametr místo `-VMScaleSetName` .
+- Nastavení škálování pro sady škálování virtuálních počítačů nejsou na portálu k dispozici. Jako alternativní řešení můžete použít [Azure PowerShell](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Kvůli rozdílům v verzi PowerShellu musíte použít `-Name` parametr místo `-VMScaleSetName` .
 
 - Když na portálu vytvoříte skupinu dostupnosti tak, že kliknete na **Nová**  >    >  **Skupina dostupnosti** služby COMPUTE, můžete vytvořit jenom skupinu dostupnosti s doménou selhání a aktualizovat doménu na 1. Alternativním řešením při vytváření nového virtuálního počítače je vytvoření skupiny dostupnosti pomocí PowerShellu, rozhraní příkazového řádku nebo v rámci portálu.
 

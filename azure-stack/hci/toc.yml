@@ -72,7 +72,7 @@
           href: manage/create-stretched-volumes.md
         - name: Chránit svazky
           href: manage/volume-encryption-deduplication.md
-        - name: Rozšiřování svazků
+        - name: Rozbalit svazky
           href: manage/extend-volumes.md
         - name: Odstranit svazky
           href: manage/delete-volumes.md
@@ -112,6 +112,8 @@
       items:
         - name: Nasazení infrastruktury SDN
           href: manage/sdn-express.md
+        - name: Použití brány firewall Datacenter
+          href: manage/use-datacenter-firewall-windows-admin-center.md
         - name: Použití brány firewall Datacenter s prostředím PowerShell
           href: manage/use-datacenter-firewall-powershell.md
         - name: Správa logických sítí tenanta

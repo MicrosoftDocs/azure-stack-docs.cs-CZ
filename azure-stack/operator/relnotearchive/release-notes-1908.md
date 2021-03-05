@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6716b31431106e0af43785177376e4980b864f81
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 0137ec7491d84394b049095b1830c22ddcc7d922
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248108"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187193"
 ---
 # <a name="azure-stack-updates-1908-release-notes"></a>Azure Stack aktualizace: zpráva k vydání verze 1908
 
@@ -46,7 +46,7 @@ Před použitím této aktualizace se ujistěte, že si provedete následující
 - [Aktualizace zabezpečení](../release-notes-security-updates.md)
 - [Kontrolní seznam aktivit před a po instalaci aktualizace](../release-notes-checklist.md)
 
-Nápovědu k řešení potíží s aktualizacemi a procesu aktualizace najdete v tématu [řešení potíží se opravami a aktualizacemi pro Azure Stack](../azure-stack-updates-troubleshoot.md).
+Nápovědu k řešení potíží s aktualizacemi a procesu aktualizace najdete v tématu [řešení potíží se opravami a aktualizacemi pro Azure Stack](../azure-stack-troubleshooting.md).
 
 ## <a name="1908-build-reference"></a>1908 – odkaz na sestavení
 

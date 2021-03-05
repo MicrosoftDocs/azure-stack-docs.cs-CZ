@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9d5aeb68190f8e2b13ec2a49c3237b59ee33bfff
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 5ac273ef07747ffa0f5f32e681afd25ecc60bad6
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248102"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187210"
 ---
 # <a name="azure-stack-updates-1907-release-notes"></a>Azure Stack aktualizace: zpráva k vydání verze 1907
 
@@ -44,7 +44,7 @@ Před použitím této aktualizace se ujistěte, že si provedete následující
 - [Aktualizace zabezpečení](../release-notes-security-updates.md)
 - [Kontrolní seznam aktivit před a po instalaci aktualizace](../release-notes-checklist.md)
 
-Nápovědu k řešení potíží s aktualizacemi a procesu aktualizace najdete v tématu [řešení potíží se opravami a aktualizacemi pro Azure Stack](../azure-stack-updates-troubleshoot.md).
+Nápovědu k řešení potíží s aktualizacemi a procesu aktualizace najdete v tématu [řešení potíží se opravami a aktualizacemi pro Azure Stack](../azure-stack-troubleshooting.md).
 
 ## <a name="1907-build-reference"></a>1907 – odkaz na sestavení
 
@@ -66,7 +66,7 @@ Typ sestavení aktualizace Azure Stack 1907 je **Express**. Další informace o 
 
 <!-- What's new, also net new experiences and features. -->
 
-- Verze služby pro diagnostiku protokolu Azure Stack pro obecné dostupnosti pro usnadnění a zlepšení shromažďování protokolů diagnostiky. Služba Azure Stack Diagnostic log Collection nabízí zjednodušený způsob shromažďování a sdílení diagnostických protokolů pomocí služeb zákaznické podpory Microsoftu (CSS). Tato služba Shromažďování protokolů diagnostiky poskytuje nové prostředí uživatele na portálu Azure Stack správce, které umožňuje operátorům nastavit automatické nahrávání diagnostických protokolů do objektu BLOB úložiště, když jsou vyvolány určité kritické výstrahy, nebo provést stejnou operaci na vyžádání. Další informace naleznete v článku [shromažďování diagnostických protokolů](../azure-stack-diagnostic-log-collection-overview.md) .
+- Verze služby pro diagnostiku protokolu Azure Stack pro obecné dostupnosti pro usnadnění a zlepšení shromažďování protokolů diagnostiky. Služba Azure Stack Diagnostic log Collection nabízí zjednodušený způsob shromažďování a sdílení diagnostických protokolů pomocí služeb zákaznické podpory Microsoftu (CSS). Tato služba Shromažďování protokolů diagnostiky poskytuje nové prostředí uživatele na portálu Azure Stack správce, které umožňuje operátorům nastavit automatické nahrávání diagnostických protokolů do objektu BLOB úložiště, když jsou vyvolány určité kritické výstrahy, nebo provést stejnou operaci na vyžádání. Další informace naleznete v článku [shromažďování diagnostických protokolů](../diagnostic-log-collection.md) .
 
 - Verze ověřování infrastruktury Azure Stack sítě v rámci obecné dostupnosti jako součást nástroje pro ověření Azure Stack **test-AzureStack**. Azure Stack síťová infrastruktura bude součástí **AzureStack testu**, aby bylo možné zjistit, jestli dojde k selhání v síťové infrastruktuře Azure Stack. Test kontroluje konektivitu síťové infrastruktury tím, že obchází Azure Stack softwarově definované sítě. Ukazuje připojení z veřejné virtuální IP adresy k nakonfigurovaným serverům DNS pro přeposílání, serverům NTP a koncovým bodům identity. Kromě toho kontroluje připojení k Azure při použití Azure AD jako zprostředkovatele identity nebo federovaného serveru při používání služby AD FS. Další informace najdete v článku [Nástroj pro ověření Azure Stack](../azure-stack-diagnostic-test.md) .
 

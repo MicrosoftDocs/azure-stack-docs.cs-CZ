@@ -3,15 +3,15 @@ title: Nasazení infrastruktury SDN pomocí SDN Express
 description: Naučte se nasazovat infrastrukturu SDN pomocí nástroje SDN Express.
 author: v-dasis
 ms.topic: how-to
-ms.date: 02/17/2021
+ms.date: 03/01/2021
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: e367602252207a673316caf3482d7805bff02ba8
-ms.sourcegitcommit: 4c97ed2caf054ebeefa94da1f07cfb6be5929aac
+ms.openlocfilehash: d42647faa9b45b696323ca4f3157ce6dea709272
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100647806"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102186785"
 ---
 # <a name="deploy-an-sdn-infrastructure-using-sdn-express"></a>Nasazení infrastruktury SDN pomocí SDN Express
 
@@ -84,7 +84,7 @@ Přejděte do `C:\SDNExpress\scripts` složky a otevřete `MultiNodeSampleConfig
 
 ### <a name="general-settings-and-parameters"></a>Obecné nastavení a parametry
 
-Nastavení a parametry používá SDN obecně pro všechna nasazení:
+Nastavení a parametry jsou používány SDN obecně pro všechna nasazení. Konkrétní doporučení najdete v tématu [požadavky na role virtuálních počítačů infrastruktury SDN](../concepts/plan-software-defined-networking-infrastructure.md#sdn-infrastructure-vm-role-requirements).
 
 - **VHDPath** – cesta k souboru VHD používaná všemi virtuálními počítači infrastruktury SDN (NC, SLB, GS)
 - **VHDFile** – název souboru VHD používaný všemi virtuálními počítači infrastruktury Sdn
@@ -119,6 +119,8 @@ Hesla lze volitelně zahrnout, pokud jsou uloženy šifrované jako zabezpečen�
 
 ### <a name="network-controller-vm-section"></a>Oddíl virtuálního počítače síťového adaptéru
 
+Pro SDN se doporučuje minimálně tři virtuální počítače síťového adaptéru.
+
 `NCs = @()`Oddíl se používá pro virtuální počítače síťového adaptéru. Ujistěte se, že adresa MAC každého virtuálního počítače síťového adaptéru je mimo `SDNMACPool` rozsah uvedený v obecných nastaveních:
 
 - **Názevpočítače** – název virtuálního počítače síťového adaptéru
@@ -127,6 +129,8 @@ Hesla lze volitelně zahrnout, pokud jsou uloženy šifrované jako zabezpečen�
 - **MACAddress** -MAC adresa pro virtuální počítač NC
 
 ### <a name="software-load-balancer-vm-section"></a>Část software Load Balancer VM
+
+Pro SDN se doporučují minimálně tři virtuální počítače Load Balancer softwaru.
 
 `Muxes = @()`Oddíl se používá pro virtuální počítače SLB. Ujistěte se, že adresa MAC každého virtuálního počítače SLB je mimo rozsah, který je `SDNMACPool` uvedený v obecných nastaveních. `Muxes = @()`Pokud nepoužíváte nasazení komponenty SLB, nechte tuto část prázdnou ():
 
@@ -138,6 +142,8 @@ Hesla lze volitelně zahrnout, pokud jsou uloženy šifrované jako zabezpečen�
 - IP adresa sítě poskytovatele **PAMACAddress** (PA) pro virtuální počítač SLB
 
 ### <a name="gateway-vm-section"></a>Oddíl brány VM
+
+Pro SDN se doporučuje minimálně tři virtuální počítače brány (dvě aktivní a jedna redundantní).
 
 `Gateways = @()`Oddíl se používá pro virtuální počítače brány. Ujistěte se, že adresa MAC každého virtuálního počítače brány je mimo rozsah, který je `SDNMACPool` uvedený v obecných nastaveních. `Gateways = @()`Pokud nepoužíváte nasazení součásti brány, nechte tuto část prázdnou ():
 

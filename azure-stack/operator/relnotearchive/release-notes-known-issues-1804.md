@@ -16,12 +16,12 @@ ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5d871458a7af4e9233e750b07404bc151274033a
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: eb55f42161095f9034b6c5cf726240d86366604b
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248082"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187074"
 ---
 # <a name="azure-stack-1804-update"></a>Aktualizace Azure Stack 1804
 
@@ -79,9 +79,9 @@ Následující jsou nyní k dispozici, ale nevyžadují Azure Stack Update 1804.
 
 - **Nové prostředí PowerShell pro správce Azure Stack verze 1.3.0**.  Azure Stack PowerShell 1.3.0 je teď k dispozici pro instalaci. Tato verze poskytuje příkazy pro všechny poskytovatele prostředků správců ke správě Azure Stack.  V této verzi se obsah v [úložišti](https://github.com/Azure/AzureStack-Tools)githubu Azure Stack Tools nepoužívá. 
 
-   Podrobnosti o instalaci získáte podle [pokynů](../azure-stack-powershell-install.md) nebo obsahu pro [nápovědu](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0&preserve-view=true) pro Azure Stack modul 1.3.0. 
+   Podrobnosti o instalaci získáte podle [pokynů](../azure-stack-powershell-install.md) nebo obsahu pro [nápovědu](/powershell/azure/azure-stack/overview?preserve-view=true&view=azurestackps-1.3.0) pro Azure Stack modul 1.3.0. 
 
-- **Počáteční verze referenčního Azure Stack rozhraní API REST** [Reference k rozhraní API pro všechny poskytovatele prostředků správce Azure Stack](https://docs.microsoft.com/rest/api/azure-stack/) je teď publikovaná. 
+- **Počáteční verze referenčního Azure Stack rozhraní API REST** [Reference k rozhraní API pro všechny poskytovatele prostředků správce Azure Stack](/rest/api/azure-stack/) je teď publikovaná. 
 
 
 ## <a name="before-you-begin"></a>Než začnete    
@@ -118,7 +118,7 @@ Níže jsou uvedené známé problémy po instalaci pro Build  **20180513,1**.
 
 <!-- 1272111 - IS --> 
 - Po instalaci nebo aktualizaci této verze Azure Stack možná nebudete moci zobrazit Azure Stack jednotky škálování na portálu pro správu.  
-  Alternativní řešení: k zobrazení informací o jednotkách škálování použijte PowerShell. Další informace [najdete v tématu věnovaném obsahu aplikace](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0&preserve-view=true) Azure Stack 1.3.0 Module. 
+  Alternativní řešení: k zobrazení informací o jednotkách škálování použijte PowerShell. Další informace [najdete v tématu věnovaném obsahu aplikace](/powershell/azure/azure-stack/overview?preserve-view=true&view=azurestackps-1.3.0) Azure Stack 1.3.0 Module. 
 
 <!-- 2332636 - IS -->  
 - Když použijete AD FS pro Azure Stack systém identit a aktualizujete tuto verzi Azure Stack, Výchozí vlastník výchozího předplatného poskytovatele se obnoví na integrovaného uživatele **CloudAdmin** .  
@@ -186,13 +186,13 @@ Níže jsou uvedené známé problémy po instalaci pro Build  **20180513,1**.
                 "vmSize": "Standard_F32s_v2"
         },
     ```  
-  - Rozhraní příkazového **řádku Azure:** Můžete použít příkaz [AZ VM Create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create&preserve-view=true) a zadat velikost virtuálního počítače jako parametr, podobně jako `--size "Standard_F32s_v2"` .
+  - Rozhraní příkazového **řádku Azure:** Můžete použít příkaz [AZ VM Create](/cli/azure/vm?preserve-view=true&view=azure-cli-latest#az-vm-create) a zadat velikost virtuálního počítače jako parametr, podobně jako `--size "Standard_F32s_v2"` .
 
-  - **PowerShell:** Pomocí prostředí PowerShell můžete použít rutinu [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0&preserve-view=true) s parametrem, který určuje velikost virtuálního počítače, podobně jako `-VMSize "Standard_F32s_v2"` .
+  - **PowerShell:** Pomocí prostředí PowerShell můžete použít rutinu [New-AzureRMVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig?preserve-view=true&view=azurermps-6.0.0) s parametrem, který určuje velikost virtuálního počítače, podobně jako `-VMSize "Standard_F32s_v2"` .
 
 
 <!-- TBD - IS ASDK --> 
-- Nastavení škálování pro sady škálování virtuálních počítačů nejsou na portálu k dispozici. Jako alternativní řešení můžete použít [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Kvůli rozdílům v verzi PowerShellu musíte použít `-Name` parametr místo `-VMScaleSetName` .
+- Nastavení škálování pro sady škálování virtuálních počítačů nejsou na portálu k dispozici. Jako alternativní řešení můžete použít [Azure PowerShell](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Kvůli rozdílům v verzi PowerShellu musíte použít `-Name` parametr místo `-VMScaleSetName` .
 
 <!-- TBD - IS --> 
 - Když na portálu vytvoříte skupinu dostupnosti tak, že kliknete na **Nová**  >    >  **Skupina dostupnosti** služby COMPUTE, můžete vytvořit jenom skupinu dostupnosti s doménou selhání a aktualizovat doménu na 1. Alternativním řešením při vytváření nového virtuálního počítače je vytvoření skupiny dostupnosti pomocí PowerShellu, rozhraní příkazového řádku nebo v rámci portálu.

@@ -16,12 +16,12 @@ ms.date: 10/02/2018
 ms.author: sethm
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3574c55568db86c96d22d43fdf1bb08ac79c061e
-ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
+ms.openlocfilehash: 16606cd9155f4b0225e07462172fe6b132fe2a68
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100009192"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187040"
 ---
 # <a name="azure-stack-1808-update"></a>Aktualizace Azure Stack 1808
 
@@ -231,7 +231,7 @@ Níže jsou uvedené známé problémy po instalaci této verze buildu.
 - Operátor Azure Stack, pokud obdržíte výstrahu o nedostatku paměti a virtuální počítače klienta se nepodaří nasadit s **chybou vytvoření virtuálního počítače infrastruktury**, je možné, že Azure Stack razítko není dostupné paměti. [Capacity Planner Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) použijte k tomu, abyste nejlépe pochopili kapacitu dostupnou pro vaše úlohy.
 
 
-### <a name="compute"></a>Compute
+### <a name="compute"></a>Výpočetní prostředky
 
 <!-- 3099544 IS, ASDK --> 
 - Když vytváříte nový virtuální počítač pomocí portálu Azure Stack a vyberete velikost virtuálního počítače, zobrazí se sloupec USD/měsíc s **nedostupnou** zprávou. Tento sloupec by se neměl zobrazovat; zobrazení sloupce s cenami virtuálních počítačů není v Azure Stack podporováno.
@@ -247,7 +247,7 @@ Níže jsou uvedené známé problémy po instalaci této verze buildu.
       2. Postupujte podle kroků v [tomto článku](../azure-stack-enable-multitenancy.md#register-a-guest-directory) a změňte konfiguraci každého adresáře hostů.
 
 <!-- 2869209 IS, ASDK --> 
-- Při použití [rutiny **Add-AzsPlatformImage**](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0&preserve-view=true)musíte použít parametr **-OsUri** jako identifikátor URI účtu úložiště, kam se disk nahrává. Pokud použijete místní cestu k disku, rutina se nezdařila s následující chybou: *dlouhodobá operace se nezdařila se stavem selhalo*. 
+- Při použití [rutiny **Add-AzsPlatformImage**](/powershell/module/azs.compute.admin/add-azsplatformimage?preserve-view=true&view=azurestackps-1.4.0)musíte použít parametr **-OsUri** jako identifikátor URI účtu úložiště, kam se disk nahrává. Pokud použijete místní cestu k disku, rutina se nezdařila s následující chybou: *dlouhodobá operace se nezdařila se stavem selhalo*. 
 
 <!--  2966665 IS, ASDK --> 
 - Připojení datových disků SSD k virtuálním počítačům se spravovaným diskem (DS, DSv2, FS, Fs_V2) se nezdařilo s chybou:  *nepodařilo se aktualizovat disky pro VMName chybu virtuálního počítače: požadovanou operaci nelze provést, protože typ účtu úložiště Premium_LRS není podporován pro velikost virtuálního počítače Standard_DS/Ds_V2/fs/Fs_v2).*
@@ -332,4 +332,4 @@ Balíček aktualizací Azure Stack 1808 si můžete stáhnout [odsud.](https://a
 - Informace o zásadách obsluhy pro Azure Stack integrovaných systémech a o tom, co je potřeba udělat, abyste zachovali svůj systém v podporovaném stavu, najdete v tématu [zásady pro obsluhu Azure Stack](../azure-stack-servicing-policy.md).  
 - Postup pro monitorování a obnovení aktualizací pomocí privilegovaného koncového bodu (PEP) najdete v tématu [monitorování aktualizací v Azure Stack pomocí privilegovaného koncového bodu](../azure-stack-monitor-update.md).  
 - Přehled správy aktualizací v Azure Stack najdete v tématu [Správa aktualizací v Azure Stack přehledu](../azure-stack-updates.md).  
-- Další informace o tom, jak použít aktualizace s Azure Stack, najdete v tématu věnovaném [použití aktualizací v Azure Stack](../azure-stack-apply-updates.md).  
+- Další informace o tom, jak použít aktualizace s Azure Stack, najdete v tématu věnovaném [použití aktualizací v Azure Stack](../azure-stack-apply-updates.md).

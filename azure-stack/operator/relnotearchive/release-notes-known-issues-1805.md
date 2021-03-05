@@ -16,12 +16,12 @@ ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: 16e11fcbc46065f512cc6b887b9c7159f6b0ac65
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 9f68e3f1dc3c789ec0b3b4f247037d49e43f8a42
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248050"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187091"
 ---
 # <a name="azure-stack-1805-update"></a>Aktualizace Azure Stack 1805
 
@@ -105,12 +105,12 @@ Níže jsou uvedené známé problémy po instalaci této verze buildu.
 <!-- 2551834 - IS, ASDK --> 
 - Když vyberete **Přehled** pro účet úložiště buď na portálu správce, nebo na portálu User Portal, informace z podokna *základy* se nezobrazí.  V podokně základy se zobrazí informace o účtu, jako je jeho *Skupina prostředků*, *umístění* a *ID předplatného*.  K dispozici jsou další možnosti pro přehled, jako jsou *služby* a *monitorování*, a také možnosti pro *otevření v Průzkumníkovi* nebo *odstranění účtu úložiště*. 
 
-  Pokud chcete zobrazit nedostupné informace, použijte rutinu PowerShellu [Get-azureRMstorageaccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0&preserve-view=true) . 
+  Pokud chcete zobrazit nedostupné informace, použijte rutinu PowerShellu [Get-azureRMstorageaccount](/powershell/module/azurerm.storage/get-azurermstorageaccount?preserve-view=true&view=azurermps-6.2.0) . 
 
 <!-- 2551834 - IS, ASDK --> 
 - Když vyberete **značky** pro účet úložiště buď na portálu pro správu, nebo na portálu User Portal, informace se nepovede načíst a nezobrazují se.  
 
-  Pokud chcete zobrazit nedostupné informace, použijte rutinu PowerShellu [Get-AzureRmTag](https://docs.microsoft.com/powershell/module/azurerm.tags/get-azurermtag?view=azurermps-6.2.0&preserve-view=true) .
+  Pokud chcete zobrazit nedostupné informace, použijte rutinu PowerShellu [Get-AzureRmTag](/powershell/module/azurerm.tags/get-azurermtag?preserve-view=true&view=azurermps-6.2.0) .
 
 
 <!-- 2332636 - IS -->  
@@ -183,13 +183,13 @@ Níže jsou uvedené známé problémy po instalaci této verze buildu.
                 "vmSize": "Standard_F32s_v2"
         },
     ```  
-  - Rozhraní příkazového **řádku Azure:** Můžete použít příkaz [AZ VM Create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create&preserve-view=true) a zadat velikost virtuálního počítače jako parametr, podobně jako `--size "Standard_F32s_v2"` .
+  - Rozhraní příkazového **řádku Azure:** Můžete použít příkaz [AZ VM Create](/cli/azure/vm?preserve-view=true&view=azure-cli-latest#az-vm-create) a zadat velikost virtuálního počítače jako parametr, podobně jako `--size "Standard_F32s_v2"` .
 
-  - **PowerShell:** Pomocí prostředí PowerShell můžete použít rutinu [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0&preserve-view=true) s parametrem, který určuje velikost virtuálního počítače, podobně jako `-VMSize "Standard_F32s_v2"` .
+  - **PowerShell:** Pomocí prostředí PowerShell můžete použít rutinu [New-AzureRMVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig?preserve-view=true&view=azurermps-6.0.0) s parametrem, který určuje velikost virtuálního počítače, podobně jako `-VMSize "Standard_F32s_v2"` .
 
 
 <!-- TBD - IS ASDK --> 
-- Nastavení škálování pro sady škálování virtuálních počítačů nejsou na portálu k dispozici. Jako alternativní řešení můžete použít [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Kvůli rozdílům v verzi PowerShellu musíte použít `-Name` parametr místo `-VMScaleSetName` .
+- Nastavení škálování pro sady škálování virtuálních počítačů nejsou na portálu k dispozici. Jako alternativní řešení můžete použít [Azure PowerShell](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Kvůli rozdílům v verzi PowerShellu musíte použít `-Name` parametr místo `-VMScaleSetName` .
 
 <!-- TBD - IS --> 
 - Když na portálu vytvoříte skupinu dostupnosti tak, že kliknete na **Nová**  >    >  **Skupina dostupnosti** služby COMPUTE, můžete vytvořit jenom skupinu dostupnosti s doménou selhání a aktualizovat doménu na 1. Alternativním řešením při vytváření nového virtuálního počítače je vytvoření skupiny dostupnosti pomocí PowerShellu, rozhraní příkazového řádku nebo v rámci portálu.
@@ -213,7 +213,7 @@ Níže jsou uvedené známé problémy po instalaci této verze buildu.
 
 ### <a name="networking"></a>Sítě
 <!-- TBD - IS ASDK --> 
-- Trasy definované uživatelem nemůžete vytvořit na portálu pro správu ani pro uživatele. Jako alternativní řešení použijte [Azure PowerShell](https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell).
+- Trasy definované uživatelem nemůžete vytvořit na portálu pro správu ani pro uživatele. Jako alternativní řešení použijte [Azure PowerShell](/azure/virtual-network/tutorial-create-route-table-powershell).
 
 <!-- 1766332 - IS ASDK --> 
 - Pokud v části **sítě** kliknete na **Vytvořit VPN Gateway** pro nastavení připojení k síti VPN, bude **zásada založená** jako typ sítě VPN. Tuto možnost nevybírejte. V Azure Stack je podporována pouze možnost **na základě trasy** .

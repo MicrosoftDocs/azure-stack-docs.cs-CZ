@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 02/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1548ee295eddd2b386f637301abef208918c21ad
-ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
+ms.openlocfilehash: f98f0f28037cfc1de648f36cce20dd1c5334f93b
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100009209"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102186938"
 ---
 # <a name="azure-stack-1809-update"></a>Aktualizace Azure Stack 1809
 
@@ -51,7 +51,7 @@ Tato aktualizace obsahuje následující vylepšení pro Azure Stack:
 
 - Nyní můžete [přesunout prostředek registrace](../azure-stack-registration.md#move-a-registration-resource) v Azure mezi skupinami prostředků, aniž byste ho museli znovu registrovat. Poskytovatelé Cloud Solution Provider (CSP) mohou také přesouvat registrační prostředky mezi předplatnými, pokud jsou nová i stará předplatná namapována na stejné ID partnera CSP. To nemá vliv na existující mapování tenanta zákazníka. 
 
-- Přidání podpory pro přiřazení více IP adres na jedno síťové rozhraní.  Další podrobnosti najdete v tématu [přiřazení více IP adres k virtuálním počítačům pomocí prostředí PowerShell](https://docs.microsoft.com/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell).
+- Přidání podpory pro přiřazení více IP adres na jedno síťové rozhraní.  Další podrobnosti najdete v tématu [přiřazení více IP adres k virtuálním počítačům pomocí prostředí PowerShell](/azure/virtual-network/virtual-network-multiple-ip-addresses-powershell).
 
 ### <a name="fixed-issues"></a>Opravené problémy
 
@@ -78,7 +78,7 @@ Tato aktualizace obsahuje následující vylepšení pro Azure Stack:
 ### <a name="changes"></a>Změny
 
 <!-- 2635202 - IS, ASDK -->
-- Služba zálohování infrastruktury přesouvá z [veřejné sítě infrastruktury](https://docs.microsoft.com/azure/azure-stack/azure-stack-network) do [veřejné VIP sítě](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network). Zákazníci budou muset zajistit, aby služba měla přístup k umístění úložiště pro zálohování z veřejné VIP sítě.  
+- Služba zálohování infrastruktury přesouvá z [veřejné sítě infrastruktury](/azure/azure-stack/azure-stack-network) do [veřejné VIP sítě](/azure/azure-stack/azure-stack-network#public-vip-network). Zákazníci budou muset zajistit, aby služba měla přístup k umístění úložiště pro zálohování z veřejné VIP sítě.  
 
 > [!IMPORTANT]  
 > Pokud máte bránu firewall, která neumožňuje připojení z veřejné virtuální IP adresy k souborovému serveru, tato změna způsobí selhání zálohování infrastruktury s chybou, 53 síťová cesta nebyla nalezena. Jedná se o zásadní změnu, která nemá přijatelné řešení. Na základě zpětné vazby od zákazníků vrátí Microsoft tuto změnu v opravě hotfix. Další informace o dostupných opravách hotfix pro 1809 najdete v [části kroky po aktualizaci](#post-update-steps) . Jakmile je tato oprava hotfix dostupná, nezapomeňte ji po aktualizaci na 1809 použít jenom v případě, že zásady sítě neumožňují síti veřejných VIP přístup k prostředkům infrastruktury. v 1811 se tato změna použije pro všechny systémy. Pokud jste použili opravu hotfix v 1809, není vyžadována žádná další akce.  
@@ -254,7 +254,7 @@ Níže jsou uvedené známé problémy po instalaci této verze buildu.
 <!-- 2368581 - IS, ASDK --> 
 - Operátor Azure Stack, pokud obdržíte výstrahu o nedostatku paměti a virtuální počítače klienta se nepodaří nasadit s **chybou vytvoření virtuálního počítače infrastruktury**, je možné, že Azure Stack razítko není dostupné paměti. [Capacity Planner Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) použijte k tomu, abyste nejlépe pochopili kapacitu dostupnou pro vaše úlohy.
 
-### <a name="compute"></a>Compute
+### <a name="compute"></a>Výpočetní prostředky
 
 - Při vytváření [virtuálního počítače s Dv2 Series](../../user/azure-stack-vm-considerations.md#vm-sizes)se D11 virtuální počítače 14v2 vám umožní vytvořit datové disky 4, 8, 16 a 32. V podokně vytvořit virtuální počítač se ale zobrazují datové disky 8, 16, 32 a 64.
 
@@ -265,7 +265,7 @@ Níže jsou uvedené známé problémy po instalaci této verze buildu.
 - Když vytváříte nový virtuální počítač pomocí portálu Azure Stack a vyberete velikost virtuálního počítače, zobrazí se sloupec USD/měsíc s **nedostupnou** zprávou. Tento sloupec by se neměl zobrazovat; zobrazení sloupce s cenami virtuálních počítačů není v Azure Stack podporováno.
 
 <!-- 2869209 - IS, ASDK --> 
-- Při použití [rutiny **Add-AzsPlatformImage**](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0&preserve-view=true)musíte použít parametr **-OsUri** jako identifikátor URI účtu úložiště, kam se disk nahrává. Pokud použijete místní cestu k disku, rutina se nezdařila s následující chybou: *dlouhodobá operace se nezdařila se stavem selhalo*. 
+- Při použití [rutiny **Add-AzsPlatformImage**](/powershell/module/azs.compute.admin/add-azsplatformimage?preserve-view=true&view=azurestackps-1.4.0)musíte použít parametr **-OsUri** jako identifikátor URI účtu úložiště, kam se disk nahrává. Pokud použijete místní cestu k disku, rutina se nezdařila s následující chybou: *dlouhodobá operace se nezdařila se stavem selhalo*. 
 
 <!--  2795678 - IS, ASDK --> 
 - Když použijete portál k vytvoření virtuálních počítačů ve velikosti virtuálního počítače Premium (DS, Ds_v2, FS, FSv2), virtuální počítač se vytvoří v účtu úložiště úrovně Standard. Vytvoření v účtu úložiště úrovně Standard nemá vliv na funkce, IOPs ani fakturaci. 
@@ -352,4 +352,4 @@ Balíček aktualizací Azure Stack 1809 si můžete stáhnout [odsud.](https://a
 - Informace o zásadách obsluhy pro Azure Stack integrovaných systémech a o tom, co je potřeba udělat, abyste zachovali svůj systém v podporovaném stavu, najdete v tématu [zásady pro obsluhu Azure Stack](../azure-stack-servicing-policy.md).  
 - Postup pro monitorování a obnovení aktualizací pomocí privilegovaného koncového bodu (PEP) najdete v tématu [monitorování aktualizací v Azure Stack pomocí privilegovaného koncového bodu](../azure-stack-monitor-update.md).  
 - Přehled správy aktualizací v Azure Stack najdete v tématu [Správa aktualizací v Azure Stack přehledu](../azure-stack-updates.md).  
-- Další informace o tom, jak použít aktualizace s Azure Stack, najdete v tématu věnovaném [použití aktualizací v Azure Stack](../azure-stack-apply-updates.md).  
+- Další informace o tom, jak použít aktualizace s Azure Stack, najdete v tématu věnovaném [použití aktualizací v Azure Stack](../azure-stack-apply-updates.md).

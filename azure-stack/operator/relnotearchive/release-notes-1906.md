@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1d62407d1ebca7924466d5cb5e38bb48c79c8ddf
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 9a51d7c7b1470e95fd9c8b6905c2ac31f59bf7b9
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248113"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187244"
 ---
 # <a name="azure-stack-updates-1906-release-notes"></a>Azure Stack aktualizace: zpráva k vydání verze 1906
 
@@ -44,7 +44,7 @@ Před použitím této aktualizace se ujistěte, že si provedete následující
 - [Aktualizace zabezpečení](../release-notes-security-updates.md)
 - [Kontrolní seznam aktivit před a po instalaci aktualizace](../release-notes-checklist.md)
 
-Nápovědu k řešení potíží s aktualizacemi a procesu aktualizace najdete v tématu [řešení potíží se opravami a aktualizacemi pro Azure Stack](../azure-stack-updates-troubleshoot.md).
+Nápovědu k řešení potíží s aktualizacemi a procesu aktualizace najdete v tématu [řešení potíží se opravami a aktualizacemi pro Azure Stack](../azure-stack-troubleshooting.md).
 
 ## <a name="1906-build-reference"></a>1906 – odkaz na sestavení
 

@@ -16,12 +16,12 @@ ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9dd3647f607dc743c6eff5907ae4a47fa097e764
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: f7434b468f9a3c259e178b91ca9e24bd49def76c
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248057"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187057"
 ---
 # <a name="azure-stack-1807-update"></a>Aktualizace Azure Stack 1807
 
@@ -53,9 +53,9 @@ Tato aktualizace obsahuje následující vylepšení pro Azure Stack.
 - **Kapacitu rozšíříte** [přidáním dalších uzlů jednotek škálování](../azure-stack-add-scale-node.md).
 
 <!-- 2753130 |  IS, ASDK   -->  
-- **Šablony Azure Resource Manager nyní podporují prvek podmínky** – nyní můžete nasadit prostředek do šablony Azure Resource Manageru pomocí podmínky. Můžete navrhnout šablonu pro nasazení prostředku na základě podmínky, jako je například vyhodnocení, zda je hodnota parametru k dispozici. Informace o použití šablony jako podmínky najdete v části [podmíněné nasazení prostředků](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy) a proměnných v tématu [šablony Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-templates-variables) v dokumentaci k Azure. 
+- **Šablony Azure Resource Manager nyní podporují prvek podmínky** – nyní můžete nasadit prostředek do šablony Azure Resource Manageru pomocí podmínky. Můžete navrhnout šablonu pro nasazení prostředku na základě podmínky, jako je například vyhodnocení, zda je hodnota parametru k dispozici. Informace o použití šablony jako podmínky najdete v části [podmíněné nasazení prostředků](/azure/architecture/building-blocks/extending-templates/conditional-deploy) a proměnných v tématu [šablony Azure Resource Manager](/azure/azure-resource-manager/resource-manager-templates-variables) v dokumentaci k Azure. 
 
-   Šablony můžete použít také k [nasazení prostředků do více než jednoho předplatného nebo skupiny prostředků](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment).  
+   Šablony můžete použít také k [nasazení prostředků do více než jednoho předplatného nebo skupiny prostředků](/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment).  
 
 <!--2753073 | IS, ASDK -->  
 - **Podpora verze prostředků Microsoft. Network API se aktualizovala** tak, aby zahrnovala podporu rozhraní api verze 2017-10-01 od 2015-06-15 pro Azure Stack síťové prostředky.  V této verzi není zahrnutá podpora pro verze prostředků mezi 2017-10-01 a 2015-06-15.  Rozdíly ve funkcích najdete [v tématu týkajícím se Azure Stack sítě](../../user/azure-stack-network-differences.md) .
@@ -64,7 +64,7 @@ Tato aktualizace obsahuje následující vylepšení pro Azure Stack.
 - **Azure Stack se přidala podpora reverzních vyhledávání DNS pro externě Azure Stack koncových bodů infrastruktury** (to je portál, adminportal, Správa a adminmanagement). Tím umožníte, aby se názvy externích koncových bodů z IP adresy vyřešily Azure Stack.
 
 <!-- 2780899 |  IS, ASDK   --> 
-- **Azure Stack teď podporuje přidání dalších síťových rozhraní k existujícímu virtuálnímu počítači.**  Tato funkce je k dispozici pomocí portálu, PowerShellu a rozhraní příkazového řádku. Další informace najdete v tématu [Přidání nebo odebrání síťových rozhraní](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-vm) v dokumentaci k Azure. 
+- **Azure Stack teď podporuje přidání dalších síťových rozhraní k existujícímu virtuálnímu počítači.**  Tato funkce je k dispozici pomocí portálu, PowerShellu a rozhraní příkazového řádku. Další informace najdete v tématu [Přidání nebo odebrání síťových rozhraní](/azure/virtual-network/virtual-network-network-interface-vm) v dokumentaci k Azure. 
 
 <!-- 2222444 | IS, ASDK   -->  
 - **Pro měřiče využití sítě se provedla vylepšení přesnosti a odolnosti proti chybám**.  Měřiče využití sítě jsou teď přesnější a berou v úvahu pozastavená předplatná, doby výpadků a konflikty časování.
@@ -86,7 +86,7 @@ Tato aktualizace obsahuje následující vylepšení pro Azure Stack.
   Další informace najdete v tématu [Azure Stack předávání SYSLOG](../azure-stack-integrate-security.md).
 
 <!-- ####### | IS, ASDK | --> 
-- **Azure Resource Manager obsahuje název oblasti.** V této verzi budou objekty načtené z Azure Resource Manager nyní zahrnovat atribut název oblasti. Pokud existující skript prostředí PowerShell přímo předává objekt jiné rutině, může skript způsobit chybu a selhat. To je Azure Resource Manager vyhovující chování a vyžaduje, aby volající klient odčítání atributu region. Další informace o Azure Resource Manager najdete v [dokumentaci k Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/). ověření 8-10 MDB-->
+- **Azure Resource Manager obsahuje název oblasti.** V této verzi budou objekty načtené z Azure Resource Manager nyní zahrnovat atribut název oblasti. Pokud existující skript prostředí PowerShell přímo předává objekt jiné rutině, může skript způsobit chybu a selhat. To je Azure Resource Manager vyhovující chování a vyžaduje, aby volající klient odčítání atributu region. Další informace o Azure Resource Manager najdete v [dokumentaci k Azure Resource Manager](/azure/azure-resource-manager/). ověření 8-10 MDB-->
 
 <!-- TBD | IS, ASDK -->  
 - **Změny funkcí delegovaných zprostředkovatelů.** Počínaje 1807 je model delegovaných zprostředkovatelů zjednodušený, aby se lépe zarovnaly modelu prodejce v systému Azure a delegovaní zprostředkovatelé nebudou moct vytvářet další delegované zprostředkovatele, a to v podstatě tak, aby byl model k dispozici na jedné úrovni. Aby bylo možné přejít k novému modelu a správě předplatných, mohou být odběry uživatelů přesunuty mezi nové nebo existující odběry delegovaných zprostředkovatelů, kteří patří do stejného tenanta adresáře. Uživatelská předplatná, která patří do výchozího předplatného poskytovatele, můžete také přesunout do předplatných delegovaných poskytovatelů ve stejném adresáři – tenant.  Další informace najdete [v tématu delegování nabídek v Azure Stack](../azure-stack-delegated-provider.md).
@@ -275,13 +275,13 @@ Níže jsou uvedené známé problémy po instalaci této verze buildu.
                 "vmSize": "Standard_F32s_v2"
         },
     ```  
-  - Rozhraní příkazového **řádku Azure:** Můžete použít příkaz [AZ VM Create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create&preserve-view=true) a zadat velikost virtuálního počítače jako parametr, podobně jako `--size "Standard_F32s_v2"` .
+  - Rozhraní příkazového **řádku Azure:** Můžete použít příkaz [AZ VM Create](/cli/azure/vm?preserve-view=true&view=azure-cli-latest#az-vm-create) a zadat velikost virtuálního počítače jako parametr, podobně jako `--size "Standard_F32s_v2"` .
 
-  - **PowerShell:** Pomocí prostředí PowerShell můžete použít rutinu [New-AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0&preserve-view=true) s parametrem, který určuje velikost virtuálního počítače, podobně jako `-VMSize "Standard_F32s_v2"` .
+  - **PowerShell:** Pomocí prostředí PowerShell můžete použít rutinu [New-AzureRMVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig?preserve-view=true&view=azurermps-6.0.0) s parametrem, který určuje velikost virtuálního počítače, podobně jako `-VMSize "Standard_F32s_v2"` .
 
 
 <!-- TBD - IS ASDK --> 
-- Nastavení škálování pro sady škálování virtuálních počítačů nejsou na portálu k dispozici. Jako alternativní řešení můžete použít [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Kvůli rozdílům v verzi PowerShellu musíte použít `-Name` parametr místo `-VMScaleSetName` .
+- Nastavení škálování pro sady škálování virtuálních počítačů nejsou na portálu k dispozici. Jako alternativní řešení můžete použít [Azure PowerShell](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Kvůli rozdílům v verzi PowerShellu musíte použít `-Name` parametr místo `-VMScaleSetName` .
 
 <!-- TBD - IS --> 
 - Když na portálu vytvoříte skupinu dostupnosti tak, že kliknete na **Nová**  >    >  **Skupina dostupnosti** služby COMPUTE, můžete vytvořit jenom skupinu dostupnosti s doménou selhání a aktualizovat doménu na 1. Alternativním řešením při vytváření nového virtuálního počítače je vytvoření skupiny dostupnosti pomocí PowerShellu, rozhraní příkazového řádku nebo v rámci portálu.
@@ -367,4 +367,4 @@ Balíček aktualizací Azure Stack 1807 si můžete stáhnout [odsud.](https://a
 - Informace o zásadách obsluhy pro Azure Stack integrovaných systémech a o tom, co je potřeba udělat, abyste zachovali svůj systém v podporovaném stavu, najdete v tématu [zásady pro obsluhu Azure Stack](../azure-stack-servicing-policy.md).  
 - Postup pro monitorování a obnovení aktualizací pomocí privilegovaného koncového bodu (PEP) najdete v tématu [monitorování aktualizací v Azure Stack pomocí privilegovaného koncového bodu](../azure-stack-monitor-update.md).  
 - Přehled správy aktualizací v Azure Stack najdete v tématu [Správa aktualizací v Azure Stack přehledu](../azure-stack-updates.md).  
-- Další informace o tom, jak použít aktualizace s Azure Stack, najdete v tématu věnovaném [použití aktualizací v Azure Stack](../azure-stack-apply-updates.md).  
+- Další informace o tom, jak použít aktualizace s Azure Stack, najdete v tématu věnovaném [použití aktualizací v Azure Stack](../azure-stack-apply-updates.md).

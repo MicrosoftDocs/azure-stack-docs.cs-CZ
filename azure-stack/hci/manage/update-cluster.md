@@ -4,13 +4,13 @@ description: Jak použít aktualizace operačního systému a firmwaru Azure Sta
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 02/05/2021
-ms.openlocfilehash: 2ed1a6c2443f7222a873c412e991b4a39b253309
-ms.sourcegitcommit: ec19e8455b5cb90a071afb03ec1446b0a9aafb99
+ms.date: 03/04/2021
+ms.openlocfilehash: 971ca61e27a97f04319a1c6500f743ad8207954f
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99588644"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102186887"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>Aktualizace Azure Stackch clusterů HCI
 
@@ -47,7 +47,7 @@ Pomocí těchto kroků nainstalujete aktualizace:
 
    :::image type="content" source="media/update-cluster/operating-system-updates.png" alt-text="Klikněte na tlačítko Další: nainstalovat, chcete-li pokračovat v instalaci aktualizací operačního systému, nebo klikněte na tlačítko Přeskočit a vylučte je." lightbox="media/update-cluster/operating-system-updates.png":::
 
-5. Výběrem **instalovat** nainstalujete aktualizace operačního systému na každý server v clusteru. Zobrazí se změna stavu aktualizace na instalovat aktualizace. Pokud některá z aktualizací vyžaduje restart, servery se v jednu chvíli restartují a přesunou se role clusterů, jako jsou třeba virtuální počítače mezi servery, aby se předešlo výpadkům.
+5. Vyberte **instalovat** a nainstalujte aktualizace operačního systému. Jeden po jedné, každý server se stáhne a nainstaluje aktualizace. Zobrazí se změna stavu aktualizace na instalovat aktualizace. Pokud některá z aktualizací vyžaduje restart, servery se v jednu chvíli restartují a přesunou se role clusterů, jako jsou třeba virtuální počítače mezi servery, aby se předešlo výpadkům. V závislosti na nainstalovaných aktualizacích může celá Hromadná postupná aktualizace trvat pár minut až několik hodin.
 
    :::image type="content" source="media/update-cluster/install-os-updates.png" alt-text="Kliknutím na instalovat nainstalujete aktualizace operačního systému na každý server v clusteru." lightbox="media/update-cluster/install-os-updates.png":::
 

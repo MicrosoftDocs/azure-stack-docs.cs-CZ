@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/27/2019
-ms.openlocfilehash: d3225284c8352771042742f8c8d94e4ae01abe2c
-ms.sourcegitcommit: f9be5640dd445b3d926c9ce3e2165e96c72ece89
+ms.openlocfilehash: a062fa6f2d4242f1831233f672e0a8dc3dff20f7
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100009243"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102186921"
 ---
 # <a name="azure-stack-1901-update"></a>Aktualizace Azure Stack 1901
 
@@ -107,7 +107,7 @@ Tato aktualizace obsahuje následující nové funkce a vylepšení pro Azure St
    * **Modul Azs.Storage.Admin**  
          Oprava chyby – Pokud chybí zadání, použije se pro novou kvótu úložiště výchozí nastavení.
 
-Referenční informace o aktualizovaných modulech najdete v tématu [Azure Stack Reference k modulům](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0&viewFallbackFrom=azurestackps-1.7.0&preserve-view=true).
+Referenční informace o aktualizovaných modulech najdete v tématu [Azure Stack Reference k modulům](/powershell/azure/azure-stack/overview?preserve-view=true&view=azurestackps-1.6.0&viewFallbackFrom=azurestackps-1.7.0).
 
 ## <a name="fixed-issues"></a>Opravené problémy
 
@@ -170,7 +170,7 @@ Referenční informace o aktualizovaných modulech najdete v tématu [Azure Stac
 
    I když podpora AD FS podporuje, nasazení clusterů Kubernetes vyžaduje přístup k Internetu.
 
-- Po instalaci aktualizací nebo oprav hotfix do Azure Stack mohou být zavedeny nové funkce, které vyžadují, aby byla udělena nová oprávnění pro jednu nebo více aplikací identity. Udělení těchto oprávnění vyžaduje přístup správce k domovskému adresáři, a proto ho nelze automaticky provést. Příklad:
+- Po instalaci aktualizací nebo oprav hotfix do Azure Stack mohou být zavedeny nové funkce, které vyžadují, aby byla udělena nová oprávnění pro jednu nebo více aplikací identity. Udělení těchto oprávnění vyžaduje přístup správce k domovskému adresáři, a proto ho nelze automaticky provést. Například:
 
    ```powershell
    $adminResourceManagerEndpoint = "https://adminmanagement.<region>.<domain>"
@@ -259,7 +259,7 @@ Níže jsou uvedené známé problémy po instalaci této verze buildu.
 
 <!-- ### Health and monitoring -->
 
-### <a name="compute"></a>Compute
+### <a name="compute"></a>Výpočetní prostředky
 
 - Při vytváření nového virtuálního počítače s Windows se může zobrazit následující chyba:
 
@@ -334,4 +334,4 @@ Pouze v případě propojených scénářů Azure Stack nasazení pravidelně ko
 - Přehled správy aktualizací v Azure Stack najdete v tématu [Správa aktualizací v Azure Stack přehledu](../azure-stack-updates.md).  
 - Další informace o tom, jak použít aktualizace s Azure Stack, najdete v tématu věnovaném [použití aktualizací v Azure Stack](../azure-stack-apply-updates.md).
 - Informace o zásadách obsluhy pro Azure Stack integrovaných systémech a o tom, co je potřeba udělat, abyste zachovali svůj systém v podporovaném stavu, najdete v tématu [zásady pro obsluhu Azure Stack](../azure-stack-servicing-policy.md).  
-- Postup pro monitorování a obnovení aktualizací pomocí privilegovaného koncového bodu (PEP) najdete v tématu [monitorování aktualizací v Azure Stack pomocí privilegovaného koncového bodu](../azure-stack-monitor-update.md).  
+- Postup pro monitorování a obnovení aktualizací pomocí privilegovaného koncového bodu (PEP) najdete v tématu [monitorování aktualizací v Azure Stack pomocí privilegovaného koncového bodu](../azure-stack-monitor-update.md).

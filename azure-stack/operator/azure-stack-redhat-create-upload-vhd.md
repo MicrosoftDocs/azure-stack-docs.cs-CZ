@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Naučte se vytvořit a nahrát virtuální pevný disk Azure (VHD), který obsahuje operační systém Red Hat Linux.
 author: sethmanheim
 ms.topic: article
-ms.date: 2/18/2021
+ms.date: 3/3/2021
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.lastreviewed: 2/18/2021
-ms.openlocfilehash: 4dc1280b0120c5c64dff6a273ce13ae97dbe980c
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.lastreviewed: 3/3/2021
+ms.openlocfilehash: 92623d76de9f3358edc1d1ffb1cace199f2f6148
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "101840299"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187278"
 ---
 # <a name="offer-a-red-hat-based-virtual-machine-for-azure-stack-hub"></a>Nabídnout virtuální počítač se systémem Red Hat pro Azure Stack hub
 
@@ -24,7 +24,8 @@ Tento článek popisuje, jak připravit Red Hat Enterprise Linux virtuální po�
 Existují dva způsoby, jak můžete v centru Azure Stack nabízet virtuální počítače s Red Hat:
 
 - Nabídku můžete přidat prostřednictvím tržiště centra Azure Stack.
-    - Red Hat Enterprise Linux obrázky jsou privátní nabídka v centru Azure Stack. K zpřístupnění této nabídky na kartě **správy na webu Marketplace** budete muset [provést průzkum](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR_e32WQju3tMrgXNcUR94AVUNkJTWjdQRjc3TzFLREdGU0dIVFRUQ1JCSi4u).
+    - Seznamte se s podmínkami [programu Red Hat Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) . Umožněte svým předplatným Red Hat pro cloudový přístup v [Red Hat Subscription-Manager](https://access.redhat.com/management/cloud). Musíte mít k dispozici předplatná Azure, se kterými je vaše centrum Azure Stack zaregistrované, aby se mohlo zaregistrovat pro cloudový přístup.
+    - Red Hat Enterprise Linux obrázky jsou privátní nabídka v centru Azure Stack. K zpřístupnění této nabídky na kartě **správy na webu Marketplace** budete muset [provést průzkum](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR_e32WQju3tMrgXNcUR94AVUNkJTWjdQRjc3TzFLREdGU0dIVFRUQ1JCSi4u). Po zveřejnění průzkumu si tento průzkum potrvá sedm pracovních dní, aby se na kartě **Přidat z Azure** v rámci správy Marketplace zobrazila.
     - Další informace najdete v tématu [Přehled služby Azure Stack hub Marketplace](azure-stack-marketplace.md).
 - Můžete přidat vlastní možnost do centra Azure Stack a pak na webu Marketplace nabídnout image. 
     1. Budete muset mít k dispozici cloudový přístup Red Hat.

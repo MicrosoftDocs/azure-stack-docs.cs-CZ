@@ -5,12 +5,12 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
 ms.date: 01/11/2021
-ms.openlocfilehash: 8f93a56840d4e4410a42aafe117f6cb1eebe84b4
-ms.sourcegitcommit: 0983c1f90734b7ea5e23ae614eeaed38f9cb3c9a
+ms.openlocfilehash: 433a9b8b7bf6f57cac936b24d7654b94b8e8c050
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98571527"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102186802"
 ---
 # <a name="deploy-sql-server-on-azure-stack-hci"></a>Nasazení SQL Server v Azure Stack HCI
 
@@ -37,35 +37,35 @@ Dále pomocí centra pro správu systému Windows [vytvořte cluster Azure Stack
 V závislosti na vašich požadavcích můžete SQL Server nainstalovat na virtuální počítače se systémem Windows Server nebo Linux.
 
 Pokyny k instalaci SQL Server najdete v tématech:
-- [Instalační průvodce SQL Server pro Windows](https://docs.microsoft.com/sql/database-engine/install-windows/install-sql-server?view=sql-server-ver15&preserve-view=true).
-- [Pokyny k instalaci SQL Server on Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-setup?view=sql-server-ver15&preserve-view=true).
+- [Instalační průvodce SQL Server pro Windows](/sql/database-engine/install-windows/install-sql-server?preserve-view=true&view=sql-server-ver15).
+- [Pokyny k instalaci SQL Server on Linux](/sql/linux/sql-server-linux-setup?preserve-view=true&view=sql-server-ver15).
 
 ### <a name="step-3-monitor-and-performance-tune-sql-server"></a>Krok 3: SQL Server monitorování a výkonu pro Intune
 Microsoft poskytuje komplexní sadu nástrojů pro monitorování událostí v SQL Server a pro optimalizaci návrhu fyzické databáze. Volba nástroje závisí na typu monitorování nebo ladění, které chcete provést.
 
-Pokud chcete zajistit výkon a stav instancí SQL Server v Azure Stack HCI, přečtěte si téma [monitorování výkonu a ladění](https://docs.microsoft.com/sql/relational-databases/performance/performance-monitoring-and-tuning-tools?view=sql-server-ver15&preserve-view=true).
+Pokud chcete zajistit výkon a stav instancí SQL Server v Azure Stack HCI, přečtěte si téma [monitorování výkonu a ladění](/sql/relational-databases/performance/performance-monitoring-and-tuning-tools?preserve-view=true&view=sql-server-ver15).
 
 Informace o ladění SQL Server 2017 a SQL Server 2016 najdete v tématu [Doporučené aktualizace a možnosti konfigurace pro SQL Server 2017 a 2016 s vysokým výkonem úloh](https://support.microsoft.com/help/4465518/recommended-updates-and-configurations-for-sql-server).
 
 ### <a name="step-4-use-sql-server-high-availability-features"></a>Krok 4: použití funkcí vysoké dostupnosti SQL Server
-Azure Stack HCI využívá [Clustering s podporou převzetí služeb při selhání Windows serveru s SQL Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) (WSFC) k podpoře SQL Server spouštění na virtuálních počítačích v případě selhání hardwaru. SQL Server taky nabízí [skupiny dostupnosti Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) (AG) k zajištění vysoké dostupnosti na úrovni databáze, která je navržená tak, aby pomáhala chybám aplikací a softwaru. Kromě služby WSFC a AG může Azure Stack HCI používat [vždy na instanci clusteru s podporou převzetí služeb při selhání](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server) (FCI), která je založená na [prostory úložiště s přímým přístupem](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) technologii pro sdílené úložiště.
+Azure Stack HCI využívá [Clustering s podporou převzetí služeb při selhání Windows serveru s SQL Server](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) (WSFC) k podpoře SQL Server spouštění na virtuálních počítačích v případě selhání hardwaru. SQL Server taky nabízí [skupiny dostupnosti Always On](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) (AG) k zajištění vysoké dostupnosti na úrovni databáze, která je navržená tak, aby pomáhala chybám aplikací a softwaru. Kromě služby WSFC a AG může Azure Stack HCI používat [vždy na instanci clusteru s podporou převzetí služeb při selhání](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server) (FCI), která je založená na [prostory úložiště s přímým přístupem](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) technologii pro sdílené úložiště.
 
-Všechny tyto možnosti fungují s Microsoft Azure [cloudovou kopií](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness) pro řízení kvora. Pro virtuální počítače, které jsou umístěné na různých fyzických uzlech, doporučujeme používat pravidla pro [antispřažení](https://docs.microsoft.com/windows-server/failover-clustering/cluster-affinity) clusteru v rámci služby WSFC pro zajištění doby provozu SQL Server v případě selhání hostitelů při konfiguraci skupiny dostupnosti Always On.
+Všechny tyto možnosti fungují s Microsoft Azure [cloudovou kopií](/windows-server/failover-clustering/deploy-cloud-witness) pro řízení kvora. Pro virtuální počítače, které jsou umístěné na různých fyzických uzlech, doporučujeme používat pravidla pro [antispřažení](/windows-server/failover-clustering/cluster-affinity) clusteru v rámci služby WSFC pro zajištění doby provozu SQL Server v případě selhání hostitelů při konfiguraci skupiny dostupnosti Always On.
 
 ### <a name="step-5-set-up-azure-hybrid-services"></a>Krok 5: nastavení Azure Hybrid Services
-K dispozici je několik hybridních služeb Azure, které vám pomůžou zajistit zabezpečení vašich SQL Serverch dat a aplikací. [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) je zotavení po havárii jako služba (DRaaS). Další informace o použití této služby k ochraně SQL Server back-endu aplikace, aby bylo možné udržet úlohy online, najdete v tématu [Nastavení zotavení po havárii pro SQL Server](https://docs.microsoft.com/azure/site-recovery/site-recovery-sql).
+K dispozici je několik hybridních služeb Azure, které vám pomůžou zajistit zabezpečení vašich SQL Serverch dat a aplikací. [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) je zotavení po havárii jako služba (DRaaS). Další informace o použití této služby k ochraně SQL Server back-endu aplikace, aby bylo možné udržet úlohy online, najdete v tématu [Nastavení zotavení po havárii pro SQL Server](/azure/site-recovery/site-recovery-sql).
 
-[Azure Backup](https://azure.microsoft.com/services/backup/) vám umožní definovat zásady zálohování pro ochranu podnikových úloh a podporuje zálohování a obnovení konzistence SQL Server. Další informace o tom, jak zálohovat místní data SQL, najdete v tématu [Install Azure Backup Server](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup).
+[Azure Backup](https://azure.microsoft.com/services/backup/) vám umožní definovat zásady zálohování pro ochranu podnikových úloh a podporuje zálohování a obnovení konzistence SQL Server. Další informace o tom, jak zálohovat místní data SQL, najdete v tématu [Install Azure Backup Server](/azure/backup/backup-azure-microsoft-azure-backup).
 
-Alternativně můžete použít funkci [spravovaného zálohování SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure?view=sql-server-ver15&preserve-view=true) v SQL Server ke správě zálohování služby Azure Blob Storage.
+Alternativně můžete použít funkci [spravovaného zálohování SQL Server](/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure?preserve-view=true&view=sql-server-ver15) v SQL Server ke správě zálohování služby Azure Blob Storage.
 
 Další informace o použití této možnosti, která je vhodná pro archivaci mimo lokalitu, najdete v těchto tématech: 
 
-- [Kurz: Použití služby Azure Blob Storage s SQL Serverem 2016](https://docs.microsoft.com/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016?view=sql-server-ver15&preserve-view=true)
-- [Rychlý Start: zálohování a obnovení SQL do služby Azure Blob Storage](https://docs.microsoft.com/sql/relational-databases/tutorial-sql-server-backup-and-restore-to-azure-blob-storage-service?view=sql-server-ver15&tabs=SSMS&preserve-view=true)
+- [Kurz: Použití služby Azure Blob Storage s SQL Serverem 2016](/sql/relational-databases/tutorial-use-azure-blob-storage-service-with-sql-server-2016?preserve-view=true&view=sql-server-ver15)
+- [Rychlý Start: zálohování a obnovení SQL do služby Azure Blob Storage](/sql/relational-databases/tutorial-sql-server-backup-and-restore-to-azure-blob-storage-service?preserve-view=true&tabs=SSMS&view=sql-server-ver15)
 
-Kromě těchto scénářů zálohování můžete nastavit další databázové služby, které SQL Server nabídky, včetně [Azure Data Factory](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/move-sql-azure-adf) a [Azure Feature Pack pro integrační služby (SSIS)](https://docs.microsoft.com/sql/integration-services/azure-feature-pack-for-integration-services-ssis?view=sql-server-ver15&preserve-view=true).
+Kromě těchto scénářů zálohování můžete nastavit další databázové služby, které SQL Server nabídky, včetně [Azure Data Factory](/azure/machine-learning/team-data-science-process/move-sql-azure-adf) a [Azure Feature Pack pro integrační služby (SSIS)](/sql/integration-services/azure-feature-pack-for-integration-services-ssis?preserve-view=true&view=sql-server-ver15).
 
 ## <a name="next-steps"></a>Další kroky
 Další informace o práci s SQL Server najdete v těchto tématech:
-- [Kurz: Začínáme s databázovým strojem](https://docs.microsoft.com/sql/relational-databases/tutorial-getting-started-with-the-database-engine?view=sql-server-ver15&preserve-view=true)
+- [Kurz: Začínáme s databázovým strojem](/sql/relational-databases/tutorial-getting-started-with-the-database-engine?preserve-view=true&view=sql-server-ver15)

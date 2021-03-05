@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/30/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9222315f9a055ddc2b49ed470b0f22b653197473
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 77a9bab5e9b501aa54115a7e61d1b9a639c59ec5
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248114"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187295"
 ---
 # <a name="azure-stack-1904-update"></a>Aktualizace Azure Stack 1904
 
@@ -71,7 +71,7 @@ Typ sestavení aktualizace Azure Stack 1904 je **Express**. Další informace o 
 - Vylepšený objem zpráv syslog filtrováním zbytečných událostí a zadáním konfiguračního parametru pro výběr požadované úrovně závažnosti pro předávané zprávy. Další informace o tom, jak nakonfigurovat úroveň závažnosti, najdete v tématu [Azure Stack Integration Datacenter – předávání SYSLOG](../azure-stack-integrate-security.md).
 
 <!--this applied to Bug 1473487 -->
-- Do rutiny **Get-AzureStackLog** se přidala nová funkce, která zahrnuje další parametr, `-OutputSASUri` . Nyní můžete shromažďovat protokoly Azure Stack z vašeho prostředí a ukládat je do zadaného Azure Storage kontejneru objektů BLOB. Další informace najdete v tématu [diagnostika Azure Stack](../azure-stack-configure-on-demand-diagnostic-log-collection.md#examples).
+- Do rutiny **Get-AzureStackLog** se přidala nová funkce, která zahrnuje další parametr, `-OutputSASUri` . Nyní můžete shromažďovat protokoly Azure Stack z vašeho prostředí a ukládat je do zadaného Azure Storage kontejneru objektů BLOB. Další informace najdete v tématu [diagnostika Azure Stack](/azure-stack/operator/relnotearchive/azure-stack-configure-on-demand-diagnostic-log-collection-portal#examples).
 
 - Do skupiny **test-AzureStack** bylo přidáno nové vrácení paměti `UpdateReadiness` , které kontroluje, jestli je v zásobníku k dispozici dostatek paměti, aby se aktualizace úspěšně dokončila.
 
@@ -88,7 +88,7 @@ Typ sestavení aktualizace Azure Stack 1904 je **Express**. Další informace o 
 - Vylepšení plánu akcí zálohování infrastruktury idempotence.
 
 <!--Bug/Task 3139609 -->
-- Vylepšení shromažďování protokolů Azure Stack. Tato vylepšení omezují dobu potřebnou k načtení sady protokolů. Rutina [Get-AzureStackLog](../azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system) už navíc negeneruje výchozí protokoly pro roli OEM. Je nutné spustit rutinu [Invoke-AzureStackOnDemandLog](../azure-stack-configure-on-demand-diagnostic-log-collection.md#invoke-azurestackondemandlog) a zadat roli pro načtení protokolů OEM. Další informace najdete v tématu [diagnostika Azure Stack](../azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
+- Vylepšení shromažďování protokolů Azure Stack. Tato vylepšení omezují dobu potřebnou k načtení sady protokolů. Rutina [Get-AzureStackLog](/azure-stack/operator/relnotearchive/azure-stack-configure-on-demand-diagnostic-log-collection-portal#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system) už navíc negeneruje výchozí protokoly pro roli OEM. Je nutné spustit rutinu [Invoke-AzureStackOnDemandLog](/azure-stack/operator/relnotearchive/azure-stack-configure-on-demand-diagnostic-log-collection-portal#invoke-azurestackondemandlog) a zadat roli pro načtení protokolů OEM. Další informace najdete v tématu [diagnostika Azure Stack](/azure-stack/operator/relnotearchive/azure-stack-configure-on-demand-diagnostic-log-collection-portal#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system).
 
 - Azure Stack teď sleduje adresu URL federačních dat poskytnutých pro integraci Datacenter se službou AD FS. To zlepšuje spolehlivost při střídání tajnosti instance nebo farmy služby AD FS.
 
@@ -205,5 +205,4 @@ Zákazníci se systémy, které mají přístup k Internetu z sítě infrastrukt
 - Přehled správy aktualizací v Azure Stack najdete v tématu [Správa aktualizací v Azure Stack přehledu](../azure-stack-updates.md).  
 - Další informace o tom, jak použít aktualizace s Azure Stack, najdete v tématu věnovaném [použití aktualizací v Azure Stack](../azure-stack-apply-updates.md).
 - Informace o zásadách obsluhy pro Azure Stack integrovaných systémech a o tom, co je potřeba udělat, abyste zachovali svůj systém v podporovaném stavu, najdete v tématu [zásady pro obsluhu Azure Stack](../azure-stack-servicing-policy.md).  
-- Postup pro monitorování a obnovení aktualizací pomocí privilegovaného koncového bodu (PEP) najdete v tématu [monitorování aktualizací v Azure Stack pomocí privilegovaného koncového bodu](../azure-stack-monitor-update.md).  
-
+- Postup pro monitorování a obnovení aktualizací pomocí privilegovaného koncového bodu (PEP) najdete v tématu [monitorování aktualizací v Azure Stack pomocí privilegovaného koncového bodu](../azure-stack-monitor-update.md).

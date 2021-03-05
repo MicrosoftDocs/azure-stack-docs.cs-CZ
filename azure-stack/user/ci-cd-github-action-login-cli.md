@@ -7,12 +7,12 @@ ms.date: 1/11/2021
 ms.author: mabrigg
 ms.reviewer: gara
 ms.lastreviewed: 1/11/2021
-ms.openlocfilehash: 4413070dc3d55a7a879b5c4589d9f453a617e0e0
-ms.sourcegitcommit: 51ce5ba6cf0a377378d25dac63f6f2925339c23d
+ms.openlocfilehash: 1421917f870d09d61f665a2cee6eb9b617ae75f3
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98224635"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187346"
 ---
 # <a name="use-the-azure-login-action-with-azure-cli-and-powershell-on-azure-stack-hub"></a>Použití akce přihlášení Azure pomocí Azure CLI a PowerShellu v centru Azure Stack
 
@@ -136,8 +136,8 @@ K šifrování citlivých informací, které se mají použít ve svých akcích
 1. Vytvořte svůj samoobslužný spouštěč. 
 
     Tyto pokyny vytvoří Runner jako virtuální počítač s Windows v Azure. Pokud se potřebujete připojit ke svému rozbočovači Azure Stack hostovanému v datacentru, můžete vyžadovat připojení k síti VPN. Pokyny k povolení připojení najdete v části [Instalace nástrojů centra Azure Stack na váš spouštěč v místním prostředí](#optional-install-azure-stack-hub-tools-on-your-self-hosted-runner) , který může vyžadovat připojení k síti VPN.
-    - Pokyny k vytvoření virtuálního počítače s Windows v Azure najdete v tématu [rychlý Start: Vytvoření virtuálního počítače s Windows v Azure Portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal). Pokud budete postupovat podle těchto pokynů, nainstalujte Windows Server 2016 Core.
-    - Pokyny k vytvoření virtuálního počítače s Windows v centru Azure Stack najdete v tématu [rychlý Start: Vytvoření virtuálního počítače s Windows serverem pomocí portálu služby Azure Stack hub](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal). Pokud budete postupovat podle těchto pokynů, nainstalujte Windows Server 2016 Core.
+    - Pokyny k vytvoření virtuálního počítače s Windows v Azure najdete v tématu [rychlý Start: Vytvoření virtuálního počítače s Windows v Azure Portal](/azure/virtual-machines/windows/quick-create-portal). Pokud budete postupovat podle těchto pokynů, nainstalujte Windows Server 2016 Core.
+    - Pokyny k vytvoření virtuálního počítače s Windows v centru Azure Stack najdete v tématu [rychlý Start: Vytvoření virtuálního počítače s Windows serverem pomocí portálu služby Azure Stack hub](./azure-stack-quick-windows-portal.md). Pokud budete postupovat podle těchto pokynů, nainstalujte Windows Server 2016 Core.
 1. Pomocí vzdáleného připojení se připojte k serveru Windows 2016 pomocí IP adresy serveru, uživatelského jména a hesla, které jste definovali při vytváření počítače.
 1. Nainstalujte čokolády. Čokoláda je správce balíčků pro Windows, který můžete použít k instalaci a správě závislostí z příkazového řádku. Z příkazového řádku PowerShellu se zvýšenými oprávněními zadejte:
     ```powershell
@@ -159,7 +159,7 @@ K šifrování citlivých informací, které se mají použít ve svých akcích
     Install-AzProfile -Profile 2019-03-01-hybrid -Force
     Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
     ```
-    Další informace o použití centra Azure Stack AZ moduls naleznete v tématu [install PowerShell AZ Module for Azure Stack hub](https://docs.microsoft.com/azure-stack/operator/powershell-install-az-module).
+    Další informace o použití centra Azure Stack AZ moduls naleznete v tématu [install PowerShell AZ Module for Azure Stack hub](../operator/powershell-install-az-module.md).
 7. Restartujte počítač. Z příkazového řádku PowerShellu se zvýšenými oprávněními zadejte:
     ```powershell  
     shutdown /r
@@ -172,7 +172,7 @@ K šifrování citlivých informací, které se mají použít ve svých akcích
 
 ### <a name="optional-install-azure-stack-hub-tools-on-your-self-hosted-runner"></a>Volitelné: Instalace nástrojů centra Azure Stack na váš samoobslužný spouštěč
 
-Pokyny v tomto článku nevyžadují přístup k [nástrojům centra Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-download?&tabs=az), ale při vývoji vlastního pracovního postupu možná budete muset nástroje použít. Následující pokyny vám pomůžou při instalaci nástrojů na spouštěč Windows v místním prostředí. Další informace o nástrojích centra Azure Stack najdete v tématu [Stažení nástrojů centra Azure Stack z GitHubu](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-download?&tabs=az). V těchto pokynech se předpokládá, že máte nainstalovanou čokoláda správce balíčků.
+Pokyny v tomto článku nevyžadují přístup k [nástrojům centra Azure Stack](../operator/azure-stack-powershell-download.md?tabs=az), ale při vývoji vlastního pracovního postupu možná budete muset nástroje použít. Následující pokyny vám pomůžou při instalaci nástrojů na spouštěč Windows v místním prostředí. Další informace o nástrojích centra Azure Stack najdete v tématu [Stažení nástrojů centra Azure Stack z GitHubu](../operator/azure-stack-powershell-download.md?tabs=az). V těchto pokynech se předpokládá, že máte nainstalovanou čokoláda správce balíčků.
 
 1. Nainstalujte Git.
     ```powershell  
@@ -199,7 +199,7 @@ Pokyny v tomto článku nevyžadují přístup k [nástrojům centra Azure Stack
     cd AzureStack-Tools-az
     ```
 
-3. Pokud potřebujete, aby se váš spouštěč připojil k instanci centra Azure Stack, můžete použít PowerShell. Pokyny najdete v článku [připojení k Azure Stack centru pomocí PowerShellu](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-configure-admin?&tabs=az1%2Caz2%2Caz3).
+3. Pokud potřebujete, aby se váš spouštěč připojil k instanci centra Azure Stack, můžete použít PowerShell. Pokyny najdete v článku [připojení k Azure Stack centru pomocí PowerShellu](../operator/azure-stack-powershell-configure-admin.md?tabs=az1%2Caz2%2Caz3).
 
 ## <a name="create-a-self-hosted-runner"></a>Vytvoření samoobslužného spouštěče
 
@@ -295,4 +295,4 @@ Poznámky k souboru pracovního postupu a akci:
 - Další akce najdete na [webu GitHub Marketplace](https://github.com/marketplace).
 - Informace o [běžných nasazeních centra Azure Stack](azure-stack-dev-start-deploy-app.md)  
 - Další informace o [použití Azure Resource Manager šablon v centru Azure Stack](azure-stack-arm-templates.md)  
-- Kontrola vzoru hybridního cloudu DevOps, [vzoru DevOps](https://docs.microsoft.com/hybrid/app-solutions/pattern-cicd-pipeline)
+- Kontrola vzoru hybridního cloudu DevOps, [vzoru DevOps](/hybrid/app-solutions/pattern-cicd-pipeline)

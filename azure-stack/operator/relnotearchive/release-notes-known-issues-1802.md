@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.author: brenduns
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: b9334a3079a767f723240946af8091508204b8ae
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 63a42e4b3cab1273c84c52367178c00442bf2cf2
+ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99248101"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102187227"
 ---
 # <a name="azure-stack-1802-update"></a>Aktualizace Azure Stack 1802
 
@@ -129,7 +129,7 @@ Níže jsou uvedené známé problémy po instalaci pro Build **20180302,1** .
     Tato výstraha se dá bezpečně ignorovat. 
 
 <!-- 2253274 --> 
-- Na portálech pro správu a uživatele se nepovede načíst okno nastavení pro podsítě virtuální sítě. Jako alternativní řešení pomocí PowerShellu a rutiny [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0&preserve-view=true) tyto informace můžete zobrazit a spravovat.
+- Na portálech pro správu a uživatele se nepovede načíst okno nastavení pro podsítě virtuální sítě. Jako alternativní řešení pomocí PowerShellu a rutiny [Get-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?preserve-view=true&view=azurermps-5.5.0) tyto informace můžete zobrazit a spravovat.
 
 - Na portálu pro správu i na portálu User Portal se okno Přehled nepodařilo načíst, když vyberete okno Přehled pro účty úložiště, které byly vytvořeny pomocí starší verze rozhraní API (příklad: 2015-06-15). To zahrnuje účty systémových úložišť, jako je **updateadminaccount** , které se používají během opravy a aktualizace. 
 
@@ -161,7 +161,7 @@ Níže jsou uvedené známé problémy po instalaci pro Build **20180302,1** .
 - Uživatelé můžou procházet celou Marketplace bez předplatného a můžou zobrazit položky pro správu, jako jsou plány a nabídky. Tyto položky pro uživatele nejsou funkční.
 
 #### <a name="compute"></a>Výpočetní prostředky
-- Nastavení škálování pro sady škálování virtuálních počítačů nejsou na portálu k dispozici. Jako alternativní řešení můžete použít [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Kvůli rozdílům v verzi PowerShellu musíte použít `-Name` parametr místo `-VMScaleSetName` .
+- Nastavení škálování pro sady škálování virtuálních počítačů nejsou na portálu k dispozici. Jako alternativní řešení můžete použít [Azure PowerShell](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Kvůli rozdílům v verzi PowerShellu musíte použít `-Name` parametr místo `-VMScaleSetName` .
 
 <!-- 2290877  --> 
 - Nejde škálovat sadu virtuálních počítačů (VMSS), která se vytvořila při použití Azure Stack před verzí 1802. Důvodem je změna podpory pro používání skupin dostupnosti se službou Virtual Machine Scale Sets. Tato podpora se přidala s verzí 1802.  Když se pokusíte přidat další instance pro škálování VMSS, který byl vytvořen před tím, než je tato podpora přidána, akce se nezdaří se *stavem zřizování zprávy se nezdařilo*. 
@@ -314,7 +314,7 @@ Balíček aktualizací Azure Stack 1802 si můžete stáhnout [odsud.](https://a
 ## <a name="more-information"></a>Další informace
 Společnost Microsoft poskytuje způsob, jak monitorovat a obnovovat aktualizace pomocí privilegovaného koncového bodu (PEP) nainstalovaného s aktualizací Update 1710.
 
-- Další informace najdete v tématu [monitorování aktualizací v Azure Stack pomocí dokumentace k privilegovanému koncovému bodu](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update).
+- Další informace najdete v tématu [monitorování aktualizací v Azure Stack pomocí dokumentace k privilegovanému koncovému bodu](/azure/azure-stack/azure-stack-monitor-update).
 
 ## <a name="see-also"></a>Viz také
 
