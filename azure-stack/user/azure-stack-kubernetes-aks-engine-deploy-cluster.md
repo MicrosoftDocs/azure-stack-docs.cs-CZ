@@ -3,16 +3,16 @@ title: Nasazení clusteru Kubernetes s modulem AKS na rozbočovači Azure Stack
 description: Postup nasazení clusteru Kubernetes na rozbočovači Azure Stack z virtuálního počítače klienta, na kterém běží modul AKS.
 author: mattbriggs
 ms.topic: article
-ms.date: 2/5/2021
+ms.date: 3/4/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 2/5/2021
-ms.openlocfilehash: 3343dc1a4fddbac0e01d0b63fcc8f434084237f0
-ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
+ms.lastreviewed: 3/4/2021
+ms.openlocfilehash: fac8ea63e3a8359fa6d1455a9ffe5eb86725530f
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99850844"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231570"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>Nasazení clusteru Kubernetes s modulem AKS v centru Azure Stack
 
@@ -26,12 +26,16 @@ Specifikaci clusteru můžete zadat v souboru dokumentu pomocí formátu JSON, k
 
 V této části se podíváme na vytvoření modelu rozhraní API pro váš cluster.
 
-1.  Začněte použitím souboru modelu rozhraní API centra Azure Stack pro [Linux](https://aka.ms/aksengine-json-example-raw) nebo pro [Windows](https://aka.ms/aksengine-json-example-raw-win) a vytvořte místní kopii pro vaše nasazení. Z počítače jste nainstalovali modul AKS, spusťte:
+1.  Začněte použitím souboru modelu rozhraní API centra Azure Stack pro Linux nebo Windows.
 
-    ```bash
-    curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/v0.55.4/examples/azure-stack/kubernetes-azurestack.json
-    ```
-
+    1. Pro [ **Linux** Stáhněte](https://aka.ms/aksengine-json-example-raw) a pak z počítače, na který jste nainstalovali modul AKS, spusťte:
+        ```bash
+        curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/patch-release-v0.60.1/examples/azure-stack/kubernetes-azurestack.json
+        ```
+    1. Pro [ **Windows** Stáhněte](https://aka.ms/aksengine-json-example-raw-win) a vytvořte místní kopii pro vaše nasazení. Pak z počítače jste nainstalovali modul AKS, spusťte příkaz:
+        ```bash
+        curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/patch-release-v0.60.1/examples/azure-stack/kubernetes-windows.json
+        ```
     > [!NOTE]  
     > Pokud se odpojíte, můžete soubor stáhnout a ručně ho zkopírovat do odpojeného počítače, kde ho chcete upravit. Soubor můžete zkopírovat do počítače se systémem Linux pomocí nástrojů, jako jsou například výstupy [nebo WinSCP](https://www.suse.com/documentation/opensuse103/opensuse103_startup/data/sec_filetrans_winssh.html).
 
@@ -44,7 +48,7 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
     > [!NOTE]  
     > Pokud nemáte nainstalovaný nano, můžete nainstalovat nano na Ubuntu: `sudo apt-get install nano` .
 
-3.  V kubernetes-azurestack.jsv souboru vyhledejte orchestratorRelease a orchestratorVersion. Vyberte jednu z podporovaných verzí Kubernetes. Například pro `orchestratorRelease` použití 1,14 nebo 1,15 a pro `orchestratorVersion` použití 1.14.7 nebo 1.15.10. Zadejte `orchestratorRelease` jako x. XX a orchestratorVersion jako x. xx. x. Seznam aktuálních verzí najdete v tématu [podporované verze modulu AKS](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions) .
+3.  V kubernetes-azurestack.jsv souboru vyhledejte orchestratorRelease a orchestratorVersion. Vyberte jednu z podporovaných verzí Kubernetes. [tabulku verzí můžete najít v poznámkách k verzi](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping). Zadejte `orchestratorRelease` jako x. XX a orchestratorVersion jako x. xx. x. Seznam aktuálních verzí najdete v tématu [podporované verze modulu AKS](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping) .
 
 4.  Vyhledejte `customCloudProfile` adresu URL portálu tenanta a poskytněte ji. Například, `https://portal.local.azurestack.external`. 
 
@@ -64,27 +68,24 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
 
 7.  V nástroji `masterProfile` nastavte následující pole:
 
-    | Pole | Description |
+    | Pole | Popis |
     | --- | --- |
     | Pole dnsprefix | Zadejte jedinečný řetězec, který bude sloužit k identifikaci názvu hostitele virtuálních počítačů. Například název založený na názvu skupiny prostředků. |
     | count |  Zadejte počet hlavních serverů, které chcete pro nasazení nasadit. Minimální pro nasazení HA je 3, ale 1 je povolená pro nasazení bez vysoké dostupnosti. |
     | vmSize |  Zadejte [velikost podporovanou Azure Stack hub](./azure-stack-vm-sizes.md), například `Standard_D2_v2` . |
-    | distribuce | Zadejte `aks-ubuntu-16.04`. |
+    | distribuce | Zadejte `aks-ubuntu-16.04` nebo `aks-ubuntu-18.04` . |
 
 8.  V nástroji `agentPoolProfiles` Update:
 
-    | Pole | Description |
+    | Pole | Popis |
     | --- | --- |
     | count | Zadejte počet agentů, které chcete pro nasazení. Maximální počet uzlů, které se mají použít na předplatné, je 50. Pokud nasazujete více než jeden cluster na předplatné, zajistěte, aby celkový počet agentů nepřesahuje 50. Ujistěte se, že jste používali položky konfigurace zadané v [ukázkovém souboru JSON modelu rozhraní API](https://aka.ms/aksengine-json-example-raw).  |
     | vmSize | Zadejte [velikost podporovanou Azure Stack hub](./azure-stack-vm-sizes.md), například `Standard_D2_v2` . |
-    | distribuce | Zadejte `aks-ubuntu-16.04`. |
-
-
-
+    | distribuce | Zadejte `aks-ubuntu-16.04` `aks-ubuntu-18.04` nebo `Windows` .<br>Použijte `Windows` pro agenty, kteří se budou spouštět v systému Windows. Příklad naleznete v tématu [kubernetes-windows.json](https://raw.githubusercontent.com/Azure/aks-engine/patch-release-v0.60.1/examples/azure-stack/kubernetes-windows.json) . |
 
 9.  V nástroji `linuxProfile` Update:
 
-    | Pole | Description |
+    | Pole | Popis |
     | --- | --- |
     | adminUsername | Zadejte uživatelské jméno správce virtuálního počítače. |
     | protokoly | Zadejte veřejný klíč, který se bude používat pro ověřování SSH s virtuálními počítači. Použijte `ssh-rsa` a pak klíč. Pokyny k vytvoření veřejného klíče najdete v tématu [vytvoření klíče SSH pro Linux](create-ssh-key-on-windows.md). |
@@ -93,6 +94,16 @@ V této části se podíváme na vytvoření modelu rozhraní API pro váš clus
 
     > [!NOTE]  
     > Modul AKS pro centrum Azure Stack neumožňuje poskytnout vlastní certifikáty pro vytvoření clusteru.
+
+10. Pokud používáte systém Windows, v části `windowsProfile` aktualizujte hodnoty `adminUsername:` a `adminPassword` :
+
+    ```json
+    "windowsProfile": {
+    "adminUsername": "azureuser",
+    "adminPassword": "",
+    "sshEnabled": true
+    }
+    ```
 
 ### <a name="more-information-about-the-api-model"></a>Další informace o modelu rozhraní API
 
@@ -113,7 +124,7 @@ Pokračujte v nasazení clusteru:
 
 1.  Přečtěte si dostupné parametry pro modul AKS v části Azure Stack centra [CLI](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cli-flags).
 
-    | Parametr | Příklad | Description |
+    | Parametr | Příklad | Popis |
     | --- | --- | --- |
     | Azure – ENV | AzureStackCloud | K indikaci AKS Engine, že vaše cílová platforma je Azure Stack použití centra `AzureStackCloud` . |
     | Identita – systém | službou | Nepovinný parametr. Pokud používáte federované služby Active Directory (AD FS), zadejte svoje řešení pro správu identit. |

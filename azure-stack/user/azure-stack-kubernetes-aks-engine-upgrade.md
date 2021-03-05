@@ -3,22 +3,21 @@ title: Upgrade clusteru Kubernetes na rozbočovači Azure Stack
 description: Naučte se upgradovat cluster Kubernetes na rozbočovači Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 2/1/2021
+ms.date: 3/4/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 5c360b4196a128073817b1b9525787e2be0d1310
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.lastreviewed: 3/4/2021
+ms.openlocfilehash: 0db454750b56e9c4dbb765092c48643b1df15470
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99247247"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231553"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Upgrade clusteru Kubernetes na rozbočovači Azure Stack
 
-## <a name="upgrade-a-cluster"></a>Upgrade clusteru
-
 Modul AKS umožňuje upgradovat cluster, který byl původně nasazen pomocí nástroje. Clustery můžete udržovat pomocí modulu AKS. Vaše úlohy údržby jsou podobné jakémukoli IaaS systému. Měli byste si uvědomit o dostupnosti nových aktualizací a použít modul AKS k jejich použití.
+## <a name="upgrade-a-cluster"></a>Upgrade clusteru
 
 Příkaz pro upgrade aktualizuje verzi Kubernetes a základní image operačního systému. Pokaždé, když spustíte příkaz pro upgrade pro každý uzel clusteru, vytvoří modul AKS nový virtuální počítač pomocí základní image AKS přidružené k používané verzi **AKS modulu** . Pomocí `aks-engine upgrade` příkazu můžete zachovat měnu všech hlavních uzlů a uzlů agentů v clusteru. 
 
@@ -45,17 +44,15 @@ Při upgradu produkčního clusteru Vezměte v úvahu:
 > [!NOTE]  
 > Základní bitová kopie AKS bude upgradována i v případě, že používáte novější verzi modulu AKS a bitová kopie je k dispozici na webu Marketplace.
 
-Následující pokyny používají minimální postup k provedení upgradu. Pokud chcete další podrobnosti, přečtěte si článek [upgrade Kubernetes clusterů](https://github.com/Azure/aks-engine/blob/master/docs/topics/upgrade.md).
+Následující pokyny používají minimální postup k provedení upgradu. Pokud by se vám poznamenalo více podrobností, přečtěte si článek [upgrade Kubernetes clusterů](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping).
 
-1. Nejdřív musíte určit verze, které můžete pro upgrade cílit. Tato verze závisí na verzi, kterou máte aktuálně k dispozici, a potom k provedení upgradu použijte tuto hodnotu verze. Verze Kubernetes podporované v nejnovější aktualizaci jsou 1.14.7 a 1.15.10. Pro dostupné upgrady použijte tuto tabulku:
-
-| Aktuální verze | Dostupný upgrade |
-| ------------------------- | ----------------------- |
-| 1.15.10 | 1.15.12 |
-| 1.15.12, 1.16.8, 1.16.9 | 1.16.14 |
-| 1.16.8, 1.16.9, 1.16.14 | 1.17.11 |
-
-Úplné mapování modulu AKS, verze AKS Base image a Kubernetes najdete v článku [podporované verze modulu AKS](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions).
+1. Nejdřív musíte určit verze, které můžete pro upgrade cílit. Tato verze závisí na verzi, kterou máte aktuálně k dispozici, a potom k provedení upgradu použijte tuto hodnotu verze. Verze Kubernetes podporované modulem AKS mohou být uvedeny spuštěním tohoto příkazu:
+    
+    ```bash
+    aks-engine get-versions --azure-env AzureStackCloud
+    ```
+    
+    Úplné mapování modulu AKS, verze AKS Base image a Kubernetes najdete v článku [podporované verze modulu AKS](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping).
 
 2. Shromážděte informace, které budete potřebovat ke spuštění `upgrade` příkazu. Upgrade používá následující parametry:
 
@@ -79,7 +76,7 @@ Následující pokyny používají minimální postup k provedení upgradu. Poku
     --resource-group kube-rg \
     --subscription-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
     --api-model kube-rg/apimodel.json \
-    --upgrade-version 1.13.5 \
+    --upgrade-version 1.18.15 \
     --client-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
     --client-secret xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
     --identity-system adfs # required if using AD FS
@@ -89,11 +86,19 @@ Následující pokyny používají minimální postup k provedení upgradu. Poku
 
 ## <a name="steps-to-only-upgrade-the-os-image"></a>Postup upgradu image operačního systému
 
-1. Projděte si [tabulku Supported-Kubernetes-Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions) a určete, jestli máte naou verzi AKS a image AKS Base, kterou plánujete upgradovat. Chcete-li zobrazit verzi modulu AKS Runtime: `aks-engine version` .
+1. Projděte si [tabulku Supported-Kubernetes-Versions](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping) a určete, jestli máte naou verzi AKS a image AKS Base, kterou plánujete upgradovat. Chcete-li zobrazit verzi modulu AKS Runtime: `aks-engine version` .
 2. Upgradujte modul AKS odpovídajícím způsobem na počítači, kde jste nainstalovali AKS modul runtime: `./get-akse.sh --version vx.xx.x` nahraďte **x. xx. x** cílovou verzí.
 3. Požádejte svého operátora centra Azure Stack, aby přidal verzi AKS základního obrázku, kterou potřebujete na webu centra Azure Stack, který chcete použít.
 4. Spusťte `aks-engine upgrade` příkaz pomocí stejné verze Kubernetes, kterou jste již používali, ale přidejte `--force` . V takovém případě se můžete podívat na příklad [vynucení upgradu](#forcing-an-upgrade).
 
+
+## <a name="steps-to-update-cluster-to-os-version-ubuntu-1804"></a>Postup aktualizace clusteru na verzi OS Ubuntu 18,04
+
+Pomocí modulu AKS verze 0.60.1 a vyšší můžete upgradovat virtuální počítače clusteru z Ubuntu 16,04 na 18,04. Postupujte takto:
+
+1. Vyhledejte a upravte `api-model.json` soubor, který byl vygenerován při nasazení. Mělo by se jednat o stejný soubor, který se používá pro jakoukoli operaci upgradu nebo škálování s `aks-engine` .
+2. Vyhledejte oddíly pro `masterProfile` a `agentPoolProfiles` , v těchto oddílech změňte hodnotu `distro` na `aks-ubuntu-18.04` .
+2. Uložte `api-model.json` soubor a `api-model.json` v příkazu použijte soubor ` aks-engin upgrade` jako v [postupu upgradu na novější verzi Kubernetes](#steps-to-upgrade-to-a-newer-kubernetes-version) .
 
 ## <a name="forcing-an-upgrade"></a>Vynucení upgradu
 
@@ -106,7 +111,7 @@ aks-engine upgrade \
 --resource-group kube-rg \
 --subscription-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
 --api-model kube-rg/apimodel.json \
---upgrade-version 1.13.5 \
+--upgrade-version 1.18.15 \
 --client-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
 --client-secret xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
 --force

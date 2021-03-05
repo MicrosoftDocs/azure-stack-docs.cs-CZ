@@ -1,18 +1,18 @@
 ---
 title: Generování žádostí o podepsání certifikátů pro službu Azure Stack Hub
 description: Naučte se generovat žádosti o podepsání certifikátu pro Azure Stack centrálních certifikátů PKI v integrovaných systémech centra Azure Stack.
-author: PatAltimore
+author: BryanLa
 ms.topic: article
 ms.date: 10/19/2020
-ms.author: patricka
+ms.author: bryanla
 ms.reviewer: ppacent
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: b03766efe531683310b81dbf2d03de8e990deec0
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 4303e2894deaaa05aa5ff1954cf34f12375c6693
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870439"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231706"
 ---
 # <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>Generování žádostí o podepsání certifikátů pro službu Azure Stack Hub
 

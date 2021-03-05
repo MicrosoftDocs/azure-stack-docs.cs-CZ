@@ -3,16 +3,16 @@ title: Nastavení požadavků pro modul AKS v centru Azure Stack
 description: Stanovte požadavky na spuštění stroje dotazů v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 10/16/2020
+ms.date: 3/4/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: c703d9cd9c20e48dec6172e3e0e3c12fcc3a7e2a
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 3/4/2021
+ms.openlocfilehash: be20bb06ce5b8b87bc6099e823ec1a1eb9aec01c
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543523"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231604"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack-hub"></a>Nastavení požadavků pro modul AKS v centru Azure Stack
 
@@ -29,10 +29,10 @@ Chcete-li použít modul AKS, musíte mít k dispozici následující prostředk
 Váš operátor cloudu bude potřebovat, aby byly zavedeny následující položky.
 
 | Požadavek | Popis | Povinné | Pokyny |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | Azure Stack centra 1910 nebo vyšší | Modul AKS vyžaduje Azure Stack hub 1910 nebo vyšší. | Vyžadováno | Pokud si nejste jistí, jakou verzi centra Azure Stack máte, obraťte se na svého operátora cloudu. |
 | Rozšíření vlastních skriptů pro Linux | Rozšíření vlastních skriptů pro Linux 2,0<br>Nabídka: vlastní skript pro Linux 2,0<br>Verze: 2.0.6 (nebo nejnovější verze)<br>Vydavatel: Microsoft Corp | Vyžadováno | Pokud ve svém předplatném nemáte tuto položku, obraťte se na svého operátora cloudu. |
-| AKS Base Ubuntu image | AKS Base Ubuntu 16,04 – obrázek LTS<br>Podívejte se na Další informace o závislostech verze, viz [shodný modul se základní verzí image](#matching-engine-to-base-image-version) . | Vyžadováno | Pokud ve svém předplatném nemáte tuto položku, obraťte se na svého operátora cloudu.<br> Pokud jste operátor cloudu pro Azure Stack centrum a chcete nabízet modul AKS, postupujte podle pokynů v části [Přidání modulu AKS na tržišti centra Azure Stack](../operator/azure-stack-aks-engine.md). |
+| Základní image AKS | AKS Base Ubuntu a image Windows<br>Podívejte se na Další informace o závislostech verze, viz [shodný modul se základní verzí image](#matching-engine-to-base-image-version) . | Vyžadováno | Pokud ve svém předplatném nemáte tuto položku, obraťte se na svého operátora cloudu.<br> Pokud jste operátor cloudu pro Azure Stack centrum a chcete nabízet modul AKS, postupujte podle pokynů v části [Přidání modulu AKS na tržišti centra Azure Stack](../operator/azure-stack-aks-engine.md). |
 | Identita objektu služby (SPN) |  Aplikace, která potřebuje nasadit nebo nakonfigurovat prostředky prostřednictvím Azure Resource Manager, musí být reprezentována instančním objektem. | Vyžadováno | Pro tuto položku možná budete muset kontaktovat svého operátora centra Azure Stack.<br>Pokud se používá identita instančního objektu Azure Active Directory (Azure AD), z virtuálních počítačů v clusteru Kubernetes se vyžaduje přístup k Internetu, aby bylo možné instanční objekt ověřit pomocí služby Azure AD. Pokud není k dispozici přístup k Internetu, cluster Kubernetes nebude funkční.<br>Pokyny najdete v tématu [použití identity aplikace pro přístup k prostředkům](../operator/azure-stack-create-service-principals.md) . |
 | (SPN) přiřazená role **přispěvatele** | Aby mohla aplikace přistupovat k prostředkům ve vašem předplatném pomocí instančního objektu, musíte instančnímu objektu přiřadit roli pro konkrétní prostředek. | Vyžadováno | Pokyny najdete v tématu [přiřazení role](../operator/azure-stack-create-service-principals.md#assign-a-role) . |
 
@@ -51,9 +51,9 @@ Můžete nastavit následující položky.
 
 ## <a name="matching-engine-to-base-image-version"></a>Shodný modul se základní verzí image
 
-Modul AKS nasadí přizpůsobený serverový operační systém Ubuntu do jednotlivých imagí uzlů clusteru, **AKS Base Ubuntu 16,04-LTS image distribuce**. Jakákoli verze AKS stroje je závislá na konkrétní verzi image, která je k dispozici ve vašem Azure Stack centru pomocí operátoru centra Azure Stack. V [podporovaných verzích Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)můžete najít tabulku se seznamem verzí modulu AKS a odpovídající podporované verze Kubernetes. Například verze stroje AKS `v0.55.0` závisí na verzi `2020.08.24` AKS Base Ubuntu 16,04-LTS image distribuce. Požádejte svého operátora centra Azure Stack, aby si stáhl konkrétní verzi image z Azure Marketplace na Marketplace centra pro Azure Stack.
+Modul AKS nasadí přizpůsobený serverový operační systém Ubuntu do jednotlivých imagí uzlů clusteru, **AKS Base Ubuntu a Windows Image distribuce**. Jakákoli verze AKS stroje je závislá na konkrétní verzi image, která je k dispozici ve vašem Azure Stack centru pomocí operátoru centra Azure Stack. V [podporovaných verzích Kubernetes](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)můžete najít tabulku se seznamem verzí modulu AKS a odpovídající podporované verze Kubernetes. Například verze stroje AKS `v0.55.0` závisí na verzi `2020.08.24` AKS Base Ubuntu a Windows Image distribuce. Požádejte svého operátora centra Azure Stack, aby si stáhl konkrétní verzi image z Azure Marketplace na Marketplace centra pro Azure Stack.
 
-Pokud není v tržišti Azure Stack hub k dispozici obrázek, aktivuje se a chyba. Pokud například aktuálně používáte modul AKS verze v 0.55.0 a AKS Base Ubuntu 16,04-LTS image distribuce verze `2020.08.24` není k dispozici, zobrazí se při spuštění modulu AKS následující chyba: 
+Pokud není v tržišti Azure Stack hub k dispozici obrázek, aktivuje se a chyba. Pokud například aktuálně používáte modul AKS verze v 0.55.0 a AKS Base Ubuntu a verze Windows Image distribuce `2020.08.24` není k dispozici, zobrazí se při spuštění modulu AKS následující chyba: 
 
 ```Text  
 The platform image 'microsoft-aks:aks:aks-ubuntu-1604-202003:2020.08.24' is not available. 

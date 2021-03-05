@@ -121,7 +121,7 @@
               href: ../operator/azure-stack-create-service-principals.md?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Použití služeb
           items:
-            - name: Compute
+            - name: Výpočetní prostředky
               items:
                 - name: Přehled
                   href: azure-stack-compute-overview.md
@@ -260,6 +260,10 @@
                       href: azure-stack-kubernetes-aks-engine-upgrade.md
                     - name: Povolit projekce svazku tokenu účtu služby
                       href: kubernetes-aks-engine-service-account.md
+                    - name: Přidat úložiště kontejnerů
+                      href: kubernetes-aks-engine-container-storage-interface.md
+                    - name: Otočení certifikátů
+                      href: kubernetes-aks-engine-rotate-certs.md
                     - name: Řešení potíží s modulem AKS
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
                     - name: Použití Azure Monitor pro kontejnery

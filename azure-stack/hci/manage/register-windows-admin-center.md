@@ -4,17 +4,17 @@ description: Jak zaregistrovat bránu centra pro správu Windows v Azure
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 03/04/2021
-ms.openlocfilehash: 93bba2336ab482e1a2bf0fc8e7545f537211382d
-ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
+ms.date: 03/05/2021
+ms.openlocfilehash: 18da9a3e09ebabfc94784ff803a0d39ca90b3caf
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102116780"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231655"
 ---
 # <a name="register-windows-admin-center-with-azure"></a>Registrace centra pro správu Windows pomocí Azure
 
-> Platí pro Azure Stack HCL v20H2; Windows Server 2019
+> Platí pro Azure Stack HCL verze 20H2; Windows Server 2019
 
 Pokud chcete používat služby Azure s centrem pro správu systému Windows, musíte nejdřív [nainstalovat centrum](/windows-server/manage/windows-admin-center/deploy/install) pro správu Windows na počítač pro správu a zaregistrovat bránu centra pro správu Windows. Je to předpoklad pro [registraci clusteru](../deploy/register-with-azure.md) v Azure.
 
@@ -37,15 +37,19 @@ Pokud chcete používat služby Azure s centrem pro správu systému Windows, mu
 
    Měla by se zobrazit následující zpráva: "přihlásili jste se k aplikaci centra pro správu Windows na vašem zařízení." Zavřete okno prohlížeče a vraťte se na původní registrační stránku.
 
-4. Připojte se k Azure Active Directory tím, že poskytnete ID vašeho Azure Active Directory (tenant) a ID aplikace. Pokud už máte ID tenanta Azure a následovali jste výše uvedené kroky, pole ID tenanta se může předem vyplněné a může obsahovat víc možností. Vyberte správné ID tenanta. Pokud vám správce Azure AD poskytl ID aplikace, klikněte na **použít existující** a zobrazí se prázdné pole, kde můžete zadat ID poskytnuté vaším správcem. Po zadání svého ID centrum pro správu systému Windows ověří, že se našel účet s tímto ID. Pokud máte existující ID, ale nevíte, co je, postupujte podle [těchto kroků](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) a načtěte ho. Pokud vám vaše organizace neposkytla stávající ID, ponechte **Azure Active Directory aplikaci** nastavenou na **vytvořit novou**.
+4. Připojte se k Azure Active Directory tím, že poskytnete ID vašeho Azure Active Directory (tenant) a ID aplikace. Pokud už máte ID tenanta Azure a následovali jste výše uvedené kroky, pole ID tenanta se může předem vyplněné a může obsahovat víc možností. Vyberte správné ID tenanta. 
 
-   :::image type="content" source="media/register-wac/connect-to-aad.png" alt-text="Připojte se k Azure Active Directory tím, že zadáte stávající ID Azure Active Directory (tenant) nebo vytvoříte nový." lightbox="media/register-wac/connect-to-aad.png":::
+   Pokud vám správce Azure AD poskytl ID aplikace, klikněte na **použít existující** a zobrazí se prázdné pole, kde můžete zadat ID poskytnuté vaším správcem. Po zadání svého ID centrum pro správu systému Windows ověří, že se našel účet s tímto ID. Pokud máte existující ID, ale nevíte, co je, postupujte podle [těchto kroků](/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) a načtěte ho. Pokud vám vaše organizace neposkytla stávající ID, ponechte **Azure Active Directory aplikaci** nastavenou na **vytvořit novou**.
 
-5. Kliknutím na tlačítko **připojit** se připojte k Azure. Pokud jste správce Azure AD nebo pokud jste použili existující ID aplikace, měli byste vidět potvrzení, že jste teď připojení ke službě Azure AD. Pokud ne, může se zobrazit zpráva, že potřebujete schválení správcem. Pokud se jedná o tento případ, vyberte možnost **vrátit se do aplikace bez udělení souhlasu** a obraťte se na správce služby Azure AD, aby udělil oprávnění k novému ID aplikace, které bylo vytvořeno při registraci, podle pokynů v kroku 6.
+   :::image type="content" source="media/register-wac/connect-to-aad.png" alt-text="Připojte se k Azure Active Directory tím, že zadáte stávající ID Azure Active Directory (tenant) a ID aplikace nebo vytvoříte nové ID aplikace." lightbox="media/register-wac/connect-to-aad.png":::
 
-6. Pokud jste správce Azure AD, udělte oprávnění v Azure tak, že přejdete na **Azure Active Directory** a pak **Registrace aplikací**. Vyberte identitu aplikace pojmenovanou po registraci brány a přejděte na **oprávnění rozhraní API**. V části **souhlas udělení souhlasu** vyberte **udělit souhlas správce**.
+5. Kliknutím na tlačítko **připojit** se připojte k Azure. Pokud jste správce Azure AD nebo pokud jste použili existující ID aplikace, měli byste vidět potvrzení, že jste teď připojení ke službě Azure AD, což indikuje, že proces je dokončený. Pokud ne, může se zobrazit zpráva, že potřebujete schválení správcem. Pokud se jedná o tento případ, vyberte možnost **vrátit se do aplikace bez udělení souhlasu** a obraťte se na správce služby Azure AD, aby udělil oprávnění k novému ID aplikace, které bylo vytvořeno při registraci, podle pokynů v kroku 6.
 
-7. Zavřete okno a přihlaste se k centru pro správu Windows pomocí svého účtu Azure.
+6. Pokud jste správce Azure AD, udělte oprávnění v Azure tak, že přejdete na **Azure Active Directory** a pak **Registrace aplikací**. Vyberte **všechny aplikace** a vyhledejte **WindowsAdminCenter**. Vyberte zobrazovaný název brány, kterou registrujete. Poznamenejte si **ID aplikace (klienta)** zobrazené v horní části stránky, protože ji budete muset poskytnout uživateli. Potom přejděte na **oprávnění rozhraní API**. V části **souhlas udělení souhlasu** vyberte **udělit souhlas správce**. Pak ID aplikace přidělte uživateli.
+
+7. V tomto okamžiku musí uživatel opakovat proces registrace, tentokrát vybrat **možnost použít existující** ID aplikace a zadat ID aplikace poskytnuté správcem služby Azure AD.
+
+8. Vyberte **Přihlásit** se a přihlaste se k centru pro správu Windows pomocí svého účtu Azure.
 
 ## <a name="next-steps"></a>Další kroky
 

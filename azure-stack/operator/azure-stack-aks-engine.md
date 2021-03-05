@@ -3,16 +3,16 @@ title: Přidání požadavků modulu Azure Kubernetes Services (AKS) do webu slu
 description: Přečtěte si, jak přidat požadavky na modul AKS do tržiště centra Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 2/1/2021
+ms.date: 3/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: 12532ba9e38c37bdf3253a5e33576ca63116f1e0
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.lastreviewed: 3/1/2021
+ms.openlocfilehash: ceb51221d03f9c037ac3af2304b55d691f17f021
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99246159"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231230"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Přidání požadavků modulu Azure Kubernetes Services (AKS) do tržiště centra Azure Stack
 
@@ -39,9 +39,9 @@ Pokud pro službu správy identit používáte Azure Active Directory (Azure AD)
 
 Pokud pro službu správy identit používáte službu Active Directory federovaným Services (AD FS), budete muset vytvořit instanční objekt pro uživatele, kteří nasazují cluster Kubernetes. Vytvořte instanční objekt pomocí tajného klíče klienta. Pokyny najdete v tématu [Vytvoření instančního objektu pomocí tajného klíče klienta](azure-stack-create-service-principals.md#create-a-service-principal-that-uses-client-secret-credentials).
 
-## <a name="add-the-aks-base-image"></a>Přidat základní image AKS
+## <a name="add-an-aks-base-image"></a>Přidání image AKS Base
 
-Základní image AKS můžete na Marketplace přidat tak, že získáte položku z Azure. Pokud je ale vaše centrum Azure Stack odpojené, použijte tyto pokyny ke [stažení položky Marketplace z Azure](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected) a přidejte položku. Přidejte položku určenou v kroku 5.
+Základní image AKS můžete přidat do Marketplace tím, že získáte položku z Azure. Pokud je ale vaše centrum Azure Stack odpojené, použijte tyto pokyny ke [stažení položky Marketplace z Azure](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected) a přidejte položku. Přidejte položku určenou v kroku 5.
 
 Do Marketplace přidejte následující položku:
 
@@ -53,13 +53,7 @@ Do Marketplace přidejte následující položku:
 
 1. Zadejte `AKS Base`.
 
-1. Vyberte verzi image, která odpovídá verzi modulu AKS. Výpis základní image AKS můžete najít ve verzi AKS Engine v [podporovaných verzích Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions). 
-
-    V seznamu vyberte:
-    - **Vydavatel**: Služba Azure Kubernetes
-    - **Nabídka**: AKS
-    - **Název**: AKS Base Ubuntu 16,04-LTS image distribuce, srpen 2020 (2020.09.14 nebo verze, která se MAPUJE na AKS Engine)
-    - **Verze**: 2020.09.14
+1. Vyberte verzi image, která odpovídá verzi modulu AKS. Výpis základní image AKS můžete najít ve verzi AKS Engine v [podporovaných verzích Kubernetes](..\user\kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping). 
 
 1. Vyberte **Stáhnout.**
 

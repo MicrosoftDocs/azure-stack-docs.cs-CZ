@@ -7,12 +7,12 @@ ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 1f29698d1bae0b38a41f19f3c9eb75f76bffc59e
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 42ccc5c8858bf113b7308e4375ee3261a0a96a1f
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99246856"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231485"
 ---
 # <a name="what-is-the-aks-engine-on-azure-stack-hub"></a>Co je modul AKS v centru Azure Stack?
 
@@ -27,14 +27,6 @@ Pomocí nástroje příkazového řádku AKS Engine můžete nasadit a spravovat
 Než začnete používat modul AKS v Azure Stackovém centru, je důležité porozumět rozdílům mezi centrem Azure Stack a Azure. Tato část popisuje různé funkce a klíčové důležité pokyny při použití Azure Stack hub s modulem AKS ke správě clusteru Kubernetes.
 
 Další informace o konkrétních AKS modulu v centru pro Azure Stack a jeho rozdílech s ohledem na Azure najdete v tématu [AKS Engine v centru Azure Stack](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md).
-
-## <a name="supported-scenarios-with-the-aks-engine"></a>Podporované scénáře s modulem AKS
-
-Následující scénáře jsou podporovány týmem podpory centra Azure Stack:
-
-1.  AKS Engine nasadí všechny artefakty clusteru podle pokynů v této dokumentaci a pomocí [následující šablony](https://github.com/Azure/aks-engine/tree/master/examples/azure-stack).
-2.  AKS Engine nasadí cluster do existující virtuální sítě. Další informace najdete v tématu [použití vlastní virtuální sítě s modulem AKS](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/custom-vnet.md).
-3.  Operace [upgradu](azure-stack-kubernetes-aks-engine-upgrade.md) a [škálování](azure-stack-kubernetes-aks-engine-scale.md) .
 
 Další informace o modulu AKS a centru Azure Stack najdete v tématu [zásady podpory pro modul AKS v centru Azure Stack](azure-stack-kubernetes-aks-engine-support.md).
 

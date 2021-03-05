@@ -7,12 +7,12 @@ ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/0102020
-ms.openlocfilehash: 0322d72f3cd28a8e499b2a900d57e4e9d2e9bce4
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 9969447ab737c6913576c73b2e53453a6cb8e1f6
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99246720"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231757"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack-hub"></a>Zásady podpory pro modul AKS v centru Azure Stack
 
@@ -85,7 +85,6 @@ Společnost Microsoft neposkytuje technickou podporu pro následující:
 -  Změny konfigurace Kubernetes se zachovaly mimo etcd úložiště konfigurace Kubernetes. Například statické lusky běžící v uzlech clusteru.
 -  Dotazy týkající se použití Kubernetes Podpora Microsoftu například neposkytuje Rady k vytváření vlastních řadičů příchozího přenosu dat, použití aplikačních úloh nebo k použití softwarových balíčků nebo nástrojů třetích stran nebo open source.
 -  Projekty Open Source třetích stran, které nejsou poskytovány jako součást clusteru Kubernetes nasazeného modulem AKS Engine. Tyto projekty mohou zahrnovat Kubeadm, Kubespray, Native, Istio, Helm, zástupné nebo jiné.
--  Použití modulu AKS ve scénářích použití mimo ty, které jsou určené v [podporovaných scénářích s modulem AKS](azure-stack-kubernetes-aks-engine-overview.md#supported-scenarios-with-the-aks-engine).
 -  Software třetí strany. Tento software může obsahovat nástroje pro kontrolu zabezpečení a síťová zařízení nebo software.
 -  Problémy týkající se více než cloudových nebo více dodavatelů sestavení Microsoft například nepodporuje problémy související se spouštěním řešení pro Cloud ve federaci s více veřejnými cloudy.
 -  Vlastní nastavení sítě, kromě těch, které jsou uvedeny v části [oblasti podporované modulem AKS](#aks-engine-supported-areas) .

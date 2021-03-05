@@ -3,16 +3,16 @@ title: Instalace modulu AKS v systému Linux v centru Azure Stack
 description: Naučte se, jak pomocí počítače se systémem Linux v centru Azure Stack hostovat modul AKS, aby bylo možné nasadit a spravovat cluster Kubernetes.
 author: mattbriggs
 ms.topic: article
-ms.date: 2/1/2021
+ms.date: 3/4/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/1/2020
-ms.openlocfilehash: f11264d54c7a391ee493cdc88bf3a39243e9b268
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.lastreviewed: 3/4/2021
+ms.openlocfilehash: 949a1ede3d2fc217217219c59f055b5311322576
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99245700"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231519"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack-hub"></a>Instalace modulu AKS v systému Linux v centru Azure Stack
 
@@ -33,14 +33,19 @@ Můžete nainstalovat klientský virtuální počítač pro správu clusteru Kub
 
 1. Vytvořte virtuální počítač se systémem Linux v centru Azure Stack. Pokyny najdete v tématu [rychlý Start: Vytvoření virtuálního počítače s Linux serverem pomocí portálu Azure Stack hub](./azure-stack-quick-linux-portal.md).
 2. Připojte se k VIRTUÁLNÍmu počítači.
-3. Vyhledá verzi AKS Engine v tabulce [podporovaných verzí Kubernetes](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions) . V tržišti centra Azure Stack musí být dostupná základní image AKS. Při spuštění příkazu je nutné zadat verzi `--version v0.55.4` . Pokud nezadáte verzi, příkaz nainstaluje nejnovější verzi, která může potřebovat bitovou kopii VHD, která není na vašem webu Marketplace k dispozici.
-4. Spusťte následující příkaz:
+3. Vyhledá verzi AKS Engine v [modulu AKS a tabulce mapování verzí Azure Stack](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping) . V tržišti centra Azure Stack musí být dostupná základní image AKS. Při spuštění příkazu je nutné zadat verzi `--version v0.xx.x` . Pokud nezadáte verzi, příkaz nainstaluje nejnovější verzi, která může potřebovat bitovou kopii VHD, která není na vašem webu Marketplace k dispozici.
+    > [!NOTE]  
+    > Mapování Azure Stackho centra na číslo verze modulu AKS najdete v [poznámkách k verzi modulu AKS](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping).
+1. Spusťte následující příkaz:
 
     ```bash  
         curl -o get-akse.sh https://raw.githubusercontent.com/Azure/aks-engine/master/scripts/get-akse.sh
         chmod 700 get-akse.sh
-        ./get-akse.sh --version v0.55.4
+        ./get-akse.sh --version v0.xx.x
     ```
+
+    > [!NOTE]  
+    > Mapování Azure Stackho centra na číslo verze modulu AKS najdete v [poznámkách k verzi modulu AKS](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping).
 
     > [!NOTE]  
     > Pokud se metoda instalace nezdařila, můžete vyzkoušet postup v [odpojeném prostředí](#install-in-a-disconnected-environment)nebo [vyzkoušet GoFish](azure-stack-kubernetes-aks-engine-troubleshoot.md#try-gofish), jiného správce balíčků.
@@ -49,7 +54,7 @@ Můžete nainstalovat klientský virtuální počítač pro správu clusteru Kub
 
 Můžete nainstalovat klientský virtuální počítač pro správu clusteru Kubernetes na rozbočovači Azure Stack odpojený od Internetu.
 
-1.  Z počítače s přístupem k Internetu přejděte na GitHub [Azure/AKS-Engine](https://github.com/Azure/aks-engine/releases/latest). Stáhněte si archiv (*. tar. gz) pro počítač se systémem Linux, například `aks-engine-v0.xx.x-linux-amd64.tar.gz` .
+1.  Z počítače s přístupem k Internetu přejděte na GitHub [Azure/AKS-Engine](https://github.com/Azure/aks-engine/releases/latest). Stáhněte si archiv (*. tar. gz) pro počítač se systémem Linux, například `aks-engine-v0.xx.x-linux-amd64.tar.gz` . Vyhledá verzi AKS Engine v [tabulce podporovaných verzí Kubernetes](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping).
 
 2.  Vytvořte účet úložiště v instanci centra Azure Stack, abyste nahráli archivní soubor (*. tar. gz) s binárním modulem AKS. Pokyny k používání Průzkumník služby Azure Storage najdete v tématu [Průzkumník služby Azure Storage pomocí centra Azure Stack](./azure-stack-storage-connect-se.md).
 

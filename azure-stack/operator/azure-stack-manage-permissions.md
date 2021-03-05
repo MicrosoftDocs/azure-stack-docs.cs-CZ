@@ -1,18 +1,18 @@
 ---
 title: Nastavení oprávnění k přístupu pomocí řízení přístupu na základě role
 description: Naučte se, jak nastavit přístupová oprávnění pomocí řízení přístupu na základě role (RBAC) v centru Azure Stack.
-author: PatAltimore
+author: BryanLa
 ms.topic: article
 ms.date: 12/23/2019
-ms.author: patricka
+ms.author: bryanla
 ms.reviewer: thoroet
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: 852aa0283e3bd88a196c4bcf9e56951142bc4d60
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 5b101330f66396d7e1e2fe93d9168244dc97d97e
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97870116"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231672"
 ---
 # <a name="set-access-permissions-using-role-based-access-control"></a>Nastavení oprávnění k přístupu pomocí řízení přístupu na základě role
 

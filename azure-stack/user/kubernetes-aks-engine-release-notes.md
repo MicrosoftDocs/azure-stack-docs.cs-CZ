@@ -3,19 +3,142 @@ title: Poznámky k verzi modulu Azure Kubernetes Service (AKS) v centru Azure St
 description: Seznamte se s kroky, které je třeba provést s aktualizací pro AKS Engine v centru Azure Stack.
 author: mattbriggs
 ms.topic: article
-ms.date: 02/23/2021
+ms.date: 03/01/2021
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 02/23/2021
-ms.openlocfilehash: a9f1217777fbdf5a6efd752388a15b4573d2d851
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.lastreviewed: 03/01/2021
+ms.openlocfilehash: 9cccf83444e79aede3f88751dbcb77b77bd5ea4a
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "101840809"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231723"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Poznámky k verzi pro modul AKS v centru Azure Stack
-::: moniker range=">=azs-2002"
+::: moniker range=">=azs-2005"
+*Platí pro 0.60.1 verze v modulu AKS.*
+
+Tento článek popisuje obsah modulu Azure Kubernetes Service (AKS) v aktualizaci centra Azure Stack. Tato aktualizace zahrnuje vylepšení a opravy pro nejnovější vydání AKS modulu zaměřeného na platformu centra Azure Stack. Všimněte si, že nemá v úmyslu zdokumentovat informace o vydání pro modul AKS pro globální Azure.
+
+## <a name="update-planning"></a>Plánování aktualizací
+
+Příkaz pro upgrade AKS Engine plně automatizuje proces upgradu vašeho clusteru, postará se o virtuální počítače (VM), sítě, úložiště, Kubernetes a úlohy orchestrace. Před použitím aktualizace nezapomeňte zkontrolovat informace poznámky k verzi.
+
+### <a name="upgrade-considerations"></a>Pokyny k upgradu
+
+-   Používáte správné položky Marketplace, AKS Base Ubuntu 16,04-LTS nebo 18,04 image distribuce nebo AKS Base Windows Server pro vaši verzi modulu AKS? Verze najdete v části stažení nových imagí a AKS Engine.
+-   Používáte pro cílový cluster správnou specifikaci clusteru (apimodel.jszapnuto) a skupinu prostředků? Po původním nasazení clusteru se tento soubor vygeneroval ve výstupním adresáři. Další informace najdete v tématu nasazení parametrů příkazu [nasazení clusteru Kubernetes](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-cluster?view=azs-2008#deploy-a-kubernetes-cluster).
+-   Používáte spolehlivý počítač ke spuštění modulu AKS a ze kterého provádíte operace upgradu?
+-   Pokud aktualizujete provozní cluster s aktivními úlohami, můžete upgradovat, aniž by to ovlivnilo, za předpokladu, že je cluster za normální zátěží. Měli byste ale mít záložní cluster pro případ, že je potřeba přesměrovat uživatele do IT. Cluster zálohování se důrazně doporučuje.
+-   Pokud je to možné, spusťte příkaz z virtuálního počítače v prostředí Azure Stack hub, abyste snížili počet směrování sítě a potenciální problémy s připojením.
+-   Ujistěte se, že vaše předplatné má dostatečnou kvótu pro celý proces. Proces během procesu přiděluje nové virtuální počítače. Výsledný počet virtuálních počítačů by byl stejný jako původní, ale naplánovalo se vytvoření dalších virtuálních počítačů během procesu.
+-   Nejsou plánovány žádné aktualizace systému ani naplánované úlohy.
+-   Nastavte připravený upgrade na cluster, který je nakonfigurovaný se stejnými hodnotami jako v produkčním clusteru, a před tím, než to uděláte, otestujte v produkčním clusteru.
+
+### <a name="use-the-upgrade-command"></a>Použití příkazu Upgrade
+
+Budete muset použít příkaz upgradu modulu AKS, jak je popsáno v následujícím článku [upgradujte cluster Kubernetes na centra Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-upgrade?view=azs-2008).
+
+### <a name="upgrade-interruptions"></a>Aktualizace přerušení
+
+Někdy neočekávané faktory přerušují upgrade clusteru. K přerušení může dojít v případě, že modul AKS hlásí chybu nebo něco nastane procesu provádění modulu AKS. Prověřte příčinu přerušení, vyřešte ji a znovu odešlete stejný příkaz upgradu, aby bylo možné pokračovat v procesu upgradu. Příkaz pro **upgrade** je idempotentní a po opětovném odeslání příkazu by měl pokračovat v upgradu clusteru. V normálním případě se přerušení zvyšují čas k dokončení aktualizace, ale neměla by mít vliv na jejich dokončení.
+
+### <a name="estimated-upgrade-time"></a>Odhadovaná doba upgradu
+
+Odhadovaná doba je od 12 do 15 minut na virtuální počítač v clusteru. Například cluster s 20 uzly může trvat přibližně pět (5) hodin, než se upgraduje.
+
+## <a name="download-new-image-and-aks-engine"></a>Stáhnout nový Image a modul AKS
+
+Stáhněte si nové verze AKS Base Ubuntu image a AKS Engine.
+
+Jak je vysvětleno v dokumentaci pro modul AKS pro Azure Stack centra, nasazení clusteru Kubernetes vyžaduje:
+
+-   Binární soubor AKS (povinné)
+-   AKS Base Ubuntu 16,04-LTS image distribuce (povinné)
+-   AKS Base Ubuntu 18,04-LTS image distribuce (volitelné)
+-   AKS Base Windows Server Image distribuce (volitelné)
+
+V této aktualizaci jsou k dispozici nové verze těchto verzí:
+
+-   Operátor centra Azure Stack bude muset stáhnout nové základní image AKS do tržiště s razítkem:
+    -   AKS Base Ubuntu 16,04-LTS image distribuce, leden 2021 (2021.01.28)
+    -   AKS Base Ubuntu 18,04-LTS image distribuce, 2021 Q1 (2021.01.28),
+    -   AKS Base Windows Image (17763.1697.210129)
+
+        Postupujte podle pokynů v následujícím článku a [přidejte požadavky modulu Azure Kubernetes Services (AKS) na tržiště centra Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-aks-engine?view=azs-2008) .
+
+-   Správce clusteru Kubernetes (obvykle uživatel s klientem centra Azure Stack) bude muset stáhnout novou AKS verzi 0.60.1. Přečtěte si pokyny v následujícím článku, [nainstalujte modul AKS v systému Linux do centra Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-linux?view=azs-2008) (nebo ekvivalentního článku Windows). Můžete postupovat podle stejného procesu, který jste použili k první instalaci clusteru. Tato aktualizace přepíše předchozí binární soubor. Pokud jste například použili skript get-akse.sh, postupujte podle kroků uvedených v této části [instalace do připojeného prostředí](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-linux?view=azs-2008#install-in-a-connected-environment). Stejný postup platí v případě, že instalujete nástroj do systému Windows, článek [nainstaluje modul AKS ve Windows do centra Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-windows?view=azs-2008).
+
+## <a name="aks-engine-and-azure-stack-version-mapping"></a>Mapování AKS Engine a verze Azure Stack
+
+| Verze centra Azure Stack                    | Verze stroje AKS         |
+|------------------------------------------------|--------------------------------|
+| 1910                                           | 0.43.0, 0.43.1                 |
+| 2002                                           | 0.48.0, 0.51.0                 |
+| 2005                                           | 0.48.0, 0.51.0, 0.55.0, 0.55.4 |
+| 2008                                           | 0.55.4, 0.60.1                 |
+
+## <a name="kubernetes-version-upgrade-path-in-aks-engine-v0601"></a>Cesta upgradu verze Kubernetes v AKS Engine v 0.60.1
+
+Aktuální verzi a verzi upgradu najdete v následující tabulce pro Azure Stack hub. Nepoužívejte příkaz AKS-Engine get-versions, protože příkaz zahrnuje i verze podporované v globálním Azure. Následující tabulka verze a upgrade se vztahuje na cluster AKS Engine v centru Azure Stack.
+
+| Aktuální verze                                       | Dostupný upgrade |
+|-----------------------------------------------------------|-----------------------|
+| 1.15.12                                                   | 1.16.14, 1.16.15      |
+| 1.16.14                                                   | 1.16.15, 1.17.17      |
+| 1.17.11                                                   | 1.17.17, 1.18.15      |
+| 1.17.17                                                   | 1.18.15               |
+
+V souboru JSON modelu rozhraní API zadejte hodnoty verze a verze v části orchestratorProfile, například pokud plánujete nasadit Kubernetes 1.17.17, musí být nastavené tyto dvě hodnoty (viz Ukázka [kubernetes-azurestack.json](https://aka.ms/aksengine-json-example-raw)):
+
+```json  
+    -   "orchestratorRelease": "1.17",
+    -   "orchestratorVersion": "1.17.17"
+```
+
+## <a name="aks-engine-and-corresponding-image-mapping"></a>Modul AKS a odpovídající mapování obrázků
+
+|      Modul AKS     |      Základní obrázek AKS     |      Verze Kubernetes     |      Ukázky modelů rozhraní API     |
+|-|-|-|-|
+|     v 0.43.1    |     AKS Base Ubuntu 16,04-LTS image distribuce, říjen 2019 (2019.10.24)    |     1.15.5, 1.15.4, 1.14.8, 1.14.7    |  |
+|     v 0.48.0    |     AKS Base Ubuntu 16,04-LTS image distribuce, březen 2020 (2020.03.19)    |     1.15.10, 1.14.7    |  |
+|     v 0.51.0    |     AKS Base Ubuntu 16,04-LTS image distribuce, květen 2020 (2020.05.13), AKS Base Windows Image (17763.1217.200513)    |     1.15.12, 1.16.8, 1.16.9    |     [Linux](https://github.com/Azure/aks-engine/blob/v0.51.0/examples/azure-stack/kubernetes-azurestack.json), [Windows](https://github.com/Azure/aks-engine/blob/v0.51.0/examples/azure-stack/kubernetes-windows.json)    |
+|     v 0.55.0    |     AKS Base Ubuntu 16,04-LTS image distribuce, srpen 2020 (2020.08.24), AKS Base Windows Image (17763.1397.200820)    |     1.15.12, 1.16.14, 1.17.11    |     [Linux](https://github.com/Azure/aks-engine/blob/v0.55.0/examples/azure-stack/kubernetes-azurestack.json), [Windows](https://github.com/Azure/aks-engine/blob/v0.55.0/examples/azure-stack/kubernetes-windows.json)    |
+|     v 0.55.4    |     AKS Base Ubuntu 16,04-LTS image distribuce, září 2020 (2020.09.14), AKS Base Windows Image (17763.1397.200820)    |     1.15.12, 1.16.14, 1.17.11    |     [Linux](https://raw.githubusercontent.com/Azure/aks-engine/patch-release-v0.60.1/examples/azure-stack/kubernetes-azurestack.json), [Windows](https://raw.githubusercontent.com/Azure/aks-engine/patch-release-v0.60.1/examples/azure-stack/kubernetes-windows.json)    |
+|     V 0.60.1    |     AKS Base Ubuntu 16,04-LTS image distribuce, leden 2021 (2021.01.28),   <br>AKS Base Ubuntu 18,04-LTS image distribuce, 2021 Q1 (2021.01.28), <br>AKS Base Windows Image (17763.1697.210129)    |     1.16.14, 1.16.15, 1.17.17, 1.18.15    |     [Linux](https://raw.githubusercontent.com/Azure/aks-engine/patch-release-v0.60.1/examples/azure-stack/kubernetes-azurestack.json), [Windows](https://raw.githubusercontent.com/Azure/aks-engine/patch-release-v0.60.1/examples/azure-stack/kubernetes-windows.json)    |
+
+## <a name="whats-new"></a>Novinky
+
+Pokud vás zajímá účast v privátní verzi Preview, můžete [požádat o přístup k verzi Preview](https://forms.office.com/r/yqxXyiDcGG).
+
+Obsahuje například tyto nové funkce:
+-   Obecná dostupnost Ubuntu 18,04
+-   Rotace certifikátu Public Preview [ \# 4214](https://github.com/Azure/aks-engine/pull/4214)
+-   T4 NVIDIA GPU Private Preview [ \# 4259](https://github.com/Azure/aks-engine/pull/4259)
+-   Integrace Azure Active Directory Private Preview
+-   Ovladač CSI pro Azure BLOBs Private Preview [ \# 712](https://github.com/kubernetes-sigs/azuredisk-csi-driver/pull/712)
+-   Disky s ovladačem pro platformu CSI Public Preview [ \# 712](https://github.com/kubernetes-sigs/azuredisk-csi-driver/pull/712)
+-   Systém souborů NFS ovladače CSI Public Preview [ \# 712](https://github.com/kubernetes-sigs/azuredisk-csi-driver/pull/712)
+-   Podpora pro Kubernetes 1. 17,17 [ \# 4188](https://github.com/Azure/aks-engine/issues/4188) a 1.18.15 [ \# 4187](https://github.com/Azure/aks-engine/issues/4187)
+
+## <a name="known-issues"></a>Známé problémy
+
+-   Nasazení více Kubernetes služeb paralelně v jednom clusteru může vést k chybě v konfiguraci základního nástroje pro vyrovnávání zatížení. V tuto chvíli doporučujeme nasadit jednu službu.
+-   Vzhledem k tomu, že nástroj AKS je sdílení úložiště zdrojového kódu napříč Azure a centra Azure Stack. Prozkoumání velkého množství zpráv k vydání verze a žádostí o přijetí změn vám umožní se domnívat, že nástroj podporuje jiné verze Kubernetes a platformy operačního systému nad rámec výše uvedeného, ignorujte je a jako oficiální průvodce pro tuto aktualizaci použijte tabulku verze výše.
+
+> [!NOTE]  
+> Podpora kontejnerů Windows a Azure CNI je dostupná ve verzi Public Preview.
+
+## <a name="reference"></a>Reference
+
+Toto je kompletní sada poznámek k verzi pro Azure a centrum Azure Stack v kombinaci:
+
+-   https://github.com/Azure/aks-engine/releases/tag/v0.56.0
+-   https://github.com/Azure/aks-engine/releases/tag/v0.56.1
+-   https://github.com/Azure/aks-engine/releases/tag/v0.60.0
+-   https://github.com/Azure/aks-engine/releases/tag/v0.60.1
+::: moniker-end
+::: moniker range=">azs-1910 <=azs-2005"
 *Platí pro 0.55.4 verze v modulu AKS.*
 
 Tento článek popisuje obsah modulu Azure Kubernetes Service (AKS) v aktualizaci centra Azure Stack. Tato aktualizace zahrnuje vylepšení a opravy pro nejnovější vydání AKS modulu zaměřeného na platformu centra Azure Stack. Všimněte si, že nemá v úmyslu zdokumentovat informace o vydání pro modul AKS pro globální Azure.

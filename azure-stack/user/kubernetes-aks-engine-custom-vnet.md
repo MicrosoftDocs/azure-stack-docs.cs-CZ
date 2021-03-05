@@ -7,12 +7,12 @@ ms.date: 2/1/2021
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 9/2/2020
-ms.openlocfilehash: bc1aee737743656d200bc51c431bfac64af5edf3
-ms.sourcegitcommit: a6f62a6693e48eb05272c01efb5ca24372875173
+ms.openlocfilehash: 2b958dad58b04d27037f7110e2350e73ad6cd880
+ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99247043"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102231502"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-a-custom-virtual-network-on-azure-stack-hub"></a>Nasazení clusteru Kubernetes do vlastní virtuální sítě v centru Azure Stack 
 
@@ -101,9 +101,9 @@ V **orchestratorProfile** Najděte **kubernetesConfig** a nastavte následujíc�
 
 | Pole | Příklad | Popis |
 | --- | --- | --- |
-| clusterSubnet | `172.16.244.0/24` | Rozsah IP adres podsítě clusteru (POD sítí) musí používat rozsah IP adres v prostoru vlastního definovaného rozsahu IP adres virtuální sítě. |
+| clusterSubnet | `10.244.0.0/16` | Podsíť protokolu IP, která se používá pro přidělování IP adres pro síťová rozhraní pod. Podsíť musí být v adresním prostoru virtuální sítě. S povolenou službou Azure CNI je výchozí hodnota 10.240.0.0/12. Bez použití Azure CNI je výchozí hodnota 10.244.0.0/16.  síť podsítě clusteru (síť) by neměla používat stejný prostor IP adres jako virtuální síť. Použijte podsíť/16 místo/24. Použijete-li/24, bude tato podsíť přiřazena pouze jednomu uzlu. Jiný uzel nebude mít přiřazenou síť, protože vyčerpáte místo na IP adrese, takže nebudou připravené v clusteru. |
 
-Příklad:
+Například:
 
 ```json
 "masterProfile": {
@@ -123,7 +123,7 @@ Příklad:
 "kubernetesConfig": [
   {
     ...
-    "clusterSubnet": "172.16.244.0/24",
+    "clusterSubnet": "172.16.244.0/16",
     ...
   },
 
