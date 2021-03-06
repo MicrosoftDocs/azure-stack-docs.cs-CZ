@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.date: 03/05/2021
-ms.openlocfilehash: 18da9a3e09ebabfc94784ff803a0d39ca90b3caf
-ms.sourcegitcommit: ccc4ee05d71496653b6e27de1bb12e4347e20ba4
+ms.openlocfilehash: 699ad4b3bcfe9c1c7738ecf9bcedbdea50a25ab2
+ms.sourcegitcommit: 7ee28fad5b8ba628b1a7dc3d82cabfc36aa62f0d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102231655"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102250383"
 ---
 # <a name="register-windows-admin-center-with-azure"></a>Registrace centra pro správu Windows pomocí Azure
 
@@ -19,11 +19,11 @@ ms.locfileid: "102231655"
 Pokud chcete používat služby Azure s centrem pro správu systému Windows, musíte nejdřív [nainstalovat centrum](/windows-server/manage/windows-admin-center/deploy/install) pro správu Windows na počítač pro správu a zaregistrovat bránu centra pro správu Windows. Je to předpoklad pro [registraci clusteru](../deploy/register-with-azure.md) v Azure.
 
    > [!IMPORTANT]
-   > Zaregistrujte centrum pro správu Windows na stejném počítači pro správu, který plánujete použít k registraci vašich clusterů, a to pomocí stejného Azure Active Directory (ID tenanta) a ID aplikace.
+   > Aby bylo možné použít Centrum pro správu systému Windows k registraci Azure Stack clustery HCI, musí být brána centra pro správu systému Windows zaregistrována v ID aplikace služby Azure AD, které je schváleno správcem Azure AD vaší organizace. Zaregistrujte centrum pro správu systému Windows na stejném počítači pro správu, který chcete použít k registraci clusterů, a to pomocí stejného ID Azure Active Directory (tenant) a ID aplikace.
 
 ## <a name="complete-the-registration-process"></a>Dokončení procesu registrace
 
-1. Spusťte Centrum pro správu Windows a v pravém horním rohu klikněte na ikonu ozubeného kolečka pro **Nastavení** . tím přejdete na stránku svého účtu. Pak v nabídce **Brána** vlevo vyberte **Azure** a pak klikněte na **zaregistrovat**.
+1. Spusťte Centrum pro správu Windows a v pravém horním rohu vyberte ikonu ozubeného kolečka pro **Nastavení** , která vás převezme na stránku svého účtu. Pak v nabídce **Brána** vlevo vyberte **Azure** a pak klikněte na **zaregistrovat**.
 
    :::image type="content" source="media/register-wac/register-wac.png" alt-text="Vyberte nastavení > brána > Azure a pak klikněte na zaregistrovat." lightbox="media/register-wac/register-wac.png":::
 
@@ -43,9 +43,18 @@ Pokud chcete používat služby Azure s centrem pro správu systému Windows, mu
 
    :::image type="content" source="media/register-wac/connect-to-aad.png" alt-text="Připojte se k Azure Active Directory tím, že zadáte stávající ID Azure Active Directory (tenant) a ID aplikace nebo vytvoříte nové ID aplikace." lightbox="media/register-wac/connect-to-aad.png":::
 
-5. Kliknutím na tlačítko **připojit** se připojte k Azure. Pokud jste správce Azure AD nebo pokud jste použili existující ID aplikace, měli byste vidět potvrzení, že jste teď připojení ke službě Azure AD, což indikuje, že proces je dokončený. Pokud ne, může se zobrazit zpráva, že potřebujete schválení správcem. Pokud se jedná o tento případ, vyberte možnost **vrátit se do aplikace bez udělení souhlasu** a obraťte se na správce služby Azure AD, aby udělil oprávnění k novému ID aplikace, které bylo vytvořeno při registraci, podle pokynů v kroku 6.
+5. Kliknutím na tlačítko **připojit** se připojte k Azure. Pokud jste správce Azure AD nebo pokud jste použili existující ID aplikace, měli byste vidět potvrzení, že jste teď připojení ke službě Azure AD, což indikuje, že proces je dokončený. Pokud ne, může se zobrazit zpráva, že potřebujete schválení správcem. Pokud se jedná o tento případ, vyberte možnost **vrátit se do aplikace bez udělení souhlasu** a požádejte správce Azure AD, aby udělil souhlas novému ID aplikace, který byl vytvořen po registraci, podle pokynů v kroku 6 níže.
 
-6. Pokud jste správce Azure AD, udělte oprávnění v Azure tak, že přejdete na **Azure Active Directory** a pak **Registrace aplikací**. Vyberte **všechny aplikace** a vyhledejte **WindowsAdminCenter**. Vyberte zobrazovaný název brány, kterou registrujete. Poznamenejte si **ID aplikace (klienta)** zobrazené v horní části stránky, protože ji budete muset poskytnout uživateli. Potom přejděte na **oprávnění rozhraní API**. V části **souhlas udělení souhlasu** vyberte **udělit souhlas správce**. Pak ID aplikace přidělte uživateli.
+6. Pokud jste správce Azure AD, udělte oprávnění v Azure tak, že přejdete na **Azure Active Directory** a pak **Registrace aplikací**. Vyberte **všechny aplikace** a vyhledejte **WindowsAdminCenter**. Vyberte zobrazovaný název brány, kterou registrujete. Poznamenejte si **ID aplikace (klienta)** zobrazené v horní části stránky, protože ji budete muset poskytnout uživateli. Potom přejděte na **oprávnění rozhraní API**. V části **souhlas udělení souhlasu** vyberte **udělit souhlas správce**. Pak ID aplikace přidělte uživateli. Pokud máte v úmyslu použít stejné ID aplikace pro více uživatelů, přejděte ke kroku 7; v opačném případě přejděte k kroku 8.
+
+7. V zájmu usnadnění správy je možné v organizaci povolit více uživatelů k registraci centra pro správu Windows pomocí stejného ID aplikace Azure. Aby to bylo možné, všichni uživatelé musí zaregistrovat své brány do stejné domény a portu, například *https://localhost:6516* . To také vyžaduje, aby správce Azure AD měl krok navíc a přidal do Azure Portal identifikátory URI pro přesměrování.
+
+   V centru pro správu Windows v pravém horním rohu vyberte ikonu ozubeného kola **Nastavení** . Pak v nabídce **Brána** vlevo vyberte **Azure** a pak klikněte na **Zobrazit v Azure, ve** kterém se zobrazí podrobnosti o Azure AD. V Azure Portal v nabídce na levé straně vyberte **spravovat > ověřování** . V poli **URI pro přesměrování** se zobrazí existující identifikátor URI, který představuje první bránu, která se zaregistruje do ID aplikace. Vyberte **Přidat identifikátor URI** a přidejte dva nové identifikátory URI přesměrování, například *http://localhost:6516* a *https://localhost:6516* .
+
+   :::image type="content" source="media/register-wac/add-redirect-uris.png" alt-text="Pokud chcete povolit více uživatelům v organizaci registraci centra pro správu Windows pomocí stejného ID aplikace Azure, přidejte identifikátory URI pro přesměrování." lightbox="media/register-wac/add-redirect-uris.png":::
+
+   > [!IMPORTANT]
+   > Pokud správce Azure AD nepřidá identifikátory URI pro přesměrování a více než jeden uživatel se pokusí zaregistrovat centrum pro správu Windows do stejného ID aplikace, zobrazí se chyba, že se adresa URL odpovědi neshoduje.
 
 7. V tomto okamžiku musí uživatel opakovat proces registrace, tentokrát vybrat **možnost použít existující** ID aplikace a zadat ID aplikace poskytnuté správcem služby Azure AD.
 

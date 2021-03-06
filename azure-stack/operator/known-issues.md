@@ -3,16 +3,16 @@ title: Známé problémy centra Azure Stack
 description: Přečtěte si o známých problémech v Azure Stackch vydáních centra.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/28/2021
+ms.date: 03/05/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 220569fd3763654f69809cc8316aca2a54e3f7ef
-ms.sourcegitcommit: af2bec84471795c0f3ac62dcaf1347a64e529906
+ms.openlocfilehash: f094fbba546821378a804e081ace7460ba651f73
+ms.sourcegitcommit: 7ee28fad5b8ba628b1a7dc3d82cabfc36aa62f0d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99554156"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102250338"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Známé problémy centra Azure Stack
 
@@ -99,6 +99,12 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Příčina: když je povolená plovoucí IP adresa, musí se port front-end i back-end port shodovat s pravidlem vyrovnávání zatížení. Toto chování je úmyslné.
 - Výskyt: běžné
 
+### <a name="stop-deallocate-vm-results-in-mtu-configuration"></a>Stop-Deallocate výsledků virtuálních počítačů v konfiguraci jednotky MTU
+
+- Platí: Tento problém se vztahuje na všechny podporované verze.
+- Příčina: výsledkem **zastavení a zrušení přidělení** na virtuálním počítači je konfigurace jednotky MTU na virtuálním počítači, který se má odebrat. Toto chování je nekonzistentní s Azure.
+- Výskyt: běžné
+
 <!-- ## Compute -->
 
 <!-- ## Storage -->
@@ -176,7 +182,13 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
 - Náprava: Pokud chcete veřejnou IP adresu vrátit do úspěšného stavu, změňte hodnotu **IdleTimeoutInMinutes** u pravidla vyrovnávání zatížení, které odkazuje na veřejnou IP adresu zpátky na původní hodnotu (výchozí hodnota je 4 minuty).
 - Výskyt: běžné
 
-## <a name="compute"></a>Compute
+### <a name="stop-deallocate-vm-results-in-mtu-configuration"></a>Stop-Deallocate výsledků virtuálních počítačů v konfiguraci jednotky MTU
+
+- Platí: Tento problém se vztahuje na všechny podporované verze.
+- Příčina: výsledkem **zastavení a zrušení přidělení** na virtuálním počítači je konfigurace jednotky MTU na virtuálním počítači, který se má odebrat. Toto chování je nekonzistentní s Azure.
+- Výskyt: běžné
+
+## <a name="compute"></a>Výpočetní prostředky
 
 ### <a name="issues-deploying-virtual-machine-scale-set-with-standard_ds2_v2-size-using-the-portal"></a>Problémy s nasazením sady škálování virtuálních počítačů s Standard_DS2_v2 velikostí pomocí portálu
 
@@ -364,8 +376,14 @@ Známé problémy s aktualizacemi centra Azure Stack najdete [v tématu řešen�
   - [Konfigurace protokolu BGP v centru Azure Stack](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
   - [Okruhy ExpressRoute](azure-stack-connect-expressroute.md)
   - [Zadat vlastní zásady IPsec/IKE](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
+  
+### <a name="stop-deallocate-vm-results-in-mtu-configuration"></a>Stop-Deallocate výsledků virtuálních počítačů v konfiguraci jednotky MTU
 
-## <a name="compute"></a>Compute
+- Platí: Tento problém se vztahuje na všechny podporované verze.
+- Příčina: výsledkem **zastavení a zrušení přidělení** na virtuálním počítači je konfigurace jednotky MTU na virtuálním počítači, který se má odebrat. Toto chování je nekonzistentní s Azure.
+- Výskyt: běžné
+
+## <a name="compute"></a>Výpočetní prostředky
 
 ### <a name="cannot-create-a-virtual-machine-scale-set-with-standard_ds2_v2-vm-size-on-portal"></a>Nejde vytvořit sadu škálování virtuálního počítače s Standard_DS2_v2 velikostí virtuálního počítače na portálu.
 

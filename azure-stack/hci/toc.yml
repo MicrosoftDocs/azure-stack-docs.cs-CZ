@@ -13,7 +13,7 @@
     - name: "Poznámky k\_verzi"
       href: 'https://support.microsoft.com/help/4595086'
     - name: Nejčastější dotazy
-      href: faq.md
+      href: faq.yml
 - name: Rychlé starty
   items:
     - name: Použití Azure Stack HCL s centrem pro správu Windows

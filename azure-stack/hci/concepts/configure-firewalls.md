@@ -5,12 +5,12 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: 0bfd97b71774662ec11074951dcc956391d0fc65
-ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
+ms.openlocfilehash: 28fd04d9fb84f612dca6b241b8935b8f9cbfe049
+ms.sourcegitcommit: 7ee28fad5b8ba628b1a7dc3d82cabfc36aa62f0d
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100487387"
+ms.lasthandoff: 03/06/2021
+ms.locfileid: "102250306"
 ---
 # <a name="configure-firewalls-for-azure-stack-hci"></a>Konfigurace bran firewall pro Azure Stack HCI
 
@@ -24,7 +24,7 @@ Azure Stack HCI se musí pravidelně připojovat k Azure. Přístup je omezený 
 - Odchozí směr
 - Port 443 (HTTPS)
 
-Další informace najdete v části Azure Stack připojení ke službě HCI v [Azure Stack HCL – Nejčastější dotazy](../faq.md) .
+Další informace najdete v části Azure Stack připojení ke službě HCI v [Azure Stack HCL – Nejčastější dotazy](../faq.yml) .
 
 Toto téma popisuje, jak volitelně použít vysoce uzamčenou konfiguraci brány firewall k blokování všech přenosů do všech cílů kromě těch, které jsou uvedeny na seznamu povolených.
 
@@ -42,7 +42,7 @@ Jak vidíte níže, Azure Stack HCL přistupuje k Azure pomocí více než jedn�
 ## <a name="required-endpoint-daily-access-after-azure-registration"></a>Denní přístup k požadovanému koncovému bodu (po registraci Azure)
 Azure udržuje správné známé IP adresy pro služby Azure, které jsou organizované pomocí značek služeb. Azure publikuje týdenní soubor JSON všech IP adres pro každou službu. IP adresy se často nemění, ale mění se několik časů za rok. V následující tabulce jsou uvedeny koncové body značek služby, které operační systém potřebuje k přístupu.
 
-| Description                   | Značka služby pro rozsah IP adres  | URL                                                                                 |
+| Popis                   | Značka služby pro rozsah IP adres  | URL                                                                                 |
 | :-----------------------------| :-----------------------  | :---------------------------------------------------------------------------------- |
 | Azure Active Directory        | Azureactivedirectory selhala      | `https://login.microsoftonline.com`<br> `https://graph.microsoft.com`               |
 | Azure Resource Manager        | AzureResourceManager      | `https://management.azure.com`                        |
@@ -122,4 +122,4 @@ Při použití Průvodce vytvořením clusteru v centru pro správu systému Win
 
 ## <a name="next-steps"></a>Další kroky
 Další informace najdete v tématu také:
-- Část připojení [Azure Stack HCL – Nejčastější dotazy](../faq.md)
+- Část připojení [Azure Stack HCL – Nejčastější dotazy](../faq.yml)
