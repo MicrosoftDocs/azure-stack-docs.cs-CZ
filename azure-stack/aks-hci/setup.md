@@ -5,12 +5,12 @@ author: davannaw-msft
 ms.topic: quickstart
 ms.date: 01/22/2021
 ms.author: dawhite
-ms.openlocfilehash: de54cf3f93462cfc63b6f7f2074343feacd25479
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.openlocfilehash: 4f4b06c671df668f3dd99b15a95dc29aae446c55
+ms.sourcegitcommit: 192701cd691d0f13ae65f19627bb8ae7fc81bbc9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "101840458"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102451298"
 ---
 # <a name="quickstart-set-up-azure-kubernetes-service-on-azure-stack-hci-using-windows-admin-center"></a>Rychlý Start: nastavení služby Azure Kubernetes v Azure Stack HCI pomocí centra pro správu Windows
 
@@ -29,11 +29,11 @@ Než začnete, ujistěte se, že jste splnili všechny požadavky na stránce [p
 
 ## <a name="download-azure-kubernetes-service-on-azure-stack-hci"></a>Stažení služby Azure Kubernetes na Azure Stack HCL
 
-Pokud jste si ještě nestáhli software verze Preview, přečtěte si téma [vyhodnocení AKS na Azure Stack HCI](https://aka.ms/AKS-HCI-Evaluate). Budete požádáni, abyste si stáhli AKS na Azure Stack HCI a také v centru pro správu systému Windows.
+Pokud jste si ještě nestáhli software verze Preview, přečtěte si téma [vyhodnocení AKS na Azure Stack HCI](https://aka.ms/AKS-HCI-Evaluate). Zobrazí se výzva ke stažení AKS na Azure Stack HCI. Ujistěte se prosím, že na této stránce nenainstalujete sestavení centra pro správu systému Windows, protože odkazuje na 2103 Build a některé funkce AKS-HCI nemusí fungovat podle očekávání, pokud pro vaše nasazení zvolíte centrum pro správu Windows Build 2103. 
 
 ## <a name="setting-up-windows-admin-center"></a>Nastavení centra pro správu Windows
 
-Pokud jste ještě nenainstalovali centrum pro správu systému Windows, přečtěte si téma [Instalace centra pro správu systému Windows](/windows-server/manage/windows-admin-center/deploy/install). Centrum pro správu systému Windows můžete spustit buď na počítači s Windows 10, nebo na serveru. Služba Azure Kubernetes v Azure Stack funkce HCI je k dispozici pouze v centru pro správu systému Windows Build 2009 nebo vyšší.
+Pokud jste ještě nenainstalovali centrum pro správu systému Windows, přečtěte si téma [Instalace centra pro správu systému Windows](http://aka.ms/aks-hci-wac-2009). Centrum pro správu systému Windows můžete spustit buď na počítači s Windows 10, nebo na serveru. **Služba Azure Kubernetes na Azure Stack funkce HCI funguje nejlépe v centru pro správu Windows Build 2009. Ujistěte se prosím, že jste si stáhli a nainstalovali Build 2009 pro nasazení clusterů AKS na Azure Stack HCI.** Pracujeme na integraci AKS-HCI s centrem pro správu systému Windows 2103 a některé funkce nemusí fungovat podle očekávání, pokud se rozhodnete použít sestavení 2103 pro nasazení.
 
 ## <a name="installing-the-azure-kubernetes-service-extension"></a>Instalace rozšíření služby Azure Kubernetes
 

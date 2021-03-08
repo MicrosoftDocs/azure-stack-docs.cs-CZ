@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 02/09/2021
-ms.openlocfilehash: 417ab5a64a9594d52072c4c6fccd7501e75baaac
-ms.sourcegitcommit: 69c700a456091adc31e4a8d78e7a681dfb55d248
+ms.date: 03/05/2021
+ms.openlocfilehash: 3761f0867995fe784987a76e1b04194dfae2b56b
+ms.sourcegitcommit: 192701cd691d0f13ae65f19627bb8ae7fc81bbc9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100013162"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102451281"
 ---
 # <a name="what-is-datacenter-firewall"></a>Co je datacentrum firewall?
 
@@ -62,5 +62,6 @@ Brána firewall Datacenter nabízí pro klienty tyto výhody:
 
 Související informace najdete v tématu také:
 
+- [Použití brány firewall Datacenter ke konfiguraci seznamů ACL pomocí centra pro správu Windows](../manage/use-datacenter-firewall-windows-admin-center.md)
 - [Použití brány firewall Datacenter ke konfiguraci seznamů ACL pomocí PowerShellu](../manage/use-datacenter-firewall-powershell.md)
 - [SDN v Azure Stack HCI a Windows Server](software-defined-networking.md)
