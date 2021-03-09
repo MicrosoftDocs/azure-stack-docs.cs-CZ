@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 02/10/2020
-ms.openlocfilehash: 3711a0e11bac59f00ce51027ea9544f6858dd297
-ms.sourcegitcommit: 5ea0e915f24c8bcddbcaf8268e3c963aa8877c9d
+ms.openlocfilehash: 56311d959ff0927c49844184da90681f44958478
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100487319"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515562"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Připojení Azure Stack HCl k Azure
 
@@ -100,11 +100,11 @@ Pokud je vaše předplatné Azure prostřednictvím programu EA nebo CSP, nejjed
 
 ### <a name="azure-active-directory-permissions"></a>Azure Active Directory oprávnění
 
-K dokončení procesu registrace budete také potřebovat příslušná Azure Active Directory oprávnění. Pokud je ještě nemáte, požádejte správce Azure AD, aby vám udělil souhlas nebo vám oprávnění delegovat. Další informace najdete v tématu [Správa registrace Azure](../manage/manage-azure-registration.md#azure-active-directory-app-permissions) .
+K dokončení procesu registrace budete také potřebovat příslušná Azure Active Directory oprávnění. Pokud je ještě nemáte, požádejte správce Azure AD, aby vám udělil souhlas nebo vám oprávnění delegovat. Další informace najdete v tématu [Správa registrace Azure](../manage/manage-azure-registration.md#assign-azure-ad-app-permissions) .
 
 ## <a name="register-a-cluster-using-windows-admin-center"></a>Registrace clusteru pomocí centra pro správu Windows
 
-Nejjednodušší způsob, jak zaregistrovat Azure Stack clusteru HCI, je použití centra pro správu systému Windows. Mějte na paměti, že uživatel musí mít [Azure Active Directory oprávnění](../manage/manage-azure-registration.md#azure-active-directory-app-permissions), jinak se proces registrace nedokončí. místo toho se ukončí a ponechá registraci čeká na schválení správcem.
+Nejjednodušší způsob, jak zaregistrovat Azure Stack clusteru HCI, je použití centra pro správu systému Windows. Mějte na paměti, že uživatel musí mít [Azure Active Directory oprávnění](../manage/manage-azure-registration.md#assign-azure-ad-app-permissions), jinak se proces registrace nedokončí. místo toho se ukončí a ponechá registraci čeká na schválení správcem.
 
 1. Před zahájením procesu registrace musíte nejdřív [zaregistrovat centrum pro správu Windows v Azure](../manage/register-windows-admin-center.md), pokud jste to ještě neudělali.
 
@@ -137,7 +137,7 @@ Pomocí následujícího postupu můžete zaregistrovat Azure Stack clusteru HCI
 
    Tato syntaxe registruje cluster (z kterého je Server1 členem), jako aktuální uživatel s výchozí oblastí Azure a cloudovým prostředím, a s využitím inteligentních výchozích názvů pro prostředek Azure a skupinu prostředků. `-Region` `-ResourceName` K zadání těchto hodnot můžete také přidat volitelné parametry, a `-ResourceGroupName` pro tento příkaz.
 
-   Mějte na paměti, že uživatel, který spouští `Register-AzStackHCI` rutinu, musí mít [oprávnění Azure Active Directory](../manage/manage-azure-registration.md#azure-active-directory-app-permissions), jinak se proces registrace nedokončí. místo toho se ukončí registrace, která čeká na schválení správcem. Jakmile budou udělena oprávnění, stačí znovu spustit `Register-AzStackHCI` úplnou registraci.
+   Mějte na paměti, že uživatel, který spouští `Register-AzStackHCI` rutinu, musí mít [oprávnění Azure Active Directory](../manage/manage-azure-registration.md#assign-azure-ad-app-permissions), jinak se proces registrace nedokončí. místo toho se ukončí registrace, která čeká na schválení správcem. Jakmile budou udělena oprávnění, stačí znovu spustit `Register-AzStackHCI` úplnou registraci.
 
 3. Ověřování pomocí Azure
 

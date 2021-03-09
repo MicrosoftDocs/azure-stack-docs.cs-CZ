@@ -7,12 +7,12 @@ ms.date: 03/05/2021
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 03/05/2021
-ms.openlocfilehash: 957b5860853b12040bfc13c4380290ad27e53a42
-ms.sourcegitcommit: 7ee28fad5b8ba628b1a7dc3d82cabfc36aa62f0d
+ms.openlocfilehash: f4fc9ec002312432bd9f839026eb3ed4254991ea
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/06/2021
-ms.locfileid: "102250292"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515613"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Pracovní stanice pro přístup k operátorovi centra Azure Stack
 
@@ -46,14 +46,13 @@ V následující tabulce je uveden předinstalovaný software na virtuálním po
 | [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)                     | [Systémová_jednotka] \\ Programové soubory (x86) \\ Průzkumník služby Microsoft Azure Storage |
 | [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)                         | [Systémová_jednotka] \\ VMSoftware \\ azcopy_windows_amd64_10.3.4               |
 | [AzureStack – nástroje](https://github.com/Azure/AzureStack-Tools/tree/az)                                          | [Systémová_jednotka] \\ VMSoftware \\ AzureStack – nástroje                          |
-
 ## <a name="download-files"></a>Stažení souborů
-
 Pokud chcete získat soubory k vytvoření virtuálního počítače s OAW, [Stáhněte si ho tady](https://aka.ms/OAWDownload). Před stažením si přečtěte [prohlášení o ochraně osobních údajů společnosti Microsoft](https://privacy.microsoft.com/privacystatement) a [právní smlouvy](https://docs.microsoft.com/legal/azure-stack-hub/azure-stack-operator-access-workstation-legal-terms) .
 
 Z důvodu bezstavového charakteru řešení nejsou k dispozici žádné aktualizace pro virtuální počítač OAW. Pro každý milník se uvolní nová verze souboru bitové kopie virtuálního počítače. K vytvoření nového virtuálního počítače s OAW použijte nejnovější verzi. Soubor bitové kopie je založený na nejnovější verzi Windows serveru 2019. Po instalaci můžete pomocí web Windows Update použít aktualizace, včetně důležitých aktualizací.
 
-Ověřte hodnotu hash staženého souboru OAW.zip, abyste se ujistili, že se ještě nezměnila před jeho použitím k vytvoření virtuálního počítače s OAW. Spusťte následující skript prostředí PowerShell. Pokud je vrácená hodnota `True` , můžete použít stažený OAW.zip:
+Ověřte hodnotu hash staženého souboru OAW.zip, abyste se ujistili, že se ještě nezměnila před jeho použitím k vytvoření virtuálního počítače s OAW. Spusťte následující skript prostředí PowerShell. Pokud je vrácená hodnota true, můžete použít stažený OAW.zip:
+
 
 > [!NOTE]  
 > Odblokovat soubory skriptu po extrakci souboru ke stažení.
@@ -75,7 +74,7 @@ if ($expectedHash -eq $actualHash)
 } 
 else 
 { 
-    Write-Error 'ERROR: OAW.zip file hash does not match! It isn't safe to use it, please download it again.' 
+    Write-Error "ERROR: OAW.zip file hash does not match! It isn't safe to use it, please download it again." 
     Write-Error "Actual hash: $actualHash" 
 } 
 ```
@@ -97,7 +96,7 @@ else
     ![Snímek obrazovky s rutinou prostředí PowerShell pro kontrolu verze virtuálního počítače OAW.](media/operator-access-workstation/check-operator-access-workstation-vm-version.png)
 
 > [!NOTE]  
-> Tato rutina PowerShellu nemusí být k dispozici ve HLH, která byla nasazena pomocí Image OEM.
+> Tato rutina PowerShellu se nenachází na HLH, která byla nasazena pomocí Image OEM.
 
 ## <a name="create-the-oaw-vm-using-a-script"></a>Vytvoření virtuálního počítače s OAW pomocí skriptu
 
@@ -125,13 +124,10 @@ New-OAW.ps1 -LocalAdministratorPassword $securePassword
 
 ```powershell  
 $securePassword = Read-Host -Prompt "Enter password for Azure Stack OAW's local administrator" -AsSecureString 
-New-OAW.ps1 -LocalAdministratorPassword $securePassword `
-   -AzureStackCertificatePath 'F:\certroot.cer' `
-   -DeploymentDataFilePath 'F:\DeploymentData.json' `
-   -AzSStampInfoFilePath 'F:\AzureStackStampInformation.json'
+New-OAW.ps1 -LocalAdministratorPassword $securePassword -AzureStackCertificatePath 'F:\certroot.cer' -DeploymentDataFilePath 'F:\DeploymentData.json' -AzSStampInfoFilePath 'F:\AzureStackStampInformation.json'
 ```
 
-Pokud DeploymentData.jsv souboru obsahuje předponu pojmenování pro virtuální počítač OAW, tato hodnota se použije pro `VirtualMachineName` parametr. V opačném případě je výchozí název `AzSOAW` nebo libovolný zadaný název uživatelem.
+Pokud ` DeploymentData.json` soubor obsahuje předponu pojmenování pro virtuální počítač OAW, tato hodnota se použije pro `VirtualMachineName` parametr. V opačném případě je výchozí název `AzSOAW` nebo libovolný zadaný název uživatelem. `DeploymentData.json`Pomocí [privilegovaného koncového bodu](https://docs.microsoft.com/azure-stack/reference/pep-2002/get-azurestackstampinformation) je možné znovu vytvořit v případě, že se v HLH nenachází. 
 
 > [!NOTE]  
 > Parametr `AzureStackCertificatePath` by měl být použit pouze v případě, že byl Azure Stack rozbočovač nasazen pomocí certifikátů vydaných certifikační autoritou rozlehlé sítě.
@@ -142,10 +138,7 @@ Počítač, na kterém běží Microsoft Hyper-V, vyžaduje čtyři jádra a čt
 
 ```powershell  
 $securePassword = Read-Host -Prompt "Enter password for Azure Stack OAW's local administrator" -AsSecureString 
-New-OAW.ps1 -LocalAdministratorPassword $securePassword ` 
--AzureStackCertificatePath 'F:\certroot.cer' ` 
--SkipNetworkConfiguration ` 
--VirtualSwitchName Example  
+New-OAW.ps1 -LocalAdministratorPassword $securePassword -AzureStackCertificatePath 'F:\certroot.cer' `-SkipNetworkConfiguration -VirtualSwitchName Example  
 ```
 
 > [!NOTE]  

@@ -16,12 +16,12 @@ ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
 ROBOTS: NOINDEX
-ms.openlocfilehash: f7434b468f9a3c259e178b91ca9e24bd49def76c
-ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
+ms.openlocfilehash: 6c40a3be7bddf49166979458e755058b5aba47c9
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102187057"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515936"
 ---
 # <a name="azure-stack-1807-update"></a>Aktualizace Azure Stack 1807
 
@@ -53,7 +53,7 @@ Tato aktualizace obsahuje následující vylepšení pro Azure Stack.
 - **Kapacitu rozšíříte** [přidáním dalších uzlů jednotek škálování](../azure-stack-add-scale-node.md).
 
 <!-- 2753130 |  IS, ASDK   -->  
-- **Šablony Azure Resource Manager nyní podporují prvek podmínky** – nyní můžete nasadit prostředek do šablony Azure Resource Manageru pomocí podmínky. Můžete navrhnout šablonu pro nasazení prostředku na základě podmínky, jako je například vyhodnocení, zda je hodnota parametru k dispozici. Informace o použití šablony jako podmínky najdete v části [podmíněné nasazení prostředků](/azure/architecture/building-blocks/extending-templates/conditional-deploy) a proměnných v tématu [šablony Azure Resource Manager](/azure/azure-resource-manager/resource-manager-templates-variables) v dokumentaci k Azure. 
+- **Šablony Azure Resource Manager nyní podporují prvek podmínky** – nyní můžete nasadit prostředek do šablony Azure Resource Manageru pomocí podmínky. Můžete navrhnout šablonu pro nasazení prostředku na základě podmínky, jako je například vyhodnocení, zda je hodnota parametru k dispozici. Informace o použití šablony jako podmínky najdete v části [podmíněné nasazení prostředků](/azure/architecture/guide/azure-resource-manager/advanced-templates/conditional-deploy) a proměnných v tématu [šablony Azure Resource Manager](/azure/azure-resource-manager/resource-manager-templates-variables) v dokumentaci k Azure. 
 
    Šablony můžete použít také k [nasazení prostředků do více než jednoho předplatného nebo skupiny prostředků](/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment).  
 
@@ -258,7 +258,7 @@ Níže jsou uvedené známé problémy po instalaci této verze buildu.
 - Operátor Azure Stack, pokud obdržíte výstrahu o nedostatku paměti a virtuální počítače klienta se nepodaří nasadit s **chybou vytvoření virtuálního počítače infrastruktury**, je možné, že Azure Stack razítko není dostupné paměti. [Capacity Planner Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) použijte k tomu, abyste nejlépe pochopili kapacitu dostupnou pro vaše úlohy.
 
 
-### <a name="compute"></a>Výpočetní prostředky
+### <a name="compute"></a>Compute
 
 <!-- 2724873 - IS --> 
 - Při použití rutin PowerShellu **Start-AzsScaleUnitNode** nebo  **stop-AzsScaleUnitNode** pro správu jednotek škálování se může stát, že první pokus o spuštění nebo zastavení jednotky škálování selže. Pokud rutina při prvním spuštění neprojde, spusťte rutinu podruhé. Druhý běh by měl úspěšně dokončit operaci. 

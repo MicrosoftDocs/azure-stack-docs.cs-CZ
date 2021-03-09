@@ -8,12 +8,12 @@ ms.date: 02/12/2021
 ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 12/10/2020
-ms.openlocfilehash: b84efb235478a3c3543bf5f1d1ada338f44de442
-ms.sourcegitcommit: 2c6418ee465e67edd417961b1f5211b2e09dbd5f
+ms.openlocfilehash: b16582d6f4dad324d1c748034dad902907e669b4
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102116950"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515715"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Řešení potíží v centru Azure Stack
 
@@ -205,7 +205,7 @@ Proces aktualizace a aktualizace centra Azure Stack slouží k tomu, aby operát
 
 2. Pokud jste tento problém nedokázali vyřešit, vytvořte [lístek podpory centra Azure Stack](./azure-stack-help-and-support-overview.md). Ujistěte se, že máte [shromážděné protokoly](./diagnostic-log-collection.md#send-logs-now) pro časové období, kdy k problému došlo. Pokud se aktualizace nezdaří, buď s kritickou výstrahou, nebo s upozorněním, je důležité zkontrolovat selhání a kontaktovat služby zákaznické podpory Microsoftu jako směrované v této výstraze, aby jednotka škálování nezůstala po dlouhou dobu ve stavu selhání. Po delší dobu se jednotka škálování v neúspěšném stavu aktualizace může zpomalit další problémy, které je obtížnější vyřešit později.
 
-## <a name="common-azure-stack-hub-patch-and-update-issues"></a>Běžné problémy s opravou a aktualizacemi centra Azure Stack
+## <a name="common-azure-stack-hub-patch-and-update-issues"></a>Běžné problémy s opravami a aktualizacemi služby Azure Stack Hub
 
 *Platí pro: Azure Stack integrovaných systémů centra*
 
@@ -225,7 +225,7 @@ Proces aktualizace a aktualizace centra Azure Stack slouží k tomu, aby operát
 
 **Příčina**: heslo řadiče pro správu základní desky (BMC) není správně nastavené.
 
-**Náprava**: [aktualizujte přihlašovací údaje řadiče pro správu základní desky](/azure-stack/operator/azure-stack-rotate-secrets.md#update-the-bmc-credential) a obnovte aktualizaci.
+**Náprava**: [aktualizujte přihlašovací údaje řadiče pro správu základní desky](/azure-stack/operator/azure-stack-rotate-secrets#update-the-bmc-credential) a obnovte aktualizaci.
 
 ### <a name="warnings-and-errors-reported-while-update-is-in-progress"></a>Upozornění a chyby nahlášené během aktualizace probíhá
 

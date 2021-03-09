@@ -17,12 +17,12 @@ ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/30/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 77a9bab5e9b501aa54115a7e61d1b9a639c59ec5
-ms.sourcegitcommit: f194f9ca4297864500e62d8658674a0625b29d1d
+ms.openlocfilehash: 9ca014878021d0fbe02a8997e1436910557e93f5
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102187295"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515919"
 ---
 # <a name="azure-stack-1904-update"></a>Aktualizace Azure Stack 1904
 
@@ -71,7 +71,7 @@ Typ sestavení aktualizace Azure Stack 1904 je **Express**. Další informace o 
 - Vylepšený objem zpráv syslog filtrováním zbytečných událostí a zadáním konfiguračního parametru pro výběr požadované úrovně závažnosti pro předávané zprávy. Další informace o tom, jak nakonfigurovat úroveň závažnosti, najdete v tématu [Azure Stack Integration Datacenter – předávání SYSLOG](../azure-stack-integrate-security.md).
 
 <!--this applied to Bug 1473487 -->
-- Do rutiny **Get-AzureStackLog** se přidala nová funkce, která zahrnuje další parametr, `-OutputSASUri` . Nyní můžete shromažďovat protokoly Azure Stack z vašeho prostředí a ukládat je do zadaného Azure Storage kontejneru objektů BLOB. Další informace najdete v tématu [diagnostika Azure Stack](/azure-stack/operator/relnotearchive/azure-stack-configure-on-demand-diagnostic-log-collection-portal#examples).
+- Do rutiny **Get-AzureStackLog** se přidala nová funkce, která zahrnuje další parametr, `-OutputSASUri` . Nyní můžete shromažďovat protokoly Azure Stack z vašeho prostředí a ukládat je do zadaného Azure Storage kontejneru objektů BLOB. Další informace najdete v tématu [diagnostika Azure Stack](/azure-stack/operator/diagnostic-log-collection).
 
 - Do skupiny **test-AzureStack** bylo přidáno nové vrácení paměti `UpdateReadiness` , které kontroluje, jestli je v zásobníku k dispozici dostatek paměti, aby se aktualizace úspěšně dokončila.
 

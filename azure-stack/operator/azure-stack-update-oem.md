@@ -7,12 +7,12 @@ ms.date: 10/15/2019
 ms.author: patricka
 ms.lastreviewed: 03/04/2020
 ms.reviewer: ppacent
-ms.openlocfilehash: 8b8c3a39f61693cad9904b99bd1f82b175d53a7b
-ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
+ms.openlocfilehash: 1f8b08a83e3597165b8d641b735fd8da070d8b4e
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97868859"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515732"
 ---
 # <a name="apply-azure-stack-hub-original-equipment-manufacturer-oem-updates"></a>Použití aktualizací pro výrobce OEM (Original Equipment Manufacturer) od centra Azure Stack
 
@@ -40,7 +40,7 @@ Tato část obsahuje kontaktní informace OEM a odkazy na referenční materiál
 |  | & V OBLASTI EMEA | [Společnosti Fujitsu podporují IT produkty a systémy](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) |
 | HPE | Vše | [HPE pro Centrum Microsoft Azure Stack](http://www.hpe.com/info/MASupdates) |
 | Lenovo | Vše | [Nejlepší recepty ThinkAgile SXM](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
-| Wortmann |  | [Balíček OEM/firmware](https://aka.ms/AA6z600)<br>[dokumentace centra Terra Azure Stack (včetně jednotky FRU)](https://aka.ms/aa6zktc)
+| Wortmann |  | [Balíček OEM/firmware](https://drive.terracloud.de/dl/fiTdTb66mwDAJWgUXUW8KNsd/)<br>[dokumentace centra Terra Azure Stack (včetně jednotky FRU)](https://aka.ms/aa6zktc)
 
 ## <a name="apply-oem-updates"></a>Použít aktualizace OEM
 

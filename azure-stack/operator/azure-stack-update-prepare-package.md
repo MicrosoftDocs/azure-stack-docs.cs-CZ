@@ -3,16 +3,16 @@ title: Příprava balíčku aktualizace v centru Azure Stack
 description: Naučte se připravit balíček aktualizace v centru Azure Stack.
 author: sethmanheim
 ms.topic: how-to
-ms.date: 02/08/2021
+ms.date: 03/08/2021
 ms.author: sethm
-ms.lastreviewed: 09/10/2019
+ms.lastreviewed: 03/10/2021
 ms.reviewer: sranthar
-ms.openlocfilehash: b3d1f3d76d988be3647a1d26fec0a763a681d4cf
-ms.sourcegitcommit: 824fd33fd5d6aa0c0dac06c21b592bdb60378940
+ms.openlocfilehash: cdc0968519dc5ac50153fb5a14faaafd3b048843
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99850917"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515776"
 ---
 # <a name="prepare-an-azure-stack-hub-update-package"></a>Příprava balíčku aktualizace centra Azure Stack
 
@@ -69,41 +69,41 @@ Následující postup ukazuje, jak importovat a instalovat balíčky aktualizac�
 > [!IMPORTANT]  
 > Upozorněte uživatele na jakékoli operace údržby a nezapomeňte naplánovat normální časová období údržby v době, kdy je to možné, co nejvíc nepracovních hodin. Operace údržby mohou ovlivnit úlohy uživatelů i operace portálu.
 
-1. Na portálu pro správu vyberte **všechny služby**. Pak v části kategorie **úložiště dat + úložiště** vyberte **účty úložiště**. Nebo do pole Filtr začněte psát **účty úložiště** a vyberte ho.
+1. Na portálu pro správu vyberte **všechny služby**. Pak v části kategorie **úložiště** vyberte **účty úložiště**. Nebo do pole Filtr začněte psát **účty úložiště** a pak ho vyberte.
 
-    ![Aktualizace centra Azure Stack](./media/azure-stack-update-prepare-package/image1.png)
+    [![Aktualizace centra Azure Stack](./media/azure-stack-update-prepare-package/select-storage-small.png)](./media/azure-stack-update-prepare-package/select-storage.png#lightbox)
 
 2. Do pole Filtr zadejte Update ( **aktualizovat**) a vyberte účet úložiště **updateadminaccount** .
 
-3. V podrobnostech účtu úložiště v části **služby** vyberte **objekty blob**.
+3. Ve **všech službách** v části **Essentials** nebo **BLOB Service** vyberte **kontejnery**.
 
-    ![Aktualizace centra Azure Stack – BLOB](./media/azure-stack-update-prepare-package/image2.png)
+    [![Aktualizace centra Azure Stack – BLOB](./media/azure-stack-update-prepare-package/select-containers-small.png)](./media/azure-stack-update-prepare-package/select-containers.png#lightbox)
 
-4. V části **BLOB Service** vyberte **+ kontejner** a vytvořte kontejner. Zadejte název (například **Update-1811**) a pak vyberte **OK**.
+4. V **kontejnerech** vyberte **+ kontejner** a vytvořte kontejner. Zadejte název (například **Update-2102**) a pak vyberte **vytvořit**.
 
-    ![Aktualizace centra Azure Stack – kontejner](./media/azure-stack-update-prepare-package/image3.png)
+    [![Aktualizace centra Azure Stack – kontejner](./media/azure-stack-update-prepare-package/new-container-small.png)](./media/azure-stack-update-prepare-package/new-container.png#lightbox)
 
 5. Po vytvoření kontejneru vyberte jeho název a potom vyberte **nahrát** a nahrajte soubory balíčku do kontejneru.
 
-    ![Aktualizace centra Azure Stack – nahrání](./media/azure-stack-update-prepare-package/image4.png)
+    [![Aktualizace centra Azure Stack – nahrání](./media/azure-stack-update-prepare-package/upload-package-small.png)](./media/azure-stack-update-prepare-package/upload-package.png#lightbox)
 
 6. V části **nahrát objekt BLOB** vyberte ikonu složky, vyhledejte soubor. zip balíčku aktualizace a potom v okně Průzkumníka souborů vyberte **otevřít** .
 
 7. V části **nahrát objekt BLOB** vyberte **nahrát**.
 
-    ![Aktualizace centra Azure Stack – nahrání objektu BLOB](./media/azure-stack-update-prepare-package/image5.png)
+    ![Aktualizace centra Azure Stack – nahrání objektu BLOB](./media/azure-stack-update-prepare-package/upload-blob.png)
 
 8. Opakujte kroky 6 a 7 pro soubor **Metadata.xml** a další soubory. zip v balíčku aktualizace. Neimportujte **doplňkový Notice.txt** soubor, pokud je zahrnutý.
 
 9. Až budete hotovi, můžete si prohlédnout oznámení (vyberte ikonu zvonku v pravém horním rohu portálu). Oznámení by mělo značit, že nahrání bylo dokončeno.
 
-10. Vraťte se na řídicí panel na okno **aktualizace** . Okno by mělo značit, že je k dispozici aktualizace. To znamená, že aktualizace byla úspěšně připravena. Výběrem okna si můžete prohlédnout nově přidaný balíček aktualizace.
+10. Vraťte se na řídicí panel na okno **aktualizace** . V okně by se mělo zobrazit, že je k dispozici aktualizace. To znamená, že aktualizace byla úspěšně připravena. Výběrem okna si můžete prohlédnout nově přidaný balíček aktualizace.
 
-11. Pokud chcete nainstalovat aktualizaci, vyberte balíček označený jako **připravený** a buď klikněte pravým tlačítkem na balíček a vyberte **aktualizovat hned**, nebo vyberte akci **aktualizovat hned** v horní části.
+11. Pokud chcete nainstalovat aktualizaci, vyberte balíček označený jako **připravený** a pak vyberte **aktualizovat hned**.
 
 12. Když vyberete instalaci balíčku aktualizace, můžete zobrazit stav v oblasti **aktualizace podrobností o spuštění** . Odsud můžete také vybrat **Stáhnout souhrn** a stáhnout soubory protokolu. Protokoly z aktualizačních běhů jsou k dispozici po dobu šesti měsíců od ukončení pokusu.
 
-13. Po dokončení aktualizace se zobrazí okno aktualizace s aktualizovanou verzí centra Azure Stack.
+13. Po dokončení aktualizace se zobrazí okno **aktualizace** s aktualizovanou verzí centra Azure Stack.
 
 Aktualizace můžete ručně odstranit z účtu úložiště po jejich instalaci do centra Azure Stack. Centrum Azure Stack pravidelně kontroluje starší balíčky aktualizací a odebírá je ze služby Storage. Odebrání starých balíčků může trvat Azure Stack až dvou týdnů.
 

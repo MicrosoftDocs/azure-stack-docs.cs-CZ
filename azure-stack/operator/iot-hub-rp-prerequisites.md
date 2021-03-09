@@ -6,12 +6,12 @@ ms.author: yiygu
 ms.service: azure-stack
 ms.topic: how-to
 ms.date: 1/6/2020
-ms.openlocfilehash: f194ef78a31722a05742b14b312ea4aad58d3ed3
-ms.sourcegitcommit: 0e3296fb27b9dabbc2569bf85656c4c7b1d58ba9
+ms.openlocfilehash: 953f8df1ce76b5765ba0c200ea9f2a78c7ee72b6
+ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93049787"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102515650"
 ---
 # <a name="prerequisites-for-installing-iot-hub-on-azure-stack-hub"></a>Předpoklady pro instalaci IoT Hub v centru Azure Stack
 
@@ -39,9 +39,7 @@ Aby bylo možné nainstalovat IoT Hub do centra Azure Stack, je nutné provést 
 
 ## <a name="certificate-requirements"></a>Požadavky na certifikáty
 
-1. Pořízení certifikátu TLS/SSL infrastruktury veřejných klíčů (PKI) pro Event Hubs. Alternativní název subjektu (SAN) musí splňovat následující vzor pojmenování: `CN=*.mgmtiothub.<region>.<fqdn>` .
-
-   Je možné zadat název subjektu, ale při zpracování certifikátů ho IoT Hub nepoužívá. Použije se jenom alternativní název subjektu. Úplný seznam podrobných požadavků najdete v tématu [požadavky na certifikát PKI](azure-stack-pki-certs.md) .
+1. Pořízení certifikátu TLS/SSL infrastruktury veřejných klíčů (PKI) pro IoT Hub. Pole **subjektu** certifikátu musí splňovat následující vzor pojmenování: `CN=*.mgmtiothub.<region>.<fqdn>` . Úplný seznam podrobných požadavků najdete v tématu [požadavky na certifikát PKI](azure-stack-pki-certs.md) .
 
    ![Příklad certifikátu IoT Hub](media\iot-hub-rp-prerequisites\certificate.png)
 
