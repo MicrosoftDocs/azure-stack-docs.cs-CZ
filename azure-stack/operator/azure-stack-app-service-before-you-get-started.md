@@ -8,12 +8,12 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/28/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: b9281e6d29dc83ba7d26df2135ca70e725bed690
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 82c97abf81226c22e2878bb6e6947d53f79cba77
+ms.sourcegitcommit: 02a4c34fb829e053016912a4fffcc51e32685425
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543986"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102532439"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>Požadavky na nasazení služby App Service ve službě Azure Stack Hub
 
@@ -56,6 +56,11 @@ Pokud chcete spustit poskytovatele prostředků v produkčním prostředí, mus�
 - Certifikát rozhraní API
 - Publikování certifikátu
 - Certifikát identity
+
+Kromě specifických požadavků uvedených v následujících oddílech také použijte nástroj později k otestování obecných požadavků. Úplný seznam ověření najdete v tématu [ověření certifikátů infrastruktury veřejných klíčů Azure Stack hub](azure-stack-validate-pki-certs.md) , včetně:
+- **Formát souboru** . PFX
+- **Použití klíče** nastaveného na ověřování serveru a klienta
+- a několik dalších
 
 #### <a name="default-domain-certificate"></a>Výchozí certifikát domény
 
@@ -149,7 +154,7 @@ K dispozici je teď [Šablona pro rychlý Start referenční architektury](https
 ##### <a name="provision-groups-and-accounts-in-a-workgroup"></a>Zřizování skupin a účtů v pracovní skupině
 
 >[!NOTE]
-> Při konfiguraci souborového serveru spusťte z **příkazového řádku správce** všechny následující příkazy. <br>**_Nepoužívejte PowerShell._* _
+> Při konfiguraci souborového serveru spusťte z **příkazového řádku správce** všechny následující příkazy. <br>**_Nepoužívejte PowerShell._**
 
 Při použití šablony Azure Resource Manager jsou uživatelé již vytvořeni.
 
@@ -206,7 +211,7 @@ icacls %WEBSITES_FOLDER% /grant Administrators:(OI)(CI)(F)
 icacls %WEBSITES_FOLDER% /grant %DOMAIN%\FileShareOwners:(OI)(CI)(M)
 icacls %WEBSITES_FOLDER% /inheritance:r
 icacls %WEBSITES_FOLDER% /grant %DOMAIN%\FileShareUsers:(CI)(S,X,RA)
-icacls %WEBSITES_FOLDER% /grant _S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
+icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 ```
 
 #### <a name="workgroup"></a>Pracovní skupina
@@ -271,7 +276,7 @@ K vytvoření certifikátů použijte následující postup:
 
 #### <a name="create-appservicecertsps1-script-parameters"></a>Parametry skriptu Create-AppServiceCerts.ps1
 
-| Parametr | Požadované nebo volitelné | Výchozí hodnota | Popis |
+| Parametr | Požadované nebo volitelné | Výchozí hodnota | Description |
 | --- | --- | --- | --- |
 | pfxPassword | Vyžadováno | Null | Heslo, které pomáhá chránit privátní klíč certifikátu |
 | DomainName | Vyžadováno | Local. azurestack. external | Oblast centra Azure Stack a přípona domény |
@@ -333,7 +338,7 @@ Když spustíte následující příkaz PowerShellu, musíte zadat privilegovan�
 
 #### <a name="get-azurestackrootcertps1-script-parameters"></a>Parametry skriptu Get-AzureStackRootCert.ps1
 
-| Parametr | Požadované nebo volitelné | Výchozí hodnota | Popis |
+| Parametr | Požadované nebo volitelné | Výchozí hodnota | Description |
 | --- | --- | --- | --- |
 | PrivilegedEndpoint | Vyžadováno | AzS-ERCS01 | Privilegovaný koncový bod |
 | CloudAdminCredential | Vyžadováno | AzureStack\CloudAdmin | Přihlašovací údaje účtu domény pro správce cloudu Azure Stack hub |
@@ -388,13 +393,13 @@ Pomocí těchto kroků vytvořte instanční objekt v tenantovi služby Azure AD
 1. Vyhledejte ID aplikace, které jste si poznamenali v kroku 7. 
 1. V seznamu vyberte App Service registraci aplikace.
 1. V levém podokně vyberte **oprávnění rozhraní API** .
-1. Vyberte **udělit souhlas správce pro \<tenant\>** , kde \<tenant\> je název vašeho tenanta Azure AD. Kliknutím na **Ano** potvrďte udělení souhlasu.
+1. Vyberte **udělit souhlas správce pro \<tenant\>**, kde \<tenant\> je název vašeho tenanta Azure AD. Kliknutím na **Ano** potvrďte udělení souhlasu.
 
 ```powershell
     Create-AADIdentityApp.ps1
 ```
 
-| Parametr | Požadované nebo volitelné | Výchozí hodnota | Popis |
+| Parametr | Požadované nebo volitelné | Výchozí hodnota | Description |
 | --- | --- | --- | --- |
 | DirectoryTenantName | Vyžadováno | Null | ID tenanta Azure AD. Zadejte GUID nebo řetězec. Příkladem je myazureaaddirectory.onmicrosoft.com. |
 | AdminArmEndpoint | Vyžadováno | Null | Správce Azure Resource Manager koncový bod. Příkladem je adminmanagement. Local. azurestack. external. |
@@ -418,7 +423,7 @@ Pomocí těchto kroků vytvořte instanční objekt v tenantovi služby Azure AD
     Create-ADFSIdentityApp.ps1
 ```
 
-| Parametr | Požadované nebo volitelné | Výchozí hodnota | Popis |
+| Parametr | Požadované nebo volitelné | Výchozí hodnota | Description |
 | --- | --- | --- | --- |
 | AdminArmEndpoint | Vyžadováno | Null | Správce Azure Resource Manager koncový bod. Příkladem je adminmanagement. Local. azurestack. external. |
 | PrivilegedEndpoint | Vyžadováno | Null | Privilegovaný koncový bod. Příkladem je AzS-ERCS01. |

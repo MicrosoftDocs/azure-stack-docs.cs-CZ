@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 02/10/2020
-ms.openlocfilehash: 56311d959ff0927c49844184da90681f44958478
-ms.sourcegitcommit: e432e7f0a790bd6419987cbb5c5f3811e2e7a4a2
+ms.openlocfilehash: 68fd911c18b45236980b47e8a587f014367c8be7
+ms.sourcegitcommit: 02a4c34fb829e053016912a4fffcc51e32685425
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102515562"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102532422"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Připojení Azure Stack HCl k Azure
 
-> Platí pro: Azure Stack HCI v20H2
+> Platí pro: Azure Stack HCI, verze 20H2
 
 Azure Stack HCI se doručuje jako služba Azure a musí se zaregistrovat do 30 dnů od instalace podle podmínek pro Azure Online Services. Toto téma vysvětluje, jak zaregistrovat Azure Stack cluster HCI pomocí [Azure ARC](https://azure.microsoft.com/services/azure-arc/) pro monitorování, podporu, fakturaci a hybridní služby. Po registraci se vytvoří prostředek Azure Resource Manager, který bude představovat každý místní cluster s Azure Stack HCI, a efektivně rozšiřuje rovinu správy Azure na Azure Stack HCI. Informace se pravidelně synchronizují mezi prostředkem Azure a místními clustery. Registrace ARC Azure je nativní funkcí operačního systému Azure Stack HCI, takže není potřeba registrovat žádného agenta.
 
@@ -34,7 +34,8 @@ Dokud nevytvoříte cluster Azure Stack HCI, nebudete moct s Azure registrovat. 
 Pro nejjednodušší možnosti registrace požádejte správce Azure AD, aby registraci dokončil buď pomocí centra pro správu Windows, nebo pomocí PowerShellu.
 
    > [!IMPORTANT]
-   > Pokud chcete zaregistrovat Azure Stack clusteru HCI pomocí centra pro správu Windows, musíte nejdřív [zaregistrovat centrum pro správu Windows v Azure](../manage/register-windows-admin-center.md) pomocí stejného ID Azure Active Directory (tenant), které plánujete použít pro registraci clusteru.
+   > Aby bylo možné zaregistrovat Azure Stack clusteru HCI pomocí centra pro správu systému Windows, musíte nejprve [zaregistrovat centrum pro správu Windows v Azure](../manage/register-windows-admin-center.md) a zadat své ID Azure Active Directory (tenant). Ujistěte se, že počítač, na kterém je spuštěný centrum pro správu Windows, je připojený ke stejné Azure Active Directory doméně, ve které vytvoříte cluster nebo důvěryhodnou doménu.
+
 
 ### <a name="internet-access"></a>Přístup k internetu
 
@@ -104,12 +105,12 @@ K dokončení procesu registrace budete také potřebovat příslušná Azure Ac
 
 ## <a name="register-a-cluster-using-windows-admin-center"></a>Registrace clusteru pomocí centra pro správu Windows
 
-Nejjednodušší způsob, jak zaregistrovat Azure Stack clusteru HCI, je použití centra pro správu systému Windows. Mějte na paměti, že uživatel musí mít [Azure Active Directory oprávnění](../manage/manage-azure-registration.md#assign-azure-ad-app-permissions), jinak se proces registrace nedokončí. místo toho se ukončí a ponechá registraci čeká na schválení správcem.
+Nejjednodušší způsob, jak zaregistrovat Azure Stack clusteru HCI, je použití centra pro správu systému Windows. Mějte na paměti, že uživatel musí mít [Azure Active Directory oprávnění](../manage/manage-azure-registration.md#assign-azure-ad-app-permissions), jinak se proces registrace nedokončí. místo toho se ukončí a ponechá registraci čeká na schválení správcem a uživatel bude muset po udělení oprávnění znovu spustit Průvodce registrací.
 
 1. Před zahájením procesu registrace musíte nejdřív [zaregistrovat centrum pro správu Windows v Azure](../manage/register-windows-admin-center.md), pokud jste to ještě neudělali.
 
    > [!IMPORTANT]
-   > Při registraci centra pro správu Windows v Azure je důležité použít stejné ID Azure Active Directory (tenant), které plánujete použít pro vlastní registraci clusteru. ID tenanta Azure AD představuje konkrétní instanci služby Azure AD obsahující účty a skupiny, zatímco ID předplatného Azure představuje smlouvu k používání prostředků Azure, pro které se účtují poplatky. ID tenanta zjistíte tak, že přejdete na [Portal.Azure.com](https://portal.azure.com) a vyberete **Azure Active Directory**. Vaše ID tenanta se zobrazí v části **informace o tenantovi**. Pokud chcete získat ID předplatného Azure, přejděte na **odběry** a zkopírujte nebo vložte své ID ze seznamu.
+   > Při registraci centra pro správu Windows v Azure je důležité použít stejné ID Azure Active Directory (tenant), které plánujete použít pro registraci clusteru. ID tenanta Azure AD představuje konkrétní instanci služby Azure AD obsahující účty a skupiny, zatímco ID předplatného Azure představuje smlouvu k používání prostředků Azure, pro které se účtují poplatky. ID tenanta zjistíte tak, že přejdete na [Portal.Azure.com](https://portal.azure.com) a vyberete **Azure Active Directory**. Vaše ID tenanta se zobrazí v části **informace o tenantovi**. Pokud chcete získat ID předplatného Azure, přejděte na **odběry** a zkopírujte nebo vložte své ID ze seznamu.
 
 2. Otevřete centrum pro správu systému Windows a v levém dolním rohu nabídky **nástroje** vyberte **Nastavení** . Pak vyberte **Azure Stack registraci HCI** z dolní části nabídky **Nastavení** . Pokud váš cluster ještě není zaregistrovaný v Azure, pak **stav registrace** nebude **zaregistrovaný**. Pokračujte kliknutím na tlačítko **registr** .
 
