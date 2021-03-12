@@ -1,24 +1,24 @@
 ---
-title: Principy mezipaměti fondu úložiště v Azure Stack HCL
-description: Jak funguje ukládání do mezipaměti pro čtení a zápis, aby se urychlil výkon v Prostory úložiště s přímým přístupem a Azure Stack HCI.
+title: Principy mezipaměti fondu úložiště v Azure Stackech v clusterech HCI a Windows Server
+description: Jak funguje ukládání do mezipaměti pro čtení a zápis k urychlení výkonu v Prostory úložiště s přímým přístupem.
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 03/11/2021
-ms.openlocfilehash: 61e5008bfebdb3260d3fe177f12d16bf2938052b
-ms.sourcegitcommit: 71745d1e0c8c868de6498f3154401715d8a5711a
+ms.openlocfilehash: 8d01b9ad6d606e3013f9723867d96c9590b5f670
+ms.sourcegitcommit: 0429d1f61f3d1fb6282fee67c45ae4e6fb3034c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
 ms.lasthandoff: 03/12/2021
-ms.locfileid: "103202261"
+ms.locfileid: "103234735"
 ---
-# <a name="understanding-the-storage-pool-cache-in-azure-stack-hci"></a>Principy mezipaměti fondu úložiště v Azure Stack HCL
+# <a name="understanding-the-storage-pool-cache"></a>Seznámení s mezipamětí fondu úložiště
 
 > Platí pro: Azure Stack HCI, verze 20H2; Windows Server 2019
 
-Prostory úložiště s přímým přístupem, technologie virtualizace základních úložišť na základě Azure Stack HCI, nabízí integrovanou mezipaměť na straně serveru pro zajištění maximálního výkonu úložiště při současném snížení nákladů. Je to velká, Trvalá mezipaměť pro čtení *a* zápis v reálném čase. Mezipaměť se konfiguruje automaticky při nasazení Azure Stack HCL. Ve většině případů se nevyžaduje žádná ruční Správa. Způsob fungování mezipaměti závisí na typech jednotek, které jsou k dispozici.
+Prostory úložiště s přímým přístupem, technologie virtualizace základních úložišť na základě Azure Stack HCI, nabízí integrovanou mezipaměť na straně serveru pro zajištění maximálního výkonu úložiště při současném snížení nákladů. Je to velká, Trvalá mezipaměť pro čtení *a* zápis v reálném čase, která se konfiguruje automaticky při nasazení. Ve většině případů se nevyžaduje žádná ruční Správa. Způsob fungování mezipaměti závisí na typech jednotek, které jsou k dispozici.
 
 ## <a name="drive-types-and-deployment-options"></a>Typy jednotek a možnosti nasazení
 
@@ -27,9 +27,9 @@ Prostory úložiště s přímým přístupem aktuálně funguje se čtyřmi typ
 | Typ jednotky | Description |
 |----------------------|--------------------------|
 |![PMem](media/choose-drives/pmem-100px.png)|**PMem** odkazuje na trvalou paměť, což je nový typ úložiště s nízkou latencí a vysokým výkonem.|
-|![NVMe](media/choose-drives/NVMe-100-px.png)|**NVMe** (nestálá paměť Express) odkazuje na jednotky Solid-State, které přímo sedí na sběrnici PCIe. Obecné faktory pro formuláře jsou 2,5 "U. 2, PCIe Add-in-Card (AIC) a M. 2. NVMe nabízí vyšší propustnost vstupně-výstupních operací za sekundu s nižší latencí než jakýkoli jiný typ disku, který podporujeme dnes s výjimkou PMem.|
+|![NVMe](media/choose-drives/NVMe-100-px.png)|**NVMe** (nestálá paměť Express) odkazuje na jednotky Solid-State, které přímo sedí na sběrnici PCIe. Obecné faktory pro formuláře jsou 2,5 "U. 2, PCIe Add-in-Card (AIC) a M. 2. NVMe nabízí vyšší vstupně-výstupní operace a propustnost vstupně-výstupních operací s nižší latencí než jakýkoli jiný typ disku, který podporujeme dnes s výjimkou PMem.|
 |![SSD](media/choose-drives/SSD-100-px.png)|**SSD** odkazuje na jednotky SSD, které se připojují prostřednictvím konvenčního SATA nebo SAS.|
-|![HDD](media/choose-drives/HDD-100-px.png)|**HDD** odkazuje na rotační a magnetické jednotky pevného disku, které nabízejí obrovské kapacity úložiště.|
+|![HDD](media/choose-drives/HDD-100-px.png)|**HDD** odkazuje na rotační a magnetické jednotky pevného disku, které nabízí velké množství úložné kapacity za nízkou cenu.|
 
 Můžou se kombinovat různými způsoby, které jsme seskupují do dvou kategorií: "all-Flash" a "hybrid". Nasazení se všemi HDD se nepodporují.
 
@@ -63,17 +63,17 @@ Pokud máte SSD a HDD, bude SSD ukládat do mezipaměti pro HDD.
 Pokud jsou všechny jednotky stejného typu, není žádná mezipaměť nakonfigurovaná automaticky. Máte možnost ručně nakonfigurovat jednotky s vyšší životností pro ukládání do mezipaměti pro jednotky s nižší životností stejného typu – viz oddíl [Ruční konfigurace](#manual-configuration) , kde se dozvíte, jak.
 
    >[!TIP]
-   > Ve všech nasazeních All-NVMe nebo All-SSD, obzvláště ve velmi velkém měřítku, které nemají žádné jednotky vyhořelé v mezipaměti, může zvýšit efektivitu úložiště.
+   > V některých případech nemá použití mezipaměti fondu úložiště smysl. Například ve všech nasazeních NVMe nebo All-SSD, zejména ve velmi velkém měřítku, které neobsahují žádné jednotky "vynaložené", může vylepšit efektivitu úložiště a maximalizovat výkon. V malých vzdálených nebo firemních nasazeních může být také omezené místo pro jednotky mezipaměti.
 
 ## <a name="cache-behavior-is-set-automatically"></a>Chování mezipaměti se nastaví automaticky.
 
-Chování mezipaměti je určeno automaticky na základě typů jednotek, které jsou ukládány do mezipaměti pro. Při ukládání do mezipaměti pro jednotky Flash (například ukládání do mezipaměti NVMe pro SSD) se do mezipaměti ukládají pouze zápisy. Při ukládání do mezipaměti pro jednotky pevného disku (například ukládání do mezipaměti SSD pro HDD) jsou čtení i zápisy ukládány do mezipaměti.
+Chování mezipaměti je určeno automaticky na základě typů jednotek, které jsou ukládány do mezipaměti pro. Při ukládání do mezipaměti pro jednotky Flash (například ukládání do mezipaměti NVMe pro SSD) se do mezipaměti ukládají pouze zápisy. Při ukládání do mezipaměti pro rotační diskové jednotky (například ukládání do mezipaměti SSD pro HDD) jsou čtení i zápisy ukládány do mezipaměti.
 
 ![Diagram, který porovnává ukládání do mezipaměti pro všechny-Flash, kde jsou zápisy do mezipaměti a čtení nejsou, s hybridem, kde jsou čtení i zápisy ukládány do mezipaměti.](media/cache/Cache-Read-Write-Behavior.png)
 
 ### <a name="write-only-caching-for-all-flash-deployments"></a>Ukládání do mezipaměti jen pro zápis pro nasazení ve všech bliknutích
 
-Při ukládání do mezipaměti pro jednotky SSD (NVMe nebo SSD) se do mezipaměti ukládají pouze zápisy. Tím se snižuje kapacita jednotek kapacit, protože mnoho zápisů a opakovaných zápisů se může v mezipaměti považovat za nepotřebnou dobu, čímž se zkrátí kumulativní provoz na kapacitní jednotky a prodlouží se jejich životnost. Z tohoto důvodu doporučujeme pro mezipaměť vybrat [vyšší životnost a jednotky optimalizované pro zápis](http://whatis.techtarget.com/definition/DWPD-device-drive-writes-per-day) . Kapacitní jednotky mohou rozumně snížit životnost zápisu.
+Ukládání do mezipaměti lze použít ve scénáři all-Flash, například pomocí NVMe jako mezipaměti pro zrychlení výkonu SSD. Při ukládání do mezipaměti pro všechna nasazení-Flash se ukládají jenom zápisy do mezipaměti. Tím se snižuje kapacita jednotek kapacit, protože mnoho zápisů a opakovaných zápisů se může v mezipaměti považovat za nepotřebnou velikost, což snižuje kumulativní provoz na kapacitní jednotky a prodlouží jejich životnost. Z tohoto důvodu doporučujeme pro mezipaměť vybrat [vyšší životnost a jednotky optimalizované pro zápis](http://whatis.techtarget.com/definition/DWPD-device-drive-writes-per-day) . Kapacitní jednotky mohou rozumně snížit životnost zápisu.
 
 Vzhledem k tomu, že čtení nijak významně neovlivňuje životnost blesku a protože SSD univerzálně nabízí nízkou latenci čtení, čtení nejsou uloženy v mezipaměti: jsou obsluhovány přímo z kapacitních jednotek (s výjimkou případů, kdy byla data dříve vytvořena). Díky tomu může být mezipaměť výhradně vyhrazena pro zápis a maximalizace jejich efektivity.
 
@@ -110,7 +110,7 @@ Vzhledem k tomu, že mezipaměť je pod zbývající částí zásobníku úlož
 
 Vzhledem k tom, že odolnost v Prostory úložiště s přímým přístupem je aspoň na úrovni serveru (to znamená, že kopie dat se vždycky zapisují na různé servery. maximálně jednu kopii na server), data v mezipaměti těží ze stejné odolnosti jako data, která nejsou v mezipaměti.
 
-![Diagram představuje tři servery, které jsou spojeny pomocí trojrozměrného zrcadlení ve vrstvě prostoru úložiště, který přistupuje k vrstvě mezipaměti N V M e, které mají přístup k neoznačeným jednotkám kapacity.](media/cache/Cache-Server-Side-Architecture.png)
+![Diagram představuje tři servery, které jsou spojeny pomocí trojrozměrného zrcadlení v prostoru úložiště, který přistupuje k vrstvě mezipaměti NVMe jednotek, které přistupují k neoznačeným jednotkám kapacity.](media/cache/Cache-Server-Side-Architecture.png)
 
 Například při použití trojrozměrného zrcadlení se tři kopie dat zapisují na různé servery, kde se nacházejí v mezipaměti. Bez ohledu na to, zda jsou později v nezpracované fázi nebo ne, budou vždy existovat tři kopie.
 
@@ -118,7 +118,7 @@ Například při použití trojrozměrného zrcadlení se tři kopie dat zapisuj
 
 Vazba mezi mezipamětí a úložnými jednotkami může mít libovolný poměr, od 1:1 do 1:12 nebo po. Přizpůsobuje se dynamicky při každém přidání nebo odebrání jednotek, například při vertikálním navýšení nebo po selhání. To znamená, že kdykoli budete chtít, můžete přidat jednotky mezipaměti nebo jednotky kapacity samostatně.
 
-![Animovaný diagram zobrazuje dvě jednotky mezipaměti N V M V, dynamicky namapovány na první čtyři, tedy na šest a pak na osm kapacitních jednotek.](media/cache/Dynamic-Binding.gif)
+![Animovaný diagram zobrazuje dvě jednotky NVMe cache dynamicky se mapují na první čtyři, tedy na šest a pak na osm kapacitních jednotek.](media/cache/Dynamic-Binding.gif)
 
 Pro symetrii doporučujeme, abyste si vynásobení počtu kapacitních jednotek a několika jednotek mezipaměti. Pokud máte například 4 jednotky mezipaměti, budete mít více i výkon s 8 jednotkami kapacity (1:2) než 7 nebo 9.
 
@@ -130,7 +130,7 @@ Pro krátkou dobu se na diskové jednotky, které byly vázány na jednotku ztra
 
 Tento scénář vyžaduje, aby na jeden server bylo nutné zadat minimálně dvě jednotky mezipaměti, aby se zajistil výkon.
 
-![Animovaný diagram znázorňuje dvě jednotky mezipaměti S S D namapované na šest kapacitních jednotek, dokud jedna jednotka mezipaměti neprojde, což způsobí, že všechny šesti jednotky budou namapovány na zbývající jednotku mezipaměti.](media/cache/Handling-Failure.gif)
+![Animovaný diagram zobrazuje dvě jednotky mezipaměti SSD namapované na šest kapacitních jednotek, dokud jedna jednotka mezipaměti neprojde, což způsobí, že všechny šesti jednotky budou namapovány na zbývající jednotku mezipaměti.](media/cache/Handling-Failure.gif)
 
 Pak můžete jednotku mezipaměti nahradit stejně jako jakoukoli jinou náhradu jednotky.
 

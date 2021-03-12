@@ -3,16 +3,16 @@ title: Poznámky k verzi centra Azure Stack
 description: Poznámky k verzi pro integrované systémy Azure Stack hub, včetně aktualizací a oprav chyb.
 author: sethmanheim
 ms.topic: article
-ms.date: 02/18/2021
+ms.date: 03/10/2021
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 0d1b3f65f36e3aae5095fc3535f5df6290cb51f7
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.openlocfilehash: 5d0a32551ee7faee2403c7433754cffcff3e50e3
+ms.sourcegitcommit: 0429d1f61f3d1fb6282fee67c45ae4e6fb3034c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "101840826"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103234701"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Poznámky k verzi centra Azure Stack
 
@@ -136,7 +136,7 @@ Vzhledem k tomu, že jsou opravy hotfix centra Azure Stack kumulativní, doporu�
 
 Pokud se následně uvolní nějaké opravy hotfix 2008, měli byste po instalaci 2008 nainstalovat tyto opravy:
 
-- [1.2008.26.116 opravy hotfix centra Azure Stack](hotfix-1-2008-26-116.md)
+- [1.2008.27.118 opravy hotfix centra Azure Stack](hotfix-1-2008-27-118.md)
 ::: moniker-end
 
 ::: moniker range="azs-2005"
@@ -228,7 +228,7 @@ Opravy hotfix centra Azure Stack se vztahují pouze na integrované systémy Azu
 
 Verze 2005 centra Azure Stack se musí použít ve verzi 2002 s následujícími opravami hotfix:
 
-- [1.2002.66.173 opravy hotfix centra Azure Stack](hotfix-1-2002-66-173.md)
+- [1.2002.66.173 opravy hotfix centra Azure Stack](hotfix-1-2002-67-175.md)
 
 ### <a name="after-successfully-applying-the-2005-update"></a>Po úspěšné instalaci aktualizace 2005
 
@@ -236,7 +236,7 @@ Od verze 2005 se při aktualizaci na novou hlavní verzi (například 1.2002. x 
 
 Pokud se následně uvolní nějaké opravy hotfix 2005, měli byste po instalaci 2005 nainstalovat tyto opravy:
 
-- [1.2005.30.102 opravy hotfix centra Azure Stack](hotfix-1-2005-30-102.md)
+- [1.2005.32.106 opravy hotfix centra Azure Stack](hotfix-1-2005-32-106.md)
 ::: moniker-end
 
 ::: moniker range="azs-2002"
@@ -365,7 +365,7 @@ Verze 2002 centra Azure Stack se musí použít ve verzi 1910 s následujícími
 Po instalaci této aktualizace nainstalujte všechny příslušné opravy hotfix.
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [1.2002.66.173 opravy hotfix centra Azure Stack](hotfix-1-2002-66-173.md)
+- [1.2002.67.175 opravy hotfix centra Azure Stack](hotfix-1-2002-67-175.md)
 ::: moniker-end
 
 <!------------------------------------------------------------>

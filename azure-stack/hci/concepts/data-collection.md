@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/10/2020
-ms.openlocfilehash: 91f578bcb0dc3a9d2debd086e6ed95cb591de90d
-ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
+ms.date: 03/12/2021
+ms.openlocfilehash: 30c9c343a20c2121dc6d9bc9577f20d21347e5a9
+ms.sourcegitcommit: 0429d1f61f3d1fb6282fee67c45ae4e6fb3034c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97053067"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103234752"
 ---
 # <a name="azure-stack-hci-data-collection"></a>Azure Stack shromažďování dat v HCI
 
@@ -20,7 +20,9 @@ ms.locfileid: "97053067"
 
 V tomto tématu jsou popsána požadovaná shromážděná data, která zajistí Azure Stack zabezpečení HCI, aktuální a v prosinci 2020 funguje podle očekávání pro obecnou dostupnost (GA).
 
-K poskytování Azure Stack HCL je potřeba, aby Microsoft poskytovala níže uvedená data. Tato data se shromažďují jednou denně a události shromažďování dat se dají zobrazit v protokolech událostí. Azure Stack HCI shromažďuje minimální data potřebná k zajištění aktuálnosti clusterů, jejich zabezpečení a správné fungování v aktuálním stavu.
+Zákaznická data, včetně názvů, metadat, konfigurací a obsahu místních virtuálních počítačů (VM), se nikdy neodesílají do cloudu, pokud nezapnete další služby, jako je Azure Backup nebo Azure Site Recovery, nebo pokud tyto virtuální počítače nezaregistrujete jednotlivě do služeb Cloud Management, jako je Azure ARC.
+
+Shromažďujeme diagnostická data. K poskytování Azure Stack HCL je potřeba, aby Microsoft poskytovala níže uvedená data. Tato data se shromažďují jednou denně a události shromažďování dat se dají zobrazit v protokolech událostí. Azure Stack HCI shromažďuje minimální data potřebná k zajištění aktuálnosti clusterů, jejich zabezpečení a správné fungování v aktuálním stavu.
 
    > [!IMPORTANT]
    > Níže uvedená data, která Azure Stack shromažďuje shromažďována, jsou nezávislá na diagnostických datech systému Windows, která lze nakonfigurovat pro různé úrovně kolekce. V Azure Stack HCI je výchozím nastavením pro shromažďování diagnostických dat systému Windows zabezpečení (vypnuto), což znamená, že nejsou odesílána žádná diagnostická data systému Windows, pokud správce nezmění nastavení diagnostických dat. Další informace najdete v tématu [Konfigurace diagnostických dat Windows ve vaší organizaci](/windows/privacy/configure-windows-diagnostic-data-in-your-organization). Microsoft je nezávislý kontroler všech diagnostických dat Windows shromážděných v souvislosti s Azure Stackm HCI. Microsoft bude zpracovávat diagnostická data Windows v souladu s [prohlášením o zásadách ochrany osobních údajů společnosti Microsoft](https://privacy.microsoft.com/privacystatement).
@@ -30,9 +32,11 @@ K poskytování Azure Stack HCL je potřeba, aby Microsoft poskytovala níže uv
 Tato Azure Stack data HCI: 
 
 - neposílá se společnosti Microsoft, dokud není produkt zaregistrován v Azure. Při zrušení registrace Azure Stack HCI se tato kolekce dat zastaví.
-- je zaznamenán do kanálu událostí Microsoft-AzureStack-HCI/Analytics. 
+- je zaznamenán do kanálu událostí Microsoft-AzureStack-HCI/Analytics.
 - je ve formátu JSON, aby správci systému mohli kontrolovat a analyzovat odesílaná data.
 - je uložený v rámci USA v zabezpečeném datovém centru provozovaném Microsoftem.
+
+Další informace o tom, jak Microsoft ukládá diagnostická data v Azure, najdete v tématu [zasídlí dat v Azure](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 ## <a name="data-retention"></a>Uchovávání dat
 

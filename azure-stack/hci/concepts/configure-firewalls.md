@@ -4,13 +4,13 @@ description: V tomto tématu najdete pokyny ke konfiguraci bran firewall pro ope
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
-ms.date: 02/12/2021
-ms.openlocfilehash: 28fd04d9fb84f612dca6b241b8935b8f9cbfe049
-ms.sourcegitcommit: 7ee28fad5b8ba628b1a7dc3d82cabfc36aa62f0d
+ms.date: 03/1/2021
+ms.openlocfilehash: aa09fd93e24a4c592c7bb8b0e05c140d975f0ad6
+ms.sourcegitcommit: 0429d1f61f3d1fb6282fee67c45ae4e6fb3034c1
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/06/2021
-ms.locfileid: "102250306"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103234718"
 ---
 # <a name="configure-firewalls-for-azure-stack-hci"></a>Konfigurace bran firewall pro Azure Stack HCI
 
@@ -31,7 +31,6 @@ Toto téma popisuje, jak volitelně použít vysoce uzamčenou konfiguraci brán
    >[!IMPORTANT]
    > Pokud je odchozí připojení omezeno externí firemní bránou firewall nebo proxy server, ujistěte se, že adresy URL uvedené v následující tabulce nejsou blokované. Související informace najdete v části "konfigurace sítě" v tématu [Přehled agenta serverů s podporou ARC Azure](/azure/azure-arc/servers/agent-overview#networking-configuration).
 
-
 Jak vidíte níže, Azure Stack HCL přistupuje k Azure pomocí více než jedné brány firewall potenciálně.
 
 :::image type="content" source="./media/configure-firewalls/firewalls-diagram.png" alt-text="Diagram zobrazuje Azure Stack HCL přístup k koncovým bodům značek Service prostřednictvím portu 443 (HTTPS) bran firewall." lightbox="./media/configure-firewalls/firewalls-diagram.png":::
@@ -42,7 +41,7 @@ Jak vidíte níže, Azure Stack HCL přistupuje k Azure pomocí více než jedn�
 ## <a name="required-endpoint-daily-access-after-azure-registration"></a>Denní přístup k požadovanému koncovému bodu (po registraci Azure)
 Azure udržuje správné známé IP adresy pro služby Azure, které jsou organizované pomocí značek služeb. Azure publikuje týdenní soubor JSON všech IP adres pro každou službu. IP adresy se často nemění, ale mění se několik časů za rok. V následující tabulce jsou uvedeny koncové body značek služby, které operační systém potřebuje k přístupu.
 
-| Popis                   | Značka služby pro rozsah IP adres  | URL                                                                                 |
+| Description                   | Značka služby pro rozsah IP adres  | URL                                                                                 |
 | :-----------------------------| :-----------------------  | :---------------------------------------------------------------------------------- |
 | Azure Active Directory        | Azureactivedirectory selhala      | `https://login.microsoftonline.com`<br> `https://graph.microsoft.com`               |
 | Azure Resource Manager        | AzureResourceManager      | `https://management.azure.com`                        |
@@ -80,15 +79,20 @@ Když v rámci procesu registrace Azure spouštíte `Register-AzStackHCI` nebo p
 I když je Galerie prostředí PowerShell hostovaný v Azure, pro ni aktuálně není k dispozici žádný příznak služby. Pokud nemůžete spustit `Register-AzStackHCI` rutinu z uzlu serveru z důvodu nedostatku přístupu k Internetu, doporučujeme stáhnout moduly do počítače pro správu a pak je ručně přenést do uzlu serveru, kde chcete spustit rutinu.
 
 ## <a name="set-up-a-proxy-server"></a>Nastavení proxy server
-Pokud chcete nastavit proxy server pro Azure Stack HCI, spusťte následující příkaz PowerShellu jako správce:
+Pokud chcete nastavit proxy server pro Azure Stack HCI, spusťte následující příkaz PowerShellu jako správce na každém serveru v clusteru:
 
 ```powershell
 Set-WinInetProxy -ProxySettingsPerUser 0 -ProxyServer webproxy1.com:9090
 ```
 
-Pomocí `ProxySettingsPerUser 0` příznaku nastavte pro server proxy v rozsahu pro jednotlivé uživatele, což je výchozí nastavení. 
+Pomocí `ProxySettingsPerUser 0` příznaku nastavte pro server proxy v rozsahu pro jednotlivé uživatele, což je výchozí nastavení.
+
+Pokud chcete odebrat konfiguraci proxy serveru, spusťte příkaz PowerShell `Set-WinInetProxy` bez argumentů.
 
 Stáhněte si skript WinInetProxy. psm1 na adrese: [Galerie prostředí PowerShell | WinInetProxy. psm1 0.1.0](https://www.powershellgallery.com/packages/WinInetProxy/0.1.0/Content/WinInetProxy.psm1).
+
+   >[!NOTE]
+   > Když použijete nastavení **proxy** v centru pro správu Windows, přesměruje se na odchozí provoz centra pro správu Windows (například rozšíření pro stahování, připojení k Azure atd.).
 
 ## <a name="network-port-requirements"></a>Požadavky na síťový port
 Ujistěte se, že jsou mezi všemi uzly serveru v lokalitě i mezi lokalitami (pro roztažené clustery) otevřené správné síťové porty. Budete potřebovat patřičná pravidla brány firewall a směrovačů, aby bylo možné v obousměrném přenosu přes protokol ICMP, SMB (port 445 a port 5445 pro SMB Direct) a WS-MAN (port 5985) mezi všemi servery v clusteru.

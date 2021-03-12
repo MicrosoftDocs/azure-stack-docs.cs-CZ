@@ -8,12 +8,12 @@ metadata:
   ms.service: azure-stack
   ms.subservice: azure-stack-hci
   ms.date: 1/21/2021
-  ms.openlocfilehash: f967b009d59ecad4ed8cc53c5a59da6c740a8fd8
-  ms.sourcegitcommit: 7ee28fad5b8ba628b1a7dc3d82cabfc36aa62f0d
+  ms.openlocfilehash: 6840744908ab204c047e9c6a2473a3c44849e663
+  ms.sourcegitcommit: 0429d1f61f3d1fb6282fee67c45ae4e6fb3034c1
   ms.translationtype: MT
   ms.contentlocale: cs-CZ
-  ms.lasthandoff: 03/06/2021
-  ms.locfileid: "102250629"
+  ms.lasthandoff: 03/12/2021
+  ms.locfileid: "103234684"
 title: Nejčastější dotazy k Azure Stack HCI
 summary: Nejčastější dotazy k rozhraní Azure Stack HCI obsahují část Azure Stack připojení HCI a obecné části Nejčastější dotazy.
 sections:
@@ -24,7 +24,10 @@ sections:
       Azure Stack HCI je místní vysoce sblížená infrastruktura, která se dodává jako Azure Hybrid Service. Software Azure Stack HCI nainstalujete na fyzických serverech, které řídíte v místním prostředí. Pak se připojíte k Azure pro cloudové monitorování, podporu, fakturaci a volitelné funkce pro správu a zabezpečení. V této části najdete informace o tom, jak Azure Stack HCI využívají cloud, a řeší často kladené otázky týkající se požadavků a chování připojení.
   - question: Odesílají se data uložená v Azure Stack HCL do cloudu?
     answer: >
-      No. Zákaznická data, včetně názvů, metadat, konfigurací a obsahu místních virtuálních počítačů, se nikdy neodesílají do cloudu, pokud pro tento účel nezapnete další služby, například Azure Backup nebo Azure Site Recovery, nebo pokud tyto virtuální počítače nezaregistrujete jednotlivě do služeb Cloud Management, jako je Azure ARC.
+      No. Zákaznická data, včetně názvů, metadat, konfigurací a obsahu místních virtuálních počítačů, se nikdy neodesílají do cloudu, pokud nezapnete další služby, jako je Azure Backup nebo Azure Site Recovery, nebo pokud tyto virtuální počítače nezaregistrujete jednotlivě do služeb Cloud Management, jako je Azure ARC.
+
+
+      Vzhledem k tomu, že Azure Stack HCI neukládá zákaznická data v cloudu, je pro místní data zákazníka v provozní kontinuity (BCDR) pro místní data zákazníka definována a kontrolována zákazníkem. Pokud chcete nastavit vlastní replikaci mezi lokalitami pomocí roztaženého clusteru, přečtěte si téma [Přehled roztažených clusterů](concepts/stretched-clusters.md).
 
 
       Další informace o diagnostických datech, která shromažďujeme, abychom zajistili Azure Stack zabezpečení HCI, aktuální a funguje podle očekávání, najdete v článku [Azure Stack shromažďování dat](concepts/data-collection.md) a [zasídlí dat v Azure](https://azure.microsoft.com/global-infrastructure/data-residency/).
