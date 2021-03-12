@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: patricka
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 6812ac4b0841e44b760ce3397c5a06b2051e0036
-ms.sourcegitcommit: 5f3d37994b8cb63c76e54136c0cc05bc4f475950
+ms.openlocfilehash: f929654eb723f900ebe8a2beefd84afb064e7056
+ms.sourcegitcommit: 4f1d22747c02ae280609174496933fca8c04a6cf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99495512"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102606376"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Rozhodnutí týkající se plánování nasazení spojené s Azure pro integrované systémy centra Azure Stack
 Až se rozhodnete, [jak budete Azure Stack hub integrovat do svého hybridního cloudového prostředí](azure-stack-connection-models.md), můžete dokončit rozhodnutí o nasazení Azure Stack centra.
@@ -48,16 +48,16 @@ Tuto možnost vyberte, pokud chcete pro účty správce služby používat vlast
 Můžete si vybrat buď průběžné **platby** , nebo model fakturace **kapacity** . Nasazení fakturačního modelu s průběžnými platbami podle aktuálního využití musí být schopné hlásit využití prostřednictvím připojení do Azure nejméně jednou za 30 dní. Proto je model fakturace s průběžnými platbami podle využití dostupný jenom pro připojená nasazení.  
 
 ### <a name="pay-as-you-use"></a>Průběžné platby
-S využitím modelu fakturace s průběžnými platbami podle aktuálního využití se účtují poplatky za použití v rámci předplatného Azure. Platíte jenom v případě, že používáte služby centra Azure Stack. Pokud se jedná o model, který se rozhodnete používat, budete potřebovat předplatné Azure a ID účtu přidružené k tomuto předplatnému (například serviceadmin@contoso.onmicrosoft.com ). Předplatné EA, CSP a CSL se podporují. Vytváření sestav využití se konfiguruje během [registrace centra Azure Stack](azure-stack-registration.md).
+S využitím modelu fakturace s průběžnými platbami podle aktuálního využití se účtují poplatky za použití v rámci předplatného Azure. Platíte jenom v případě, že používáte služby centra Azure Stack. Pokud se jedná o model, který se rozhodnete používat, budete potřebovat předplatné Azure a ID účtu přidružené k tomuto předplatnému (například serviceadmin@contoso.onmicrosoft.com ). Jsou podporovány odběry služeb EA, CSP a CSP sdílené služby. Vytváření sestav využití se konfiguruje během [registrace centra Azure Stack](azure-stack-registration.md).
 
 > [!NOTE]
-> Ve většině případů budou Podnikoví zákazníci používat předplatná EA a poskytovatelé služeb budou používat předplatná CSP nebo CSL.
+> Ve většině případů budou Podnikoví zákazníci používat předplatná EA a poskytovatelé služeb použijí odběry sdílených služeb CSP nebo CSP.
 
 Pokud se chystáte použít předplatné CSP, Projděte si následující tabulku a určete, které předplatné CSP chcete použít, protože správný přístup závisí na konkrétním scénáři CSP:
 
 |Scenario|Možnosti domény a předplatného|
 |-----|-----|
-|Jste přímý poskytovatel **CSP** nebo **nepřímo zprostředkovatel CSP** a budete pracovat s centrem Azure Stack.|Použijte předplatné CSL (Common Service Layer).<br>     nebo<br>Vytvořte tenanta Azure AD s popisným názvem v partnerském centru. &lt;Vaše organizace například>CSPAdmin s předplatným CSP Azure, které je k němu přidružené.|
+|Jste přímý poskytovatel **CSP** nebo **nepřímo zprostředkovatel CSP** a budete pracovat s centrem Azure Stack.|Použijte předplatné sdílených služeb CSP.<br>     nebo<br>Vytvořte tenanta Azure AD s popisným názvem v partnerském centru. &lt;Vaše organizace například>CSPAdmin s předplatným CSP Azure, které je k němu přidružené.|
 |Jste **nepřímým prodejcem CSP** a budete pracovat s centrem Azure Stack.|Požádejte svého nepřímý poskytovatel CSP, aby vytvořil tenanta Azure AD pro vaši organizaci s předplatným CSP Azure, které je k němu přidruženo pomocí partnerského centra.|
 
 ### <a name="capacity-based-billing"></a>Fakturace na základě kapacity

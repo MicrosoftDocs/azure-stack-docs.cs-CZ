@@ -7,12 +7,12 @@ ms.date: 03/02/2021
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: be51e93a54ed39ca53edd6d776100f5ca512e060
-ms.sourcegitcommit: b844c19d1e936c36a85f450b7afcb02149589433
+ms.openlocfilehash: 6a534e0bf0a3afe9bc15e7be6476f55d3d7d389a
+ms.sourcegitcommit: 71745d1e0c8c868de6498f3154401715d8a5711a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "101840843"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103202237"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Funkce virtuálního počítače centra Azure Stack
 
@@ -37,6 +37,7 @@ Virtuální počítače centra Azure Stack poskytují škálovatelné výpočetn
 | Disk s kopií cloudu | Vyberte koncové body z vlastností účtu úložiště, které jsou k dispozici v Azure Stack hub. | [Určující Cloud](/windows-server/failover-clustering/deploy-cloud-witness) je typ určujícího disku kvora clusteru s podporou převzetí služeb při selhání, který používá Microsoft Azure k poskytnutí hlasu kvora clusteru.<br>Koncové body v globálním Azure v porovnání s Azure Stack hub můžou vypadat takto:<br>Pro globální Azure:<br>`https://mywitness.blob.core.windows.net/`<br>Pro centrum Azure Stack:<br>`https://mywitness.blob.<region>.<FQDN>/`|
 | Diagnostika virtuálního počítače | Diagnostika virtuálního počítače se systémem Linux je podporována. | Diagnostika virtuálního počítače se systémem Linux není v centru Azure Stack podporována. Když nasadíte virtuální počítač se systémem Linux s povoleným diagnostikou virtuálních počítačů, nasazení se nezdařilo. Nasazení se také nepovede, pokud povolíte základní metriky virtuálního počítače se systémem Linux prostřednictvím nastavení diagnostiky. |
 | Vnořené velikosti virtuálních počítačů virtualizace | Podporováno | Podporováno z verze 2102 a novější. |
+| Rezervované instance virtuálních počítačů | Podporováno | Nepodporováno |
 
 ## <a name="vm-sizes"></a>Velikost virtuálních počítačů
 
@@ -65,6 +66,9 @@ V následující tabulce jsou uvedené virtuální počítače, které jsou podp
 |Optimalizované pro výpočty.|F-series       |[F1 – F16 ÚROVNĚ](azure-stack-vm-sizes.md#f-series)    |
 |Optimalizované pro výpočty.|Řada FS      |[F1s úrovně – F16s úrovně](azure-stack-vm-sizes.md#fs-series)    |
 |Optimalizované pro výpočty.|Řada Fsv2    |[F2s_v2 – F64s_v2](azure-stack-vm-sizes.md#fsv2-series)    |
+|GPU | Řada NCv3 |[NC6s_v3 – NC24s_v3](gpu-vms-about.md#ncv3) |
+|GPU | Řada NVv4 |[NV4as_v4](gpu-vms-about.md#nvv4) |
+|GPU | Řada NCasT4_v3 |[NC4as_T4_v3 – NC64as_T4_v3](gpu-vms-about.md#ncast4_v3)
 
 Velikosti virtuálních počítačů a jejich přidružených prostředků jsou konzistentní mezi Azure Stackm rozbočovačem a Azure. Tato konzistence zahrnuje množství paměti, počet jader a počet a velikost datových disků, které lze vytvořit. Výkon virtuálních počítačů se stejnou velikostí ale závisí na základních charakteristikách konkrétního prostředí centra Azure Stack.
 

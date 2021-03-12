@@ -3,16 +3,16 @@ title: Architektura identity pro centrum Azure Stack
 description: Seznamte se s architekturou identity pro centrum Azure Stack a rozdíly mezi Azure AD a AD FS.
 author: BryanLa
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 03/10/2021
 ms.author: bryanla
 ms.reviewer: fiseraci
-ms.lastreviewed: 07/20/2020
-ms.openlocfilehash: fa79df515e2676655ea98b6024179d3f56c41fbf
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.lastreviewed: 03/10/2021
+ms.openlocfilehash: 5f03c3b1f5ca6aa24c2d54acaa090984ff4db90a
+ms.sourcegitcommit: e7d6f953e7014900b4e7d710340cfa98d253fce9
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566188"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102637608"
 ---
 # <a name="identity-architecture-for-azure-stack-hub"></a>Architektura identity pro centrum Azure Stack
 
@@ -24,17 +24,17 @@ Vámi zvolený poskytovatel identity může omezit vaše možnosti, včetně pod
 
 |Funkce nebo scénář        |Azure AD  |AD FS  |
 |------------------------------|----------|-------|
-|Připojeno k Internetu     |Ano       |Volitelné|
-|Podpora víceklientské architektury     |Ano       |Ne      |
-|Nabídky položek na webu Marketplace |Ano       |Ano (vyžaduje použití nástroje pro [syndikaci offline Marketplace](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected) )|
-|Podpora pro Active Directory Authentication Library (ADAL) |Ano |Ano|
-|Podpora pro nástroje, jako je Azure CLI, Visual Studio a PowerShell  |Ano |Ano|
-|Vytváření instančních objektů pomocí Azure Portal     |Ano |Ne|
-|Vytváření instančních objektů pomocí certifikátů      |Ano |Ano|
-|Vytváření instančních objektů s tajnými kódy (klíče)    |Ano |Ano|
-|Aplikace mohou používat službu Graph Service           |Ano |Ne|
-|Aplikace můžou poskytovatele identity použít k přihlášení. |Ano |Ano (vyžaduje, aby se aplikace federovat s místními instancemi AD FS) |
-| Spravované systémové identity | Ne | Ne |
+|Připojeno k Internetu     |Yes       |Volitelné|
+|Podpora víceklientské architektury     |Yes       |No      |
+|Nabídky položek na webu Marketplace |Yes       |Ano (vyžaduje použití nástroje pro [syndikaci offline Marketplace](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected) )|
+|Podpora pro Active Directory Authentication Library (ADAL) |Yes |Yes|
+|Podpora pro nástroje, jako je Azure CLI, Visual Studio a PowerShell  |Yes |Yes|
+|Vytváření instančních objektů pomocí Azure Portal     |Yes |No|
+|Vytváření instančních objektů pomocí certifikátů      |Yes |Yes|
+|Vytváření instančních objektů s tajnými kódy (klíče)    |Yes |Yes|
+|Aplikace mohou používat službu Graph Service           |Yes |No|
+|Aplikace můžou poskytovatele identity použít k přihlášení. |Yes |Ano (vyžaduje, aby se aplikace federovat s místními instancemi AD FS) |
+| Spravované systémové identity | No | No |
 
 ## <a name="topologies"></a>Topologie
 
@@ -87,9 +87,9 @@ Tato topologie obsahuje následující vlastnosti:
 - Aby bylo možné podporovat použití této topologie v produkčním prostředí, je nutné integrovat integrovanou instanci AD FS centra Azure Stack s existující instancí AD FS, která je založená na službě Active Directory, prostřednictvím vztahu důvěryhodnosti federace.
 - Službu Graph Service můžete integrovat do centra Azure Stack s existující instancí služby Active Directory. Můžete také použít službu Graph API založenou na OData, která podporuje rozhraní API, která jsou konzistentní s Graph API Azure AD.
 
-  Aby bylo možné pracovat s instancí služby Active Directory, Graph API vyžaduje přihlašovací údaje uživatele z vaší instance služby Active Directory, které mají oprávnění jen pro čtení.
-  - Integrovaná instance AD FS je založena na systému Windows Server 2016.
-  - Vaše AD FS a instance služby Active Directory musí být založené na Windows Serveru 2012 nebo novějším.
+  Aby bylo možné pracovat s instancí služby Active Directory, Graph API vyžaduje přihlašovací údaje uživatele s oprávněním jen pro čtení ke své instanci služby Active Directory a přístup k těmto akcím:  
+  - Integrovaná instance AD FS.
+  - Vaše AD FS a instance služby Active Directory, které musí být založené na Windows Serveru 2012 nebo novějším.
   
   Mezi vaší instancí služby Active Directory a integrovanou instancí AD FS nejsou interakce omezeny na OpenID připojení a mohou používat jakýkoli vzájemně podporovaný protokol.
   - Uživatelské účty se vytvářejí a spravují v místní instanci služby Active Directory.

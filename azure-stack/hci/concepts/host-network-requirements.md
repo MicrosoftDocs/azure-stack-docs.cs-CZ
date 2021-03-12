@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/25/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 3e31852e554c85ffab18aacaa336a007a97874f2
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: a32d673d62975ea4e59cb3651acb1f3bc71ab9d6
+ms.sourcegitcommit: 71745d1e0c8c868de6498f3154401715d8a5711a
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98255295"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103202248"
 ---
 # <a name="host-network-requirements-for-azure-stack-hci"></a>Požadavky na síť hostitele pro Azure Stack HCI
 
@@ -84,14 +84,11 @@ Ne všechny síťové adaptéry od dodavatelů podporují RDMA. V následující
 
 |Dodavatel síťových adaptérů|iWARP|RoCE|
 |----|----|----|
-|Broadcom|Ne|Ano|
-|Chelsio|Ano|Ne|
-|RSS|Ano|Ano (některé modely)|
-|PERC (QLogic/Cavium)|Ano|Ano|
-|NVIDIA (Mellanox)|Ne|Ano|
-
-> [!NOTE]
-> Ne všechny adaptéry od dodavatelů podporují RDMA. Ověřte prosím podporu RDMA u konkrétního dodavatele síťových karet.
+|Broadcom|No|Yes|
+|Chelsio|Yes|No|
+|RSS|Yes|Ano (některé modely)|
+|PERC (QLogic/Cavium)|Yes|Yes|
+|NVIDIA (Mellanox)|No|Yes|
 
 Pokud chcete získat další informace o nasazení RDMA, Stáhněte si dokument Word z [úložiště GitHub SDN](https://github.com/Microsoft/SDN/blob/master/Diagnostics/S2D%20WS2016_ConvergedNIC_Configuration.docx).
 
@@ -109,18 +106,18 @@ Doporučujeme použít iWARP, pokud:
 
 #### <a name="rdma-over-converged-ethernet-roce"></a>RDMA přes sblíženou síť Ethernet (RoCE)
 
-RoCE používá protokol UDP (User Datagram Protocol) a vyžaduje, aby se zajistila spolehlivost přemostění datového centra PFC a ETS.
+RoCE používá protokol UDP (User Datagram Protocol) a pro zajištění spolehlivosti vyžaduje přemostění datových Center (DCB) PFC a ETS.
 
 Doporučujeme použít RoCE, pokud:
 
 - V datovém centru už máte nasazení pomocí RoCE.
-- Máte zkušenosti s požadavky vaší fyzické sítě
+- Jste obeznámeni se správou požadavků na síť DCB
 
 ### <a name="guest-rdma"></a>Host RDMA
 
 Host RDMA umožňuje úlohám SMB pro virtuální počítače získat stejné výhody použití RDMA na hostitelích.
 
-**Použitelné typy provozu**: COMPUTE
+**Použitelné typy provozu**: úložiště založené na hostovi
 
 **Vyžadované certifikace**: Premium
 
@@ -160,7 +157,7 @@ Nejjednodušší způsob, jak zjistit, jestli jsou adaptéry symetrické, je, po
 
 V následující tabulce najdete příklad popisů rozhraní, které se odchylují jenom od číslic (#):
 
-|Název|Popis rozhraní|Rychlost propojení|
+|Name|Popis rozhraní|Rychlost propojení|
 |----|----|----|
 |NIC1|#1 síťového adaptéru|25 GB/s|
 |NIC2|#2 síťového adaptéru|25 GB/s|

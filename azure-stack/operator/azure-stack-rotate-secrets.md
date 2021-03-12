@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Naučte se, jak tyto tajné klíče otočit z centra Azure Stack.
 author: BryanLa
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 03/09/2021
 ms.reviewer: fiseraci
 ms.author: bryanla
 ms.lastreviewed: 01/19/2021
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: d7c75bc9864e564736b03477a3c37140e752d850
-ms.sourcegitcommit: 0983c1f90734b7ea5e23ae614eeaed38f9cb3c9a
+ms.openlocfilehash: 69c20b3dfd410032be74eb4caa0ae3e2ddd33b18
+ms.sourcegitcommit: 4f1d22747c02ae280609174496933fca8c04a6cf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98571344"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102606342"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Obměna tajných klíčů ve službě Azure Stack Hub
 
@@ -46,7 +46,7 @@ Další informace o monitorování a nápravě výstrah najdete [v tématu monit
 
 ## <a name="prerequisites"></a>Požadavky
 
-1. Důrazně doporučujeme, abyste instanci centra Azure Stack napřed aktualizovali na [nejnovější verzi](release-notes.md).
+1. Důrazně doporučujeme, abyste spustili podporovanou verzi centra Azure Stack a měli byste použít nejnovější dostupnou opravu hotfix pro verzi centra Azure Stack, na které je instance spuštěná. Pokud například používáte 2008, ujistěte se, že máte nainstalovanou [nejnovější opravu hotfix, která je k dispozici](release-notes.md?view=azs-2008#hotfixes) pro 2008.
 
     ::: moniker range="<azs-1811"  
     >[!IMPORTANT]
@@ -323,7 +323,7 @@ K otočení interních tajných kódů proveďte následující kroky:
 
 [Rutina Start-SecretRotation](../reference/pep-2002/start-secretrotation.md) otočí tajné klíče infrastruktury Azure Stackho centrálního systému. Tuto rutinu je možné provést jenom proti PEP koncovému bodu s privilegovaným centrem Azure Stack pomocí  `Invoke-Command` bloku skriptu, který v parametru předává relaci `-Session` . Ve výchozím nastavení otočí jenom certifikáty všech koncových bodů infrastruktury externích sítí.
 
-| Parametr | Typ | Vyžadováno | Pozice | Výchozí | Popis |
+| Parametr | Typ | Vyžadováno | Pozice | Výchozí | Description |
 |--|--|--|--|--|--|
 | `PfxFilesPath` | Řetězec  | Ne  | Jmenovanou  | Žádné  | Cesta ke sdílené složce adresáře **\Certificates** obsahující všechny certifikáty koncového bodu externí sítě. Vyžaduje se pouze při otáčení externích tajných klíčů. Koncový adresář musí být **\Certificates**. |
 | `CertificatePassword` | SecureString | Ne  | Jmenovanou  | Žádné  | Heslo pro všechny certifikáty, které jsou k dispozici v-PfXFilesPath. Požadovaná hodnota, pokud je k dispozici PfxFilesPath při otočení externích tajných klíčů. |

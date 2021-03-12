@@ -4,18 +4,18 @@ titleSuffix: Azure Stack Hub
 description: Naučte se registrovat integrované systémy Azure Stack hub pomocí Azure, abyste si mohli stáhnout Azure Marketplace položky a nastavit vytváření sestav dat.
 author: PatAltimore
 ms.topic: how-to
-ms.date: 11/19/2020
+ms.date: 02/26/2021
 ms.author: patricka
 ms.reviewer: avishwan
 ms.lastreviewed: 11/19/2020
 ms.custom: contperf-fy20q4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 97a730d61d5ba67124771185deb3fd51c269938a
-ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
+ms.openlocfilehash: 53dd1a8b168f5c0e2285878f811a3e055cfd1929
+ms.sourcegitcommit: 4f1d22747c02ae280609174496933fca8c04a6cf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99534143"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102606359"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Registrace centra Azure Stack s Azure
 
@@ -286,6 +286,9 @@ Připojená prostředí mají přístup k Internetu a k Azure. V těchto prostř
       -BillingModel Capacity `
       -RegistrationName $RegistrationName
    ```
+
+    Použijte *číslo smlouvy EA* , kde jste si koupili licence vaší SKU kapacity.
+
    > [!Note]  
    > Pomocí parametru UsageReportingEnabled pro rutinu **set-AzsRegistration** můžete zakázat funkci generování sestav využití nastavením parametru na hodnotu false. 
    
@@ -329,6 +332,9 @@ Připojená prostředí mají přístup k Internetu a k Azure. V těchto prostř
       -BillingModel Capacity `
       -RegistrationName $RegistrationName
    ```
+
+    Použijte *číslo smlouvy EA* , kde jste si koupili licence vaší SKU kapacity.
+
    > [!Note]  
    > Pomocí parametru UsageReportingEnabled pro rutinu **set-AzsRegistration** můžete zakázat funkci generování sestav využití nastavením parametru na hodnotu false. 
    
@@ -357,6 +363,9 @@ Pokud registrujete Azure Stack hub v odpojeném prostředí (bez připojení k I
    $FilePathForRegistrationToken = "$env:SystemDrive\RegistrationToken.txt"
    $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $YourCloudAdminCredential -UsageReportingEnabled:$False -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
+
+   Použijte *číslo smlouvy EA* , kde jste si koupili licence vaší SKU kapacity.
+
    Další informace o rutině Get-AzsRegistrationToken najdete v [referenčních](#registration-reference)informacích k registraci.
 
    > [!Tip]  
@@ -609,6 +618,8 @@ Spusťte následující rutiny PowerShellu:
    $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -UsageReportingEnabled:$False
    $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
+
+    Použijte *číslo smlouvy EA* , kde jste si koupili licence vaší SKU kapacity.
 
    > [!Tip]  
    > Registrační token je uložený v souboru určeném pro *$FilePathForRegistrationToken*. Můžete změnit cestu k souboru FilePath nebo filename podle vašeho uvážení.

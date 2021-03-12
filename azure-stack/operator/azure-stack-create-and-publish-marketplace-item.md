@@ -3,16 +3,16 @@ title: Vytvoření a publikování položky Marketplace v centru Azure Stack
 description: Naučte se vytvářet a publikovat položku na webu Marketplace centra Azure Stack.
 author: sethmanheim
 ms.topic: article
-ms.date: 11/16/2020
+ms.date: 03/09/2021
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/16/2020
-ms.openlocfilehash: 1ca64f3d6084ca4f28967070c344b286e858cb9d
-ms.sourcegitcommit: e88f0a1f2f4ed3bb8442bfb7b754d8b3a51319b4
+ms.openlocfilehash: deb0c21a6e352d2e2fa4fdab3cab718512746591
+ms.sourcegitcommit: 4f1d22747c02ae280609174496933fca8c04a6cf
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99534075"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102606420"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Vytvoření a publikování položky Marketplace pro vlastní Azure Stack centra
 
@@ -26,26 +26,30 @@ Příklady v tomto článku ukazují, jak vytvořit jednu nabídku tržiště vi
 
 Než vytvoříte položku Marketplace pro virtuální počítače, udělejte toto:
 
-1. Nahrajte vlastní image virtuálního počítače na portál centra Azure Stack podle pokynů v části [Přidání image virtuálního počítače do centra Azure Stack](azure-stack-add-vm-image.md). 
+1. Nahrajte vlastní image virtuálního počítače na portál centra Azure Stack podle pokynů v části [Přidání image virtuálního počítače do centra Azure Stack](azure-stack-add-vm-image.md).
 2. Postupujte podle pokynů v tomto článku a zabalite Image (vytvořte soubor. azpkg) a nahrajte ho do tržiště centra Azure Stack.
 
 ## <a name="create-a-marketplace-item"></a>Vytvořit položku Marketplace
 
 Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
 
-1. Stáhněte si [nástroj Azure Gallery Packager](https://aka.ms/azsmarketplaceitem) a ukázkový balíček Azure Stack centra pro galerii. Tento soubor ke stažení obsahuje vlastní šablony virtuálních počítačů. Rozbalte soubor. zip a v části **vlastní virtuální počítače** složky můžete použít buď systémy Linux, nebo šablony systému Windows, které jsou k dispozici. Můžete se rozhodnout znovu použít předem připravené šablony a upravit příslušné parametry s údaji o produktu, které se zobrazí na portálu centra Azure Stack. Nebo můžete jednoduše znovu použít soubor. azpkg k dispozici a přeskočit následující postup pro přizpůsobení vlastního balíčku galerie.
+1. Stáhněte si [nástroj Azure Gallery Packager](https://aka.ms/azsmarketplaceitem):
 
-2. Vytvořte šablonu Azure Resource Manager nebo použijte naše ukázkové šablony pro Windows/Linux. Tyto ukázkové šablony jsou k dispozici v souboru. zip nástroje balíčku, který jste stáhli v kroku 1. Můžete buď použít šablonu a změnit textová pole, nebo si můžete stáhnout předem nakonfigurovanou šablonu z GitHubu. Další informace o šablonách Azure Resource Manager naleznete v tématu [Azure Resource Manager Templates](/azure/azure-resource-manager/resource-group-authoring-templates).
+   :::image type="content" source="media/azure-stack-create-and-publish-marketplace-item/samples-tool.png" alt-text="Balíček galerie":::
 
-3. Balíček Galerie by měl obsahovat následující strukturu:
+2. Nástroj obsahuje ukázkové balíčky, které jsou ve formátu. azpk a musí být extrahovány jako první. Přípony souborů můžete přejmenovat z ". azpk" na ". zip" nebo použít nástroj pro archivaci podle svého výběru:
+
+   :::image type="content" source="media/azure-stack-create-and-publish-marketplace-item/sample-packages.png" alt-text="Balíčky ukázek":::
+
+3. Po extrakci obsahuje soubor. zip šablony pro Linux nebo Windows Azure Resource Manager, které jsou k dispozici. Předem připravené šablony Správce prostředků můžete znovu použít a upravit příslušné parametry s podrobnostmi o produktu, které se zobrazí na portálu centra Azure Stack. Nebo můžete znovu použít soubor. azpkg a přeskočit následující postup a přizpůsobit si tak vlastní balíček galerie.
+
+4. Vytvořte šablonu Azure Resource Manager nebo použijte naše ukázkové šablony pro Windows/Linux. Tyto ukázkové šablony jsou k dispozici v souboru. zip nástroje balíčku, který jste stáhli v kroku 1. Můžete buď použít šablonu a změnit textová pole, nebo si můžete stáhnout předem nakonfigurovanou šablonu z GitHubu. Další informace o šablonách Azure Resource Manager naleznete v tématu [Azure Resource Manager Templates](/azure/azure-resource-manager/resource-group-authoring-templates).
+
+5. Balíček Galerie by měl obsahovat následující strukturu:
 
    ![Snímek obrazovky se strukturou balíčku galerie](media/azure-stack-create-and-publish-marketplace-item/gallerypkg1.png)
 
-   Struktura souborů šablon nasazení se zobrazí takto:
-
-   ![Snímek obrazovky struktury šablon nasazení](media/azure-stack-create-and-publish-marketplace-item/gallerypkg2.png)
-
-4. Nahraďte následující zvýrazněné hodnoty (s čísly) v Manifest.jsu šablony hodnotou, kterou jste zadali při [nahrávání vlastní image](azure-stack-add-vm-image.md#add-a-platform-image).
+6. Nahraďte následující zvýrazněné hodnoty (s čísly) v **Manifest.jsu** šablony hodnotou, kterou jste zadali při [nahrávání vlastní image](azure-stack-add-vm-image.md#add-a-platform-image).
 
    > [!NOTE]  
    > Nikdy nepoužívejte v šabloně Azure Resource Manager žádné tajné kódy, jako jsou kódy Product Key, heslo nebo žádné informace o zákazníkovi. Soubory JSON šablon jsou přístupné bez nutnosti ověřování po publikování v galerii. Ukládejte všechna tajná klíče v [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter) a volejte je v rámci šablony.
@@ -111,7 +115,7 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
     - (6) – platný název vydavatele.
     - (7) – cesta a název pro každou ikonu.
 
-5. U všech polí odkazujících na **MS-Resource** je nutné změnit příslušné hodnoty uvnitř **řetězců nebo resources.jsv** souboru:
+7. U všech polí odkazujících na **MS-Resource** je nutné změnit příslušné hodnoty uvnitř **řetězců nebo resources.jsv** souboru:
 
     ```json
     {
@@ -124,23 +128,29 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
     }
     ```
 
-6. Chcete-li zajistit, aby bylo možné prostředek nasadit úspěšně, otestujte šablonu pomocí [rozhraní API centra Azure Stack](../user/azure-stack-profiles-azure-resource-manager-versions.md).
+8. Struktura souborů šablon nasazení se zobrazí takto:
 
-7. Pokud vaše šablona spoléhá na image virtuálního počítače, postupujte podle pokynů pro [Přidání image virtuálního počítače do centra Azure Stack](azure-stack-add-vm-image.md).
+   :::image type="content" source="media/azure-stack-create-and-publish-marketplace-item/deployment-templates.png" alt-text="Šablony nasazení":::
 
-8. Uložte šablonu Azure Resource Manager do složky **/contoso.TodoList/DeploymentTemplates/** .
+   Nahraďte hodnoty pro obrázek v **createuidefinition.js** souboru hodnotou, kterou jste zadali při nahrávání vlastní image.
 
-9. Vyberte ikony a text pro položku Marketplace. Přidejte ikony do složky **ikony** a přidejte text do souboru **Resources** ve složce **řetězce** . Použijte pro ikony **malé**, **střední**, **velké** a **široké** konvence pojmenování. Podrobný popis těchto velikostí najdete v [referenčních informacích k uživatelskému rozhraní položky Marketplace](#reference-marketplace-item-ui) .
+9. Chcete-li zajistit, aby bylo možné prostředek nasadit úspěšně, otestujte šablonu pomocí [rozhraní API centra Azure Stack](../user/azure-stack-profiles-azure-resource-manager-versions.md).
+
+10. Pokud vaše šablona spoléhá na image virtuálního počítače, postupujte podle pokynů pro [Přidání image virtuálního počítače do centra Azure Stack](azure-stack-add-vm-image.md).
+
+11. Uložte šablonu Azure Resource Manager do složky **/contoso.TodoList/DeploymentTemplates/** .
+
+12. Vyberte ikony a text pro položku Marketplace. Přidejte ikony do složky **ikony** a přidejte text do souboru **Resources** ve složce **řetězce** . Použijte pro ikony **malé**, **střední**, **velké** a **široké** konvence pojmenování. Podrobný popis těchto velikostí najdete v [referenčních informacích k uživatelskému rozhraní položky Marketplace](#reference-marketplace-item-ui) .
 
     > [!NOTE]
     > Pro správné vytvoření položky Marketplace se vyžadují všechny čtyři velikosti ikon (malá, střední, Velká, rozsáhlá).
 
-10. Další úpravy Manifest.jsv naleznete v tématu [Reference: položka Marketplace manifest.jsna](#reference-marketplace-item-manifestjson).
+13. Další úpravy **Manifest.jsv** naleznete v tématu [Reference: položka Marketplace manifest.jsna](#reference-marketplace-item-manifestjson).
 
-11. Až dokončíte úpravu souborů, převeďte ji na soubor. azpkg. Převod provedete pomocí nástroje **AzureGallery.exe** a balíčku Sample Gallery, který jste předtím stáhli. Spusťte následující příkaz:
+14. Až dokončíte úpravu souborů, převeďte ji na soubor. azpkg. Převod provedete pomocí nástroje **AzureGallery.exe** a balíčku Sample Gallery, který jste předtím stáhli. Spusťte následující příkaz:
 
     ```shell
-    .\AzureGallery.exe package -m c:\<path>\<gallery package name>\manifest.json -o c:\Temp
+    .\AzureGalleryHubGallery.exe package -m c:\<path>\<gallery package name>\manifest.json -o c:\Temp
     ```
 
     > [!NOTE]
@@ -184,7 +194,7 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
    - `https://galleryartifacts.adminhosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
    - `https://galleryartifacts.hosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
 
-6. Položku Marketplace můžete odebrat pomocí rutiny **Remove-AzGalleryItem** . Příklad:
+7. Položku Marketplace můžete odebrat pomocí rutiny **Remove-AzGalleryItem** . Například:
 
    ```powershell
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
@@ -227,7 +237,7 @@ Pokud chcete vytvořit vlastní položku Marketplace, udělejte toto:
    - `https://galleryartifacts.adminhosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
    - `https://galleryartifacts.hosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
 
-6. Položku Marketplace můžete odebrat pomocí rutiny **Remove-AzGalleryItem** . Příklad:
+7. Položku Marketplace můžete odebrat pomocí rutiny **Remove-AzGalleryItem** . Například:
 
    ```powershell
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
