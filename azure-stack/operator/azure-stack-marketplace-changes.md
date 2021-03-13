@@ -3,16 +3,16 @@ title: Co je nového v tržišti Azure Stack hub
 description: Podívejte se, co je nového v tržišti Azure Stack hub, včetně nových, zastaralých a aktualizovaných položek Marketplace.
 author: sethmanheim
 ms.topic: article
-ms.date: 01/15/2021
+ms.date: 03/12/2021
 ms.author: sethm
 ms.reviewer: gara
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 6a1825577f216ad16b0150ef4adecb237e9e1f1c
-ms.sourcegitcommit: 9b0e1264ef006d2009bb549f21010c672c49b9de
+ms.openlocfilehash: 4308e6edc48f48803b762b88dff107c4954db36f
+ms.sourcegitcommit: a0a4a009300c3c5d67b8ba2f81c3c1f3ddb536df
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98256009"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103417208"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Změny v tržišti centra Azure Stack
 
@@ -55,6 +55,7 @@ V tomto článku najdete seznam nedávných přidání, aktualizací, změn a od
 
 ## <a name="deprecated-marketplace-items"></a>Zastaralé položky Marketplace
 
+- 03/01/2021: SLES 15 (BYOS), SUSE Linux Enterprise Server 15
 - 08/21/2020: Windows 10 Enterprise, verze 1903 – uvedení vlastní licence na verzi 18362.959.2007101755
 - 08/21/2020: Windows 10 pro, verze 1903 – uvedení vlastní licence na verzi 18362.959.2007101755
 - 08/21/2020: Windows 10 Enterprise, verze 1909 – uvedení vlastní licence na verzi 18363.959.2007101752
@@ -167,6 +168,14 @@ V tomto článku najdete seznam nedávných přidání, aktualizací, změn a od
 
 ## <a name="updated-marketplace-items"></a>Aktualizované položky Marketplace
 
+- 03/11/2021: Data Box Gateway virtuálního zařízení – verze 1.0.2103
+- 03/08/2021: AKS Base Ubuntu 16,04-LTS image distribuce, leden 2021-Version 2021.01.28
+- 03/08/2021: AKS Base Ubuntu 18,04-LTS image distribuce, 2021 F1 – verze 2021.01.28
+- 03/08/2021: AKS Base Windows Image, leden 28 2021 – verze 17763.1697.210129
+- 02/22/2021: nástroje F5 Networks, Inc. F5 BIG-IP v – LTM/DNS (BYOL, 1 spouštěcí umístění) – verze 16.0.101000
+- 02/22/2021: verze F5 Networks, Inc. F5 BIG-IP v-ALL (BYOL, 1 spouštěcí umístění)-Version 16.0.101000
+- 02/22/2021: verze F5 Networks, Inc. F5 BIG-IP v – LTM/DNS (BYOL, 2 spouštěcí umístění) – verze 16.0.101000
+- 02/22/2021: Networks, Inc. F5 BIG-IP moje – ALL (BYOL, 2 spouštěcí umístění) – verze 16.0.101000
 - 01/06/2021: SQL Server 2017 Enterprise Windows Server 2016 – zajistěte si vlastní 14.0.20201111 verze licence.
 - 01/06/2021: SQL Server 2017 Standard na Windows serveru 2016 – průběžné platby – 14.0.20201111 verze
 - 01/06/2021: SQL Server 2017 standard v systému Windows Server 2016 – zajistěte si vlastní licenci verze 14.0.20201111

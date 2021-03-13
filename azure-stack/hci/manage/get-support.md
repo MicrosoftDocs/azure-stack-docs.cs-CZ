@@ -4,13 +4,13 @@ description: V tomto tématu najdete pokyny, jak získat podporu pro Azure Stack
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
-ms.date: 12/11/2020
-ms.openlocfilehash: a77e9b2510a8cc035f54033c3e886c8cf9dfca31
-ms.sourcegitcommit: 7ee28fad5b8ba628b1a7dc3d82cabfc36aa62f0d
+ms.date: 03/12/2021
+ms.openlocfilehash: 28e480dc8ed310eb60b1614afa50417a9a0c617c
+ms.sourcegitcommit: a0a4a009300c3c5d67b8ba2f81c3c1f3ddb536df
 ms.translationtype: MT
 ms.contentlocale: cs-CZ
-ms.lasthandoff: 03/06/2021
-ms.locfileid: "102250282"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103417191"
 ---
 # <a name="get-support-for-azure-stack-hci"></a>Získat podporu pro Azure Stack HCI
 
@@ -20,7 +20,9 @@ V tomto tématu najdete pokyny, jak získat podporu pro Azure Stack operační s
 
 Pokud chcete vytvořit žádost o podporu pro Azure Stack HCI, musíte mít plán podpory Standard nebo Professional Direct. Plány Basic a Developer nelze použít.
 
-Další informace najdete v nejčastějších dotazech k [plánům podpory Azure](https://azure.microsoft.com/support/faq/).
+Další informace naleznete v tématu:
+- [Porovnat plány podpory](https://azure.microsoft.com/support/plans/)
+- [Nejčastější dotazy k plánům podpory Azure](https://azure.microsoft.com/support/faq/)
 
 ## <a name="azure-support-resources-for-azure-stack-hci"></a>Prostředky podpory Azure pro Azure Stack HCI
 Informace o dalších Azure Stack dostupných prostředků podpory HCI prostřednictvím Azure najdete v těchto tématech:
